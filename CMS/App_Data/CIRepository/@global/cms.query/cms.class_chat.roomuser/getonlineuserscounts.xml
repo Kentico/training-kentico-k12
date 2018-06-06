@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.RoomUser</CodeName>
+    <GUID>3934275a-9e59-4d72-84c2-7206eeeee3dd</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>91e301e2-c2c9-423e-ad3b-8fcad58ef189</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>getonlineuserscounts</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+-- DECLARE @SiteID INT
+-- SET @SiteID = 4
+
+SELECT
+	RoomID,
+	OnlineUsersCount,
+	CASE WHEN MaxJoinTime > MaxLeaveTime THEN MaxJoinTime ELSE ISNULL(MaxLeaveTime, MaxJoinTime) END AS LastChange
+FROM
+(
+	SELECT 
+		CRU.ChatRoomUserRoomID AS RoomID, 
+		(SELECT 
+			COUNT(CRU2.ChatRoomUserID) 
+			FROM Chat_RoomUser AS CRU2 
+			WHERE CRU2.ChatRoomUserRoomID = CRU.ChatRoomUserRoomID AND CRU2.ChatRoomUserJoinTime IS NOT NULL
+		) AS OnlineUsersCount, 
+		MAX(ChatRoomUserJoinTime) AS MaxJoinTime, MAX(ChatRoomUserLeaveTime) AS MaxLeaveTime
+	FROM Chat_RoomUser AS CRU
+	LEFT JOIN Chat_Room AS CR ON CRU.ChatRoomUserRoomID = CR.ChatRoomID
+	WHERE CR.ChatRoomSiteID IS NULL OR CR.ChatRoomSiteID = @SiteID
+	GROUP BY CRU.ChatRoomUserRoomID
+) AS t1
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

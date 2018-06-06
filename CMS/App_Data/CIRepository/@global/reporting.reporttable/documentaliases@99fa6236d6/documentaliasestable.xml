@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableConnectionString />
+  <TableDisplayName>Page aliases table</TableDisplayName>
+  <TableGUID>ead70440-74db-4375-a13d-dfd0caa4a543</TableGUID>
+  <TableName>DocumentAliasesTable</TableName>
+  <TableQuery>
+<![CDATA[
+SELECT NodeName, NodeAliasPath, AliasUrlPath, AliasCulture, AliasExtensions  
+FROM CMS_DocumentAlias LEFT JOIN CMS_Tree 
+ON AliasNodeID = NodeID 
+WHERE NodeSiteID = {% CMSContext.CurrentSiteID |(identity)GlobalAdministrator|(hash)184744ec8e01544f85a24fd3fcb9f0b88adb5014987d5037a5c486acbaacb552%}
+ORDER BY NodeAliasPath
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>DocumentAliases</CodeName>
+    <GUID>8013afdf-c085-492d-af47-f39e8dc744b9</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>True</enablepaging>
+      <exportenabled>True</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>20</pagesize>
+      <querynorecordtext>No data found</querynorecordtext>
+      <skinid>ReportGridAnalytics</skinid>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

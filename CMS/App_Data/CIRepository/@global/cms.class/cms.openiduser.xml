@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>OpenIDUser</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="OpenIDUserID" columntype="integer" guid="e41dcedb-534b-4546-8822-7b22a484340b" isPK="true" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>OpenIDUserID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="OpenID" columnsize="450" columntype="text" guid="4dfa8c83-42e4-4856-ba2b-d1b789f18ff0" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>OpenID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="OpenIDProviderURL" columnsize="450" columntype="text" guid="29626164-9916-4631-926f-fa32554566c5" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>OpenIDProviderURL</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="UserID" columntype="integer" guid="98e15d62-ce90-4fda-9736-02444c4470a9" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>UserID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassGUID>1d4b85e6-4780-4f85-a0ab-894ac18d261a</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>cms.OpenIDUser</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.Membership</CodeName>
+    <GUID>d4b7561a-f188-420c-8f68-63b5c573b2bf</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings />
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_OpenIDUser</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

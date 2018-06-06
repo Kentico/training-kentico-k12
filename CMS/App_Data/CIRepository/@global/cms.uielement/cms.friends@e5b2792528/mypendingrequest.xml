@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$friends.requestedfriendships$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>3ac20eca-104a-4e3b-b7e9-d8fb688f27a5</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>MyPendingRequest</ElementName>
+  <ElementOrder>4</ElementOrder>
+  <ElementParentID>
+    <CodeName>MyFriends</CodeName>
+    <GUID>066f0a53-4b57-4e09-8cdf-13e366d8e4f0</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Friends</CodeName>
+      <GUID>d6f94476-424a-4aed-ad22-c34a32cbc1d8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <includejquery>False</includejquery>
+      <category_name_header>False</category_name_header>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Friends</CodeName>
+    <GUID>d6f94476-424a-4aed-ad22-c34a32cbc1d8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Friends/MyFriends/MyFriends_Requested.aspx]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Facebook</CategoryDisplayName>
+  <CategoryGUID>5e2be9bf-d028-42c4-bea7-1c46d6cf1acf</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>MembershipFacebook</CategoryName>
+  <CategoryParentID>
+    <CodeName>Membership</CodeName>
+    <GUID>9d58eec4-fb81-4dfb-87bb-e6bfbca98a08</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

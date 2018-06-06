@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DataSources</CodeName>
+    <GUID>36984e99-1ff8-464a-8788-b1ab4afaa585</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Creates a data source containing users who are members of a specified department (users who have the Read permission for the department's main page are returned). This data may then be provided to listing web parts (such as a Basic repeater) in order to be displayed.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Department members data source</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>IntranetPortal/DepartmentMembersDataSource.ascx</WebPartFileName>
+  <WebPartGUID>68c2f2e5-37c8-44a8-85a7-aae20548e740</WebPartGUID>
+  <WebPartIconClass>icon-w-department-members-data-source</WebPartIconClass>
+  <WebPartName>DepartmentMembersDataSource</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Path" columnsize="450" columntype="text" guid="4d592e2d-8379-4d1f-9e89-98d1c0e17724" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the path to the main page of the department from which members should be loaded (the type of this page must be IntranetPortal.Department).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SinglePathMode>True</SinglePathMode>
+          <SiteID>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)e04dc43a28d9e9b43cfae8ed8c75abc502447960a8af580a09fb96bfd8c6a1aa%}]]>
+          </SiteID>
+        </settings>
+      </field>
+      <category name="Filter">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="SelectOnlyApproved" columntype="boolean" guid="ec8536a5-d7d6-4f8c-80cf-17eee707ebf6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Select only approved</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if only users who are approved should be loaded.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="SelectHidden" columntype="boolean" guid="0841ca8a-1233-489a-b0e2-f206be4d5daa" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Select hidden users</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selecthidden$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="1bd389b0-73c1-425c-8491-45e1a6fdcc9d" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.orderby$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="af7ce9c8-4211-4795-a3c5-1f42fbfd85ad" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Select Top N members</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the maximum amount of users to be selected. If empty, all possible users are loaded.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="200" columntype="text" guid="1eb167d3-4047-46fa-8886-e75f40df4247" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.sitename$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="f8bbdc3c-9bb7-4866-8172-11c17ff61239" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Columns" columnsize="500" columntype="text" guid="3aa11d2b-bf56-4b57-a024-e527091552f5" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Selected columns</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.columns$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>columns</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterName" columnsize="200" columntype="text" guid="b0de33da-3463-4bd3-b71b-d76f0a24d358" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Filter</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.filtername$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="1ba0ab02-8792-4da2-a13f-71c5de2fe99e" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="1aa17a9e-ec3c-4086-a9f5-effc23117df8" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>1</WebPartType>
+</cms.webpart>

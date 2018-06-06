@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>
+    <![CDATA[Tagging & categories]]>
+  </CategoryDisplayName>
+  <CategoryGUID>2dffdb0b-dd29-451f-b14a-37720a4c9e28</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>TaggingCategories</CategoryName>
+  <CategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>d782b5c3-27f3-45e6-a5cc-86c1944e2c8d</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

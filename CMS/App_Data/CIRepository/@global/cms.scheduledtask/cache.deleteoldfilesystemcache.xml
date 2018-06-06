@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtask>
+  <TaskAllowExternalService>True</TaskAllowExternalService>
+  <TaskAssemblyName>CMS.Scheduler</TaskAssemblyName>
+  <TaskClass>CMS.Scheduler.FileSystemCacheCleaner</TaskClass>
+  <TaskCondition />
+  <TaskData />
+  <TaskDeleteAfterLastRun>False</TaskDeleteAfterLastRun>
+  <TaskDisplayName>Delete old file system cache files</TaskDisplayName>
+  <TaskEnabled>True</TaskEnabled>
+  <TaskGUID>99a15b0e-bc9b-4fb5-b047-315c56321abd</TaskGUID>
+  <TaskInterval>
+    <![CDATA[hour;7/24/2012 5:16:32 PM|1;1;00:00:00;23:59:00;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
+  </TaskInterval>
+  <TaskName>Cache.DeleteOldFileSystemCache</TaskName>
+  <TaskRunIndividually>True</TaskRunIndividually>
+  <TaskRunInSeparateThread>False</TaskRunInSeparateThread>
+  <TaskServerName />
+  <TaskUseExternalService>False</TaskUseExternalService>
+</cms.scheduledtask>

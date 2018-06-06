@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.acl>
+  <ACLGUID>0072d163-58b7-495f-bbcd-1f15eaadf7e3</ACLGUID>
+  <ACLInheritedACLs />
+  <ACLSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>cf04eead-5b35-4a76-85c1-f49ee932baef</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </ACLSiteID>
+</cms.acl>

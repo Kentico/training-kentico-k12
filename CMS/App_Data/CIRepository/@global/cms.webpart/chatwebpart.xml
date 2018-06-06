@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Chat</CodeName>
+    <GUID>68de8907-2d63-4f1f-90a4-57447cf79ea2</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>{$chat.webparts.megawebpart.description$}</WebPartDescription>
+  <WebPartDisplayName>Chat web part</WebPartDisplayName>
+  <WebPartFileName>Chat/ChatWebpart.ascx</WebPartFileName>
+  <WebPartGUID>f3bb8970-c5c3-4677-a737-f1c74a2829bb</WebPartGUID>
+  <WebPartIconClass>icon-w-chat-web-part</WebPartIconClass>
+  <WebPartName>ChatWebpart</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field allowempty="true" column="GroupID" columnsize="25" columntype="text" guid="03c38276-ec4c-4704-af58-cca994a52349" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>DefaultGroup</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.groupnamecaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.groupnamedescription$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <FilterType>0;1;2</FilterType>
+          <Trim>True</Trim>
+        </settings>
+      </field>
+      <field column="EnableBBCode" columntype="boolean" guid="c2e3b588-e438-4c1d-84c7-8384f86514f4" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.enablebbcodecaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.enablebbcode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayInline" columntype="boolean" guid="79ddc5db-f155-4542-9729-9293355f470e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.messages.displayinlinecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.messages.displayinline$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="Direction" columntype="integer" guid="2837024c-850e-4b41-8f58-340ba093727a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>2</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.messages.directioncaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.messages.direction$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+1;New down
+2;New up
+]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="Count" columntype="integer" guid="9d91e26a-db77-4f58-abe7-1f5a5c14a547" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$chat.webparts.properties.messages.countcaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.messages.count$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatFirstLoadMessagesCount</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="EnableNotificationBubble" columntype="boolean" guid="a1ab033b-c81e-4cbc-8bb0-e9dd03adc391" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.notofication.enablebubblecaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.notofication.enablebubble$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayInitialTitle" columntype="boolean" guid="111d2cd0-b1c9-49cc-b763-9683fe181aed" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.roomname.initialtitlecaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.roomname.initialtitle$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="InitialTitle" columnsize="300" columntype="text" guid="582b8621-2305-4d21-8338-2909a1f39b20" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.roomname.custominitialtitlecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.roomname.custominitialtitle$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>chat.roomname.initialtitle</WatermarkValueKey>
+          <WatermarkValueSourceType>1</WatermarkValueSourceType>
+        </settings>
+      </field>
+      <field column="ErrorShowDeleteAllBtn" columntype="boolean" guid="adab5a9d-e11e-4409-ba56-7dee2c1582c6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errorshowdeleteallbtncaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.errorshowdeleteallbtn$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Chat rooms">
+        <properties>
+          <caption>{$chat.webparts.category.megawp.rooms$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="RoomsEnablePaging" columntype="boolean" guid="fd9c899e-5735-4df2-9cd6-4a37121d7f94" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.enablepagingcaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.enablepagingrooms$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RoomsPagingItems" columntype="integer" guid="bb194937-022a-42e9-b8c5-5b650a8cf1bd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.pagingroomsperpagecaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.pagingroomsperpage$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultPagingItems</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 1", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>1</t><v>1</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field allowempty="true" column="RoomsGroupPagesBy" columntype="integer" guid="a9b3abc4-8fe4-44fa-b7fc-4eff28858c66" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>{$settingskey.cmschatwpdefaultgrouppagesby$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.grouppagesby$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultGroupPagesBy</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="RoomsEnableFiltering" columntype="boolean" guid="7f1e7b7d-923c-4079-9056-8c8ae242f152" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.enablefiltercaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.enablefilter$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RoomsShowFilterItems" columntype="integer" guid="4efe1974-5157-47a0-ad99-caca47be1196" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$chat.webparts.properties.filteringlimitcaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.filteringlimitrooms$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultShowFilterLimit</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="RoomsEnablePopup" columntype="boolean" guid="e8bfe0a6-516b-4f76-8c72-1df85dd4d53d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.rooms.enablepopupcaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.rooms.enablepopup$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Room users">
+        <properties>
+          <caption>{$chat.webparts.category.megawp.roomusers$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="RoomUsersEnablePaging" columntype="boolean" guid="0b458655-8688-4976-bb98-9e221559c95d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.enablepagingcaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.enablepagingusers$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RoomUsersPagingItems" columntype="integer" guid="d0234251-8df2-4b5b-b59f-81825cd3624c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.pagingusersperpagecaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.pagingusersperpage$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultPagingItems</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 1", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>1</t><v>1</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field allowempty="true" column="RoomUsersGroupPagesBy" columntype="integer" guid="7544bcf4-d48b-4644-b8fb-4f05a2004a86" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>{$settingskey.cmschatwpdefaultgrouppagesby$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.grouppagesby$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultGroupPagesBy</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="RoomUsersEnableFiltering" columntype="boolean" guid="d69155c9-505d-485e-82d0-76536e016dc4" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.enablefiltercaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.enablefilter$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RoomUsersShowFilterItems" columntype="integer" guid="a8a9893e-54bd-4b4d-a415-4e00cf49b715" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$chat.webparts.properties.filteringlimitcaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.filteringlimitusers$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultShowFilterLimit</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="RoomUsersSortByStatus" columntype="boolean" guid="cd0b8577-587e-4411-a9c3-67e009f70704" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.roomusers.sortbystatuscaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.roomusers.sortbystatus$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Online chat users">
+        <properties>
+          <caption>{$chat.webparts.category.megawp.onlineusers$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="SearchMode" columntype="boolean" guid="3fe6d8b8-8061-4d38-8f1c-3e20acbb2285" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.megawp.searchmodecaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.megawp.searchmode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="OnlineUsersEnablePaging" columntype="boolean" guid="5af218ae-ffda-43ed-aac7-da6b6164d47f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.enablepagingcaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.enablepagingusers$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="OnlineUsersPagingItems" columntype="integer" guid="73e39061-0888-440b-81fa-7345bd201224" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.pagingusersperpagecaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.pagingusersperpage$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultPagingItems</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 1", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>1</t><v>1</v><r>false</r><d></d><vt>double</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field allowempty="true" column="OnlineUsersGroupPagesBy" columntype="integer" guid="3f382f44-7543-4ac1-a328-164712ec60fc" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>{$settingskey.cmschatwpdefaultgrouppagesby$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.grouppagesby$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultGroupPagesBy</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="OnlineUsersEnableFiltering" columntype="boolean" guid="e2458217-d0a5-45cf-87aa-1924fcf1046d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.enablefiltercaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.enablefilter$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="OnlineUsersShowFilterItems" columntype="integer" guid="3e307aaa-8aa0-4ffe-a793-098acdd500c6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$chat.webparts.properties.filteringlimitcaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.filteringlimitusers$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultShowFilterLimit</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field allowempty="true" column="ResponseMaxUsers" columntype="integer" guid="2034100b-ae4a-4219-9417-159c816e28b6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.searchonlineusers.maximumresponsecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.searchonlineusers.maximumresponse$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>CMSChatWPDefaultSearchOnlineMaxUsers</WatermarkValueKey>
+          <WatermarkValueSourceType>0</WatermarkValueSourceType>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <caption>
+            <![CDATA[{$chat.webparts.properties.category.transformations$}]]>
+          </caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ChatRoomsTransformation" columnsize="250" columntype="text" guid="51a5db0c-d896-4281-a62a-fa7836324097" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.rooms.roomtranscaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.rooms.roomtrans$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatRoomNameTransformationName" columnsize="250" columntype="text" guid="c5b4569b-13d8-4785-ae0a-1a7e457e64bf" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.roomname.nametranscaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.roomname.nametrans$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomNameTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="NotificationTransformation" columnsize="250" columntype="text" guid="1b9b94d9-785a-4a1a-bae9-f267f834816a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.notificationtransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.notificationtransformation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatNotificationTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatMessageTransformationName" columnsize="250" columntype="text" guid="c669d0ac-ed12-4445-abe5-178c65ae8b65" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.messagetransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.messagetransformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomMessageTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatUserTransformationName" columnsize="250" columntype="text" guid="9e4326a6-5c21-453b-b970-ba54722433f4" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$chat.webparts.properties.roomusertranscaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.roomusertrans$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomUserTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="OnlineUserTransformationName" columnsize="250" columntype="text" guid="15260ddf-a763-410d-b750-a155f096104e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.onlineusertranscaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.onlineusertrans$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatOnlineUserTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatErrorTransformationName" columnsize="250" columntype="text" guid="5f93dad1-3df7-4f0b-8836-c9e4bb9c3ec1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errortransformationnamecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.errortransformationname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatErrorTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatErrorDeleteAllButtonTransformationName" columnsize="250" columntype="text" guid="390c5cbf-4b50-46d7-b545-dcd792e7fea3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errordeletealltransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.errordeletealltransformation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatErrorDeleteAllTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

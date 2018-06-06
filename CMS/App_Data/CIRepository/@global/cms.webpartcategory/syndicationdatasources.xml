@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Syndication</CategoryDisplayName>
+  <CategoryGUID>e59c95b7-0abc-4049-b9f5-45d0fc2a736f</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>SyndicationDataSources</CategoryName>
+  <CategoryParentID>
+    <CodeName>DataSources</CodeName>
+    <GUID>36984e99-1ff8-464a-8788-b1ab4afaa585</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MapLocation</CodeName>
+    <GUID>195ac010-214a-4ba7-8faf-317b8086af3a</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.createanywhere$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.createanywhere$}</PermissionDisplayName>
+  <PermissionGUID>40e30746-5d90-4792-8897-c6da78c376f7</PermissionGUID>
+  <PermissionName>Create</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+</cms.classpermission>

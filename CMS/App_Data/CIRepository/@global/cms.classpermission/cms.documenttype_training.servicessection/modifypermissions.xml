@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.ServicesSection</CodeName>
+    <GUID>945d8c56-30c6-4796-93f9-208cc6fd5a88</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>
+    <![CDATA[{$permissiondescription.document.modifypermissions$}]]>
+  </PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.modifypermissions$}</PermissionDisplayName>
+  <PermissionGUID>143251ee-8bb8-412d-8a4e-17807b52be1d</PermissionGUID>
+  <PermissionName>ModifyPermissions</PermissionName>
+  <PermissionOrder>8</PermissionOrder>
+</cms.classpermission>

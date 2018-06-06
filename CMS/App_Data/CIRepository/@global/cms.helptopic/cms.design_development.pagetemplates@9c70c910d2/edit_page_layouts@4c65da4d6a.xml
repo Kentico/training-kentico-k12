@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>8b6dfb64-6be6-462a-9ce5-bfcc7ccf23fb</HelpTopicGUID>
+  <HelpTopicLink>page_layouts_editing</HelpTopicLink>
+  <HelpTopicName>Edit page layouts</HelpTopicName>
+  <HelpTopicOrder>4</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.PageTemplates</CodeName>
+    <GUID>06a4451b-3356-45c5-8b60-9ed0b2dd7151</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

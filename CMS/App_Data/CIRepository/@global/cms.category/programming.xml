@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.category>
+  <CategoryDescription>
+    <![CDATA[Category contains articles related to the programming]]>
+  </CategoryDescription>
+  <CategoryDisplayName>Programming</CategoryDisplayName>
+  <CategoryEnabled>True</CategoryEnabled>
+  <CategoryGUID>728710ef-0f57-4f7b-81a2-0ca4c5a9e986</CategoryGUID>
+  <CategoryName>Programming</CategoryName>
+  <CategoryOrder>3</CategoryOrder>
+</cms.category>

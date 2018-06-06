@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.SocialLink</CodeName>
+    <GUID>aee0a1e5-c919-4174-82a7-a16be86b7de9</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.createanywhere$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.createanywhere$}</PermissionDisplayName>
+  <PermissionGUID>00e9621a-4f71-44f2-aa76-c70b4250f315</PermissionGUID>
+  <PermissionName>Create</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+</cms.classpermission>

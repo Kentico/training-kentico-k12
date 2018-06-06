@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.activitytype>
+  <ActivityTypeDescription>The visitor viewed a page.</ActivityTypeDescription>
+  <ActivityTypeDisplayName>Page visit</ActivityTypeDisplayName>
+  <ActivityTypeEnabled>True</ActivityTypeEnabled>
+  <ActivityTypeIsCustom>False</ActivityTypeIsCustom>
+  <ActivityTypeIsHiddenInContentOnly>False</ActivityTypeIsHiddenInContentOnly>
+  <ActivityTypeManualCreationAllowed>False</ActivityTypeManualCreationAllowed>
+  <ActivityTypeName>pagevisit</ActivityTypeName>
+</om.activitytype>

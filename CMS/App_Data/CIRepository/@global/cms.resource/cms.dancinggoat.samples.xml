@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDisplayName>Dancing Goat - Samples</ResourceDisplayName>
+  <ResourceGUID>913a8e05-207e-4116-83ed-1c35a499d654</ResourceGUID>
+  <ResourceHasFiles>True</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.DancingGoat.Samples</ResourceName>
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

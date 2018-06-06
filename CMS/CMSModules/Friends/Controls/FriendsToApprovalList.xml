@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions>
+    <action name="approve" externalsourcename="approve" caption="$general.approve$" fonticonclass="icon-check-circle" fonticonstyle="allow" />
+    <action name="reject" externalsourcename="reject" caption="$general.reject$" fonticonclass="icon-times-circle" fonticonstyle="critical" />
+  </actions>
+  <columns>
+    <column source="UserName" externalsourcename="formattedusername" caption="$general.username$" wrap="false" />
+    <column source="FullName" caption="$general.fullname$" wrap="false" />
+    <column source="UserNickname" caption="$userlist.nickname$" wrap="false" />
+    <column source="FriendComment" caption="$Unigrid.Friends.Columns.FriendComment$" wrap="false" cssclass="main-column-100" istext="true" />
+    <column source="FriendRequestedWhen" externalsourcename="friendrequestedwhen" caption="$unigrid.friends.columns.friendrequestedwhen$" wrap="false" />
+  </columns>
+  <objecttype name="community.friendlist" columns = "FriendID,UserName,UserNickname,FullName,FriendComment,FriendRequestedWhen" />
+  <pager>
+    <key name="ShowDirectPageControl" value="false" />
+  </pager>
+  <options>
+    <key name="DisplayFilter" value="true" />
+    <key name="FilterPath" value="~/CMSModules/Friends/Controls/FriendsSearchBox.ascx" />
+    <key name="ShowSelection" value="true" />
+  </options>
+</grid>

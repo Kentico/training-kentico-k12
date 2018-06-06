@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$group_list.newitemcaption$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$group_list.newitemcaption$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>5b75c243-132a-489e-a954-9725b9f1e87e</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>NewGroupForumGroup</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>Groups.EditGroup.Forums</CodeName>
+    <GUID>265b0ee1-09c5-4c29-84d3-816f96960aae</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Forums</CodeName>
+      <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_custom>False</category_name_custom>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <includejquery>False</includejquery>
+      <displaybreadcrumbs>True</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Forums</CodeName>
+    <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Groups/Tools/Forums/Groups/ForumGroup_New.aspx]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

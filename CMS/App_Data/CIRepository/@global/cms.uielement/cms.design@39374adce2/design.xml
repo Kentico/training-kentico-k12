@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$content.ui.design$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$content.ui.design$}</ElementDisplayName>
+  <ElementFromVersion>5.0</ElementFromVersion>
+  <ElementGUID>40f0ce57-5ced-4394-ab20-f332655235de</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Design</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>Edit</CodeName>
+    <GUID>eeba18a6-c6d0-4c58-a5fa-91e629540986</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_custom>False</category_name_custom>
+      <includejquery>False</includejquery>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+      <breadcrumbssuffix>content.ui.page</breadcrumbssuffix>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>Url</ElementType>
+</cms.uielement>

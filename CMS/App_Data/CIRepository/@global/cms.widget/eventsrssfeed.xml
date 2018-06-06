@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Syndication</CodeName>
+    <GUID>c31d87aa-73f3-4b5f-b607-a546575a7775</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays link on a page to events RSS feed based on widget settings.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Events RSS feed</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>00ec82dc-31cb-483b-acb9-50b3d714d3a4</WidgetGUID>
+  <WidgetIconClass>icon-w-events-rss-feed</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>EventsRSSFeed</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="LinkText" guid="a526fda9-647b-4edd-8947-f288965a9d2d">
+        <properties>
+          <defaultvalue>Upcoming events</defaultvalue>
+        </properties>
+      </field>
+      <field column="LinkIcon" guid="2495bd2a-71c5-4599-a15a-d05ddd6dc620" />
+      <field column="EnableRSSAutodiscovery" guid="2d9639d7-ce1f-4be7-8ac3-3a9eb420d8e0" />
+      <field column="FeedName" visible="false" guid="7dd88605-7f7c-49c1-b420-612c34280d96">
+        <properties>
+          <defaultvalue>events</defaultvalue>
+        </properties>
+      </field>
+      <field column="FeedTitle" guid="02ea6032-e5bc-4ad6-b171-8cf3700bb520">
+        <properties>
+          <defaultvalue>Upcoming events</defaultvalue>
+        </properties>
+      </field>
+      <field column="FeedDescription" guid="b93c4faa-d7da-4223-a70d-757cf944403f" />
+      <field column="FeedLanguage" visible="false" guid="a48b6d99-ac6e-4e6f-937a-edf17ece7f74" />
+      <field column="QueryStringKey" visible="false" guid="b7939bd3-7e28-4b97-929f-fddada90da0c" />
+      <field column="HeaderXML" visible="false" guid="31e9b748-1e3f-4ec7-b00e-2d199be7ae4b" />
+      <field column="FooterXML" visible="false" guid="3dcf3694-6a69-4931-8e99-bb497354ec5d" />
+      <field column="Path" guid="d1dc26d0-211a-4e15-b652-242a23b38f62">
+        <properties>
+          <fieldcaption>Events</fieldcaption>
+          <fielddescription>
+            <![CDATA[Path to the events to be displayed in the RSS feed. If the value is empty current path is used.]]>
+          </fielddescription>
+        </properties>
+      </field>
+      <field column="TransformationName" visible="false" guid="e6c86dd8-a1ac-4782-841b-2dc263b6bdd9">
+        <properties>
+          <defaultvalue>cms.bookingevent.rssitem</defaultvalue>
+        </properties>
+      </field>
+      <field column="ClassNames" visible="false" guid="a23bab61-2481-4663-895e-fc53cd416bff">
+        <properties>
+          <defaultvalue>cms.bookingevent</defaultvalue>
+        </properties>
+      </field>
+      <field column="CombineWithDefaultCulture" visible="false" guid="0839ea6e-ff4b-4cd7-a012-887e39f26786" />
+      <field column="CultureCode" visible="false" guid="564ab35e-3658-4b97-be89-e823af4e1551" />
+      <field column="MaxRelativeLevel" visible="false" guid="90572295-3e55-495b-aee1-533fc1473b7c" />
+      <field column="OrderBy" visible="false" guid="643dee71-7339-4a60-a7ea-3f1cb3d72151">
+        <properties>
+          <defaultvalue>EventDate DESC</defaultvalue>
+        </properties>
+      </field>
+      <field column="SelectOnlyPublished" visible="false" guid="0c341d80-c3b9-4ddb-a020-b4c2d58038a2" />
+      <field column="SelectTopN" guid="8c859b6f-5eaa-47e3-a905-8da5a6ccba7d" fieldtype="dropdownlist">
+        <settings>
+          <options>
+            <item value="10" text="10" />
+            <item value="25" text="25" />
+            <item value="50" text="50" />
+          </options>
+        </settings>
+        <properties>
+          <fieldcaption>Items</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.rssitemscount$}</fielddescription>
+          <defaultvalue>25</defaultvalue>
+        </properties>
+      </field>
+      <field column="SiteName" visible="false" guid="11b04f5c-b17f-4150-96aa-4a4f1047f2b6" />
+      <field column="WhereCondition" visible="false" guid="a1fb320f-c3d3-4f81-ab88-906e013300d4" />
+      <field column="SelectedColumns" visible="false" guid="669d41ce-d717-452d-a79c-4d9c7b0c3a7b" />
+      <field column="FilterOutDuplicates" visible="false" guid="850ea75a-581f-46d0-a5fd-1fa8c8f1d280" />
+      <field column="CheckPermissions" visible="false" guid="090b54c8-c833-4c8e-b901-8d0b51798fac" />
+      <field column="CacheItemName" visible="false" guid="fe788261-44b1-4896-944a-9c2e3961c2a9" />
+      <field column="CacheMinutes" visible="false" guid="6b6bded8-4f40-4b2d-86da-9727870851c5" />
+      <field column="CacheDependencies" visible="false" guid="49858114-49e4-4794-b241-20eca9d41362" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>CMSRSSFeed</CodeName>
+    <GUID>cd73955d-79c2-41cc-9dfc-84c53f6a5b6e</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

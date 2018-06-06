@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtask>
+  <TaskAllowExternalService>True</TaskAllowExternalService>
+  <TaskAssemblyName>CMS.Chat</TaskAssemblyName>
+  <TaskClass>CMS.Chat.DeletedRoomsCleaner</TaskClass>
+  <TaskCondition />
+  <TaskData />
+  <TaskDeleteAfterLastRun>False</TaskDeleteAfterLastRun>
+  <TaskDisplayName>Clean chat rooms scheduled to delete</TaskDisplayName>
+  <TaskEnabled>True</TaskEnabled>
+  <TaskGUID>ad35cfc9-9fec-4a6c-9a6e-d21a62683b5d</TaskGUID>
+  <TaskInterval>
+    <![CDATA[day;11/16/2011 12:00:00 AM;1;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
+  </TaskInterval>
+  <TaskName>DeletedRoomsCleaner</TaskName>
+  <TaskResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </TaskResourceID>
+  <TaskRunIndividually>False</TaskRunIndividually>
+  <TaskRunInSeparateThread>False</TaskRunInSeparateThread>
+  <TaskServerName />
+  <TaskUseExternalService>False</TaskUseExternalService>
+</cms.scheduledtask>

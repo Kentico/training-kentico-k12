@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>SyndicationDataSources</CodeName>
+    <GUID>e59c95b7-0abc-4049-b9f5-45d0fc2a736f</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Creates data source from RSS feed which is specified by URL. Result contains columns depending on given RSS feed.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>RSS data source</WebPartDisplayName>
+  <WebPartFileName>Syndication/RSSDataSource.ascx</WebPartFileName>
+  <WebPartGUID>1f4e396e-5fcb-4e96-830d-1abd3d3489bc</WebPartGUID>
+  <WebPartIconClass>icon-w-rss-data-source</WebPartIconClass>
+  <WebPartName>RSSDataSource</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="RSS data source properties">
+        <properties>
+          <caption>RSS properties</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="RSSFeedUrl" columnsize="1000" columntype="text" guid="46224d48-0818-4f5e-b2a3-452c8ef99f9a" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>RSS feed URL</fieldcaption>
+          <fielddescription>URL of the RSS feed.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RSSSchemaUrl" columnsize="1000" columntype="text" guid="31cff1fc-b368-49dc-ba98-f6841a9f658e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>RSS feed custom XSD schema URL</fieldcaption>
+          <fielddescription>URL of the RSS feed custom XSD schema.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <category name="Data properties">
+        <properties>
+          <caption>Content filter</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="31e78a36-4a97-491f-9d17-fee444124e51" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.orderby$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="TopN" columntype="integer" guid="71d61170-d153-4b74-96e2-75f98fa9e28a" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Top N</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selecttopn$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="1b1ceb87-2e2b-4ab7-8bcf-1ea5ebf76668" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.datatableexpressionwhere$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+          <QueryPart>1</QueryPart>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterName" columnsize="200" columntype="text" guid="5f3ef89b-c008-4c0c-862d-4c9c0e2091f2" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Filter name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.filtername$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="6bd216ce-0ccf-4def-b6e4-4c7d8ac11a4a" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="466c66af-89fa-49b4-b92a-2abee745f02d" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="191859f2-c186-4cd9-b06e-11086cc7e9a9" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>1</WebPartType>
+</cms.webpart>

@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DataSources</CodeName>
+    <GUID>36984e99-1ff8-464a-8788-b1ab4afaa585</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Retrieves data from an XML source specified by a URL. You can connect a listing web part (such as a Basic repeater) to display the data. The resulting data contains columns according to the structure of the given XML.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>XML data source</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+The web part uses the <a href="http://msdn.microsoft.com/en-us/library/system.data.dataset.readxml.aspx">DataSet.ReadXml()</a> method to read XML files. This method may separate the source XML into multiple dataset tables. In these cases, you need to specify from which dataset table the web part loads the data&nbsp;through the <strong>Table name</strong> property.<br />
+<br />
+Unfortunately, you cannot explicitly determine how the data source organizes XML data into tables. You can find out which table contains the required data using the <strong>Debug</strong> function in <strong>Visual Studio</strong>. If the datasource separates the data into multiple tables and the <strong>Table name</strong> property is not set correctly, the web part does not provide any data.<br />
+<br />
+In some cases, the data you you wish to display may be separated into multiple dataset tables. You cannot use the <strong>Table name</strong> property to specify more than one table, so the only way to resolve this issue is to modify the source XML structure.
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>DataSources/XMLDataSource.ascx</WebPartFileName>
+  <WebPartGUID>648509c0-e485-42ae-acbe-17ca9116662f</WebPartGUID>
+  <WebPartIconClass>icon-w-xml-data-source</WebPartIconClass>
+  <WebPartName>XMLDataSource</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Filter">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="XmlUrl" columnsize="1000" columntype="text" guid="ff78149f-086d-42ac-9a53-01b484021433" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>XML URL</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.xmlurl$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="XmlSchemaUrl" columnsize="1000" columntype="text" guid="0a247308-68ab-423a-9ae8-086e423865a7" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>XML custom XSD schema URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the URL of a file containing a custom XSD schema for the XML.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="TableName" columnsize="50" columntype="text" guid="5a044d1a-fa4f-4820-ad83-69bb0d1372de" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Table name</fieldcaption>
+          <fielddescription>
+            <![CDATA[When complex XML data is read, the web part will create a data set containing multiple tables. Here you can specify which table should be used as the actual data source.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="5edffe02-f7ad-4194-b86e-4f2dcdcd0a33" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY expression</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.orderby$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="e639bae0-3cc9-4272-a055-537e0b4dabb7" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Select Top N items</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selecttopn$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="0a8bef6b-160d-41d5-9886-9f0cfe7bb31e" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterName" columnsize="200" columntype="text" guid="56fb7924-53df-4b44-9789-84c0977d84b5" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Filter name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.filtername$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="17abcad8-5e99-4355-a121-ba6bf63e5459" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="1eaab89d-56d9-4bae-9adc-f316c81f49b3" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>1</WebPartType>
+</cms.webpart>

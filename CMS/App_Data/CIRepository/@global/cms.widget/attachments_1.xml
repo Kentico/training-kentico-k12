@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Dashboard</CodeName>
+    <GUID>d230ceb4-ca2f-4815-8ada-f344a2394ef8</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>{$widgets.attachmentsdesc$}</WidgetDescription>
+  <WidgetDisplayName>Attachments</WidgetDisplayName>
+  <WidgetDocumentation />
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>False</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>1c1b1692-6bc8-446e-a514-229bf1ece48f</WidgetGUID>
+  <WidgetIconClass>icon-w-attachments</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>attachments_1</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="EnableAddButton" visible="false" guid="af33a40a-758e-4138-9f89-d7e43e9b48ba" />
+      <field column="TransformationName" visible="false" guid="93c58869-099a-474b-ad62-8b042d405531" />
+      <field column="HideControlForZeroRows" visible="false" guid="abe5f4a4-cb56-4d37-8be3-7b4547b989f0" />
+      <field column="ZeroRowsText" visible="false" guid="18fdcbea-f345-44a9-87fd-ec24176974cb" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>2</WidgetSecurity>
+  <WidgetSkipInsertProperties>False</WidgetSkipInsertProperties>
+  <WidgetWebPartID>
+    <CodeName>attachments</CodeName>
+    <GUID>9fad5321-c178-4ba1-9b1a-dc16c70d6f3b</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

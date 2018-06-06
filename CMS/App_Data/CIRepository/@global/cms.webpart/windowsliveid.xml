@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>MembershipLiveID</CodeName>
+    <GUID>6890dd98-65c5-4c32-8261-e2dfc9f4ae77</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[This web part allows users to log into the website using their Windows LiveID credentials.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Windows LiveID</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<p><span style="font-size: 12px;">In order for this web part to work, Windows LiveID authentication must be enabled and configured properly for the website. This can be done by global administrators in <strong>Settings -&gt; Security &amp; Membership -&gt; Authentication -&gt; Windows LiveID</strong>.</span></p>
+
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Membership/Registration/WindowsLiveID.ascx</WebPartFileName>
+  <WebPartGUID>7573fd38-6d01-4741-9771-936200a8b175</WebPartGUID>
+  <WebPartIconClass>icon-w-windows-liveid</WebPartIconClass>
+  <WebPartName>WindowsLiveID</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="LiveID">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="SignInText" columnsize="50" columntype="text" guid="33428bdb-daa9-412d-906a-8acdddad76c4" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign in text</fieldcaption>
+          <fielddescription>Sets the text of the sign in link.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignOutText" columnsize="50" columntype="text" guid="801cd0ef-27c7-4cc7-b04e-a3477575ed21" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign out text</fieldcaption>
+          <fielddescription>Sets the text of the sign out link.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="ShowSignOut" columntype="boolean" guid="b72e0325-5b27-4a17-bebb-c9e1115bb7e6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show sign out</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.showsignout$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ShowAsButton" columntype="boolean" guid="9938294d-7615-46d6-b7a0-dcd7c19734f1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show as button</fieldcaption>
+          <fielddescription>
+            <![CDATA[If enabled, buttons will be displayed instead of standard text links.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignInImageURL" columnsize="200" columntype="text" guid="8ccae624-242b-4f9a-8d04-f96753900de3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign in image</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.signinimageurl$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignOutImageURL" columnsize="200" columntype="text" guid="26ebc849-23a1-4de1-9224-2509b666c2fd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign out image</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.signoutimageurl$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Conversion tracking">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="TrackConversionName" columnsize="400" columntype="text" guid="998a0552-b24c-4547-8a1a-d38d3d5ee131" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Track conversion name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the conversion that will be logged when a user successfully completes their registration via the web part. If the registration process includes the LiveID required data web part, the conversion specified there will be used instead.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>conversionselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ConversionValue" columntype="double" guid="e9875f64-4f93-4ab4-b057-6bce6787049e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Conversion value</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.conversionvalue$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

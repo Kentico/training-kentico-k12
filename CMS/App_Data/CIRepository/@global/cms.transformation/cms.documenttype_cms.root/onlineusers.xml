@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>CMS.Root</CodeName>
+    <GUID>a585aea3-10b5-4b74-9aad-747fcce72493</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+    <![CDATA[<%# Eval("UserName", true) %>&nbsp;]]>
+  </TransformationCode>
+  <TransformationCSS />
+  <TransformationGUID>3b16b39e-3020-485d-8bae-6e7617e13894</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>OnLineUsers</TransformationName>
+  <TransformationType>ascx</TransformationType>
+</cms.transformation>

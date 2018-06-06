@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <columns>
+    <column source="##ALL##" sort="UserName" externalsourcename="formattedusername" caption="$general.UserName$" wrap="false" />
+    <column cssclass="filling-column" />
+  </columns>
+  <pager>
+    <key name="ShowDirectPageControl" value="false" />
+  </pager>
+  <objecttype name="community.friendlist" columns="UserID,UserName,UserNickname,FullName" />
+  <options>
+    <key name="DisplayFilter" value="true" />
+    <key name="FilterPath" value="~/CMSModules/Friends/Controls/FriendsSearchBox.ascx" />
+  </options>
+</grid>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.SupportTakenRoom</CodeName>
+    <GUID>d875f0a8-e3a4-4ae5-954d-d754c3e92524</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>a6405d3e-d170-4180-9083-9feb25e7b4ba</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>takeroom</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>Proc_Chat_SupportTakeRoom</QueryText>
+  <QueryTypeID>1</QueryTypeID>
+</cms.query>

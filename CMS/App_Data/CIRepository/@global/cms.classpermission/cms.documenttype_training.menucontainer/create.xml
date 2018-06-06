@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MenuContainer</CodeName>
+    <GUID>22668910-80fe-4faf-befa-9afb32fcdd4e</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.createanywhere$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.createanywhere$}</PermissionDisplayName>
+  <PermissionGUID>1ef804e7-3341-45ad-adbc-e82c4ab9dce8</PermissionGUID>
+  <PermissionName>Create</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+</cms.classpermission>

@@ -1,0 +1,112 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+
+.breadcrumb {
+    padding: @base-unit * 0.75 @base-unit;
+    margin-bottom: 0;
+    list-style: none;
+    color: @breadcrumb-color;
+
+    > li {
+        display: inline-block;
+        vertical-align: middle;
+
+        & + li:before {
+            font-family: @icon-font-name;
+            content: @icon-chevron-right; // ">"
+            .cms-icon-50;
+            margin: 0 @base-unit * 0.25;
+            text-align: center;
+        }
+    }
+
+    a {
+        color: @breadcrumb-color;
+    }
+}
+
+    // CMS breadcrumbs starts with logo without a breadcrumb divider
+    .breadcrumb.cms-nav-breadcrumb {
+        padding: 0;
+        color: @navbar-inverse-color;
+        background: @color-gray-50;
+
+        > li {
+            &:before {
+                color: @dark-bg-icon-color;
+            }
+
+            &.no-ico:before {
+                content: none;
+            }
+
+            &.breadcrumb-last span {
+                color: @color-gray-100;
+            }
+        }
+
+        a {
+            color: @navbar-inverse-link-color;
+        }
+        // Kentico logo within the breadcrumb
+        .icon-kentico {
+            vertical-align: middle;
+            padding-right: @base-unit * 0.625; // ~10px
+            text-decoration: none;
+            color: @navbar-inverse-icon-color;
+            display: inline-block;
+        }
+        // Breadcrumbs shortening
+        > li.ico-after:after {
+            font-family: @icon-font-name;
+            content: @icon-chevron-right; // ">"
+            .cms-icon-50;
+            margin: 0 @base-unit * 0.25;
+            text-align: center;
+            color: @dark-bg-icon-color;
+        }
+
+        > li.dropdown {
+            .dropdown-toggle {
+                display: inline-block;
+
+                &:hover {
+                    background: @color-gray-70;
+                }
+            }
+
+            &.open {
+                .dropdown-toggle {
+                    background: @color-gray-70;
+                }
+            }
+        }
+
+        .icon-ellipsis {
+            font-size: @base-unit;
+            padding: @base-unit (@base-unit * 0.25);
+            text-align: center;
+        }
+    }
+
+// Breadcrumbs in dialog
+.breadcrumbs-dialog {
+    .breadcrumb {
+        float: left;
+    }
+
+    .breadcrumb-help {
+        float: right;
+        padding: @base-unit * 0.75 @base-unit;
+    }
+
+    overflow: hidden;
+}
+
+#js-single-object-dashboard-pin-list {
+    display: none;
+    margin-top: @base-unit * 0.875;
+    margin-left: @base-unit * 0.5;
+}

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MenuContainerItem</CodeName>
+    <GUID>298e76cf-02c4-4464-b8e7-cd0c77a33e9e</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.destroy$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.destroy$}</PermissionDisplayName>
+  <PermissionGUID>1c4149e5-f9e2-42bb-9f3c-011c0d806ec1</PermissionGUID>
+  <PermissionName>Destroy</PermissionName>
+  <PermissionOrder>6</PermissionOrder>
+</cms.classpermission>

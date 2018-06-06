@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.metafile>
+  <MetaFileExtension>.png</MetaFileExtension>
+  <MetaFileGroupName>Thumbnail</MetaFileGroupName>
+  <MetaFileGUID>33b41c17-b930-4f17-a6c2-e8b876159b93</MetaFileGUID>
+  <MetaFileImageHeight>40</MetaFileImageHeight>
+  <MetaFileImageWidth>95</MetaFileImageWidth>
+  <MetaFileMimeType>image/png</MetaFileMimeType>
+  <MetaFileName>captcha.png</MetaFileName>
+  <MetaFileObjectID>
+    <CodeName>SecurityCode</CodeName>
+    <GUID>6d24e505-21a1-48a1-a906-579e4fa18e57</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </MetaFileObjectID>
+  <MetaFileObjectType>cms.formusercontrol</MetaFileObjectType>
+  <MetaFileSize>633</MetaFileSize>
+</cms.metafile>

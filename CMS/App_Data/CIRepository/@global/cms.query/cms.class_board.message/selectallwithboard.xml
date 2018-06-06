@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>board.message</CodeName>
+    <GUID>a6fc171e-86df-4222-a5cf-c95259deaeb9</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>0b9db1bc-8c24-42de-86e6-dfd7454774d7</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectallwithboard</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT ##TOPN## ##COLUMNS## FROM View_Boards_BoardMessage_Joined WHERE ##WHERE## ORDER BY ##ORDERBY##
+
+
+
+
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

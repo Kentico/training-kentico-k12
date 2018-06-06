@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>AggregatedViews</CodeName>
+    <GUID>f7c37411-f8a5-4a6d-b9e1-c18cc0e70a17</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>Aggregated views (multilingual) -  Monthly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>9f7c27a3-dae5-47eb-9f24-9f0182609a56</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<br />
+%%control:ReportGraph?aggviews.multilingual.monthreport.graph%%<br />
+<br />
+%%control:ReportTable?aggviews.multilingual.monthreport.TableMonthAggViewsCulture%%<br />
+<br />
+%%control:ReportGraph?aggviews.multilingual.monthreport.graph_pie%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}
+]]>
+  </ReportLayout>
+  <ReportName>aggviews.multilingual.monthreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="b588f959-fc79-485b-8778-0e4fa728eaec" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-1).Date|(identity)GlobalAdministrator|(hash)00ead86fe5fbe73fb296336c7dfa81760aaf029e0ea69cfd9030a7c92211b5da%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="e4b67aed-35cd-4dba-bc3d-5ab7ff4c2f06" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="20" publicfield="false" spellcheck="false" guid="c32a722c-d4b3-44a3-9ca2-aefd706b0797" visibility="none">
+        <properties>
+          <defaultvalue>aggviews</defaultvalue>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

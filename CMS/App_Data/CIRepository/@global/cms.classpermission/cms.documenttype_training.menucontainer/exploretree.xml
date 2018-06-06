@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MenuContainer</CodeName>
+    <GUID>22668910-80fe-4faf-befa-9afb32fcdd4e</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.exploretree$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.exploretree$}</PermissionDisplayName>
+  <PermissionGUID>f2099548-0684-491e-aa2a-6285224f4e47</PermissionGUID>
+  <PermissionName>ExploreTree</PermissionName>
+  <PermissionOrder>7</PermissionOrder>
+</cms.classpermission>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MedioClinicAboutUs</CodeName>
+    <GUID>a15d6c29-178b-461f-a4f9-1a93189512b1</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>
+    <![CDATA[{$permissiondescription.document.modifypermissions$}]]>
+  </PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.modifypermissions$}</PermissionDisplayName>
+  <PermissionGUID>f8fe8130-4458-46cb-b742-e2a4c06c7fc6</PermissionGUID>
+  <PermissionName>ModifyPermissions</PermissionName>
+  <PermissionOrder>8</PermissionOrder>
+</cms.classpermission>

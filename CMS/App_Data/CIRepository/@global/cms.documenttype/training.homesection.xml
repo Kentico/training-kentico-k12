@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.documenttype>
+  <ClassCodeGenerationSettings>
+    <Data>
+      <NameSpace>Training</NameSpace>
+    </Data>
+  </ClassCodeGenerationSettings>
+  <ClassDisplayName>Home Section</ClassDisplayName>
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="HomeSectionID" columntype="integer" guid="6d458201-a827-4b45-a817-a19a0858339b" isPK="true" publicfield="false">
+        <properties>
+          <fieldcaption>HomeSectionID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="HomeHeader" columnsize="200" columntype="text" guid="460d94ec-e43b-497e-9eb1-ed31e943aff0" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Header</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="HomeText" columntype="longtext" guid="e32f995d-bad6-457c-9c80-c8b9b14c9173" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Text</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>HtmlAreaControl</controlname>
+          <Dialogs_Content_Hide>False</Dialogs_Content_Hide>
+          <HeightUnitType>PX</HeightUnitType>
+          <MediaDialogConfiguration>True</MediaDialogConfiguration>
+          <ShowAddStampButton>False</ShowAddStampButton>
+          <WidthUnitType>PX</WidthUnitType>
+        </settings>
+      </field>
+      <field column="HomeBackgroundImage" columntype="file" guid="6233404d-2c4a-48bf-99a4-c456c0079ce9" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Background image</fieldcaption>
+        </properties>
+        <settings>
+          <Allowed_Extensions>
+            <![CDATA[pdf;doc;docx;ppt;pptx;xls;xlsx;htm;html;xml;bmp;gif;jpg;jpeg;png;wav;wma;wmv;mp3;mp4;mpg;mpeg;mov;avi;swf;rar;zip;txt;rtf]]>
+          </Allowed_Extensions>
+          <controlname>DirectUploadControl</controlname>
+          <Extensions>inherit</Extensions>
+        </settings>
+      </field>
+      <field allowempty="true" column="HomeButton" columnsize="1000" columntype="text" guid="8f7ae3c0-2768-4038-a067-2646c5ab1505" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Link</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>ec9ce807-e456-4f65-9963-ba5484fee46f</ClassGUID>
+  <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassIsContentOnly>True</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>True</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassName>Training.HomeSection</ClassName>
+  <ClassNodeNameSource>HomeHeader</ClassNodeNameSource>
+  <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchSettings>
+    <search>
+      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="1389d858-5b22-4240-afcf-d082e273b0d3" name="HomeSectionID" searchable="True" tokenized="False" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="1bc2685f-e860-44a5-898c-6aef899fe22e" name="HomeButton" searchable="False" tokenized="True" />
+      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="3140cca8-76bc-4e7b-ac81-3638cb9cb686" name="HomeBackgroundImage" searchable="False" tokenized="False" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="658d2b32-55d3-4e90-a607-9452d79b0daa" name="HomeText" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="bc4053b3-4498-4105-a995-e85615ed2fef" name="HomeHeader" searchable="False" tokenized="True" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassTableName>Training_HomeSection</ClassTableName>
+  <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+</cms.documenttype>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions width="50" >
+    <action name="edit"  caption="$General.Edit$" fonticonclass="icon-edit" fonticonstyle="allow"  />
+    <action name="delete"  caption="$General.Delete$" fonticonclass="icon-bin" fonticonstyle="critical" confirmation="$General.ConfirmDelete$" />
+  </actions>
+  <columns>
+    <column source="AvatarGUID" caption="$avat.avatarimagepreview$" externalsourcename="imagepreview" wrap="false"  allowsorting="false" />
+    <column source="AvatarName" caption="$avat.avatarname$" wrap="false"  cssclass="main-column-100" localize="true" />
+    <column source="AvatarType" caption="$avat.avatartype$" externalsourcename="avatartype" wrap="false" />
+    <column source="AvatarIsCustom" visible="false" />
+  </columns>
+  <objecttype name="cms.avatar" columns="AvatarID, AvatarName, AvatarType, AvatarGUID" />
+  <options>
+    <key name="DisplayFilter" value="true" />
+    <key name="FilterPath" value="~/CMSModules/Avatars/AvatarFilter.ascx" />
+    <key name="FilterLimit" value="0" />
+  </options>
+</grid>

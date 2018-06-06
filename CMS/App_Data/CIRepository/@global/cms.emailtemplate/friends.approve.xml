@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.emailtemplate>
+  <EmailTemplateBcc />
+  <EmailTemplateCc />
+  <EmailTemplateDisplayName>Friends - Friend approval</EmailTemplateDisplayName>
+  <EmailTemplateFrom />
+  <EmailTemplateGUID>14926c79-639a-414b-b22d-2ca7cea58f2b</EmailTemplateGUID>
+  <EmailTemplateName>Friends.Approve</EmailTemplateName>
+  <EmailTemplatePlainText>
+<![CDATA[
+{%FORMATTEDSENDERNAME%} is now your friend.
+
+Comment: {%Friendship.FriendComment|(identity)GlobalAdministrator|(hash)7ef6fe9e7195f7fdef7d7f580f7502fd437531f4ee7ee01f226fd55df385ce6f%}
+
+Sent: {%Friendship.FriendApprovedWhen|(identity)GlobalAdministrator|(hash)c7a10aa5b9616ad1dcd81f0f13a3490bd907fe5c91dbbdfe38a1b10258e49a9e%}
+
+]]>
+  </EmailTemplatePlainText>
+  <EmailTemplateSubject>{%FORMATTEDSENDERNAME%} is now your friend</EmailTemplateSubject>
+  <EmailTemplateText>
+<![CDATA[
+<html>
+  <head>
+  </head>
+  <body>
+    <p>{%FORMATTEDSENDERNAME%} is now your friend.</p>
+    <p>Comment: {%Friendship.FriendComment.HTMLEncode()|(identity)GlobalAdministrator|(hash)f9099bd96a6f3a272ff151832ba4bb4e78582a743fceccc42d5536ba5d83ca24%}</p>
+    <p>Sent: {%Friendship.FriendApprovedWhen|(identity)GlobalAdministrator|(hash)c7a10aa5b9616ad1dcd81f0f13a3490bd907fe5c91dbbdfe38a1b10258e49a9e%}</p>
+  </body>
+</html>
+]]>
+  </EmailTemplateText>
+  <EmailTemplateType>friends</EmailTemplateType>
+</cms.emailtemplate>

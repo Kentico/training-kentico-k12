@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>HitsClicksControl</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription />
+  <UserControlDisplayName>Hits clicks control</UserControlDisplayName>
+  <UserControlFileName>
+    <![CDATA[~/CMSModules/BannerManagement/FormControls/HitsClicksControl.ascx]]>
+  </UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>True</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>False</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>e46b56ad-acfa-4185-b989-95597c06e163</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field allowempty="true" column="AllowUnlimitedResourceString" columnsize="250" columntype="text" displayinsimplemode="true" guid="dd71453f-7ace-45e1-acc0-655850cc6938" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA['Allow unlimited' resource string]]>
+          </fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowSpecificResourceString" columnsize="250" columntype="text" displayinsimplemode="true" guid="d10c9f48-166e-43b5-9ac2-5758544b43c8" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA['Allow specific' resource string]]>
+          </fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AddNumberResourceString" columnsize="250" columntype="text" displayinsimplemode="true" guid="328dec20-fd31-4e3c-8d01-5908a3048aba" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA['Add number' resource string]]>
+          </fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="NumberToAddResourceString" columnsize="250" columntype="text" displayinsimplemode="true" guid="5f0923c4-a493-49d5-9e8e-2643ce08afe0" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA['Number to add' resource string]]>
+          </fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>False</UserControlShowInWebParts>
+  <UserControlType>0</UserControlType>
+</cms.formusercontrol>

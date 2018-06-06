@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Friends</CodeName>
+    <GUID>f9fcb286-b2cd-4f26-b205-cc37f9119693</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>Shows list of friends waiting for approval.</WebPartDescription>
+  <WebPartDisplayName>Friends waiting for approval</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Community/Friends/FriendsToApprovalList.ascx</WebPartFileName>
+  <WebPartGUID>ae12e50a-65c9-45fe-86f6-630e3309d150</WebPartGUID>
+  <WebPartIconClass>icon-w-friends-waiting-for-approval</WebPartIconClass>
+  <WebPartName>FriendsToApprovalList</WebPartName>
+  <WebPartProperties>
+    <form version="2" />
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

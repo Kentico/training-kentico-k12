@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Images</CategoryDisplayName>
+  <CategoryGUID>e5af6eb8-e1fc-4aae-b573-5a5d2be89461</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>ImageViewers</CategoryName>
+  <CategoryParentID>
+    <CodeName>ListingsAndViewers</CodeName>
+    <GUID>25ea0b9d-7959-4566-b760-adddfbb8c159</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

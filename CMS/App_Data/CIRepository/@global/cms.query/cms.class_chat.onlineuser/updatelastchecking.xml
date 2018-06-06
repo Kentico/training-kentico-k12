@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.OnlineUser</CodeName>
+    <GUID>b4edb023-5f1a-4490-a93d-6756d14bf0f5</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>6e064768-7578-4980-b5b7-f5bced9414d4</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>updatelastchecking</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @LastCheckingDateTime DATETIME
+--SET @LastCheckingDateTime = GETDATE()
+--DECLARE @SiteID INT
+--SET @SiteID = 4
+--DECLARE @ChatUserID INT
+--SET @ChatUserID = 90
+
+
+UPDATE Chat_OnlineUser 
+SET ChatOnlineUserLastChecking = GETDATE()
+WHERE ChatOnlineUserSiteID = @SiteID AND ChatOnlineUserChatUserID = @ChatUserID
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

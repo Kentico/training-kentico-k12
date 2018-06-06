@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>cms.SearchIndex</CodeName>
+    <GUID>d81f1c1e-da26-43c5-9962-0e663c448629</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form>
+      <field column="IndexType">
+        <settings>
+          <controlname>labelcontrol</controlname>
+          <OutputFormat>
+<![CDATA[
+{% GetResourceString("smartsearch.indextype." + IndexType.ToString()); |(identity)GlobalAdministrator|(hash)72395818c7df3f048a1e0cd3694ed13543e3670069c3f981303ef5eaae278a47%}
+
+
+
+]]>
+          </OutputFormat>
+        </settings>
+        <properties>
+          <controlcssclass />
+        </properties>
+      </field>
+      <field column="IndexBatchSize">
+        <properties>
+          <controlcssclass>TextBoxFieldSmall</controlcssclass>
+        </properties>
+      </field>
+      <field column="IndexIsOutdated" visible="false" />
+      <field column="IndexProvider" visible="false" />
+      <field column="IndexSearchServiceName" visible="false" />
+      <field column="IndexAdminKey" visible="false" />
+      <field column="IndexQueryKey" visible="false" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Edit form</FormDisplayName>
+  <FormGUID>0b6230f4-8336-4228-9515-2e3379d7f774</FormGUID>
+  <FormHideNewParentFields>True</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>EditForm</FormName>
+</cms.alternativeform>

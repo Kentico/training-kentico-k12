@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$events_edit.headercaption$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$events_edit.headercaption$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>d826280d-23c7-4f2a-8efb-8f3b83df8393</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>DetailsEvent</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>VerticalTabs</CodeName>
+    <GUID>8136b750-a785-438f-a412-32212cd4dde6</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>EventManager</CodeName>
+    <GUID>f0edfdd8-abfa-4c39-816a-5a40008bacf8</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.EventManager</CodeName>
+      <GUID>67c2d259-8f33-4c1f-b725-5eebcb332fcc</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <Data>
+      <AllowSubTabs>True</AllowSubTabs>
+      <breadcrumbsitemtext>
+        <![CDATA[{% EditedObject.NodeName |(identity)GlobalAdministrator|(hash)988cf168374ca4b15bbbe591a0a0a7a465bc84eb4e3e377c138a831beb8cbe5e%}]]>
+      </breadcrumbsitemtext>
+      <breadcrumbssuffix>{$emailtemplate.type.bookingevent$}</breadcrumbssuffix>
+      <DisplayBreadcrumbs>True</DisplayBreadcrumbs>
+      <displaytitle>false</displaytitle>
+      <DisplayTitleInTabs>False</DisplayTitleInTabs>
+      <includejquery>False</includejquery>
+      <ObjectParameterID>eventId</ObjectParameterID>
+      <RememberSelectedTab>False</RememberSelectedTab>
+    </Data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.EventManager</CodeName>
+    <GUID>67c2d259-8f33-4c1f-b725-5eebcb332fcc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+</cms.uielement>

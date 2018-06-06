@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.metafile>
+  <MetaFileExtension>.png</MetaFileExtension>
+  <MetaFileGroupName>Thumbnail</MetaFileGroupName>
+  <MetaFileGUID>8c738ecf-8410-4ebc-a6a3-bedd295f19d2</MetaFileGUID>
+  <MetaFileImageHeight>40</MetaFileImageHeight>
+  <MetaFileImageWidth>95</MetaFileImageWidth>
+  <MetaFileMimeType>image/png</MetaFileMimeType>
+  <MetaFileName>email.png</MetaFileName>
+  <MetaFileObjectID>
+    <CodeName>emailinput</CodeName>
+    <GUID>4125ce26-f45c-46d0-ae5d-48c5b4922de0</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </MetaFileObjectID>
+  <MetaFileObjectType>cms.formusercontrol</MetaFileObjectType>
+  <MetaFileSize>546</MetaFileSize>
+</cms.metafile>

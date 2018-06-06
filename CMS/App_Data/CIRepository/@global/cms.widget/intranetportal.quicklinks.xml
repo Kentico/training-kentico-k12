@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>IntranetPortal</CodeName>
+    <GUID>65523f91-9b6f-4e70-9110-62cd05088ec3</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays links to the most frequently used pages on the intranet portal. The links can be edited via the widget's properties.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Intranet quick links</WidgetDisplayName>
+  <WidgetDocumentation>
+    <![CDATA[This widget is intended for use on the Intranet Portal sample site or other websites that are based on its structure.]]>
+  </WidgetDocumentation>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>1f1cd2b9-a8ac-481a-bbe1-f02497324139</WidgetGUID>
+  <WidgetIconClass>icon-w-intranet-quick-links</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>IntranetPortal.QuickLinks</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="Text" guid="040fbee7-4d9f-4c50-8846-fdd62daf7e61" fieldtype="">
+        <settings>
+          <CSSStylesheet>0</CSSStylesheet>
+          <Dialogs_Libraries_Site />
+          <Dialogs_Content_Site />
+        </settings>
+        <properties>
+          <defaultvalue>
+<![CDATA[
+<a class="Employees" title="Employees" href="~/Employees.aspx"><img style="width: 22px; height: 20px;" alt="Employees" src="~/getfile/6f97cff0-d7b1-4539-b5d3-51f861ed21e4/IconEmployees.aspx" />Employees</a><br />
+<a class="Departments" title="Departments" href="~/Departments.aspx"><img src="~/getfile/215463ff-38e4-43cf-9b97-ec7b3be47e52/IconDepartments.aspx" alt="Departments" style="width: 22px; height: 22px;" />Departments</a><br />
+<a class="Workgroups" title="Workgroups" href="~/Workgroups.aspx"><img style="width: 22px; height: 20px;" alt="Workgroups" src="~/getfile/e7f6004e-94c1-4592-8654-ec1724072c64/IconWorkgroups.aspx" />Workgroups</a><br />
+]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="ResolveDynamicControls" guid="29e28611-c933-4523-8dba-a8ba1fbe87be" visible="" fieldtype="" reftype="" />
+      <category name="Web part container" extra="true" order="3">
+        <properties>
+          <caption>Widget container</caption>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="Container" visible="false" columntype="text" allowempty="true" columnsize="200" publicfield="false" guid="36420a4e-4e6e-406e-a06f-9a7d606b98da" extra="true" order="4">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.container$}</fielddescription>
+          <fieldcaption>Widget container</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>selectcontainer</controlname>
+        </settings>
+      </field>
+      <field column="ContainerTitle" visible="false" columntype="text" allowempty="true" columnsize="200" publicfield="false" guid="cd9a0801-5992-44f7-b744-c4790e657be8" extra="true" order="5">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.containertitle$}</fielddescription>
+          <defaultvalue>QUICK LINKS</defaultvalue>
+          <fieldcaption>Widget container title</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCSSClass" columntype="text" allowempty="true" columnsize="200" publicfield="false" guid="cf79d6a8-0951-4481-926b-861d141954f8" extra="true" order="6" visible="false">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercssclass$}]]>
+          </fielddescription>
+          <defaultvalue>QuickLinks</defaultvalue>
+          <fieldcaption>Container CSS class</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCustomContent" columntype="longtext" allowempty="true" publicfield="false" guid="b1842275-c9f1-4a14-adba-905cf2896257" extra="true" order="7" visible="false">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
+          </fielddescription>
+          <fieldcaption>Container custom content</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Wrap>True</Wrap>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>statichtml</CodeName>
+    <GUID>22c87868-6572-46eb-b517-dab4cc97ee78</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

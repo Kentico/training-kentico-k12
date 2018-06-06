@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Pages</CategoryDisplayName>
+  <CategoryGUID>be7308ea-3951-4df8-8b11-2e5d0b84201d</CategoryGUID>
+  <CategoryName>Documents</CategoryName>
+  <CategoryParentID>
+    <CodeName>Maps</CodeName>
+    <GUID>9a393cc4-b4bb-4142-a213-b4460980e768</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

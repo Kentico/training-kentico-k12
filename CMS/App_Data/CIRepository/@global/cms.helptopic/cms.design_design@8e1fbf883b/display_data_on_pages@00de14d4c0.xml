@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>84f9fc90-3fcb-41af-a97e-637f4ac776eb</HelpTopicGUID>
+  <HelpTopicLink>data_loading_displaying</HelpTopicLink>
+  <HelpTopicName>Display data on pages</HelpTopicName>
+  <HelpTopicOrder>5</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Design</CodeName>
+    <GUID>40f0ce57-5ced-4394-ab20-f332655235de</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

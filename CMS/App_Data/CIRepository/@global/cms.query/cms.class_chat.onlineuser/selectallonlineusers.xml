@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.OnlineUser</CodeName>
+    <GUID>b4edb023-5f1a-4490-a93d-6756d14bf0f5</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>4c302b77-3eaf-4daf-832e-f9515dd6ce0e</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectallonlineusers</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @SiteID INT
+--SET @SiteID = 4
+	  
+SELECT
+  CU.*,
+  COU.ChatOnlineUserLastChecking AS LastChecking,
+  COU.ChatOnlineUserIsHidden AS IsHidden,
+  CASE
+	WHEN ChatOnlineUserJoinTime >= ISNULL(ChatOnlineUserLeaveTime, CONVERT(datetime2, '00010101', 112)) AND ChatOnlineUserJoinTime >= ISNULL(ChatUserLastModification, CONVERT(datetime2, '00010101', 112)) THEN ChatOnlineUserJoinTime
+	WHEN ChatOnlineUserLeaveTime >= ISNULL(ChatUserLastModification, CONVERT(datetime2, '00010101', 112)) THEN ChatOnlineUserLeaveTime
+	ELSE ChatUserLastModification
+  END AS LastChange
+FROM Chat_OnlineUser AS COU
+LEFT JOIN Chat_User AS CU ON COU.ChatOnlineUserChatUserID = CU.ChatUserID
+WHERE COU.ChatOnlineUserSiteID = @SiteID
+AND COU.ChatOnlineUserJoinTime IS NOT NULL
+ORDER BY LastChange
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

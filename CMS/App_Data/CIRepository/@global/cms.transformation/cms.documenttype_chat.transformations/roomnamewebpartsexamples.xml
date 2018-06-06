@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>Chat.Transformations</CodeName>
+    <GUID>bf7ea731-502b-43b5-ac6f-153551edb84d</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<div style="border: 2px solid gray; padding: 8px; background:#DADADA;">
+<span style="font-size: 14px; font-weight: bold">${RoomName}</span>
+</div>
+]]>
+  </TransformationCode>
+  <TransformationCSS />
+  <TransformationGUID>fbdb3524-b3e1-44fb-a9e2-37e3e85cf055</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>RoomNameWebPartsExamples</TransformationName>
+  <TransformationType>jquery</TransformationType>
+</cms.transformation>

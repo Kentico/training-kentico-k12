@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MapLocation</CodeName>
+    <GUID>195ac010-214a-4ba7-8faf-317b8086af3a</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.destroy$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.destroy$}</PermissionDisplayName>
+  <PermissionGUID>c66e441f-87ea-4776-a015-5abbcf6cb595</PermissionGUID>
+  <PermissionName>Destroy</PermissionName>
+  <PermissionOrder>6</PermissionOrder>
+</cms.classpermission>

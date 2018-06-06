@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resourcesite>
+  <Parent>
+    <CodeName>CMS.WorkflowEngine</CodeName>
+    <GUID>2b67f370-3df4-4a4d-8734-1974639c5b69</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="MedioClinic">
+      <SiteID>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>cf04eead-5b35-4a76-85c1-f49ee932baef</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </SiteID>
+    </Binding>
+  </Bindings>
+</cms.resourcesite>

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>SimpleCaptcha</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDefaultDataTypeSize>10</UserControlDefaultDataTypeSize>
+  <UserControlDescription>
+    <![CDATA[Provides a simple image CAPTCHA, which requires retyping digits into a provided field. The options allow setting the image size.]]>
+  </UserControlDescription>
+  <UserControlDisplayName>Simple CAPTCHA</UserControlDisplayName>
+  <UserControlFileName>~/CMSFormControls/Captcha/SimpleCaptcha.ascx</UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>74c1310b-d133-4261-a7a3-0914af4813cd</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <category name="General">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ShowInfoLabel" columntype="boolean" guid="cf1a4c43-f9ad-4d2a-9874-f79469d591e3" publicfield="false" visibility="none">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+      </field>
+      <field allowempty="true" column="ShowAfterText" columntype="boolean" guid="9a1bbfd7-c72a-496b-bdce-aab32612848e" publicfield="false" visibility="none">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show after text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates whether an info text should be displayed to the right of the CAPTCHA.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Image">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ImageWidth" columntype="integer" guid="e80998e6-ef68-46a1-97dd-e0512c7b4ef8" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>80</defaultvalue>
+          <fieldcaption>Image width</fieldcaption>
+          <fielddescription>Sets the width of CAPTCHA image.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ImageHeight" columntype="integer" guid="1ec336b3-188b-4e4a-b977-a04600cf4953" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>20</defaultvalue>
+          <fieldcaption>Image height</fieldcaption>
+          <fielddescription>Sets the height of CAPTCHA image.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlShowInBizForms>True</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>True</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>True</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>False</UserControlShowInWebParts>
+  <UserControlType>7</UserControlType>
+</cms.formusercontrol>

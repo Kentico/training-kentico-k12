@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.ForumPost</CodeName>
+    <GUID>f40c961c-3d47-4e6a-997e-b127db2520c1</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>6a649b3f-67a8-43aa-a5b3-cd8d7fc39bcd</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>GetPostForumGroup</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[SELECT ##TOPN## ##COLUMNS## FROM View_Forums_GroupForumPost_Joined WHERE (##WHERE##) ORDER BY ##ORDERBY##]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

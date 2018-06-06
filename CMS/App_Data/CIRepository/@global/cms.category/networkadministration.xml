@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.category>
+  <CategoryDescription>
+    <![CDATA[Category contains articles related to the network technologies]]>
+  </CategoryDescription>
+  <CategoryDisplayName>Network administration</CategoryDisplayName>
+  <CategoryEnabled>True</CategoryEnabled>
+  <CategoryGUID>0d125a5c-9b42-433c-8272-247ab1bbb53e</CategoryGUID>
+  <CategoryName>NetworkAdministration</CategoryName>
+  <CategoryOrder>1</CategoryOrder>
+</cms.category>

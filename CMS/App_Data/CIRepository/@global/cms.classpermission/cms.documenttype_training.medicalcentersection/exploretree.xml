@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MedicalCenterSection</CodeName>
+    <GUID>14da1584-9555-47b4-bc4b-e23262922e8b</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.exploretree$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.exploretree$}</PermissionDisplayName>
+  <PermissionGUID>5c62474e-472e-4881-9328-22647a0d5d23</PermissionGUID>
+  <PermissionName>ExploreTree</PermissionName>
+  <PermissionOrder>7</PermissionOrder>
+</cms.classpermission>

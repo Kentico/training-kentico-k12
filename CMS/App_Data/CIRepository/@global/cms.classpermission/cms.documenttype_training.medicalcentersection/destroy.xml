@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MedicalCenterSection</CodeName>
+    <GUID>14da1584-9555-47b4-bc4b-e23262922e8b</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.destroy$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.destroy$}</PermissionDisplayName>
+  <PermissionGUID>09eb9d12-db4c-435b-aef4-4497f040e5a0</PermissionGUID>
+  <PermissionName>Destroy</PermissionName>
+  <PermissionOrder>6</PermissionOrder>
+</cms.classpermission>

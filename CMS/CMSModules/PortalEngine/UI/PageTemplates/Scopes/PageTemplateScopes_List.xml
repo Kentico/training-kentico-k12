@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions>
+    <action name="edit"  caption="$General.Edit$"  fonticonclass="icon-edit" fonticonstyle="allow"  />
+    <action name="delete"  caption="$General.Delete$" fonticonclass="icon-bin" fonticonstyle="critical" confirmation="$General.ConfirmDelete$" />
+  </actions>
+  <columns>
+    <column source="PageTemplateScopePath" caption="$template.scopes.path$" wrap="false" >
+    </column>
+    <column source="PageTemplateScopeClassID" caption="$general.documenttype$" externalsourcename="documenttype" wrap="false">
+    </column>
+    <column source="PageTemplateScopeCultureID" caption="$general.culture$" externalsourcename="culture" wrap="false" />
+    <column source="PageTemplateScopeLevels" caption="$template.scopes.levels$" externalsourcename="levels" wrap="false" />
+    <column cssclass="main-column-100" allowsorting="false" />
+  </columns>
+  <objecttype name="cms.pagetemplatescope" columns="PageTemplateScopeID, PageTemplateScopePath, PageTemplateScopeClassID, PageTemplateScopeCultureID,PageTemplateScopeLevels" />
+  <options>
+    <key name="DisplayFilter" value="false" />
+  </options>
+</grid>

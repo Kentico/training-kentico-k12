@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportgraph>
+  <GraphDisplayName>graph_detail</GraphDisplayName>
+  <GraphGUID>a1f83ccb-a457-46fb-bca7-bb8bca342887</GraphGUID>
+  <GraphHeight>400</GraphHeight>
+  <GraphIsHtml>True</GraphIsHtml>
+  <GraphLegendPosition>100</GraphLegendPosition>
+  <GraphName>graph_detail</GraphName>
+  <GraphQuery>
+<![CDATA[
+EXEC Proc_Analytics_RemoveTempTable
+CREATE TABLE #AnalyticsTempTable (
+  StartTime DATETIME,
+  Hits DECIMAL(10,1),
+  Name NVARCHAR(300) COLLATE database_default,
+  Page NVARCHAR(300) COLLATE database_default,
+  Culture NVARCHAR(300) COLLATE database_default
+);
+
+ SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'hour'); 
+ 
+  INSERT INTO #AnalyticsTempTable (StartTime, Hits, Name,Page,Culture)  
+ 
+  SELECT [Date] AS StartTime, CAST (SUM(HitsCount) AS DECIMAL(10,1))  AS Hits, Name,Page,Culture
+  FROM {%DatabaseSchema%}.Func_Analytics_EnsureDates (@FromDate,@ToDate,'hour') AS Dates LEFT JOIN
+  (SELECT HitsCount,HitsStartTime,
+    CASE
+      WHEN MVTCombinationCustomName  IS NULL OR MVTCombinationCustomName='' THEN MVTCombinationName
+      ELSE MVTCombinationCustomName
+    END   
+    AS Name,  
+   OM_MVTest.MVTestPage AS Page,OM_MVTest.MVTestCulture AS Culture
+   FROM Analytics_HourHits
+   JOIN  Analytics_Statistics ON Analytics_Statistics.StatisticsID = Analytics_HourHits.HitsStatisticsID
+   JOIN OM_MVTest ON SUBSTRING(StatisticsCode, 15, CHARINDEX(';',StatisticsCode,15)-15) = OM_MVTest.MVTestName
+   INNER JOIN OM_MVTCombination ON   
+   MVTCombinationPageTemplateID IN ( SELECT 
+  CASE 
+	WHEN [NodeTemplateForAllCultures] = 1 AND NodeTemplateID <> 0  THEN NodeTemplateID
+	ELSE [DocumentPageTemplateID]
+   END    
+  FROM View_CMS_Tree_Joined WHERE NodeSiteID = @CMSContextCurrentSiteID
+        AND NodeAliasPath IN(SELECT MVTestPage FROM OM_MVTest WHERE MVTestName = @MVTestName AND MVTestSiteID = @CMSContextCurrentSiteID)                        
+        AND DocumentCulture = StatisticsObjectCulture)  
+   
+   WHERE Analytics_Statistics.StatisticsCode LIKE 'mvtconversion;%'AND StatisticsSiteID = @CMSContextCurrentSiteID AND
+   MVTCombinationName = (SUBSTRING(StatisticsCode,LEN ('mvtconversion;'+@MVTestName+';')+1,LEN (StatisticsCode))) AND
+   @MVTestName = SUBSTRING(StatisticsCode, 15, CHARINDEX(';',StatisticsCode,15)-15) AND   
+   (@ConversionName IN('',StatisticsObjectName) OR @ConversionName IS NULL)
+  ) AS x   
+  ON x.HitsStartTime = Dates.Date
+  GROUP BY [Date], Name,Page,Culture
+  
+       
+   UPDATE #AnalyticsTempTable SET Hits = Hits/
+     (
+   SELECT CAST (SUM (HitsCount) AS DECIMAL (15,2)) FROM Analytics_Statistics
+   JOIN Analytics_HourHits ON Analytics_Statistics.StatisticsID = Analytics_HourHits.HitsStatisticsID
+   WHERE Analytics_Statistics.StatisticsCode = 'pageviews'  
+   AND Analytics_HourHits.HitsStartTime = StartTime
+   AND Analytics_Statistics.StatisticsObjectID IN
+   (SELECT NodeID FROM View_CMS_Tree_Joined WHERE NodeAliasPath = Page AND NodeSiteID = @CMSContextCurrentSiteID)
+    AND (StatisticsObjectCulture = Culture OR Culture IS NULL)         
+   )*100
+   
+   ALTER TABLE #AnalyticsTempTable DROP COLUMN Page
+   ALTER TABLE #AnalyticsTempTable DROP COLUMN Culture
+   
+   EXEC Proc_Analytics_Pivot 'hour' 
+ EXEC Proc_Analytics_RemoveTempTable
+]]>
+  </GraphQuery>
+  <GraphQueryIsStoredProcedure>False</GraphQueryIsStoredProcedure>
+  <GraphReportID>
+    <CodeName>mvtestconversionrate.hourreport</CodeName>
+    <GUID>a31bb022-6a1d-42d9-89df-133291ecb77a</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </GraphReportID>
+  <GraphSettings>
+    <CustomData>
+      <barorientation>Horizontal</barorientation>
+      <baroverlay>False</baroverlay>
+      <displayitemvalue>True</displayitemvalue>
+      <displaylegend>True</displaylegend>
+      <exportenabled>True</exportenabled>
+      <itemvalueformat>{%yval%}%</itemvalueformat>
+      <legendinside>False</legendinside>
+      <legendposition>Right</legendposition>
+      <legendtitle>Combinations</legendtitle>
+      <linedrawinstyle>Line</linedrawinstyle>
+      <pieshowpercentage>False</pieshowpercentage>
+      <plotareagradient>None</plotareagradient>
+      <querynorecordtext>No data found</querynorecordtext>
+      <reverseyaxis>False</reverseyaxis>
+      <seriesgradient>None</seriesgradient>
+      <seriesitemnameformat>g</seriesitemnameformat>
+      <seriesitemtooltip>{%ser%}</seriesitemtooltip>
+      <showas3d>False</showas3d>
+      <showmajorgrid>True</showmajorgrid>
+      <stackedbarmaxstacked>False</stackedbarmaxstacked>
+      <subscriptionenabled>True</subscriptionenabled>
+      <tenpowers>False</tenpowers>
+      <titleposition>Center</titleposition>
+      <xaxissort>True</xaxissort>
+      <xaxistitleposition>Center</xaxistitleposition>
+      <yaxisformat>{0.0\%}</yaxisformat>
+      <yaxistitleposition>Center</yaxistitleposition>
+      <yaxisusexaxissettings>True</yaxisusexaxissettings>
+    </CustomData>
+  </GraphSettings>
+  <GraphTitle>Conversions rate</GraphTitle>
+  <GraphType />
+  <GraphWidth>600</GraphWidth>
+  <GraphXAxisTitle />
+  <GraphYAxisTitle />
+</reporting.reportgraph>

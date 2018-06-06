@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>HierarchicalTransformationSelector</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription>
+    <![CDATA[Provides a selector of transformations with buttons for editing existing and creating new transformations.]]>
+  </UserControlDescription>
+  <UserControlDisplayName>Hierarchical transformation selector</UserControlDisplayName>
+  <UserControlFileName>inherited</UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>865178a4-015c-4ddf-8456-db9a49497799</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field column="WatermarkValueSettingKey" visible="" guid="9c4078fa-1384-4854-80b1-c9eb5fad6fc2" visibility="" />
+      <field column="NewDialogPath" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="8cb931af-b5c3-416e-862f-b73e143bdcd1" extra="true" order="1">
+        <properties>
+          <fieldcaption>Watermark value from setting</fieldcaption>
+          <defaultvalue>
+            <![CDATA[~/CMSModules/DocumentTypes/Pages/Development/HierarchicalTransformations_New.aspx]]>
+          </defaultvalue>
+          <fielddescription>
+            <![CDATA[Sets the codename of setting with default value that will be displayed as textbox watermark.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ShowHierarchicalTransformation" columntype="boolean" fieldtype="CustomUserControl" publicfield="false" guid="3bdd9155-13a0-4558-a691-8ba59ad34423" extra="true" order="2">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="WhereCondition" guid="de6858a0-3d0f-4a24-9971-b8bcd46174b9" order="3" />
+    </form>
+  </UserControlParameters>
+  <UserControlParentID>
+    <CodeName>selecttransformation</CodeName>
+    <GUID>8cadaf54-2193-4bab-86a1-c8174e0b5ec0</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </UserControlParentID>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

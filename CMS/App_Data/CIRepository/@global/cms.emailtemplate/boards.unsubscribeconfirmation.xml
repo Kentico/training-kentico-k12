@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.emailtemplate>
+  <EmailTemplateBcc />
+  <EmailTemplateCc />
+  <EmailTemplateDisplayName>Boards - Unsubscription confirmation</EmailTemplateDisplayName>
+  <EmailTemplateFrom />
+  <EmailTemplateGUID>e5b8609e-94c6-4096-8aa3-f37fa4b7d320</EmailTemplateGUID>
+  <EmailTemplateName>Boards.UnsubscribeConfirmation</EmailTemplateName>
+  <EmailTemplatePlainText>
+    <![CDATA[You have been successfully unsubscribed from Message board {%Board.BoardDisplayName|(identity)GlobalAdministrator|(hash)fb7a25a7f50da092bcbce9cde02d0de1fb1071be7fe4bfe8ab7026a64a667002%}. ]]>
+  </EmailTemplatePlainText>
+  <EmailTemplateSubject>Message board unsubscription notification</EmailTemplateSubject>
+  <EmailTemplateText>
+<![CDATA[
+<html>
+	<head>
+	  <style>
+		BODY, TD
+		{
+		  font-size: 12px; 
+		  font-family: arial
+		}
+	  </style>
+	</head>	
+	<body>
+	<p>
+	  You have been successfully unsubscribed from		
+	<strong>Message board</strong> {%Board.BoardDisplayName|(identity)GlobalAdministrator|(hash)fb7a25a7f50da092bcbce9cde02d0de1fb1071be7fe4bfe8ab7026a64a667002%}.		    
+	<p/>	
+	</body>
+</html>
+]]>
+  </EmailTemplateText>
+  <EmailTemplateType>boardssubscription</EmailTemplateType>
+</cms.emailtemplate>

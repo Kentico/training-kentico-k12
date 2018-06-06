@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.HomeSection</CodeName>
+    <GUID>ec9ce807-e456-4f65-9963-ba5484fee46f</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.modify$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.modify$}</PermissionDisplayName>
+  <PermissionGUID>9fda7910-9f07-46a1-9994-dfe55a17d3a5</PermissionGUID>
+  <PermissionName>Modify</PermissionName>
+  <PermissionOrder>2</PermissionOrder>
+</cms.classpermission>

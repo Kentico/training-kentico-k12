@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.general$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$general.general$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>db250e18-f7c9-4eb9-8fd7-cacf80d8414b</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>ForumGeneral</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementParentID>
+    <CodeName>EditForum</CodeName>
+    <GUID>4f4a5812-7311-4e2c-aed4-c9ae84177efc</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Forums</CodeName>
+      <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Forums</CodeName>
+    <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~\CMSModules\Forums\Tools\Forums\Forum_General.aspx]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

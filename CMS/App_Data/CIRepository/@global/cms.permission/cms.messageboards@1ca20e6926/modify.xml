@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.messageboards.modify$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Modify</PermissionDisplayName>
+  <PermissionGUID>cf1c3489-103f-49e3-9978-925f0d3bc1d9</PermissionGUID>
+  <PermissionName>Modify</PermissionName>
+  <PermissionOrder>2</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.MessageBoards</CodeName>
+    <GUID>0011c831-2e12-45bf-87ed-6a17607659f8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

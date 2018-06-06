@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.RoomUser</CodeName>
+    <GUID>3934275a-9e59-4d72-84c2-7206eeeee3dd</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>7ee0ed3d-3431-423f-b793-1955e6642fb7</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>userleaveroom</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>Proc_Chat_LeaveRoom</QueryText>
+  <QueryTypeID>1</QueryTypeID>
+</cms.query>

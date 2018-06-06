@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Effects</CategoryDisplayName>
+  <CategoryGUID>b5c63fba-8b88-46a5-a6e5-0e37ddf21ae3</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>Effects</CategoryName>
+  <CategoryParentID>
+    <CodeName>ListingsAndViewers</CodeName>
+    <GUID>25ea0b9d-7959-4566-b760-adddfbb8c159</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

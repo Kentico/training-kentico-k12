@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.Forum</CodeName>
+    <GUID>32a7f4fb-dfa5-4394-a120-6af690f0f2e2</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>6e4b77f9-1da2-4ff7-af51-7572b9907575</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>addroletoforum</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[INSERT INTO Forums_ForumRoles (RoleID, ForumID) VALUES (@RoleID, @ForumID)]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

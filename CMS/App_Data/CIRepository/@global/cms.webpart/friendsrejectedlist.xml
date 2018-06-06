@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Friends</CodeName>
+    <GUID>f9fcb286-b2cd-4f26-b205-cc37f9119693</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>Shows list of rejected friends.</WebPartDescription>
+  <WebPartDisplayName>Rejected friends</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Community/Friends/FriendsRejectedList.ascx</WebPartFileName>
+  <WebPartGUID>6d0fb965-032f-4852-b0aa-b20fb80d8ca3</WebPartGUID>
+  <WebPartIconClass>icon-w-rejected-friends</WebPartIconClass>
+  <WebPartName>FriendsRejectedList</WebPartName>
+  <WebPartProperties>
+    <form version="2" />
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

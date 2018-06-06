@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>BrowserTypes</CodeName>
+    <GUID>c2180ed8-6047-4414-ace0-4a6d635af4eb</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>Browser types - Yearly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>1892100b-e4a0-4496-8178-d127bdfa7101</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportGraph?GraphYearBrowserType%%<br />
+<br />
+%%control:ReportTable?TableYearBrowserType%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}
+]]>
+  </ReportLayout>
+  <ReportName>browsertype.yearreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="36a0c06e-24fc-4edc-bb96-d594818033f2" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-6).Date|(identity)GlobalAdministrator|(hash)d9a3c920a9d67df1bc91dbf32c715c57d54fccffb44cbc4af901f99c99b1670e%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="c3f225dd-daf3-4ba9-a2a1-1f81ffbe7928" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="20" publicfield="false" spellcheck="false" guid="00000000-0000-0000-0000-000000000000">
+        <properties>
+          <defaultvalue>browsertype</defaultvalue>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

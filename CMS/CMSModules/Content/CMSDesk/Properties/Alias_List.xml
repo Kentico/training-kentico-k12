@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+    <actions>
+        <action name="edit"  caption="$General.Edit$" fonticonclass="icon-edit" fonticonstyle="allow"  />
+        <action name="delete"  caption="$General.Delete$" fonticonclass="icon-bin" fonticonstyle="critical" confirmation="$General.ConfirmDelete$" />
+    </actions>
+    <columns>
+        <column source="AliasURLPath" externalsourcename="urlpath" caption="$doc.urls.urlpath$" wrap="false" cssclass="main-column-100" />
+        <column source="AliasExtensions" caption="$doc.urls.urlextensions$" wrap="false" />
+        <column source="AliasCulture" externalsourcename="culture" caption="$general.language$" wrap="false" />
+    </columns>
+  <objecttype name="cms.documentalias" columns="AliasID, AliasURLPath, AliasExtensions, AliasCulture" />
+</grid>

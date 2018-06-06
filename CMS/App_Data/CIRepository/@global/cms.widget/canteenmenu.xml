@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>IntranetPortal</CodeName>
+    <GUID>65523f91-9b6f-4e70-9110-62cd05088ec3</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Can be used to enter HTML content that will be displayed on the page. For example, this can be used to set a canteen menu for the current week.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Intranet canteen menu</WidgetDisplayName>
+  <WidgetDocumentation>
+    <![CDATA[This widget is intended for use on the Intranet Portal sample site or other websites that are based on its structure.]]>
+  </WidgetDocumentation>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>d04b04d0-41c5-48ab-937e-0e4614d23a86</WidgetGUID>
+  <WidgetIconClass>icon-w-intranet-canteen-menu</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>CanteenMenu</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="Text" guid="040fbee7-4d9f-4c50-8846-fdd62daf7e61">
+        <settings>
+          <cssstylesheet>0</cssstylesheet>
+        </settings>
+        <properties>
+          <defaultvalue>
+<![CDATA[
+Canteen menu for this week:<br />
+<table cellspacing="0" border="0">
+    <tbody>
+        <tr>
+            <td class="Day"><strong>MON:</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="Day"><strong>TUE:</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="Day"><strong>WED:</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="Day"><strong>THU:</strong></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="Day"><strong>FRI:</strong></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="ResolveDynamicControls" guid="29e28611-c933-4523-8dba-a8ba1fbe87be" visible="" />
+      <category name="Web part container" extra="true" order="3">
+        <properties>
+          <caption>Widget container</caption>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="Container" visible="false" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="36420a4e-4e6e-406e-a06f-9a7d606b98da" extra="true" reftype="Required" order="4">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.container$}</fielddescription>
+          <fieldcaption>Widget container</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>selectcontainer</controlname>
+        </settings>
+      </field>
+      <field column="ContainerTitle" visible="false" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="cd9a0801-5992-44f7-b744-c4790e657be8" extra="true" reftype="Required" order="5">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.containertitle$}</fielddescription>
+          <defaultvalue>CANTEEN MENU</defaultvalue>
+          <fieldcaption>Widget container title</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCSSClass" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="cf79d6a8-0951-4481-926b-861d141954f8" extra="true" reftype="Required" order="6" visible="false">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercssclass$}]]>
+          </fielddescription>
+          <defaultvalue>Canteen</defaultvalue>
+          <fieldcaption>Container CSS class</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCustomContent" columntype="longtext" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="b1842275-c9f1-4a14-adba-905cf2896257" extra="true" reftype="Required" order="7" visible="false">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
+          </fielddescription>
+          <fieldcaption>Container custom content</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Wrap>True</Wrap>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <FilterMode>False</FilterMode>
+          <controlname>textareacontrol</controlname>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+        </settings>
+      </field>
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>statichtml</CodeName>
+    <GUID>22c87868-6572-46eb-b517-dab4cc97ee78</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

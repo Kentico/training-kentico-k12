@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$MyMessages.IgnoreList$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$MyMessages.IgnoreList$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>d6607b5c-0a78-4694-9757-23b59cbd9e83</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>MyMessages.IgnoreList</ElementName>
+  <ElementOrder>4</ElementOrder>
+  <ElementParentID>
+    <CodeName>MyMessages</CodeName>
+    <GUID>1f92da7d-a05c-42ec-baa9-5c92ca1242dc</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Messaging</CodeName>
+      <GUID>2b521e04-6b2d-4422-b1d2-c352e88e3b02</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <includejquery>False</includejquery>
+      <category_name_header>False</category_name_header>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Messaging</CodeName>
+    <GUID>2b521e04-6b2d-4422-b1d2-c352e88e3b02</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Messaging/MyMessages/MyMessages_IgnoreList.aspx?userid={?MembershipContext.AuthenticatedUser.UserID|(identity)GlobalAdministrator|(hash)7b5caff0b06b7a4daa2ad87b872d78da999e9f597e7e23e51af86502be560d05?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.metafile>
+  <MetaFileExtension>.png</MetaFileExtension>
+  <MetaFileGroupName>Thumbnail</MetaFileGroupName>
+  <MetaFileGUID>d3c1762d-b804-46b0-ba2b-015975a7d8e0</MetaFileGUID>
+  <MetaFileImageHeight>40</MetaFileImageHeight>
+  <MetaFileImageWidth>95</MetaFileImageWidth>
+  <MetaFileMimeType>image/png</MetaFileMimeType>
+  <MetaFileName>radiobutton_list.png</MetaFileName>
+  <MetaFileObjectID>
+    <CodeName>RadioButtonsControl</CodeName>
+    <GUID>2f084ea3-a853-45c2-9a9c-dfb1ba6ac14a</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </MetaFileObjectID>
+  <MetaFileObjectType>cms.formusercontrol</MetaFileObjectType>
+  <MetaFileSize>597</MetaFileSize>
+</cms.metafile>

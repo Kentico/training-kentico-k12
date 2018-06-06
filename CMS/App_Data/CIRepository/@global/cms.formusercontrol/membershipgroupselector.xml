@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>MembershipGroupSelector</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription>Provides a selector of membership groups.</UserControlDescription>
+  <UserControlDisplayName>Membership group selector</UserControlDisplayName>
+  <UserControlFileName>
+    <![CDATA[~/CMSModules/Groups/FormControls/MembershipGroupSelector.ascx]]>
+  </UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>6f922b8e-aa29-4298-8146-f3127534912e</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field column="MultiSelection" columntype="boolean" guid="5ff24a32-efc5-4e37-bf7f-1192bfc16f06" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Multi selection</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates, if selecting multiple groups is allowed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ShowCurrentSiteGroups" columntype="boolean" guid="a1197c2c-269c-42b7-8f5f-2a619bb642f2" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show current site groups</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates, if only the current site groups should be displayed in the list.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </UserControlResourceID>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

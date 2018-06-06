@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription />
+  <ResourceDisplayName>Strands Recommender</ResourceDisplayName>
+  <ResourceGUID>1235e27c-5b04-4024-9032-d10ea62cafbe</ResourceGUID>
+  <ResourceHasFiles>True</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.StrandsRecommender</ResourceName>
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

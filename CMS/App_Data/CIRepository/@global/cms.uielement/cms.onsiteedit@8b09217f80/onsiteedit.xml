@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.edit$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDescription>{$documents.edittooltip$}</ElementDescription>
+  <ElementDisplayName>Edit</ElementDisplayName>
+  <ElementFromVersion>7.0</ElementFromVersion>
+  <ElementGUID>02badb92-7a66-47a7-9c99-68e516d167ff</ElementGUID>
+  <ElementIconClass>icon-edit</ElementIconClass>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>OnSiteEdit</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>OnSiteContent</CodeName>
+    <GUID>6abca888-a6e6-49d6-bb01-85aad206f860</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.OnSiteEdit</CodeName>
+      <GUID>e2774a5e-1005-4911-877d-ad4af29a9976</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.OnSiteEdit</CodeName>
+    <GUID>e2774a5e-1005-4911-877d-ad4af29a9976</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[javascript:OnSiteToolbarAction('edit');]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

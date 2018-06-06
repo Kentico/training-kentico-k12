@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DocumentViewers</CodeName>
+    <GUID>46e23e43-a698-4fdb-8898-2526f4dd4e09</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a single item at a time from a set of specified pages based on the assigned transformation. A pager is used to switch between items.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Document pager</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<p>
+	This web part can be used for displaying long text split into several articles or displaying a "Take a tour" wizard.</p>
+
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Viewers/Documents/documentpager.ascx</WebPartFileName>
+  <WebPartGUID>3d1969b1-5e5e-4c34-8ab4-58655fef1d7f</WebPartGUID>
+  <WebPartIconClass>icon-w-document-pager</WebPartIconClass>
+  <WebPartName>DocumentPager</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Path" columnsize="450" columntype="text" guid="9361aeb8-bcbf-4399-a103-25d8e5637633" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.path$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectpath</controlname>
+        </settings>
+      </field>
+      <category name="Content filter">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ClassNames" columnsize="1000" columntype="text" guid="4a09dc0b-7886-4c56-9d02-9ebeffbd9ea0" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Page types</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.documenttypes$}</fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>selectclassnames</controlname>
+          <HideInheritedClasses>False</HideInheritedClasses>
+          <ReturnColumnName>ClassName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ShowOnlyCoupled>False</ShowOnlyCoupled>
+        </settings>
+      </field>
+      <field allowempty="true" column="CultureCode" columnsize="20" columntype="text" guid="b51b901b-20b2-4996-9e60-7c6030b5e276" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Culture code</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.culturecode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectculture</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="200" columntype="text" guid="8afbb983-dadc-4ec7-be53-52027b635274" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.sitename$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="e45125f7-2179-4900-9605-f6aa4dbcbc27" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Transformation</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.transformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="Paging">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="PagerPosition" columnsize="50" columntype="text" guid="9b0d3114-6f1e-4454-8e97-6bdb2d25b1f9" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <fieldcaption>Pager position</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagerposition$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <options>
+            <![CDATA[<item value="bottom" text="Bottom" /><item value="top" text="Top" /><item value="topandbottom" text="Top and bottom" />]]>
+          </options>
+        </settings>
+      </field>
+      <field allowempty="true" column="BackText" columnsize="100" columntype="text" guid="342d273a-9781-4bfd-be2e-921cce426614" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Previous button text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to set a custom previous page button. If left empty, '<' is used.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="NextText" columnsize="100" columntype="text" guid="49cbddd7-a6a5-4e60-b1fa-58e82988d24f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Next button text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to set a custom next page button. If left empty, '>' is used.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedPageClass" columnsize="50" columntype="text" guid="d4b75b10-d56d-405e-8d10-f53be19df5c6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected page class name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the CSS class used for the the number of the currently selected page.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnselectedPageClass" columnsize="50" columntype="text" guid="30920e6f-2de8-4f20-b3ef-a6df6f8bc6b4" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unselected page class name</fieldcaption>
+          <fielddescription>Sets the CSS class applied to regular page links.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedNextClass" columnsize="50" columntype="text" guid="044d2c30-9016-47a6-88f1-f7a562ca4f40" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected next class name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the CSS class applied to the next page button when it is not active.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnselectedNextClass" columnsize="50" columntype="text" guid="6dda8c95-02d0-4f25-bc4b-d00ad2275c2a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unselected next class name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the CSS class applied to the next page button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedPrevClass" columnsize="50" columntype="text" guid="08306647-67e6-47c1-bed6-c06b432054e7" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected previous class name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the CSS class applied to the previous page button when it is not active.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnselectedPrevClass" columnsize="50" columntype="text" guid="f289824d-1b43-490d-993c-086ca35cbd99" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unselected previous class name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the CSS class applied to the previous page button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageNumberSeparator" columnsize="50" columntype="text" guid="d2884efd-8b16-491f-abc8-3c3dabb4c3fa" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>-</defaultvalue>
+          <fieldcaption>Page separator</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.pagenumbersseparator$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <category name="Security">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="CheckPermissions" columntype="boolean" guid="82222c7c-4261-4522-829f-d68306783246" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.checkperm$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="570c3af7-2665-4ba2-b707-dfa067fc9a6d" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="7b772b3c-eeaf-4454-92f1-a82283e2c8c9" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

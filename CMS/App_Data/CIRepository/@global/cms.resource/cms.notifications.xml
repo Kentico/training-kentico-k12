@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription />
+  <ResourceDisplayName>Notifications</ResourceDisplayName>
+  <ResourceGUID>c5f1114b-f87b-46bc-b169-7f8afaddc394</ResourceGUID>
+  <ResourceHasFiles>True</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.Notifications</ResourceName>
+  <ResourceURL />
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

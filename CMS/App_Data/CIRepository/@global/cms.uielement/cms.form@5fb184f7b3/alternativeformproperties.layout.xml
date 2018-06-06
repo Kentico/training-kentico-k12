@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition />
+  <ElementCaption>{$general.layout$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>{$general.layout$}</ElementDisplayName>
+  <ElementFeature />
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>dcf0764b-72f2-4759-a143-1443f34bb337</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>AlternativeFormProperties.Layout</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>AlternativeForms.AlternativeFormProperties</CodeName>
+    <GUID>51546812-c3da-40cb-8374-d779437c8ee6</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Form</CodeName>
+      <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <includejquery>False</includejquery>
+      <category_name_header>False</category_name_header>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Form</CodeName>
+    <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/BizForms/Tools/AlternativeForms/AlternativeForms_Layout.aspx?altformid={?altformid?}&formid={?formId?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition />
+</cms.uielement>

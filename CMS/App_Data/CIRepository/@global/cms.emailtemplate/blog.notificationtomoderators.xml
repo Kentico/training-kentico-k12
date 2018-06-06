@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.emailtemplate>
+  <EmailTemplateBcc />
+  <EmailTemplateCc />
+  <EmailTemplateDisplayName>Blogs - Notification to blog moderators</EmailTemplateDisplayName>
+  <EmailTemplateFrom />
+  <EmailTemplateGUID>744e6923-0224-4a10-b633-7922646db03d</EmailTemplateGUID>
+  <EmailTemplateName>Blog.NotificationToModerators</EmailTemplateName>
+  <EmailTemplatePlainText>
+<![CDATA[
+New blog post comment was added and now is waiting for your approval: 
+
+Blog post:   {%BlogPost.DocumentName|(identity)GlobalAdministrator|(hash)09a6f02c9af909f5e7baac16cfce37459e2799c87eeda5dcee2fcbb4ffab52aa%}
+Blog post URL:   {%BlogPostLink%}
+Blog:   {%Blog.DocumentName|(identity)GlobalAdministrator|(hash)d4eeda489fa9e3ff189b3d5de2d6e56b051c612161a77d0db7f095da20b86f66%}
+Blog URL:   {%BlogLink%}
+Added by:   {% TrimSitePrefix(Comment.CommentUserName)|(identity)GlobalAdministrator|(hash)49dc78693df38411b476c12b7298a5880674c9840800ffc16a7576fc4b7c73ee%}  
+Date and time:   {%Comment.CommentDate|(identity)GlobalAdministrator|(hash)c2b8d7bb12528d94f54f748515a8e16e34720502b754f4705bb36233af9a694a%}  
+Text:   {%Comment.CommentText|(identity)GlobalAdministrator|(hash)748a0c26cc8f4f0a197f36ecf11a0402780fae9bac710c3e2a793258c1ecdb62%}
+]]>
+  </EmailTemplatePlainText>
+  <EmailTemplateSubject>
+    <![CDATA[Comment needs to be approved on the blog post {%BlogPost.DocumentName|(identity)GlobalAdministrator|(hash)09a6f02c9af909f5e7baac16cfce37459e2799c87eeda5dcee2fcbb4ffab52aa%}]]>
+  </EmailTemplateSubject>
+  <EmailTemplateText>
+<![CDATA[
+<html>
+  <head>
+    <style>
+    body, td
+    {
+      font-size: 12px; 
+      font-family: Arial;
+    }
+    </style>
+  </head>  
+  <body>
+  <p>
+    New blog post comment was added and now is waiting for your approval:
+  </p>
+  <table>
+    <tr valign="top">
+    <td>
+    <strong>Blog post:&nbsp;</strong>
+    </td>
+    <td>
+    <a href="{%BlogPostLink%}">{%BlogPost.DocumentName|(identity)GlobalAdministrator|(hash)09a6f02c9af909f5e7baac16cfce37459e2799c87eeda5dcee2fcbb4ffab52aa%}</a>
+    </td>
+    </tr>
+    <tr valign="top">
+    <td>
+    <strong>Blog:&nbsp;</strong>
+    </td>
+    <td>
+    <a href="{%BlogLink%}">{%Blog.DocumentName|(identity)GlobalAdministrator|(hash)d4eeda489fa9e3ff189b3d5de2d6e56b051c612161a77d0db7f095da20b86f66%}</a>
+    </td>
+    </tr>
+    <tr valign="top">
+    <td>
+    <strong>Added by:&nbsp;</strong>
+    </td>
+    <td>
+    {% TrimSitePrefix(Comment.CommentUserName)|(identity)GlobalAdministrator|(hash)49dc78693df38411b476c12b7298a5880674c9840800ffc16a7576fc4b7c73ee%}
+    </td>
+    </tr>
+    <tr valign="top">
+    <td>
+    <strong>Date and time:&nbsp;</strong>
+    </td>
+    <td>
+    {%Comment.CommentDate|(identity)GlobalAdministrator|(hash)c2b8d7bb12528d94f54f748515a8e16e34720502b754f4705bb36233af9a694a%}
+    </td>
+    </tr>
+    <tr valign="top">
+    <td>
+    <strong>Text:&nbsp;</strong>
+    </td>
+    <td>
+    {%Comment.CommentText|(identity)GlobalAdministrator|(hash)748a0c26cc8f4f0a197f36ecf11a0402780fae9bac710c3e2a793258c1ecdb62%}   
+    </td>
+    </tr>
+  </table>    
+  </body>
+</html>
+]]>
+  </EmailTemplateText>
+  <EmailTemplateType>blog</EmailTemplateType>
+</cms.emailtemplate>

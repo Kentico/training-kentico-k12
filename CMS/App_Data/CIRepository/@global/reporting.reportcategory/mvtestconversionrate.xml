@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>MVTestConversionRate</CategoryCodeName>
+  <CategoryDisplayName>Conversion rate</CategoryDisplayName>
+  <CategoryGUID>0c7b0e0a-298b-4ebc-9836-8e9b7a717297</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>MVTesting</CodeName>
+    <GUID>48d20e80-7544-4791-bb87-741bf42e0be2</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>CMS.Banner</CodeName>
+    <GUID>015f038d-249a-4ba6-ac6f-35f2a367ed65</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>0a09364b-4578-4d14-81f8-a43a45c2a95f</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>decrementclicksleft</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[UPDATE [CMS_Banner] SET [BannerClicksLeft] = [BannerClicksLeft] - 1 WHERE [BannerID] = @BannerID]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

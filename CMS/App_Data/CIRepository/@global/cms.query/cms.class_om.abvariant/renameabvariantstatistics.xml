@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>OM.ABVariant</CodeName>
+    <GUID>fb969b83-36b9-4c02-9700-948f4e7892ea</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>ed6bca2b-d96e-4d4c-b852-5e1c18493e85</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>RenameABVariantStatistics</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+-- Update statistics names when variant code name changes
+UPDATE Analytics_Statistics 
+SET StatisticsCode = 'abconversion;' + @ABTestName + ';' + @NewName 
+WHERE StatisticsCode = 'abconversion;' + @ABTestName + ';' + @OldName AND StatisticsSiteID = @SiteID
+
+UPDATE Analytics_Statistics 
+SET StatisticsCode = 'absessionconversionfirst;' + @ABTestName + ';' + @NewName 
+WHERE StatisticsCode = 'absessionconversionfirst;' + @ABTestName + ';' + @OldName AND StatisticsSiteID = @SiteID
+
+UPDATE Analytics_Statistics 
+SET StatisticsCode = 'absessionconversionrecurring;' + @ABTestName + ';' + @NewName 
+WHERE StatisticsCode = 'absessionconversionrecurring;' + @ABTestName + ';' + @OldName AND StatisticsSiteID = @SiteID
+
+UPDATE Analytics_Statistics 
+SET StatisticsCode = 'abvisitfirst;' + @ABTestName + ';' + @NewName 
+WHERE StatisticsCode = 'abvisitfirst;' + @ABTestName + ';' + @OldName AND StatisticsSiteID = @SiteID
+
+UPDATE Analytics_Statistics 
+SET StatisticsCode = 'abvisitreturn;' + @ABTestName + ';' + @NewName 
+WHERE StatisticsCode = 'abvisitreturn;' + @ABTestName + ';' + @OldName AND StatisticsSiteID = @SiteID
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

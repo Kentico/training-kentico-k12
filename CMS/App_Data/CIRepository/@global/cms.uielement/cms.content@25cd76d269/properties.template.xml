@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$content.ui.propertiestemplate$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$content.ui.propertiestemplate$}</ElementDisplayName>
+  <ElementFromVersion>5.0</ElementFromVersion>
+  <ElementGUID>5bcc2097-7efa-49a7-9bb2-1c53b6bbbcc4</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Properties.Template</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>Properties</CodeName>
+    <GUID>cc744db0-dc8c-45de-ab30-bd36f67b2eb9</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Content</CodeName>
+    <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Content/CMSDesk/Properties/template.aspx?nodeid={?nodeid?}&documentid={?documentid?}&culture={?culture?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>GeneralHTML</CodeName>
+    <GUID>16c890ee-6223-4455-8e5e-0f1fd0472fd6</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Adds a request for an external CSS stylesheet file to the HEAD element of the page.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>CSS stylesheet</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>general/cssstylesheet.ascx</WebPartFileName>
+  <WebPartGUID>31b3ab76-7371-4d06-bd71-8f8a23707881</WebPartGUID>
+  <WebPartIconClass>
+<![CDATA[
+icon-w-css-style-selector
+
+]]>
+  </WebPartIconClass>
+  <WebPartName>CSSStylesheet</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <caption>Stylesheet</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="FilePath" columnsize="150" columntype="text" guid="1948666c-6cc4-4296-b27a-ab0bf13b3352" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>CSS stylesheet file path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the path to the external stylesheet that will be requested. For example: ~/CMSWebParts/Viewers/Effects/lightbox_files/lightbox.css]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="Media" columnsize="50" columntype="text" guid="2eee1ba0-bd41-4982-bd33-188cafe667f4" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>screen</defaultvalue>
+          <fieldcaption>Media</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the CSS media type for which the added stylesheet should be applicable.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="all" text="all" /><item value="braille" text="braille" /><item value="embossed" text="embossed" /><item value="handheld" text="handheld" /><item value="print" text="print" /><item value="projection" text="projection" /><item value="screen" text="screen" /><item value="speech" text="speech" /><item value="tty" text="tty" /><item value="tv" text="tv" />]]>
+          </Options>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>4</WebPartType>
+</cms.webpart>

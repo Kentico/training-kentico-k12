@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$content.ui.menudesign$}</ElementDisplayName>
+  <ElementFromVersion>5.0</ElementFromVersion>
+  <ElementGUID>facfa901-8cd4-41b0-854b-8beaf1b35a64</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Menu.Design</ElementName>
+  <ElementOrder>4</ElementOrder>
+  <ElementParentID>
+    <CodeName>Properties.Menu</CodeName>
+    <GUID>33920356-cdc2-42ad-b177-bb1015bb9a95</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Content</CodeName>
+    <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>UserControl</ElementType>
+</cms.uielement>

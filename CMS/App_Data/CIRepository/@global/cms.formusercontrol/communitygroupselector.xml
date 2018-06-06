@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>CommunityGroupSelector</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription>Provides a drop-down list with available groups.</UserControlDescription>
+  <UserControlDisplayName>Community group selector</UserControlDisplayName>
+  <UserControlFileName>
+    <![CDATA[~/CMSModules/Groups/FormControls/CommunityGroupSelector.ascx]]>
+  </UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>True</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>f846a4cd-b12d-4178-ae35-b0b64624c867</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2" />
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </UserControlResourceID>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

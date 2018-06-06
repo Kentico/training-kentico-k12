@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Content</CodeName>
+    <GUID>4ea8bea5-6cf0-4a77-81d0-7cf1463fcbc4</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays a list of comments that were added to the specified blog(s). Authorized users will also be able to approve, reject or edit the listed comments.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Blog comments</WidgetDisplayName>
+  <WidgetForDashboard>True</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>09bf2856-620f-489f-aa1b-22d20725120e</WidgetGUID>
+  <WidgetIconClass>icon-w-blog-comments</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>BlogComments</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="SiteName" guid="92feabc9-430f-4382-af1c-d995fa36197b" visibility="" displayin="dashboard" reftype="Required" />
+      <field column="BlogName" guid="579ea63e-0ee4-45bc-983f-f4892063f8ec" reftype="Required" />
+      <field column="IsApproved" guid="c57cd2dd-cd48-45b9-8e41-973ff96f9ba1" reftype="Required" />
+      <field column="IsSpam" guid="579ed88e-d345-4d6b-8584-e0c72b9b34b9" reftype="Required" />
+      <field column="ItemsPerPage" guid="0059994f-7c51-464e-adcd-f3b74b717cb4" reftype="Required" />
+      <field column="OrderBy" guid="1390bde8-36c8-422e-ae8a-dc95639aec15" reftype="Required" />
+      <field column="Sorting" guid="f36c8c57-73bb-4c4f-9980-7fbcdb3142bc" reftype="Required" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>BlogComments</CodeName>
+    <GUID>9a077c8e-258f-4c04-90af-102876a86aca</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

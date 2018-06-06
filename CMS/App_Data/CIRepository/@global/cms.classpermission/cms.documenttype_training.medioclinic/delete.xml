@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MedioClinic</CodeName>
+    <GUID>7d639563-6429-4ff3-8bfa-b4b33ddfa11e</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.delete$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$general.delete$}</PermissionDisplayName>
+  <PermissionGUID>cadfd959-95f6-41c6-91b3-5369050691e1</PermissionGUID>
+  <PermissionName>Delete</PermissionName>
+  <PermissionOrder>5</PermissionOrder>
+</cms.classpermission>

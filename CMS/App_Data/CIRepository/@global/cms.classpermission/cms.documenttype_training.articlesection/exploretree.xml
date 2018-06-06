@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.ArticleSection</CodeName>
+    <GUID>da7ae47d-2aa6-442e-82b5-c05be448edc9</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.exploretree$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.exploretree$}</PermissionDisplayName>
+  <PermissionGUID>3a9a0452-5447-44d8-b881-cebe49c5b96b</PermissionGUID>
+  <PermissionName>ExploreTree</PermissionName>
+  <PermissionOrder>7</PermissionOrder>
+</cms.classpermission>

@@ -1,0 +1,442 @@
+﻿// FormBuilder - right panel
+
+.form-builder {
+    z-index: 5;
+
+    .form-component {
+        display: table;
+        width: 250px;
+        height: 40px;
+    }
+
+    .field-rule-designer .rule-designer-rules {
+        max-width: 100%;
+    }
+}
+
+.settings-panel {
+    background-color: @color-gray-150;
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 330px;
+    padding: @base-unit;
+
+    .pnl-edit .btn-group {
+        padding-bottom: @base-unit;
+    }
+
+    .alert {
+        margin-bottom: 0;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100%;
+    }
+
+    .label-property {
+        padding: 15px 0 3px;
+    }
+
+        .label-property.Top {
+            padding-top: 0;
+        }
+
+    .field-property {
+        min-height: 22px;
+    }
+
+    .inline-block {
+        display: inline-block;
+    }
+}
+
+.settings-content .ui-tabs-panel {
+    padding: 15px;
+}
+
+.options-designer .option-row {
+    background-color: @color-gray-130;
+    margin-bottom: 1px;
+    min-height: 20px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+
+    .checkbox, .radio {
+        display: inline-block;
+
+        label {
+            margin-right: 0;
+            width: 0;
+        }
+    }
+
+    .cms-input-group,
+    input[type="text"] {
+        display: inline-block;
+        width: @base-unit * 14;
+    }
+
+    .remove-option {
+        float: right;
+    }
+}
+
+.field-rule-designer {
+    .rule-row {
+        background-color: @color-gray-130;
+        min-height: @base-unit * 2;
+        margin-bottom: 1px;
+
+        > span {
+            cursor: pointer;
+            display: inline-block;
+            margin: @base-unit * 0.5;
+            width: 245px;
+        }
+
+        .checkbox, .radio {
+            display: inline-block;
+
+            label {
+                margin-right: 0;
+                width: 0;
+            }
+        }
+
+        .control-group-inline {
+            display: block;
+        }
+
+        .cms-input-group {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .rule-disabled {
+            cursor: default;
+        }
+    }
+
+    .edit-rule-row {
+        .editing-form-label-cell,
+        .editing-form-value-cell {
+            float: left;
+            width: 100%;
+        }
+
+        .control-label {
+            text-align: left;
+        }
+
+        .cms-input-group {
+            width: 100%;
+        }
+
+        .form-horizontal {
+            margin-bottom: 0;
+
+            .editing-form-category {
+                margin-top: 0;
+            }
+
+            .editing-form-category-fields {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .rule-row.edit-rule-row {
+        padding: @base-unit;
+    }
+
+    .rule-designer-rules {
+        margin-bottom: @base-unit;
+        max-width: @input-max-width;
+    }
+
+    .rule-actions {
+        float: right;
+    }
+
+    .rule-warning {
+        padding: @base-unit * 0.5 0;
+        cursor: pointer;
+        color: @color-warning;
+    }
+
+    .rule-row.edit-rule-row .rule-description {
+        display: inline-block;
+        margin-top: @base-unit * 0.5;
+    }
+
+    .Info {
+        display: inline-block;
+        padding: 3px 5px;
+        vertical-align: top;
+    }
+
+    .rule-row.edit-rule-row {
+        background-color: @color-blue-130;
+    }
+
+    .rule-row {
+        .remove-rule,
+        .rule-warning {
+            visibility: hidden;
+        }
+    }
+
+        .rule-row:hover {
+            .remove-rule,
+            .rule-warning {
+                visibility: visible;
+            }
+        }
+}
+
+.options-designer {
+    .options-designer-options {
+        margin-top: -10px;
+        margin-bottom: -10px;
+    }
+
+        .options-designer-options:before,
+        .options-designer-options:after {
+            content: "\00a0";
+        }
+
+    .drag-option {
+        cursor: move;
+        float: left;
+        padding: @base-unit * 0.5 @base-unit * 0.25;
+    }
+
+    .Info {
+        display: inline-block;
+        padding: 3px 5px;
+        vertical-align: top;
+    }
+
+    .option-row.selected-row {
+        background-color: @color-blue-130;
+    }
+
+    .option-row {
+        .LocalizablePanel,
+        .remove-option,
+        .drag-option {
+            visibility: hidden;
+        }
+    }
+
+        .option-row:hover .LocalizablePanel,
+        .option-row:hover .remove-option,
+        .option-row:hover .drag-option,
+        .option-row.selected-row .LocalizablePanel,
+        .option-row.selected-row .remove-option,
+        .option-row.selected-row .drag-option {
+            visibility: visible;
+        }
+}
+
+// FormBuilder - left panel
+
+.form-components {
+    background-color: @color-white;
+    border-right: 8px solid @color-gray-140;
+    position: fixed;
+    overflow-x: hidden;
+    overflow-y: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 270px;
+    z-index: 2;
+
+    .ui-draggable-dragging {
+        position: fixed !important;
+        z-index: 5;
+    }
+
+    .components-heading {
+        padding: 5px 5px 5px 12px;
+    }
+
+    > div {
+        cursor: move;
+    }
+
+        > div:hover {
+            background-color: @color-blue-130;
+        }
+}
+
+.form-component {
+    .component-label {
+        display: table-cell;
+        vertical-align: middle;
+        width: 135px;
+        padding: 0 5px 0 16px;
+    }
+
+    img {
+        padding: 0 0 0 5px;
+        height: 40px;
+        width: 95px;
+    }
+}
+
+
+// FormBuilder - form
+
+.form-builder-form {
+    position: fixed;
+    overflow: auto;
+    padding: 20px;
+    top: 0;
+    bottom: 0;
+    right: 363px;
+    left: 278px;
+    z-index: 1;
+
+    .editing-form-category-fields {
+        > div:after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+    }
+}
+
+.editing-form-design-mode {
+    width: 100%;
+
+    .editing-form-category-fields > div {
+        position: relative;
+        border: 1px solid transparent;
+    }
+
+        .editing-form-category-fields > div:hover {
+            border: dashed 1px @color-gray-90;
+            cursor: move !important;
+        }
+
+            .editing-form-category-fields > div:hover .field-actions {
+                visibility: visible;
+            }
+
+    .editing-form-category-fields {
+        min-height: 2px;
+    }
+
+    .editing-form-label {
+        cursor: move;
+    }
+
+    .field-actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin-left: 30px;
+        padding: 0 2px;
+        visibility: hidden;
+    }
+
+    .field-wrapper {
+        display: table;
+        width: 100%;
+    }
+
+    .form-group {
+        min-height: @input-height-base;
+        margin-bottom: @form-group-margin - 2;
+    }
+
+    .selected-field .field-actions {
+        visibility: visible;
+    }
+
+    .selected-number {
+        color: @color-white;
+        background-color: @color-red-100;
+        border-radius: 50%;
+        display: inline-block;
+        font-weight: bold;
+        height: @base-unit * 1.5;
+        line-height: @base-unit * 1.5;
+        position: absolute;
+        right: -@base-unit * 0.75;
+        text-align: center;
+        top: -@base-unit * 0.75;
+        width: @base-unit * 1.5;
+    }
+
+    .field-actions input[type="image"] {
+        cursor: pointer;
+    }
+
+    .sortable-placeholder {
+        border: dashed 1px @color-gray-90 !important;
+        background-color: @color-white;
+        min-width: 26px;
+        max-height: 800px;
+        max-width: 100%;
+        margin-bottom: @form-group-margin - 2;
+    }
+
+    .form-button {
+        // Temp solution while the label column has fixed width
+        margin-left: 108px;
+    }
+
+    .form-horizontal.collapsible-div {
+        cursor: pointer;
+    }
+
+    .empty-form-placeholder {
+        color: @color-gray-90;
+        display: table-cell;
+        vertical-align: middle;
+        font-weight: bold;
+    }
+
+    .empty-form {
+        height: 60px;
+        width: 100%;
+        display: table;
+        text-align: center;
+        border: dashed 1px @color-gray-90;
+    }
+
+        .empty-form.Green {
+            border: dashed 1px @color-green-120;
+        }
+
+    .selected-field {
+        background-color: @color-blue-130;
+        border: 1px solid @color-blue-130;
+    }
+}
+
+.form-builder-info {
+    position: absolute;
+    top: 0;
+    right: 440px;
+    z-index: @zindex-alert-success;
+    padding: @base-unit * 0.5 @base-unit * 1.5;
+    background-color: @color-blue-130;
+}
+
+.alert.alert-error.form-builder-error-hidden {
+    display: none;
+}
+
+.alert.alert-error.form-builder-error {
+    display: block;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+}

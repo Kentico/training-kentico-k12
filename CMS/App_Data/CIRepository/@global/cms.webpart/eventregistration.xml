@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>EventsBooking</CodeName>
+    <GUID>81176802-75cc-4314-b44f-9e3aa90baa03</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>Displays list of booked events.</WebPartDescription>
+  <WebPartDisplayName>Event registration</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>EventManager/EventManager.ascx</WebPartFileName>
+  <WebPartGUID>257f9f08-ccf0-4931-aca2-1caf8d1eb259</WebPartGUID>
+  <WebPartIconClass>icon-w-event-registration</WebPartIconClass>
+  <WebPartName>EventRegistration</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Registration">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="RegistrationTitle" columnsize="400" columntype="text" guid="67b24569-4cc6-4a43-89e5-ff2a6c30de7d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue ismacro="true">{$eventmanager.registrationtitle$}</defaultvalue>
+          <fieldcaption>Registration title</fieldcaption>
+          <fielddescription>Title of the registration form.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="RequireName" columntype="boolean" guid="3259c7d8-f843-4159-a76c-cc50c139fdd1" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Require name</fieldcaption>
+          <fielddescription>
+            <![CDATA[If true, the first and last name text boxes are displayed. Users are required to fill in the text boxes to registrate.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="RequirePhone" columntype="boolean" guid="76c6b110-0987-4012-a8d5-898a66ef813f" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Require phone</fieldcaption>
+          <fielddescription>
+            <![CDATA[If true, the phone number text box is displayed. Users are required to fill in the text box to registrate.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AllowAnonymousRegistration" columntype="boolean" guid="62acd2da-22d2-4fbd-8e87-e490b00a90d8" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Allow anonymous users to register</fieldcaption>
+          <fielddescription>If true, public users are allowed to register.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AllowExportToOutlook" columntype="boolean" guid="fde58494-b886-4e66-8013-413051147097" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Outlook link</fieldcaption>
+          <fielddescription>
+            <![CDATA[If true, link to iCalendar file (*.ics) will be available after registration. The file adds registered event to user's Outlook calendar.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.ForumPost</CodeName>
+    <GUID>f40c961c-3d47-4e6a-997e-b127db2520c1</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>24a3b834-a2b2-4c43-a562-dd56cd4adcd1</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>splitthread</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[UPDATE Forums_ForumPost SET [PostIDPath] = Substring([PostIDPath], @PrefixLength + 1, LEN([PostIDPath]) - @PrefixLength), [PostLevel] = [PostLevel] - @PrefixLevel OUTPUT INSERTED.PostId WHERE [PostIDPath] LIKE (@Prefix + '/%')]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

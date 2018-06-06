@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.category>
+  <CategoryDescription>Category contains technologies related articles</CategoryDescription>
+  <CategoryDisplayName>Technologies</CategoryDisplayName>
+  <CategoryEnabled>True</CategoryEnabled>
+  <CategoryGUID>4a3afd53-ec34-4abe-ae52-c9d1704118da</CategoryGUID>
+  <CategoryName>Technologies</CategoryName>
+  <CategoryOrder>4</CategoryOrder>
+</cms.category>

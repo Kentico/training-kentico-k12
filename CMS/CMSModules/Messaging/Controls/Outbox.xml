@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions cssclass="MessageActions">
+    <action name="view" caption="$messaging.view$" fonticonclass="icon-eye" fonticonstyle="allow" />
+    <action name="forward" caption="$messaging.forward$" fonticonclass="icon-arrow-right" />
+    <action name="delete" caption="$General.Delete$" fonticonclass="icon-bin" fonticonstyle="critical" confirmation="$General.ConfirmDelete$" />
+  </actions>
+  <columns>
+    <column source="MessageRecipientNickName" sort="MessageRecipientNickName" externalsourcename="messagerecipientnickname" caption="$Messaging.To$" wrap="false" action="view" cssclass="MessageUserName">
+      <filter type="text" />
+    </column>
+    <column source="MessageSubject" sort="MessageSubject" externalsourcename="messagesubject" caption="$general.subject$" wrap="false" action="view" maxlength="100" cssclass="MessageSubject main-column-100">
+      <filter type="text" />
+    </column>
+    <column source="MessageSent" sort="MessageSent" externalsourcename="messagesent" caption="$Messaging.Date$" wrap="false" cssclass="MessageDate" />
+    <column source="MessageRead" sort="MessageRead" externalsourcename="messageread" caption="$Messaging.DateRead$" wrap="false" cssclass="MessageRead" />
+  </columns>
+  <objecttype name="messaging.message" columns="MessageID,MessageRecipientNickName,MessageSent,MessageSubject,MessageRead,MessageRecipientDeleted,MessageLastModified" />
+  <options>
+    <key name="DisplayFilter" value="true" />
+    <key name="ShowSelection" value="true" />
+  </options>
+</grid>

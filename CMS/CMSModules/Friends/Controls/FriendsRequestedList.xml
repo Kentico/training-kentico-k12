@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions>
+    <action name="remove" caption="$general.remove$" fonticonclass="icon-bin" fonticonstyle="critical" confirmation="$friends.ConfirmRemove$" externalsourcename="remove" />
+  </actions>
+  <columns>
+    <column source="UserName" externalsourcename="formattedusername" caption="$general.username$" wrap="false" />
+    <column source="FullName" caption="$general.fullname$" wrap="false" />
+    <column source="UserNickname" caption="$userlist.nickname$" wrap="false" />
+    <column source="FriendComment" caption="$Unigrid.Friends.Columns.FriendComment$" wrap="false" cssclass="main-column-100" istext="true" />
+    <column source="FriendStatus" externalsourcename="status" caption="$general.status$" wrap="false" />
+    <column source="FriendID" visible="false" />
+  </columns>
+  <objecttype name="community.friendlist" columns = "FriendID,UserName,UserNickname,FriendStatus,FullName,FriendComment" />
+  <pager>
+    <key name="ShowDirectPageControl" value="false" />
+  </pager>
+  <options>
+    <key name="DisplayFilter" value="true" />
+    <key name="FilterPath" value="~/CMSModules/Friends/Controls/FriendsSearchBox.ascx" />
+    <key name="ShowSelection" value="true" />
+  </options>
+</grid>

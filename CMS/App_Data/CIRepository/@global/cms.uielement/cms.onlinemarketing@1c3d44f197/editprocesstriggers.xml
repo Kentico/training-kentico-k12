@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$ma.trigger.list$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$ma.trigger.list$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>462877bb-f64d-49a7-b32f-4fc03d339e3f</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>EditProcessTriggers</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>EditProcess</CodeName>
+    <GUID>df0d2103-5a82-41f3-b2c6-3b4364eb218c</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.OnlineMarketing</CodeName>
+      <GUID>bd03e629-e677-42a6-8b12-5277fa04add7</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <includejquery>False</includejquery>
+      <category_name_header>False</category_name_header>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.OnlineMarketing</CodeName>
+    <GUID>bd03e629-e677-42a6-8b12-5277fa04add7</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/ContactManagement/Pages/Tools/Automation/Process/Trigger/List.aspx?siteId={%CurrentSite.SiteID|(identity)GlobalAdministrator|(hash)f50cc247438afa9d1482538afb71a3cd2be15e7fc12f3b7e40e214ea69917743%}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

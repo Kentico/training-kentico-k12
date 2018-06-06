@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>e177a425-0357-40ed-ad6e-6e0e5b2bdf7d</HelpTopicGUID>
+  <HelpTopicLink>tracking_contact_activities</HelpTopicLink>
+  <HelpTopicName>Track contact activities</HelpTopicName>
+  <HelpTopicOrder>2</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Conversions</CodeName>
+    <GUID>928c0610-9fc8-4944-b99f-e2e3aa0c6f10</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.WebAnalytics</CodeName>
+      <GUID>d3c82114-86f7-4aa9-8206-9b006100641c</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

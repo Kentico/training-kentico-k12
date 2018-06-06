@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Checkout</CodeName>
+    <GUID>5e13805d-aaaa-4bc8-b22c-a4474618e315</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Allows customers to enter their personal and business information during the checkout process.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Customer detail</WebPartDisplayName>
+  <WebPartFileName>Ecommerce/Checkout/Forms/CustomerDetail.ascx</WebPartFileName>
+  <WebPartGUID>7a78cd4f-a55f-41fe-bd2d-31c7e72765ea</WebPartGUID>
+  <WebPartIconClass>icon-w-customer-detail</WebPartIconClass>
+  <WebPartName>CustomerDetail</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="AlternativeFormName" columnsize="60" columntype="text" guid="e7bd1f7d-e6fe-4d11-b867-d6bde999be95" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>CheckoutRegistration</defaultvalue>
+          <fieldcaption>Customer form</fieldcaption>
+          <fielddescription>Alternative form name for this customer web part.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectalternativeform</controlname>
+        </settings>
+      </field>
+      <field column="PropagateChangesOnPostback" columntype="boolean" guid="a87ac8e3-bc97-4a1a-a4df-564236eb9784" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Propagate changes on postback</fieldcaption>
+          <fielddescription>
+            <![CDATA[Changes made in customer are processed immediately after postback (CustomerTaxRegistrationID filled) so other checkout web parts on page could react to them without pressing next button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Ecommerce</CodeName>
+    <GUID>684e021b-8b56-4cbf-8fd5-b7a791fd2dbc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

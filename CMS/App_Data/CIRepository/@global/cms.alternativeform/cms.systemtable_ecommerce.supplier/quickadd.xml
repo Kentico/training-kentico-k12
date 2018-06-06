@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>ecommerce.supplier</CodeName>
+    <GUID>d30e1123-ea76-42db-8f74-a20da0c54d03</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form>
+      <field column="SupplierSiteID" visible="true" visibility="" order="6">
+        <settings>
+          <Options>
+<![CDATA[
+{%SiteContext.CurrentSiteID@%};{$com.onthissiteonly$}
+;{$com.globally$}
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+          <EditText>False</EditText>
+        </settings>
+        <properties>
+          <visiblemacro ismacro="true">
+            <![CDATA[{%Settings.CMSStoreAllowGlobalSuppliers && CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceGlobalModify") && (CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","ModifySuppliers") || CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceModify"))|(identity)GlobalAdministrator|(hash)0a06bf6da2402d3b16cd55b141f2d051c99683c7ab3e5532c4f3b8e4be2276fd%}]]>
+          </visiblemacro>
+          <defaultvalue ismacro="true">
+<![CDATA[
+{% if (!Settings.CMSStoreAllowGlobalSuppliers
+    || !CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceGlobalModify")
+    || CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","ModifySuppliers")
+    || CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceModify")) {SiteContext.CurrentSiteID} |(identity)GlobalAdministrator|(hash)d0136e1cc482c7e470e7499ec8151a80f8dc61051c073d3625168aa3f84efdbc%}
+]]>
+          </defaultvalue>
+          <fieldcaption>{$com.available$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="SupplierEnabled" visible="" visibility="" order="7">
+        <properties>
+          <fieldcaption>Enabled</fieldcaption>
+        </properties>
+      </field>
+      <field column="SupplierGUID" order="8" />
+      <field column="SupplierLastModified" order="9" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Quick add</FormDisplayName>
+  <FormGUID>bc6446da-5cc0-49ff-8c11-85c47f6b363d</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>quickadd</FormName>
+</cms.alternativeform>

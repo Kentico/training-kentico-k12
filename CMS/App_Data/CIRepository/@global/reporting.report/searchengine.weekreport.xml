@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>SearchEngines</CodeName>
+    <GUID>6aadd5ee-c055-48a6-9f01-c4ede14dcf55</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>Search engines - Weekly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>8bf64f05-78f3-41e6-9d78-eb76002e4954</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportGraph?searchengine.weekreport.graph%%<br />
+<br />
+%%control:ReportTable?searchengine.weekreport.table%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}
+]]>
+  </ReportLayout>
+  <ReportName>searchengine.weekreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="3a2bc443-7e96-4929-8f85-d09e0d4e47d3" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddWeeks(-15).Date|(identity)GlobalAdministrator|(hash)39f4d584a4d3b1309f9e806370a4272f3ee3f889e4f9aecf667c0b5dc5553906%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="ed1cb074-89d2-4576-a6c8-f451121f5269" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="50" publicfield="false" guid="a66fd0e2-e001-4269-9fa6-a538ae6160f1" visibility="none">
+        <properties>
+          <defaultvalue>referringsite_search</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

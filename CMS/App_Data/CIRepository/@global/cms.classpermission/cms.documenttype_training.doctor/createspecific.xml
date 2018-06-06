@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.Doctor</CodeName>
+    <GUID>e6bdfa0a-1854-4415-8282-d885f7e41c8f</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.create$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.create$}</PermissionDisplayName>
+  <PermissionGUID>b0ffecf3-025d-45aa-b019-c5700d593bd9</PermissionGUID>
+  <PermissionName>CreateSpecific</PermissionName>
+  <PermissionOrder>3</PermissionOrder>
+</cms.classpermission>

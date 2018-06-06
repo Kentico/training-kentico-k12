@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Friends</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="FriendID" columntype="integer" guid="c594ffa1-6187-4a76-ad68-4d9f1d4f70c2" isPK="true" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>FriendID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FriendRequestedUserID" columntype="integer" guid="048307ca-6750-4859-8f54-92f9199da826" publicfield="false" refobjtype="cms.user" reftype="Binding" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendRequestedUserID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FriendUserID" columntype="integer" guid="bfb8e040-35f7-4260-99cd-6a1967e7fbdd" publicfield="false" refobjtype="cms.user" reftype="Binding" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendUserID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FriendRequestedWhen" columntype="datetime" guid="f04975c1-fd57-4bd2-8d62-f04a3171781c" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendRequestedWhen</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FriendComment" columntype="longtext" guid="526e3ab2-8d68-42b0-aaeb-5a2ed922e23f" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendComment</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textareacontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FriendApprovedBy" columntype="integer" guid="617b041c-4a9b-4f59-bd19-1b52638969a2" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendApprovedBy</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FriendApprovedWhen" columntype="datetime" guid="f2b2dfaa-687d-48b3-b4dc-0d0079290f87" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendApprovedWhen</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FriendRejectedBy" columntype="integer" guid="77d78f42-9506-4eb3-8297-25966319cba2" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendRejectedBy</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FriendRejectedWhen" columntype="datetime" guid="9b1e26fe-1fb2-47cc-85c0-d7432734ab82" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendRejectedWhen</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FriendGUID" columntype="guid" guid="0999b481-bbfc-43de-9ba8-4b3fcaf32a1f" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendGUID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FriendStatus" columntype="integer" guid="18565d9f-12e6-40b1-9097-8e1ef9866c29" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>FriendStatus</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>82c1f83e-19ca-4567-8d02-3d8c271e91bd</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>community.friend</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings />
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>Community_Friend</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

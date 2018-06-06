@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>a4b3641c-ab9e-4848-898b-de2a480c8de4</HelpTopicGUID>
+  <HelpTopicLink>custom_form_controls_example</HelpTopicLink>
+  <HelpTopicName>Develop custom form controls</HelpTopicName>
+  <HelpTopicOrder>6</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.FormControls</CodeName>
+    <GUID>29937e43-bd20-4fb0-80f5-cddc4dc595c0</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Form</CodeName>
+      <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

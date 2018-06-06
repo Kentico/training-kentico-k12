@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Checkout</CodeName>
+    <GUID>5e13805d-aaaa-4bc8-b22c-a4474618e315</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Allows customers to enter their billing and/or shipping address during the checkout process.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Customer address</WebPartDisplayName>
+  <WebPartFileName>Ecommerce/Checkout/Forms/CustomerAddress.ascx</WebPartFileName>
+  <WebPartGUID>e16ec646-63c1-41e9-b14a-bb52f031e1b9</WebPartGUID>
+  <WebPartIconClass>icon-w-customer-address</WebPartIconClass>
+  <WebPartName>CustomerAddress</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="AddressType" columnsize="150" columntype="text" guid="3a26e947-6364-4000-aa20-c1e63ee868a9" hasdependingfields="true" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Address type</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+billingaddress;{$com.BillingAddress$}
+shippingaddress;{$com.ShippingAddress$}
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field column="AddressForm" columnsize="60" columntype="text" guid="2495952c-a63e-4ffe-bcd1-90e820b12d08" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>OrdersAddress</defaultvalue>
+          <fieldcaption>Address form</fieldcaption>
+          <fielddescription>Alternative form name for this address web part.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectalternativeform</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CheckboxCaption" columnsize="500" columntype="text" dependsonanotherfield="true" guid="30b31cb3-61c6-41eb-8c64-8f165e18709f" publicfield="false" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>Checkbox caption</fieldcaption>
+          <fielddescription>
+            <![CDATA[The caption for the display checkbox displaying or hiding the web part.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="PropagateChangesOnPostback" columntype="boolean" guid="689b5261-958e-4ec8-ba7d-6c9b318b33ec" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Propagate changes on postback</fieldcaption>
+          <fielddescription>
+            <![CDATA[Changes made in address are processed immediately after postback (Country/State selection) so other checkout web parts on page could react to them without pressing next button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Ecommerce</CodeName>
+    <GUID>684e021b-8b56-4cbf-8fd5-b7a791fd2dbc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

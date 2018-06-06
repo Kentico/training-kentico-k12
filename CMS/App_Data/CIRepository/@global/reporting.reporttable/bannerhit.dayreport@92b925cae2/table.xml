@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>Table</TableDisplayName>
+  <TableGUID>645d7c4d-fe65-4588-aa69-2c0413d17dab</TableGUID>
+  <TableName>table</TableName>
+  <TableQuery>
+<![CDATA[
+--DECLARE @FromDate DATETIME
+--SET @FromDate = '1/1/2011 12:00:00 AM'
+--DECLARE @ToDate DATETIME
+--SET @ToDate = '1/1/2012 12:00:00 AM'
+--DECLARE @CodeName NVARCHAR(60)
+--SET @CodeName = 'bannerclick'
+
+--DECLARE @CMSContextCurrentSiteID INT
+--SET @CMSContextCurrentSiteID = 1
+
+
+
+SET @FromDate = {%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'day');
+SET @ToDate = {%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'day');
+
+SELECT BannerID AS '{$banner.reports.bannerid$}', BannerName AS '{$banner.reports.bannername$}', BannerCategoryName AS '{$banner.reports.bannercategoryname$}', SUM(HitsCount) AS '{$banner.reports.numberofhits$}'
+FROM Analytics_Statistics
+INNER JOIN Analytics_DayHits ON Analytics_DayHits.HitsStatisticsID = Analytics_Statistics.StatisticsID
+LEFT JOIN CMS_Banner ON Analytics_Statistics.StatisticsObjectID = CMS_Banner.BannerID
+LEFT JOIN CMS_BannerCategory ON CMS_BannerCategory.BannerCategoryID = CMS_Banner.BannerCategoryID
+WHERE (StatisticsCode = @CodeName)
+AND (HitsStartTime >= @FromDate)
+AND (HitsEndTime <= @ToDate)
+AND (StatisticsObjectID = BannerID)
+AND (StatisticsSiteID = @CMSContextCurrentSiteID)
+GROUP BY BannerID, BannerName, BannerCategoryName
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>bannerhit.dayreport</CodeName>
+    <GUID>d9d0e57f-a38f-4c89-997d-87e368458354</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>False</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>10</pagesize>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

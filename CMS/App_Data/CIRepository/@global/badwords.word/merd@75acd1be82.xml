@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<badwords.word>
+  <WordExpression>merd</WordExpression>
+  <WordGUID>79760678-351a-48a8-afd8-c2efbc0f9197</WordGUID>
+  <WordIsGlobal>True</WordIsGlobal>
+  <WordIsRegularExpression>False</WordIsRegularExpression>
+</badwords.word>

@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>FollowerCount-Organic</CodeName>
+    <GUID>a1375bbd-d2d1-45f4-b6aa-a193d4a127dd</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>{$sm.ins.linkedin.follower-count-organic.week$}</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>459ccbdb-fd0c-4170-a90b-9cbdf9440f8d</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportGraph?LinkedIn_follower_count_organic_week%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+&nbsp;
+]]>
+  </ReportLayout>
+  <ReportName>LinkedIn.follower-count-organic.day.weekreport</ReportName>
+  <ReportParameters>
+    <form version="2">
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" columnprecision="7" publicfield="false" guid="e1fcb92e-4342-4ef7-9258-051786a37daf" reftype="Required">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddWeeks(-15).Date|(identity)GlobalAdministrator|(hash)39f4d584a4d3b1309f9e806370a4272f3ee3f889e4f9aecf667c0b5dc5553906%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>CalendarControl</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+          <CheckRange>True</CheckRange>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" columnprecision="7" publicfield="false" guid="31b22c43-56ef-49ad-a4de-fd03f7f1acd5" reftype="Required">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>CalendarControl</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+          <CheckRange>True</CheckRange>
+        </settings>
+      </field>
+      <field column="ExternalID" visible="true" columntype="longtext" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="0daad45a-e3e0-4943-bf83-bfedb926e103" reftype="Required">
+        <properties>
+          <fieldcaption>{$sm.ins.linkedin.account$}</fieldcaption>
+        </properties>
+        <settings>
+          <ReturnColumnType>id</ReturnColumnType>
+          <controlname>Uni_selector</controlname>
+          <AllowEmpty>True</AllowEmpty>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <ValuesSeparator>;</ValuesSeparator>
+          <GlobalObjectSuffix ismacro="True">{$general.global$}</GlobalObjectSuffix>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <OrderBy>LinkedInAccountDisplayName</OrderBy>
+          <ReturnColumnName>LinkedInAccountProfileID</ReturnColumnName>
+          <EncodeOutput>True</EncodeOutput>
+          <ObjectSiteName>#currentsite</ObjectSiteName>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <EditDialogWindowWidth>1000</EditDialogWindowWidth>
+          <SelectionMode>1</SelectionMode>
+          <ItemsPerPage>25</ItemsPerPage>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowAll>False</AllowAll>
+          <EditWindowName>EditWindow</EditWindowName>
+          <UseAutocomplete>False</UseAutocomplete>
+          <AllowDefault>False</AllowDefault>
+          <ObjectType>SM.LinkedInAccount</ObjectType>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+          <EditDialogWindowHeight>700</EditDialogWindowHeight>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+        </settings>
+      </field>
+      <field column="PeriodType" columntype="text" fieldtype="CustomUserControl" columnsize="20" publicfield="false" guid="8858ad28-3859-40a6-abdb-27798fff6d1c" reftype="Required">
+        <properties>
+          <defaultvalue>day</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.DoctorSection</CodeName>
+    <GUID>5306b221-73ff-4d18-bc06-a0edcec1ad7d</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.read$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.read$}</PermissionDisplayName>
+  <PermissionGUID>734e4e4f-b201-48a9-acda-bdfd671c3656</PermissionGUID>
+  <PermissionName>Read</PermissionName>
+  <PermissionOrder>1</PermissionOrder>
+</cms.classpermission>

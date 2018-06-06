@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartlayout>
+  <WebPartLayoutCode>
+<![CDATA[
+<%@ Control Language="C#" AutoEventWireup="true" Inherits="CMSWebParts_Ecommerce_Checkout_Viewers_ShoppingCartTotals" CodeFile="~/CMSWebParts/Ecommerce/Checkout/Viewers/ShoppingCartTotals.ascx.cs" %>
+
+<div id="totalViewer" class="TotalViewer" runat="server" visible="false">
+        <asp:Label ID="lblLabel" Visible="false" runat="server" />
+        <asp:Label ID="lblValue" CssClass="right" runat="server" />
+</div>
+<cms:BasicUniView runat="server" ID="uvMultiBuySummary" Visible="false" />
+]]>
+  </WebPartLayoutCode>
+  <WebPartLayoutCodeName>E-commerceSite-Totals</WebPartLayoutCodeName>
+  <WebPartLayoutDescription />
+  <WebPartLayoutDisplayName>E-commerce Site - Totals</WebPartLayoutDisplayName>
+  <WebPartLayoutGUID>bd28e5b4-a495-492d-90da-c12d204d351e</WebPartLayoutGUID>
+  <WebPartLayoutWebPartID>
+    <CodeName>ShoppingCartTotals</CodeName>
+    <GUID>1e4bbf6c-3f51-48d5-b978-73aaf7bcdf6d</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WebPartLayoutWebPartID>
+</cms.webpartlayout>

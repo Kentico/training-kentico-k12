@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>TaggingCategories</CodeName>
+    <GUID>2dffdb0b-dd29-451f-b14a-37720a4c9e28</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Shows breadcrumb navigation inside the hierarchical categories.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Category breadcrumbs</WebPartDisplayName>
+  <WebPartFileName>TaggingCategories/CategoryBreadcrumbs.ascx</WebPartFileName>
+  <WebPartGUID>160a7173-1b68-4be3-8964-53336d2003dd</WebPartGUID>
+  <WebPartIconClass>icon-w-category-breadcrumbs</WebPartIconClass>
+  <WebPartName>CategoryBreadcrumbs</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Layout">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="BreadcrumbsSeparator" columnsize="200" columntype="text" guid="d1c2ec83-4cf0-47af-981b-4cdad244122b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Breadcrumbs separator</fieldcaption>
+          <fielddescription>
+            <![CDATA[Piece of HTML code used to separate items in breadcrumbs.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="BreadcrumbsSeparatorRTL" columnsize="200" columntype="text" guid="49bfc8b8-c6b3-4d61-8e37-00f10a4bb931" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Breadcrumbs separator RTL</fieldcaption>
+          <fielddescription>
+            <![CDATA[Piece of HTML code used to separate items in RTL breadcrumbs.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="BreadcrumbsRoot" columnsize="400" columntype="text" guid="92507870-885c-4367-915d-e57f12e110b2" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Breadcrumbs root</fieldcaption>
+          <fielddescription>Text displayed before breadcrumb.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="BreadcrumbsStartingCategory" columnsize="250" columntype="text" guid="11fc92e2-ba9a-45b6-be0d-8f4763b536af" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Starting category</fieldcaption>
+          <fielddescription>
+            <![CDATA[Code name of the category the path should start from, if empty the whole path to category is displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>categoryselector</controlname>
+          <DisplayGeneralCategories>True</DisplayGeneralCategories>
+          <DisplayPersonalCategories>False</DisplayPersonalCategories>
+        </settings>
+      </field>
+      <field allowempty="true" column="BreadcrumbContentBefore" columnsize="250" columntype="text" guid="bae1a57f-5c20-40e0-8a1f-7d65754757f1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Breadcrumb content before</fieldcaption>
+          <fielddescription>
+            <![CDATA[HTML code rendered before each part of breadcrumb navigation.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="BreadcrumbContentAfter" columnsize="250" columntype="text" guid="29a66043-f5c0-4053-8ab0-bb49c8433edb" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Breadcrumb content after</fieldcaption>
+          <fielddescription>
+            <![CDATA[HTML code rendered after each part of breadcrumb navigation.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ShowCurrentItem" columntype="boolean" guid="24d4d4c8-4e46-4c21-aa29-bd8b2bb53c4a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show current item</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if current category will be included in the breadcrumbs.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ShowCurrentItemAsLink" columntype="boolean" guid="7633d60e-523d-48ca-bf41-d8b6d8ff6489" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show current item as link</fieldcaption>
+          <fielddescription>Indicates if current category is rendered as link.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Settings">
+        <properties>
+          <caption>Navigation</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CategoriesPagePath" columnsize="400" columntype="text" guid="643d7083-195f-465d-9762-25753629fee6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Categories page path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Alias path of the page where user is navigated after he clicks the category.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CategoriesPageTarget" columnsize="200" columntype="text" guid="af713300-a766-42b1-866f-5eedf926821a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Categories page target</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the name of the target frame in which the navigation links will be opened. For example: _blank]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UseCodeNameInQuery" columntype="boolean" guid="d12492e8-cc13-48fe-aade-600d94117a32" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Use code name in URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if category code name will be used in query parameter. Category ID is used when unchecked.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="No_data_behavior">
+        <properties>
+          <caption>No data behavior</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="HideControlForZeroRows" columntype="boolean" guid="938c0f6e-c10f-4839-a207-0b5ab38672c8" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Hide web part if no category</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the web part should be hidden if no items to be displayed are retrieved.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Settings2">
+        <properties>
+          <caption>Settings</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="RenderLinkTitle" columntype="boolean" guid="b1cff6cf-e1ba-4e29-aedf-46aedb583a3f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Render link title</fieldcaption>
+          <fielddescription>
+            <![CDATA[If enabled, the breadrumbs will render category names as Title attributes (tooltips) for all links. This can improve the accessibility of your website.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Categories</CodeName>
+    <GUID>aafd78f2-91f7-47cc-bf0b-d1a048d9540a</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

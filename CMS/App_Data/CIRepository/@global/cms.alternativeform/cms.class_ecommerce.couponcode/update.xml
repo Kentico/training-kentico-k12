@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>ecommerce.couponcode</CodeName>
+    <GUID>5728f337-da95-4e98-8a90-693212730929</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <field column="CouponCodeCode">
+        <settings>
+          <controlname>labelcontrol</controlname>
+          <FilterType />
+          <ValidChars />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <Trim />
+          <AutoCompleteFirstRowSelected />
+          <FilterMode />
+          <AutoCompleteEnableCaching />
+        </settings>
+        <properties>
+          <inputcontrolstyle>width:100px; white-space: nowrap;</inputcontrolstyle>
+        </properties>
+      </field>
+      <field column="CouponCodeUseCount" order="2">
+        <properties>
+          <enabledmacro ismacro="true">{%false%}</enabledmacro>
+          <inputcontrolstyle>width:100px;</inputcontrolstyle>
+        </properties>
+      </field>
+      <field column="CouponCodeUseLimit" order="3">
+        <properties>
+          <contentafter ismacro="true">
+            <![CDATA[<span class="form-control-text">{% GetResourceString("com.couponcode.times") |(identity)GlobalAdministrator|(hash)e4e49a9eb6f774acc6a6b870bb1eacca8e7b7aeb6a951164f118d7a219658981%}</span>]]>
+          </contentafter>
+          <validationerrormessage ismacro="true">
+<![CDATA[
+{% FormatString(GetResourceString("com.discount.codeupdatelimiterror"), CouponCodeUseCount) |(identity)GlobalAdministrator|(hash)418181419afb800b2eae4968a1b4ac4bbb0d86932426e5f38648f76f2abd6d09%}
+
+
+]]>
+          </validationerrormessage>
+        </properties>
+      </field>
+    </form>
+  </FormDefinition>
+  <FormDisplayName>update</FormDisplayName>
+  <FormGUID>277b58a4-afb2-4996-8f7e-5c3f210bd9ef</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>Update</FormName>
+</cms.alternativeform>

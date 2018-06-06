@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.SocialLink</CodeName>
+    <GUID>aee0a1e5-c919-4174-82a7-a16be86b7de9</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.exploretree$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.exploretree$}</PermissionDisplayName>
+  <PermissionGUID>6b321e57-dc2d-4fab-9116-385c0f96505d</PermissionGUID>
+  <PermissionName>ExploreTree</PermissionName>
+  <PermissionOrder>7</PermissionOrder>
+</cms.classpermission>

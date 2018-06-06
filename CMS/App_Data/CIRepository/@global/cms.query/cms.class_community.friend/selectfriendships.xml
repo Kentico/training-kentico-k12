@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>community.friend</CodeName>
+    <GUID>82c1f83e-19ca-4567-8d02-3d8c271e91bd</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>77b4370e-1047-46ee-9f6f-c21af76d5428</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectfriendships</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT ##TOPN## ##COLUMNS## FROM ((SELECT * FROM View_Community_Friend_Friends WHERE FriendRequestedUserID=@UserID) 
+UNION ALL 
+(SELECT * FROM View_Community_Friend_RequestedFriends WHERE FriendUserID=@UserID)) Friendships WHERE (##WHERE##) ORDER BY ##ORDERBY##
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

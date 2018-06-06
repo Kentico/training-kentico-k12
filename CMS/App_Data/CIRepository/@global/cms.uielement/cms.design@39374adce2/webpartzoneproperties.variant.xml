@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$content.ui.variant$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>{$content.ui.variant$}</ElementDisplayName>
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>beddc0cd-ceb3-4bd6-bb43-f9fb86bb38ac</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>WebPartZoneProperties.Variant</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementParentID>
+    <CodeName>Design.WebPartZoneProperties</CodeName>
+    <GUID>b30b9fc3-b193-4c6e-89ae-54c4f0fc7dcb</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties />
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL />
+  <ElementType>url</ElementType>
+</cms.uielement>

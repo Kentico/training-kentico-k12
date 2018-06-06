@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>CMS.File</CodeName>
+    <GUID>5b168902-89b2-448f-9357-277df7dc7291</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<img src="<%# GetAttachmentUrlByGUID(Eval("FileAttachment"), Eval("NodeAlias")) %>" title="<%# Eval("FileName",true) %>" alt="" />
+
+]]>
+  </TransformationCode>
+  <TransformationCSS />
+  <TransformationGUID>6440767f-166e-4e66-960a-41048df70eb6</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>LightboxSelected</TransformationName>
+  <TransformationType>ascx</TransformationType>
+</cms.transformation>

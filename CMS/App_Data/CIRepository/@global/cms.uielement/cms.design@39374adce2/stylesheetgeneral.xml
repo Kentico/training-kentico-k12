@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.general$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$general.general$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>ab290fd4-f707-45b8-944c-7e0f256f2be8</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>StylesheetGeneral</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementParentID>
+    <CodeName>EditStylesheet</CodeName>
+    <GUID>7b0ce98c-4b39-4c16-9fb9-9d396fb9053e</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_header>False</category_name_header>
+      <defaultformlayout>Divs</defaultformlayout>
+      <defaultfieldlayout>default</defaultfieldlayout>
+      <cssclass>MaxWidth</cssclass>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+      <category_name_custom>False</category_name_custom>
+      <includejquery>False</includejquery>
+      <category_name_codebehind>False</category_name_codebehind>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <category_name_javascript>False</category_name_javascript>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/cmsmodules/cssstylesheets/pages/CssStylesheet_General.aspx?objectid={?objectid?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

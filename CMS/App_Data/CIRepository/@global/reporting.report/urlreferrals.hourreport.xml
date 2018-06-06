@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>Refferals</CodeName>
+    <GUID>abd1d9dd-adaf-4f02-98ce-5bc8f7aa3c8d</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>Referring URLs - Hourly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>8d8e4e67-766f-4846-b297-d3edd1f7a054</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportTable?urlreferrals.hourreport.table%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}
+]]>
+  </ReportLayout>
+  <ReportName>urlreferrals.hourreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="5fa7787d-1cec-4ec8-a33d-69f448353bec" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddDays(-1)|(identity)GlobalAdministrator|(hash)230c5aa080435c1b12017e4619da038aff35e44326687e7b615b5133a90954d4%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>True</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="196d77b8-a8ee-4d49-b801-b06ae1ecbd7a" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>True</EditTime>
+        </settings>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="40" publicfield="false" spellcheck="false" guid="00000000-0000-0000-0000-000000000000">
+        <properties>
+          <defaultvalue>urlreferrals</defaultvalue>
+          <fieldcaption>Code Name</fieldcaption>
+        </properties>
+        <settings>
+          <query>
+            <![CDATA[SELECT DISTINCT StatisticsCode, StatisticsCode FROM Analytics_Statistics]]>
+          </query>
+          <controlname>dropdownlistcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

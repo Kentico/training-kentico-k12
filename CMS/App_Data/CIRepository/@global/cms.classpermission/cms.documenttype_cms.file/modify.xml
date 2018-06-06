@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>CMS.File</CodeName>
+    <GUID>5b168902-89b2-448f-9357-277df7dc7291</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.modify$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.modify$}</PermissionDisplayName>
+  <PermissionGUID>3efc4b6c-7d0f-4092-9793-124b8868610d</PermissionGUID>
+  <PermissionName>Modify</PermissionName>
+  <PermissionOrder>2</PermissionOrder>
+</cms.classpermission>

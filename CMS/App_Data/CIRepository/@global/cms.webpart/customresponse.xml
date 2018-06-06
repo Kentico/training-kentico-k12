@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>General</CodeName>
+    <GUID>c4dcc9a6-220e-4efe-b264-288b53d08da6</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Adding this web part to a page causes it to return a custom HTTP response when the page is requested. The response is only generated on the live site.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Custom response</WebPartDisplayName>
+  <WebPartDocumentation>
+    <![CDATA[For example, the web part can be used to create a page that provides a robots.txt response for web crawlers, as described in&nbsp;<a href="~/CMSPages/GetDocLink.ashx?link=robotstxt_managing" target="_blank">Managing robots.txt</a>.]]>
+  </WebPartDocumentation>
+  <WebPartFileName>General/CustomResponse.ascx</WebPartFileName>
+  <WebPartGUID>b8bc1ad0-521a-4f20-a1aa-9637bddd4360</WebPartGUID>
+  <WebPartIconClass>icon-w-custom-response</WebPartIconClass>
+  <WebPartName>CustomResponse</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="ContentType" columnsize="50" columntype="text" guid="4748ae31-8f2d-4efb-b7da-1ef26ce09df4" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>text/plain</defaultvalue>
+          <fieldcaption>Content type</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the content type (MIME type) of the HTTP response. For example: text/plain, text/xml etc.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="Encoding" columnsize="100" columntype="text" guid="79aa34ef-5e98-481f-8b91-36edbb474d19" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>UTF-8</defaultvalue>
+          <fieldcaption>Encoding</fieldcaption>
+          <fielddescription>Sets the character encoding type of the response.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="StatusCode" columnsize="10" columntype="text" guid="d1a81ab6-6d60-4e44-bb8e-b084fee3ef8b" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>200</defaultvalue>
+          <fieldcaption>Status code</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the numeric status code of the generated HTTP response.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ContentDisposition" columnsize="1000" columntype="text" guid="b36db8fc-1ff6-499b-a450-26aa48531d1d" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Content disposition</fieldcaption>
+          <fielddescription>
+            <![CDATA[May be used to specify the content disposition value of the response. Possible values are "inline" for automatically displayed content or "attachment" if you wish to raise a file download dialog.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>Columns</controlname>
+          <QueryPart>0</QueryPart>
+        </settings>
+      </field>
+      <field allowempty="true" column="Content" columntype="longtext" guid="5c32b243-7e7d-494a-bc3e-6c6007cf1bdb" publicfield="false" translatefield="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Content</fieldcaption>
+          <fielddescription>Used to enter the content of the HTTP response.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>4</WebPartType>
+</cms.webpart>

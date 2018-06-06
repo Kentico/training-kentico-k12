@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Chat</CodeName>
+    <GUID>68de8907-2d63-4f1f-90a4-57447cf79ea2</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>{$chat.webparts.roomname.description$}</WebPartDescription>
+  <WebPartDisplayName>Chat room name</WebPartDisplayName>
+  <WebPartFileName>Chat/ChatRoomName.ascx</WebPartFileName>
+  <WebPartGUID>1597b544-4dad-46e1-a8be-99dd1629c6de</WebPartGUID>
+  <WebPartIconClass>icon-w-chat-room-name</WebPartIconClass>
+  <WebPartName>ChatRoomName</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field allowempty="true" column="GroupID" columnsize="25" columntype="text" guid="b2b5f696-ccca-498f-93ff-0dbb62654dbd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>DefaultGroup</defaultvalue>
+          <fieldcaption>{$chat.webparts.properties.groupnamecaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.groupnamedescription$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <FilterType>0;1;2</FilterType>
+          <Trim>True</Trim>
+        </settings>
+      </field>
+      <field column="DisplayInitialTitle" columntype="boolean" guid="acab45be-1002-41d8-a80c-2f32970ab01c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.roomname.initialtitlecaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.roomname.initialtitle$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="InitialTitle" columnsize="300" columntype="text" guid="e059b0b9-6205-43c5-aa7f-3bc2d4a441a6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.roomname.custominitialtitlecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.roomname.custominitialtitle$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textbox_default_value_from_setting</controlname>
+          <Trim>True</Trim>
+          <WatermarkValueKey>chat.roomname.initialtitle</WatermarkValueKey>
+          <WatermarkValueSourceType>1</WatermarkValueSourceType>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatRoomNameTransformationName" columnsize="250" columntype="text" guid="4d4bfbc9-18e5-4789-a35a-4b5e03575107" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.roomname.nametranscaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.roomname.nametrans$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomNameTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

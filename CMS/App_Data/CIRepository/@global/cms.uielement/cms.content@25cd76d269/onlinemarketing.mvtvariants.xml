@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$mvtvariant.list$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>MVT variants</ElementDisplayName>
+  <ElementFeature>MVTesting</ElementFeature>
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>73d4510b-7cee-4fc2-a49f-f840a56f0366</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>OnlineMarketing.MVTVariants</ElementName>
+  <ElementOrder>5</ElementOrder>
+  <ElementParentID>
+    <CodeName>Analytics</CodeName>
+    <GUID>ec7743a3-cee6-4873-bbe5-e9d4f130a081</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Content</CodeName>
+    <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/OnlineMarketing/Pages/Content/MVTVariant/List.aspx?nodeid={?nodeid?}&documentid={?documentid?}&culture={?culture?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition>
+    <![CDATA[{%System.IsModuleLoaded("CMS.OnlineMarketing")|(identity)GlobalAdministrator|(hash)877574ce2c8eb291aa4800f1a7c474df2d54ba5b3f8f89b3b3fdda1299e8777a%}]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

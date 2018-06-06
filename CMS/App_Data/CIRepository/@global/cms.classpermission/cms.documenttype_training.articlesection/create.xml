@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.ArticleSection</CodeName>
+    <GUID>da7ae47d-2aa6-442e-82b5-c05be448edc9</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.createanywhere$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.createanywhere$}</PermissionDisplayName>
+  <PermissionGUID>892d2756-3cf0-4458-8a03-cc0a078da4b4</PermissionGUID>
+  <PermissionName>Create</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+</cms.classpermission>

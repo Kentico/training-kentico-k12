@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>ScreenResolution</CodeName>
+    <GUID>1d197150-65da-44ea-9dab-473e445fabd8</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>Screen resolution - Yearly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>b51071ab-ec84-4e33-9fb9-d6a1266ec3ce</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<p>
+	%%control:ReportGraph?screenresolution.yearreport.graph_pie%%<br />
+	<br />
+	%%control:ReportTable?screenresolution.yearreport.table%%<br />
+	<br />
+	{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}</p>
+
+]]>
+  </ReportLayout>
+  <ReportName>screenresolution.yearreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="3a2bc443-7e96-4929-8f85-d09e0d4e47d3" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-6).Date|(identity)GlobalAdministrator|(hash)d9a3c920a9d67df1bc91dbf32c715c57d54fccffb44cbc4af901f99c99b1670e%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="ed1cb074-89d2-4576-a6c8-f451121f5269" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="50" publicfield="false" guid="ac0084c9-b77f-4711-8bea-0465c2346d1d" visibility="none">
+        <properties>
+          <defaultvalue>screenresolution</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

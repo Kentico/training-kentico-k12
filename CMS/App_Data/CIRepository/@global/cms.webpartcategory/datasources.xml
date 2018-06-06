@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Data sources</CategoryDisplayName>
+  <CategoryGUID>36984e99-1ff8-464a-8788-b1ab4afaa585</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>DataSources</CategoryName>
+  <CategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>d782b5c3-27f3-45e6-a5cc-86c1944e2c8d</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition />
+  <ElementCaption>{$customtable.header.data$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>{$customtable.header.data$}</ElementDisplayName>
+  <ElementFeature />
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>a424cd7e-9c52-4587-b087-f5964b165cbf</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Data</ElementName>
+  <ElementOrder>9</ElementOrder>
+  <ElementParentID>
+    <CodeName>EditCustomTable</CodeName>
+    <GUID>5399424e-1200-40a7-a108-e4e86d238a56</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.CustomTables</CodeName>
+      <GUID>99fac5bf-4371-473b-823a-d6f903a78f50</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.CustomTables</CodeName>
+    <GUID>99fac5bf-4371-473b-823a-d6f903a78f50</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[{%EditedObject.ClassListPageURL == "" ? "~/CMSModules/CustomTables/Tools/CustomTable_Data_List.aspx?sm=1" : EditedObject.ClassListPageURL + "?sm=1" |(identity)GlobalAdministrator|(hash)090f9560b0f0cbe99bc5b05d4765136ac1194e5fd50c93abc42d13053e58625f%}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition />
+</cms.uielement>

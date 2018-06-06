@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Device profiles</CategoryDisplayName>
+  <CategoryGUID>953bd274-80bb-4902-b468-dc6d7b4311fe</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>Device_profile</CategoryName>
+  <CategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>d782b5c3-27f3-45e6-a5cc-86c1944e2c8d</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

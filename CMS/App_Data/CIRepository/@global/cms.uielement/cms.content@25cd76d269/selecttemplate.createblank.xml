@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption />
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$content.ui.createblank$}</ElementDisplayName>
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>fe219366-ce03-4d4f-a142-c036398a8ad3</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>SelectTemplate.CreateBlank</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>New.SelectTemplate</CodeName>
+    <GUID>555ea8b6-a655-4d82-89c8-168a63396d17</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Content</CodeName>
+    <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL />
+</cms.uielement>

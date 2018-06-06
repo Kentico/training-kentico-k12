@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>table</TableDisplayName>
+  <TableGUID>03b25306-c49e-49ed-a9ad-04441dc381f8</TableGUID>
+  <TableName>table</TableName>
+  <TableQuery>
+<![CDATA[
+EXEC Proc_Analytics_RemoveTempTable 
+ CREATE TABLE #AnalyticsTempTable (  
+  Hits DECIMAL (15,2),
+  Name NVARCHAR(300) COLLATE database_default,  
+  Culture NVARCHAR(300) COLLATE database_default,   
+  Page NVARCHAR(300) COLLATE database_default,
+  DisplayName NVARCHAR(300) COLLATE database_default     
+);
+
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'year');
+SET @ToDate = {%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'year');
+
+INSERT INTO #AnalyticsTempTable (DisplayName,Hits,Name,Page,Culture)
+SELECT X.Name AS DisplayName, CAST (ISNULL(X.Hits,0) AS DECIMAL (15,2)) AS Hits, X.MVTCombinationName AS Name,X.MVTestPage AS Page,X.MVTestCulture AS Culture
+FROM
+(
+SELECT
+   CASE
+      WHEN MVTCombinationCustomName  IS NULL OR MVTCombinationCustomName='' THEN MVTCombinationName
+      ELSE MVTCombinationCustomName
+    END   
+    AS Name,MVTCombinationName, ISNULL(SUM (HitsCount),0) AS Hits ,MVTestPage, MVTestCulture
+ FROM Analytics_Statistics
+ INNER JOIN OM_MVTCombination ON
+  MVTCombinationPageTemplateID IN ( SELECT 
+  CASE 
+	WHEN [NodeTemplateForAllCultures] = 1 AND NodeTemplateID <> 0  THEN NodeTemplateID
+	ELSE [DocumentPageTemplateID]
+   END    
+  FROM View_CMS_Tree_Joined WHERE NodeSiteID = @CMSContextCurrentSiteID
+        AND NodeAliasPath IN(SELECT MVTestPage FROM OM_MVTest WHERE MVTestName = @MVTestName AND MVTestSiteID = @CMSContextCurrentSiteID)                        
+        AND DocumentCulture = StatisticsObjectCulture)         
+        AND ISNULL(@ConversionName,'') IN ('',StatisticsObjectName)
+  LEFT JOIN Analytics_YearHits ON StatisticsID = HitsStatisticsID  
+  LEFT JOIN OM_MVTest ON MVTestName = @MVTestName AND MVTestSiteID = @CMSContextCurrentSiteID
+
+ WHERE   (StatisticsSiteID = @CMSContextCurrentSiteID ) AND StatisticsCode LIKE 'mvtconversion;%' AND
+ @MVTestName = SUBSTRING(StatisticsCode, 15, CHARINDEX(';',StatisticsCode,15)-15) AND
+ MVTCombinationName = (SUBSTRING(StatisticsCode,LEN ('mvtconversion;'+@MVTestName+';')+1,LEN (StatisticsCode)))
+ AND (HitsStartTime >= @FromDate) AND (HitsEndTime <= @ToDate)
+ 
+ GROUP BY MVTCombinationName, MVTestPage, MVTestCulture,
+   CASE
+      WHEN MVTCombinationCustomName  IS NULL OR MVTCombinationCustomName='' THEN MVTCombinationName
+      ELSE MVTCombinationCustomName
+    END
+) AS X
+ 
+  UPDATE #AnalyticsTempTable SET Hits = Hits/
+     (
+   SELECT CAST (SUM (HitsCount) AS DECIMAL (15,2)) FROM Analytics_Statistics
+   JOIN Analytics_YearHits ON Analytics_Statistics.StatisticsID = Analytics_YearHits.HitsStatisticsID
+   WHERE Analytics_Statistics.StatisticsCode = 'pageviews'  
+   AND (HitsStartTime >= @FromDate) AND (HitsEndTime <= @ToDate)
+   AND Analytics_Statistics.StatisticsObjectID IN
+   (SELECT NodeID FROM View_CMS_Tree_Joined WHERE NodeAliasPath = Page AND NodeSiteID = @CMSContextCurrentSiteID)
+    AND (StatisticsObjectCulture = Culture OR Culture IS NULL)    
+   )
+   *100    
+   
+   SELECT DisplayName AS '{$mvtcombination.name$}',
+   CAST (CAST (ISNULL (Hits,0) AS DECIMAL (15,1)) AS NVARCHAR(15)) + '%' AS '{$om.selectedperiod$}' 
+   FROM #AnalyticsTempTable
+   ORDER BY Hits DESC
+  
+ EXEC Proc_Analytics_RemoveTempTable
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>mvtestconversionrate.yearreport</CodeName>
+    <GUID>2f911b94-9f9b-4b61-b91b-c0cc5a32b775</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>True</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>15</pagesize>
+      <querynorecordtext>No data found</querynorecordtext>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlAssemblyName>CMS.FormEngine.Web.UI</UserControlAssemblyName>
+  <UserControlClassName>CMS.FormEngine.Web.UI.RecaptchaControl</UserControlClassName>
+  <UserControlCodeName>ReCAPTCHA</UserControlCodeName>
+  <UserControlDefaultDataType>text</UserControlDefaultDataType>
+  <UserControlDefaultDataTypeSize>1</UserControlDefaultDataTypeSize>
+  <UserControlDescription>
+    <![CDATA[Provides a robust CAPTCHA service based on reCAPTCHA, which requires the user to click a checkbox indicating the user is not a robot. This will either pass the user immediately (with No CAPTCHA) or challenge them to validate whether or not they are human.]]>
+  </UserControlDescription>
+  <UserControlDisplayName>reCAPTCHA</UserControlDisplayName>
+  <UserControlFileName />
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>e22078f1-e5b4-4879-9040-216ab2cbf11d</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <category name="General">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Theme" columnsize="10" columntype="text" guid="f51ccf2d-a926-4eb9-8863-8687658c4559" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>light</defaultvalue>
+          <fieldcaption>Control theme</fieldcaption>
+          <fielddescription>Choose a design theme for the control.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>DropDownListControl</controlname>
+          <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+light;Light
+dark;Dark
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="Type" columnsize="10" columntype="text" guid="172e6dd5-d22b-4447-8655-fa1572371807" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>image</defaultvalue>
+          <fieldcaption>Type</fieldcaption>
+          <fielddescription>The type of CAPTCHA to serve.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>DropDownListControl</controlname>
+          <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+image;Image
+audio;Audio
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="Size" columnsize="10" columntype="text" guid="a60fce38-8179-40f0-8334-af4c55379cd7" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>normal</defaultvalue>
+          <fieldcaption>Size</fieldcaption>
+          <fielddescription>The size of the reCAPTCHA widget.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>DropDownListControl</controlname>
+          <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+normal;Normal
+compact;Compact
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlShowInBizForms>True</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>True</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>True</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>False</UserControlShowInWebParts>
+  <UserControlType>7</UserControlType>
+</cms.formusercontrol>

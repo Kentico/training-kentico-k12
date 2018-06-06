@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Chat.Transformations</CodeName>
+    <GUID>bf7ea731-502b-43b5-ac6f-153551edb84d</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Delete</PermissionDisplayName>
+  <PermissionGUID>1bbfd4ce-386d-4e59-aaf1-ffcb1b5d9bb0</PermissionGUID>
+  <PermissionName>Delete</PermissionName>
+  <PermissionOrder>5</PermissionOrder>
+</cms.classpermission>

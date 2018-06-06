@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.HomeSection</CodeName>
+    <GUID>ec9ce807-e456-4f65-9963-ba5484fee46f</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.delete$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$general.delete$}</PermissionDisplayName>
+  <PermissionGUID>81dfb706-9690-4237-adde-dca9a9d5a122</PermissionGUID>
+  <PermissionName>Delete</PermissionName>
+  <PermissionOrder>5</PermissionOrder>
+</cms.classpermission>

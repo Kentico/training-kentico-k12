@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>E-commerce</CategoryDisplayName>
+  <CategoryGUID>ffac0d01-f2df-4bbf-b110-d8ee88051988</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>E-commerce</CategoryName>
+  <CategoryParentID>
+    <CodeName>DataSources</CodeName>
+    <GUID>36984e99-1ff8-464a-8788-b1ab4afaa585</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

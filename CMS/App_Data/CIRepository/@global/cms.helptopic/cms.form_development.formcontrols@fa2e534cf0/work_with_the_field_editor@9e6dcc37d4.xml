@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>58c808c0-5330-472c-9cc7-a819f927e925</HelpTopicGUID>
+  <HelpTopicLink>field_editor_ref</HelpTopicLink>
+  <HelpTopicName>Work with the field editor</HelpTopicName>
+  <HelpTopicOrder>5</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.FormControls</CodeName>
+    <GUID>29937e43-bd20-4fb0-80f5-cddc4dc595c0</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Form</CodeName>
+      <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

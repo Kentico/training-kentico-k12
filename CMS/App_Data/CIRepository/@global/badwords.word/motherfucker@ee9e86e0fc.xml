@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<badwords.word>
+  <WordExpression>motherfucker</WordExpression>
+  <WordGUID>8dc7be1d-ba2e-4085-b681-f611a34b0168</WordGUID>
+  <WordIsGlobal>True</WordIsGlobal>
+  <WordIsRegularExpression>False</WordIsRegularExpression>
+</badwords.word>

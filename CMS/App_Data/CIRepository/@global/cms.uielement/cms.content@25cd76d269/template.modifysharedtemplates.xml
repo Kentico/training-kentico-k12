@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption />
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$content.ui.sharedtemplates$}</ElementDisplayName>
+  <ElementFromVersion>5.0</ElementFromVersion>
+  <ElementGUID>d46c2189-92f5-45b7-a34f-d21e8b342a67</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Template.ModifySharedTemplates</ElementName>
+  <ElementOrder>5</ElementOrder>
+  <ElementParentID>
+    <CodeName>Properties.Template</CodeName>
+    <GUID>5bcc2097-7efa-49a7-9bb2-1c53b6bbbcc4</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Content</CodeName>
+    <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL />
+</cms.uielement>

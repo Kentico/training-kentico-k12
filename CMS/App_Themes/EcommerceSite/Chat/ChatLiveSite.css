@@ -1,0 +1,803 @@
+﻿.ChatWebpartContainer{
+	overflow:hidden;
+		font-size:12px;
+}
+
+.ChatWebpart .ChatWebpartContainerNotification
+{
+	font-size:11px;
+		line-height: 23px;
+		padding-right: 5px;
+}
+
+.ChatWebpartContainerLogin .LoginButtons{
+	margin-top:7px;
+}
+
+.ChatWebPartPaging{
+	word-wrap:break-word;
+}
+
+.ChatMessage:hover, .ChatRoomUser:hover, .ChatRoomListItem:hover
+{
+	background-color: #eeeeee;
+}
+
+.RejectButton,
+.KickButton,
+.PermaKickButton,
+.AbandonButton,
+.DeleteButton,
+.EditButton,
+.AddAdminButton,
+.DeleteAdminButton
+{
+	display: none;
+		float: right;
+}
+
+.ChatMessage:hover .RejectButton,
+.ChatRoomUser:hover .KickButton,
+.ChatRoomUser:hover .PermaKickButton,
+.ChatRoomUser:hover .AddAdminButton,
+.ChatRoomUser:hover .DeleteAdminButton,
+.ChatRoomListItem:hover .AbandonButton,
+.ChatRoomListItem:hover .DeleteButton,
+.ChatRoomListItem:hover .EditButton
+{
+	display: block;
+}
+
+.ChatMessage .System{
+	font-style:italic;
+		color:#AAA;
+}
+.ChatMessage .System.Greeting{
+	color:#66aa00;
+		font-weight:bold;
+}
+.ChatMessage .PostedTime{
+	font-style:italic;
+}
+.ChatMessage .Modified{
+	color:#0000FF;
+}
+.ChatMessage .Rejected{
+	color:#FF0000;
+}
+.ChatMessage .Whisper{
+	color:#906090;
+}
+
+
+.RejectButton img,
+.KickButton img,
+.PermaKickButton img,
+.AbandonButton img,
+.DeleteButton img,
+.EditButton img,
+.AddAdminButton img,
+.DeleteAdminButton img
+{
+	vertical-align: text-top;
+		border-width: 0;
+		margin-left: 3px;
+		margin-top:1px;
+}
+
+.DisabledWebpart
+{
+	display:none;
+}
+
+.EnabledWebpart
+{
+	display:block;
+}
+
+.Chatbtn-primary
+{
+	margin-top: 15px !important;
+}
+
+.ChatRoomsWPLoading, 
+.ChatRoomUsersWPLoading,
+.ChatRoomNameWPLoading,
+.ChatSearchOnlineUsersWPLoading,
+.ChatOnlineUsersWPLoading
+{
+	background: url('../../../CMSPages/GetResource.ashx?image=Design/Preloaders/preload20.gif') no-repeat left top;
+		padding-left: 25px;
+		min-height: 25px;
+}
+
+.ChatMessagesWPLoading
+{
+	background: url('../../../CMSPages/GetResource.ashx?image=Design/Preloaders/preload64.gif') no-repeat center top;
+		padding-top: 70px;
+		min-height: 90px;
+		text-align: center;
+}
+
+.ChatRoomListItemDescription
+{
+	padding: 3px;
+		padding-left: 8px;
+		color: Gray;
+}
+
+.ChatDialogContent
+{
+	padding: 5px;
+		background-color: White;
+		min-height: 50px;
+}
+
+.ChatPassDialogContent input
+{
+	margin-top: 5px;
+}
+
+.ChatDialogContentCreateRoom table td
+{
+	text-align: left;
+}
+
+.ChatDialogHeader
+{
+		font-size: 20px;
+		padding: 5px;
+}
+
+.ChatDialogHeader img
+{
+		margin-right: 10px;
+}
+
+.ChatDialogFooter
+{
+	padding: 5px;
+}
+
+.ChatDialogBody
+{
+		border: 1px solid Black;
+		background-color: #CCC;
+		display: none;
+		text-align: left;
+}
+
+.ChatPassDialogBody
+{
+	width: 300px;
+}
+
+.ChatDialogFooterButtons
+{
+		text-align: right;
+		margin-top: 10px;
+}
+
+
+
+.ChatWebPartPaging ul
+{
+	margin:0 0 5px 0;
+		padding:0;
+		
+}
+.ChatWebPartPaging ul li
+{
+	margin:0;
+		padding:0 2px;
+		list-style:none;
+		display:inline;
+}
+
+.ChatWebPartPaging ul li.ActivePage 
+{
+	color: #999;
+}
+
+.ChatNotificationButtons
+{
+	text-align: right;
+}
+
+.ChatNotificationButton
+{
+	width: 80px;
+		margin-left: 5px;
+}
+
+
+.ChatWebpartLeftCol{
+	float:left;
+		width:250px;
+}
+
+.ChatWebpartRightCol{
+	float:right;
+		width:680px;
+}
+
+
+
+
+
+/* 
+ * Chat design 
+ *
+ */
+ 
+.LiveSiteDialog .ChatWebpartContainerRoomUsers, .LiveSiteDialog .ChatWebpartContainerRooms
+{
+	padding-bottom: 2px;
+}
+ 
+ .ChatWebpartContainerLeaveRoom .btn-primary
+{
+	background: #7ba1c5 url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/btn_leave.png") repeat-x top left !important;
+	color: #fff !important;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid #436c89 !important;
+	margin-top: 2px;
+	margin-left: 5px;
+}
+
+.IE7 .ChatWebpartHeader .btn-primary
+{
+	margin-top: 0;
+}
+
+.ChatWebpartHeader .ChatWebpartEnvelope 
+{
+	text-align: right;
+}
+
+.grayBoxWH
+{
+	background-color: #f4f4f4;
+	border: 1px solid #dfdfdf;
+	margin-bottom: 10px;
+}
+
+.grayBoxWH .inner
+{
+	padding: 3px 12px 8px;
+}
+
+.grayBoxWH h2
+{
+	background: #c3c3c3 url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_boxHeader.png") repeat-x top left;
+	font-family: Tahoma;
+	font-size: 11px;
+	padding-left: 12px;
+	height: 25px;
+	line-height: 25px;
+	padding-top:0px;
+	margin-top:0;
+	color:#000000;
+}
+
+.grayBoxWH.dark h2
+{
+	background: #3a3a3a url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_darkBoxHeader.png") repeat-x top left;
+	color: #fff;
+}
+
+.grayBoxWH input[type="submit"], .grayBoxWH .btn-primary, .LiveSiteDialog input[type="submit"].btn-primary, .LiveSiteDialog input[type="submit"], .ChatDialogBody input[type="submit"],
+.ChatDialogContent input[type="submit"], .ChatNotificationButton, .ChatWebpartContainerSupportRequest input[type="button"], .LiveSiteDialog input[type="submit"]
+{
+	background: #c3c3c3 url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_button.png") repeat-x top left !important;
+	 border: 1px solid #a7a7a7 !important;
+	 font-weight: bold;
+	 padding: 2px 8px;
+	 width: auto !important;
+	 color: #000000 !important;
+	 min-width: 100px;
+	 height: auto !important;
+	 top:0 !important;
+	 font-size: 13px;     
+}
+
+.ChatWebpartContainerSupportRequest input[type="button"]
+{
+	font-size: 12px;
+}
+
+.IE8 .grayBoxWH input[type="submit"], .IE8 .grayBoxWH .btn-primary, .IE8 .LiveSiteDialog input[type="submit"].btn-primary, .IE8 .ChatDialogBody input[type="submit"],
+.IE8 .ChatDialogContent input[type="submit"], .IE8 .ChatNotificationButton, .IE9 .grayBoxWH input[type="submit"], .IE9 .grayBoxWH .btn-primary, .IE9 .LiveSiteDialog input[type="submit"].btn-primary, .IE9 .ChatDialogBody input[type="submit"],
+.IE9 .ChatDialogContent input[type="submit"], .IE9 .ChatNotificationButton, .IE9 .ChatNotificationButtons input[type="submit"].btn-primary, .IE8 .ChatWebpartContainerSupportRequest input[type="button"], .IE9 .ChatWebpartContainerSupportRequest input[type="button"]
+{
+	  padding: 3px 10px 2px 10px;   
+}
+
+.IE7 .grayBoxWH input[type="submit"], .IE7 .grayBoxWH .btn-primary, .IE7 .LiveSiteDialog input[type="submit"].btn-primary, .IE7 .LiveSiteDialog input[type="submit"], .IE7 .ChatDialogBody input[type="submit"],
+.IE7 .ChatDialogContent input[type="submit"], .IE7 .ChatNotificationButton, .IE7 .ChatWebpartContainerSupportRequest input[type="button"], .IE7 .LiveSiteDialog input[type="submit"]
+{
+	min-width:0;
+}
+
+.IE8 .grayBoxWH input[type="submit"], .IE8 .grayBoxWH .btn-primary, .IE8 .LiveSiteDialog input[type="submit"].btn-primary, .IE8 .LiveSiteDialog input[type="submit"], .IE8 .ChatDialogBody input[type="submit"],
+.IE8 .ChatDialogContent input[type="submit"], .IE8 .ChatNotificationButton, .IE8 .ChatWebpartContainerSupportRequest input[type="button"], .IE8 .LiveSiteDialog input[type="submit"]
+{
+	min-width:80px;
+}
+
+.IE8 .grayBoxWH input[type="submit"].btn-default
+{
+	position: relative;
+}
+
+.IE7 .grayBoxWH input[type="submit"], .IE7  .grayBoxWH .btn-primary, .IE7  .LiveSiteDialog input[type="submit"].btn-primary
+{
+	width:auto;
+	padding-bottom: 0;
+}
+
+.IE8 .grayBoxWH input[type="submit"], .IE8  .grayBoxWH .btn-primary, .IE8  .LiveSiteDialog input[type="submit"].btn-primary
+{
+   padding-bottom:3px;
+   margin-top:1px;
+}
+
+.grayBoxWH input[type="text"]
+{  
+	 height: 19px !important;
+	 border: 1px solid #a7a7a7 !important;
+	 position: relative;
+	 top: 0px;
+}
+
+.ChatWebpartHeader
+{
+	background: #3a3a3a url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_darkBoxHeader.png") repeat-x top left;
+	font-family: Tahoma;
+	font-size: 11px;
+	padding-left: 12px;
+	padding-right: 12px;
+	height: 25px;
+	line-height: 25px;
+	color: #fff;
+}
+
+.ChatWebpartHeader h1
+{
+	font-size: 14px;
+	font-weight: bold;
+	display: inline;
+	color: #FFFFFF;
+}
+
+.ChatWebpartRightCol .ChatWebpartEnvelopeLeaveRoom, .ChatWebpartHeader a
+{
+	float: right;
+}
+
+.ChatWebpartHeader a, .ChatWebpartHeader span
+{
+	color: #ffffff;
+	text-align: right;
+}
+
+.ChatWebpartEnvelopeNotification .RemoveAllButton
+{
+	text-align:right;
+	margin-top:15px;
+	margin-right:3px;
+}
+
+.ChatDialogBody, .ChatDialogBody span
+{
+	color: #000000;
+}
+
+.ChatDialogBody span
+{
+	display: inline;
+	text-align: left;
+	float: none;
+	padding: 0;
+}
+
+.ChatRoomUser
+{
+	font-size: 13px;
+	padding-left: 18px;
+}
+
+.ChatWebpartContainerRoomUsers, .ChatWebpartContainerRooms
+{
+	line-height: 20px;
+	font-size: 13px;
+}
+
+.ChatWebpartContainerRoomMessages
+{
+	font-size: 13px;
+}
+
+.ChatWebpartContainerRoomMessages a
+{
+    text-decoration: underline;
+}
+
+.ChatWebpartContainerRoomMessages a:hover
+{
+    text-decoration: none;
+}
+
+.ChatWebpartHeader .btn-primary
+{
+	background: #7ba1c5 url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/btn_leave.png") repeat-x top left !important;
+	height: 19px;
+	color: #fff !important;
+	font-size: 12px;
+	font-weight: bold;
+	border: 1px solid #436c89 !important;
+	padding-bottom: 3px;
+	margin-top: 2px;
+	top:0;
+	width:auto !important;
+}
+
+.ChatWebpartContainerRoomMessages
+{
+	background: #fff;
+	padding: 15px;
+	border: 1px solid #e3e3e3;
+	overflow: auto;
+	word-wrap: break-word;
+	max-height:450px;
+}
+
+.LiveSiteDialog .ChatWebpartContainerRoomMessages
+{
+	position: absolute;
+	top: 15px;
+	bottom: 15px;
+	right: 15px;
+	left: 15px;
+}
+
+.ChatWebpartEnvelopeRoomMessages
+{
+	padding: 12px;
+	background-color: #f4f4f4;
+	border: 1px solid #dfdfdf;
+}
+
+.ChatWebpartContainerMessageSend
+{
+	background: #dedede url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_messageSendContainer.png") repeat-x top left;
+	height: auto;
+	border-left: 1px solid #dfdfdf;
+	border-right: 1px solid #dfdfdf;
+	padding: 12px;
+}
+
+.ChatWebpartContainerMessageSend textarea
+{
+	height: 21px;
+	line-height: 21px;
+	border: 1px solid #ccc;
+	width: 530px;
+	margin-top: 6px;
+	margin-bottom:0px;
+}
+
+
+.LiveSiteDialog .ChatWebpartContainerMessageSend input[type="submit"].btn-primary, .ChatWebpartContainerMessageSend .btn-primary,
+.LiveSiteDialog .ChatWebpartContainerRoomUsers input[type="submit"].btn-primary, .ChatWebpartContainerRoomUsers .btn-primary,
+.LiveSiteDialog .ChatRoomWindow input[type="submit"].btn-primary, .ChatRoomWindow .btn-primary, .ChatDialogBody .btn-primary, .LiveSiteDialog input[type="submit"].BtnCannedResponses
+{
+	background: #d1d1d1 url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_button.png") repeat-x top left !important;
+	padding: 2px 10px 2px 10px;
+	color: #000 !important;
+	font-size: 13px;
+	font-weight: bold;
+	border: 1px solid #a7a7a7 !important;
+	position: relative;
+	top: 0px;
+	width: auto !important;
+	min-width:100px;
+	height: auto;
+}
+
+.LiveSiteDialog .ChatWebpartContainerMessageSend input[type="submit"].btn-primary, .ChatWebpartContainerMessageSend .btn-primary
+{
+	line-height:20px;
+}
+
+.IE7 .LiveSiteDialog .ChatWebpartContainerMessageSend input[type="submit"].btn-primary, .IE7 .ChatWebpartContainerMessageSend .btn-primary,
+.IE7 .LiveSiteDialog .ChatWebpartContainerRoomUsers input[type="submit"].btn-primary, .IE7 .ChatWebpartContainerRoomUsers .btn-primary,
+.IE7 .LiveSiteDialog .ChatRoomWindow input[type="submit"].btn-primary, .IE7 .ChatRoomWindow .btn-primary, .ChatDialogBody .btn-primary
+{
+	line-height: 17px;
+		min-width:0;
+}
+
+.ChatDialogBody .btn-primary
+{
+	top: 0;
+}
+
+
+.ChatWebpartContainerMessageSend .btn-primary, .ChatRoomWindow .ChatWebpartEnvelopeMessageSend .btn-primary
+{
+	outline: none;
+}
+
+.LiveSiteDialog input[type="submit"].BtnCannedResponses
+{
+	padding: 2px 4px;
+}
+
+.ChatWebpartRightCol .ChatWebpartEnvelopeRoomName
+{
+	float: left;
+}
+
+
+.ChatWebpartEnvelopeNotification
+{
+	padding-right: 10px;
+}
+
+.ChatWebpartRecipientConatiner
+{
+	margin-top: 15px;
+}
+
+
+.ChatWebpartContainerNotification .ChatDialogBody a, .ChatWebpartContainerNotification .ChatDialogBody
+{
+	color: #000;
+}
+
+
+.ChatDialogBody
+{
+	border: 5px solid #6d6d6d;
+	background-color: #f4f4f4;
+}
+
+.ChatDialogHeader
+{
+	font-size: 15px;
+	font-weight: bold;
+	background: #c3c3c3 url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_dialogHeader.png") repeat-x top left !important;
+}
+
+.ChatDialogContent, .ChatDialogFooter
+{
+	padding: 15px 20px 15px 15px;
+	background-color: #f4f4f4;
+}
+
+.ChatDialogFooter
+{
+	padding: 15px 22px 15px 17px;
+}
+
+.ChatDialogContent input[type="text"], .ChatDialogContent input[type="password"],
+.ChatDialogContent textarea
+{
+	top: auto;
+	height: auto !important;
+	border: 1px solid #cccccc !important;
+}
+
+.ChatWebpartContainerLogin, .ChatWebpartContainerLogin a
+{
+	font-size: 12px;
+	color: #000000;
+}
+
+.ChatWebpartContainerLogin input[type="text"]
+{
+	margin-bottom: 3px;
+}
+
+.ChatWebpartContainerLogin .LongButton, .ChatWebpartContainerLogin input[type="submit"]
+{
+	margin-top: 5px;
+}
+
+.ChatUserLoggedInInfoValue
+{
+	font-weight: bold;
+}
+
+.ChatMessage img.ChatBBCodeImg 
+{
+	max-width: 300px;
+	max-height: 200px;
+}
+
+/* Room users */
+
+.ChatWebpartContainerRoomUsers .OnlineUser
+{
+	color:#000;
+	background: url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/ico_online.png") no-repeat 0px 5px;
+}
+
+.ChatWebpartContainerRoomUsers .OfflineUser
+{
+	color:#999;
+	background: url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/ico_offline.png") no-repeat 0px 5px;
+}
+
+.ChatWebpartContainerRoomUsers .CurrentUser
+{
+	color:blue;
+}
+
+.IE7 .ChatNotificationsDialogBody
+{
+	max-width: 600px;
+}
+
+
+.ChatRoomWindow .PageFooterLine .btn-primary
+{
+	top: 0 !important;
+}
+
+.ChatRoomWindow .ChatWebpartEnvelope.ChatWebpartEnvelopeRoomMessages
+{
+	position: absolute;
+	bottom: 43px;
+	top: 356px;
+	right: 0;
+	left: 0;
+}
+
+.ChatRoomWindow .ChatWebpartContainerRoomMessages
+{
+	max-height:9999px;
+}
+
+.ChatRoomWindow .ChatWebpartEnvelopeRoomMessages
+{
+    border:none;   
+}
+
+.ChatRoomWindow.IsOneToOne .ChatWebpartEnvelope.ChatWebpartEnvelopeRoomMessages
+{
+	top: 160px;
+}
+
+.BtnCannedResponses
+{
+	width: auto !important;
+}
+
+
+/* ChatRoomWindow*/
+
+.ChatRoomWindow .ChatWebpartContainerMessageSend textarea
+{
+	width:430px;
+}
+
+.ChatRoomWindow .ChatWebpartContainerRoomUsers
+{
+	margin-left:20px;
+	margin-top:10px;
+	display: inline-block;
+}
+
+.ChatWebpart
+{
+	min-width:931px;
+	max-width:950px;
+}
+
+.IE7 .ChatWebpartContainerMessageSend td.ChatDrpRecipient
+{
+	width:100%;
+}
+
+.IE8 .ChatWebpartContainerMessageSend .btn-primary
+{
+	min-width:80px;
+}
+
+
+.ChatWebpartContainerMessageSend table.ChatSendAreaButton td 
+{
+	vertical-align: bottom;
+}
+
+.ChatError, .ChatDialogBody .ChatError, .ChatDialogBody span.ChatError {
+	color:#FF0000;
+}
+
+
+/* INITIATED CHAT WEBPART */
+.InitiatedChatWebpart
+{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 300px;
+}
+
+.InitiatedChatContent, .InitiatedChatErrorPanel
+{
+    background-color: #F4F4F4;
+    border: 1px solid #888888;
+    -moz-box-shadow:    1px 1px 5px 1px #CCCCCC;
+    -webkit-box-shadow: 1px 1px 5px 1px #CCCCCC;
+    box-shadow:         1px 1px 5px 1px #CCCCCC;
+}
+
+.InitiatedChatErrorPanel
+{
+    border-top: none;
+    padding: 5px 15px;
+    color: #CC0000;
+}
+
+.InitiateChatSupporterName
+{   
+	height: 25px;
+	padding: 0 13px;
+	background: #3a3a3a url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_darkBoxHeader.png") repeat-x top left;
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight:bold;
+	line-height: 25px;
+	color: #FFFFFF;
+}
+
+.InitiateChatMessages
+{
+    font-size:13px;    
+}
+
+.InitiateChatMessage
+{
+    color: Black;
+    overflow: hidden;
+    margin:10px;
+    padding:3px 10px;
+    background: #dedede url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_messageSendContainer.png") repeat-x top left;
+	border: 1px solid #dfdfdf;
+	-moz-box-shadow:    2px 2px 3px 0px #CCCCCC;
+    -webkit-box-shadow: 2px 2px 3px 0px #CCCCCC;
+	box-shadow:         2px 2px 3px 0px #CCCCCC;
+	line-height: 16px;
+	font-size: 13px;
+}
+
+.InitiateChatButtons
+{
+    margin-top: 15px;
+    padding: 7px 0;
+    background: #c3c3c3 url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/bg_boxHeader.png") repeat-x top left;
+    border-top: 1px solid #DFDFDF;
+    text-align:center;
+}
+
+.InitiateChatAcceptButton, .InitiateChatRejectButton
+{
+    display: inline-block;
+	margin: 0 8px;
+	padding: 2px 20px;
+	background: #7ba1c5 url("../../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Chat/Design/btn_leave.png") repeat-x top left !important;
+	border: 1px solid #436c89;
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration:none;
+	color: White;
+}
+
+.InitiateChatAcceptButton a, .InitiateChatRejectButton a
+{
+    color: White;
+}

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.chat.modify$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Modify</PermissionDisplayName>
+  <PermissionEditableByGlobalAdmin>False</PermissionEditableByGlobalAdmin>
+  <PermissionGUID>e48b6c1b-48ff-4f63-9a4d-4ddce9ca8a06</PermissionGUID>
+  <PermissionName>Modify</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

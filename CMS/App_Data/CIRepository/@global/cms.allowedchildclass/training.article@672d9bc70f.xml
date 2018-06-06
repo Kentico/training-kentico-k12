@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.allowedchildclass>
+  <Parent>
+    <CodeName>Training.Article</CodeName>
+    <GUID>bc6cf2ad-3a09-4fae-9154-d14585c4c3f9</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.documenttype_CMS.Root">
+      <ParentClassID>
+        <CodeName>CMS.Root</CodeName>
+        <GUID>a585aea3-10b5-4b74-9aad-747fcce72493</GUID>
+        <ObjectType>cms.documenttype</ObjectType>
+      </ParentClassID>
+    </Binding>
+  </Bindings>
+</cms.allowedchildclass>

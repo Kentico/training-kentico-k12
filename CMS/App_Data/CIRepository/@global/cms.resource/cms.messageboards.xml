@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription />
+  <ResourceDisplayName>Message boards</ResourceDisplayName>
+  <ResourceGUID>0011c831-2e12-45bf-87ed-6a17607659f8</ResourceGUID>
+  <ResourceHasFiles>True</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.MessageBoards</ResourceName>
+  <ResourceURL />
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

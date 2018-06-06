@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.InitiatedChatRequest</CodeName>
+    <GUID>7bb6e013-df57-4931-befc-979dd52b0a5a</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>aae47ea2-e73b-4adc-87ef-eee7ccbfbb81</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectallrequests</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @ByUser BIT = 0
+
+SELECT UserContactID, RoomID, InitiatorName, RequestState, 
+    CASE WHEN RequestState = 1 AND MessagesLastModification > RequestLastModification THEN MessagesLastModification ELSE RequestLastModification END AS LastChange -- If request is not New (RequestState is not 1), always select RequestLastModification. Otherwise select bigger time.    
+FROM
+    (
+    SELECT 
+        CASE WHEN @ByUser = 1 THEN CICR.InitiatedChatRequestUserID ELSE CICR.InitiatedChatRequestContactID END AS UserContactID,
+        CICR.InitiatedChatRequestRoomID AS RoomID, 
+        CICR.InitiatedChatRequestInitiatorName AS InitiatorName, 
+        CICR.InitiatedChatRequestState AS RequestState,
+        CICR.InitiatedChatRequestLastModification AS RequestLastModification,
+        MAX(CM.ChatMessageLastModified) AS MessagesLastModification
+    FROM [Chat_InitiatedChatRequest] AS CICR
+    LEFT JOIN [Chat_Message] AS CM ON CICR.InitiatedChatRequestRoomID = CM.ChatMessageRoomID
+    WHERE CM.ChatMessageSystemMessageType = 0 AND (@ByUser = 1 AND CICR.InitiatedChatRequestUserID IS NOT NULL) OR (@ByUser = 0 AND CICR.InitiatedChatRequestContactID IS NOT NULL)
+    GROUP BY CICR.InitiatedChatRequestRoomID, CICR.InitiatedChatRequestUserID, CICR.InitiatedChatRequestContactID, CICR.InitiatedChatRequestInitiatorName, CICR.InitiatedChatRequestState, CICR.InitiatedChatRequestLastModification
+    ) AS TInner
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

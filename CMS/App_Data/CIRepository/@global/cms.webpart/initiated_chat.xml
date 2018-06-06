@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Chat</CodeName>
+    <GUID>68de8907-2d63-4f1f-90a4-57447cf79ea2</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>{$chat.webparts.initiatedchat.description$}</WebPartDescription>
+  <WebPartDisplayName>Initiated chat</WebPartDisplayName>
+  <WebPartFileName>Chat/InitiatedChat.ascx</WebPartFileName>
+  <WebPartGUID>3121e32d-7cf5-4293-b2ef-0b9ef827fed4</WebPartGUID>
+  <WebPartIconClass>
+<![CDATA[
+icon-w-automatically-initiated-chat
+
+]]>
+  </WebPartIconClass>
+  <WebPartName>Initiated_chat</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field allowempty="true" column="TransformationName" columnsize="250" columntype="text" guid="eb618ee4-fc21-4883-a638-36e8da26f09a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.initiatechattransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.initiatechattransformation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatInitiatedChatTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <category name="chat.webparts.properties.category.newchatwindow">
+        <properties>
+          <caption>
+            <![CDATA[{$chat.webparts.properties.category.newchatwindow$}]]>
+          </caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ChatMessageTransformationName" columnsize="250" columntype="text" guid="79544dec-f899-4e5b-9ad6-6d164bf56522" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.messagetransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.messagetransformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomMessageTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatRoomUserTransformationName" columnsize="250" columntype="text" guid="416444d8-c811-4173-ac42-871db9799a98" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$chat.webparts.properties.roomusertranscaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.roomusertrans$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomUserTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatErrorTransformationName" columnsize="250" columntype="text" guid="d27c5a50-217e-425b-a64c-951675d4590e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errortransformationnamecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.errortransformationname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatErrorTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatErrorDeleteAllButtonTransformationName" columnsize="250" columntype="text" guid="f2c8810a-ea64-47f6-a2ef-0607d6780104" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errordeletealltransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.errordeletealltransformation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatErrorDeleteAllTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

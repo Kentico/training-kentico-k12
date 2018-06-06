@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition />
+  <ElementCaption />
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>{$content.ui.newcontainers$}</ElementDisplayName>
+  <ElementFeature />
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>f51d0a3f-852b-44ba-ba1e-74542b14f38a</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>WebPartProperties.NewContainers</ElementName>
+  <ElementOrder>4</ElementOrder>
+  <ElementParentID>
+    <CodeName>WebPartProperties.General</CodeName>
+    <GUID>34172a4c-9104-4355-af2b-9da0c7c19386</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties />
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL />
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition />
+</cms.uielement>

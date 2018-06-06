@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.usersettings>
+  <UserAccountLockReason>0</UserAccountLockReason>
+  <UserActivationDate>2018-05-28 08:29:42Z</UserActivationDate>
+  <UserDashboardApplications>
+    <![CDATA[[{"applicationGuid":"5eddc608-1b8a-4a53-9967-f501e1415d9d"},{"applicationGuid":"3abfac77-95b9-4a3b-a0be-3539abca35d8"},{"applicationGuid":"9f31e5d0-5bd8-4821-94c3-9d970e477b73"},{"applicationGuid":"e7c58bcc-a132-40cf-b587-c11fbf146963"},{"applicationGuid":"1c55d3da-a29b-4df6-a0b2-dc72a065a317"},{"applicationGuid":"69d69d2d-6d4e-40ef-9ce1-97d628083898"},{"applicationGuid":"436564ee-89e9-4719-939a-0d7b57ece744"},{"applicationGuid":"53657c4c-6b2b-4409-8879-a76f955d7bca"},{"applicationGuid":"06a4451b-3356-45c5-8b60-9ed0b2dd7151"},{"applicationGuid":"95a82f36-9c40-45f0-86f1-39aa44db9a77"},{"applicationGuid":"756fe462-7e5e-498c-b0ce-6af7f7b41084"},{"applicationGuid":"c9d6cfe9-fabf-4c36-a386-af21ff6dae99"},{"applicationGuid":"d88037da-8491-49c5-bcf5-93fc5b63f83b"},{"applicationGuid":"ef328ac1-a3ba-43c1-8b09-ba0e1e7b27ee"},{"applicationGuid":"e137fbb2-dc81-4b5f-921e-51e82851670b"},{"applicationGuid":"02cded6b-aa35-4a82-a5f3-e5a5fe82e58b"},{"applicationGuid":"5576826f-328b-4b53-9f4b-e877fabd4d63"},{"applicationGuid":"6e969eb5-cb85-45ac-89c9-2bdebef2c820"},{"applicationGuid":"568594fa-8995-4479-afa8-eebb26d97d71"},{"applicationGuid":"51836837-1d6b-4087-a85c-9c09420d0e98"},{"applicationGuid":"77af5783-40e0-4149-98a0-f68bdf1e32a2"},{"applicationGuid":"ef314079-8dbb-4273-bed1-a4af14d0cbf7"}]]]>
+  </UserDashboardApplications>
+  <UserDialogsConfiguration />
+  <UserFacebookID />
+  <UserInvalidLogOnAttempts>0</UserInvalidLogOnAttempts>
+  <UserLogActivities>False</UserLogActivities>
+  <UserMessagingNotificationEmail />
+  <UserNickName />
+  <UserPasswordLastChanged>2018-05-28 08:29:42Z</UserPasswordLastChanged>
+  <UserPreferences />
+  <UserRegistrationInfo />
+  <UserSettingsUserGUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</UserSettingsUserGUID>
+  <UserSettingsUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </UserSettingsUserID>
+  <UserShowIntroductionTile>False</UserShowIntroductionTile>
+  <UserSignature />
+  <UserWaitingForApproval>False</UserWaitingForApproval>
+</cms.usersettings>

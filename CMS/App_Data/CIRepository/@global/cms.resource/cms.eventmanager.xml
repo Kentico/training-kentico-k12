@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription />
+  <ResourceDisplayName>Events</ResourceDisplayName>
+  <ResourceGUID>67c2d259-8f33-4c1f-b725-5eebcb332fcc</ResourceGUID>
+  <ResourceHasFiles>True</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.EventManager</ResourceName>
+  <ResourceURL />
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

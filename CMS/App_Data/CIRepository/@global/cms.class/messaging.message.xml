@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Messaging - Message</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="MessageID" columntype="integer" guid="d10cab69-17aa-460a-9e46-55b1ecc29c63" isPK="true" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageSenderUserID" columntype="integer" guid="09e1e4d8-9f62-4178-8bd1-78499f7a6a1e" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageSenderUserID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageSenderNickName" columnsize="200" columntype="text" guid="868f3d19-4631-46b6-85c9-cc2ab3a13e5d" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageSenderNickName</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageRecipientUserID" columntype="integer" guid="713b6789-5e57-4603-9d09-faf5c138437a" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageRecipientUserID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageRecipientNickName" columnsize="200" columntype="text" guid="8a55702c-e2e2-4682-aa48-6bc39c3a55c5" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageRecipientNickName</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="MessageSent" columntype="datetime" guid="6921597c-e3f2-4120-880d-5e0f4d5035bf" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageSent</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageSubject" columnsize="200" columntype="text" guid="35ee1d32-ddc1-4e34-9d00-f5f564b01eec" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>MessageSubject</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="MessageBody" columntype="longtext" guid="d74f1f55-8c02-40a9-9661-744de1dc64b0" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageBody</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textareacontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageRead" columntype="datetime" guid="30db0e2f-1ca1-4d33-a7fd-6bd61e8b42d4" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageRead</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageSenderDeleted" columntype="boolean" guid="3fee4bc2-4467-4951-a6c8-ec886766735d" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageSenderDeleted</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageRecipientDeleted" columntype="boolean" guid="01b7b11d-d0d3-4fbe-8683-e710d22a4682" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageRecipientDeleted</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageGUID" columntype="file" guid="5279f37b-0f30-435d-a1c7-2359dd4966eb" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageGUID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>unknown</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageLastModified" columntype="datetime" guid="e9808b50-db94-45ce-a5dd-c0feeae50c38" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>MessageLastModified</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MessageIsRead" columntype="boolean" guid="bbbcb0b7-171d-4be4-800a-e05200ca50dd" publicfield="false" spellcheck="false" system="true" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>MessageIsRead</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>79e25187-258a-4c42-8849-da3dc3a03ccc</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>Messaging.Message</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.Messaging</CodeName>
+    <GUID>2b521e04-6b2d-4422-b1d2-c352e88e3b02</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search>
+      <item id="0ca67ee8-a751-484d-bf24-04fe60c4af8b" name="MessageGUID" />
+      <item id="39058334-ba63-42fc-87c0-3cad70f6aec0" name="MessageID" />
+      <item id="3f52ef1b-5e84-4e1a-8a6b-88a818c99378" name="MessageRecipientUserID" />
+      <item id="475f8dc2-a7e9-459f-b089-cd8cdb7ba1bf" name="MessageSenderDeleted" />
+      <item id="50c424c2-e652-45ad-a65c-48078a2a2ec2" name="MessageSenderNickName" />
+      <item id="51f7e17f-5e6a-493a-9d55-6668e1968451" name="MessageRead" />
+      <item id="6cff10a7-cb9e-47ba-905e-fe45d6eec356" name="MessageLastModified" />
+      <item id="7514fd4d-aec4-4417-b539-9148f99239f9" name="MessageIsRead" />
+      <item id="8bce38b9-0dd8-48ed-b008-bb1e0abe5d3a" name="MessageRecipientDeleted" />
+      <item id="928b9565-becf-4e5b-bd98-6918394cefbf" name="MessageSent" />
+      <item id="9680947b-0c95-48e2-a817-365d6b9f5b5e" name="MessageBody" />
+      <item id="b4136ac5-ec65-471a-8565-810c59185679" name="MessageSubject" />
+      <item id="b8ed21d5-1dec-44ee-9d5d-f4b45e1c57f6" name="MessageRecipientNickName" />
+      <item id="c071e34b-b951-408b-a675-a8821515a6b5" name="MessageSenderUserID" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>Messaging_Message</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

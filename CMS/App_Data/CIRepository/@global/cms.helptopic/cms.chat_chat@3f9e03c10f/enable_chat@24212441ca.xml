@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>230cffc4-841b-4e87-816a-dec360bcb922</HelpTopicGUID>
+  <HelpTopicLink>chat_quick_start</HelpTopicLink>
+  <HelpTopicName>Enable chat</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Chat</CodeName>
+    <GUID>37c959eb-6673-4970-bc65-e76af47943e6</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Chat</CodeName>
+      <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

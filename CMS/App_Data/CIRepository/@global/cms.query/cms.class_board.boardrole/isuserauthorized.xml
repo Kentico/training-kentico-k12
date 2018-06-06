@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>board.boardrole</CodeName>
+    <GUID>7ae09413-b447-4b1f-93e0-58421ca1f6ba</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>87459632-12a1-123a-1a45-235487961215</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>isuserauthorized</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT RoleID FROM Board_Role WHERE (RoleID IN (SELECT RoleID FROM View_CMS_UserRoleMembershipRole 
+WHERE UserID = @ID AND (ValidTo IS NULL OR ValidTo >@ValidTo)) OR
+(RoleID IN (SELECT RoleID FROM CMS_Role WHERE RoleName IN ( ##GENERICROLES##) AND CMS_Role.SiteID IN
+(SELECT BoardSiteID FROM Board_Board WHERE BoardID = Board_Role.BoardID)))) AND ##WHERE##
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

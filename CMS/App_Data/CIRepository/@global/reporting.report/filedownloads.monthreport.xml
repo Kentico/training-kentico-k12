@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>FileDownloads</CodeName>
+    <GUID>0827b359-9dfd-4e63-adbf-2009fa794c09</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>File downloads - Monthly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>b209798a-23d6-4be6-bcb8-adcaff0ceceb</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<br />
+%%control:ReportGraph?GraphMonthFileDownloads%%<br />
+<br />
+%%control:ReportTable?filedownloads.monthreport.table%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}
+]]>
+  </ReportLayout>
+  <ReportName>filedownloads.monthreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="e6b14f35-8127-47a7-af41-c7c1a0633577" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-1).Date|(identity)GlobalAdministrator|(hash)00ead86fe5fbe73fb296336c7dfa81760aaf029e0ea69cfd9030a7c92211b5da%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="8905d162-c1d8-416c-8604-4ae6a2cb2921" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="50" publicfield="false" spellcheck="false" guid="00000000-0000-0000-0000-000000000000">
+        <properties>
+          <defaultvalue>filedownloads</defaultvalue>
+          <fieldcaption>Code Name</fieldcaption>
+        </properties>
+        <settings>
+          <query>
+            <![CDATA[SELECT DISTINCT StatisticsCode, StatisticsCode FROM Analytics_Statistics]]>
+          </query>
+          <controlname>dropdownlistcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

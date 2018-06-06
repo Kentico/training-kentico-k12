@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resourcesite>
+  <Parent>
+    <CodeName>CMS.ContentPersonalization</CodeName>
+    <GUID>60976a10-849f-49fd-ae87-04688c7c1f80</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="MedioClinic">
+      <SiteID>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>cf04eead-5b35-4a76-85c1-f49ee932baef</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </SiteID>
+    </Binding>
+  </Bindings>
+</cms.resourcesite>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.users$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$general.users$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>9c73bfa6-bd54-4e7c-b2e3-1bb4455c5182</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>EditRoleUsers.Groups</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementParentID>
+    <CodeName>EditRole.Groups</CodeName>
+    <GUID>d988ca19-d16f-44d9-b35c-2bf222acc325</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Roles</CodeName>
+      <GUID>4dcb3b9b-8bee-4a3e-97dd-610f6e5623a4</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <includejquery>False</includejquery>
+      <category_name_header>False</category_name_header>
+      <displaybreadcrumbs>True</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Roles</CodeName>
+    <GUID>4dcb3b9b-8bee-4a3e-97dd-610f6e5623a4</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Groups/Tools/Roles/Role_Edit_Users.aspx]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

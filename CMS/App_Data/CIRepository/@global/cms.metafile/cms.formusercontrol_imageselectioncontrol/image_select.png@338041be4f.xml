@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.metafile>
+  <MetaFileExtension>.png</MetaFileExtension>
+  <MetaFileGroupName>Thumbnail</MetaFileGroupName>
+  <MetaFileGUID>1ac00eb9-8232-470b-ba3d-32b0b424fca1</MetaFileGUID>
+  <MetaFileImageHeight>40</MetaFileImageHeight>
+  <MetaFileImageWidth>95</MetaFileImageWidth>
+  <MetaFileMimeType>image/png</MetaFileMimeType>
+  <MetaFileName>image_select.png</MetaFileName>
+  <MetaFileObjectID>
+    <CodeName>ImageSelectionControl</CodeName>
+    <GUID>1eaa6f3e-eb13-4718-9cdf-285596049a37</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </MetaFileObjectID>
+  <MetaFileObjectType>cms.formusercontrol</MetaFileObjectType>
+  <MetaFileSize>397</MetaFileSize>
+</cms.metafile>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.Article</CodeName>
+    <GUID>bc6cf2ad-3a09-4fae-9154-d14585c4c3f9</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>{$permissiondescription.document.destroy$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.destroy$}</PermissionDisplayName>
+  <PermissionGUID>c4ad5fd0-a659-4ad1-a2d5-b7bba0f0352f</PermissionGUID>
+  <PermissionName>Destroy</PermissionName>
+  <PermissionOrder>6</PermissionOrder>
+</cms.classpermission>

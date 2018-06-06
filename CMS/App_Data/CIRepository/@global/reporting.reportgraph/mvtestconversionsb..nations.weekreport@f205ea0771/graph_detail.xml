@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportgraph>
+  <GraphDisplayName>graph_detail</GraphDisplayName>
+  <GraphGUID>f1966474-44a0-4fdb-82b1-3d5138fa7b77</GraphGUID>
+  <GraphHeight>400</GraphHeight>
+  <GraphIsHtml>True</GraphIsHtml>
+  <GraphLegendPosition>100</GraphLegendPosition>
+  <GraphName>graph_detail</GraphName>
+  <GraphQuery>
+<![CDATA[
+EXEC Proc_Analytics_RemoveTempTable
+CREATE TABLE #AnalyticsTempTable (
+  StartTime DATETIME,
+  Hits INT,
+  Name NVARCHAR(300) COLLATE database_default  
+);
+
+ SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'week'); 
+  INSERT INTO #AnalyticsTempTable (StartTime,  Name, Hits) 
+ 
+    SELECT [Date] AS StartTime, X.ConversionDisplayName AS Name,SUM(HitsCount) AS Hits
+   FROM {%DatabaseSchema%}.Func_Analytics_EnsureDates (@FromDate,@ToDate,'week') AS Dates
+    LEFT OUTER JOIN
+      (SELECT HitsStartTime,ConversionDisplayName,HitsCount FROM Analytics_WeekHits
+        LEFT JOIN   Analytics_Statistics ON Analytics_Statistics.StatisticsID = Analytics_WeekHits.HitsStatisticsID    
+        AND StatisticsCode LIKE 'mvtconversion;%'
+        AND (@CombinationName = ''  OR @CombinationName IS NULL OR @CombinationName = SUBSTRING(StatisticsCode, CHARINDEX(';',StatisticsCode,15)+1,LEN (StatisticsCode)))
+        AND @MVTestName =  SUBSTRING(StatisticsCode, 15, CHARINDEX(';',StatisticsCode,15)-15)    
+        
+        LEFT JOIN Analytics_Conversion ON StatisticsObjectName = ConversionName AND ConversionSiteID = @CMSContextCurrentSiteID
+        WHERE (StatisticsSiteID = @CMSContextCurrentSiteID) AND (@ConversionName IS NULL OR @ConversionName IN ('',ConversionName))
+      ) AS X
+    ON [Date] = X.HitsStartTime
+    GROUP BY ConversionDisplayName,[Date]  
+    
+ EXEC Proc_Analytics_Pivot 'week'
+ EXEC Proc_Analytics_RemoveTempTable
+]]>
+  </GraphQuery>
+  <GraphQueryIsStoredProcedure>False</GraphQueryIsStoredProcedure>
+  <GraphReportID>
+    <CodeName>mvtestconversionsbycombinations.weekreport</CodeName>
+    <GUID>0636d652-d789-463e-bcc2-4f76c5a0c7ef</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </GraphReportID>
+  <GraphSettings>
+    <CustomData>
+      <barorientation>Horizontal</barorientation>
+      <baroverlay>False</baroverlay>
+      <columnwidth>20</columnwidth>
+      <displayitemvalue>True</displayitemvalue>
+      <displaylegend>True</displaylegend>
+      <exportenabled>True</exportenabled>
+      <itemvalueformat>
+        <![CDATA[{%Format(ToDouble(pval, "0.0"), "{0:0.0}")|(identity)GlobalAdministrator|(hash)2f33386764b9e4641aa1d567c75d690e8d408eccb912dc6c78492c163dc99c42%}% ({%yval%})]]>
+      </itemvalueformat>
+      <legendinside>False</legendinside>
+      <legendposition>Right</legendposition>
+      <legendtitle>Conversions</legendtitle>
+      <linedrawinstyle>Line</linedrawinstyle>
+      <pieshowpercentage>False</pieshowpercentage>
+      <plotareagradient>None</plotareagradient>
+      <querynorecordtext>No data found</querynorecordtext>
+      <reverseyaxis>False</reverseyaxis>
+      <scalemax>100</scalemax>
+      <seriesgradient>None</seriesgradient>
+      <seriesitemtooltip>{%ser%}</seriesitemtooltip>
+      <showas3d>False</showas3d>
+      <showmajorgrid>True</showmajorgrid>
+      <stackedbarmaxstacked>False</stackedbarmaxstacked>
+      <subscriptionenabled>True</subscriptionenabled>
+      <tenpowers>False</tenpowers>
+      <titleposition>Center</titleposition>
+      <valuesaspercent>True</valuesaspercent>
+      <xaxisformat>{yyyy}</xaxisformat>
+      <xaxisinterval>1</xaxisinterval>
+      <xaxissort>True</xaxissort>
+      <xaxistitleposition>Center</xaxistitleposition>
+      <yaxistitleposition>Center</yaxistitleposition>
+      <yaxisusexaxissettings>True</yaxisusexaxissettings>
+    </CustomData>
+  </GraphSettings>
+  <GraphTitle>Conversions by combinations</GraphTitle>
+  <GraphType />
+  <GraphWidth>600</GraphWidth>
+  <GraphXAxisTitle />
+  <GraphYAxisTitle />
+</reporting.reportgraph>

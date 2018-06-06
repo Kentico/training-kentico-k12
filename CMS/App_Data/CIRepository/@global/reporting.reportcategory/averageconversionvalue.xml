@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>AverageConversionValue</CategoryCodeName>
+  <CategoryDisplayName>Average conversion value</CategoryDisplayName>
+  <CategoryGUID>3d425d86-68b2-41c5-aa0a-7184409f67fb</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>ABTesting</CodeName>
+    <GUID>bde47e65-3e40-4f09-abf1-eaacbe272e71</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

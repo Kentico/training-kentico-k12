@@ -1,0 +1,22 @@
+<%@ Master Language="C#" AutoEventWireup="true" Inherits="CMSTemplates_BlankSiteASPX_Blank"
+     Codebehind="Blank.master.cs" %>
+
+<%=DocType%>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server" enableviewstate="false">
+    <title runat="server">My site</title>
+    <asp:Literal runat="server" ID="ltlTags" EnableViewState="false" />
+</head>
+<body class="<%=BodyClass%>" <%=BodyParameters%>>
+    <%=BodyScripts %>
+    <form id="form1" runat="server">
+    <asp:PlaceHolder runat="server" ID="plcManagers">
+        <asp:ScriptManager ID="manScript" runat="server" ScriptMode="Release" EnableViewState="false" />
+        <cms:CMSPortalManager ID="manPortal" ShortID="m" runat="server" EnableViewState="false" />
+    </asp:PlaceHolder>
+    <cms:ContextMenuPlaceHolder ID="plcCtx" runat="server" />
+    <asp:Label runat="server" ID="lblText" EnableViewState="false" />
+    <asp:ContentPlaceHolder ID="plcMain" runat="server" />
+    </form>
+</body>
+</html>

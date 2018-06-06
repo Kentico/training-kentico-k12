@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>e958ce02-662e-4d5c-b4b9-7a794a6f6c6b</HelpTopicGUID>
+  <HelpTopicLink>form_controls_parameters</HelpTopicLink>
+  <HelpTopicName>Define form control parameters</HelpTopicName>
+  <HelpTopicOrder>3</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.FormControls</CodeName>
+    <GUID>29937e43-bd20-4fb0-80f5-cddc4dc595c0</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Form</CodeName>
+      <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

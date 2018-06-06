@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>87fee465-7c40-44c9-9eaf-9eca4dd6ac98</HelpTopicGUID>
+  <HelpTopicLink>events_creating</HelpTopicLink>
+  <HelpTopicName>Create events</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>EventManager</CodeName>
+    <GUID>f0edfdd8-abfa-4c39-816a-5a40008bacf8</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.EventManager</CodeName>
+      <GUID>67c2d259-8f33-4c1f-b725-5eebcb332fcc</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

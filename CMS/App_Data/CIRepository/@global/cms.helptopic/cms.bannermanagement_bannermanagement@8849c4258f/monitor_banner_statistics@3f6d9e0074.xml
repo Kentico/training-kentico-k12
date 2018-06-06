@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>18a2d852-fca8-476c-9e00-be3cd46cde93</HelpTopicGUID>
+  <HelpTopicLink>banner_statistics</HelpTopicLink>
+  <HelpTopicName>Monitor banner statistics</HelpTopicName>
+  <HelpTopicOrder>3</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>BannerManagement</CodeName>
+    <GUID>d1341d4d-e94d-477b-a8c3-5af3cef52aff</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.BannerManagement</CodeName>
+      <GUID>69a6884d-789d-4732-bf7c-96da001050d8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

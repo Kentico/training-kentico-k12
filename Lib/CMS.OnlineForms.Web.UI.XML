@@ -1,0 +1,474 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.OnlineForms.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.OnlineForms.Web.UI.Internal.ContactSubmittedFormsController">
+            <summary>
+            Provides endpoint for retrieving the data required for the contact submitted forms component.
+            </summary>
+            <exclude />
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.Internal.ContactSubmittedFormsController.#ctor">
+            <summary>Form
+            Instantiates new instance of <see cref="T:CMS.OnlineForms.Web.UI.Internal.ContactSubmittedFormsController"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.Internal.ContactSubmittedFormsController.#ctor(CMS.OnlineForms.Web.UI.IContactSubmittedFormsControllerService)">
+            <summary>
+            Instantiates new instance of <see cref="T:CMS.OnlineForms.Web.UI.Internal.ContactSubmittedFormsController"/>.
+            </summary>
+            <param name="contactNewsletterSubscriptionsControllerService">Provides service methods used in <see cref="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsControllerService"/></param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.Internal.ContactSubmittedFormsController.Get(System.Int32)">
+            <summary>
+            Gets collection of <see cref="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel"/> for the given <paramref name="contactID"/>. 
+            </summary>
+            <param name="contactID">ID of contact the collection is obtained for</param>
+            <returns>Collection of <see cref="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel"/> for the given <paramref name="contactID"/></returns>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsControllerService">
+            <summary>
+            Provides service methods regarding contact and its submitted forms.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.ContactSubmittedFormsControllerService.#ctor(CMS.PortalEngine.Internal.IUILinkProvider)">
+            <summary>
+            Instantiates new instance of <see cref="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsControllerService"/>.
+            </summary>
+            <param name="uiLinkProvider">Provides link for an object</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.ContactSubmittedFormsControllerService.GetSubmittedForms(System.Int32)">
+            <summary>
+            Gets instance of <see cref="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel"/> for the given <paramref name="contactID"/>. Returns empty list if no activity or form is found for given <paramref name="contactID"/>.
+            </summary>
+            <param name="contactID">ID of contact the <see cref="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel"/> is obtained for</param>
+            <returns>Instance of <see cref="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel"/> for the given <paramref name="contactID"/>, or empty list if no activity or form is found</returns>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.IContactSubmittedFormsControllerService">
+            <summary>
+            Provides service methods regarding contact and its submitted forms.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel">
+            <summary>
+            Represents view model for the submitted forms of contact component.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel.FormDisplayName">
+            <summary>
+            Gets or sets the display name of the submitted form.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel.FormSubmissionDate">
+            <summary>
+            Gets or sets the submission date of the submitted form.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel.FormUrl">
+            <summary>
+            Gets or sets the URL to forms tab.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.ContactSubmittedFormsViewModel.SiteDisplayName">
+            <summary>
+            Gets or sets the site display name of forms location.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.BizForm">
+            <summary>
+            Basic bizform engine independent on CMS.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mErrorMessagePrefix">
+            <summary>
+            Prefix for the default validation error message.
+            Concatenated with ".errorvalidationerror" resource string.
+            If not found, general prefix is used.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.uploadFiles">
+            <summary>
+            List of files (controls) to upload files.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.deleteFiles">
+            <summary>
+            List of files (controls) to delete files.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mRegExEmailMacro">
+            <summary>
+            Regular expression for macros in e-mail body.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.hideForm">
+            <summary>
+            Indicates if the form should be hidden.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mEnableNotificationEmail">
+            <summary>
+            Indicates if notification e-mail should be sent.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mEnableAutoresponder">
+            <summary>
+            Indicates if autoresponder e-mail should be sent.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mDisplayOriginalFileName">
+            <summary>
+            Indicates whether original file name should be displayed instead of the file GUID in 'Uploader' controls.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mUseLocalMessagesPlaceholder">
+            <summary>
+            Indicates whether local MessagesPlaceholder control should be added.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mLocalMessagesPlaceHolder">
+            <summary>
+            Local messages placeholder.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mBizFormID">
+            <summary>
+            Bizform ID of currently loaded bizform.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.bizFormInfo">
+            <summary>
+            BizForm info object.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.Web.UI.BizForm.content">
+            <summary>
+            Bizform item.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.LocalMessagesPlaceHolder">
+            <summary>
+            Gets the local messages placeholder.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.RegExEmailMacro">
+            <summary>
+            Regular expression for macros in e-mail body, macros are in form $$type:fieldname$$.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.FormName">
+            <summary>
+            BizForm name.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.ItemID">
+            <summary>
+            Primary key value of the item being edited.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.ShowPrivateFields">
+            <summary>
+            Indicates whether to show private fields or not.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.AlternativeFormFullName">
+            <summary>
+            Alternative form full name (ClassName.AlternativeFormName).
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.DefaultValidationErrorMessage">
+            <summary>
+            Default validation error message.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.EncodeEmails">
+            <summary>
+            Indicates if notification and confirmation e-mails should be encoded, default value is 'false'.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.EnableNotificationEmail">
+            <summary>
+            If TRUE then notification e-mail will be send. The notification e-mail has to be defined. Default value is TRUE.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.EnableAutoresponder">
+            <summary>
+            If TRUE then autoresponder e-mail will be send. The autoresponder has to be defined. Default value is TRUE.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.FormRedirectToUrl">
+            <summary>
+            If set, overrides settings in BizFormInfo.FormRedirectToUrl.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.FormDisplayText">
+            <summary>
+            If set, overrides settings in BizFormInfo.FormDisplayText.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.FormClearAfterSave">
+            <summary>
+            If set, overrides settings in BizFormInfo.FormClearAfterSave.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.DisplayOriginalFileName">
+            <summary>
+            Indicates whether original file name should be displayed instead of the file GUID in 'Uploader' controls.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.InfoLabel">
+            <summary>
+            Information label.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.ErrorLabel">
+            <summary>
+            Label for the errors.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.Web.UI.BizForm.MessagesPlaceHolder">
+            <summary>
+            Messages placeholder
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.OnPreRender(System.EventArgs)">
+            <summary>
+            OnPreRender event handler.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the control at design-time.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.InitFormInternal">
+            <summary>
+            Initializes the form.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.InitForm">
+            <summary>
+            Initializes the form properties and prepares the data to load.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.AddControlsBeforeInternal">
+            <summary>
+            Allows to add additional components before the form.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.BizForm_OnBeforeValidate(System.Object,System.EventArgs)">
+            <summary>
+            On before validate event handler.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.SaveDataInternal">
+            <summary>
+            Saves data to database.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.AfterSaveActionsInternal(System.String,System.Boolean)">
+            <summary>
+            Executes additional actions after successful save.
+            </summary>
+            <param name="redirectUrlAfterSave">Target URL for the final redirection</param>
+            <param name="showChangesSaved">Indicates if info message should be displayed (redirect URL should be empty)</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.ReloadData">
+            <summary>
+            Reloads the form and its data.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.BizForm_OnUploadFile(System.Object,System.EventArgs)">
+            <summary>
+            Handles file upload
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.BizForm_OnDeleteFile(System.Object,System.EventArgs)">
+            <summary>
+            Handles file deletion
+            </summary>
+            <param name="sender">Sender object</param>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.ProcessFiles(CMS.OnlineForms.BizFormItem)">
+            <summary>
+            Proceeds the file operations on the bizform.
+            </summary>
+            <param name="dataItem">Updated BizFrom item</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.GetNewGuidName(System.String)">
+            <summary>
+            Returns GUID.extension for newly created files.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.GetFileNameForUploader(System.String)">
+            <summary>
+            Returns file name that will be displayed by the Uploader control. Return value depends on property <see cref="P:CMS.OnlineForms.Web.UI.BizForm.DisplayOriginalFileName"/>.
+            </summary>
+            <param name="fileNameString">File name from database in format "[guid].[extension]/[originalfilename].[extension]"</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.SaveFileToDisk(System.Web.HttpPostedFile,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Save uploaded file to file system.
+            </summary>
+            <param name="postedFile">Posted file</param>
+            <param name="fileName">File name</param>        
+            <param name="filesFolderPath">Directory path where the file is saved to</param>
+            <param name="widht">Image required widht</param>
+            <param name="height">Image required height</param>
+            <param name="maxSideSize">Image required max side size</param>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.DeleteFile(System.String,System.String,System.String)">
+            <summary>
+            Delete uploaded file from file system.
+            </summary>
+            <param name="fileName">File name</param>
+            <param name="directoryPath">Directory path</param>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.SendNotificationEmail(System.String,System.String,CMS.Base.IDataContainer,CMS.OnlineForms.BizFormInfo)">
+            <summary>
+            Sends notification email to specified person.
+            </summary>
+            <param name="fromEmail">From email address</param>
+            <param name="recipients">Email address of recipients where notification emails are sent. You can specify multiple addresses separated by semicolons.</param>
+            <param name="data">Data from BasicForm</param>
+            <param name="bfi">BizFormInfo</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.SendConfirmationEmail(System.String,System.String,CMS.Base.IDataContainer,CMS.OnlineForms.BizFormInfo)">
+            <summary>
+            Sends confirmation email (autoresponder).
+            </summary>
+            <param name="fromEmail">From email address</param>
+            <param name="toEmail">To email address</param>
+            <param name="data">Data from basic form</param>
+            <param name="bfi">BizFormInfo</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.ResolveEmailMessageText(System.String,CMS.OnlineForms.Web.UI.BizForm.IFormFieldInfoProvider,CMS.Base.IDataContainer)">
+            <summary>
+            Resolve confirmation email message text.
+            </summary>
+            <param name="emailLayout">Email layout template with macros to resolve</param>
+            <param name="formFieldInfoProvider">FormFieldInfo provider</param>
+            <param name="data">Form data</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.CreateMessageWithDefaultLayout(CMS.Base.IDataContainer,CMS.OnlineForms.Web.UI.BizForm.IFormFieldInfoProvider,CMS.MacroEngine.IMacroResolver,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates message body with default layout of items.
+            </summary>
+            <param name="data">Data container with form fields data.</param>
+            <param name="formFieldInfoInfoProvider">Provides access to form fields.</param>
+            <param name="resolver">Macro resolver.</param>
+            <param name="columnNames">Name of columns that should be included in message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.GetBizFormAttachmentLink(System.String)">
+            <summary>
+            Returns html code of link to bizform attached file.
+            </summary>
+            <param name="fileNameString">BizForm file name - guid + extension</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.GetFieldValue(CMS.Base.IDataContainer,System.String,CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Gets value of field for message with default layout. Value is transformed according to field type.
+            </summary>
+            <param name="data">Data container with form fields data.</param>
+            <param name="fieldName">Field name</param>
+            <param name="formFiledInfo">Field info object</param>
+            <returns>Value for given field, transformed according to field type.</returns>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.IsHtmlField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Checks if field is of html type.
+            </summary>
+            <param name="ffi">Field info</param>
+            <returns><c>True</c> if field is of html type.</returns>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.IsFileField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Checks if field is of file type.
+            </summary>
+            <param name="ffi">Field info</param>
+            <returns><c>True</c> if field is of file type.</returns>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.IsDateField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Checks if field is of date type.
+            </summary>
+            <param name="ffi">Field info</param>
+            <returns><c>True</c> if field is of date type.</returns>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.ConvertDate(System.Object)">
+            <summary>
+            Gets date from date time without time information.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.GetFieldValueForCustomMail(CMS.Base.IDataContainer,System.String,CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Returns field value for custom mail message. Value is transformed according to field type.
+            </summary>
+            <param name="data">Data container with form fields data.</param>
+            <param name="fieldName">Field name</param>
+            <param name="formFieldInfo">Form field info</param>
+            <returns>Value for given field, transformed according to field type.</returns>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.EnsureDataForSending(CMS.OnlineForms.BizFormInfo)">
+            <summary>
+            Ensures that essential data is initialized when notification or confirmation emails are send from an external code.
+            </summary>
+            <param name="bfi">BizFormInfo object</param>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.BizForm.IFormFieldInfoProvider">
+            <summary>
+            Provides access to form fields.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.BizForm.FormFieldInfoProvider">
+            <summary>
+            Reads form field from FormInfo
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.FormsLiveTileModelProvider">
+            <summary>
+            Provides live model for the Forms dashboard tile.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.FormsLiveTileModelProvider.GetModel(CMS.ApplicationDashboard.Web.UI.LiveTileContext)">
+            <summary>
+            Loads model for the dashboard live tile.
+            </summary>
+            <param name="liveTileContext">Context of the live tile. Contains information about the user and the site the model is requested for</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="liveTileContext"/> is null</exception>
+            <returns>Live tile model</returns>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.CMSBizFormPage">
+            <summary>
+            Base page for the CMS BizForms pages to apply global settings to the pages.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.CMSBizFormPage.OnInit(System.EventArgs)">
+            <summary>
+            Page OnInit event.
+            </summary>
+            <param name="e">Event args</param>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.CMSBizFormPage.CheckAlternativeForm(CMS.OnlineForms.BizFormInfo)">
+            <summary>
+            Checks if form and alternative form have same FormClassID parameter (<see cref="P:CMS.OnlineForms.BizFormInfo.FormClassID"/>, <see cref="P:CMS.FormEngine.AlternativeFormInfo.FormClassID"/>).
+            If not, alternative form does not belong to provided form and user is redirected to "Access Denied" page.
+            </summary>
+            <param name="bfi">Online form</param>
+        </member>
+    </members>
+</doc>

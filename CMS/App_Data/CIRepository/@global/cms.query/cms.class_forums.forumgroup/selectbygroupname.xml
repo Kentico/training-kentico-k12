@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.ForumGroup</CodeName>
+    <GUID>ae01ac82-45ae-441f-85e3-fda3e45ef85f</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>ba22bb9d-f03a-4b1e-bd14-8f52c06efcb2</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectByGroupName</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[SELECT * FROM [Forums_ForumGroup] WHERE [GroupName] = @GroupName AND [GroupSiteID] = @ID AND [GroupGroupID] = @GroupGroupID]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

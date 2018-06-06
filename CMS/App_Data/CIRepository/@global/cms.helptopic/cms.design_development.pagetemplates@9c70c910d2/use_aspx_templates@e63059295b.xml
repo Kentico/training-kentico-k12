@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>cf407d8b-6879-4a63-86ea-8135fe939922</HelpTopicGUID>
+  <HelpTopicLink>websites_developing_aspx</HelpTopicLink>
+  <HelpTopicName>Use ASPX templates</HelpTopicName>
+  <HelpTopicOrder>8</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.PageTemplates</CodeName>
+    <GUID>06a4451b-3356-45c5-8b60-9ed0b2dd7151</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

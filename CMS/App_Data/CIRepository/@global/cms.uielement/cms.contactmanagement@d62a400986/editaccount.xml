@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$om.account.general.edit$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$om.account.general.edit$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>75daedf7-88af-431c-bc9f-92f4e166ca29</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>EditAccount</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>VerticalTabs</CodeName>
+    <GUID>8136b750-a785-438f-a412-32212cd4dde6</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>Accounts</CodeName>
+    <GUID>f2add500-028b-4745-a884-e0988cc3fcf8</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.ContactManagement</CodeName>
+      <GUID>0e4beef1-989c-4687-80ca-ae21fec09734</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <Data>
+      <AllowSubTabs>True</AllowSubTabs>
+      <breadcrumbsitemtext>
+        <![CDATA[{%EditedObject.AccountDescriptiveName|(identity)GlobalAdministrator|(hash)fe21dc01b8b242d4828b619439e6d0a546f19b8494ee2f8c56cb79e32e96f20b%}]]>
+      </breadcrumbsitemtext>
+      <category_name_Header>False</category_name_Header>
+      <DisplayBreadcrumbs>True</DisplayBreadcrumbs>
+      <DisplayTitleInTabs>False</DisplayTitleInTabs>
+      <ExtenderClassName>CMS.ContactManagement.Web.UI.AccountTabsExtender</ExtenderClassName>
+      <includejquery>False</includejquery>
+      <ObjectType>om.account</ObjectType>
+      <RememberSelectedTab>False</RememberSelectedTab>
+      <TabExtender>CMS.ContactManagement.Web.UI</TabExtender>
+      <TitleText ismacro="True">
+        <![CDATA[{% GetResourceString("om.account.general.edit") + " - " + EditedObject.AccountName |(identity)GlobalAdministrator|(hash)8fc23218cf0b915b19e4fb4983a60aea4c8a8f81f7b41d8c86e5b1b5b049ac89%}]]>
+      </TitleText>
+    </Data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.ContactManagement</CodeName>
+    <GUID>0e4beef1-989c-4687-80ca-ae21fec09734</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+</cms.uielement>

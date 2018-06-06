@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$chat.chatrooms.list$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$chat.chatrooms.list$}</ElementDisplayName>
+  <ElementFeature>Chat</ElementFeature>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>f488432d-17ff-4030-bfba-769b78dadbe9</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>ChatRooms</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>Chat</CodeName>
+    <GUID>37c959eb-6673-4970-bc65-e76af47943e6</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Chat</CodeName>
+      <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <includejquery>False</includejquery>
+      <allowall>False</allowall>
+      <allowempty>False</allowempty>
+      <allowglobal>False</allowglobal>
+      <category_name_header>False</category_name_header>
+      <selectortype>siteorglobal</selectortype>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+      <objecttype>chat.room</objecttype>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>1</ElementSize>
+  <ElementTargetURL>~/CMSModules/Chat/Pages/Tools/ChatRoom/List.aspx</ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.macrorule>
+  <MacroRuleCondition>
+    <![CDATA[{_was}Activity.LinkedToObject("forums.forum", "{forum}")]]>
+  </MacroRuleCondition>
+  <MacroRuleDescription>
+    <![CDATA[{$macrorule.cmsactivityforumpostsubscriptionperformedforforum.description$}]]>
+  </MacroRuleDescription>
+  <MacroRuleDisplayName>
+    <![CDATA[Activity 'Forum post subscription' performed for forum]]>
+  </MacroRuleDisplayName>
+  <MacroRuleEnabled>True</MacroRuleEnabled>
+  <MacroRuleGUID>e5609dbf-436e-434b-b81b-ec239eed93fb</MacroRuleGUID>
+  <MacroRuleIsCustom>False</MacroRuleIsCustom>
+  <MacroRuleName>CMSActivityForumPostSubscriptionPerformedForForum</MacroRuleName>
+  <MacroRuleParameters>
+    <form version="2">
+      <field column="forum" columnsize="100" columntype="text" guid="505dee00-fd62-463d-b018-50d4e75adb7d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>select forum</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>forumselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="_was" columnsize="100" columntype="text" guid="5ce11c03-1d59-43a1-925e-fb52b8234a74" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>;was</defaultvalue>
+          <fieldcaption>select operation</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>macronegationoperator</controlname>
+          <Options>
+<![CDATA[
+;was
+!;was not
+]]>
+          </Options>
+          <RepeatDirection>horizontal</RepeatDirection>
+        </settings>
+      </field>
+    </form>
+  </MacroRuleParameters>
+  <MacroRuleRequiredData>Activity</MacroRuleRequiredData>
+  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
+  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
+  <MacroRuleText>
+    <![CDATA[Activity 'Forum post subscription' {_was} performed for forum {forum}]]>
+  </MacroRuleText>
+</cms.macrorule>

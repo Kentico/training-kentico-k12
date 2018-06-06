@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>CMS.MacroRule</CodeName>
+    <GUID>c59a88e0-c6e5-4537-b35d-0cc3d2b294c9</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form>
+      <field column="MacroRuleResourceName">
+        <settings>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <AutoCompleteFirstRowSelected />
+          <AutoCompleteEnableCaching />
+          <FilterMode />
+          <Trim />
+          <controlname />
+        </settings>
+        <properties>
+          <defaultvalue>CMS.OnlineMarketing</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </FormDefinition>
+  <FormDisplayName>OnlineMarketingRule</FormDisplayName>
+  <FormGUID>e7e5aaee-8e2f-4a73-bd72-be5c75186646</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>OnlineMarketingRule</FormName>
+</cms.alternativeform>

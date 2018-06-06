@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.ForumPost</CodeName>
+    <GUID>f40c961c-3d47-4e6a-997e-b127db2520c1</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>228f7883-a3d0-46eb-8913-bc3497ef3c33</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>logthreadview</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+UPDATE Forums_ForumPost SET PostViews = CASE WHEN PostViews IS NULL THEN 0 ELSE PostViews END + @ViewCount WHERE PostId = @PostID
+
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

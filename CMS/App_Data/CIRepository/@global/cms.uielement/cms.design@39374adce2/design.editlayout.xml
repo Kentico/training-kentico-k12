@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$content.ui.pagelayout$}</ElementDisplayName>
+  <ElementFromVersion>5.0</ElementFromVersion>
+  <ElementGUID>bc3aafb6-84dc-4ab0-87e7-36435ed42ad4</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Design.EditLayout</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementParentID>
+    <CodeName>Design</CodeName>
+    <GUID>40f0ce57-5ced-4394-ab20-f332655235de</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties />
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>Url</ElementType>
+</cms.uielement>

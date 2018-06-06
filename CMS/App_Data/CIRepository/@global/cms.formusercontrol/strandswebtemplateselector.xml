@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>StrandsWebTemplateSelector</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription>
+    <![CDATA[Provides a drop-down list with available Strands web templates. ]]>
+  </UserControlDescription>
+  <UserControlDisplayName>Strands web template selector</UserControlDisplayName>
+  <UserControlFileName>
+    <![CDATA[~/CMSModules/StrandsRecommender/FormControls/StrandsWebTemplateSelector.ascx]]>
+  </UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>6104ad88-7c1c-473e-a45f-9af8b9627853</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2" />
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlResourceID>
+    <CodeName>CMS.StrandsRecommender</CodeName>
+    <GUID>1235e27c-5b04-4024-9032-d10ea62cafbe</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </UserControlResourceID>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>68dc6b03-fe15-4798-a1ab-de06a6d58837</HelpTopicGUID>
+  <HelpTopicLink>files_inserting</HelpTopicLink>
+  <HelpTopicName>Insert files into the content tree</HelpTopicName>
+  <HelpTopicOrder>9</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>content</CodeName>
+    <GUID>95a82f36-9c40-45f0-86f1-39aa44db9a77</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

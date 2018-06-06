@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>Referring sites</TableDisplayName>
+  <TableGUID>5cf4c63d-093a-4078-9d49-f82157d311c1</TableGUID>
+  <TableName>ReferringSites</TableName>
+  <TableQuery>
+<![CDATA[
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)250183684e39ff52af1d30f3a85cfa979c7d1067ccd739086f28b3ec7d243534%}');
+SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)250183684e39ff52af1d30f3a85cfa979c7d1067ccd739086f28b3ec7d243534%}');
+SELECT TOP 100
+StatisticsObjectName  AS '{$general.sites$}',
+ SUM(HitsCount) AS '{$reports_searchengine.hits_header$}',
+ CAST(CAST(100*CAST(SUM(HitsCount) AS float)/NULLIF((
+  SELECT SUM(HitsCount)
+  FROM Analytics_Statistics
+  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)21d9b54a1cd152dd8186629e23d3c79486d48c36a741c5f71f23be0687a5fd76%} ON Analytics_Statistics.StatisticsID = {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)21d9b54a1cd152dd8186629e23d3c79486d48c36a741c5f71f23be0687a5fd76%}.HitsStatisticsID
+  WHERE (StatisticsSiteID=@CMSContextCurrentSiteID)
+  AND (StatisticsCode='referringsite_referring')
+  AND (HitsStartTime >= @FromDate)
+  AND (StatisticsObjectID = @NodeID)
+  AND (StatisticsObjectCulture= @CultureCode)
+  AND (HitsEndTime <= @ToDate)), 0) AS decimal(3)) AS VARCHAR)+'%' AS '{$reports_searchengine.percent_header$}'
+  FROM Analytics_Statistics
+  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)21d9b54a1cd152dd8186629e23d3c79486d48c36a741c5f71f23be0687a5fd76%} ON Analytics_Statistics.StatisticsID = {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)21d9b54a1cd152dd8186629e23d3c79486d48c36a741c5f71f23be0687a5fd76%}.HitsStatisticsID
+  WHERE (StatisticsSiteID = @CMSContextCurrentSiteID)
+  AND (StatisticsCode='referringsite_referring')
+  AND (HitsStartTime >= @FromDate) AND (HitsEndTime <= @ToDate) AND (StatisticsObjectID = @NodeID)
+  AND (StatisticsObjectCulture= @CultureCode)
+  GROUP BY StatisticsObjectName
+  ORDER BY SUM(HitsCount) DESC
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>pagereports.Traffic</CodeName>
+    <GUID>716af0fd-6744-485e-82c6-48439401ed69</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>true</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>15</pagesize>
+      <querynorecordtext>No data found</querynorecordtext>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

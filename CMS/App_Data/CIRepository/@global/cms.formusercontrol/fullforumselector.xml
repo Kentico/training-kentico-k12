@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>FullForumSelector</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription>
+    <![CDATA[Provides a drop-down list with forums to select, including the (all) record for choosing all forums.]]>
+  </UserControlDescription>
+  <UserControlDisplayName>Full forum selector</UserControlDisplayName>
+  <UserControlFileName>inherited</UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>3a2b61bc-c04a-4526-9a85-28bba6d0d33b</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field column="DisplayAllForumsOption" columntype="boolean" fieldtype="CustomUserControl" publicfield="false" guid="1d45dd10-e48b-4a1b-9f55-256ce7497c9b" extra="true" order="0">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlParentID>
+    <CodeName>ForumSelector</CodeName>
+    <GUID>f515d5f4-6cf4-4b14-931d-bd988a7df581</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </UserControlParentID>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlResourceID>
+    <CodeName>CMS.Forums</CodeName>
+    <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </UserControlResourceID>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

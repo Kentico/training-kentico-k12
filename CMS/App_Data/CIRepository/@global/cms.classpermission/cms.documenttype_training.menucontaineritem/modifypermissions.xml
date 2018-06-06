@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Training.MenuContainerItem</CodeName>
+    <GUID>298e76cf-02c4-4464-b8e7-cd0c77a33e9e</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDescription>
+    <![CDATA[{$permissiondescription.document.modifypermissions$}]]>
+  </PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>{$permissionnames.modifypermissions$}</PermissionDisplayName>
+  <PermissionGUID>d658aab1-e831-4a20-9638-bcc5cbc4e5bd</PermissionGUID>
+  <PermissionName>ModifyPermissions</PermissionName>
+  <PermissionOrder>8</PermissionOrder>
+</cms.classpermission>

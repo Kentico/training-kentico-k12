@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>Personas</ElementDisplayName>
+  <ElementFeature>Personas</ElementFeature>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>1396d102-fcad-4b5d-bf80-fe945ff7b7c8</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>properties.personas</ElementName>
+  <ElementOrder>16</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>M_NEdit</CodeName>
+    <GUID>0cee6b71-596b-49c7-bd30-54175f6d7bdb</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>Properties</CodeName>
+    <GUID>cc744db0-dc8c-45de-ab30-bd36f67b2eb9</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <Data>
+      <bindingobjectprovidertype>personas.personanode</bindingobjectprovidertype>
+      <BindingObjectType>personas.personanode</BindingObjectType>
+      <breadcrumbssuffix>content.ui.page</breadcrumbssuffix>
+      <checkmodifypermission>True</checkmodifypermission>
+      <DisplayBreadcrumbs>False</DisplayBreadcrumbs>
+      <EditExtender>App_Code</EditExtender>
+      <ExtenderClassName>PersonasUniSelectorExtender</ExtenderClassName>
+      <includejquery>False</includejquery>
+      <ListPrefaceText>{$personas.documentissassigned$}</ListPrefaceText>
+      <ObjectType>cms.node</ObjectType>
+      <ResourcePrefix>personas.ui.docproperties</ResourcePrefix>
+      <WhereCondition>
+        <![CDATA[NodeID={%UIContext.EditedObject["NodeID"]|(identity)GlobalAdministrator|(hash)a0cbdbeae44524f8be7f8705d0202daa5b660a70220f4a119dfde550bfe37a6e%}]]>
+      </WhereCondition>
+    </Data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Personas</CodeName>
+    <GUID>904548ca-bed8-45bf-a6d0-42c1bae4d26d</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+</cms.uielement>

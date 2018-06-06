@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.category>
+  <CategoryDescription>Category contains development related articles</CategoryDescription>
+  <CategoryDisplayName>Development</CategoryDisplayName>
+  <CategoryEnabled>True</CategoryEnabled>
+  <CategoryGUID>ad7616c9-0d83-417f-9af8-84beb7be19f2</CategoryGUID>
+  <CategoryName>Development</CategoryName>
+  <CategoryOrder>2</CategoryOrder>
+</cms.category>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>46cf2540-d290-423a-a286-6e8fbd1e160b</HelpTopicGUID>
+  <HelpTopicLink>widgets_adding_content</HelpTopicLink>
+  <HelpTopicName>Add widgets to pages</HelpTopicName>
+  <HelpTopicOrder>4</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.Widgets</CodeName>
+    <GUID>ef314079-8dbb-4273-bed1-a4af14d0cbf7</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Widgets</CodeName>
+      <GUID>c408448c-9373-42b0-950d-812d5c95f57b</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

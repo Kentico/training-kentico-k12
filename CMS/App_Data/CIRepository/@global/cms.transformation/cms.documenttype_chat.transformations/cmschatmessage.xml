@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>Chat.Transformations</CodeName>
+    <GUID>bf7ea731-502b-43b5-ac6f-153551edb84d</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<div class="ChatMessage">
+	{{if System}}
+		<span class="System">${LastModified.toLocaleTimeString()}:
+			<span class="Message System{{if (System == 7) || (System == 10)}} Greeting{{/if}}"> ${MessageText}</span> 
+		</span>
+	{{else}}
+		<div class="ChatMessageHeader">
+			{{if (Modified)}}
+				<span class="Modified">({$chat.messagemodified$} ${LastModified.toLocaleTimeString()})</span>
+			{{/if}}
+			<span class="PostedTime">${PostedTime.toLocaleTimeString()}</span>
+			{{if (RejectMessage)}}
+				<div class="RejectButton">
+					<a href="#" onclick="${RejectMessage}">
+						<img src='{%GetImageUrl("CMSModules/CMS_Chat/reject.png")|(identity)GlobalAdministrator|(hash)7541c8a786df6e663921ff61d69d91856bc9f0d5b5ff27adb891600b3fb704e8%}' alt="{$chat.rejectmessage$}" title="{$chat.rejectmessage$}" width="8px" height="8px"/>
+					</a>
+				</div>
+			{{/if}}
+			{{if (Whisper && !IsOneOnOne)}}
+				<span class="Whisper">
+					<strong>
+						{{if (SelectRecipient)}}
+							{$chat.from$} 
+							<a href="#" onclick="${SelectRecipient}">${Nickname}</a>   
+						{{else}}
+							{$chat.to$}
+							{{if (SelectPrevRecipient)}}
+								<a href="#" onclick="${SelectPrevRecipient}">${Recipient}</a>
+							{{else}}
+								${Recipient}
+							{{/if}}
+						{{/if}}
+					</strong>
+				{{else}}
+					<strong>
+						<span class="{{if (!IsAuthorCurrentUser) }}Sender{{else}}MeSender{{/if}}" >
+							{{if (SelectRecipient && !IsOneOnOne)}}
+								<a href="#" onclick="${SelectRecipient}">${Nickname}</a>
+							{{else}}
+								${Nickname}
+							{{/if}}
+						</span>
+					</strong>
+				</span>
+			{{/if}}
+		</div>
+		<div class="ChatMessageBody">
+			{{if Rejected}}
+				<span class="Rejected">{$chat.messagerejected$}</span>
+			{{else}}
+				<span class="Message">${MessageText}</span>
+			{{/if}}
+		</div>
+	{{/if}}
+</div>
+]]>
+  </TransformationCode>
+  <TransformationCSS />
+  <TransformationGUID>f2210e38-139b-42ab-ba5d-f69f0063a231</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>CMSChatMessage</TransformationName>
+  <TransformationType>jquery</TransformationType>
+</cms.transformation>

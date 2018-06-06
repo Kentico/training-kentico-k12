@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DocumentViewers</CodeName>
+    <GUID>46e23e43-a698-4fdb-8898-2526f4dd4e09</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a list of pages that are related to the current page based on the assigned transformation.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Related pages</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Viewers/Documents/relateddocuments.ascx</WebPartFileName>
+  <WebPartGUID>e1840af3-23c2-412b-8ff5-c7dbf53d4146</WebPartGUID>
+  <WebPartIconClass>icon-w-related-documents</WebPartIconClass>
+  <WebPartName>relateddocuments</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Transformations">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="348affd0-ea47-4b03-aefa-4709d82b12a2" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>CMS.Root.relateddocuments</defaultvalue>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.transformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="Relationships">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CurrentDocumentIsOnTheLeftSide" columntype="boolean" guid="3530d853-7c7c-422c-a495-164e92e56c76" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Current page is on the left side</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.mainonleft$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RelationshipName" columnsize="200" columntype="text" guid="dbfce8c6-6127-48ba-80c4-c0a54eaae74b" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Relationship name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.relationship$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectrelationshipname</controlname>
+        </settings>
+      </field>
+      <category name="Content filter">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ClassNames" columnsize="1000" columntype="text" guid="d0c80e84-ddaf-4b5c-89a9-454a839552ec" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Page types</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.documenttypes$}</fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>selectclassnames</controlname>
+          <HideInheritedClasses>False</HideInheritedClasses>
+          <ReturnColumnName>ClassName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ShowOnlyCoupled>False</ShowOnlyCoupled>
+        </settings>
+      </field>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="27c3af0a-5dc2-4f92-8121-26931e688467" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY expression</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.orderbyforpages$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectOnlyPublished" columntype="boolean" guid="3813bb24-7714-4da4-bdbc-f4b107b49d7a" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Select only published</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selectpublished$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="571f1aa4-8d16-4ad4-bd0e-1970f2a6e3b1" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Select top N pages</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selecttopndocuments$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="8ef0a4ac-79dd-458e-9a1d-ca2d073a83b3" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Columns" columnsize="500" columntype="text" guid="974fd5b8-67b5-490a-b107-16f99be2e75b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Columns</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.columns$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>columns</controlname>
+        </settings>
+      </field>
+      <category name="No data behavior">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="HideControlForZeroRows" columntype="boolean" guid="09f8887c-6169-4645-9d76-75ee6a6c4776" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="b8129b9a-7c12-4153-8ac2-f60061d3346b" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$administration.ui.bannedips$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDescription>{$Administration.BannedIP.Description$}</ElementDescription>
+  <ElementDisplayName>{$administration.ui.bannedips$}</ElementDisplayName>
+  <ElementFeature>BannedIP</ElementFeature>
+  <ElementFromVersion>5.0</ElementFromVersion>
+  <ElementGUID>dd3dbea4-07b5-4905-b090-f7eca0dacdd8</ElementGUID>
+  <ElementIconClass>icon-app-banned-ips</ElementIconClass>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>BannedIP</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementParentID>
+    <CodeName>Configuration</CodeName>
+    <GUID>506f9619-daa6-40a7-a104-2e414d22e19f</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS</CodeName>
+      <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <includejquery>False</includejquery>
+      <descriptionlink>ipaddresses_banning</descriptionlink>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.BannedIP</CodeName>
+    <GUID>0b5a5dd7-ce18-487a-96a3-a71434119b15</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/BannedIP/Tools/BannedIP_List.aspx?siteid={% if (!CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin)) { return CurrentSite.SiteID } |(identity)GlobalAdministrator|(hash)a8e3c27690236882e7e318c1929e02a801744d991f8afd47682ec5bb94aa60ca%}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

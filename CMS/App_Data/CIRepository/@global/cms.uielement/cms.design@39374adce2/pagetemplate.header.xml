@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$General.header$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>Header</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>d8570166-0f58-46a0-9659-423603ecb3b9</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>PageTemplate.Header</ElementName>
+  <ElementOrder>11</ElementOrder>
+  <ElementParentID>
+    <CodeName>PageTemplate.EditPageTemplate</CodeName>
+    <GUID>e818fd41-198a-4a96-ad4f-e55d170b6a22</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/PortalEngine/UI/PageTemplates/PageTemplate_HeaderTab.aspx?templateid={?objectid?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition>
+<![CDATA[
+{%type = EditedObject.PageTemplateType;
+return type != "dashboard" && type != "UI"|(identity)GlobalAdministrator|(hash)46dda996ba947a312ddef13dabcc774f8916d88ad2d65ded94e02a61e8cd62d1%}
+]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

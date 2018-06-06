@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>d10c3973-e920-4872-adf4-ba73ea4ed350</HelpTopicGUID>
+  <HelpTopicLink>mobile_51degrees</HelpTopicLink>
+  <HelpTopicName>Integrate 51Degrees</HelpTopicName>
+  <HelpTopicOrder>6</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.DeviceProfiles</CodeName>
+    <GUID>b510ca56-2963-4e39-ba4f-5a13a7457e21</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.DeviceProfiles</CodeName>
+      <GUID>6a211ca9-a088-480d-b205-86af12b83935</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

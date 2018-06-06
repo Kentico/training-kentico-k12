@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>0</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>BannerManagement</CodeName>
+    <GUID>0bbaf6ee-691e-4b31-9ca5-db098255806b</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>Banner hits and clicks - Hourly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>b4bfa972-be57-455f-a05f-f9e379380098</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<h4>
+	{$banner.hitsclicks$}</h4>
+({$reports_general.from$} {%FromDate%} {$reports_general.to$} {%ToDate%})<br />
+<br />
+%%control:ReportValue?bannerhitsclicks.hourreport.NotAvailableCaption%%<br />
+<br />
+%%control:ReportGraph?bannerhitsclicks.hourreport.GraphHitsClicks%%<br />
+<br />
+{$reports_general.created$} {%CMSContextCurrentTime%} {$reports_general.by$} {%CMSContextCurrentUserName%}
+]]>
+  </ReportLayout>
+  <ReportName>bannerhitsclicks.hourreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="acc9a5ae-106b-4399-b81a-fb4d93c1f48c" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddDays(-2)|(identity)GlobalAdministrator|(hash)8dcdba051f73ef52dd5a56de0a292a20ae5a3a0888b196d709da1838a3b6602c%}]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="ToDate" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="4df77152-1034-4de3-ac8b-4b7256e8ce37" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+        </properties>
+      </field>
+      <field column="BannerId" columntype="integer" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="7f920ea4-d45c-48de-b298-b897a9e31da4" visibility="none">
+        <properties>
+          <fieldcaption>BannerId</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

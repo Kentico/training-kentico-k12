@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportgraph>
+  <GraphDisplayName>graph_detail</GraphDisplayName>
+  <GraphGUID>a046fca0-b6b6-411c-930a-82eedc0f02c0</GraphGUID>
+  <GraphIsHtml>True</GraphIsHtml>
+  <GraphName>graph_detail</GraphName>
+  <GraphQuery>
+<![CDATA[
+EXEC Proc_Analytics_RemoveTempTable
+CREATE TABLE #AnalyticsTempTable (
+  StartTime DATETIME,
+  Hits INT,
+  Name NVARCHAR(300)
+);
+
+ SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'month');
+  INSERT INTO #AnalyticsTempTable (StartTime, Hits, Name)
+
+   SELECT [Date] AS StartTime ,T1.Hits AS Hits  ,T1.Name AS Name
+FROM {%DatabaseSchema%}.Func_Analytics_EnsureDates (@FromDate,@ToDate,'Month') AS Dates
+ LEFT JOIN
+  (SELECT HitsStartTime AS Interval, SUM(HitsCount) AS Hits ,ABVariantDisplayName AS Name
+  FROM Analytics_Statistics 
+  INNER JOIN Analytics_MonthHits ON StatisticsID = Analytics_MonthHits.HitsStatisticsID
+  INNER JOIN OM_ABVariant ON ABVariantName = SUBSTRING(StatisticsCode, CHARINDEX(';',StatisticsCode,14)+1,LEN (StatisticsCode))  AND ABVariantSiteID = @CMSContextCurrentSiteID
+  WHERE StatisticsSiteID = @CMSContextCurrentSiteID   AND  StatisticsCode LIKE 'abconversion;%' 
+  AND (@TestName IS NULL OR @TestName = ''  OR  @TestName = SUBSTRING(StatisticsCode, 14, CHARINDEX(';',StatisticsCode,14)-14))
+  AND (@ConversionName IS NULL OR @ConversionName = '' OR @ConversionName = StatisticsObjectName)
+  GROUP BY HitsStartTime,ABVariantDisplayName
+  ) AS T1
+ ON Dates.Date=T1.Interval;
+  
+  EXEC Proc_Analytics_Pivot 'month'
+  EXEC Proc_Analytics_RemoveTempTable
+]]>
+  </GraphQuery>
+  <GraphQueryIsStoredProcedure>False</GraphQueryIsStoredProcedure>
+  <GraphReportID>
+    <CodeName>abtestconversioncount.monthreport</CodeName>
+    <GUID>f56498a4-ec4b-447f-be47-d3e43f29aa1f</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </GraphReportID>
+  <GraphSettings>
+    <CustomData>
+      <displaylegend>True</displaylegend>
+      <exportenabled>True</exportenabled>
+      <itemvalueformat>
+        <![CDATA[{%Format(ToDouble(pval, "0.0"), "{0:0.0}")|(identity)GlobalAdministrator|(hash)2f33386764b9e4641aa1d567c75d690e8d408eccb912dc6c78492c163dc99c42%}% ({%yval%})]]>
+      </itemvalueformat>
+      <legendtitle>Variants</legendtitle>
+      <querynorecordtext>No data found</querynorecordtext>
+      <seriesitemnameformat>y</seriesitemnameformat>
+      <seriesitemtooltip>{%ser%}</seriesitemtooltip>
+      <subscriptionenabled>True</subscriptionenabled>
+      <yaxistitleposition>Center</yaxistitleposition>
+    </CustomData>
+  </GraphSettings>
+  <GraphTitle>Conversion count detail</GraphTitle>
+  <GraphType />
+</reporting.reportgraph>

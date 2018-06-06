@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.view$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$general.view$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>80014567-4648-485d-b937-410feb3c51fe</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>EditChatRoomView</ElementName>
+  <ElementOrder>5</ElementOrder>
+  <ElementParentID>
+    <CodeName>EditChatRoom</CodeName>
+    <GUID>cb696d91-4951-4cf8-8a3f-d4f1aa853a3b</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Chat</CodeName>
+      <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <includejquery>False</includejquery>
+      <category_name_header>False</category_name_header>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>~/CMSModules/Chat/Pages/Tools/ChatRoom/View.aspx</ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition>
+    <![CDATA[{%!(EditedObject.ChatRoomIsOneToOne && EditedObject.ChatRoomIsSupport)|(identity)GlobalAdministrator|(hash)fe7b56b690429ade6b65e230ce295452818fe3b1e785986c5d37abeae9f75e31%}]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

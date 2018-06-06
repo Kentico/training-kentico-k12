@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Workgroups</CodeName>
+    <GUID>e72170d8-9f54-4856-a9ee-710d64d586d6</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays a list of users who are administrators of the current workgroup.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Workgroup administrators</WidgetDisplayName>
+  <WidgetDocumentation>
+    <![CDATA[This widget is intended for use on the Intranet Portal sample site or other websites that are based on its structure.]]>
+  </WidgetDocumentation>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>False</WidgetForEditor>
+  <WidgetForGroup>True</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>fa524528-5556-4655-94e2-b67b16d81fe1</WidgetGUID>
+  <WidgetIconClass>icon-w-workgroup-administrators</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>Workgroup.Administrators</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="GroupName" visible="" guid="1d32a28a-570e-4a5e-a5be-ee64a2a7b18f" allowempty="true" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)c5f11e562fd7204359df6fab4dfdc84cbec6aa42147d45db8078d425d462eeb8%}]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="TransformationName" visible="" guid="9d9f3ec2-6bb2-48b1-b6b6-7aadc4ca844b">
+        <properties>
+          <defaultvalue>IntranetPortal.Transformations.MembersListRight</defaultvalue>
+        </properties>
+      </field>
+      <field column="AlternatingItemTransformationName" visible="" guid="5f05f9e2-65b7-4d0a-9514-6428ce52a4b2" />
+      <field column="SeparatorTransformationName" visible="" guid="2f0e265b-0d7d-4f9e-8b49-d7209916cab5" />
+      <field column="HeaderTransformationName" visible="" guid="22c652c0-eaaa-4868-8f00-ba22c019b74b" />
+      <field column="FooterTransformationName" visible="" guid="1ab37457-2be7-4305-a7ff-146b8c0798c2" />
+      <field column="HideControlForZeroRows" visible="" guid="a992cab9-5283-451d-b10b-1b192b832ad1" />
+      <field column="ZeroRowsText" visible="" guid="28b80cb5-3dcd-4d62-b2b3-b5ac8245342a" visibility="none">
+        <properties>
+          <defaultvalue>There are currently no administrators.</defaultvalue>
+        </properties>
+      </field>
+      <field column="ShowFilterControl" guid="0d896733-7470-4c85-befd-61b4c86a6c08">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="OrderBy" visible="" guid="450274e0-f6b9-47b8-b32f-ffcd34bc503a" />
+      <field column="SelectTopN" guid="b21c5184-d4f0-437f-81f3-5c44a21cc895">
+        <properties>
+          <defaultvalue>5</defaultvalue>
+        </properties>
+      </field>
+      <field column="SiteName" visible="" guid="5857aefa-9498-4825-9ba9-e4d54948baa7" />
+      <field column="WhereCondition" visible="" guid="864a9e07-60f2-40a3-9f76-7e4e9cb9d7f6" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[MemberUserID IN (SELECT UserID FROM CMS_UserRole WHERE RoleID IN (SELECT RoleID FROM CMS_Role WHERE RoleGroupID = '{%if (CommunityContext.CurrentGroup.GroupID == null) { "0" } else { CommunityContext.CurrentGroup.GroupID }|(identity)GlobalAdministrator|(hash)16b0321ffdc87601daa1ed1707e7a7cdc8122a5563f7765d4e746df947252ca8%}' AND RoleIsGroupAdministrator = 1))]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="Columns" visible="" guid="6151c3b7-0dbf-40ba-8445-23a9c6a15a1f" visibility="none">
+        <properties>
+          <defaultvalue>
+            <![CDATA[UserID,UserNickName,UserGender,UserDateOfBirth,UserAvatarID,UserCreated,UserName, AvatarGuid,FullName,UserPhone,Email,UserSkype,UserIM]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="FilterName" visible="" guid="3aa42415-2746-4135-b34d-c1e5feb9adc2" />
+      <field column="PageSize" guid="06c2cf68-5d12-45f4-bf57-014537ac0fc9" />
+      <field column="PagingMode" visible="" guid="8d1bb594-ac48-4946-8c65-544e139b7568" />
+      <field column="QueryStringKey" visible="" guid="b8d73d3d-199b-4d87-a8a9-af5b9da83ea3" />
+      <field column="GroupSize" guid="f1ecff3f-2371-4a43-8890-0f18e7124cc2" />
+      <field column="DisplayFirstLastAutomatically" visible="" guid="7bef5585-aecb-47a6-a3d8-203dd07bf91d" />
+      <field column="DisplayPreviousNextAutomatically" visible="" guid="def28085-099a-4c69-8951-bcc2d0a9ba6f" />
+      <field column="HidePagerForSinglePage" visible="" guid="aad02ae4-54bb-4594-93c6-76cfa397983b" />
+      <field column="Pages" visible="" guid="4a9c59b4-6c70-4fe6-8d21-5ab894b764a1" />
+      <field column="CurrentPage" visible="" guid="62f17956-64d4-4bd5-b655-5f8bf9d36940" />
+      <field column="PageSeparator" visible="" guid="c8f29db0-0872-4f99-b513-25e6911586f9" />
+      <field column="FirstPage" visible="" guid="000ef8e5-de95-47c7-8fe4-ca0015f0a743" />
+      <field column="LastPage" visible="" guid="904659d2-c468-4cd7-858b-6cb5347c5552" />
+      <field column="PreviousPage" visible="" guid="40a988d9-f546-44e5-ba17-b0363547a56f" />
+      <field column="NextPage" visible="" guid="54f4131b-ce93-4478-ab28-dcf7da4950fa" />
+      <field column="PreviousGroup" visible="" guid="08440a66-4dae-49eb-9d6f-6345e1014fb7" />
+      <field column="NextGroup" visible="" guid="e25c7e59-0d31-4d8e-831c-e673b3e3b6b8" />
+      <field column="DirectPage" visible="" guid="fd1cd125-fe49-4ee1-a94b-b1f6e150dd1c" />
+      <field column="PagerLayout" visible="" guid="3c8e00a9-fbe6-41cf-9a98-cc9f5c5dda81" />
+      <field column="CacheItemName" visible="" guid="04b0ffae-c6d6-4ca7-aca9-31fc84a57e92" />
+      <field column="CacheMinutes" visible="" guid="65b3da62-e792-47e2-9604-aa805cdf8711" />
+      <field column="CacheDependencies" visible="" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" />
+      <category name="Web part container" extra="true" order="43">
+        <properties>
+          <caption>Widget container</caption>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="Container" visible="true" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="36420a4e-4e6e-406e-a06f-9a7d606b98da" extra="true" reftype="Required" order="44">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.container$}</fielddescription>
+          <fieldcaption>Widget container</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>selectcontainer</controlname>
+        </settings>
+      </field>
+      <field column="ContainerTitle" visible="true" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="cd9a0801-5992-44f7-b744-c4790e657be8" extra="true" reftype="Required" order="45">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.containertitle$}</fielddescription>
+          <defaultvalue>ADMINISTRATORS</defaultvalue>
+          <fieldcaption>Widget container title</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCSSClass" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="cf79d6a8-0951-4481-926b-861d141954f8" extra="true" reftype="Required" order="46">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercssclass$}]]>
+          </fielddescription>
+          <fieldcaption>Container CSS class</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCustomContent" columntype="longtext" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="b1842275-c9f1-4a14-adba-905cf2896257" extra="true" reftype="Required" order="47">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
+          </fielddescription>
+          <fieldcaption>Container custom content</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Wrap>True</Wrap>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>GroupMembersViewer</CodeName>
+    <GUID>be0b156d-be65-459b-89aa-323ae06892c2</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

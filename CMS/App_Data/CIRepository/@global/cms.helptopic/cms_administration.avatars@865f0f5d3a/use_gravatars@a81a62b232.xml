@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>7129db4a-9909-463f-9364-d8a0c796322d</HelpTopicGUID>
+  <HelpTopicLink>gravatars</HelpTopicLink>
+  <HelpTopicName>Use Gravatars</HelpTopicName>
+  <HelpTopicOrder>3</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Administration.Avatars</CodeName>
+    <GUID>ac5f7125-ec5e-4ed1-a400-de0676f46189</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS</CodeName>
+      <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

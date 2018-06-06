@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="dancinggoat.changepassword.btnok" xml:space="preserve">
+    <value>Cambiar la contraseña</value>
+  </data>
+  <data name="dancinggoat.changepassword.changessaved" xml:space="preserve">
+    <value>Contraseña cambiada con éxito.</value>
+  </data>
+  <data name="dancinggoat.changepassword.errornewpassword" xml:space="preserve">
+    <value>Las nuevas contraseñas no coinciden.</value>
+  </data>
+  <data name="dancinggoat.changepassword.erroroldpassword" xml:space="preserve">
+    <value>Contraseña incorrecta</value>
+  </data>
+  <data name="dancinggoat.changepassword.lblconfirmpassword" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="dancinggoat.changepassword.lblnewpassword" xml:space="preserve">
+    <value>Nueva contraseña</value>
+  </data>
+  <data name="dancinggoat.backtoaccount" xml:space="preserve">
+    <value>Volver a su cuenta</value>
+  </data>
+  <data name="dancinggoat.contactus.emailaddress" xml:space="preserve">
+    <value>Correo electrónico</value>
+  </data>
+  <data name="dancinggoat.contactus.message" xml:space="preserve">
+    <value>Mensaje</value>
+  </data>
+  <data name="dancinggoat.contactus.nomessage" xml:space="preserve">
+    <value>Por favor escribe un mensaje.</value>
+  </data>
+  <data name="dancinggoat.contactus.thanks" xml:space="preserve">
+    <value>Gracias! Nos pondremos en contacto con usted lo más pronto posible.</value>
+  </data>
+  <data name="dancinggoat.continue" xml:space="preserve">
+    <value>Continuar</value>
+  </data>
+  <data name="dancinggoat.en-us" xml:space="preserve">
+    <value>Inglés</value>
+  </data>
+  <data name="dancinggoat.es-es" xml:space="preserve">
+    <value>Español</value>
+  </data>
+  <data name="dancinggoat.date" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="dancinggoat.findoutmore" xml:space="preserve">
+    <value>Saber más</value>
+  </data>
+  <data name="dancinggoat.firstname" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="dancinggoat.firstnameempty" xml:space="preserve">
+    <value>Por favor rellena su nombre</value>
+  </data>
+  <data name="dancinggoat.forgottenpassword" xml:space="preserve">
+    <value>¿Has olvidado tu contraseña?</value>
+  </data>
+  <data name="dancinggoat.hellouser" xml:space="preserve">
+    <value>Hola,</value>
+  </data>
+  <data name="dancinggoat.invalidemail" xml:space="preserve">
+    <value>Por favor, introduzca una dirección de correo electrónico válida.</value>
+  </data>
+  <data name="dancinggoat.lastname" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="dancinggoat.lastnameempty" xml:space="preserve">
+    <value>Introduzca su apellido</value>
+  </data>
+  <data name="dancinggoat.latestarticle" xml:space="preserve">
+    <value>Último artículo</value>
+  </data>
+  <data name="dancinggoat.morearticles" xml:space="preserve">
+    <value>Más artículos</value>
+  </data>
+  <data name="dancinggoat.myorders.orderid" xml:space="preserve">
+    <value>Numero de pedido</value>
+  </data>
+  <data name="dancinggoat.myorders.total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="dancinggoat.ourstory" xml:space="preserve">
+    <value>Nuestra historia</value>
+  </data>
+  <data name="dancinggoat.passwordempty" xml:space="preserve">
+    <value>Por favor, introduzca su contraseña</value>
+  </data>
+  <data name="dancinggoat.passwordsnotmatch" xml:space="preserve">
+    <value>Por favor comfirme su contraseña</value>
+  </data>
+  <data name="dancinggoat.product.morecoffees" xml:space="preserve">
+    <value>Más Productos</value>
+  </data>
+  <data name="dancinggoat.readwholestory" xml:space="preserve">
+    <value>Leer la historia completa</value>
+  </data>
+  <data name="dancinggoat.register" xml:space="preserve">
+    <value>Registrate</value>
+  </data>
+  <data name="dancinggoat.registration.confirmpassword" xml:space="preserve">
+    <value>Confirme la contraseña</value>
+  </data>
+  <data name="dancinggoat.registration.email" xml:space="preserve">
+    <value>Dirección correo electrónico (Usuario)</value>
+  </data>
+  <data name="dancinggoat.registration.failed" xml:space="preserve">
+    <value>No se ha podido terminar el registro </value>
+  </data>
+  <data name="dancinggoat.registration.password" xml:space="preserve">
+    <value>Crear tu Contraseña</value>
+  </data>
+  <data name="dancinggoat.registration.register" xml:space="preserve">
+    <value>Registrate</value>
+  </data>
+  <data name="dancinggoat.resetpassword" xml:space="preserve">
+    <value>Restablecer su contraseña</value>
+  </data>
+  <data name="dancinggoat.resetpassword.email" xml:space="preserve">
+    <value>Introduzca el correo electrónico asociado a tu cuenta para restablecer su contraseña</value>
+  </data>
+  <data name="dancinggoat.returntohome" xml:space="preserve">
+    <value>Volver al Inicio</value>
+  </data>
+  <data name="dancinggoat.search" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="dancinggoat.signin" xml:space="preserve">
+    <value>Iniciar</value>
+  </data>
+  <data name="dancinggoat.signout" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="dancinggoat.status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="dancinggoat.submit" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="dancinggoat.subscribe" xml:space="preserve">
+    <value>Suscribir</value>
+  </data>
+  <data name="dancinggoat.subscription.prompt" xml:space="preserve">
+    <value>¿Quieres estar al día? Por favor, déjenos su e-mail.</value>
+  </data>
+  <data name="dancinggoat.tasteourcoffee" xml:space="preserve">
+    <value>Pruebe Nuestro Café</value>
+  </data>
+  <data name="dancinggoat.user.update" xml:space="preserve">
+    <value>Actualizar datos personales</value>
+  </data>
+  <data name="dancinggoat.youraccount" xml:space="preserve">
+    <value>Mi cuenta</value>
+  </data>
+  <data name="dancinggoat.cancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="dancinggoat.cartitem" xml:space="preserve">
+    <value>producto</value>
+  </data>
+  <data name="dancinggoat.cartitems" xml:space="preserve">
+    <value>productos</value>
+  </data>
+  <data name="dancinggoat.changepassword" xml:space="preserve">
+    <value>Cambiar la contraseña</value>
+  </data>
+  <data name="dancinggoat.delete" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="dancinggoat.edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="dancinggoat.email" xml:space="preserve">
+    <value>Dirección de correo electrónico</value>
+  </data>
+  <data name="dancinggoat.myaddresses.add" xml:space="preserve">
+    <value>Añadir nueva dirección</value>
+  </data>
+  <data name="dancinggoat.myaddresses.prompt" xml:space="preserve">
+    <value>¿Seguro que quieres eliminar la dirección seleccionada?</value>
+  </data>
+  <data name="dancinggoat.myaddresses.promptheader" xml:space="preserve">
+    <value>Eliminar dirección?</value>
+  </data>
+  <data name="dancinggoat.myorders" xml:space="preserve">
+    <value>Pedidos</value>
+  </data>
+  <data name="dancinggoat.myorders.orderagain" xml:space="preserve">
+    <value>Pedir nuevo producto </value>
+  </data>
+  <data name="dancinggoat.myorders.viewinvoice" xml:space="preserve">
+    <value>Ver factura</value>
+  </data>
+  <data name="dancinggoat.noordersyet" xml:space="preserve">
+    <value>Todavía no tiene pedidos</value>
+  </data>
+  <data name="dancinggoat.orderstatus.completed" xml:space="preserve">
+    <value>Terminado</value>
+  </data>
+  <data name="dancinggoat.orderstatus.new" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="dancinggoat.orderstatus.processing" xml:space="preserve">
+    <value>Pendiente</value>
+  </data>
+  <data name="dancinggoat.password" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="dancinggoat.publicstatus.bestseller" xml:space="preserve">
+    <value>Más Vendidos</value>
+  </data>
+  <data name="dancinggoat.publicstatus.onsale" xml:space="preserve">
+    <value>Rebaja</value>
+  </data>
+  <data name="dancinggoat.yourcart" xml:space="preserve">
+    <value>Cesta</value>
+  </data>
+  <data name="dancinggoat.closemenu" xml:space="preserve">
+    <value>Cerrar menú</value>
+  </data>
+  <data name="dancinggoat.closeselector" xml:space="preserve">
+    <value>Cerrar Selección</value>
+  </data>
+  <data name="dancinggoat.openmenu" xml:space="preserve">
+    <value>Abrir el menú</value>
+  </data>
+  <data name="dancinggoat.openselector" xml:space="preserve">
+    <value>Abrir Selecciónado</value>
+  </data>
+  <data name="dancinggoat.donatewithus" xml:space="preserve">
+    <value>haz un donativo</value>
+  </data>
+  <data name="dancinggoat.privacy" xml:space="preserve">
+    <value>Intimidad</value>
+  </data>
+  <data name="dancinggoat.privacy.nodatafound" xml:space="preserve">
+    <value>Actualmente no hay consentimientos acordados por usted.</value>
+  </data>
+  <data name="dancinggoat.privacy.revoke" xml:space="preserve">
+    <value>Revocar</value>
+  </data>
+  <data name="dancinggoat.privacy.revocationsuccessful" xml:space="preserve">
+    <value>La revocación del consentimiento fue exitosa.</value>
+  </data>
+  <data name="dancinggoat.partnership" xml:space="preserve">
+    <value>Sociedad</value>
+  </data>
+  <data name="dancinggoat.readmore" xml:space="preserve">
+    <value>Leer más</value>
+  </data>
+  <data name="dancinggoat.organizationidlabel" xml:space="preserve">
+    <value>Numero de empresa</value>
+  </data>
+  <data name="dancinggoat.taxregistrationidlabel" xml:space="preserve">
+    <value>Código de Identificación Fiscal</value>
+  </data>
+  <data name="dancinggoat.machinerental" xml:space="preserve">
+    <value>Alquiler de maquinas</value>
+  </data>
+  <data name="dancinggoat.machinerental.youraccount" xml:space="preserve">
+    <value>¿Interesado en alquilar máquina? Mas</value>
+  </data>
+  <data name="dancinggoat.optional" xml:space="preserve">
+    <value>opcional</value>
+  </data>
+  <data name="dancinggoat.roastery" xml:space="preserve">
+    <value>Tostadero</value>
+  </data>
+  <data name="dancinggoat.product.productsrecommended" xml:space="preserve">
+    <value>Productos recomendados</value>
+  </data>
+  <data name="dancinggoat.newregion" xml:space="preserve">
+    <value>Nueva región</value>
+  </data>
+  <data name="dancinggoat.americancafes" xml:space="preserve">
+    <value>Cafés Norte Americana</value>
+  </data>
+  <data name="dancinggoat.australiancafes" xml:space="preserve">
+    <value>Cafés Australianos</value>
+  </data>
+  <data name="dancinggoat.europeancafes" xml:space="preserve">
+    <value>Cafés Europeos</value>
+  </data>
+  <data name="dancinggoat.coffeeclub" xml:space="preserve">
+    <value>Club de café</value>
+  </data>
+  <data name="dancinggoat.board.messageedit.addmessage" xml:space="preserve">
+    <value>Publicar comentario</value>
+  </data>
+  <data name="dancinggoat.board.messageedit.message" xml:space="preserve">
+    <value>Mensage</value>
+  </data>
+  <data name="dancinggoat.board.messageedit.rfvmessage" xml:space="preserve">
+    <value>Por favor deja un comentario </value>
+  </data>
+  <data name="dancinggoat.board.messageedit.waitingapproval" xml:space="preserve">
+    <value>Gracias por tu comentario.Tras una breve revisión será publicad</value>
+  </data>
+  <data name="dancinggoat.addressdetail" xml:space="preserve">
+    <value>Detalles sobre la dirección</value>
+  </data>
+  <data name="dancinggoat.addressline1" xml:space="preserve">
+    <value>Línea de dirección</value>
+  </data>
+  <data name="dancinggoat.addressline1expl" xml:space="preserve">
+    <value>por ejemplo dirección de la calle, P.O.box, c/o</value>
+  </data>
+  <data name="dancinggoat.addressline2" xml:space="preserve">
+    <value>Línea de dirección 2</value>
+  </data>
+  <data name="dancinggoat.addressline2expl" xml:space="preserve">
+    <value>por ejemplo apartamento, habitación, unidad</value>
+  </data>
+  <data name="dancinggoat.city" xml:space="preserve">
+    <value>Ciudad</value>
+  </data>
+  <data name="dancinggoat.company" xml:space="preserve">
+    <value>Compañía</value>
+  </data>
+  <data name="dancinggoat.contactname" xml:space="preserve">
+    <value>Nombre de contacto</value>
+  </data>
+  <data name="dancinggoat.country" xml:space="preserve">
+    <value>País</value>
+  </data>
+  <data name="dancinggoat.download" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="dancinggoat.libraryempty" xml:space="preserve">
+    <value>Tu libreria se encuentra vacia. &lt;br&gt; Echa un vistazo...</value>
+  </data>
+  <data name="dancinggoat.manageyourebboks" xml:space="preserve">
+    <value>Gestiona tus libros electrónicos</value>
+  </data>
+  <data name="dancinggoat.newaddress" xml:space="preserve">
+    <value>Nueva direccion</value>
+  </data>
+  <data name="dancinggoat.ourebooks" xml:space="preserve">
+    <value>nuestros e-libros</value>
+  </data>
+  <data name="dancinggoat.personaldetails" xml:space="preserve">
+    <value>Datos personales</value>
+  </data>
+  <data name="dancinggoat.phone" xml:space="preserve">
+    <value>Número de teléfono</value>
+  </data>
+  <data name="dancinggoat.pleaseenteravalue" xml:space="preserve">
+    <value>Porfavor introduzca un valor.</value>
+  </data>
+  <data name="dancinggoat.pleaseselectconutryandstate" xml:space="preserve">
+    <value>Por favor seleccione el país y el estado.</value>
+  </data>
+  <data name="dancinggoat.username" xml:space="preserve">
+    <value>Nombre de usuario</value>
+  </data>
+  <data name="dancinggoat.yourebooks" xml:space="preserve">
+    <value>Sus e-libros</value>
+  </data>
+  <data name="dancinggoat.zip" xml:space="preserve">
+    <value>Zip Code / Codigo Postal </value>
+  </data>
+  <data name="dancinggoat.currentdiscount" xml:space="preserve">
+    <value>Descuento actual</value>
+  </data>
+  <data name="dancinggoat.partnerdiscount" xml:space="preserve">
+    <value>Descuento del socio</value>
+  </data>
+  <data name="dancinggoat.update" xml:space="preserve">
+    <value>Actualización</value>
+  </data>
+  <data name="dancinggoat.save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="dancinggoat.logonfailure" xml:space="preserve">
+    <value>Su intento de iniciar la sesión no se realizó correctamente. Por favor, inténtelo de nuevo.</value>
+  </data>
+  <data name="dancinggoat.logonform.rememberme" xml:space="preserve">
+    <value>Permanecer conectado</value>
+  </data>
+  <data name="dancinggoat.logonform.emailorusername" xml:space="preserve">
+    <value>Correo / Usuario</value>
+  </data>
+  <data name="dancinggoat.administration" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="dancinggoat.landingpage" xml:space="preserve">
+    <value>Colombia</value>
+  </data>
+  <data name="dancinggoat.changepassword.lbloldpassword" xml:space="preserve">
+    <value>Su contraseña actual</value>
+  </data>
+  <data name="dancinggoat.customregistrationform.usernameandemail" xml:space="preserve">
+    <value>Rellena por lo menos el nombre de usuario o dirección de correo electrónico</value>
+  </data>
+  <data name="dancinggoat.emailinput.validationerror" xml:space="preserve">
+    <value>Por favor, introduzca el valor de correo electrónico en formato 'mymail@domain.com'.</value>
+  </data>
+  <data name="bizform.general.errorvalidationerror" xml:space="preserve">
+    <value>Los valores introducidos no se pueden guardar. Por favor, ver los campos de abajo para más detalles.</value>
+  </data>
+  <data name="dancinggoat.newslettersubscription.errorinvalidemail" xml:space="preserve">
+    <value>Por favor, introduzca la dirección de correo electrónico válida.</value>
+  </data>
+  <data name="dancinggoat.newslettersubscription.subscribed" xml:space="preserve">
+    <value>Usted ha sido suscrito.</value>
+  </data>
+  <data name="dancinggoat.newslettersubscription.subscriberisalreadysubscribed" xml:space="preserve">
+    <value>Suscriptor ya esta suscrito.</value>
+  </data>
+  <data name="dancinggoat.general.errorvalidationerror" xml:space="preserve">
+    <value>Los valores introducidos no se pueden guardar. Por favor, consulte los campos de abajo para más detalles.</value>
+  </data>
+  <data name="dancinggoat.countryselector.selectcountryrecord" xml:space="preserve">
+    <value>(seleccionar país)</value>
+  </data>
+  <data name="dancinggoat.countryselector.selectstaterecord" xml:space="preserve">
+    <value>(seleccione estado)</value>
+  </data>
+</root>

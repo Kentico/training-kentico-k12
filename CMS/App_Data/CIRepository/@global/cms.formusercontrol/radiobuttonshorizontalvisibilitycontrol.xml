@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>RadioButtonsHorizontalVisibilityControl</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDisplayName>Visibility (radio buttons - horizontal)</UserControlDisplayName>
+  <UserControlFileName>
+    <![CDATA[~/CMSFormControls/VisibilityControls/RadioButtonsHorizontalVisibility.ascx]]>
+  </UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>False</UserControlForText>
+  <UserControlForVisibility>True</UserControlForVisibility>
+  <UserControlGUID>10a4d245-1cec-4a2e-ac42-6e7b496e69fa</UserControlGUID>
+  <UserControlIsSystem>True</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2" />
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>False</UserControlShowInWebParts>
+  <UserControlType>5</UserControlType>
+</cms.formusercontrol>

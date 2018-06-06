@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$chat.chatroom.edit$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>cb696d91-4951-4cf8-8a3f-d4f1aa853a3b</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>EditChatRoom</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>VerticalTabs</CodeName>
+    <GUID>8136b750-a785-438f-a412-32212cd4dde6</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>ChatRooms</CodeName>
+    <GUID>f488432d-17ff-4030-bfba-769b78dadbe9</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Chat</CodeName>
+      <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_header>False</category_name_header>
+      <includejquery>False</includejquery>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <objectparameterid>roomid</objectparameterid>
+      <displaybreadcrumbs>True</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+</cms.uielement>

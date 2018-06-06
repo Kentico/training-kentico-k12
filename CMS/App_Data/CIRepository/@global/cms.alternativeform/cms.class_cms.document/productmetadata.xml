@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>cms.document</CodeName>
+    <GUID>4d58a766-f13b-48fe-950b-63dbc2aeca69</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <field column="DocumentID" visible="" />
+      <field column="DocumentName" visible="" />
+      <field column="DocumentNamePath" visible="" />
+      <field column="DocumentModifiedWhen" visible="" />
+      <field column="DocumentModifiedByUserID" visible="" />
+      <field column="DocumentForeignKeyValue" visible="" />
+      <field column="DocumentCreatedByUserID" visible="" />
+      <field column="DocumentCreatedWhen" visible="" />
+      <field column="DocumentCheckedOutByUserID" visible="" />
+      <field column="DocumentCheckedOutWhen" visible="" />
+      <field column="DocumentCheckedOutVersionHistoryID" visible="" />
+      <field column="DocumentPublishedVersionHistoryID" visible="" />
+      <field column="DocumentWorkflowStepID" visible="" />
+      <field column="DocumentPublishFrom" visible="" />
+      <field column="DocumentPublishTo" visible="" />
+      <field column="DocumentUrlPath" visible="" />
+      <field column="DocumentCulture" visible="" />
+      <field column="DocumentNodeID" visible="" />
+      <field column="DocumentPageTitle">
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <Trim>False</Trim>
+        </settings>
+        <properties>
+          <fieldcaption>{$pageproperties.title$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentPageTitleInherit" columntype="boolean" dummy="altform" guid="f5fddd10-cdc2-4add-8860-47893d5318b5" publicfield="false" system="true" visible="true" order="20">
+        <properties>
+          <controlcssclass>field-value-override-checkbox</controlcssclass>
+          <fieldcaption>{$metadata.inherit$}</fieldcaption>
+          <visiblemacro ismacro="true">
+            <![CDATA[{%EditedObject.NodeAliasPath != "/"|(identity)GlobalAdministrator|(hash)8ec03d34cfc615b25a97f2be9b90d3c55862df0c10fdbf86d44524d1439be7b2%}]]>
+          </visiblemacro>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="DocumentPageDescription">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <FilterMode>False</FilterMode>
+          <Wrap>True</Wrap>
+        </settings>
+        <properties>
+          <fieldcaption>{$pageproperties.decription$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentPageDescriptionInherit" columntype="boolean" dummy="altform" guid="aed452c4-26bb-46e8-aac0-9bd678a4b15e" publicfield="false" system="true" visible="true" order="22">
+        <properties>
+          <controlcssclass>field-value-override-checkbox</controlcssclass>
+          <fieldcaption>{$metadata.inherit$}</fieldcaption>
+          <visiblemacro ismacro="true">
+            <![CDATA[{%EditedObject.NodeAliasPath != "/"|(identity)GlobalAdministrator|(hash)8ec03d34cfc615b25a97f2be9b90d3c55862df0c10fdbf86d44524d1439be7b2%}]]>
+          </visiblemacro>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="DocumentPageKeyWords" order="23">
+        <properties>
+          <fieldcaption>{$pageproperties.keywords$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentPageKeyWordsInherit" columntype="boolean" dummy="altform" guid="a13ccc54-5092-47ae-9368-e00c1256bb2a" publicfield="false" system="true" visible="true" order="24">
+        <properties>
+          <controlcssclass>field-value-override-checkbox</controlcssclass>
+          <fieldcaption>{$metadata.inherit$}</fieldcaption>
+          <visiblemacro ismacro="true">
+            <![CDATA[{%EditedObject.NodeAliasPath != "/"|(identity)GlobalAdministrator|(hash)8ec03d34cfc615b25a97f2be9b90d3c55862df0c10fdbf86d44524d1439be7b2%}]]>
+          </visiblemacro>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="DocumentShowInSiteMap" visible="" order="25" />
+      <field column="DocumentMenuItemHideInNavigation" visible="" order="26" />
+      <field column="DocumentMenuCaption" visible="" order="27" />
+      <field column="DocumentMenuStyle" visible="" order="28" />
+      <field column="DocumentMenuItemImage" visible="" order="29" />
+      <field column="DocumentMenuItemLeftImage" visible="" order="30" />
+      <field column="DocumentMenuItemRightImage" visible="" order="31" />
+      <field column="DocumentPageTemplateID" visible="" order="32" />
+      <field column="DocumentMenuJavascript" visible="" order="33" />
+      <field column="DocumentMenuRedirectUrl" visible="" order="34" />
+      <field column="DocumentUseNamePathForUrlPath" visible="" order="35" />
+      <field column="DocumentStylesheetID" visible="" order="36" />
+      <field column="DocumentContent" visible="" order="37" />
+      <field column="DocumentMenuClass" visible="" order="38" />
+      <field column="DocumentMenuStyleHighlighted" visible="" order="39" />
+      <field column="DocumentMenuClassHighlighted" visible="" order="40" />
+      <field column="DocumentMenuItemImageHighlighted" visible="" order="41" />
+      <field column="DocumentMenuItemLeftImageHighlighted" visible="" order="42" />
+      <field column="DocumentMenuItemRightImageHighlighted" visible="" order="43" />
+      <field column="DocumentMenuItemInactive" visible="" order="44" />
+      <field column="DocumentCustomData" visible="" order="45" />
+      <field column="DocumentExtensions" visible="" order="46" />
+      <field column="DocumentTagGroupID" hasdependingfields="true" order="47">
+        <settings>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <AllowAll>False</AllowAll>
+          <AllowDefault>False</AllowDefault>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowEmpty>False</AllowEmpty>
+          <controlname>uni_selector</controlname>
+          <DialogWindowHeight>590</DialogWindowHeight>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <DialogWindowWidth>668</DialogWindowWidth>
+          <EditDialogWindowHeight>700</EditDialogWindowHeight>
+          <EditDialogWindowWidth>1000</EditDialogWindowWidth>
+          <EditWindowName>EditWindow</EditWindowName>
+          <EncodeOutput>True</EncodeOutput>
+          <GlobalObjectSuffix>(global)</GlobalObjectSuffix>
+          <ItemsPerPage>25</ItemsPerPage>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <ObjectSiteName>#currentsite</ObjectSiteName>
+          <ObjectType>cms.taggroup</ObjectType>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <ReturnColumnType>id</ReturnColumnType>
+          <SelectionMode>1</SelectionMode>
+          <UseAutocomplete>False</UseAutocomplete>
+          <ValuesSeparator>;</ValuesSeparator>
+        </settings>
+        <properties>
+          <fieldcaption>{$pageproperties.taggroup$}</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="DocumentTagGroupIDInherit" columntype="boolean" dummy="altform" guid="60b8119c-a117-4466-9736-cd5fce23be03" publicfield="false" reftype="Required" system="true" visible="true" order="48">
+        <properties>
+          <controlcssclass>field-value-override-checkbox</controlcssclass>
+          <fieldcaption>{$metadata.inherit$}</fieldcaption>
+          <visiblemacro ismacro="true">
+            <![CDATA[{%EditedObject.NodeAliasPath != "/"|(identity)GlobalAdministrator|(hash)8ec03d34cfc615b25a97f2be9b90d3c55862df0c10fdbf86d44524d1439be7b2%}]]>
+          </visiblemacro>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="DocumentTags" order="49">
+        <settings>
+          <controlname>tagselector</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>{$pageproperties.tags$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="DocumentWildcardRule" visible="" order="50" />
+      <field column="DocumentWebParts" visible="" order="51" />
+      <field column="DocumentGroupWebParts" order="52" />
+      <field column="DocumentRatingValue" visible="" order="53" />
+      <field column="DocumentRatings" visible="" order="54" />
+      <field column="DocumentPriority" visible="" order="55" />
+      <field column="DocumentType" visible="" order="56" />
+      <field column="DocumentLastPublished" visible="" order="57" />
+      <field column="DocumentUseCustomExtensions" visible="" order="58" />
+      <field column="DocumentCheckedOutAutomatically" visible="" order="59" />
+      <field column="DocumentTrackConversionName" visible="" order="60" />
+      <field column="DocumentConversionValue" visible="" order="61" />
+      <field column="DocumentSearchExcluded" visible="" order="62" />
+      <field column="DocumentLastVersionNumber" order="63" />
+      <field column="DocumentIsArchived" order="64" />
+      <field column="DocumentHash" visible="" order="65" />
+      <field column="DocumentLogVisitActivity" visible="" order="66" />
+      <field column="DocumentWorkflowCycleGUID" order="67" />
+      <field column="DocumentSitemapSettings" order="68" />
+      <field column="DocumentIsWaitingForTranslation" order="69" />
+      <field column="DocumentSKUName" order="70" />
+      <field column="DocumentSKUDescription" order="71" />
+      <field column="DocumentSKUShortDescription" order="72" />
+      <field column="DocumentWorkflowActionStatus" visible="" order="73" />
+      <field column="DocumentMenuRedirectToFirstChild" order="74" />
+      <field column="DocumentInheritsStylesheet" reftype="" order="75" />
+      <field column="DocumentCanBePublished" order="76" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Product meta data</FormDisplayName>
+  <FormGUID>6d056f38-9805-46fb-86ad-7a1bc5113906</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormLayout>
+<![CDATA[
+<cms:UIPlaceHolder runat="server" ID="plcPageOptions" ModuleName="cms.ecommerce" ElementName="products.metadata.page">
+    <cms:FormCategory ID="fPageOptions" runat="server" CategoryTitleResourceString="content.metadata.pagesettings">
+        <div class="form-group">
+            <div class="editing-form-label-cell">
+                <cms:FormLabel CssClass="control-label" runat="server" ID="lDocumentPageTitle" Field="DocumentPageTitle" ResourceString="PageProperties.Title" />
+            </div>
+            <div class="editing-form-value-cell">
+                <cms:FormControl runat="server" ID="fDocumentPageTitleInherit" FormControlName="checkboxcontrol" Field="DocumentPageTitleInherit">
+                    <Properties>
+                        <cms:Property Name="Text" Value="metadata.inherit"/>
+                    </Properties>
+                </cms:FormControl>
+                <cms:FormControl runat="server" ID="iDocumentPageTitle" Field="DocumentPageTitle" FormControlName="textboxcontrol" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="editing-form-label-cell">
+                <cms:FormLabel CssClass="control-label" runat="server" ID="lDocumentPageDescription" Field="DocumentPageDescription" ResourceString="PageProperties.Decription" />
+            </div>
+            <div class="editing-form-value-cell">
+                <cms:FormControl runat="server" ID="iDocumentPageDescriptionInherit" FormControlName="checkboxcontrol" Field="DocumentPageDescriptionInherit">
+                    <Properties>
+                        <cms:Property Name="Text" Value="metadata.inherit"/>
+                    </Properties>
+                </cms:FormControl>
+                <cms:FormControl runat="server" ID="iDocumentPageDescription" Field="DocumentPageDescription" FormControlName="textareacontrol" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="editing-form-label-cell">
+                <cms:FormLabel CssClass="control-label" runat="server" ID="lDocumentPageKeyWords" Field="DocumentPageKeyWords" ResourceString="PageProperties.KeyWords" />
+            </div>
+            <div class="editing-form-value-cell">
+                <cms:FormControl runat="server" ID="iDocumentPageKeyWordsInherit" Field="DocumentPageKeyWordsInherit" FormControlName="checkboxcontrol">
+                    <Properties>
+                        <cms:Property Name="Text" Value="metadata.inherit"/>
+                    </Properties>
+                </cms:FormControl>
+                <cms:FormControl runat="server" ID="iDocumentPageKeyWords" Field="DocumentPageKeyWords" FormControlName="textareacontrol" />
+            </div>
+        </div>
+    </cms:FormCategory>
+</cms:UIPlaceHolder>
+<cms:UIPlaceHolder runat="server" ID="plcTags" ModuleName="cms.ecommerce" ElementName="products.metadata.tags">
+    <cms:FormCategory ID="fTags" runat="server" CategoryTitleResourceString="content.metadata.tags">
+        <div class="form-group">
+            <div class="editing-form-label-cell">
+                <cms:FormLabel CssClass="control-label" runat="server" ID="lDocumentTagGroupID" Field="DocumentTagGroupID" ResourceString="PageProperties.TagGroup" />
+            </div>
+            <div class="editing-form-value-cell">
+                <cms:FormControl runat="server" ID="iDocumentTagGroupIDInherit" Field="DocumentTagGroupIDInherit" FormControlName="checkboxcontrol">
+                    <Properties>
+                       <cms:Property Name="Text" Value="metadata.inherit"/>
+                    </Properties>
+                </cms:FormControl>
+                <cms:FormControl runat="server" ID="iDocumentTagGroupID" Field="DocumentTagGroupID" FormControlName="uni_selector" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="editing-form-label-cell">
+                <cms:FormLabel CssClass="control-label" runat="server" ID="lDocumentTags" Field="DocumentTags" ResourceString="PageProperties.Tags" />
+            </div>
+            <div class="editing-form-value-cell">
+                <cms:FormControl runat="server" ID="iDocumentTags" Field="DocumentTags" FormControlName="tagselector" />
+            </div>
+        </div>
+    </cms:FormCategory>
+</cms:UIPlaceHolder>
+
+]]>
+  </FormLayout>
+  <FormLayoutType>ascx</FormLayoutType>
+  <FormName>ProductMetaData</FormName>
+</cms.alternativeform>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.groups.manage$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Manage</PermissionDisplayName>
+  <PermissionGUID>0370b817-718a-47fa-8e51-4c6ed312b695</PermissionGUID>
+  <PermissionName>Manage</PermissionName>
+  <PermissionOrder>2</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Groups</CodeName>
+    <GUID>65f419f4-00f1-4905-a344-fc5b94983097</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

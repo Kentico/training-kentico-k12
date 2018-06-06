@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.classpermission>
+  <ClassID>
+    <CodeName>Chat.Transformations</CodeName>
+    <GUID>bf7ea731-502b-43b5-ac6f-153551edb84d</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Browse tree</PermissionDisplayName>
+  <PermissionGUID>ce115758-2ee5-4f08-9ddc-f76b24af437d</PermissionGUID>
+  <PermissionName>ExploreTree</PermissionName>
+  <PermissionOrder>7</PermissionOrder>
+</cms.classpermission>

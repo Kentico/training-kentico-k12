@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportgraph>
+  <GraphDisplayName>graph_detail</GraphDisplayName>
+  <GraphGUID>f37269be-a21e-4f11-b8c3-92f6a0bbf562</GraphGUID>
+  <GraphHeight>400</GraphHeight>
+  <GraphIsHtml>True</GraphIsHtml>
+  <GraphLegendPosition>100</GraphLegendPosition>
+  <GraphName>graph_detail</GraphName>
+  <GraphQuery>
+<![CDATA[
+EXEC Proc_Analytics_RemoveTempTable
+CREATE TABLE #AnalyticsTempTable (
+  StartTime DATETIME,
+  Hits INT,
+  Name NVARCHAR(300)
+);
+
+ SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'week');
+  INSERT INTO #AnalyticsTempTable (StartTime, Hits, Name)
+   SELECT [Date] AS StartTime ,T1.Hits AS Hits  ,T1.Name AS Name
+
+FROM {%DatabaseSchema%}.Func_Analytics_EnsureDates (@FromDate,@ToDate,'Week') AS Dates
+ LEFT JOIN
+  (SELECT HitsStartTime AS Interval, SUM(HitsValue) AS Hits ,ABVariantDisplayName AS Name
+  FROM Analytics_Statistics 
+  INNER JOIN Analytics_WeekHits ON StatisticsID = Analytics_WeekHits.HitsStatisticsID
+  INNER JOIN OM_ABVariant ON ABVariantName = SUBSTRING(StatisticsCode, CHARINDEX(';',StatisticsCode,14)+1,LEN (StatisticsCode))  AND ABVariantSiteID = @CMSContextCurrentSiteID
+  WHERE StatisticsSiteID = @CMSContextCurrentSiteID   AND  StatisticsCode LIKE 'abconversion;%' 
+  AND (@TestName IS NULL OR @TestName = ''  OR  @TestName = SUBSTRING(StatisticsCode, 14, CHARINDEX(';',StatisticsCode,14)-14))
+  AND (@ConversionName IS NULL OR @ConversionName = '' OR @ConversionName = StatisticsObjectName)
+  GROUP BY HitsStartTime,ABVariantDisplayName
+  ) AS T1
+ ON Dates.Date=T1.Interval;
+  
+  EXEC Proc_Analytics_Pivot 'week'
+  EXEC Proc_Analytics_RemoveTempTable
+]]>
+  </GraphQuery>
+  <GraphQueryIsStoredProcedure>False</GraphQueryIsStoredProcedure>
+  <GraphReportID>
+    <CodeName>abtestconversionvalue.weekreport</CodeName>
+    <GUID>45ce5f0b-302b-4b9a-a02f-3ccb4c417c56</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </GraphReportID>
+  <GraphSettings>
+    <CustomData>
+      <barorientation>Horizontal</barorientation>
+      <baroverlay>False</baroverlay>
+      <displayitemvalue>True</displayitemvalue>
+      <displaylegend>True</displaylegend>
+      <exportenabled>True</exportenabled>
+      <itemvalueformat>
+        <![CDATA[{%Format(ToDouble(pval, "0.0"), "{0:0.0}")|(identity)GlobalAdministrator|(hash)2f33386764b9e4641aa1d567c75d690e8d408eccb912dc6c78492c163dc99c42%}% ({%yval%})]]>
+      </itemvalueformat>
+      <legendinside>False</legendinside>
+      <legendposition>Right</legendposition>
+      <legendtitle>Variants</legendtitle>
+      <linedrawinstyle>Line</linedrawinstyle>
+      <pieshowpercentage>False</pieshowpercentage>
+      <plotareagradient>None</plotareagradient>
+      <querynorecordtext>No data found</querynorecordtext>
+      <reverseyaxis>False</reverseyaxis>
+      <seriesgradient>None</seriesgradient>
+      <seriesitemtooltip>{%ser%}</seriesitemtooltip>
+      <showas3d>False</showas3d>
+      <showmajorgrid>True</showmajorgrid>
+      <stackedbarmaxstacked>False</stackedbarmaxstacked>
+      <subscriptionenabled>True</subscriptionenabled>
+      <tenpowers>False</tenpowers>
+      <titleposition>Center</titleposition>
+      <xaxisformat>{yyyy}</xaxisformat>
+      <xaxissort>True</xaxissort>
+      <xaxistitleposition>Center</xaxistitleposition>
+      <yaxistitleposition>Center</yaxistitleposition>
+      <yaxisusexaxissettings>True</yaxisusexaxissettings>
+    </CustomData>
+  </GraphSettings>
+  <GraphTitle>Conversions value</GraphTitle>
+  <GraphType />
+  <GraphWidth>600</GraphWidth>
+  <GraphXAxisTitle />
+  <GraphYAxisTitle />
+</reporting.reportgraph>

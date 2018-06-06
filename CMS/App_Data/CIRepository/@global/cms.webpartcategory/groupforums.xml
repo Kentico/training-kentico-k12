@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Forums</CategoryDisplayName>
+  <CategoryGUID>f0ae85da-bbb5-4e8a-9ce0-c81772ac1731</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>GroupForums</CategoryName>
+  <CategoryParentID>
+    <CodeName>Community</CodeName>
+    <GUID>dbeb60eb-49ab-46ad-800d-547ca3f45c23</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

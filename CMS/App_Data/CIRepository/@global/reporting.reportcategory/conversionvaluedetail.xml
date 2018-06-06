@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>ConversionValueDetail</CategoryCodeName>
+  <CategoryDisplayName>Conversion value</CategoryDisplayName>
+  <CategoryGUID>5ea8e8fe-a7f9-4286-9639-ab36c7d7e75f</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>ABTesting</CodeName>
+    <GUID>bde47e65-3e40-4f09-abf1-eaacbe272e71</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

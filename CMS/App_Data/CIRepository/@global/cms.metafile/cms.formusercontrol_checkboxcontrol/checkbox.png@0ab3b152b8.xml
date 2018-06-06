@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.metafile>
+  <MetaFileExtension>.png</MetaFileExtension>
+  <MetaFileGroupName>Thumbnail</MetaFileGroupName>
+  <MetaFileGUID>868b3879-db27-4a16-b1f6-4f34bf149509</MetaFileGUID>
+  <MetaFileImageHeight>40</MetaFileImageHeight>
+  <MetaFileImageWidth>95</MetaFileImageWidth>
+  <MetaFileMimeType>image/png</MetaFileMimeType>
+  <MetaFileName>checkbox.png</MetaFileName>
+  <MetaFileObjectID>
+    <CodeName>CheckBoxControl</CodeName>
+    <GUID>f9eb0211-8887-4b41-b686-c4a0092246e6</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </MetaFileObjectID>
+  <MetaFileObjectType>cms.formusercontrol</MetaFileObjectType>
+  <MetaFileSize>464</MetaFileSize>
+</cms.metafile>

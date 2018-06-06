@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>MediaLibrary</CodeName>
+    <GUID>ce9e2c3d-ba37-418a-b722-8748c3081c9f</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>Enables sorting files in media gallery.</WebPartDescription>
+  <WebPartDisplayName>Media gallery - file filter</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>MediaLibrary/MediaGalleryFilter.ascx</WebPartFileName>
+  <WebPartGUID>d7940e20-d2c9-4409-8dac-d23a50aaedd1</WebPartGUID>
+  <WebPartIconClass>
+<![CDATA[
+icon-w-media-gallery-file-filter
+
+]]>
+  </WebPartIconClass>
+  <WebPartName>MediaGalleryFilter</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <caption>Filter properties</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="FilterMethod" columntype="integer" guid="c62879ef-67ec-459f-bf5f-2cac56632209" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Filter method</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates whether pager uses querystring parameter or postback.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <options>
+            <![CDATA[<item value="0" text="Query parameter" /><item value="1" text="Postback" />]]>
+          </options>
+        </settings>
+      </field>
+      <field column="SortQueryStringKey" columnsize="200" columntype="text" guid="2ed2f68f-19b6-4cc5-844f-5ca637295750" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>sort</defaultvalue>
+          <fieldcaption>Sort direction querystring key</fieldcaption>
+          <fielddescription>Sets querystring parameter for sort direction.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FileIDQueryStringKey" columnsize="200" columntype="text" guid="4e2c2b3a-0f4a-45b9-b2fa-1ee72a2ef678" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>fileid</defaultvalue>
+          <fieldcaption>File ID querystring key</fieldcaption>
+          <fielddescription>Sets querystring parameter for file id value.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.MediaLibrary</CodeName>
+    <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

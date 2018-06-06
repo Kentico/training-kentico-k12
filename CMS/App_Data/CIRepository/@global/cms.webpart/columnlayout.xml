@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Layouts</CodeName>
+    <GUID>d5cb0ae0-d055-437e-829f-e2c09a7bdce3</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Provides a CSS-based column layout for content. Each column defines a separate web part zone, so any type of content may be added.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Columns layout</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+To&nbsp;insert content into the column&nbsp;layout,, edit the&nbsp;page on the <strong>Design</strong> tab. Here you can view all columns and their corresponding web part zones and add any web parts that you need.<br />
+<br />
+For more information, see <a href="~/CMSPages/GetDocLink.ashx?link=layout_webparts" target="_blank">Working with layout web parts</a>.
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Layouts/Columns.ascx</WebPartFileName>
+  <WebPartGUID>a5719350-eed9-4995-b74c-fd6ed057658c</WebPartGUID>
+  <WebPartIconClass>icon-w-columns-layout</WebPartIconClass>
+  <WebPartName>ColumnLayout</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Layout settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="LeftColumns" columntype="integer" guid="b8f9ad4b-88aa-431d-8e0f-60bca50df10d" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>1</defaultvalue>
+          <fieldcaption>Number of left columns</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the number of columns in the layout that will float to the left.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="CenterColumn" columntype="boolean" guid="1d8999d1-b817-4380-9d54-1211bd2523c3" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Use center column</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, a center column will be added into the remaining space between the left and right columns in the layout.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="RightColumns" columntype="integer" guid="f621355c-5269-458c-94a9-4485fc1b0910" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>1</defaultvalue>
+          <fieldcaption>Number of right columns</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the number of columns in the layout that will float to the right.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="Height" columnsize="100" columntype="text" guid="9d9652c7-6a4a-4ab5-8188-435fac854744" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the column layout. It must be specified as a CSS style value, e.g. 200px or 50%.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="EqualHeight" columntype="boolean" guid="37fa6db8-a977-49ff-9dd7-e25535289100" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Equal columns height</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, all columns will be automatically adjusted to have the same height.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowDesignMode" columntype="boolean" guid="c810898d-0c0c-48f5-ab31-4c764e1a37a5" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Allow design mode</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.allowdesignmode$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Column settings">
+        <properties>
+          <caption>Left columns</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="LColumn1Width" columnsize="100" columntype="text" guid="afb8afaa-440f-40cd-971d-b1248ddc6f7c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>First left column width</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the width of the first column on the left, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic width adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LColumn1Height" columnsize="100" columntype="text" guid="a9622fdd-76c8-4137-a2de-3d3dc2243be4" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>First left column height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the first column on the left, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic height adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LColumn1CSSClass" columnsize="100" columntype="text" guid="c4b3cc3a-bd49-465a-a436-94da2337e42f" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>First left column CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class applied to the first column on the left.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LColumn2Width" columnsize="100" columntype="text" guid="180a4ee9-c65c-4ae4-9630-e3d78ffdb5aa" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Second left column width</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the width of the second column on the left, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic width adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LColumn2Height" columnsize="100" columntype="text" guid="e1901df6-9f1d-4cff-a2ae-f47f0eb92e59" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Second left column height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the second column on the left, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic height adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LColumn2CSSClass" columnsize="100" columntype="text" guid="3f1d6112-39e2-4985-b292-37795f125a3e" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Second left column CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class applied to the second column on the left.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LColumn3Width" columnsize="100" columntype="text" guid="c9981418-e1a2-47ec-b381-a4bc1dfef3fb" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Third left column width</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the width of the third column on the left, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic width adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LColumn3Height" columnsize="100" columntype="text" guid="08947b15-7e64-4c86-ac04-30c159969f65" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Third left column height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the third column on the left, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic height adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LColumn3CSSClass" columnsize="100" columntype="text" guid="78d94c74-45c9-499f-9115-9f8ead5566d4" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Third left column CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class applied to the third column on the left.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Center column settings">
+        <properties>
+          <caption>Center column</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CenterColumnHeight" columnsize="100" columntype="text" guid="f97098e7-2722-4a55-91a9-910dd60cdcdf" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Center column height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the center column, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic height adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CenterColumnCSSClass" columnsize="100" columntype="text" guid="193ed808-4a04-4b26-8d42-8f21aecf7d5c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Center column CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class applied to the center column.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Right columns settings">
+        <properties>
+          <caption>Right columns</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="RColumn1Width" columnsize="100" columntype="text" guid="380bf141-1163-489b-8f61-bbe26de2b885" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>First right column width</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the width of the first column on the right, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic width adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RColumn1Height" columnsize="100" columntype="text" guid="c6fcd07a-87bb-4109-919f-076e0591ce20" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>First right column height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the first column on the right, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic height adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RColumn1CSSClass" columnsize="100" columntype="text" guid="d2751f6f-344d-4d11-bbfb-4b2718cca68d" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>First right column CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class applied to the first column on the right.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RColumn2Width" columnsize="100" columntype="text" guid="609afb0d-3343-4219-b2e0-4b236a5a85ee" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Second right column width</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the width of the second column on the right, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic width adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RColumn2Height" columnsize="100" columntype="text" guid="707479b8-37e0-4392-b8e5-be735a96941e" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Second right column height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the second column on the right, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic height adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RColumn2CSSClass" columnsize="100" columntype="text" guid="9ec41e69-cef0-48da-b41f-e486d8c9ac13" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Second right column CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class applied to the second column on the right.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RColumn3Width" columnsize="100" columntype="text" guid="10b88ce1-426e-441b-9d74-6120c6c6a484" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Third right column width</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the width of the third column on the right, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic width adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RColumn3Height" columnsize="100" columntype="text" guid="30e7b5e4-2a5c-4ba1-89a1-0f5b1a8f6b13" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Third right column height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the third column on the right, specified as a CSS style value, e.g. 200px or 50%. Leave the value blank to use automatic height adjustment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RColumn3CSSClass" columnsize="100" columntype="text" guid="ded64806-c7fd-4788-a102-5a32149d38ad" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Third right column CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class applied to the third column on the right.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>True</WebPartSkipInsertProperties>
+  <WebPartType>6</WebPartType>
+</cms.webpart>

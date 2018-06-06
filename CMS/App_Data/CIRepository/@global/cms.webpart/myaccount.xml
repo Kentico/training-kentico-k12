@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>MembershipLogonRegistration</CodeName>
+    <GUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays various information about the current user's account and allows its settings to be managed. This web part is only visible for authenticated users.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>My account</WebPartDisplayName>
+  <WebPartDocumentation>
+    <![CDATA[<font size="2">The fields available in the displayed profile may be affected by the visibility settings configured by individual users. To learn about visibility control, see </font><a href="~/CMSPages/GetDocLink.ashx?link=users_changing_info" target="_blank"><font size="2">Allowing users to change the information they share</font></a><font size="2">.</font>]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Membership/Profile/MyAccount.ascx</WebPartFileName>
+  <WebPartGUID>28642160-75fd-4a65-8b48-fa9f5d20132c</WebPartGUID>
+  <WebPartIconClass>icon-w-my-account</WebPartIconClass>
+  <WebPartName>MyAccount</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Personal settings">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="DisplayMyPersonalSettings" columntype="boolean" guid="60b23e4a-e4e6-4ba3-980c-c9a969a70a48" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display personal settings</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where users can edit their personal settings should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AlternativeFormName" columnsize="100" columntype="text" guid="c75b33ba-6aec-4e02-a8e1-4fe2afe127a5" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>cms.user.EditProfile</defaultvalue>
+          <fieldcaption>Form name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to select an alternative form that will be used to view and edit the user's personal settings. Alternative forms are specified in format <class name>.<form code name>.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectalternativeform</controlname>
+        </settings>
+      </field>
+      <field column="AllowEditVisibility" columntype="boolean" guid="12368e70-f3ff-44df-b69f-8c2151de045b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Allow user to edit field visibility</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.alloweditvisibility$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayChangePassword" columntype="boolean" guid="f2ca0259-62ee-451b-b7b4-459055243b97" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display change password</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where users can change their password should be displayed. This tab will always be hidden for users that are authenticated against an external source (those that are marked with the IsExternal flag).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AllowEmptyPassword" columntype="boolean" guid="ac8c7210-f939-4cd9-a9d3-649203cbba70" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Allow empty password</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if users should be allowed to enter an empty password for their account.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Ecommerce">
+        <properties>
+          <caption>E-commerce tabs</caption>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="DisplayMyDetails" columntype="boolean" guid="f110f4c1-fe75-430a-8982-a63e023d116c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display customer details</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where users can edit their customer details should be displayed. This only applies to users who are registered as customers in the E-commerce module.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMyAddresses" columntype="boolean" guid="f4126fb6-4ddc-468e-a2d2-cc7053809adf" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my addresses</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where customers can manage their addresses should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMyOrders" columntype="boolean" guid="1a4c6960-44c9-4a77-872f-a9b1e4d99bfd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my orders</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where customers can manage their orders should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ShowOrderToShoppingCart" columntype="boolean" guid="5abf0f18-9789-46b2-b1c9-ce0c62b20622" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Allow repeat order</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if customers can put products from their orders to shopping cart.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ShowOrderTrackingNumber" columntype="boolean" guid="c24715c3-f8b5-4e83-9288-6b093668242d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show order tracking number</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the tracking number should be visible in the order list.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMyCredits" columntype="boolean" guid="c0b4e5ac-b922-44e5-ad5b-6cd95a3af2f7" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my credit</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where customers can manage their credit events should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Other tabs">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="DisplayMySubscriptions" columntype="boolean" guid="3f85e30b-0ad8-402d-8a6c-1922853d598d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my subscriptions</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where users can manage their subscriptions should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMyNotifications" columntype="boolean" guid="06138896-6506-44cd-a3fd-0be14dfb2095" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my notifications</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where users can view their notification messages should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMyMessages" columntype="boolean" guid="99b989a4-738e-4cd1-bf7d-194c3b9ed169" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my messages</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where users can view their personal messages (sent using the website's internal messaging system) should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMyFriends" columntype="boolean" guid="2843be6e-bd9c-4979-9195-45ce0dbc317b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my friends</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where users can manage their friends should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMyMemberships" columntype="boolean" guid="8485755a-8437-430b-858b-26696f1ebf9b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my memberships</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the Memberships tab should be displayed to users. Here, users can view which memberships are currently assigned to them and their remaining duration.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMyCategories" columntype="boolean" guid="355b1438-b1e0-4640-aea4-981bd503e8d1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display my categories</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a tab where users can manage their personal categories should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Subscription">
+        <properties>
+          <caption>Subscriptions</caption>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="DisplayNewslettersSubscriptions" columntype="boolean" guid="ffa10079-b1df-472f-8141-ce9650081316" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display newsletter subscriptions</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.displaynewsletterssubscriptions$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayBlogPostsSubscriptions" columntype="boolean" guid="2fd15071-7aef-4e40-ab23-00100b030d75" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display blog post subscriptions</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.displayblogpostssubscriptions$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMessageBoardsSubscriptions" columntype="boolean" guid="24359bff-e018-45b7-95be-09f1b3d370fd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display message board subscriptions</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.displaymessageboardssubscriptions$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayForumsSubscriptions" columntype="boolean" guid="048d3d33-026c-4f54-9d21-cdbdbd8b60a3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display forum subscriptions</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if subscriptions to forums should be displayed to users on the Subscriptions tab.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayReportsSubscriptions" columntype="boolean" guid="0d3a3366-0019-4c8f-af38-79d9f1fdbe3d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display report subscriptions</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if subscriptions to reports should be displayed to users on the Subscriptions tab.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="SendConfirmationEmails" columntype="boolean" guid="e83b10dd-96a6-4f08-b22d-6d9646da0c24" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+          <fieldcaption>Send confirmation emails</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.sendconfirmationemails$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <category name="Memberships">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="MembershipsPagePath" columnsize="200" columntype="text" guid="3da32a3f-6356-454b-b7d8-21d8dde39581" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Memberships page path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Path to the page that allows users to buy new memberships or renew existing ones. Link to get to this page is displayed only if path is set.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+      <category name="Layout">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="TabControlLayout" columnsize="20" columntype="text" guid="9e9f959f-858b-4efb-a4a3-99a73555d40d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Tabs layout</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines the orientation of the tab menu. Possible options are horizontal or vertical.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="Horizontal" text="Horizontal" /><item value="Vertical" text="Vertical" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field column="UnigridImageDirectory" columnsize="450" columntype="text" guid="646c98ef-c879-4f49-a77d-5dc2a2878d82" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>~/CMSWebparts/Ecommerce/MyAccount_files</defaultvalue>
+          <fieldcaption>Image Directory</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the path to the directory containing the image files that will be used in the lists of data displayed in various sections of the web part. Internally, this affects the UniGrid controls used within the web part.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CssClass" columnsize="100" columntype="text" guid="46354d92-bcc7-4784-b4b5-7e591c19d283" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Tabs CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the name of the CSS class from the used stylesheet that will be applied to the web part's tabs.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

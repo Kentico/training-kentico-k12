@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<badwords.word>
+  <WordExpression>prick</WordExpression>
+  <WordGUID>f373f29a-872a-489d-b5be-fef41bc465a5</WordGUID>
+  <WordIsGlobal>True</WordIsGlobal>
+  <WordIsRegularExpression>False</WordIsRegularExpression>
+</badwords.word>

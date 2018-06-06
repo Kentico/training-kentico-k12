@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>380ce96b-f4a8-4ed7-aab0-6651f7de828a</HelpTopicGUID>
+  <HelpTopicLink>css_designing_websites</HelpTopicLink>
+  <HelpTopicName>Assign CSS stylesheets to sites</HelpTopicName>
+  <HelpTopicOrder>5</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Sites</CodeName>
+    <GUID>5576826f-328b-4b53-9f4b-e877fabd4d63</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS</CodeName>
+      <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

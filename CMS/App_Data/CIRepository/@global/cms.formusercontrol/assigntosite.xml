@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>AssignToSite</UserControlCodeName>
+  <UserControlDefaultDataType>Boolean</UserControlDefaultDataType>
+  <UserControlDescription>
+    <![CDATA[Provides a check box for assigning the object to a site. The site is chosen according to a query string parameter 'siteid' or (if no siteid parameter is defined) to a current site.]]>
+  </UserControlDescription>
+  <UserControlDisplayName>Assign to site</UserControlDisplayName>
+  <UserControlFileName>inherited</UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>True</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>False</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>18eb8416-a91f-4b7c-aaa1-e097e2ddeed1</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field column="Caption" visible="" fieldtype="" guid="368a3b38-0634-4137-8d13-ae158a93911c" displayinsimplemode="" resolvedefaultvalue="False">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <defaultvalue>
+            <![CDATA[{%GetResourceString("general.assigntosite")|(recursive)true|(identity)GlobalAdministrator|(hash)52ce2c0da8391eef8a4f45e718d85cd4b79685484f2a22d203dd8a5ce560ffe4%}]]>
+          </defaultvalue>
+          <fielddescription />
+          <fieldcaption />
+        </properties>
+      </field>
+      <field column="ObjectType" visible="" fieldtype="" guid="87c7cff0-b339-4e69-bdc3-911c120d3b70" displayinsimplemode="" reftype="">
+        <settings>
+          <SortItems />
+          <controlname />
+          <Macro />
+        </settings>
+        <properties>
+          <defaultvalue>
+            <![CDATA[{% UIContext.EditedObject.TypeInfo.SiteBinding |(identity)GlobalAdministrator|(hash)963d35a1cb70748247480c4fe2a67ee6f6d771752eec2c09aabe3732cfb3790b%}]]>
+          </defaultvalue>
+          <fielddescription />
+          <fieldcaption />
+        </properties>
+      </field>
+      <field column="TargetObjectID" visible="" fieldtype="" guid="7cf54d93-2c28-4389-b3cf-7138dc8b9a66" displayinsimplemode="" reftype="">
+        <settings>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <Trim />
+          <AutoCompleteFirstRowSelected />
+          <controlname />
+          <FilterMode />
+        </settings>
+        <properties>
+          <defaultvalue>
+            <![CDATA[{? if (siteid != null) {siteid} else {CurrentSite.SiteID}|(identity)GlobalAdministrator|(hash)d8540ec39d6c64444ddf20501bef737f877b5c1983378f7c32adfa61d99eca18?}]]>
+          </defaultvalue>
+          <fieldcaption />
+        </properties>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlParentID>
+    <CodeName>ObjectBindingControl</CodeName>
+    <GUID>53d2a64f-afd8-4538-8072-06203984b32a</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </UserControlParentID>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>False</UserControlShowInWebParts>
+  <UserControlType>0</UserControlType>
+</cms.formusercontrol>

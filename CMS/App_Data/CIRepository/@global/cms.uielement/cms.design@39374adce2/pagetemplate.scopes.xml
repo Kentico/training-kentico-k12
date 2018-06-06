@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$template.scopes$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>Scopes</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>b75fa37b-0611-4a7d-b0b5-8053a10629cf</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>PageTemplate.Scopes</ElementName>
+  <ElementOrder>7</ElementOrder>
+  <ElementParentID>
+    <CodeName>PageTemplate.EditPageTemplate</CodeName>
+    <GUID>e818fd41-198a-4a96-ad4f-e55d170b6a22</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/PortalEngine/UI/PageTemplates/Scopes/PageTemplateScopes_List.aspx?templateid={?objectid?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition>
+<![CDATA[
+{%name = EditedObject.PageTemplateType;
+reusable = EditedObject.PageTemplateIsReusable;
+return (reusable && (name != "dashboard") && (name != "UI") && !UIContext.IsDialog && CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin))|(identity)GlobalAdministrator|(hash)8198f3b5b6ca7ae617a579f4283bcb1a844908f6aa121895d175b4fe7bbcfb91%}
+]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

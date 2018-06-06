@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>0</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>MVTestConversionCountDetail</CodeName>
+    <GUID>2c386871-2398-4420-a369-01d0f6b82099</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>
+    <![CDATA[Single MVT test - Conversion count -  Yearly report (detail)]]>
+  </ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>c8736682-a138-43c8-a822-ddc2d03fac6f</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<p>%%control:ReportGraph?mvtestconversioncount.yearreport.graph%%</p>
+
+<p>&nbsp;</p>
+
+<p><span style="font-size:14px;"><strong>{%om.conversion.results|(identity)GlobalAdministrator|(hash)52ecd70b0062801baf984862ed74c85d4cf9e9ed371dd41aff2ea4f7e48b94b7%}</strong></span></p>
+
+<p>%%control:ReportTable?mvtestconversioncount.yearreport.table%%</p>
+
+<p>&nbsp;</p>
+
+<p>%%control:ReportHtmlGraph?mvtestconversioncount.yearreport.graph_detail%%</p>
+
+<p>&nbsp;</p>
+
+]]>
+  </ReportLayout>
+  <ReportName>mvtestconversioncount.yearreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" spellcheck="false" guid="7a87603b-60ec-420a-a955-dc19779a2db7" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-6).Date|(identity)GlobalAdministrator|(hash)d9a3c920a9d67df1bc91dbf32c715c57d54fccffb44cbc4af901f99c99b1670e%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" spellcheck="false" guid="a5caf187-45ff-4a90-b34e-cfbc68dbbd35" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="MVTestName" visible="true" columntype="text" fieldtype="CustomUserControl" columnsize="100" publicfield="false" guid="62f2cdb5-4db6-4448-8caa-1ceb88780f3e" visibility="none">
+        <properties>
+          <fieldcaption>Test name</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Trim>False</Trim>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field column="ConversionName" visible="true" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" spellcheck="false" guid="43c8d3fb-98de-4cbd-b5a8-69a2f5d4b09a" visibility="none">
+        <properties>
+          <fieldcaption>Conversion name</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Trim>False</Trim>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <FilterMode>False</FilterMode>
+          <controlname>textboxcontrol</controlname>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition />
+  <ElementCaption>Report</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>Report</ElementDisplayName>
+  <ElementFeature />
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>c48de8a2-2604-4d77-8e20-7eb2ce75733e</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Report</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>EditBannerCategory</CodeName>
+    <GUID>d2456f97-8a79-48bb-9064-9fdacf97cfd6</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.BannerManagement</CodeName>
+      <GUID>69a6884d-789d-4732-bf7c-96da001050d8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <Data>
+      <DisplayBreadcrumbs>False</DisplayBreadcrumbs>
+    </Data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.BannerManagement</CodeName>
+    <GUID>69a6884d-789d-4732-bf7c-96da001050d8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Reporting/Tools/BannerManagement/Reports.aspx?statcodename=bannercategory&reportcodename=bannercategoryhitsclicks&parameterName=BannerCategoryID&parameterValue={?objectid?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition />
+</cms.uielement>

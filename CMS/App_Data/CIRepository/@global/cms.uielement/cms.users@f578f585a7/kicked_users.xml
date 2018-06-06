@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$administration.users_header.kickedusers$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$administration.users_header.kickedusers$}</ElementDisplayName>
+  <ElementFeature>OnlineUsers</ElementFeature>
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>c4e5b361-f17d-4dca-934a-131b8d2bab86</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Kicked_users</ElementName>
+  <ElementOrder>8</ElementOrder>
+  <ElementParentID>
+    <CodeName>CmsDesk.Users</CodeName>
+    <GUID>9823f848-bb15-4b21-8769-dc80b7adcd4c</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Users</CodeName>
+      <GUID>31882975-240a-4bcf-bc38-09a3d21df485</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Users</CodeName>
+    <GUID>31882975-240a-4bcf-bc38-09a3d21df485</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Membership/Pages/Users/General/User_Kicked.aspx?siteid={%CurrentSite.SiteID|(identity)GlobalAdministrator|(hash)f50cc247438afa9d1482538afb71a3cd2be15e7fc12f3b7e40e214ea69917743%}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition>
+    <![CDATA[{%Settings.CMSSessionUseDBRepository|(identity)GlobalAdministrator|(hash)c0b05154dde59fcbc4c6ee24b720795181c5f22b59a79baad6a7d2297174bfaa%}]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

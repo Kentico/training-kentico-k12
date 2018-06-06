@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.macrorule>
+  <MacroRuleCondition>
+    <![CDATA[{_was}Activity.LinkedToObject("forums.forum", "{forum}")]]>
+  </MacroRuleCondition>
+  <MacroRuleDescription>
+    <![CDATA[{$macrorule.cmsactivityforumpostperformedforforum.description$}]]>
+  </MacroRuleDescription>
+  <MacroRuleDisplayName>
+    <![CDATA[Activity 'Forum post' performed for forum]]>
+  </MacroRuleDisplayName>
+  <MacroRuleEnabled>True</MacroRuleEnabled>
+  <MacroRuleGUID>25f7e9eb-b3b1-4932-891b-1d3381325b03</MacroRuleGUID>
+  <MacroRuleIsCustom>False</MacroRuleIsCustom>
+  <MacroRuleName>CMSActivityForumPostPerformedForForum</MacroRuleName>
+  <MacroRuleParameters>
+    <form version="2">
+      <field column="forum" columnsize="100" columntype="text" guid="f8f8f4b3-ad22-4edb-b96a-9b361ca4e6f1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>select forum</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>forumselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="_was" columnsize="100" columntype="text" guid="fc3b53f5-8fd8-493a-9f88-9afab961e1bd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>;was</defaultvalue>
+          <fieldcaption>select operation</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>macronegationoperator</controlname>
+          <Options>
+<![CDATA[
+;was
+!;was not
+]]>
+          </Options>
+          <RepeatDirection>horizontal</RepeatDirection>
+        </settings>
+      </field>
+    </form>
+  </MacroRuleParameters>
+  <MacroRuleRequiredData>Activity</MacroRuleRequiredData>
+  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
+  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
+  <MacroRuleText>
+    <![CDATA[Activity 'Forum post' {_was} performed for forum {forum}]]>
+  </MacroRuleText>
+</cms.macrorule>

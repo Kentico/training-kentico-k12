@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.Routing.Web</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.Routing.Web.GuidRouteConstraint">
+            <summary>
+            Constrains a route parameter to represent only <see cref="T:System.Guid"/> values.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.GuidRouteConstraint.Match(System.Web.HttpContextBase,System.Web.Routing.Route,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteDirection)">
+            <summary>
+            Determines whether this instance matches a specified route.
+            </summary>
+            <param name="httpContext">The HTTP context.</param>
+            <param name="route">The route to match.</param>
+            <param name="parameterName">The name of the route parameter.</param>
+            <param name="values">A list of route parameter values.</param>
+            <param name="routeDirection">The route direction.</param>
+            <returns><c>true</c> if this instance matches a specified route; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:CMS.Routing.Web.IntRouteConstraint">
+            <summary>
+            Constrains a route parameter to represent only <see cref="T:System.Int32"/> values.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.IntRouteConstraint.Match(System.Web.HttpContextBase,System.Web.Routing.Route,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteDirection)">
+            <summary>
+            Determines whether this instance matches a specified route.
+            </summary>
+            <param name="httpContext">The HTTP context.</param>
+            <param name="route">The route to match.</param>
+            <param name="parameterName">The name of the route parameter.</param>
+            <param name="values">A list of route parameter values.</param>
+            <param name="routeDirection">The route direction.</param>
+            <returns><c>true</c> if this instance matches a specified route; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:CMS.Routing.Web.DefaultInlineConstraintResolver">
+            <summary>
+            Resolves inline constraints as instances of <see cref="T:System.Web.Routing.IRouteConstraint"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.DefaultInlineConstraintResolver.ResolveConstraint(System.String)">
+            <summary>
+            Resolves the inline constraint.
+            </summary>
+            <param name="inlineConstraint">The inline constraint to resolve.</param>
+            <returns>The <see cref="T:System.Web.Routing.IRouteConstraint"/> that the inline constraint was resolved to, if applicable; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="T:CMS.Routing.Web.HttpHandlerRoute">
+            <summary>
+            Represents a route for Kentico HTTP handlers.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.HttpHandlerRoute.#ctor(System.String,System.Web.Routing.IRouteHandler)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.Routing.Web.HttpHandlerRoute"/> class.
+            </summary>
+            <param name="url">The URL pattern for the route.</param>
+            <param name="routeHandler">The object that processes requests for the route.</param>
+        </member>
+        <member name="M:CMS.Routing.Web.HttpHandlerRoute.GetVirtualPath(System.Web.Routing.RequestContext,System.Web.Routing.RouteValueDictionary)">
+            <summary>
+            Returns information about the URL that is associated with the route.
+            </summary>
+            <param name="requestContext">An object that encapsulates information about the requested route.</param>
+            <param name="values">An object that contains the parameters for a route.</param>
+            <remarks>
+            This method always returns <c>null</c> to prevent generation of links to Kentico HTTP handlers in external web applications.
+            </remarks>
+        </member>
+        <member name="T:CMS.Routing.Web.HttpHandlerRouteBuilder">
+            <summary>
+            Builds routes for Kentico HTTP handlers from route templates that support inline constraints.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.HttpHandlerRouteBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.Routing.Web.HttpHandlerRouteBuilder"/> class using the default inline constraint resolver.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.HttpHandlerRouteBuilder.Build(System.String,System.Web.Routing.IRouteHandler)">
+            <summary>
+            Builds a route for a Kentico HTTP handler.
+            </summary>
+            <param name="routeTemplate">The route template with optional inline constraints.</param>
+            <param name="routeHandler">The route handler.</param>
+            <returns>A route for a Kentico HTTP handler.</returns>
+        </member>
+        <member name="T:CMS.Routing.Web.HttpHandlerRouteTable">
+            <summary>
+            Stores the URL routes to Kentico HTTP handlers.
+            </summary>
+            <threadsafety static="true" instance="true"/>
+        </member>
+        <member name="F:CMS.Routing.Web.HttpHandlerRouteTable.mDescriptors">
+            <summary>
+            A collection of attributes used for a registration of Kentico HTTP handlers.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.HttpHandlerRouteTable.mRouteBuilder">
+            <summary>
+            An object that builds routes to Kentico HTTP handlers from route templates.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.HttpHandlerRouteTable.mInstance">
+            <summary>
+            The default instance of the <see cref="T:CMS.Routing.Web.HttpHandlerRouteTable"/> class.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.HttpHandlerRouteTable.Default">
+            <summary>
+            Gets the default instance of the <see cref="T:CMS.Routing.Web.HttpHandlerRouteTable"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.HttpHandlerRouteTable.Register(CMS.Routing.Web.RegisterHttpHandlerAttribute)">
+            <summary>
+            Adds a route to Kentico HTTP handler.
+            </summary>
+            <param name="descriptor">The attribute used for a registration of Kentico HTTP handlers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="descriptor"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">The route template is already registered.</exception>
+        </member>
+        <member name="M:CMS.Routing.Web.HttpHandlerRouteTable.GetRoutes">
+            <summary>
+            Returns an enumerable collection of routes to Kentico HTTP handlers.
+            </summary>
+            <returns>An enumerable collection of routes to Kentico HTTP handlers.</returns>
+        </member>
+        <member name="T:CMS.Routing.Web.IInlineConstraintResolver">
+            <summary>
+            Represents the contract for resolving inline constraints as instances of <see cref="T:System.Web.Routing.IRouteConstraint"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.IInlineConstraintResolver.ResolveConstraint(System.String)">
+            <summary>
+            Resolves the inline constraint.
+            </summary>
+            <param name="inlineConstraint">The inline constraint to resolve.</param>
+            <returns>The <see cref="T:System.Web.Routing.IRouteConstraint"/> that the inline constraint was resolved to, if applicable; otherwise, <c>null</c>.</returns>
+        </member>
+        <member name="T:CMS.Routing.Web.RoutingModule">
+            <summary>
+            Represents the Routing module.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.RoutingModule.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.Routing.Web.RoutingModule" /> class.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.RoutingModule.OnPreInit">
+            <summary>
+            Initializes this module.
+            </summary>
+        </member>
+        <member name="T:CMS.Routing.Web.RoutingModuleMetadata">
+            <summary>
+            Represents the Routing module metadata.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.RoutingModuleMetadata.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.Routing.Web.RoutingModuleMetadata" /> class.
+            </summary>
+        </member>
+        <member name="T:CMS.Routing.Web.RegisterHttpHandlerAttribute">
+            <summary>
+            Represents a route to a Kentico HTTP handler using a route template that supports inline constraints.
+            </summary>
+            <remarks>
+            Route templates are compatible with ASP.NET MVC 5 route templates with the following exceptions:
+            <list type="bullet">
+            <item><description>Only <c>guid</c> and <c>int</c> inline constraints are supported, other constraints are ignored.</description></item>
+            <item><description>There must be no unpaired braces except the escaped ones, otherwise an exception is thrown.</description></item>
+            </list>
+            Routes to Kentico HTTP handlers are excluded from URL generation, i.e. in MVC applications it is not possible
+            to accidentally generate an URL to a Kentico HTTP handler instead of a controller action.
+            </remarks>
+        </member>
+        <member name="P:CMS.Routing.Web.RegisterHttpHandlerAttribute.MarkedType">
+            <summary>
+            Gets the type of a Kentico HTTP handler.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.RegisterHttpHandlerAttribute.RouteTemplate">
+            <summary>
+            Gets the route template.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.RegisterHttpHandlerAttribute.Order">
+            <summary>
+            Gets or sets the order weight of the route.
+            </summary>
+            <remarks>
+            Routes are sorted for each HTTP handler in increasing order based on the order value.
+            Routes without the order weight specified have an order value of 0.
+            Negative values are valid and can be used to position a route before all non-negative routes.
+            </remarks>
+        </member>
+        <member name="M:CMS.Routing.Web.RegisterHttpHandlerAttribute.#ctor(System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.Routing.Web.RegisterHttpHandlerAttribute"/> class.
+            </summary>
+            <param name="routeTemplate">The route template.</param>
+            <param name="handlerType">The type of a Kentico HTTP handler.</param>
+        </member>
+        <member name="M:CMS.Routing.Web.RegisterHttpHandlerAttribute.PreInit">
+            <summary>
+            Adds this instance to the table with routes to Kentico HTTP handlers.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.RegisterHttpHandlerAttribute.GetHttpHandler(System.Web.Routing.RequestContext)">
+            <summary>
+            Provides the Kentico HTTP handler that processes the request.
+            </summary>
+            <param name="requestContext">An object that encapsulates information about the request.</param>
+            <returns>A Kentico HTTP handler that processes the request.</returns>
+        </member>
+        <member name="T:CMS.Routing.Web.DomainPolicy">
+            <summary>
+            Ensures domain policies like redirection to site alias, using of domain prefix etc.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.DomainPolicy.DOMAIN_PREFIX_NONE">
+            <summary>
+            Do not process domain prefix
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.DomainPolicy.DOMAIN_PREFIX_WWW">
+            <summary>
+            Always use www prefix for domains
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.DomainPolicy.DOMAIN_PREFIX_WITHOUTWWW">
+            <summary>
+            Never use www prefix for domains
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.DomainPolicy.ProviderObject">
+            <summary>
+            Provider object.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.DomainPolicy.UseDomainRedirectForFiles">
+            <summary>
+            Indicates whether domain redirect should be used for file request (getattachment, getmediafile, getmetafile, etc)
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.DomainPolicy.Apply(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Applies domain policy regarding given site.
+            </summary>
+            <param name="site">Site info for which the policy is applied.</param>
+        </member>
+        <member name="M:CMS.Routing.Web.DomainPolicy.ApplyForFiles(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Applies domain policy for files regarding given site.
+            </summary>
+            <param name="site">Site info for which the policy is applied.</param>
+        </member>
+        <member name="M:CMS.Routing.Web.DomainPolicy.EnsureDomainAliasRedirection(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Ensures redirection when domain alias redirect URL is set.
+            </summary>
+            <param name="site">Site info for which the domain alias redirection is applied.</param>
+        </member>
+        <member name="M:CMS.Routing.Web.DomainPolicy.GetDomainAliasRedirectionUrl(CMS.SiteProvider.SiteDomainAliasInfo,System.String)">
+            <summary>
+            Returns domain alias redirection URL.
+            </summary>
+            <param name="alias">Domain alias which matches domain of the current request.</param>
+            <param name="currentDomain">The current domain, including "www." prefix if present</param>
+            <returns>
+            Redirection URL when specified and redirect is necessary, <c>null</c> otherwise.
+            </returns>
+            <exception cref="T:System.NotSupportedException">Only absolute URL is supported for the redirection URL of a site domain alias.</exception>
+        </member>
+        <member name="T:CMS.Routing.Web.AdvancedGetFileHandler">
+            <summary>
+            Base page for GetFile pages.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mCompleted">
+            <summary>
+            Indicates whether request is completed
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mCacheMinutes">
+            <summary>
+            Cache minutes
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mClientCacheMinutes">
+            <summary>
+            Client cache minutes
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mRevalidateClientCache">
+            <summary>
+            Indicates whether client cache should be revalidated
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mWidth">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mHeight">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mMaxSideSize">
+            <summary>
+            Max. side size
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mResizeToDevice">
+            <summary>
+            Indicates whether resizing should be used for device
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mRangeRegExp">
+            <summary>
+            Regular expression to match the range in HTTP header.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mExcludedResumableExtensions">
+            <summary>
+            List of file extensions for which the resumable downloads are disabled.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.useCacheItemName">
+            <summary>
+            Cache item name for the request.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mAllowCache">
+            <summary>
+            If true, the caching is allowed.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.deviceResizeIsUsed">
+            <summary>
+            Indicates if max resize for mobile device is used.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mIsLiveSite">
+            <summary>
+            Indicates if used on live site
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.Context">
+            <summary>
+            Returns the current context
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.Response">
+            <summary>
+            Returns the current response
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.IsReusable">
+            <summary>
+            Indicates if handler is reusable.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.Watermark">
+            <summary>
+            If set, watermark image is applied to the image. Name of the watermark image from ~/App_Themes/{theme}/Images/Watermarks
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.WatermarkPosition">
+            <summary>
+            Watermark position.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.Sender">
+            <summary>
+            Gets or sets sender object that is used for writing data to the response.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.DataLength">
+            <summary>
+            Size of data.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.IsRangeRequest">
+            <summary>
+            Indicates whether it is range request.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AreRangesValid">
+            <summary>
+            Indicates whether ranges are valid.
+            TRUE: ranges are valid or request is not range request
+            FALSE: all other cases
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.IsMultipart">
+            <summary>
+            Indicates whether it is multipart range request.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.Ranges">
+            <summary>
+            2D Array in format {{START_RANGE,END_RANGE},{START_RANGE, END_RANGE}}.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.GetFileEndRequest">
+            <summary>
+            When true, the request is completed, when false, the Request.End is called.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AcceptRange">
+            <summary>
+            Indicates if resumable downloads should be supported for current file.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AcceptRanges">
+            <summary>
+            Indicates whether range requests are enabled (ex. for resumable downloads). If false, the HTTP Handler
+            ignores the Range HTTP Header and returns the entire contents.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.ExcludedResumableExtensions">
+            <summary>
+            List of file extensions for which the resumable downloads are disabled.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.CurrentSiteName">
+            <summary>
+            Current site name.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.CurrentSite">
+            <summary>
+            Current site.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.CacheItemName">
+            <summary>
+            Cache item name for current request.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.CacheMinutes">
+            <summary>
+            Cache minutes.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.ClientCacheMinutes">
+            <summary>
+            Cache minutes.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AllowClientCache">
+            <summary>
+            Returns true if client cache is allowed for the current request.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.RevalidateClientCache">
+            <summary>
+            Cache minutes.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.OutputDataCacheItemName">
+            <summary>
+            Cache item name for the file output data.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.Width">
+            <summary>
+            Image width.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.Height">
+            <summary>
+            Image height.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.MaxSideSize">
+            <summary>
+            Image maximum side size.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.ResizeToDevice">
+            <summary>
+            Indicates if max side size parameter should be changes to device profile dimensions.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.ETag">
+            <summary>
+            HTTP header entity tag.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.LogExceptions">
+            <summary>
+            Logs the exceptions caused by the process.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.LogCommunicationExceptions">
+            <summary>
+            Whether to log exception caused by communication problems (e.g. when remote host closes the connection).
+            Log exceptions has to be set to TRUE.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.RangeRegExp">
+            <summary>
+            The range from HTTP header regular expression.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AllowCache">
+            <summary>
+            Returns true if the process allows cache.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.IsLiveSite">
+            <summary>
+            Indicates if live site mode.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.FixSessionIdForInProcOptimization(System.Web.HttpContextBase)">
+             <summary>
+             <see cref="T:CMS.Routing.Web.AdvancedGetFileHandler"/> is implementation of <see cref="T:System.Web.SessionState.IReadOnlySessionState"/>.
+             This may cause that session created within request handled by this handler won't be saved due to 
+             optimization in default <see cref="T:System.Web.SessionState.SessionStateModule"/>. The optimization is trying
+             to postpone creation of session to the latest request event (<see cref="E:System.Web.HttpApplication.ReleaseRequestState"/>.
+            
+             <see cref="T:CMS.Helpers.ResponseDataSender"/> used for data transmition is eagerly flushing response to the client. 
+             The first flush is sending response headers (in our case without sessionId). In case of not existing session id
+             in cookies the postponed sessionId creation causes an exception (not affecting current response or CMS system, the
+             exception is logged to the system log).
+             
+             The optimization is used only if following conditions are satisfied:
+             <see cref="P:System.Web.HttpSessionStateBase.Mode"/> is <see cref="F:System.Web.SessionState.SessionStateMode.InProc"/>
+             <see cref="T:System.Web.SessionState.ISessionIDManager"/> is <see cref="T:System.Web.SessionState.SessionIDManager"/>
+             Cookies are used as sessionId storage.
+             </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            Processes the handler request
+            </summary>
+            <param name="context">Context</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.ProcessRequestInternal(System.Web.HttpContextBase)">
+            <summary>
+            Processes the handler request
+            </summary>
+            <param name="context">Context</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.LoadSiteName">
+            <summary>
+            Loads the site name from the query string.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.GetCachedOutputData">
+            <summary>
+            Gets the cached data for the current request.
+            </summary>
+            <returns>Returns null if no data is cached</returns>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.SaveOutputDataToCache(System.Byte[],CMS.Helpers.CMSCacheDependency)">
+            <summary>
+            Saves the data for current request to cache.
+            </summary>
+            <param name="data">Data to cache</param>
+            <param name="cd">Cache item dependency</param>
+            <remarks>If the data is null, nothing is saved to the cache</remarks>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.GetBaseCacheKey">
+            <summary>
+            Returns the base cache key (created with all parameters considered to be valid for proper caching).
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.HandleDeviceResize">
+            <summary>
+            Changes MaxSideSize to device dimensions if device resizing is enabled.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.GetCacheDependency(System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Creates the cache dependency from the given keys.
+            </summary>
+            <param name="dependencies">Cache keys</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.SetCacheability">
+            <summary>
+            Sets the cache-ability with dependence on connection type
+            IE browser doesn't support No-Cache if current connection is secured
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.SetRevalidation">
+            <summary>
+            Sets the revalidation of the client caches.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.SetTimeStamps(System.DateTime,System.Boolean)">
+            <summary>
+            Sets the last modified and expires header to the response
+            </summary>
+            <param name="lastModified">Last modified date</param>
+            <param name="publicCache">True if object can be cached by clients and proxies, false if only by clients</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.SetDisposition(System.String,System.String)">
+            <summary>
+            Sets response header according to file type.
+            </summary>
+            <param name="fileName">Name of file (e.g. image.png)</param>
+            <param name="extension">File extension</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.CompleteRequest">
+            <summary>
+            Completes the request.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.WriteFile(System.String,System.Boolean)">
+            <summary>
+            Streams the data file to the response.
+            </summary>
+            <param name="filepath">File path</param>
+            <param name="returnOutputData">If true, output data is returned</param>
+            <returns>Returns streamed binary data if requested by <paramref name="returnOutputData"/>. Binary data are never returned for range requests.</returns>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.WriteBytes(System.Byte[])">
+            <summary>
+            Streams the byte array to the response.
+            </summary>
+            <param name="data">Data to write</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.GetRange(System.Int64,System.Web.HttpContextBase)">
+            <summary>
+            Parses the range header from the request.
+            </summary>
+            <param name="size">Size of data</param>
+            <param name="currentContext">Current HTTP context</param>
+            <returns>2D Array in format {{START_RANGE,END_RANGE},{START_RANGE, END_RANGE}}</returns>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.RespondNotModified(System.String,System.Boolean)">
+            <summary>
+            Responds with the not modified code.
+            </summary>
+            <param name="eTag">Etag for the file</param>
+            <param name="publicCache">True if object can be cached by clients and proxies, false if only by clients</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.ETagsMatch(System.String,System.DateTime)">
+            <summary>
+            Responds with 304 Not Modified if ETags match and object has current timestamp.
+            </summary>
+            <param name="eTag">Entity tag of object to compare against ETag received in request</param>
+            <param name="lastModified">Timestamp of last modification to compare against value in request</param>        
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.IsExtensionExcludedFromRanges(System.String)">
+            <summary>
+            Indicates if file with given extension is excluded from resumable downloads.
+            </summary>
+            <param name="extension">File extension</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.HandleDeviceDimension(System.Int32)">
+            <summary>
+            Handles max side size according to device profile dimensions.
+            </summary>
+            <param name="maxSideSize">Max side size</param>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.SetupSender">
+            <summary>
+            Setups sender according to current properties's values.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.AdvancedGetFileHandler.SetResponseContentType(System.String)">
+            <summary>
+            Sets content type of the response based on file MIME type
+            </summary>
+            <param name="mimeType">MIME type</param>
+        </member>
+        <member name="T:CMS.Routing.Web.GetFileHandler">
+            <summary>
+            Base class for GetFile handlers. Handles client caching and range requests.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.IsReusable">
+            <summary>
+            Indicates if handler is reusable.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.Sender">
+            <summary>
+            Instance of the sender object that is used for writing data to the response.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.ClientCacheMinutes">
+            <summary>
+            Client cache minutes.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.AllowClientCache">
+            <summary>
+            Returns true if client cache is allowed for the current request.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.RevalidateClientCache">
+            <summary>
+            Indicates if client cache should be revalidated.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.IsLiveSite">
+            <summary>
+            Indicates if live site mode.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.GetFileEndRequest">
+            <summary>
+            When true, the request is completed, when false, the Request.End is called.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.ExcludedResumableExtensions">
+            <summary>
+            List of file extensions for which the resumable downloads are disabled.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.Context">
+            <summary>
+             Current HTTP context.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetFileHandler.Response">
+            <summary>
+            Current HTTP response.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            Process the request.
+            </summary>
+            <param name="context">Current HTTP context.</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.ProcessRequestInternal(System.Web.HttpContext)">
+            <summary>
+            Process the request.
+            </summary>
+            <param name="context">Current HTTP context.</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.FileNotFound">
+            <summary>
+            Responds HTTP code 404 Not Found.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.CompleteRequest">
+            <summary>
+            Completes the request.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.SetResponseHeaders(System.String,System.String,System.String)">
+            <summary>
+            Sets response headers.
+            </summary>
+            <param name="fileName">File name</param>
+            <param name="extension">File extension</param>
+            <param name="mimeType">File MIME type</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.HandleClientCache(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Sets client cache headers. Responds HTTP code 304 Not Modified and returns true when requested file is in client's cache.
+            </summary>
+            <param name="eTag">Entity tag of object to compare against ETag received in request</param>
+            <param name="lastModified">Timestamp of the last modification to compare against value in request</param>        
+            <param name="publicCache">Indicates whether response can be cached by public cache systems or not</param>
+            <returns>Returns true when requested file is in client's cache, false otherwise.</returns>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.WriteBytes(System.Byte[])">
+            <summary>
+            Streams the byte array to the response.
+            </summary>
+            <param name="data">Data to write</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.RespondNotModified">
+            <summary>
+            Responds HTTP code 304 Not Modified.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.SetClientCache(System.String,System.DateTime,System.DateTime,System.Boolean)">
+            <summary>
+            Sets client cache headers.
+            </summary>
+            <param name="eTag">Entity tag of object to compare against ETag received in request</param>
+            <param name="lastModified">Timestamp of the last modification to compare against value in request</param>        
+            <param name="expires">Date and time when client cache's entry expires</param>
+            <param name="publicCache">Indicates whether response can be cached by public cache systems or not</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetFileHandler.ETagsMatch(System.String,System.DateTime)">
+            <summary>
+            Checks if given and requested ETags match and object has current timestamp.
+            </summary>
+            <param name="etag">Entity tag of object to compare against ETag received in request</param>
+            <param name="lastModified">Timestamp of last modification to compare against value in request</param>        
+        </member>
+        <member name="T:CMS.Routing.Web.GetMetaFileHandler">
+            <summary>
+            HTTP handler for serving metafiles.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.GetMetaFileHandler.useClientCache">
+            <summary>
+            Sets to false to disable the client caching.
+            </summary>
+        </member>
+        <member name="F:CMS.Routing.Web.GetMetaFileHandler.largeFilesCacheMinutes">
+            <summary>
+            Sets to 0 if you do not wish to cache large files.
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetMetaFileHandler.AllowCache">
+            <summary>
+            Returns true if the process allows cache.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.GetMetaFileHandler.ProcessRequestInternal(System.Web.HttpContextBase)">
+            <summary>
+            Processes the handler request
+            </summary>
+            <param name="context">Handler context</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetMetaFileHandler.ProcessFile">
+            <summary>
+            Processes the file.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.GetMetaFileHandler.SendFile(CMS.DataEngine.CMSOutputMetaFile)">
+            <summary>
+            Sends the given file within response.
+            </summary>
+            <param name="file">File to send</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetMetaFileHandler.GetFileETag(CMS.DataEngine.CMSOutputMetaFile)">
+            <summary>
+            Gets the ETag for the given file
+            </summary>
+            <param name="file">File</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetMetaFileHandler.GetOutputDataDependency(CMS.DataEngine.MetaFileInfo)">
+            <summary>
+            Returns the output data dependency based on the given attachment record.
+            </summary>
+            <param name="mi">Metafile object</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetMetaFileHandler.EnsurePhysicalFile(CMS.DataEngine.CMSOutputMetaFile)">
+            <summary>
+            Ensures the physical file.
+            </summary>
+            <param name="file">Output file</param>
+        </member>
+        <member name="M:CMS.Routing.Web.GetMetaFileHandler.NewOutputFile(CMS.DataEngine.MetaFileInfo,System.Byte[])">
+            <summary>
+            Gets the new output MetaFile object.
+            </summary>
+            <param name="mfi">Meta file info</param>
+            <param name="data">Output MetaFile data</param>
+        </member>
+        <member name="T:CMS.Routing.Web.GetVersionHandler">
+            <summary>
+            Handler to get CMS version
+            </summary>
+        </member>
+        <member name="P:CMS.Routing.Web.GetVersionHandler.IsReusable">
+            <summary>
+            Gets a value indicating whether another request can use the IHttpHandler instance.
+            </summary>
+        </member>
+        <member name="M:CMS.Routing.Web.GetVersionHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            Processes the incoming HTTP request and returns current system version if version key is valid.
+            </summary>
+            <param name="context">An HTTPContext object that provides references to the intrinsic server objects used to service HTTP requests</param>
+        </member>
+    </members>
+</doc>

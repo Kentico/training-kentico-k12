@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Blogs</CodeName>
+    <GUID>9d64ed06-94cf-42f6-a178-8d78808ffdb0</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>Enables users to create a new blog.</WebPartDescription>
+  <WebPartDisplayName>New blog</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Blogs/NewBlog.ascx</WebPartFileName>
+  <WebPartGUID>8e833bbf-1b64-4ef2-8bfa-14fe31264099</WebPartGUID>
+  <WebPartIconClass>icon-w-new-blog</WebPartIconClass>
+  <WebPartName>NewBlog</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="General">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="BlogParentPath" columnsize="250" columntype="text" guid="4583d938-cd11-4875-8c28-ff8ac8c51801" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Blog parent path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Path in the content tree where new blog should be created.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SinglePathMode>True</SinglePathMode>
+          <SiteID>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)e04dc43a28d9e9b43cfae8ed8c75abc502447960a8af580a09fb96bfd8c6a1aa%}]]>
+          </SiteID>
+        </settings>
+      </field>
+      <field column="RedirectToNewBlog" columntype="boolean" guid="c958adc2-838b-47a2-8d3b-4aed8ae502e7" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+          <fieldcaption>Redirect to new blog</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if user should be redirected to the new blog after it is created.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="BlogSideColumnText" columntype="longtext" guid="dd8c300a-5070-40bf-9fcf-7176a549226c" publicfield="false" resolvedefaultvalue="False" translatefield="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Side column text</fieldcaption>
+          <fielddescription>Blog side column text.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>HtmlAreaControl</controlname>
+          <CSSStylesheet>0</CSSStylesheet>
+          <Dialogs_Content_Hide>False</Dialogs_Content_Hide>
+          <Dialogs_Content_Site>##all##</Dialogs_Content_Site>
+          <Dialogs_Libraries_Site>##all##</Dialogs_Libraries_Site>
+          <HeightUnitType>PX</HeightUnitType>
+          <MediaDialogConfiguration>True</MediaDialogConfiguration>
+          <ShowAddStampButton>False</ShowAddStampButton>
+          <ToolbarSet>Basic</ToolbarSet>
+          <Width>400</Width>
+          <WidthUnitType>PX</WidthUnitType>
+        </settings>
+      </field>
+      <field column="BlogModerateComments" columntype="boolean" guid="8001a04f-db4d-452f-897b-e9f766324317" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Moderate comments</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if new comments require to be moderated before publishing.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="BlogModerators" columnsize="450" columntype="text" guid="726c233d-78ed-4263-b8f6-f9137a8ab223" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Blog moderators</fieldcaption>
+          <fielddescription>
+            <![CDATA[Users which are allowed to moderate current blog comments.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AlwaysShowGlobalAdministrators>False</AlwaysShowGlobalAdministrators>
+          <controlname>multipleuserselector</controlname>
+          <HideDisabledUsers>False</HideDisabledUsers>
+          <HideHiddenUsers>False</HideHiddenUsers>
+          <HideNonApprovedUsers>False</HideNonApprovedUsers>
+          <ReturnColumnName>UserName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ShowSiteFilter>True</ShowSiteFilter>
+        </settings>
+      </field>
+      <field column="BlogOpenCommentsFor" columnsize="10" columntype="text" guid="890949b3-5b78-4bf1-9cba-eceaf642ad42" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Open comments for</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates how long are blog comments opened after publishing the post.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>DropDownListControl</controlname>
+          <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+-1;Always
+0;Disable
+1;1 day
+2;2 days
+5;5 days
+10;10 days
+14;14 days
+30;30 days
+60;60 days
+90;90 days
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="BlogSendCommentsToEmail" columnsize="254" columntype="text" guid="12ff6b0c-f7dc-4bf1-8d28-95fa78ff591d" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Send comments to e-mail</fieldcaption>
+          <fielddescription>E-mail address where new comments should be sent.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>emailinput</controlname>
+        </settings>
+      </field>
+      <field column="BlogAllowAnonymousComments" columntype="boolean" guid="6d0e008a-c183-41b2-8879-4608287334cc" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Allow anonymous comments</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if anonymous users are allowed to insert comments.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="BlogUseCAPTCHAForComments" columntype="boolean" guid="192a8a69-068d-4b60-8fc0-33bd731449be" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Use CAPTCHA for comments</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if security control should be used when inserting new comment.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="NewBlogTemplate" columnsize="200" columntype="text" guid="c3085b83-038d-40ca-923a-54d3670bc2ac" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>New blog template</fieldcaption>
+          <fielddescription>
+            <![CDATA[Page template which is applied to a new blog. If not specified, page template of the parent page is applied.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectpagetemplate</controlname>
+          <ShowOnlySiteTemplates>True</ShowOnlySiteTemplates>
+          <ShowTemplateButtons>False</ShowTemplateButtons>
+          <ShowTemplates>True</ShowTemplates>
+        </settings>
+      </field>
+      <field allowempty="true" column="CheckPermissions" columntype="boolean" guid="8f2a7231-0bea-45bb-a3b3-c3a57bf51161" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the permissions of the current user should be checked for the content of the web part. If enabled, only users who have "create" permission will be able to create new blog.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Blog</CodeName>
+    <GUID>16ff5f79-b1c3-4142-bf28-e9fec523a10e</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

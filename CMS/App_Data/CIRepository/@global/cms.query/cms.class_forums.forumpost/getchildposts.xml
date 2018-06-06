@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.ForumPost</CodeName>
+    <GUID>f40c961c-3d47-4e6a-997e-b127db2520c1</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>2a441159-f00c-4436-beb5-5064d87947a8</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>GetChildPosts</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[SELECT *  FROM  [Forums_ForumPost] WHERE PostIDPath LIKE @Path + '/%']]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

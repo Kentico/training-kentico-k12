@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>WebAnalytics</CodeName>
+    <GUID>8145fa4a-5499-4cbe-8766-86f32b96b102</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Includes tracking code for Google analytics service.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Google analytics</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<p><strong>This web part provides an alternative to the web analytic capabilities of Kentico.</strong><br />
+<br />
+You need to have a Google analytics account set up to be able to configure the web part correctly. Once you add the website to your account in Google analytics, you will be given a tracking ID, which is required&nbsp;for the web part to work.<br />
+<br />
+You can find more information in <a href="~/CMSPages/GetDocLink.ashx?link=google_analytics" target="_blank">Web analytics chapter</a>.</p>
+
+<div>&nbsp;</div>
+
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>GoogleServices/Googleanalytics.ascx</WebPartFileName>
+  <WebPartGUID>d84c1a3c-8c4b-4465-a211-9410311fd9b9</WebPartGUID>
+  <WebPartIconClass>icon-w-google-analytics</WebPartIconClass>
+  <WebPartName>GoogleAnalytics</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Google Analytics Settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="TrackingCode" columnsize="20" columntype="text" guid="47bb33c6-3432-4fee-8dd2-204d2552ad5d" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Tracking code</fieldcaption>
+          <fielddescription>
+            <![CDATA[This code is obtained from the Google Analytics service at www.google.com/analytics.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="TrackingType" columntype="integer" guid="0b69524d-3de0-440d-9c07-ec39ab5ecae5" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <fieldcaption>Tracking type</fieldcaption>
+          <fielddescription>
+            <![CDATA[Type of the tracking depending on the domain model.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>radiobuttonscontrol</controlname>
+          <Options>
+<![CDATA[
+0; Single domain (e.g. only www.example.com)
+1; One domain with multiple subdomains (e.g. sub1.example.com, sub2.example.com, sub3.example.com)
+2; Multiple top-level domains (e.g. www.example.com, www.example.net, www.example.org)
+]]>
+          </Options>
+          <RepeatDirection>vertical</RepeatDirection>
+        </settings>
+      </field>
+      <field allowempty="true" column="MainWebsiteDomain" columnsize="100" columntype="text" guid="cd6f2093-caf9-4c04-a0a5-11a83e603897" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Website main domain</fieldcaption>
+          <fielddescription>
+            <![CDATA[Use this property to specify a custom domain name used for tracking purposes in non-trivial scenarios. For example, if you want to track visits to "my.first.example.com" and "my.second.example.com", which  are both subdomains of "example.com", fill in "example.com". If you leave the property empty, the web part will use the current domain.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UseAsyncScript" columntype="boolean" guid="3f158398-bbf7-4061-8131-5777c6b2b04f" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Use asynchronous script</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if asynchronous variant of Google analytics script should be used.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>4</WebPartType>
+</cms.webpart>

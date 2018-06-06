@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.abusereport.read$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Read</PermissionDisplayName>
+  <PermissionEditableByGlobalAdmin>False</PermissionEditableByGlobalAdmin>
+  <PermissionGUID>7f2f05dc-e2c6-49ed-b652-39eb74f14a23</PermissionGUID>
+  <PermissionName>Read</PermissionName>
+  <PermissionOrder>1</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.AbuseReport</CodeName>
+    <GUID>69d64093-d17a-47e2-a08b-71800ac187b2</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

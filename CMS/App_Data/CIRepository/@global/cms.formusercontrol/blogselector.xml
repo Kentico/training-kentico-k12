@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>BlogSelector</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription />
+  <UserControlDisplayName>Blog selector</UserControlDisplayName>
+  <UserControlFileName>~/CMSModules/Blogs/FormControls/BlogSelector.ascx</UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>True</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>98de2915-1cfc-4146-95ac-42e25e99fd3e</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field column="OnlyUsersBlogs" columntype="boolean" guid="11c9471f-1ca3-4c12-a732-2993575090e5" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>
+            <![CDATA[Show only user's blogs]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates, if the list should contain only the current user's blogs.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ReturnColumnName" columnsize="100" columntype="text" guid="5a3b4b08-0bcf-4e4f-902a-830dcd9af7d3" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Return column name</fieldcaption>
+          <fielddescription>
+            <![CDATA[The name of the database column to return (the default is NodeAliasPath).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+;(default)
+NodeAliasPath;NodeAliasPath
+NodeGUID;NodeGUID
+NodeID;NodeID
+]]>
+          </Options>
+        </settings>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlResourceID>
+    <CodeName>CMS.Blog</CodeName>
+    <GUID>16ff5f79-b1c3-4142-bf28-e9fec523a10e</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </UserControlResourceID>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

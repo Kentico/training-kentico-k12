@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>2df80c2b-f531-4928-8615-e199db53e9bc</HelpTopicGUID>
+  <HelpTopicLink>webparts_properties</HelpTopicLink>
+  <HelpTopicName>Manage web part properties</HelpTopicName>
+  <HelpTopicOrder>2</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.WebParts</CodeName>
+    <GUID>77af5783-40e0-4149-98a0-f68bdf1e32a2</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

@@ -1,0 +1,786 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.Messaging</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.Messaging.MessageActionEnum">
+            <summary>
+            Enumeration for send message mode.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessageActionEnum.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessageActionEnum.New">
+            <summary>
+            New.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessageActionEnum.Reply">
+            <summary>
+            Reply.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessageActionEnum.Forward">
+            <summary>
+            Forward.
+            </summary>
+        </member>
+        <member name="T:CMS.Messaging.MessagingModuleMetadata">
+            <summary>
+            Represents the Messaging module metadata.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessagingModuleMetadata.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:CMS.Messaging.MessagingResolvers">
+            <summary>
+            Resolvers used in e-mail templates and other macro visual components.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessagingResolvers.MessagingResolver">
+            <summary>
+            Returns messaging e-mail template macro resolver.
+            </summary>
+        </member>
+        <member name="T:CMS.Messaging.MessagingModule">
+            <summary>
+            Represents the Messaging module.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessagingModule.MESSAGING_EMAIL_TEMPLATE_TYPE_NAME">
+            <summary>
+            Name of email template type for general purposes.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessagingModule.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessagingModule.OnInit">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessagingModule.RegisterCommands">
+            <summary>
+            Registers the object type of this module
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessagingModule.AddToContactList(System.Object[])">
+            <summary>
+            Add user to contact list
+            </summary>
+            <param name="parameters">Parameters array</param>
+        </member>
+        <member name="M:CMS.Messaging.MessagingModule.AddToIgnoreList(System.Object[])">
+            <summary>
+            Add user to ignore list
+            </summary>
+            <param name="parameters">Parameters array</param>
+        </member>
+        <member name="M:CMS.Messaging.MessagingModule.IsInContactList(System.Object[])">
+            <summary>
+            Check whether user is in contact list
+            </summary>
+            <param name="parameters">Parameters array</param>
+        </member>
+        <member name="M:CMS.Messaging.MessagingModule.IsInIgnoreList(System.Object[])">
+            <summary>
+            Check whether user is in ignore list
+            </summary>
+            <param name="parameters">Parameters array</param>
+        </member>
+        <member name="T:CMS.Messaging.ContactListInfo">
+            <summary>
+            ContactListInfo data container class.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.ContactListInfo.OBJECT_TYPE">
+            <summary>
+            Object type
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.ContactListInfo.TYPEINFO">
+            <summary>
+            Type information.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.ContactListInfo.ContactListContactUserID">
+            <summary>
+            ID of user in contact list.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.ContactListInfo.ContactListUserID">
+            <summary>
+            Contact List User ID.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfo.DeleteObject">
+            <summary>
+            Deletes the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfo.SetObject">
+            <summary>
+            Updates the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfo.CheckPermissionsInternal(CMS.DataEngine.PermissionsEnum,System.String,CMS.Base.IUserInfo,System.Boolean)">
+            <summary>
+            Checks the permissions of the object.
+            </summary>
+            <param name="permission">Permission type</param>
+            <param name="siteName">Name of the site</param>
+            <param name="userInfo">UserInfo object</param>
+            <param name="exceptionOnFailure">If true, PermissionCheckException is thrown whenever a permission check fails</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfo.#ctor">
+            <summary>
+            Constructor - Creates an empty ContactListInfo object.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfo.#ctor(System.Data.DataRow)">
+            <summary>
+            Constructor - Creates a new ContactListInfo object from the given DataRow.
+            </summary>
+        </member>
+        <member name="T:CMS.Messaging.ContactListInfoProvider">
+            <summary>
+            Class providing ContactListInfo management.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.GetContactListInfo(System.Int32,System.Int32)">
+            <summary>
+            Returns the ContactListInfo structure for the specified contactList.
+            </summary>
+            <param name="ownerId">ID of user</param>
+            <param name="contactId">ID of user in contactlist</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.SetContactListInfo(CMS.Messaging.ContactListInfo)">
+            <summary>
+            Sets (updates or inserts) specified contactList item.
+            </summary>
+            <param name="contact">ContactList info object to set</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.DeleteContactListInfo(CMS.Messaging.ContactListInfo)">
+            <summary>
+            Deletes specified contact from contactlist.
+            </summary>
+            <param name="contact">ContactList object</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.AddToContactList(System.Int32,System.Int32)">
+            <summary>
+            Adds user to contactlist.
+            </summary>
+            <param name="ownerId">ID of contactlist owner</param>
+            <param name="contactId">ID of user to add to contactlist</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.RemoveFromContactList(System.Int32,System.Int32)">
+            <summary>
+            Removes user from contactlist.
+            </summary>
+            <param name="contactId">ID of user to be removed from contactlist</param>
+            <param name="ownerId">ID of contactlist owner</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.GetContactList(System.Int32)">
+            <summary>
+            Returns all users from user's contactlist.
+            </summary>
+            <param name="ownerId">User ID</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.GetContactList(System.Int32,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Returns all users from user's contactlist.
+            </summary>
+            <param name="ownerId">User ID</param>
+            <param name="where">Where condition</param>
+            <param name="orderBy">Order by clause</param>
+            <param name="topN">Select only top N columns</param>
+            <param name="columns">Specifies columns to be selected</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.GetContactList(System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns all users from user's contactlist.
+            </summary>
+            <param name="ownerId">User ID</param>
+            <param name="where">Where condition</param>
+            <param name="orderBy">Order by clause</param>
+            <param name="topN">Select only top N columns</param>
+            <param name="columns">Specifies columns to be selected</param>
+            <param name="offset">Index of first record to get</param>
+            <param name="maxRecords">Maximum number of records to get. If maxRecords is zero or less, all records are returned (no paging is used)</param>
+            <param name="totalRecords">Returns total records</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.IsInContactList(System.Int32,System.Int32)">
+            <summary>
+            Returns true if given user is in owner's contactlist.
+            </summary>
+            <param name="ownerId">ID of contactlist owner</param>
+            <param name="contactId">ID of user to check</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.GetContactListInfoInternal(System.Int32,System.Int32)">
+            <summary>
+            Returns the ContactListInfo structure for the specified contactList.
+            </summary>
+            <param name="ownerId">ID of contact list owner</param>
+            <param name="contactId">ID of user in contactlist</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.SetContactListInfoInternal(CMS.Messaging.ContactListInfo)">
+            <summary>
+            Sets (updates or inserts) specified contactList item.
+            </summary>
+            <param name="contact">ContactList info object to set</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.DeleteInfo(CMS.Messaging.ContactListInfo)">
+            <summary>
+            Deletes the object to the database.
+            </summary>
+            <param name="info">Object to delete</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.AddToContactListInternal(System.Int32,System.Int32)">
+            <summary>
+            Adds user to contactlist.
+            </summary>
+            <param name="ownerId">ID of contactlist owner</param>
+            <param name="contactId">ID of user to add to contactlist</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.RemoveFromContactListInternal(System.Int32,System.Int32)">
+            <summary>
+            Removes user from contactlist.
+            </summary>
+            <param name="contactId">ID of user to be removed from contactlist</param>
+            <param name="ownerId">ID of contactlist owner</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.GetContactListInternal(System.Int32,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Returns all users from user's contactlist.
+            </summary>
+            <param name="ownerId">User ID</param>
+            <param name="where">Where condition</param>
+            <param name="orderBy">Order by clause</param>
+            <param name="topN">Select only top N columns</param>
+            <param name="columns">Specifies columns to be selected</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.GetContactListInternal(System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns all users from user's contactlist.
+            </summary>
+            <param name="ownerId">User ID</param>
+            <param name="where">Where condition</param>
+            <param name="orderBy">Order by clause</param>
+            <param name="topN">Select only top N columns</param>
+            <param name="columns">Specifies columns to be selected</param>
+            <param name="offset">Index of first record to get</param>
+            <param name="maxRecords">Maximum number of records to get. If maxRecords is zero or less, all records are returned (no paging is used)</param>
+            <param name="totalRecords">Returns total records</param>
+        </member>
+        <member name="M:CMS.Messaging.ContactListInfoProvider.IsInContactListInternal(System.Int32,System.Int32)">
+            <summary>
+            Returns true if given user is in owner's contactlist.
+            </summary>
+            <param name="ownerId">ID of contactlist owner</param>
+            <param name="contactId">ID of user to check</param>
+        </member>
+        <member name="T:CMS.Messaging.IgnoreListInfo">
+            <summary>
+            IgnoreListInfo data container class.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.IgnoreListInfo.OBJECT_TYPE">
+            <summary>
+            Object type
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.IgnoreListInfo.TYPEINFO">
+            <summary>
+            Type information.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.IgnoreListInfo.IgnoreListUserID">
+            <summary>
+            Ignore List User ID.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.IgnoreListInfo.IgnoreListIgnoredUserID">
+            <summary>
+            Ignore List Ignored User ID.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfo.DeleteObject">
+            <summary>
+            Deletes the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfo.SetObject">
+            <summary>
+            Updates the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfo.CheckPermissionsInternal(CMS.DataEngine.PermissionsEnum,System.String,CMS.Base.IUserInfo,System.Boolean)">
+            <summary>
+            Checks the permissions of the object.
+            </summary>
+            <param name="permission">Permission type</param>
+            <param name="siteName">Name of the site</param>
+            <param name="userInfo">UserInfo object</param>
+            <param name="exceptionOnFailure">If true, PermissionCheckException is thrown whenever a permission check fails</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfo.#ctor">
+            <summary>
+            Constructor - Creates an empty IgnoreListInfo object.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfo.#ctor(System.Data.DataRow)">
+            <summary>
+            Constructor - Creates a new IgnoreListInfo object from the given DataRow.
+            </summary>
+        </member>
+        <member name="T:CMS.Messaging.IgnoreListInfoProvider">
+            <summary>
+            Class providing IgnoreListInfo management.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.GetIgnoreListInfo(System.Int32,System.Int32)">
+            <summary>
+            Returns the IgnoreListInfo structure for the specified users.
+            </summary>
+            <param name="ownerId">ID of ignorelist owner</param>
+            <param name="contactId">ID of ignored user</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.SetIgnoreListInfo(CMS.Messaging.IgnoreListInfo)">
+            <summary>
+            Sets (updates or inserts) specified ignoreList.
+            </summary>
+            <param name="ignore">IgnoreList to set</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.AddToIgnoreList(System.Int32,System.Int32)">
+            <summary>
+            Adds user to owner's ignorelist.
+            </summary>
+            <param name="ownerId">ID of ignorelist owner</param>
+            <param name="contactId">ID of ignored user</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.DeleteIgnoreListInfo(CMS.Messaging.IgnoreListInfo)">
+            <summary>
+            Deletes specified ignoreList.
+            </summary>
+            <param name="ignore">IgnoreList object</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.RemoveFromIgnoreList(System.Int32,System.Int32)">
+            <summary>
+            Deletes specified ignoreList.
+            </summary>
+            <param name="ownerId">ID of ignorelist owner</param>
+            <param name="contactId">ID of ignored user</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.GetIgnoreList(System.Int32)">
+            <summary>
+            Returns all users from user's ignorelist.
+            </summary>
+            <param name="ownerId">User ID</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.GetIgnoreList(System.Int32,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Returns all users from user's ignorelist.
+            </summary>
+            <param name="ownerId">User ID</param>
+            <param name="where">Where condition</param>
+            <param name="orderBy">Order by clause</param>
+            <param name="topN">Select only top N columns</param>
+            <param name="columns">Specifies columns to be selected</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.IsInIgnoreList(System.Int32,System.Int32)">
+            <summary>
+            Returns true if given user is in owner's ignorelist.
+            </summary>
+            <param name="ownerId">ID of ignorelist owner</param>
+            <param name="contactId">ID of user to check</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.GetIgnoreListInfoInternal(System.Int32,System.Int32)">
+            <summary>
+            Returns the IgnoreListInfo structure for the specified ignoreList.
+            </summary>
+            <param name="ownerId">ID of ignorelist owner</param>
+            <param name="contactId">ID of ignored user</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.SetIgnoreListInfoInternal(CMS.Messaging.IgnoreListInfo)">
+            <summary>
+            Sets (updates or inserts) specified ignoreList.
+            </summary>
+            <param name="ignore">IgnoreList to set</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.DeleteInfo(CMS.Messaging.IgnoreListInfo)">
+            <summary>
+            Deletes the object to the database.
+            </summary>
+            <param name="info">Object to delete</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.AddToIgnoreListInternal(System.Int32,System.Int32)">
+            <summary>
+            Adds user to owner's ignorelist.
+            </summary>
+            <param name="ownerId">ID of ignorelist owner</param>
+            <param name="contactId">ID of ignored user</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.RemoveFromIgnoreListInternal(System.Int32,System.Int32)">
+            <summary>
+            Deletes specified ignoreList.
+            </summary>
+            <param name="ownerId">ID of ignorelist owner</param>
+            <param name="contactId">ID of ignored user</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.GetIgnoreListInternal(System.Int32,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            Returns all users from user's ignorelist.
+            </summary>
+            <param name="ownerId">User ID</param>
+            <param name="where">Where condition</param>
+            <param name="orderBy">Order by clause</param>
+            <param name="topN">Select only top N columns</param>
+            <param name="columns">Specifies columns to be selected</param>
+        </member>
+        <member name="M:CMS.Messaging.IgnoreListInfoProvider.IsInIgnoreListInternal(System.Int32,System.Int32)">
+            <summary>
+            Returns true if given user is in owner's ignorelist.
+            </summary>
+            <param name="ownerId">ID of ignorelist owner</param>
+            <param name="contactId">ID of user to check</param>
+        </member>
+        <member name="T:CMS.Messaging.MessageInfo">
+            <summary>
+            MessageInfo data container class.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessageInfo.OBJECT_TYPE">
+            <summary>
+            Object type
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessageInfo.TYPEINFO">
+            <summary>
+            Type information.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageID">
+            <summary>
+            Message ID.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageSent">
+            <summary>
+            Date when the message was sent.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageRead">
+            <summary>
+            Date when the message was read.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageSenderDeleted">
+            <summary>
+            True if sender deletes the message.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageRecipientDeleted">
+            <summary>
+            True if recipient deletes the message.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageSenderUserID">
+            <summary>
+            User ID of the sender.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageRecipientUserID">
+            <summary>
+            User ID of the recipient.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageSenderNickName">
+            <summary>
+            Sender nick name.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageRecipientNickName">
+            <summary>
+            Recipient nick name.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageSubject">
+            <summary>
+            Subjet of the message.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageBody">
+            <summary>
+            Body of the message.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageGUID">
+            <summary>
+            Message GUID.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageLastModified">
+            <summary>
+            Object last modified.
+            </summary>
+        </member>
+        <member name="P:CMS.Messaging.MessageInfo.MessageIsRead">
+            <summary>
+            Indicates if message is read by the recipient.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfo.DeleteObject">
+            <summary>
+            Deletes the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfo.SetObject">
+            <summary>
+            Updates the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfo.CheckPermissionsInternal(CMS.DataEngine.PermissionsEnum,System.String,CMS.Base.IUserInfo,System.Boolean)">
+            <summary>
+            Checks the permissions of the object.
+            </summary>
+            <param name="permission">Permission type</param>
+            <param name="siteName">Name of the site</param>
+            <param name="userInfo">UserInfo object</param>
+            <param name="exceptionOnFailure">If true, PermissionCheckException is thrown whenever a permission check fails</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfo.#ctor">
+            <summary>
+            Constructor - Creates an empty MessageInfo object.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfo.#ctor(System.Data.DataRow)">
+            <summary>
+            Constructor - Creates a new MessageInfo object from the given DataRow.
+            </summary>
+        </member>
+        <member name="T:CMS.Messaging.MessageInfoProvider">
+            <summary>
+            Class providing MessageInfo management.
+            </summary>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetMessageInfoByGUID(System.Guid)">
+            <summary>
+            Returns object with specified GUID.
+            </summary>
+            <param name="guid">Object GUID</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetMessageInfo(System.Int32)">
+            <summary>
+            Returns the MessageInfo structure for the specified message.
+            </summary>
+            <param name="messageId">Message id</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.SetMessageInfo(CMS.Messaging.MessageInfo)">
+            <summary>
+            Sets (updates or inserts) specified message.
+            </summary>
+            <param name="message">Message to set</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteMessageInfo(CMS.Messaging.MessageInfo)">
+            <summary>
+            Deletes specified message.
+            </summary>
+            <param name="messageObj">Message object</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteMessageInfo(System.Int32)">
+            <summary>
+            Deletes specified message.
+            </summary>
+            <param name="messageId">Message id</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteSentMessage(System.Int32)">
+            <summary>
+            Delete sent message - internally uses DeleteMessageInfo.
+            </summary>
+            <param name="messageId">Message ID</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteReceivedMessage(System.Int32)">
+            <summary>
+            Delete received message - internally uses DeleteMessageInfo.
+            </summary>
+            <param name="messageId">Message ID</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetMessages(System.String,System.String)">
+            <summary>
+             Gets messages - general method.
+            </summary>
+            <param name="whereCondition">Where condition</param>
+            <param name="orderBy">Order by</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetMessages(System.String,System.String,System.Int32,System.String)">
+            <summary>
+             Gets messages - general method.
+            </summary>
+            <param name="whereCondition">Where condition</param>
+            <param name="orderBy">Order by</param>
+            <param name="topN">Top N rows</param>
+            <param name="columns">Select only specified columns</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetMessages(System.Int32,System.String)">
+            <summary>
+             Gets user's messages - uses general method.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="orderBy">Order by</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetMessages(System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+             Gets user's messages - uses general method.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="orderBy">Order by</param>
+            <param name="topN">Top N rows</param>
+            <param name="columns">Select only specified columns</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetUnreadMessages(System.Int32,System.String)">
+            <summary>
+             Gets user's unread messages - uses general method.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="orderBy">Order by</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetUnreadMessages(System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+             Gets user's unread messages - uses general method.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="orderBy">Order by</param>
+            <param name="topN">Top N rows</param>
+            <param name="columns">Select only specified columns</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetSentMessages(System.Int32,System.String)">
+            <summary>
+             Gets user's sent messages - uses general method.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="orderBy">Order by</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetSentMessages(System.Int32,System.String,System.Int32,System.String)">
+            <summary>
+             Gets user's sent messages - uses general method.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="orderBy">Order by</param>
+            <param name="topN">Top N rows</param>
+            <param name="columns">Select only specified columns</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetMessagesCount(System.String)">
+            <summary>
+            Gets messages count.
+            </summary>
+            <param name="whereCondition">Where condition</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetMessagesCount(System.Int32)">
+            <summary>
+            Gets messages count.
+            </summary>
+            <param name="userId">User ID</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetSentMessagesCount(System.Int32)">
+            <summary>
+            Gets sent messages count.
+            </summary>
+            <param name="userId">User ID</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.GetUnreadMessagesCount(System.Int32)">
+            <summary>
+            Gets messages count.
+            </summary>
+            <param name="userId">User ID</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteSentMessages(System.Int32)">
+            <summary>
+            Delete all user's sent messages.
+            </summary>
+            <param name="userId">User ID</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteSentMessages(System.Int32,System.String)">
+            <summary>
+            Delete all user's sent messages.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="where">Where condition</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteReceivedMessages(System.Int32)">
+            <summary>
+            Delete all user's received messages.
+            </summary>
+            <param name="userId">User ID</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteReceivedMessages(System.Int32,System.String)">
+            <summary>
+            Delete all user's received messages.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="where">Where condition</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.SendNotificationEmail(CMS.Messaging.MessageInfo,CMS.Membership.UserInfo,CMS.Membership.UserInfo,System.String)">
+            <summary>
+            Send notification email.
+            </summary>
+            <param name="messageInfo">Message info</param>
+            <param name="recipient">Recipient of the message</param>
+            <param name="sender">Sender of the message</param>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.MarkReadReceivedMessages(System.Int32,System.String,System.DateTime)">
+            <summary>
+            Mark user's received messages as read.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="where">Where condition</param>
+            <param name="date">Date time of reading</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.MarkUnreadReceivedMessages(System.Int32,System.String)">
+            <summary>
+            Mark user's received messages as unread.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="where">Where condition</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteReceivedMessagesInternal(System.Int32,System.String)">
+            <summary>
+            Delete all user's received messages.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="where">Where condition</param>
+        </member>
+        <member name="M:CMS.Messaging.MessageInfoProvider.DeleteSentMessagesInternal(System.Int32,System.String)">
+            <summary>
+            Delete all user's sent messages.
+            </summary>
+            <param name="userId">User ID</param>
+            <param name="where">Where condition</param>
+        </member>
+        <member name="T:CMS.Messaging.MessageModeEnum">
+            <summary>
+            Message mode enumeration.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessageModeEnum.Inbox">
+            <summary>
+            Inbox.
+            </summary>
+        </member>
+        <member name="F:CMS.Messaging.MessageModeEnum.Outbox">
+            <summary>
+            Outbox.
+            </summary>
+        </member>
+    </members>
+</doc>

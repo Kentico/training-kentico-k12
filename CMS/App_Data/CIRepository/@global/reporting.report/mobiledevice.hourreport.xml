@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>mobiledevices</CodeName>
+    <GUID>8ba3743b-9945-47b3-9cf5-c8b3a0f336fd</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>Mobile devices - Hourly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>d367b4c3-6ccb-4ac2-98f9-e8737ddba369</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<p>%%control:ReportGraph?mobiledevice.hourreport.graph%%</p>
+<p>%%control:ReportTable?mobiledevice.hourreport.table2%%</p>
+<p>%%control:ReportTable?mobiledevice.hourreport.table%%</p>
+
+<p>{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}</p>
+
+]]>
+  </ReportLayout>
+  <ReportName>mobiledevice.hourreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="27aed5b1-630e-471e-b17c-d237c1918a66" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddDays(-1)|(identity)GlobalAdministrator|(hash)230c5aa080435c1b12017e4619da038aff35e44326687e7b615b5133a90954d4%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>True</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="eab44104-0a3f-45c5-89ae-a422ec25b5c2" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>True</EditTime>
+        </settings>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="50" publicfield="false" spellcheck="false" guid="554dc24c-5c23-4b00-9417-f94407c90a51" visibility="none">
+        <properties>
+          <defaultvalue>mobiledevice</defaultvalue>
+          <fieldcaption>From Date</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

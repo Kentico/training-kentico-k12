@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportgraph>
+  <GraphConnectionString />
+  <GraphDisplayName>graph</GraphDisplayName>
+  <GraphGUID>5a62251d-f7fc-49a7-bad9-dd38702ab279</GraphGUID>
+  <GraphHeight>300</GraphHeight>
+  <GraphLegendPosition>100</GraphLegendPosition>
+  <GraphName>GraphHitsClicks</GraphName>
+  <GraphQuery>
+<![CDATA[
+--DECLARE @BannerId INT;
+--DECLARE @FromDate DATETIME;
+--DECLARE @ToDate DATETIME;
+
+--SET @BannerId = 8;
+--SET @FromDate = '2/9/2012 6:14:30 PM';
+--SET @ToDate = '4/9/2012 6:14:30 PM';
+
+SET @FromDate = {%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'week');
+
+SELECT 
+    [Date], T3.clicks as '{$banner.clicks$}', T3.hits as '{$banner.hits$}'
+FROM dbo.Func_Analytics_EnsureDates(@FromDate,@ToDate,'week') AS Dates
+LEFT JOIN
+(
+	SELECT T2.HitsStartTime, T2.hits, T1.clicks
+	FROM
+		(SELECT HitsStartTime, HitsCount AS clicks
+		FROM Analytics_Statistics
+		INNER JOIN Analytics_WeekHits ON HitsStatisticsID = Analytics_Statistics.StatisticsID
+		WHERE (Analytics_Statistics.StatisticsObjectID = @BannerID) 
+			AND (StatisticsCode = 'bannerclick')
+		) AS T1
+	FULL JOIN 
+		(SELECT HitsStartTime, HitsCount AS hits
+		FROM Analytics_Statistics
+		INNER JOIN Analytics_WeekHits ON HitsStatisticsID = Analytics_Statistics.StatisticsID
+		WHERE (Analytics_Statistics.StatisticsObjectID = @BannerID) 
+			AND (StatisticsCode = 'bannerhit')
+		) AS T2
+	ON T1.HitsStartTime = T2.HitsStartTime
+ ) AS T3
+ON [Date] = HitsStartTime
+]]>
+  </GraphQuery>
+  <GraphQueryIsStoredProcedure>False</GraphQueryIsStoredProcedure>
+  <GraphReportID>
+    <CodeName>bannerhitsclicks.weekreport</CodeName>
+    <GUID>ddf8f91e-462e-4d7a-b5dd-f0475ab5c290</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </GraphReportID>
+  <GraphSettings>
+    <CustomData>
+      <barorientation>Vertical</barorientation>
+      <baroverlay>False</baroverlay>
+      <displayitemvalue>False</displayitemvalue>
+      <exportenabled>True</exportenabled>
+      <legendinside>False</legendinside>
+      <legendposition>Bottom</legendposition>
+      <linedrawinstyle>Line</linedrawinstyle>
+      <plotareagradient>None</plotareagradient>
+      <querynorecordtext>No data found</querynorecordtext>
+      <reverseyaxis>False</reverseyaxis>
+      <seriesgradient>None</seriesgradient>
+      <seriesitemtooltip>#VALX  -  #SER: #VALY</seriesitemtooltip>
+      <showas3d>False</showas3d>
+      <showmajorgrid>True</showmajorgrid>
+      <stackedbarmaxstacked>False</stackedbarmaxstacked>
+      <subscriptionenabled>True</subscriptionenabled>
+      <tenpowers>False</tenpowers>
+      <titleposition>Center</titleposition>
+      <valuesaspercent>False</valuesaspercent>
+      <xaxisformat>{%XAxisFormat%}</xaxisformat>
+      <xaxissort>True</xaxissort>
+      <xaxistitleposition>Center</xaxistitleposition>
+      <yaxistitleposition>Center</yaxistitleposition>
+      <yaxisusexaxissettings>True</yaxisusexaxissettings>
+    </CustomData>
+  </GraphSettings>
+  <GraphTitle />
+  <GraphType>line</GraphType>
+  <GraphWidth>700</GraphWidth>
+  <GraphXAxisTitle>{$reports_general.label_weeks$}</GraphXAxisTitle>
+  <GraphYAxisTitle>{$banner.hitsclicks$}</GraphYAxisTitle>
+</reporting.reportgraph>

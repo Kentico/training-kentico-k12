@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportvalue>
+  <ValueDisplayName>Banner Hits</ValueDisplayName>
+  <ValueFormatString />
+  <ValueGUID>47f3a145-52cd-4025-8a9d-baff3201494f</ValueGUID>
+  <ValueName>BannerHitsValue</ValueName>
+  <ValueQuery>
+<![CDATA[
+SELECT sum(t2.HitsCount)
+FROM Analytics_Statistics as t1, Analytics_HourHits as t2
+WHERE 
+(t1.StatisticsCode = 'bannerhit') 
+AND (t1.StatisticsObjectID = @BannerId) 
+AND (t1.StatisticsID = t2.HitsStatisticsID) 
+AND (@FromDate IS NULL OR t2.HitsStartTime >= @FromDate) 
+AND (@ToDate IS NULL OR t2.HitsEndTime <= @ToDate)
+]]>
+  </ValueQuery>
+  <ValueQueryIsStoredProcedure>False</ValueQueryIsStoredProcedure>
+  <ValueReportID>
+    <CodeName>bannerhitsclicks.dayreport</CodeName>
+    <GUID>adc353c1-f71d-4521-b0db-0fc51277939a</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </ValueReportID>
+  <ValueSettings />
+</reporting.reportvalue>

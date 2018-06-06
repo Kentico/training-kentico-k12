@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>87a79492-b956-45c8-9d6a-a6a8398bf33d</HelpTopicGUID>
+  <HelpTopicLink>banners_creating</HelpTopicLink>
+  <HelpTopicName>Create banners</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>BannerManagement</CodeName>
+    <GUID>d1341d4d-e94d-477b-a8c3-5af3cef52aff</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.BannerManagement</CodeName>
+      <GUID>69a6884d-789d-4732-bf7c-96da001050d8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

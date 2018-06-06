@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>IntranetPortal</CodeName>
+    <GUID>65523f91-9b6f-4e70-9110-62cd05088ec3</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays a list of comments that were most recently added to blog posts created by the current user.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>My blogs comments</WidgetDisplayName>
+  <WidgetDocumentation>
+    <![CDATA[This widget is intended for use on the Intranet Portal sample site or other websites that are based on its structure.]]>
+  </WidgetDocumentation>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>False</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>True</WidgetForUser>
+  <WidgetGUID>dbf5bec9-e323-43ea-a98b-a5bbc2dbaf30</WidgetGUID>
+  <WidgetIconClass>icon-w-my-blogs-comments</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>MyBlogsComments</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="TransformationName" visible="" guid="f8fe4363-6d38-4399-a6bf-c2df311a2ecc" reftype="Required">
+        <properties>
+          <defaultvalue>IntranetPortal.Transformations.BlogCommentsLatest</defaultvalue>
+        </properties>
+      </field>
+      <field column="AlternatingItemTransformationName" visible="" guid="655c017d-1f64-43c4-b64e-92b84d046b08" reftype="Required" />
+      <field column="SeparatorTransformationName" visible="" guid="658a8c7d-b776-4f22-ae80-2e454b27136b" reftype="Required" />
+      <field column="HeaderTransformationName" visible="" guid="e38aa658-7125-45de-8ca8-426ccb71f5c7" reftype="Required" />
+      <field column="FooterTransformationName" visible="" guid="0a3c34a0-8865-4db8-91db-af146be50835" reftype="Required" />
+      <field column="SelectOnlyApproved" guid="69a606d2-f079-4c98-9812-ed0ba8b43282" visibility="none" reftype="Required">
+        <properties>
+          <fieldcaption>Display only approved</fieldcaption>
+        </properties>
+      </field>
+      <field column="OrderBy" visible="" guid="95ec6f52-dc03-45d5-a8c5-9e7bd40c2b81" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue>CommentDate DESC</defaultvalue>
+        </properties>
+      </field>
+      <field column="SelectTopN" guid="f85b3ffc-cfea-4c55-a16a-b74fc5252ac2" visibility="none" reftype="Required">
+        <properties>
+          <fielddescription>
+            <![CDATA[Selects only top N items. If blank, all items are selected.]]>
+          </fielddescription>
+          <defaultvalue>5</defaultvalue>
+          <fieldcaption>Select top N comments</fieldcaption>
+        </properties>
+      </field>
+      <field column="SiteName" visible="" guid="4ef70cc9-3354-404f-bd25-6775ac78b771" reftype="Required" />
+      <field column="WhereCondition" visible="" guid="6774feb8-1758-43ac-8f8e-f1f8628ebb9c" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[CommentPostDocumentID IN (SELECT DocumentID FROM View_CMS_Tree_Joined WHERE ClassName = 'CMS.BlogPost' AND NodeOwner={%CurrentUser.UserID|(identity)GlobalAdministrator|(hash)b27fde7ca9bdf826d3cc74738e3325ee2ba0e1bae7b15a33f89f6f40520207b1%})]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="Columns" visible="" guid="a3ea87fc-985a-4fef-aeb3-6558515041c5" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue>
+            <![CDATA[CommentPostDocumentID,CommentDate,CommentUserName,CommentText]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="FilterName" visible="" guid="14c3414d-145d-4d80-a535-a882d2139c44" reftype="Required" />
+      <field column="HideControlForZeroRows" visible="" guid="e0874210-c249-4158-897c-85ad1a498049" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="ZeroRowsText" visible="" guid="fb080edc-589a-4c0b-83e7-172942ea8215" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue>There are currently no comments.</defaultvalue>
+        </properties>
+      </field>
+      <field column="HidePagerForSinglePage" visible="" guid="ce942bd5-6a54-416e-98c4-ad6a504f28d6" reftype="Required" />
+      <field column="PageSize" visible="" guid="16899464-edd8-4c2a-bdf9-65fa75140629" reftype="Required" />
+      <field column="GroupSize" visible="" guid="36349dc4-02d5-4795-baab-da1281e0b655" reftype="Required" />
+      <field column="PagingMode" visible="" guid="91bdec7c-2f3b-4cf2-801c-dd5ea86e3f71" reftype="Required" />
+      <field column="QueryStringKey" visible="" guid="d5103fff-8f55-4c85-bfd0-4b3a53f867ab" reftype="Required" />
+      <field column="DisplayFirstLastAutomatically" visible="" guid="b3385e06-33d5-4156-9afe-9ae37a73da75" reftype="Required" />
+      <field column="DisplayPreviousNextAutomatically" visible="" guid="3787c931-0d93-44a2-9713-201ea4c0873f" reftype="Required" />
+      <field column="Pages" visible="" guid="3b7c22ba-d01b-4d17-8e58-a477c1232267" reftype="Required" />
+      <field column="CurrentPage" visible="" guid="a8358d98-a613-4f8e-81fb-f90a632ee64d" reftype="Required" />
+      <field column="PageSeparator" visible="" guid="dd7b935d-c9b3-4fa6-b499-2a3cd0d812d9" reftype="Required" />
+      <field column="FirstPage" visible="" guid="71f3afba-9278-44b3-a8ad-8d325a17f293" reftype="Required" />
+      <field column="LastPage" visible="" guid="f92d8ffb-50b1-4c1b-9da7-33d66afdc2f6" reftype="Required" />
+      <field column="PreviousPage" visible="" guid="c037fb8f-3209-4ad4-9901-7d6c5d0ac339" reftype="Required" />
+      <field column="NextPage" visible="" guid="deb1221b-4de0-432f-bc69-af4bf56af34e" reftype="Required" />
+      <field column="PreviousGroup" visible="" guid="701dc211-b134-41be-b899-1a4f4c585bc0" reftype="Required" />
+      <field column="NextGroup" visible="" guid="c893e323-7362-4215-b6b8-28adc50b3948" reftype="Required" />
+      <field column="PagerLayout" visible="" guid="fc794ea4-17d0-4173-9896-238dbfb1e180" reftype="Required" />
+      <field column="DirectPage" visible="" guid="bbdcbd5d-88a6-433e-843e-106139c92c28" reftype="Required" />
+      <field column="CacheItemName" visible="" guid="7c27e06c-1b61-46d1-bcf7-7d4c8ffc3bda" reftype="Required" />
+      <field column="CacheMinutes" visible="" guid="d0ed7195-0e73-45d2-ba11-4806e684ac79" reftype="Required" />
+      <field column="CacheDependencies" visible="" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" reftype="Required" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>BlogsCommentsViewer</CodeName>
+    <GUID>66739cc5-6b0f-41e5-b0e4-4ab90e3a0f6a</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>
