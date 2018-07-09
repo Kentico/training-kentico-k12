@@ -1,0 +1,13 @@
+﻿@import url("../Global/Skin.css");
+
+/* Dialogs */
+.ContentBody .DialogPageBody .PageTitleHeader, .WidgetTabsPageHeader .PageTitleHeader,
+.DialogPageBody .PageTitleHeader, .TabsPageHeader .PageTitleHeader
+{
+    background: #2b578f url(./Images/Dialogs/DialogHeader.png) repeat-x top left !important;
+    border-bottom: 1px solid #2b578f;
+}
+
+.nav-tabs {
+    margin: 0;
+}

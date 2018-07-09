@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions>
+    <action name="edit" caption="$General.Edit$" fonticonclass="icon-edit" fonticonstyle="allow" />
+    <action name="delete" caption="$General.Delete$" fonticonclass="icon-bin" fonticonstyle="critical" confirmation="$General.ConfirmDelete$" />
+  </actions>
+  <columns>
+    <column source="SiteDomainAliasName" caption="$Unigrid.AliasesList.Columns.SiteDomainAliasName$" wrap="false">
+      <filter type="text" />
+    </column>
+    <column source="SiteDefaultVisitorCulture" externalsourcename="sitedefaultvisitorculture" caption="$Unigrid.AliasesList.Columns.DefaultVisitorCulture$" wrap="false" />
+    <column source="SiteDomainDefaultAliasPath" caption="$Unigrid.AliasesList.Columns.sitedomaindefaultaliaspath$" wrap="false" />
+    <column source="SiteDomainRedirectUrl" caption="$unigrid.aliaseslist.columns.sitedomainredirecturl$" wrap="false" allowsorting="false" />
+    <column cssclass="filling-column" />
+  </columns>
+  <objecttype name="cms.sitedomainalias" columns="SiteDomainAliasID, SiteDomainAliasName, SiteDefaultVisitorCulture, SiteDomainDefaultAliasPath, SiteDomainRedirectUrl" />
+  <options>
+    <key name="DisplayFilter" value="true" />
+  </options>
+</grid>

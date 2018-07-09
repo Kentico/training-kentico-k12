@@ -1,0 +1,579 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.OnlineMarketing.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABDocumentMarker">
+            <summary>
+            Class used to mark documents on <see cref="F:CMS.DocumentEngine.DocumentEvents.GetDocumentMark"/> event. Generates HTML of images that are to be added to
+            <see cref="P:CMS.DocumentEngine.DocumentMarkEventArgs.MarkContent"/> event arguments property.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABDocumentMarker.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="path">Path (<see cref="P:CMS.DocumentEngine.TreeNode.NodeAliasPath"/>) of a document</param>
+            <param name="siteName">Name of the site that the document is on</param>
+            <param name="culture">Culture of the document</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABDocumentMarker.GetIcons">
+            <summary>
+            Returns HTML code of all A/B icons to mark the document specified in constructor.
+            </summary>
+            <returns>HTML of all icons marking the specified document</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABDocumentMarker.AppendRunningTestIcon(System.Text.StringBuilder)">
+            <summary>
+            Appends icon representing running AB test if the document belongs to a variant that's in unfinished A/B test. 
+            Unfinished AB test means that <see cref="P:CMS.OnlineMarketing.ABTestInfo.ABTestOpenTo"/> is empty or greater than <see cref="P:System.DateTime.Now"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABDocumentMarker.GetAliasPathsForUnfinishedTests(System.String,System.String)">
+            <summary>
+            Returns alias paths of documents included in unfinished tests.
+            </summary>
+            <param name="siteName">Site name</param>
+            <param name="culture">Culture</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter">
+            <summary>
+            Class that writes info messages into the page using a delegate <see cref="T:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter.ShowMessageHandler"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter.ShowMessageHandler">
+            <summary>
+            Shows the specified message, optionally with a tooltip text and description.
+            </summary>
+            <param name="type">Message type</param>
+            <param name="text">Message text</param>
+            <param name="description">Additional description</param>
+            <param name="tooltipText">Tooltip text</param>
+            <param name="persistent">Indicates if the message is persistent</param>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter.ShowMessage">
+            <summary>
+            Gets ShowMessage method handler.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter.#ctor(CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter.ShowMessageHandler)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="showMessage">ShowMessage method from CMSPage</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="showMessage"/> is null</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter.ShowMissingVariantsTranslationsWarning(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Shows warning if any of AB variants do not have translations into all cultures.
+            Applies only if test is multicultural and current site has more than one culture.
+            </summary>
+            <param name="abTest">AB test</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter.ShowABTestScheduleInformation(CMS.OnlineMarketing.ABTestInfo,CMS.OnlineMarketing.ABTestStatusEnum)">
+            <summary>
+            Shows status information about the test if it is scheduled to be started of finished. 
+            </summary>
+            <param name="abTest">ABTest</param>
+            <param name="testStatus">AB test status</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter.ShowStatusInfo(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Displays status information (running/disabled/none) about given AB test.
+            </summary>
+            <param name="abTest">AB test</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.AbTestLiveTileModelProvider">
+            <summary>
+            Provides live tile model for the AB test dashboard tile.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.AbTestLiveTileModelProvider.GetModel(CMS.ApplicationDashboard.Web.UI.LiveTileContext)">
+            <summary>
+            Loads total number of currently running AB tests.
+            </summary>
+            <param name="liveTileContext">Context of the live tile. Contains information about the user and the site the model is requested for</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="liveTileContext"/> is null</exception>
+            <returns>Live tile model</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.AbTestLiveTileModelProvider.GetRunningTestsCount(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Gets number of running tests.
+            </summary>
+            <param name="site">Tests site</param>
+            <returns>Number of tests</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer">
+            <summary>
+            Class visualizing AB conversion rate interval.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.mRange">
+            <summary>
+            The difference between the minimum lower bound and the maximum upper bound values for the test.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.mMin">
+            <summary>
+            The minimum lower bound of the conversion rate intervals for the test.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.mChallengerInterval">
+            <summary>
+            Conversion rate interval for the challenger variant.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.mOriginalInterval">
+            <summary>
+            Conversion rate interval for the original variant.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.HORIZONTAL_COLOR">
+            <summary>
+            Color of the horizontal line (axis).
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.BORDER_COLOR">
+            <summary>
+            Color of the vertical border lines.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.OVERLAP_COLOR">
+            <summary>
+            Color of the rectangle representing the overlap with the original variant.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.NEGATIVE_COLOR">
+            <summary>
+            Color of the rectangle representing that the variant is losing to the original variant.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.POSITIVE_COLOR">
+            <summary>
+            Color of the rectangle representing that the variant is outperforming the original variant.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.VERTICAL_COLOR">
+            <summary>
+            Color of the line displaying variant's mean value.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.#ctor(System.Double,System.Double,CMS.OnlineMarketing.ABConversionRateInterval,CMS.OnlineMarketing.ABConversionRateInterval)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="min">Minimum lower bound of all conversion rate intervals for the test</param>
+            <param name="range">Range of all conversion rate intervals for the test</param>
+            <param name="challengerInterval">Variant conversion rate interval</param>
+            <param name="originalInterval">Original conversion rate interval</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders the conversion rate interval visualizer.
+            </summary>
+            <param name="writer">The HtmlTextWriter object that receives the content.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetMainWrapper">
+            <summary>
+            Gets the main wrapper for the conversion rate interval info.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetTextWrapper">
+            <summary>
+            Gets the wrapper for the textual representation of the conversion rate interval.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetPictureLayout">
+            <summary>
+            Gets the layout for the picture representation of the conversion rate interval.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetPictureWrapper">
+            <summary>
+            Gets the wrapper for the picture representation of the conversion rate interval.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetLeftBorder">
+            <summary>
+            Gets the left border of the interval visualizer.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetRightBorder">
+            <summary>
+            Gets the right border of the interval visualizer.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetHorizontalLine">
+            <summary>
+            Gets the horizontal line (axis).
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetIntervalWrapper">
+            <summary>
+            Gets the wrapper for the conversion rate interval panels. 
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.CreateIntervalPanels(System.Web.UI.WebControls.Panel)">
+            <summary>
+            Creates panels visualizing the conversion rate interval.
+            </summary>
+            <param name="intervalWrapper">Conversion rate interval wrapper</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetOverlapRectangle(System.Double,System.Double)">
+            <summary>
+            Gets neutral (overlap) portion of the conversion rate rectangle.
+            </summary>
+            <param name="overlapLeft">Position of the left side of the rectangle</param>
+            <param name="overlapWidth">Width of the rectangle</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetPositiveRectangle(System.Double,System.Double,System.Double)">
+            <summary>
+            Gets positive portion of the conversion rate rectangle.
+            </summary>
+            <param name="originalRight">Position of the right side of the original's rectangle</param>
+            <param name="left">Position of the left side of the rectangle</param>
+            <param name="right">Position of the right side of the rectangle</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetNegativeRectangle(System.Double,System.Double,System.Double)">
+            <summary>
+            Gets negative portion of the conversion rate rectangle.
+            </summary>
+            <param name="left">Position of the left side of the rectangle</param>
+            <param name="right">Position of the right side of the rectangle</param>
+            <param name="originalLeft">Position of the left side of the original's rectangle</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer.GetVerticalLine(System.Double)">
+            <summary>
+            Gets line displaying the variant's mean value.
+            </summary>
+            <param name="center">Center of the conversion rate interval</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculator">
+            <summary>
+            Class calculating conversion rate interval and challengers' chance to beat original using the Normal Distribution Function at 90% significance.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculator.SIGNIFICANCE">
+            <summary>
+            Represents 80% significance.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculator.Initialize(System.Int32,System.Int32)">
+            <summary>
+            Initializes ABVariantPerformanceCalculator.
+            Needs to be called first, as this class needs the original's conversions and visits to work properly.
+            </summary>
+            <param name="originalConversions">Number of original conversions</param>
+            <param name="originalVisits">Number of original visits</param>
+            <exception cref="T:System.ArgumentException"><paramref name="originalConversions"/> is negative or <paramref name="originalVisits"/> is zero or negative</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculator.GetChanceToBeatOriginal(System.Int32,System.Int32)">
+            <summary>
+            Returns challenging variant's chance to beat original.
+            </summary>
+            <param name="challengerConversions">Number of challenger conversions</param>
+            <param name="challengerVisits">Number of challenger visits</param>
+            <exception cref="T:System.InvalidOperationException">ABVariantPerformanceCalculator hasn't been initialized. Call Initialize method first.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="challengerConversions"/> is negative or <paramref name="challengerVisits"/> is zero or negative</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculator.GetConversionRateInterval(System.Int32,System.Int32)">
+            <summary>
+            Returns AB conversion rate interval for specified variant.
+            </summary>
+            <param name="variantConversions">Number of variant conversions</param>
+            <param name="variantVisits">Number of variant visits</param>
+            <exception cref="T:System.InvalidOperationException">ABVariantPerformanceCalculator hasn't been initialized. Call Initialize method first.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="variantConversions"/> is negative or <paramref name="variantVisits"/> is zero or negative</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculator.GetVariantZScore(System.Double,System.Double)">
+            <summary>
+            Returns Z-score for specified challenger's data compared to the original.
+            </summary>
+            <param name="variantConversionRate">Variant conversion rate</param>
+            <param name="variantStandardError">Variant standard error</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculator.GetConversionRate(System.Int32,System.Int32)">
+            <summary>
+            Returns conversion rate for specified variant's data.
+            </summary>
+            <param name="conversions">Number of conversions</param>
+            <param name="visits">Number of visits</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculator.GetStandardError(System.Double,System.Int32)">
+            <summary>
+            Returns standard error for specified variant's data.
+            </summary>
+            <param name="conversionRate">Conversion rate</param>
+            <param name="visits">Number of visits</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculatorFactory">
+            <summary>
+            Class that provides IABVariantPerformanceCalculator implementation.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantPerformanceCalculatorFactory.GetImplementation(System.Int32,System.Int32)">
+            <summary>
+            Returns new instance of IABVariantPerformanceCalculator implementation.
+            </summary>
+            <param name="controlConversions">Number of control conversions</param>
+            <param name="controlVisits">Number of control visits</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.IABVariantPerformanceCalculator">
+            <summary>
+            Interface for calculating performance of AB variants.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.IABVariantPerformanceCalculator.Initialize(System.Int32,System.Int32)">
+            <summary>
+            Initializes AB variant performance calculator.
+            Needs to be called first, as this class needs the original's conversions and visits to work properly.
+            </summary>
+            <param name="originalConversions">Number of original conversions</param>
+            <param name="originalVisits">Number of original visits</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.IABVariantPerformanceCalculator.GetChanceToBeatOriginal(System.Int32,System.Int32)">
+            <summary>
+            Returns chance to beat original for the specified challenger variant.
+            </summary>
+            <param name="challengerConversions">Number of challenger conversions</param>
+            <param name="challengerVisits">Number of challenger visits</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.IABVariantPerformanceCalculator.GetConversionRateInterval(System.Int32,System.Int32)">
+            <summary>
+            Returns conversion rate interval for the specified variant.
+            </summary>
+            <param name="variantConversions">Number of conversions</param>
+            <param name="variantVisits">Number of visits</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.MagnificPopupYouTubeJavaScriptRegistrator">
+            <summary>
+            Class for registering video link elements that show YouTube video in Magnific Popup lightbox.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.MagnificPopupYouTubeJavaScriptRegistrator.RegisterMagnificPopupElement(System.Web.UI.Page,System.String)">
+            <summary>
+            Registers element with given <paramref name="elementID"/> to the Magnific popup module.
+            </summary>
+            <param name="page">Page that link will be used on</param>
+            <param name="elementID">Unique client ID of the registered element</param>
+            <exception cref="T:System.ArgumentException"><paramref name="elementID"/> is null or empty</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="page"/> is null</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.MagnificPopupYouTubeLinkBuilder">
+            <summary>
+            Class for creating links that show YouTube video in Magnific Popup lightbox.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.MagnificPopupYouTubeLinkBuilder.GetLink(System.String,System.String,System.String)">
+            <summary>
+            Returns link that can be used on provided page to show YouTube video in Magnific Popup lightbox.
+            </summary>
+            <param name="videoID">YouTube video ID</param>
+            <param name="linkID">Unique client ID that element will have</param>
+            <param name="content">Content that will be in the link</param>
+            <exception cref="T:System.ArgumentException"><paramref name="videoID"/> or <paramref name="linkID"/> or <paramref name="content"/> is null or empty</exception>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABHandlers.CACHE_MINUTES">
+            <summary>
+            Caching set to 6 hours.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABHandlers.LOGVIAJAVASCRIPTKEYNAME">
+            <summary>
+            Log via JavaScript key name.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABHandlers.ABTESTTYPE">
+            <summary>
+            Test type for caching purposes.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABHandlers.ABTESTCOOKIE_PREFIX">
+            <summary>
+            Cookie prefix.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABHandlers.Init">
+            <summary>
+            Initializes the events handlers.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABHandlers.ProcessABTest(System.Object,CMS.URLRewritingEngine.ProcessABTestEventArgs)">
+            <summary>
+            Fires when PageInfo potentially using A/B test is required
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABHandlers.MarkDocumentInContentTree(System.Object,CMS.DocumentEngine.DocumentMarkEventArgs)">
+            <summary>
+            Marks documents in content tree with icons.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABHandlers.SendPageFromCache(System.Object,CMS.OutputFilter.OutputCacheEventArgs)">
+            <summary>
+            Tries to fetch correct content from output cache if page AB testing is enabled.
+            If page content is not present in cache, indicates that cache should be skipped (fallback to regular load).
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="ea">Event args needed to perform loading from output cache</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABHandlers.SaveABToOutputCache(System.Object,CMS.OutputFilter.OutputCacheEventArgs)">
+            <summary>
+            Applies AB testing on the output cache.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABHandlers.SaveDummyItemToCache(System.String,CMS.OutputFilter.CachedOutput)">
+            <summary>
+            Creates dummy cache item with A/B test name in <see cref="P:CMS.OutputFilter.CachedOutput.TestCookieName"/> property.
+            </summary>
+            <param name="testName">A/B test name</param>
+            <param name="output">Cached output</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABHandlers.GenerateNewABVariant(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Generates new AB test variant and returns its name.
+            </summary>
+            <param name="abTest">AB test</param>
+            <returns>Returns null if variant is not found or is not active.</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.MVTHandlers">
+            <summary>
+            MV testing event handlers.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.MVTHandlers.MVTESTTYPE">
+            <summary>
+            Test type constant for caching purposes.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.MVTHandlers.MVTCOOKIE_PREFIX">
+            <summary>
+            Cookie prefix.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.MVTHandlers.LogViaJavaScriptKeyName">
+            <summary>
+            Log via JavaScript key name.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.MVTHandlers.Init">
+            <summary>
+            Initializes the events handlers.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.MVTHandlers.MVTVariantsEnabled(System.Object,CMS.PortalEngine.PortalEngineEventArgs)">
+            <summary>
+            Event to find whether MVT variants are enabled
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.MVTHandlers.SaveMVTToOutputCache(System.Object,CMS.OutputFilter.OutputCacheEventArgs)">
+            <summary>
+            Applies MVT testing on the output cache.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.MVTHandlers.SendMVTFromCache(System.Object,CMS.OutputFilter.OutputCacheEventArgs)">
+            <summary>
+            Tries to fetch correct content from output cache if page MVT testing is enabled.
+            If page content is not present in cache, indicates that cache should be skipped (fallback to regular load).
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="ea">Event args needed to perform loading from output cache</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.MVTHandlers.GetMVTVariantName(System.String,CMS.PortalEngine.ViewModeEnum,System.String)">
+            <summary>
+            Gets name of the MV test variant.
+            </summary>
+            <param name="siteName">Site name</param>
+            <param name="viewMode">View mode of the page</param>
+            <param name="testName">Name of the MVT test</param>
+            <returns>Returns empty string if variant is not found or is not active.</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.OnlineMarketingWebUIModule">
+            <summary>
+            Represents the On-line Marketing module.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.OnlineMarketingWebUIModule.SCORING_EMAIL_TEMPLATE_TYPE_NAME">
+            <summary>
+            Name of email template type for scoring.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.OnlineMarketingWebUIModule.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.OnlineMarketingWebUIModule.OnInit">
+            <summary>
+            Initializes the module
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.VariantPermissionsChecker">
+            <summary>
+            Contains method for checking permission for MVT or CP variants.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.VariantPermissionsChecker.CheckPermissions(CMS.OnlineMarketing.VariantTypeEnum)">
+            <summary>
+            Check permissions for MVT or CP.
+            </summary>
+            <param name="variantType">Type of editing object (widget, webpart, zone)</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.OnlineMarketingTransformationMethods">
+            <summary>
+            On-line marketing methods - wrapping methods for macro resolver.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.OnlineMarketingTransformationMethods.GetEmailDomain(CMS.MacroEngine.EvaluationContext,System.Object[])">
+            <summary>
+            Returns e-mail domain name.
+            </summary>
+            <param name="context">Evaluation context with child resolver</param>
+            <param name="parameters">Method parameters</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.CMSABTestPage">
+            <summary>
+            Base class for UI pages of AB test.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestPage.OnLoad(System.EventArgs)">
+            <summary>
+            Load event handler
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.CMSMVTestPage">
+            <summary>
+            Base class for UI pages of MVT test.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSMVTestPage.OnLoad(System.EventArgs)">
+            <summary>
+            Load event handler
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.CMSContentPersonalizationContentPage">
+            <summary>
+            Base page for content personalization section.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSContentPersonalizationContentPage.OnInit(System.EventArgs)">
+            <summary>
+            OnInit() event.
+            </summary>
+            <param name="e">Arguments.</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.CMSVariantDialogPage">
+            <summary>
+            Base page for the variant dialog pages.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSVariantDialogPage.OnInit(System.EventArgs)">
+            <summary>
+            OnInit
+            </summary>
+        </member>
+    </members>
+</doc>

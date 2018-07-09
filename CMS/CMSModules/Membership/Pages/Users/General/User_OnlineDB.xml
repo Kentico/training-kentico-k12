@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions parameters="SessionUserID">
+    <action name="kick" caption="$usersonline.kick$" fonticonclass="icon-times-circle" fonticonstyle="critical" externalsourcename="kick" confirmation="$administration.users.onlineursers.confirmkick$" />
+    <action name="initiatechat" caption="$chat.initiatechat$" fonticonclass="icon-bubble" externalsourcename="initiatechat" />
+    <action name="editcontact" caption="$om.contact.viewdetail$"  fonticonclass="icon-eye" fonticonstyle="allow"  externalsourcename="editcontact"  modulename="CMS.OnlineMarketing" commandargument="SessionContactID" />
+  </actions>
+  <columns>
+    <column source="SessionFullName" caption="$general.fullname$" wrap="false" externalsourcename="fullname" >
+    </column>
+    <column source="SessionEmail" caption="$general.emailaddress$" wrap="false">
+    </column>
+    <column source="SessionUserName" caption="$general.username$"  wrap="false">
+    </column>
+    <column source="SessionNickName" caption="$Unigrid.UserList.Columns.UserNickName$" wrap="false">
+    </column>
+    <column source="SessionUserCreated" caption="$Unigrid.UserList.Columns.UserCreated$" wrap="false">
+    </column>
+    <column source="SessionLastActive" caption="$usersonline.lastactivity$" wrap="false" >
+    </column>
+    <column source="SessionLocation"  caption="$general.location$" wrap="false">
+    </column>
+    <column source="SessionUserID"  caption="$userlist.guest$" wrap="false"  externalsourcename="isguest">
+    </column>
+    <column source="Score"  caption="$om.score$" wrap="false"  allowsorting="false" >
+    </column>
+    <column source="SessionSiteID" caption="$general.site$" wrap="false" externalsourcename="#transform: cms.site.sitedisplayname"  >
+    </column>
+  </columns>
+  <options>
+    <key name="DisplayFilter" value="true" />
+    <key name="FilterPath" value="~/CMSModules/Membership/Controls/Users/UserFilter.ascx" />
+  </options>
+</grid>

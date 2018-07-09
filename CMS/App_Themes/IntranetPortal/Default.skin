@@ -1,0 +1,23 @@
+<%--
+Default skin template. You can use this skin for controls that cannot be controlled using CSS styles. 
+The following skin is provided as example only:
+--%>
+
+<cms:CMSCalendar Runat="server" SkinID="EventCalendar" CellSpacing="0" NextPrevStyle-Font-Bold="true" NextPrevStyle-ForeColor="White" BorderColor="#cccccc" CssClass="EventCalendar">
+    <DayHeaderStyle CssClass="DayHeader" />
+    <DayStyle CssClass="Day" />
+    <SelectedDayStyle CssClass="SelectedDay" />
+    <TitleStyle CssClass="Title" BorderStyle="None" />
+    <WeekendDayStyle CssClass="Weekend" />
+    <OtherMonthDayStyle CssClass="OtherMonth" />
+    <TodayDayStyle CssClass="Today" />
+    <NextPrevStyle CssClass="Navigation"  BorderStyle="None"></NextPrevStyle>
+</cms:CMSCalendar>
+
+<cms:CMSDataGrid runat="server" SkinID="DataGrid" AlternatingItemStyle-CssClass="AltRow" 
+    CssClass="DataGrid" FooterStyle-CssClass="Footer" HeaderStyle-CssClass="Header" ItemStyle-CssClass="Row"
+    GridLines="Horizontal" />
+    
+<cms:QueryDataGrid runat="server" SkinID="QueryGrid" AlternatingItemStyle-CssClass="AltRow" 
+    CssClass="DataGrid" FooterStyle-CssClass="Footer" HeaderStyle-CssClass="Header" ItemStyle-CssClass="Row" 
+    GridLines="Horizontal" />

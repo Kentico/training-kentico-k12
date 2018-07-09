@@ -1,0 +1,32 @@
+﻿.cms-bootstrap {
+    // Richcombo.css - dropdown list style issue in CK toolbar (bootstrap issue)
+    .cke_combo_button {
+        // Disable the autoprefixer - this will ensure keeping the vendor prefixes in the generated CSS
+        /* autoprefixer: off */
+        background: #fff none repeat scroll 0 0;
+    }
+    // END - Richcombo.css
+
+
+    // Dialogs.css - padding (bootstrap issue)
+    .cke_dialog {
+        .cke_dialog_contents_body {
+            padding: 17px 10px 5px;
+        }
+
+        .cke_dialog_ui_vbox_child {
+            padding: 5px 0;
+        }
+    }
+    // END - Dialogs.css
+}
+
+
+// CKEditor - Inline mode
+.cke_textarea_inline {
+    min-height: 100px;
+}
+
+.cke_editable:focus {
+    outline: none;
+}

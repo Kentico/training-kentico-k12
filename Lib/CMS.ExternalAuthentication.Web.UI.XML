@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.ExternalAuthentication.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.ExternalAuthentication.Web.UI.FacebookConnectScriptHelper">
+            <summary>
+            Facebook connect script helper
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Web.UI.FacebookConnectScriptHelper.GetFacebookInitScriptForSite(System.String)">
+            <summary>
+            Returns script for Facebook Connect initialization.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Web.UI.FacebookConnectScriptHelper.GetFacebookLoginHandlerScript">
+            <summary>
+            Returns login handler script.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Web.UI.FacebookConnectScriptHelper.GetFacebookLogoutScriptForSignOut(System.String)">
+            <summary>
+            Returns Facebook Connect logout script including check whether user is logged
+            to Facebook (if not additional script is executed).
+            </summary>
+            <param name="additionalScriptForLogout">Additional script called when logging out of facebook finishes</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Web.UI.FacebookConnectScriptHelper.InitializeFacebookConnect">
+            <summary>
+            Ensures Facebook connect is initialized. Call on module initialization
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Web.UI.FacebookSignOutScriptProvider">
+            <summary>
+            Class whose instance should be registered as a custom logout script provider
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Web.UI.FacebookSignOutScriptProvider.GetSignOutScript(System.String,System.Web.UI.Page)">
+            <summary>
+            Builds and returns Facebook logout script which calls the given callback.
+            </summary>
+            <param name="finishCallBack">Callback method to be called when this Facebook script finishes</param>
+            <param name="page">Page to which helper scripts can be registered</param>
+            <returns>Facebook logout script which calls the given callback or null if no script is required by this provider</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Web.UI.ExternalAuthenticationWebUIModule">
+            <summary>
+            Represents the External authentication module.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Web.UI.ExternalAuthenticationWebUIModule.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Web.UI.ExternalAuthenticationWebUIModule.OnInit">
+            <summary>
+            Module init
+            </summary>
+        </member>
+    </members>
+</doc>

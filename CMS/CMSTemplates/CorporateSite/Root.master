@@ -1,0 +1,160 @@
+<%@ Master Language="C#" AutoEventWireup="true" Inherits="CMSTemplates_CorporateSite_Root"
+    Codebehind="Root.master.cs" %>
+
+<%@ Register Src="~/CMSWebParts/General/AdminActions.ascx" TagName="AdminActions"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/General/CSSStyleSelector.ascx" TagName="CSSStyleSelector"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/Navigation/cmslistmenu.ascx" TagName="listmenu"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/SmartSearch/SearchBox.ascx" TagName="SearchBox" TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/navigation/cmsbreadcrumbs.ascx" TagName="breadcrumbs"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/Viewers/Documents/cmsuniview.ascx" TagName="DocumentHierarchicalViewer"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/Membership/Logon/logonminiform.ascx" TagName="logonminiform"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/Membership/Logon/signoutbutton.ascx" TagName="SignOutButton"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/Membership/Logon/currentuser.ascx" TagName="currentuser"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/DataSources/LanguageDataSource.ascx" TagName="languageDataSource"
+    TagPrefix="cms" %>
+<%@ Register Src="~/CMSWebParts/Viewers/Basic/BasicRepeater.ascx" TagName="basicRepeater"
+    TagPrefix="cms" %>
+<%=DocType%>
+<html xmlns="http://www.w3.org/1999/xhtml" <%=XmlNamespace%>>
+<head id="head" runat="server" enableviewstate="false">
+    <title id="title" runat="server">My site</title>
+    <asp:Literal runat="server" ID="ltlTags" EnableViewState="false" />
+    <link href="~/CMSPages/GetResource.ashx?stylesheetname=CorporateSitePrinter" type="text/css"
+        rel="stylesheet" media="print" />
+</head>
+<body class="<%=BodyClass%>" <%=BodyParameters%>>
+    <%=BodyScripts %>
+    <form id="form1" runat="server">
+        <asp:PlaceHolder runat="server" ID="plcManagers">
+            <asp:ScriptManager ID="manScript" runat="server" ScriptMode="Release"
+                EnableViewState="false" />
+            <cms:CMSPortalManager ID="manPortal" runat="server" EnableViewState="false" />
+        </asp:PlaceHolder>
+        <cms:ContextMenuPlaceHolder ID="plcCtx" runat="server" />
+        <!-- Top info -->
+        <div class="zoneTopInfo">
+            <div class="inner">
+                <div class="left">
+                    <cms:AdminActions runat="server" ID="wA" DefaultUserName="administrator" CMSDeskText="Sign in to {0}. "
+                        CMSSiteManagerText="Sign in to {0}. " />
+                    <span>The default account is administrator with blank password.</span>
+                </div>
+                <div class="right">
+                    <div class="logon">
+                        <cms:logonminiform runat="server" ID="wL" ErrorAsPopup="True" DisplayToRoles="_notauthenticated_" />
+                    </div>
+                    <div class="logon">
+                        <cms:SignOutButton runat="server" ID="wS" SignOutText="Log off" />
+                    </div>
+                    <div class="currentUserBlock">
+                        <cms:currentuser runat="server" ID="wC" ShowLabelText="False" />
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="zoneTopWrap">
+            <div class="inner">
+                <!-- Logo -->
+                <div class="zoneLogo">
+                    <a href="~/Home.aspx" title="Home page">
+                        <img class="logo" src="~/Images/CorporateSiteLogo.aspx?width=183&amp;height=47" alt="Logo"
+                            style="border-width: 0px;" />
+                    </a>
+                </div>
+                <!-- Top zone -->
+                <div class="zoneTop">
+                    <!-- Language selection -->
+                    <div>
+                        <cms:languageDataSource ID="dsLanguages" runat="server" ExcludeCurrentCulture="true" />
+                        <cms:basicRepeater ID="rptLanguages" runat="server" DataSourceName="dsLanguages" TransformationName="CorporateSite.Transformations.Languages"/>
+                    </div>
+                    <!-- Shopping cart preview -->
+                    <div>
+                        <asp:HyperLink CssClass="ShoppingCartLink" runat="server" ID="lnkShoppingCart" Text="Shopping cart" />
+                        <span class="Separator">|&nbsp;</span>
+                        <asp:HyperLink CssClass="ShoppingCartLink" runat="server" ID="lnkMyAccount" Text="My account" />
+                        <span class="Separator">|&nbsp;</span>
+                        <asp:HyperLink CssClass="ShoppingCartLink" runat="server" ID="lnkMyWishList" Text="My wishlist" />
+                    </div>
+                    <div>
+                        <span class="SmallTextLabel">Total price: </span>
+                        <asp:Label runat="server" ID="lblPrice" CssClass="SmallTextLabel" />
+                    </div>
+                    <!-- Shopping cart preview end -->
+                    <cms:CSSStyleSelector runat="server" ID="wCS" FirstLinkText="&lt;span class=&quot;linkSmall&quot;&gt;&lt;/span&gt;"
+                        FirstLinkSelectedText="&lt;span class=&quot;linkSmallSelected&quot;&gt;&lt;/span&gt;"
+                        FirstLinkTitle="Small" FirstBodyCSSClass="Small" SecondLinkText="&lt;span class=&quot;linkNormal&quot;&gt;&lt;/span&gt;"
+                        SecondLinkSelectedText="&lt;span class=&quot;linkNormalSelected&quot;&gt;&lt;/span&gt;"
+                        SecondLinkTitle="Normal" ThirdLinkText="&lt;span class=&quot;linkLarge&quot;&gt;&lt;/span&gt;"
+                        ThirdLinkSelectedText="&lt;span class=&quot;linkLargeSelected&quot;&gt;&lt;/span&gt;"
+                        ThirdLinkTitle="Large" ThirdBodyCSSClass="Large" />
+                    <div class="styleSelectorCaption">
+                        Text size:
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <!-- Menu -->
+                <div class="zoneMenu">
+                    <cms:listmenu runat="server" ID="wM" Path="/%" ClassNames="CMS.MenuItem" MaxRelativeLevel="2"
+                        WhereCondition="MenuItemGroup &lt;&gt; 'footer' OR MenuItemGroup IS NULL" RenderCssClasses="True"
+                        ItemIdPrefix="tm" HideControlForZeroRows="False" ZeroRowsText="There are no menu pages."
+                        CacheDependencies="##DEFAULT##" />
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="zoneMenuWrap">
+            <div class="inner">
+                <!-- Breadcrumbs -->
+                <div class="zoneBreadcrumbs">
+                    <cms:SearchBox runat="server" ID="wSB" SearchButtonCssClass="searchButton" SearchTextboxCssClass="searchTextbox"
+                        SearchResultsPageUrl="~/SpecialPages/Search.aspx" ShowSearchLabel="False" SearchMode="anyword"
+                        ShowImageButton="True" ImageUrl="~/App_Themes/CorporateSite/Images/btn_search.png" />
+                    &#9658;&nbsp;<cms:breadcrumbs runat="server" ID="wB" BreadcrumbSeparator="&amp;#9658;"
+                        BreadcrumbSeparatorRTL="" HideControlForZeroRows="False" ZeroRowsText="There are no menu pages."
+                        CacheDependencies="##DEFAULT##" />
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="zoneMainContent">
+            <asp:ContentPlaceHolder ID="plcMain" runat="server">
+            </asp:ContentPlaceHolder>
+            <div class="clear">
+            </div>
+        </div>
+        <!-- Footer zone -->
+        <div class="zoneFooter">
+            <div class="inner">
+                <cms:DocumentHierarchicalViewer runat="server" ID="wFM" Path="/%" ClassNames="CMS.MenuItem"
+                    WhereCondition="MenuItemGroup = 'footer'" HierarchicalTransformationName="CorporateSite.Transformations.FooterMenu"
+                    HidePagerForSinglePage="true" HierarchicalDisplayMode="Inner" LoadHierarchicalData="true"
+                    DelayedLoading="true" />
+                <div class="footerLogo">
+                    <h3>Powered by</h3>
+                    <a href="http://www.kentico.com" title="Kentico">
+                        <img border="0" src="~/App_Themes/CorporateSite/Images/PoweredByKentico.png" alt="This web site uses Kentico." /></a>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

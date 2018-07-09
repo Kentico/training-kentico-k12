@@ -1,0 +1,23 @@
+<%--
+Default skin template. You can use this skin for controls that cannot be controlled using CSS styles. 
+The following skin is provided as example only:
+--%>
+
+<cms:CMSCalendar Runat="server" SkinID="EventCalendar" ShowGridLines="False" CellSpacing="0" CellPadding="0" NextPrevStyle-Font-Bold="true" BorderStyle="None" CssClass="EventCalendar" NextMonthText="<img class='nextMonth' src='~/App_Themes/CorporateSite/Images/ico_right.png' alt='Next month'/>" PrevMonthText="<img class='prevMonth' src='~/App_Themes/CorporateSite/Images/ico_left.png' alt='Previous month'/>">
+    <DayHeaderStyle CssClass="DayHeader" BorderStyle="None"/>
+    <DayStyle CssClass="Day" /> 
+    <SelectedDayStyle CssClass="SelectedDay" />
+    <TitleStyle CssClass="Title" BorderStyle="None" />
+    <WeekendDayStyle CssClass="Weekend" />
+    <OtherMonthDayStyle CssClass="OtherMonth" />
+    <TodayDayStyle CssClass="Today" />
+    <NextPrevStyle CssClass="Navigation"  BorderStyle="None"></NextPrevStyle>
+</cms:CMSCalendar>
+
+<cms:CMSDataGrid runat="server" SkinID="DataGrid" AlternatingItemStyle-CssClass="AltRow" 
+    CssClass="DataGrid" FooterStyle-CssClass="Footer" HeaderStyle-CssClass="Header" ItemStyle-CssClass="Row"
+    GridLines="Horizontal" />
+    
+<cms:QueryDataGrid runat="server" SkinID="QueryGrid" AlternatingItemStyle-CssClass="AltRow" 
+    CssClass="DataGrid" FooterStyle-CssClass="Footer" HeaderStyle-CssClass="Header" ItemStyle-CssClass="Row" 
+    GridLines="Horizontal" />

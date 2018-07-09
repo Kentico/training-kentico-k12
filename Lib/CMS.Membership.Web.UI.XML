@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.Membership.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.Membership.Web.UI.ICustomSignOutScriptProvider">
+            <summary>
+            Interface for objects providing third party logout scripts
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.ICustomSignOutScriptProvider.GetSignOutScript(System.String,System.Web.UI.Page)">
+            <summary>
+            Builds and returns a custom logout script which is obligated to call the given callback upon finish.
+            </summary>
+            <param name="finishCallBack">Callback method to be called when this custom script finishes</param>
+            <param name="page">Page to which helper scripts can be registered</param>
+            <returns>A custom logout script which is obligated to call the given callback upon finish
+            or null if no script is required by this provider</returns>
+        </member>
+        <member name="P:CMS.Membership.Web.UI.SignOutRequestHandler.IsReusable">
+            <summary>
+            Gets a value indicating whether another request can use the System.Web.IHttpHandler instance.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.SignOutRequestHandler.ProcessRequest(System.Web.HttpContext)">
+            <summary>
+            Enables processing of HTTP Web requests by a custom HttpHandler that implements
+                the System.Web.IHttpHandler interface.
+            </summary>
+            <param name="context">An System.Web.HttpContext object that provides references to the intrinsic
+                server objects (for example, Request, Response, Session, and Server) used
+                to service HTTP requests.</param>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.SignOutRequestHandler.ProcessSignOutRequest(System.Web.HttpContext,System.String)">
+            <summary>
+            Handles SignOut request emerged from Javascript SignOut.
+            Returns a URL to which user should be redirected after SignOut.
+            If null is returned, no SignOut has been performed and no redirection is required.
+            </summary>
+            <param name="context">HTTP context</param>
+            <param name="redirectUrl">URL to which signout should redirect</param>
+        </member>
+        <member name="T:CMS.Membership.Web.UI.UsersLiveTileModelProvider">
+            <summary>
+            Provides live model for the Users dashboard tile.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UsersLiveTileModelProvider.GetModel(CMS.ApplicationDashboard.Web.UI.LiveTileContext)">
+            <summary>
+            Loads model for the dashboard live tile.
+            </summary>
+            <param name="liveTileContext">Context of the live tile. Contains information about the user and the site the model is requested for</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="liveTileContext"/> is null</exception>
+            <returns>Live tile model</returns>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UsersLiveTileModelProvider.GetUsersWaitingForApprovalCount(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Gets number of users waiting for approval.
+            </summary>
+            <param name="site">Tile's site</param>
+            <returns>Number of users waiting for approval</returns>
+        </member>
+        <member name="T:CMS.Membership.Web.UI.EditUserTabsExtender">
+            <summary>
+            Extender for edit user horizontal tabs UIElement
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.EditUserTabsExtender.OnInitTabs">
+            <summary>
+            Initialization of tabs.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.EditUserTabsExtender.OnTabCreated(System.Object,CMS.UIControls.TabCreatedEventArgs)">
+            <summary>
+            Event handling creation of tabs.
+            </summary>
+        </member>
+        <member name="T:CMS.Membership.Web.UI.UserListExtender">
+            <summary>
+            User list <see cref="T:CMS.UIControls.UniGrid"/> extender.
+            </summary>
+        </member>
+        <member name="P:CMS.Membership.Web.UI.UserListExtender.CurrentUserObj">
+            <summary>
+            Gets the current user info.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.OnInit">
+            <summary>
+            OnInit event.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.OnExternalDataBound(System.Object,System.String,System.Object)">
+            <summary>
+            Handles external data-bound event of <see cref="T:CMS.UIControls.UniGrid"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.OnAction(System.String,System.Object)">
+            <summary>
+            Handles the UniGrid's OnAction event.
+            </summary>
+            <param name="actionName">Name of item (button) that threw event</param>
+            <param name="actionArgument">ID (value of Primary key) of corresponding data row</param>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.HasSufficientPrivilege(CMS.Base.IUserInfo)">
+            <summary>
+            Returns <c>true</c> if and only if the current user is <see cref="F:CMS.Base.UserPrivilegeLevelEnum.GlobalAdmin"/>
+            or <paramref name="user"/> to operate with is either <see cref="F:CMS.Base.UserPrivilegeLevelEnum.Editor"/> or <see cref="F:CMS.Base.UserPrivilegeLevelEnum.None"/>
+            or the <paramref name="user"/> is themselves.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.GetUser(System.Web.UI.WebControls.GridViewRow)">
+            <summary>
+            Returns (eventually incomplete) <see cref="T:CMS.Membership.UserInfo"/> based on given <see cref="T:System.Web.UI.WebControls.GridViewRow"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.GetUser(System.Data.DataRowView)">
+            <summary>
+            Returns (eventually incomplete) <see cref="T:CMS.Membership.UserInfo"/> based on given <see cref="T:System.Data.DataRowView"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.Membership.Web.UI.SignOutScriptHelper">
+            <summary>
+            Contains helper methods for sign out scripts
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.SignOutScriptHelper.RegisterCustomSignOutScriptProvider(CMS.Membership.Web.UI.ICustomSignOutScriptProvider)">
+            <summary>
+            Registers a custom SignOut script provider.
+            </summary>
+            <param name="provider">The provider to be registered</param>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.SignOutScriptHelper.GetSignOutOnClickScript(System.Web.UI.Page)">
+            <summary>
+            Gets the script that performs a SignOut of all the registered third party providers.
+            </summary>
+            <param name="page">Page to which helper scripts can be registered.</param>
+            <returns>Script that performs a SignOut of all the registered third party providers or null if none is necessary.</returns>
+        </member>
+    </members>
+</doc>
