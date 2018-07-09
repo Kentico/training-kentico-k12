@@ -262,7 +262,7 @@ $RECYCLE.BIN/
 
 ## Kentico project files
 
-!Lib
+!Lib/
 
 # Include some Kentico folders excluded by rules above
 !CMS/CMSAdminControls/*/
