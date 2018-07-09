@@ -10,6 +10,10 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# Allow kentico folders where (fixes issue when Kentico 'debug' folders were ignored)
+!CMS/CMSAdminControls/
+!CMS/CMSModules/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
