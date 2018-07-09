@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.Message</CodeName>
+    <GUID>d9d8ea84-9f83-4a32-9caf-9b5aa79fd887</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>63fce083-bfb4-4d37-876b-f11cef9dd289</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>insert</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+-- ChatMessageLastModified and ChatMessageCreatedWhen has to be set to SQL Server time because of synchronization across web farms
+
+INSERT INTO Chat_Message (
+[ChatMessageCreatedWhen], 
+[ChatMessageIPAddress], 
+[ChatMessageUserID], 
+[ChatMessageRoomID], 
+[ChatMessageRejected], 
+[ChatMessageLastModified], 
+[ChatMessageText], 
+[ChatMessageSystemMessageType], 
+[ChatMessageRecipientID] ) 
+VALUES ( GETDATE()
+, @ChatMessageIPAddress
+, @ChatMessageUserID
+, @ChatMessageRoomID
+, @ChatMessageRejected
+, GETDATE()
+, @ChatMessageText
+, @ChatMessageSystemMessageType
+, @ChatMessageRecipientID); 
+SELECT SCOPE_IDENTITY() AS [ChatMessageID] 
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

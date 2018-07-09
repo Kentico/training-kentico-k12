@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>table</TableDisplayName>
+  <TableGUID>b0f373a7-2324-4105-98ce-0a7442ad7139</TableGUID>
+  <TableName>Table</TableName>
+  <TableQuery>
+<![CDATA[
+--DECLARE @FromDate DATETIME
+--SET @FromDate = '1/1/2011 12:00:00 AM'
+--DECLARE @ToDate DATETIME
+--SET @ToDate = '1/1/2012 12:00:00 AM'
+--DECLARE @CodeName NVARCHAR(60)
+--SET @CodeName = 'bannerclick'
+
+--DECLARE @CMSContextCurrentSiteID INT
+--SET @CMSContextCurrentSiteID = 1
+
+
+
+SET @FromDate = {%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'week');
+SET @ToDate = {%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'week');
+
+SELECT BannerID AS '{$banner.reports.bannerid$}', BannerName AS '{$banner.reports.bannername$}', BannerCategoryName AS '{$banner.reports.bannercategoryname$}', SUM(HitsCount) AS '{$banner.reports.numberofclicks$}'
+FROM Analytics_Statistics
+INNER JOIN Analytics_WeekHits ON Analytics_WeekHits.HitsStatisticsID = Analytics_Statistics.StatisticsID
+LEFT JOIN CMS_Banner ON Analytics_Statistics.StatisticsObjectID = CMS_Banner.BannerID
+LEFT JOIN CMS_BannerCategory ON CMS_BannerCategory.BannerCategoryID = CMS_Banner.BannerCategoryID
+WHERE (StatisticsCode = @CodeName)
+AND (HitsStartTime >= @FromDate)
+AND (HitsEndTime <= @ToDate)
+AND (StatisticsObjectID = BannerID)
+AND (StatisticsSiteID = @CMSContextCurrentSiteID)
+GROUP BY BannerID, BannerName, BannerCategoryName
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>bannerclick.weekreport</CodeName>
+    <GUID>5713bcc0-3386-4c17-9c16-3932f354f390</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>False</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>10</pagesize>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<badwords.word>
+  <WordExpression>pussy</WordExpression>
+  <WordGUID>d96e19a8-759b-429f-84c6-0e9f271c3807</WordGUID>
+  <WordIsGlobal>True</WordIsGlobal>
+  <WordIsRegularExpression>False</WordIsRegularExpression>
+</badwords.word>

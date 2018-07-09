@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Notifications</CategoryDisplayName>
+  <CategoryGUID>519a8fe2-79c7-4acb-8371-271d593a6082</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>Notifications</CategoryName>
+  <CategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>d782b5c3-27f3-45e6-a5cc-86c1944e2c8d</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

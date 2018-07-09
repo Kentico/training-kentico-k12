@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$general.customfields$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>df536424-1c20-4a5f-a9ef-c632f06f6336</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>EditGroupCustomFields</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementParentID>
+    <CodeName>EditGroup</CodeName>
+    <GUID>100b40e2-e0de-4cdd-8d9a-b6ad3facbb21</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Groups</CodeName>
+      <GUID>65f419f4-00f1-4905-a344-fc5b94983097</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Groups</CodeName>
+    <GUID>65f419f4-00f1-4905-a344-fc5b94983097</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Groups/Tools/Group_Edit_CustomFields.aspx?groupID={?objectid?}]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

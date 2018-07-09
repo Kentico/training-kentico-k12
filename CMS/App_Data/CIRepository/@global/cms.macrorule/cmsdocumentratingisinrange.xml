@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.macrorule>
+  <MacroRuleCondition>
+    <![CDATA[{_is}Document.DocumentRatingValue.Between(ToDouble({num1}),ToDouble({num2}))]]>
+  </MacroRuleCondition>
+  <MacroRuleDescription>
+    <![CDATA[{$macrorule.cmsdocumentratingisinrange.description$}]]>
+  </MacroRuleDescription>
+  <MacroRuleDisplayName>Page rating is in range</MacroRuleDisplayName>
+  <MacroRuleEnabled>True</MacroRuleEnabled>
+  <MacroRuleGUID>1da77711-5ab1-4aec-a05a-7ca526cdb620</MacroRuleGUID>
+  <MacroRuleIsCustom>False</MacroRuleIsCustom>
+  <MacroRuleName>CMSDocumentRatingIsInRange</MacroRuleName>
+  <MacroRuleParameters>
+    <form version="2">
+      <field column="num1" columntype="integer" guid="b0d78577-1f31-483c-8568-663d4328c329" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>enter rating</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <FilterType>0</FilterType>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="num2" columntype="integer" guid="0f162b61-deea-4087-8ac3-e36a7ef801f7" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>enter rating</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <FilterType>0</FilterType>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="_is" columnsize="100" columntype="text" guid="e951932c-316b-45ad-b67c-b68f11555829" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>;is</defaultvalue>
+          <fieldcaption>select operation</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>macronegationoperator</controlname>
+          <Options>
+<![CDATA[
+;is
+!;is not
+]]>
+          </Options>
+          <RepeatDirection>horizontal</RepeatDirection>
+        </settings>
+      </field>
+    </form>
+  </MacroRuleParameters>
+  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
+  <MacroRuleResourceName>cms.workflow</MacroRuleResourceName>
+  <MacroRuleText>Page rating {_is} between {num1} and {num2}</MacroRuleText>
+</cms.macrorule>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtask>
+  <TaskAllowExternalService>True</TaskAllowExternalService>
+  <TaskAssemblyName>CMS.WebAnalytics</TaskAssemblyName>
+  <TaskClass>CMS.WebAnalytics.HitLogProcessor</TaskClass>
+  <TaskCondition />
+  <TaskData />
+  <TaskDeleteAfterLastRun>False</TaskDeleteAfterLastRun>
+  <TaskDisplayName>Process analytics log</TaskDisplayName>
+  <TaskEnabled>True</TaskEnabled>
+  <TaskGUID>7f8b5f10-a843-433e-86b7-a4c9c8336328</TaskGUID>
+  <TaskInterval>
+    <![CDATA[minute;8/26/2008 11:45:23 AM;1;00:00:00;23:59:00;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
+  </TaskInterval>
+  <TaskName>Analytics.LogProcessing</TaskName>
+  <TaskResourceID>
+    <CodeName>CMS.WebAnalytics</CodeName>
+    <GUID>d3c82114-86f7-4aa9-8206-9b006100641c</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </TaskResourceID>
+  <TaskRunIndividually>False</TaskRunIndividually>
+  <TaskRunInSeparateThread>True</TaskRunInSeparateThread>
+  <TaskServerName />
+  <TaskUseExternalService>True</TaskUseExternalService>
+</cms.scheduledtask>

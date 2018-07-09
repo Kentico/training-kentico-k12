@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Forums</CodeName>
+    <GUID>02855290-f69a-4f87-bb90-54b4a6ffd4b1</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[This web part processes forum unsubscription requests submitted by users and displays a confirmation message.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Forum unsubscription</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<p>The web part can be used to create a forum unsubscription page with a custom&nbsp;design that&nbsp;will be used instead of the&nbsp;default system page.&nbsp;The URL of such a page can be assigned to individual forum groups or forums through their <strong><span class="FieldLabel" id="m_c_forumEdit_lblUnsubscriptionUrl">Forum unsubscription URL</span></strong> property, or globally in <strong>Settings -&gt; Community -&gt; Forums -&gt; Forum unsubscription URL</strong>. Once assigned, the unsubscription links in the notifications for the given forums leads to the page. There, the web part automatically processes the query string parameters and performs the&nbsp;required unsubscription.</p>
+
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Forums/ForumUnsubscription.ascx</WebPartFileName>
+  <WebPartGUID>bfcd31c3-e522-40f6-bd8a-f8315b63585b</WebPartGUID>
+  <WebPartIconClass>icon-w-forum-unsubscription</WebPartIconClass>
+  <WebPartName>ForumUnsubscription</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Confirmation">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="UnsubscriptionInfoText" columntype="longtext" guid="7339ab0a-936d-493a-bf37-8c21f9e8c76f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unsubscription info text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text to be displayed to user when unsubscribtion web part is shown.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnsubscriptionInfoCssClass" columnsize="50" columntype="text" guid="7a7bdc08-ef58-4849-b791-8d067a1e80ca" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unsubscription CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[CSS Class which will be used for formating displayed information text.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnsubscriptionButtonText" columnsize="50" columntype="text" guid="2c2e5e3c-1ddd-4a6f-8bc0-c0c2d4277ad2" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unsubscription button text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text to be displayed on unsubscription confirmation button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnsubscriptionButtonCssClass" columnsize="50" columntype="text" guid="a5aa68b3-64a7-4379-b008-9899005032e3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unsubscriptin button CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[CSS class used for formating subscription confirmation button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Unsubscription strings">
+        <properties>
+          <caption>Unsubscription messages</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="UnsubscriptionText" columntype="longtext" guid="45587ae9-4748-440a-bf76-c2d449775f8b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>You have been successfully unsubscribed.</defaultvalue>
+          <fieldcaption>Unsubscription text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the text which is displayed after successful unsubscription.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnsuccessfulUnsubscriptionText" columntype="longtext" guid="b92429d8-177c-401d-8502-26f60235ff8d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Unsubscription was unsuccessful.</defaultvalue>
+          <fieldcaption>Unsuccessful unsubscription text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the text which is displayed if the unsubscription is unsuccessful.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Forums</CodeName>
+    <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

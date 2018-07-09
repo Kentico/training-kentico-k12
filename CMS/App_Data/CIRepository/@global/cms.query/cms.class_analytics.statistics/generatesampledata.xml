@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>analytics.statistics</CodeName>
+    <GUID>75b95c91-bc3e-45a7-b40d-27581d8b67bc</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>61ba281e-f1c9-4e13-a742-63cea3f226f1</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>generatesampledata</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>Proc_Analytics_GenerateSampleData</QueryText>
+  <QueryTypeID>1</QueryTypeID>
+</cms.query>

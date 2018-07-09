@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DocumentViewers</CodeName>
+    <GUID>46e23e43-a698-4fdb-8898-2526f4dd4e09</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a grid (table) containing data fields of specified pages or a detail of a selected page based on an assigned transformation.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Grid</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<p><span style="color: rgb(0, 0, 0);"><span style="color: rgb(0, 0, 0);">Please see&nbsp;<a href="~/CMSPages/GetDocLink.ashx?link=cmsdatagrid_controls" target="_blank">CMSDataGrid</a>&nbsp;for information&nbsp;about the control that this web part is based on.</span><br />
+<br />
+The design of the grid can be customized using skins. Here&#39;s an example:</span></p>
+
+<p><span style="color: rgb(0, 0, 0);"><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&lt;</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">cc1</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">:</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">CMSDataGrid</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">Runat</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;server&quot;&gt;</span><br />
+<span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&nbsp; &lt;</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">HeaderStyle</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">Font-Bold</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;True&quot;</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">ForeColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;White&quot;</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">BackColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;orange&quot;&gt;&lt;/</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">HeaderStyle</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&gt;</span><br />
+<span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&nbsp; &lt;</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">FooterStyle</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">ForeColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;Black&quot;</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">BackColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;#CCCCCC&quot;&gt;&lt;/</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">FooterStyle</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&lt;</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">ItemStyle</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">ForeColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;Black&quot;</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">BackColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;#EEEEEE&quot;&gt;&lt;/</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">ItemStyle</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&lt;</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">AlternatingItemStyle</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">BackColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;#DCDCDC&quot;&gt;&lt;/</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">AlternatingItemStyle</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&gt;</span><br />
+&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&lt;</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">PagerStyle</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">HorizontalAlign</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;Center&quot;</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">ForeColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;Black&quot;</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">BackColor</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;#999999&quot;</span><span style="color: rgb(0, 0, 0); font-family: &quot;Courier New&quot;;"> </span><span style="color: rgb(255, 0, 0); font-family: &quot;Courier New&quot;;">Mode</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">=&quot;NumericPages&quot;/&gt;</span><br />
+<span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&lt;/</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">cc1</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">:</span><span style="color: rgb(128, 0, 0); font-family: &quot;Courier New&quot;;">CMSDataGrid</span><span style="color: rgb(0, 0, 255); font-family: &quot;Courier New&quot;;">&gt;</span></span></p>
+
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Viewers/Documents/cmsdatagrid.ascx</WebPartFileName>
+  <WebPartGUID>7afb448e-e112-44d5-966c-85d5a950bfa3</WebPartGUID>
+  <WebPartIconClass>icon-w-grid</WebPartIconClass>
+  <WebPartName>cmsdatagrid</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Path" columnsize="450" columntype="text" guid="80cd8c12-f97e-4af3-b59b-c4dc6bebbb5b" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.path$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectpath</controlname>
+        </settings>
+      </field>
+      <category name="Content filter">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ClassNames" columnsize="1000" columntype="text" guid="ef9f0751-d542-4c80-86d6-b43f994d31e3" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Page types</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.documenttypes$}</fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>selectclassnames</controlname>
+          <HideInheritedClasses>False</HideInheritedClasses>
+          <ReturnColumnName>ClassName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ShowOnlyCoupled>False</ShowOnlyCoupled>
+        </settings>
+      </field>
+      <field allowempty="true" column="CategoryName" columnsize="200" columntype="text" guid="d7dcf0b9-7575-4b97-b909-cc1815363c8c" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Category name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Code name of the category. Pages from this category and its subcategories will be filtered out.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CategorySelector</controlname>
+          <DisplayGeneralCategories>True</DisplayGeneralCategories>
+          <DisplayPersonalCategories>True</DisplayPersonalCategories>
+        </settings>
+      </field>
+      <field allowempty="true" column="CombineWithDefaultCulture" columnsize="5" columntype="text" guid="63f33b0e-d690-48db-95ff-faef1fa30999" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Combine with default culture</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.combinewithculture$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>radiobuttonscontrol</controlname>
+          <options>
+            <![CDATA[<item value="true" text="Yes" /><item value="false" text="No" /><item value="" text="Use site settings" />]]>
+          </options>
+          <repeatdirection>vertical</repeatdirection>
+        </settings>
+      </field>
+      <field allowempty="true" column="CultureCode" columnsize="20" columntype="text" guid="0ca2fe70-a364-457d-953e-e2a6711d7aa1" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Culture code</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.culturecode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectculture</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MaxRelativeLevel" columntype="integer" guid="ac27798a-2af0-4a14-be89-d3bdf5aef2e1" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>-1</defaultvalue>
+          <fieldcaption>Maximum nesting level</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.maxnestinglevel$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="c545756c-b4fd-44c9-a494-053d4636d4a8" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY expression</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.orderbyforpages$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectOnlyPublished" columntype="boolean" guid="0024cd1d-f6f0-42de-a0bd-cfa098652997" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Select only published</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selectpublished$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="0a223ab4-3748-4baf-9cc3-3856a74f3aef" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Select top N pages</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selecttopndocuments$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="200" columntype="text" guid="9e563440-64ac-4b81-8370-82449a1f1d2d" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.sitename$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="63f139b9-dfb4-42b5-8546-475ffe17b5e3" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Columns" columnsize="500" columntype="text" guid="93046cc5-38ad-4dd6-9e8d-291053bef84e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected columns</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.columns$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>columns</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterOutDuplicates" columntype="boolean" guid="f52c82bb-23d1-410b-9975-7ec8ba84e612" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Filter out duplicate pages</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.filterduplicates$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterName" columnsize="200" columntype="text" guid="d1a2dc4a-6290-48f8-9306-350ca5da5adf" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Filter name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.filtername$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Design">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ColumnSelector" columntype="longtext" guid="a5e3c1e8-1b28-41e4-a8ec-d552654660ea" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Displayed columns</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.gridcolumnselector$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectcolumns</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ShowHeader" columntype="boolean" guid="c3fd38fb-2c0f-4401-a426-684ef008e9ea" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show header</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.gridshowheader$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ToolTip" columnsize="200" columntype="text" guid="fe3cad96-1042-404e-b279-caa6aea76034" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Tool tip</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.gridtooltip$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="SkinID" columnsize="200" columntype="text" guid="351e81aa-1c27-4fcc-b65e-ad9217da934b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Skin ID</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.skinid$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="SelectedItemTransformationName" columnsize="250" columntype="text" guid="b241cd2a-fab4-4331-a4ac-9babbe0608d9" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Selected item transformation</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selectedtransf$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="Paging">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="AllowPaging" columntype="boolean" guid="af59347c-16ea-4b2e-9ae6-501e32be5094" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Enable paging</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.enablepaging$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageSize" columntype="integer" guid="9170cbc6-094e-4c9a-a03a-228f1af8d62f" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>10</defaultvalue>
+          <fieldcaption>Page size</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagesize$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Mode" columnsize="50" columntype="text" guid="225031cb-f19d-4c47-81fb-914c3b8ee86a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Pager style</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.gridpagingmode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="nextprev" text="Previous-Next buttons" /><item value="numericpages" text="Page numbers" />]]>
+          </Options>
+        </settings>
+      </field>
+      <category name="Sorting">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="AllowSorting" columntype="boolean" guid="552a4f8d-dc63-4c96-befb-04f4f162d121" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Enable sorting</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.gridallowsorting$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SortAscending" columntype="boolean" guid="51c4265e-7eb7-4a57-9a8b-831a717eb319" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Sort ascending</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.gridsortascending$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SortField" columnsize="100" columntype="text" guid="fa242305-8ee2-43f3-aef9-d222bfaf7fa2" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Default sort field</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.gridsortfield$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field column="SetFirstPageAfterSortChange" columntype="boolean" guid="a2db7321-0c89-4c87-bd6b-9d592176d463" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Set first page after change sorting</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.gridsetfirstpageaftersortchange$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Relationships">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="RelationshipWithNodeGuid" columnsize="50" columntype="text" guid="26158efb-5ad7-4341-808c-7af67b753cc0" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Main page</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.maindoc$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>relationshipconfiguration</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RelatedNodeIsOnTheLeftSide" columntype="boolean" guid="0786adea-4e57-48a7-87a5-7006a708c733" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Main page is on the left side</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.mainonleft$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="RelationshipName" columnsize="50" columntype="text" guid="f7c97930-ee1b-41d1-a9d1-ca0a2f6f1bdb" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Relationship  name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.relationship$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectrelationshipname</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CheckPermissions" columntype="boolean" guid="3cfda867-dcd6-4896-8fc4-564a884a9cae" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.checkperm$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="3784de41-ec28-486e-a6a6-17b121a995f9" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="f4191683-b32d-42f7-8f8a-ae08674c74ff" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+      <category name="No data behavior">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="HideControlForZeroRows" columntype="boolean" guid="86698736-351f-404f-998a-4467cd7a7331" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="a054e9e9-e749-4484-90ce-5a44e88ef978" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="New button">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ShowNewButton" columntype="boolean" guid="3355c3cc-6e16-41a1-93e2-3f6f6d5c8177" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show New button</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.shownewbtn$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="NewButtonText" columnsize="200" columntype="text" guid="6c1acf80-b118-40c3-96e8-411a745d96d4" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>New button text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.newbtntext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

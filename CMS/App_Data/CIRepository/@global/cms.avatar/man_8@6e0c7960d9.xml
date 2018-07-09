@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.avatar>
+  <AvatarFileExtension>.jpg</AvatarFileExtension>
+  <AvatarFileName>man8.jpg</AvatarFileName>
+  <AvatarFileSize>7557</AvatarFileSize>
+  <AvatarGUID>7d28e7e7-0930-4f70-8794-b836ed8e5c71</AvatarGUID>
+  <AvatarImageHeight>178</AvatarImageHeight>
+  <AvatarImageWidth>178</AvatarImageWidth>
+  <AvatarIsCustom>False</AvatarIsCustom>
+  <AvatarMimeType>image/jpeg</AvatarMimeType>
+  <AvatarName>Man 8</AvatarName>
+  <AvatarType>user</AvatarType>
+  <DefaultFemaleUserAvatar>False</DefaultFemaleUserAvatar>
+  <DefaultGroupAvatar>False</DefaultGroupAvatar>
+  <DefaultMaleUserAvatar>False</DefaultMaleUserAvatar>
+  <DefaultUserAvatar>False</DefaultUserAvatar>
+</cms.avatar>

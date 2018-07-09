@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>media.library</CodeName>
+    <GUID>dead7673-d566-4f83-87e3-e9a235b70e4f</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form>
+      <field column="LibraryName" fieldcaption="Code name" visible="" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>group</FormDisplayName>
+  <FormGUID>f40b9ebc-21ed-4b75-bda4-0ded6b94cef0</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>Group</FormName>
+</cms.alternativeform>

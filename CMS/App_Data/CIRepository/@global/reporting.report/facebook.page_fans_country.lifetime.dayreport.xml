@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>PageFansCountry</CodeName>
+    <GUID>3d9fb3d3-743d-4a75-a1c3-e2990653f4ca</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>{$sm.ins.facebook.page_fans_country.day$}</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>6ae76da6-0e70-469c-908c-03981e99bdde</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportTable?Facebook_page_fans_country_day_inverted%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}<br />
+
+]]>
+  </ReportLayout>
+  <ReportName>Facebook.page_fans_country.lifetime.dayreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="b3d34050-09a1-49cf-9d17-4239d992b73a">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddMonths(-1).Date|(identity)GlobalAdministrator|(hash)e9c935cb516d4df7030fcb583573ba7e4cdb1ea165e5db95d180f1e777932e7b%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="09f2e5ac-5e69-4b1c-b123-0175afde60c9">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ExternalID" visible="true" columntype="longtext" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="a328ae7f-f779-4430-8a51-05ae51d7b934">
+        <properties>
+          <fieldcaption>{$sm.ins.facebook.account$}</fieldcaption>
+        </properties>
+        <settings>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <controlname>uni_selector</controlname>
+          <AllowEmpty>True</AllowEmpty>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <ValuesSeparator>;</ValuesSeparator>
+          <GlobalObjectSuffix>(global)</GlobalObjectSuffix>
+          <OrderBy>FacebookAccountDisplayName</OrderBy>
+          <ReturnColumnName>FacebookAccountPageID</ReturnColumnName>
+          <ObjectSiteName>#currentsite</ObjectSiteName>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <SelectionMode>1</SelectionMode>
+          <DialogWindowWidth>668</DialogWindowWidth>
+          <ItemsPerPage>25</ItemsPerPage>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowAll>False</AllowAll>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <UseAutocomplete>True</UseAutocomplete>
+          <AllowDefault>False</AllowDefault>
+          <ObjectType>SM.FacebookAccount</ObjectType>
+          <DialogWindowHeight>590</DialogWindowHeight>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <ReturnColumnType>id</ReturnColumnType>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+        </settings>
+      </field>
+      <field column="PeriodType" columntype="text" fieldtype="CustomUserControl" columnsize="20" publicfield="false" guid="ec279e2c-ccf4-4993-8ce5-c3dc1fc0016f">
+        <properties>
+          <defaultvalue>lifetime</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>table</TableDisplayName>
+  <TableGUID>c350451e-e82d-4f51-89a7-1c7e32a88faa</TableGUID>
+  <TableName>TableMonthConversion</TableName>
+  <TableQuery>
+<![CDATA[
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'month');
+SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'month');
+
+SELECT TOP 100 ConversionDisplayName AS '{$reports_conversion.name_header$}', SUM(HitsCount) AS
+'{$reports_conversion.hits_header$}',SUM(HitsValue) AS '{$reports_conversion.value_header$}' FROM
+Analytics_Statistics
+JOIN Analytics_MonthHits  ON HitsStatisticsID = StatisticsID
+JOIN Analytics_Conversion ON ConversionName  = StatisticsObjectName AND ConversionSiteID = @CMSContextCurrentSiteID
+WHERE (StatisticsSiteID = @CMSContextCurrentSiteID) AND
+(StatisticsCode=N'conversion') AND (StatisticsID = HitsStatisticsID) AND (HitsStartTime >= @FromDate) AND
+(@ConversionName IS NULL OR @ConversionName IN ('',StatisticsObjectName)) AND
+(HitsEndTime <= @ToDate) GROUP BY ConversionDisplayName ORDER BY SUM(HitsCount) DESC
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>conversion.monthreport</CodeName>
+    <GUID>8ce740ca-115f-4815-820f-0d9b5c3e3083</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>True</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>10</pagesize>
+      <querynorecordtext>No data found</querynorecordtext>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

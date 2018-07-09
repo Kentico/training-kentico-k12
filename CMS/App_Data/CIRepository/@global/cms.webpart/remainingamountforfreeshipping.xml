@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Checkout</CodeName>
+    <GUID>5e13805d-aaaa-4bc8-b22c-a4474618e315</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form>
+      <field column="DisableViewState" publicfield="false">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Displays how much the customer should spend to receive free shipping.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Remaining amount for free shipping</WebPartDisplayName>
+  <WebPartFileName>Ecommerce/RemainingAmountForFreeShipping.ascx</WebPartFileName>
+  <WebPartGUID>2a867eea-e432-48ae-ba2c-a852de4edce1</WebPartGUID>
+  <WebPartIconClass>icon-w-remaining-amount-for-free-shipping</WebPartIconClass>
+  <WebPartName>RemainingAmountForFreeShipping</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="LabelText" columnsize="200" columntype="text" guid="7780fb76-0e68-4c60-8604-4040330dce65" publicfield="false" visible="true">
+        <properties>
+          <contentafter>
+            <![CDATA[<div class="EditingFormControlNestedControl EditingFormControlInputDescription" style="margin:5px 0px 0px 25px; font-style:italic; color:gray;">Use {0} instead of the remaining amount.</div>]]>
+          </contentafter>
+          <defaultvalue>
+            <![CDATA[Add {0} of eligible items to your order to qualify for FREE Shipping.]]>
+          </defaultvalue>
+          <fieldcaption>Text for remaing amount</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text which is displayed if the customer can buy more to receive free shipping. Use {0} instead of the remaining amount.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Wrap>True</Wrap>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Ecommerce</CodeName>
+    <GUID>684e021b-8b56-4cbf-8fd5-b7a791fd2dbc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>5</WebPartType>
+</cms.webpart>

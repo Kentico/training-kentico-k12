@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>GroupManagement</CodeName>
+    <GUID>35c19d90-c0f0-422e-adb5-9d586164c7d4</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Allows group administrators to manage the roles of the specified group directly from the live site.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Group roles</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Community/Profile/GroupRoles.ascx</WebPartFileName>
+  <WebPartGUID>4d62b9f2-bf73-403e-b670-26f236d5fcf2</WebPartGUID>
+  <WebPartIconClass>icon-w-group-roles</WebPartIconClass>
+  <WebPartName>GroupRoles</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Community">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="GroupName" columnsize="100" columntype="text" guid="46785d6f-0e25-48c3-addf-6d6c4d80faa2" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Group name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.groupname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>communitygroupselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="NoPermissionMessage" columnsize="450" columntype="text" guid="bb23b284-6288-4535-8f3e-82714c19264c" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>You are not allowed to manage this group.</defaultvalue>
+          <fieldcaption>No permissions message</fieldcaption>
+          <fielddescription>{$webpart.properties.nopermissionmessage$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

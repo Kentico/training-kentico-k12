@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.macrorule>
+  <MacroRuleCondition>
+    <![CDATA[{_was}Activity.LinkedToObject("cms.blog", "{blog}")]]>
+  </MacroRuleCondition>
+  <MacroRuleDescription>
+    <![CDATA[{$macrorule.cmsactivityblogcommentperformedforblog.description$}]]>
+  </MacroRuleDescription>
+  <MacroRuleDisplayName>
+    <![CDATA[Activity 'Blog comment' performed for blog]]>
+  </MacroRuleDisplayName>
+  <MacroRuleEnabled>True</MacroRuleEnabled>
+  <MacroRuleGUID>ff7b5241-284c-47a1-9e32-d199c51d4250</MacroRuleGUID>
+  <MacroRuleIsCustom>False</MacroRuleIsCustom>
+  <MacroRuleName>CMSActivityBlogCommentPerformedForBlog</MacroRuleName>
+  <MacroRuleParameters>
+    <form version="2">
+      <field column="blog" columntype="guid" guid="f82df350-371a-4f56-8f16-f4b79c18b42f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>select blog</fieldcaption>
+          <validationerrormessage>{$blogselector.noitemselected$}</validationerrormessage>
+        </properties>
+        <settings>
+          <controlname>blogselector</controlname>
+          <OnlyUsersBlogs>False</OnlyUsersBlogs>
+          <ReturnColumnName>NodeGUID</ReturnColumnName>
+        </settings>
+      </field>
+      <field allowempty="true" column="_was" columnsize="100" columntype="text" guid="1f274e78-0f6a-4b66-8c76-65417a783179" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>;was</defaultvalue>
+          <fieldcaption>select operation</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>macronegationoperator</controlname>
+          <Options>
+<![CDATA[
+;was
+!;was not
+]]>
+          </Options>
+          <RepeatDirection>horizontal</RepeatDirection>
+        </settings>
+      </field>
+    </form>
+  </MacroRuleParameters>
+  <MacroRuleRequiredData>Activity</MacroRuleRequiredData>
+  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
+  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
+  <MacroRuleText>
+    <![CDATA[Activity 'Blog comment' {_was} performed for blog {blog}]]>
+  </MacroRuleText>
+</cms.macrorule>

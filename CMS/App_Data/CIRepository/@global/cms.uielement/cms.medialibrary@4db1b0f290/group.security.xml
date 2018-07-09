@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition />
+  <ElementCaption>{$general.security$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>{$general.security$}</ElementDisplayName>
+  <ElementFeature />
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>320e0931-871a-4eaf-b369-cba501abb4a7</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Group.Security</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementParentID>
+    <CodeName>Group.EditMediaLibrary</CodeName>
+    <GUID>3463d612-60ac-4db6-87e8-2a7731ce7511</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.MediaLibrary</CodeName>
+      <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.MediaLibrary</CodeName>
+    <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/Groups/Tools/MediaLibrary/Library_Edit_Security.aspx]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+  <ElementVisibilityCondition />
+</cms.uielement>

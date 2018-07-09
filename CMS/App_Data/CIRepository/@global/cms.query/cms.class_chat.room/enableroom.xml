@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.Room</CodeName>
+    <GUID>b9ea7973-e2ba-465e-a56e-15e9614b4251</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>a50e043a-1390-4e76-9c91-363bb8b91de5</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>enableroom</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+UPDATE Chat_Room
+SET ChatRoomEnabled = 1, ChatRoomLastModification = GETDATE()
+WHERE ChatRoomID = @ChatRoomID
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

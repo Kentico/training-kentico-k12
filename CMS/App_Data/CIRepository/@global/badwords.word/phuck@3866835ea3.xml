@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<badwords.word>
+  <WordExpression>phuck</WordExpression>
+  <WordGUID>95334462-7de8-455d-b6e7-db3c5750db5a</WordGUID>
+  <WordIsGlobal>True</WordIsGlobal>
+  <WordIsRegularExpression>False</WordIsRegularExpression>
+</badwords.word>

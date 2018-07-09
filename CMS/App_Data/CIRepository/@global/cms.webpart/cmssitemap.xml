@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Navigation</CodeName>
+    <GUID>9d08bf54-24b5-46aa-b80f-1ebb73ed9018</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[The Site map web part renders a hierarchical view of the pages in the website structure.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Site map</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+The web part only displays&nbsp;pages that have the <strong>Show in sitemap </strong>property enabled in <strong>Pages -&gt;&nbsp;Edit -&gt; Properties -&gt; Navigation</strong>.<br />
+<br />
+Please see&nbsp;<a href="~/CMSPages/GetDocLink.ashx?link=cmssitemap_controls" target="_blank">CMSSiteMap</a>&nbsp;for information&nbsp;about the control that this web part is based on.
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Navigation/cmssitemap.ascx</WebPartFileName>
+  <WebPartGUID>e3d8885e-9f40-448e-8e19-2476a450022b</WebPartGUID>
+  <WebPartIconClass>icon-w-site-map</WebPartIconClass>
+  <WebPartName>cmssitemap</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Path" columnsize="450" columntype="text" guid="b94bde74-6d98-4086-a8ca-8c0971f1ea90" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.navigationpath$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectpath</controlname>
+        </settings>
+      </field>
+      <category name="Content filter">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ClassNames" columnsize="1000" columntype="text" guid="98170a79-d533-4336-82b9-d9b6ff4d1697" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Page types</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.navigationdocumenttypes$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>selectclassnames</controlname>
+          <HideInheritedClasses>False</HideInheritedClasses>
+          <ReturnColumnName>ClassName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ShowOnlyCoupled>False</ShowOnlyCoupled>
+        </settings>
+      </field>
+      <field allowempty="true" column="CombineWithDefaultCulture" columnsize="5" columntype="text" guid="4007bcdf-154c-437a-8973-a7a83e1a2067" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Combine with default culture</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.combinewithculture$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>radiobuttonscontrol</controlname>
+          <options>
+            <![CDATA[<item value="true" text="Yes" /><item value="false" text="No" /><item value="" text="Use site settings" />]]>
+          </options>
+          <repeatdirection>vertical</repeatdirection>
+        </settings>
+      </field>
+      <field allowempty="true" column="CultureCode" columnsize="20" columntype="text" guid="e2259962-ab96-4f8a-af4e-8b237aafe1d6" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Culture code</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.culturecode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectculture</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MaxRelativeLevel" columntype="integer" guid="d23dcf63-7efd-40c8-aad8-36fec9a25616" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>-1</defaultvalue>
+          <fieldcaption>Maximum nesting level</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.maxnestinglevel$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="3a5e9d61-0129-4f6d-b807-46fbee4b5d25" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY expression</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.navigationtreeorderby$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectOnlyPublished" columntype="boolean" guid="eaa1fd5f-4e13-4199-9dcc-2d62e4a3f014" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Select only published</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selectpublished$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="200" columntype="text" guid="3614223b-4057-411b-907e-bf3d90da1d92" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.sitename$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="284f9869-0810-4bf3-8bce-b2d64f2bbf43" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Columns" columnsize="500" columntype="text" guid="7dc94383-6758-42d8-ac9a-d4a08d3e3f87" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Columns</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.navcolumns$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>columns</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterName" columnsize="200" columntype="text" guid="bcd033e4-c034-442c-be18-d02f3d97a79a" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Filter name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.filtername$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Design">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="UrlTarget" columnsize="200" columntype="text" guid="f875893c-2e1b-4b71-8e09-28281609bda8" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Target frame</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.urltarget$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RenderLinkTitle" columntype="boolean" guid="c2bef2cb-4118-4fb2-bfb9-b1c0508ab516" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Render link title</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.renderlinktitle$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="WordWrap" columntype="boolean" guid="7d51ad87-8757-48a3-a3fc-6b083eb7568d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Word wrap</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.wordwrap$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ApplyMenuInactivation" columntype="boolean" guid="ccb4b0f5-1fcb-4247-b44f-63f1a4587e2d" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Apply menu inactivation</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, pages in the sitemap that are set as Inactive menu items will not be rendered as links. This setting can be configured for individual pages in Pages -> Properties -> Navigation.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="EncodeMenuCaption" columntype="boolean" guid="19b56ea3-7f4a-42a3-8855-b8b3b4f7081d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Encode menu caption</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.encodemenucaption$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="No data behavior">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="HideControlForZeroRows" columntype="boolean" guid="7e6bf971-30e0-4635-a549-cc6cce7f50e4" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="9badc62b-39fd-4757-a9ad-fab94ed60190" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CheckPermissions" columntype="boolean" guid="3b606f84-3ca9-4536-9526-35ea0b087929" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.checkperm$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheItemName" columnsize="50" columntype="text" guid="6de13ef0-f548-43a6-a1c8-e4b37f5c528d" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="5602b758-84f8-4731-a515-641668c4ea2b" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

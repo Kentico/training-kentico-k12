@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.RoomUser</CodeName>
+    <GUID>3934275a-9e59-4d72-84c2-7206eeeee3dd</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>20272794-72aa-43e3-bdca-23cf444a96b3</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>getallonlineusersinroom</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @RoomID Int = 223
+
+SELECT [CRU_OUTER].ChatRoomUserAdminLevel,
+	[CU].*, 
+	(CASE
+		WHEN [CRU_OUTER].[ChatRoomUserJoinTime] IS NULL THEN 0
+		ELSE 1
+	END) AS [IsOnline],
+    (CASE 
+        WHEN [CRU_OUTER].[ChatRoomUserLastModification] > [CU].[ChatUserLastModification] THEN [CRU_OUTER].[ChatRoomUserLastModification]
+        ELSE [CU].[ChatUserLastModification]
+     END) AS [LastChange]
+FROM (
+    SELECT [CRU].*, 
+        (CASE 
+            WHEN [CR].[ChatRoomPrivate] = 1 THEN 1
+            ELSE 2
+         END) AS [raisedPrivilegiesValue] -- Value of admin level considered as raised privilegies in this room (Join in private and Admin in public rooms)
+    FROM [Chat_RoomUser] AS [CRU]
+    INNER JOIN [Chat_Room] AS [CR] ON [CR].[ChatRoomID] = [CRU].[ChatRoomUserRoomID]
+    ) AS [CRU_OUTER]
+INNER JOIN [Chat_User] AS [CU] ON [CU].[ChatUserID] = [CRU_OUTER].[ChatRoomUserChatUserID]
+WHERE 
+	[CRU_OUTER].[ChatRoomUserRoomID] = @RoomID AND -- Filter to specified room
+	([CRU_OUTER].[ChatRoomUserJoinTime] IS NOT NULL OR -- Get online users
+		([CRU_OUTER].[ChatRoomUserAdminLevel] >= [CRU_OUTER].[raisedPrivilegiesValue] AND -- Or users who has raised privilegies
+			([CU].[ChatUserUserID] IS NOT NULL OR -- But are non anonymous
+				EXISTS(SELECT [COU].ChatOnlineUserID 
+					FROM [Chat_OnlineUser] AS [COU]
+					WHERE [COU].[ChatOnlineUserChatUserID] = [CRU_OUTER].[ChatRoomUserChatUserID] AND [COU].[ChatOnlineUserJoinTime] IS NOT NULL
+					) -- Or online (on whatever site) anonymous 
+			)
+		)
+	)
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

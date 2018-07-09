@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DocumentViewers</CodeName>
+    <GUID>46e23e43-a698-4fdb-8898-2526f4dd4e09</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a list of CMS.File documents that are located under the document containing the web part in the content tree. Files are displayed based on the assigned transformation.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Attachments</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Viewers/Documents/attachments.ascx</WebPartFileName>
+  <WebPartGUID>9fad5321-c178-4ba1-9b1a-dc16c70d6f3b</WebPartGUID>
+  <WebPartIconClass>icon-w-attachments</WebPartIconClass>
+  <WebPartName>attachments</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Misc">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="EnableAddButton" columntype="boolean" guid="af33a40a-758e-4138-9f89-d7e43e9b48ba" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Show Add attachment button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the button used to add new CMS.File pages under the page containing the web part should be displayed when viewing the page in edit mode.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="93c58869-099a-474b-ad62-8b042d405531" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>cms.file.attachmentlist</defaultvalue>
+          <fieldcaption>Transformation</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.transformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="No data behavior">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="HideControlForZeroRows" columntype="boolean" guid="abe5f4a4-cb56-4d37-8be3-7b4547b989f0" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="18fdcbea-f345-44a9-87fd-ec24176974cb" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

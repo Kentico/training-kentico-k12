@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Community.Invitation</CodeName>
+    <GUID>a6d0fba0-8420-4a6a-a4e5-a94babe73387</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>327466db-33a1-482d-ac1b-02a934a431f3</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>deletewhere</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>DELETE FROM Community_Invitation WHERE ##WHERE##</QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$group.newitemcaption$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$group.newitemcaption$}</ElementDisplayName>
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>9314ed30-17ed-4912-8dc2-d699d600ef21</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>NewGroup</ElementName>
+  <ElementOrder>4</ElementOrder>
+  <ElementParentID>
+    <CodeName>Groups</CodeName>
+    <GUID>33cda0eb-8013-4aed-888d-2dbc199c1906</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Groups</CodeName>
+      <GUID>65f419f4-00f1-4905-a344-fc5b94983097</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_custom>False</category_name_custom>
+      <includejquery>False</includejquery>
+      <category_name_header>False</category_name_header>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Groups</CodeName>
+    <GUID>65f419f4-00f1-4905-a344-fc5b94983097</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>~/CMSModules/Groups/Tools/Group_New.aspx</ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

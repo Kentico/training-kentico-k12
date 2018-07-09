@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>BannerManagement</CodeName>
+    <GUID>44157ba2-1c9c-41ef-bbf5-3450fa606cba</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays banners from a specified banner category according to their weight.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Banner rotator</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>True</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>41ca4f3d-5ed0-4d90-9f2d-0f36b944591a</WidgetGUID>
+  <WidgetIconClass>icon-w-banner-rotator</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>BannerRotatorWidget</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="BannerCategoryCodeName" guid="e9737e90-0607-423b-a3c5-873ad6805af6" fieldtype="" />
+      <field column="HideIfBannerNotFound" guid="7afaab0a-94ec-4d89-b6cb-8e7ad870f04d" visible="" fieldtype="" />
+      <field column="Width" guid="f1e14ca2-dfda-4769-84a5-75ac6a60ae76" reftype="Required" fieldtype="">
+        <settings>
+          <controlname>TextBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="Height" guid="3abcefcf-3753-458f-8c57-8103421753c7" fieldtype="" />
+      <field column="AnchorClass" guid="3bd68eda-3347-483a-9816-f45be10a47ab" visible="" fieldtype="" />
+      <field column="FakeLink" guid="03c10044-8fce-42aa-b904-a020bc719fab" visible="" fieldtype="" />
+      <field column="KeepPreviousBannerOnPostBack" guid="dd88a708-772a-4e28-93d8-66f7cefd7018" visible="" fieldtype="" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>BannerRotator</CodeName>
+    <GUID>0370906c-dcd1-4aef-a8ac-9b4e9b66a8f1</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

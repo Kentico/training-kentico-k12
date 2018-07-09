@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Messaging</CodeName>
+    <GUID>e04cf39b-67c5-4527-b48a-64308124c549</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[The Ignore list web part allows users to manage their ignore list. Owner of the ignore list don't recieve message from users in the ignore list.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Ignore list</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>messaging/ignorelist.ascx</WebPartFileName>
+  <WebPartGUID>46107394-fbae-45a5-bcd2-7d493ee20ecc</WebPartGUID>
+  <WebPartIconClass>icon-w-ignore-list</WebPartIconClass>
+  <WebPartName>IgnoreList</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Design">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="PageSize" columnsize="50" columntype="text" guid="58dfc775-5a7d-48cb-8858-83a623fa8012" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>10</defaultvalue>
+          <fieldcaption>Page size</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagesize$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="fa64992d-d8f1-41a2-9027-08ac15dbe8b3" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No users in ignore list.</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Messaging</CodeName>
+    <GUID>2b521e04-6b2d-4422-b1d2-c352e88e3b02</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

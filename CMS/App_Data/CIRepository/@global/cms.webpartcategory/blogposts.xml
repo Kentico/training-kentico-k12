@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Posts</CategoryDisplayName>
+  <CategoryGUID>40a4fc6c-58b0-459a-aeb4-e17a23186214</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>BlogPosts</CategoryName>
+  <CategoryParentID>
+    <CodeName>Blogs</CodeName>
+    <GUID>9d64ed06-94cf-42f6-a178-8d78808ffdb0</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

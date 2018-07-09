@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>PageStorytellersByCountry</CodeName>
+    <GUID>630e348b-d206-4f65-83ee-04bb177cf9d4</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>
+    <![CDATA[{$sm.ins.facebook.page_storytellers_by_country.year$}]]>
+  </ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>a5ef2dc4-f63e-46f4-99ff-f262b9b2aefd</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportTable?Facebook_page_storytellers_by_country_year_invert%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}
+]]>
+  </ReportLayout>
+  <ReportName>
+    <![CDATA[Facebook.page_storytellers_by_country.day.yearreport]]>
+  </ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="379160af-8845-4ac6-a944-d06d3774e2a9">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-6).Date|(identity)GlobalAdministrator|(hash)8ec65f6993064d90e9db979fcdc1b605e689455eca866be895fe07db295697f8%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="23116cef-4e49-4da8-84bc-d88bdb576d58">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ExternalID" visible="true" columntype="longtext" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="f942e860-2b8f-4847-954b-e1c84204b17a">
+        <properties>
+          <fieldcaption>{$sm.ins.facebook.account$}</fieldcaption>
+        </properties>
+        <settings>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <controlname>uni_selector</controlname>
+          <AllowEmpty>True</AllowEmpty>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <ValuesSeparator>;</ValuesSeparator>
+          <GlobalObjectSuffix>(global)</GlobalObjectSuffix>
+          <OrderBy>FacebookAccountDisplayName</OrderBy>
+          <ReturnColumnName>FacebookAccountPageID</ReturnColumnName>
+          <ObjectSiteName>#currentsite</ObjectSiteName>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <SelectionMode>1</SelectionMode>
+          <DialogWindowWidth>668</DialogWindowWidth>
+          <ItemsPerPage>25</ItemsPerPage>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowAll>False</AllowAll>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <UseAutocomplete>True</UseAutocomplete>
+          <AllowDefault>False</AllowDefault>
+          <ObjectType>SM.FacebookAccount</ObjectType>
+          <DialogWindowHeight>590</DialogWindowHeight>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <ReturnColumnType>id</ReturnColumnType>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+        </settings>
+      </field>
+      <field column="PeriodType" columntype="text" fieldtype="CustomUserControl" columnsize="20" publicfield="false" guid="a882eff3-5f51-4ef1-bcfa-425cb409e528">
+        <properties>
+          <defaultvalue>day</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

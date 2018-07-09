@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Community</CodeName>
+    <GUID>01147d5c-3e9b-4522-a32c-60d259992b25</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[The My messages widget allows users to view and manage received private messages, or send new messages to other users. Users may also manage their outbox and contact/ignore list.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>My messages</WidgetDisplayName>
+  <WidgetForDashboard>True</WidgetForDashboard>
+  <WidgetForEditor>False</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>True</WidgetForUser>
+  <WidgetGUID>082b88a3-80bf-4156-884f-cba71128c2c0</WidgetGUID>
+  <WidgetIconClass>icon-w-my-messages</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>MyMessages_1</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="CssClass" visible="false" guid="f725c8df-296c-4ef7-9c3f-5a10b3dc08d5" visibility="none" ismacro="false">
+        <properties>
+          <defaultvalue>WidgetMyMessages</defaultvalue>
+        </properties>
+      </field>
+      <field column="DisplayInbox" visible="false" guid="9968d426-9d1c-41bb-8397-3ebe43bc94e4" />
+      <field column="DisplayOutbox" visible="false" guid="4186c939-1087-4d87-bdb6-47e083e7ab7a" />
+      <field column="DisplayContactList" visible="false" guid="fba1da96-c759-442b-aa5c-c0b987972adb" />
+      <field column="DisplayIgnoreList" visible="false" guid="f01c21d7-fc06-4e00-a114-603cc3451a8c" />
+      <field column="NotAuthenticatedMessage" visible="false" guid="936c9f9c-01f4-4d2f-869c-126fe75013a2">
+        <properties>
+          <defaultvalue>
+            <![CDATA[My messages are available only for authenticated users.]]>
+          </defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>MyMessages</CodeName>
+    <GUID>01fb5823-46a3-482f-a7de-d9031680e15b</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

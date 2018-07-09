@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Navigation</CodeName>
+    <GUID>539497bc-7780-4701-8d4e-be0128524204</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[The Breadcrumbs widget allows users to see their current position on the website and lets them link to pages on previous levels.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Breadcrumbs</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>3f01db98-abc1-4d12-ae5e-7dfb1904c3b3</WidgetGUID>
+  <WidgetIconClass>icon-w-breadcrumbs</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>breadcrumbs_1</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="Path" visible="false" guid="270117c9-e093-488c-b10f-65834d2ca594" />
+      <field column="DefaultPath" visible="false" guid="866d7a73-ef1b-488c-a7a4-0a8a619b0c02" />
+      <field column="SelectNodesStartPath" visible="false" guid="f969b82d-92a7-46a8-88cb-0b510e4ab312" />
+      <field column="ClassNames" visible="false" guid="dceaf406-93d5-4406-b013-34a5aef6e9bf" />
+      <field column="CombineWithDefaultCulture" visible="false" guid="adc3bcaa-9f84-462b-85ac-ff9aba9a2f12" />
+      <field column="CultureCode" visible="false" guid="9646c18a-e47c-4de0-a0fc-76a2884d9c63" />
+      <field column="SelectOnlyPublished" visible="false" guid="3db07bb2-f756-45fa-9c23-cafc99b02de5" />
+      <field column="SiteName" visible="false" guid="e64fdb51-8b94-4619-91f4-ad77ff0c349a" />
+      <field column="WhereCondition" visible="false" guid="7d76832f-54c8-494e-858c-0e75ddbc2eed" />
+      <field column="Columns" visible="false" guid="fb0cea67-3d63-4bdf-bcea-fa029f24da68" />
+      <field column="FilterName" visible="false" guid="159966f9-3438-4014-a83a-7947e465bf45" />
+      <field column="BreadCrumbSeparator" visible="false" guid="e2bfbaa8-36ba-4733-ad2a-37422b429205" />
+      <field column="BreadCrumbSeparatorRTL" visible="false" guid="60e10a41-c04c-40d1-b786-603f349fbb00" />
+      <field column="ShowCurrentItem" visible="false" guid="9373e99f-bf2b-4e43-9e9a-edc7754912b2" />
+      <field column="ShowCurrentItemAsLink" visible="false" guid="979995e6-f46c-4f44-8c32-aa92a364663c" />
+      <field column="UrlTarget" visible="false" guid="8c710e84-6b57-4e5f-830f-cffb267b4897" />
+      <field column="ApplyMenuDesign" visible="false" guid="dab0b54f-80f0-46aa-aaa1-73d3a799333f" />
+      <field column="RenderLinkTitle" visible="false" guid="dc0b1b44-1401-4f22-93d8-13eac6701b2d" />
+      <field column="UseRtlBehaviour" visible="false" guid="1702158f-0006-4b97-9e74-f4ce76b75ece" />
+      <field column="IgnoreShowInNavigation" visible="false" guid="db35c42b-185c-46c9-b0cd-d8e7af59b375" />
+      <field column="EncodeName" visible="false" guid="494b8117-7863-4642-a6c1-6173a10e1990" />
+      <field column="HideControlForZeroRows" visible="false" guid="58d4b6ff-55f2-4341-8fed-3b98868316e8" visibility="none" ismacro="false">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="ZeroRowsText" visible="false" guid="0e9f5ed7-31a1-426d-a96b-cb6a85a05310" />
+      <field column="CheckPermissions" visible="false" guid="a37786d0-1f89-4a41-a14c-31fb3f94e66d" />
+      <field column="CacheItemName" visible="false" guid="ef7c98b8-f56f-428b-a32d-faddee79ed60" />
+      <field column="CacheMinutes" visible="false" guid="cb406051-84fd-4d27-ad76-120f6327e220" />
+      <field column="CacheDependencies" visible="false" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>breadcrumbs</CodeName>
+    <GUID>e5bf251f-a3f7-488e-bdce-98d885a24c23</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

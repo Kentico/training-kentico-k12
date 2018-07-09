@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$Group.MessageBoards$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>Message Boards</ElementDisplayName>
+  <ElementFeature>MessageBoards</ElementFeature>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>a81c0b81-28e9-4ed2-8f7e-ddbb7b3fd93e</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Groups.EditGroup.MessageBoards</ElementName>
+  <ElementOrder>7</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>VerticalTabs</CodeName>
+    <GUID>8136b750-a785-438f-a412-32212cd4dde6</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>EditGroup</CodeName>
+    <GUID>100b40e2-e0de-4cdd-8d9a-b6ad3facbb21</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Groups</CodeName>
+      <GUID>65f419f4-00f1-4905-a344-fc5b94983097</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_header>False</category_name_header>
+      <parentobjecttype>community.group</parentobjecttype>
+      <includejquery>False</includejquery>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+      <titletext>{$board.header.messageboards$}</titletext>
+      <objecttype>board.board</objecttype>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.MessageBoards</CodeName>
+    <GUID>0011c831-2e12-45bf-87ed-6a17607659f8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+</cms.uielement>

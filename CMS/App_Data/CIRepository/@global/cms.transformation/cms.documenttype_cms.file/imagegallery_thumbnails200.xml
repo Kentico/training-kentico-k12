@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>CMS.File</CodeName>
+    <GUID>5b168902-89b2-448f-9357-277df7dc7291</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<a href="?imagepath=<%# System.Web.HttpUtility.UrlEncode(DataBinder.Eval(Container, "DataItem.NodeAliasPath").ToString()) %>">
+<%#IfEmpty(Eval("FileAttachment"), "no image", "<img alt='" + Eval("FileName", true) + "' src='" + GetAttachmentUrlByGUID(Eval("FileAttachment"), Eval("NodeAlias")) + "?maxsidesize=200' border='0' />")%>
+</a>
+]]>
+  </TransformationCode>
+  <TransformationCSS>
+<![CDATA[
+
+
+]]>
+  </TransformationCSS>
+  <TransformationGUID>bc05b40a-fba1-4f66-9730-6bb35fc85e85</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>ImageGallery_thumbnails200</TransformationName>
+  <TransformationType>ascx</TransformationType>
+</cms.transformation>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Messaging.Message</CodeName>
+    <GUID>79e25187-258a-4c42-8849-da3dc3a03ccc</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>18776c73-1a60-4818-b0d1-4eeff52e3ee3</QueryGUID>
+  <QueryIsCustom>True</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>deleteunreferenced</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[DELETE FROM Messaging_Message WHERE ##WHERE## AND (MessageRecipientDeleted = 1) AND (MessageSenderDeleted = 1)]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

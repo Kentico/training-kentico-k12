@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>0</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>Forums</CodeName>
+    <GUID>0517a811-fbfa-4aeb-a9ae-8a58ce23e12e</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>New posts by week</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>f9005f69-f4b8-431f-ac5a-fd6ca5e02f28</ReportGUID>
+  <ReportLayout>
+    <![CDATA[%%control:ReportGraph?NewPostsByWeek.NewPostsByWeekGraph%%<br />]]>
+  </ReportLayout>
+  <ReportName>NewPostsByWeek</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="LastXWeeks" visible="true" columntype="integer" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="a2777801-9283-4a8b-8ae9-01fa449382d2">
+        <properties>
+          <defaultvalue>12</defaultvalue>
+          <fieldcaption>Last x weeks</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

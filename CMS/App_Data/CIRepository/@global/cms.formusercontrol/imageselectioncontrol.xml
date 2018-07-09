@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>ImageSelectionControl</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDefaultDataTypeSize>500</UserControlDefaultDataTypeSize>
+  <UserControlDescription>
+    <![CDATA[Provides a selector of images uploaded on the website and offers automatic image resizing options.]]>
+  </UserControlDescription>
+  <UserControlDisplayName>Image selection</UserControlDisplayName>
+  <UserControlFileName>~/CMSFormControls/Media/ImageSelectionControl.ascx</UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>1eaa6f3e-eb13-4718-9cdf-285596049a37</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field allowempty="true" column="Width" columnsize="10" columntype="text" displayinsimplemode="true" guid="38f98c99-eded-4804-b9d3-bf9fd91f845f" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Width (px)</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the width of the image preview displayed in the form.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="Height" columnsize="10" columntype="text" displayinsimplemode="true" guid="4f8bb4e5-e2eb-49f4-acc6-18ed87f1be51" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Height (px)</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the height of the image preview displayed in the form.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="MaxSideSize" columnsize="10" columntype="text" displayinsimplemode="true" guid="e9928d6a-06b2-40d1-a301-06aa2764b5c3" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Max side size (px)</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the maximum size for the larger dimension of the image preview displayed in the form.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="Autoresize" columntype="longtext" guid="337d8bc8-9ab1-4fc4-87a2-552a6ad5589a" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Automatic image resize on upload</fieldcaption>
+          <fielddescription>
+            <![CDATA[The resizing settings specified here are applied to all uploaded images.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>autoresizeconfiguration</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Autoresize_Width" columntype="integer" guid="d0e99040-1a1c-46e3-a64c-d900c3725583" publicfield="false" spellcheck="false" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Autoresize_Height" columntype="integer" guid="e3e5bcd0-4f4a-4384-9aa1-c5bd87feb0fc" publicfield="false" spellcheck="false" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Autoresize_MaxSideSize" columntype="integer" guid="bf915df7-678a-42f3-b500-43b4243123a8" publicfield="false" spellcheck="false" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Autoresize_Hashtable" columntype="boolean" guid="e2329ba7-9094-4d91-aaa2-a00cbbbf90cd" publicfield="false" spellcheck="false" visibility="none">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlShowInBizForms>True</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>True</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>True</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>True</UserControlShowInReports>
+  <UserControlShowInSystemTables>True</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlThumbnailGUID>1ac00eb9-8232-470b-ba3d-32b0b424fca1</UserControlThumbnailGUID>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

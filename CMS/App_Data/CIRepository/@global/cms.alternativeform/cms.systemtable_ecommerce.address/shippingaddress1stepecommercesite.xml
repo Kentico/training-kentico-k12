@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>Ecommerce.Address</CodeName>
+    <GUID>3cc96754-268c-4eeb-94cf-44204a27431a</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <field column="AddressLine1">
+        <properties>
+          <explanationtext>e.g. street address, P.O.box, c/o</explanationtext>
+        </properties>
+      </field>
+      <field column="AddressLine2">
+        <properties>
+          <explanationtext>e.g. apartment, suite, unit, building, floor</explanationtext>
+        </properties>
+      </field>
+      <field column="AddressPhone" visible="" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Shipping address 1 step (E-commerce Site)</FormDisplayName>
+  <FormGUID>151daf25-4e50-4473-ac7d-b779f81a8b11</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormLayout>
+    <![CDATA[$$label:AddressPersonalName$$$$input:AddressPersonalName$$$$validation:AddressPersonalName$$&nbsp;$$label:AddressLine1$$&nbsp;$$input:AddressLine1$$&nbsp;$$validation:AddressLine1$$&nbsp;$$label:AddressLine2$$&nbsp;$$input:AddressLine2$$&nbsp;$$validation:AddressLine2$$&nbsp;$$label:AddressCity$$&nbsp;$$input:AddressCity$$&nbsp;$$validation:AddressCity$$&nbsp;$$label:AddressZip$$&nbsp;$$input:AddressZip$$&nbsp;$$validation:AddressZip$$&nbsp;$$label:AddressCountryID$$&nbsp;$$input:AddressCountryID$$&nbsp;$$validation:AddressCountryID$$]]>
+  </FormLayout>
+  <FormLayoutType>html</FormLayoutType>
+  <FormName>ShippingAddress1StepEcommerceSite</FormName>
+</cms.alternativeform>

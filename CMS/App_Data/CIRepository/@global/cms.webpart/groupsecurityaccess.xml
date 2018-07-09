@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>GroupSecurity</CodeName>
+    <GUID>3be83bc1-a16c-4bfb-b105-1c1c2c7e7ccc</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[This web part checks if the current user has sufficient permissions to view the content of the group to which the given page belongs. Unauthorized users are automatically redirected to a specified URL.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Group security access</WebPartDisplayName>
+  <WebPartDocumentation>
+    <![CDATA[This web part should be placed on all pages that should reflect the security settings of the&nbsp;group&nbsp;to which&nbsp;they belong.]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Community/GroupSecurityAccess.ascx</WebPartFileName>
+  <WebPartGUID>67906cad-02ac-431b-ab6e-0bd12f98a951</WebPartGUID>
+  <WebPartIconClass>icon-w-group-security-access</WebPartIconClass>
+  <WebPartName>GroupSecurityAccess</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Security">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="UseQueryString" columntype="boolean" guid="64ee9327-6859-4378-8887-71b0697c1ce7" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Use query string</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a query string parameter should be added to the redirection URL to identify which group was accessed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="GroupsSecurityAccessPath" columnsize="500" columntype="text" guid="22dee68c-e061-4085-939b-0eaf8888d8e0" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Groups security access denied path</fieldcaption>
+          <fielddescription>{$webpart.properties.GroupsSecurityAccesspath$}</fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>4</WebPartType>
+</cms.webpart>

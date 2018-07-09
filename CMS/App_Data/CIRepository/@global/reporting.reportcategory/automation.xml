@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>Automation</CategoryCodeName>
+  <CategoryDisplayName>Automation</CategoryDisplayName>
+  <CategoryGUID>6864151f-4ab6-4647-af44-5b3f2ce50842</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>OnlineMarketing</CodeName>
+    <GUID>7d018864-446f-4eda-b802-a607021b9380</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

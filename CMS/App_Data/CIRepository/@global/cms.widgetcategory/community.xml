@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widgetcategory>
+  <WidgetCategoryDisplayName>Community</WidgetCategoryDisplayName>
+  <WidgetCategoryGUID>01147d5c-3e9b-4522-a32c-60d259992b25</WidgetCategoryGUID>
+  <WidgetCategoryImagePath />
+  <WidgetCategoryName>Community</WidgetCategoryName>
+  <WidgetCategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>b51398f0-a113-11de-a93c-048c55d89593</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryParentID>
+</cms.widgetcategory>

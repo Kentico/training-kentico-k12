@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>A/B variant</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="ABVariantDisplayName" columnsize="110" columntype="text" guid="b312cf05-fbed-454c-8089-7068ef028c78" publicfield="false" system="true" translatefield="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$general.displayname$}</fieldcaption>
+          <fielddescription>{$abtesting.variantdisplayname.description$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>localizabletextbox</controlname>
+        </settings>
+      </field>
+      <field column="ABVariantID" columntype="integer" guid="f98434ef-e6d2-47b4-961c-cfc77732156a" isPK="true" isunique="true" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>ABVariantID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ABVariantName" columnsize="50" columntype="text" guid="9c8e730b-99e7-4a82-8e01-c806034b978f" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$general.codename$}</fieldcaption>
+          <fielddescription>{$abtesting.variantname.description$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>codename</controlname>
+        </settings>
+      </field>
+      <field column="ABVariantTestID" columntype="integer" guid="05f4478c-afca-4080-a1ed-0b57f7ced483" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>Variant test ID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ABVariantPath" columnsize="450" columntype="text" guid="7a30dbee-81e1-4e00-9f85-9f440474ccc9" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$abtesting.variantpath$}</fieldcaption>
+          <fielddescription>{$abtesting.variantpath.description$}</fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SelectablePageTypes>1</SelectablePageTypes>
+        </settings>
+      </field>
+      <field column="ABVariantGUID" columntype="guid" guid="4eddca74-5003-459d-8efb-03c804c19938" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>Variant GUID</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="ABVariantLastModified" columntype="datetime" guid="c55c2642-3533-479b-a3fa-056327dead2e" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>Last modified</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ABVariantSiteID" columntype="integer" guid="9859dbe7-c398-4b76-bdea-d39c28f1934e" publicfield="false" system="true" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>fb969b83-36b9-4c02-9700-948f4e7892ea</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>OM.ABVariant</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.ABTest</CodeName>
+    <GUID>f23e944e-1a51-46f0-8a2e-75bcfc2a70ea</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn>0</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>ABVariantLastModified</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search>
+      <item azureretrievable="True" content="False" id="00076ce0-2762-437a-b354-8918a5aee63e" name="ABVariantTestID" searchable="True" tokenized="False" />
+      <item content="False" id="02aeffbf-359f-42b4-b89c-60296a2fea89" name="ABVariantGUID" searchable="False" tokenized="False" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="13407213-05bb-421c-bb7c-e5719808f7b7" name="ABVariantDisplayName" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="3f4b8773-43cf-40e8-914a-4b1835b8e556" name="ABVariantLastModified" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="4266cd97-9c39-4ac5-8460-42fb598cfe56" name="ABVariantConversions" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="a0549892-c891-4947-adc0-9acc9f140ae9" name="ABVariantID" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="c0ca7806-21bb-4adb-98cf-209fa4ba817b" name="ABVariantViews" searchable="True" tokenized="False" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="c2c1ef5e-4c9a-4e24-ad35-f8625a216269" name="ABVariantName" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="edc2d92b-f1c4-4025-bfbe-164080f4442d" name="ABVariantPath" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="eea97969-85d1-44f7-a44e-7cf1d4325ba2" name="ABVariantSiteID" searchable="True" tokenized="False" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>ABVariantDisplayName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>OM_ABVariant</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

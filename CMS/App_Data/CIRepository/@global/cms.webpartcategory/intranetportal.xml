@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Intranet portal</CategoryDisplayName>
+  <CategoryGUID>7adb2a2b-c1b8-433c-9e3b-ffc0883ac2f5</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>IntranetPortal</CategoryName>
+  <CategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>d782b5c3-27f3-45e6-a5cc-86c1944e2c8d</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

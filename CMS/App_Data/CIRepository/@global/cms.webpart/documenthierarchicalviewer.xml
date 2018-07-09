@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DocumentViewers</CodeName>
+    <GUID>46e23e43-a698-4fdb-8898-2526f4dd4e09</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[The Hierarchical viewer is based on the Universal viewer and contains only those properties necessary for displaying hierarchical data. The web part renders the content of specified pages using the assigned transformations.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Hierarchical viewer</WebPartDisplayName>
+  <WebPartDocumentation>
+    <![CDATA[Learn more about <a href="~/CMSPages/GetDocLink.ashx?link=transformations_hierarchical" target="_blank">Using hierarchical transformations</a>.]]>
+  </WebPartDocumentation>
+  <WebPartFileName />
+  <WebPartGUID>a74fef53-bc7d-4846-997f-3aec9e7acd81</WebPartGUID>
+  <WebPartIconClass>icon-w-hierarchical-viewer</WebPartIconClass>
+  <WebPartName>DocumentHierarchicalViewer</WebPartName>
+  <WebPartParentID>
+    <CodeName>CMSUniView</CodeName>
+    <GUID>2a28764b-d36c-45f1-973f-c2691565fb60</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WebPartParentID>
+  <WebPartProperties>
+    <form version="2">
+      <field column="Path" guid="781264e4-3b56-4431-bcc4-5deda3019da4" />
+      <field column="DataSourceName" guid="911513c3-c397-4501-a463-f55ff9c8d4e0" />
+      <field column="ClassNames" guid="64157bea-07eb-4900-b31a-c75edc06504a" reftype="" />
+      <field column="CategoryName" guid="485232d3-ebc9-4bd9-9c99-f7b0ea9e2011" />
+      <field column="CombineWithDefaultCulture" guid="480f3e7a-2a2c-4317-80b6-04e061f7cee9" />
+      <field column="CultureCode" guid="e60b92be-a8a5-477a-a2bc-c7a664d564d5" />
+      <field column="MaxRelativeLevel" guid="2f965e08-4099-47f6-8bff-398c37114d34" />
+      <field column="OrderBy" guid="adf4f47a-109c-46f0-aac0-9afdcea4dce8" />
+      <field column="SelectOnlyPublished" guid="03fc00e9-680d-4fa9-a7da-9b080819dd6f" />
+      <field column="SelectTopN" guid="7156a190-1728-458f-98e8-3c227d0e958e" visible="" />
+      <field column="SiteName" guid="29568fda-e81b-4d03-95e9-b00a31e91310" />
+      <field column="WhereCondition" guid="a94e8aa4-9604-4462-ba67-c5607644c1d1" />
+      <field column="Columns" guid="b8294c91-a3b8-4b95-b73d-a03e5521a2cb" />
+      <field column="FilterOutDuplicates" guid="1bbaeb69-21b4-4046-ae59-3d2707613e33" />
+      <field column="FilterName" guid="eb389b7a-81cc-4965-a9e2-cbcda9ffa40a" />
+      <field column="HierarchicalTransformationName" guid="bb2bf9a0-b4df-480a-8579-ba06897998c9" />
+      <field column="TransformationName" guid="6770203c-2de8-482d-b33b-33f4cd79d60f" resolvedefaultvalue="False" visible="" />
+      <field column="AlternatingTransformationName" guid="544d99f8-ed47-476b-b353-f6e478fd7317" resolvedefaultvalue="False" visible="" />
+      <field column="SeparatorTransformationName" guid="c32d8a14-a20f-4991-89c6-f1b1cb4b46e1" resolvedefaultvalue="False" visible="" />
+      <field column="HeaderTransformationName" guid="b854db72-d030-43ef-8889-1f51b770a276" resolvedefaultvalue="False" visible="" />
+      <field column="FooterTransformationName" guid="22bc5693-8e26-4ad5-b637-5d022e45bc72" resolvedefaultvalue="False" visible="" />
+      <field column="FirstTransformationName" guid="72affdc6-7104-4f7c-b9a8-84a6819e60dd" resolvedefaultvalue="False" visible="" />
+      <field column="LastTransformationName" guid="0f8f5d35-07d4-48c8-b4a5-eaf888712e01" resolvedefaultvalue="False" visible="" />
+      <field column="SingleTransformationName" guid="5dad52db-28ce-42ac-bb63-c3f3be12ef27" resolvedefaultvalue="False" visible="" />
+      <field column="SelectedItemTransformationName" guid="3e8f94e3-a5b9-4ae7-9d20-eb4e7992e225" />
+      <field column="SelectedHeaderItemTransformationName" guid="6c785e3b-d21b-4d4b-a6f0-04d47ea25e7f" />
+      <field column="SelectedFooterItemTransformationName" guid="fdda1c84-5776-4948-b4ba-4cd81e2af2b6" />
+      <field column="ItemSeparator" guid="dca72ea9-8b89-4ef2-9d6b-f2a3dea3b658" />
+      <field column="NestedControlsID" guid="e55e2c23-7b08-4419-8c05-410ef5de9766" resolvedefaultvalue="False" visible="" />
+      <field column="HideHeaderAndFooterForSingleItem" guid="778e38df-9550-4176-a698-2ab994fa7527" />
+      <field column="LoadHierarchicalData" guid="6fa8167c-887d-421f-926d-20fba22a873a" resolvedefaultvalue="False" visible="">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+      </field>
+      <field column="UseHierarchicalOrder" guid="bf2913e6-46c7-4711-8687-21e5d4589f87" />
+      <field column="HierarchicalDisplayMode" guid="6f1026f3-b528-419a-88eb-0bbd7c67ca69" />
+      <category name="Paging">
+        <properties>
+          <visible>False</visible>
+        </properties>
+      </category>
+      <field column="EnablePaging" guid="d2e7fc4c-6848-47bf-98aa-1a65dcdfa07f" />
+      <field column="PagerMode" guid="43a2ed54-5186-4002-85db-92e7e7dcdb28" />
+      <field column="PagerPosition" guid="88f37ebd-1b83-4efa-9cc6-84db975ba45e" />
+      <field column="PageSize" guid="67cde1cd-d68d-4325-b1f9-08497291ad29" />
+      <field column="QueryStringKey" guid="9eedc722-99b9-4d06-817a-77acc4162ee7" />
+      <field column="GroupSize" guid="f1ecff3f-2371-4a43-8890-0f18e7124cc2" />
+      <field column="DisplayFirstLastAutomatically" guid="7bef5585-aecb-47a6-a3d8-203dd07bf91d" />
+      <field column="DisplayPreviousNextAutomatically" guid="def28085-099a-4c69-8951-bcc2d0a9ba6f" />
+      <field column="HidePagerForSinglePage" guid="42c51fd0-685b-4c5a-94b4-96fbea112b57" />
+      <field allowempty="true" column="ResetScrollPositionOnPostBack" columntype="boolean" extra="true" guid="c87cebd0-acf1-44a5-8bd0-e7ca69533aa9" publicfield="false" resolvedefaultvalue="False" visible="true" order="49">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Reset scroll position</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.resetscrollposition$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <category name="Pager design" order="50">
+        <properties>
+          <visible>False</visible>
+        </properties>
+      </category>
+      <field column="Pages" guid="4a9c59b4-6c70-4fe6-8d21-5ab894b764a1" order="51" />
+      <field column="CurrentPage" guid="62f17956-64d4-4bd5-b655-5f8bf9d36940" order="52" />
+      <field column="PageSeparator" guid="c8f29db0-0872-4f99-b513-25e6911586f9" order="53" />
+      <field column="FirstPage" guid="000ef8e5-de95-47c7-8fe4-ca0015f0a743" order="54" />
+      <field column="LastPage" guid="904659d2-c468-4cd7-858b-6cb5347c5552" order="55" />
+      <field column="PreviousPage" guid="40a988d9-f546-44e5-ba17-b0363547a56f" order="56" />
+      <field column="NextPage" guid="54f4131b-ce93-4478-ab28-dcf7da4950fa" order="57" />
+      <field column="PreviousGroup" guid="08440a66-4dae-49eb-9d6f-6345e1014fb7" order="58" />
+      <field column="NextGroup" guid="e25c7e59-0d31-4d8e-831c-e673b3e3b6b8" order="59" />
+      <field column="DirectPage" guid="39c3d8b6-88e8-49a3-968f-fc4ebfa38fbc" order="60" />
+      <field column="PagerLayout" guid="3c8e00a9-fbe6-41cf-9a98-cc9f5c5dda81" order="61" />
+      <category name="Relationships" order="62" />
+      <field column="RelationshipWithNodeGuid" guid="e76e8029-2093-4f63-8db9-bda2f57c12cc" order="63" />
+      <field column="RelatedNodeIsOnTheLeftSide" guid="31779eaf-de65-4ec6-a763-d86b02eaa409" order="64" />
+      <field column="RelationshipName" guid="cbaae6d5-b903-4b24-a7fc-b014103413de" order="65" />
+      <category name="System settings" order="66" />
+      <field column="CheckPermissions" guid="7b641033-cec3-4a4d-900b-51636693f3b0" order="67" />
+      <field column="LoadPagesIndividually" guid="73dec364-b1a1-45cf-9d23-09e3c5223a91" resolvedefaultvalue="False" visible="" order="68" />
+      <field column="CacheItemName" guid="79ebb566-e98e-451c-8a07-8e4bba0b526a" order="69" />
+      <field column="CacheMinutes" guid="bca1a8f8-c4fa-4dbd-9228-fae47a26172d" order="70" />
+      <field column="CacheDependencies" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" order="71" />
+      <category name="No data behavior" order="72" />
+      <field column="HideControlForZeroRows" guid="a9b7587f-7fd1-4653-8538-0c5e6e206d78" order="73" />
+      <field column="ZeroRowsText" guid="f3ae497c-21d8-47c9-898e-a3423670d6b7" order="74" />
+      <category name="Editing buttons" order="75" />
+      <field column="ShowNewButton" guid="14f9d228-9e47-404a-a7b5-f9fb6b16b15d" order="76" />
+      <field column="NewButtonText" guid="3e682823-eb6d-4b8e-9416-d333ff7ab187" order="77" />
+      <field column="ShowEditDeleteButtons" guid="e2eeefa5-c18e-41dc-81e3-00b1f55cd1de" order="78" />
+      <field column="ShowEditButton" guid="b7b4363d-457a-4d15-b501-1884d7f3f9b8" order="79" />
+      <field column="ShowDeleteButton" guid="76cb663c-9d68-4e78-beaa-a5177a0a697d" order="80" />
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

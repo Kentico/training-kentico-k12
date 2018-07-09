@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption />
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>{$wysiwyg.ui.insertwidget$}</ElementDisplayName>
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>a94ddf97-0b2c-4f74-9148-93c66c4e04a6</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>InsertWidget</ElementName>
+  <ElementOrder>5</ElementOrder>
+  <ElementParentID>
+    <CodeName>Group.Components</CodeName>
+    <GUID>be623edb-e82f-415a-890b-adee9c2ea30c</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.WYSIWYGEditor</CodeName>
+      <GUID>8159098b-ea70-40df-ae2e-f7730ea6814e</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.WYSIWYGEditor</CodeName>
+    <GUID>8159098b-ea70-40df-ae2e-f7730ea6814e</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL />
+</cms.uielement>

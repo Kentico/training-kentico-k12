@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>ComProducts</CodeName>
+    <GUID>629c7495-0973-4df6-9f21-b0a87686a061</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays items added to the user's wish list.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Wishlist</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Ecommerce/Wishlist.ascx</WebPartFileName>
+  <WebPartGUID>d76062f4-c755-45a6-9490-cfb6add3788a</WebPartGUID>
+  <WebPartIconClass>icon-w-wishlist</WebPartIconClass>
+  <WebPartName>Wishlist</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Transformations">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="9d79c2b6-4ac0-410c-b587-819d1a3f1de4" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.transformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ItemSeparator" columntype="longtext" guid="9086c350-e3fa-4919-85c1-7abcff51d50f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Item separator</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.itemseparator$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Ecommerce</CodeName>
+    <GUID>684e021b-8b56-4cbf-8fd5-b7a791fd2dbc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

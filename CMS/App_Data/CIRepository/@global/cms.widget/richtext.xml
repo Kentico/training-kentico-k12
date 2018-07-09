@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Text</CodeName>
+    <GUID>9a002a14-275d-4ad7-87d6-e4de10a7d0c3</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[The Rich text widget can be used to place HTML content onto the page. Users may utilize a WYSIWYG toolbar while editing the text, which provides various additional formatting and content options.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Rich Text</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>8d0b264f-87a4-4cf7-be43-69e3aee4ea37</WidgetGUID>
+  <WidgetIconClass>icon-w-rich-text</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>richtext</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="Text" guid="040fbee7-4d9f-4c50-8846-fdd62daf7e61" visibility="">
+        <settings>
+          <ToolbarSet>Widgets</ToolbarSet>
+        </settings>
+      </field>
+      <field column="ResolveDynamicControls" guid="29e28611-c933-4523-8dba-a8ba1fbe87be" visible="" />
+      <category name="Web part container" extra="true" order="3">
+        <properties>
+          <caption>Widget container</caption>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="Container" visible="false" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="36420a4e-4e6e-406e-a06f-9a7d606b98da" extra="true" reftype="Required" order="4">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.container$}</fielddescription>
+          <fieldcaption>Widget container</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>selectcontainer</controlname>
+        </settings>
+      </field>
+      <field column="ContainerTitle" visible="false" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="cd9a0801-5992-44f7-b744-c4790e657be8" extra="true" reftype="Required" order="5">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.containertitle$}</fielddescription>
+          <fieldcaption>Widget container title</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCSSClass" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="cf79d6a8-0951-4481-926b-861d141954f8" extra="true" reftype="Required" order="6" visible="false">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercssclass$}]]>
+          </fielddescription>
+          <fieldcaption>Container CSS class</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCustomContent" columntype="longtext" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="b1842275-c9f1-4a14-adba-905cf2896257" extra="true" reftype="Required" order="7" visible="false">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
+          </fielddescription>
+          <fieldcaption>Container custom content</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Wrap>True</Wrap>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <FilterMode>False</FilterMode>
+          <controlname>textareacontrol</controlname>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+        </settings>
+      </field>
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>statichtml</CodeName>
+    <GUID>22c87868-6572-46eb-b517-dab4cc97ee78</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

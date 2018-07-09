@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<badwords.word>
+  <WordExpression>dick</WordExpression>
+  <WordGUID>7e5d6d5c-314b-48b0-8e5a-750e55a95b81</WordGUID>
+  <WordIsGlobal>True</WordIsGlobal>
+  <WordIsRegularExpression>False</WordIsRegularExpression>
+  <WordMatchWholeWord>True</WordMatchWholeWord>
+</badwords.word>

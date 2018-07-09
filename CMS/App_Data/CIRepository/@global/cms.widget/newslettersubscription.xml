@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Newsletters</CodeName>
+    <GUID>89e446af-1878-4fc3-9b46-5fcda4fd2575</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays a dialog that allows users to subscribe to the website's newsletters.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Newsletter subscription</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>b7657c15-102b-41a6-8930-c2fc5fd2b72e</WidgetGUID>
+  <WidgetIconClass>icon-w-newsletter-subscription</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>NewsletterSubscription</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="NewsletterName" guid="920cf472-b0b0-4b2d-888d-9af0feb40d62" />
+      <field column="DisplayFirstName" guid="1301c149-7a17-4e70-b5d8-0d77efc2295f" />
+      <field column="FirstNameText" guid="224aa388-070a-4a53-abb4-00cdc822817f">
+        <settings>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="DisplayLastName" guid="b8dcfd82-0b0a-4ac5-ab0c-be11095116e2" />
+      <field column="LastNameText" guid="873a46dc-96e4-444d-aef1-532556c540d7">
+        <settings>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="EmailText" guid="0415bff5-2b3f-4d73-ba79-f1bbbc1aeb7a" visible="" />
+      <field column="ButtonText" guid="12f09634-3bd3-4922-8b78-2b1019e34cd5" visible="" />
+      <field column="SkinID" guid="9b0189e7-f588-4fd1-9099-f515e50318e0" visible="" />
+      <field column="SendConfirmationEmail" guid="07cf9cda-9d00-4e72-afea-d38af8486f0a" visible="" />
+      <field column="DisplayCaptcha" guid="718331d2-a618-4f25-9e61-afebd6a81058" visible="" />
+      <field column="CaptchaText" guid="f7f3c960-f869-4398-8799-0a6fbaba0435" visible="" />
+      <field column="AllowUserSubscribers" guid="a537eb5a-31a4-4f86-92cd-2089f473e54b" />
+      <field column="UseImageButton" guid="a5b96029-916c-4921-95b0-d3998f756af5" visible="" />
+      <field column="ImageButtonURL" guid="d2bfddba-b8d9-4414-9b88-be79d5f1392d" visible="" />
+      <field column="ResourcePrefix" guid="981cdc9f-e5c8-429d-a6ad-780f3c79d9c9" visible="false" />
+      <field column="TrackConversionName" guid="7f239770-0a8f-4be6-b611-f294e315edf3" />
+      <category name="Web part container" extra="true" order="18">
+        <properties>
+          <caption>Widget container</caption>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="Container" visible="true" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="36420a4e-4e6e-406e-a06f-9a7d606b98da" extra="true" reftype="Required" order="19">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.container$}</fielddescription>
+          <fieldcaption>Widget container</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>selectcontainer</controlname>
+        </settings>
+      </field>
+      <field column="ContainerTitle" visible="true" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="cd9a0801-5992-44f7-b744-c4790e657be8" extra="true" reftype="Required" order="20">
+        <properties>
+          <fielddescription>{$documentation.widgetproperties.containertitle$}</fielddescription>
+          <fieldcaption>Widget container title</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCSSClass" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="200" publicfield="false" guid="cf79d6a8-0951-4481-926b-861d141954f8" extra="true" reftype="Required" order="21">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercssclass$}]]>
+          </fielddescription>
+          <fieldcaption>Container CSS class</fieldcaption>
+        </properties>
+        <settings>
+          <Trim>False</Trim>
+          <controlname>encodingtextbox</controlname>
+        </settings>
+      </field>
+      <field column="ContainerCustomContent" columntype="longtext" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="b1842275-c9f1-4a14-adba-905cf2896257" extra="true" reftype="Required" order="22">
+        <properties>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
+          </fielddescription>
+          <fieldcaption>Container custom content</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Wrap>True</Wrap>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field column="ConversionValue" guid="b101ea96-9c17-44e3-a44d-1b26c4385df7" order="23" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetSkipInsertProperties>False</WidgetSkipInsertProperties>
+  <WidgetWebPartID>
+    <CodeName>NewsletterSubscription</CodeName>
+    <GUID>355520d0-d42f-4445-819d-8cf426a3c6ce</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

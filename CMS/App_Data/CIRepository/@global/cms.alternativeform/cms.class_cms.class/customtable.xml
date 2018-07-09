@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>cms.class</CodeName>
+    <GUID>d7e91104-201b-4b11-9550-e93ad9a4d81f</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <category name="general.general" dummy="true" order="1">
+        <properties>
+          <caption>{$general.general$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="ClassDisplayName" order="2">
+        <settings>
+          <ValueIsContent>False</ValueIsContent>
+          <controlname>localizabletextbox</controlname>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <Trim />
+          <AutoCompleteFirstRowSelected />
+          <FilterMode />
+        </settings>
+        <properties>
+          <fielddescription>{$customtable.classdisplayname.description$}</fielddescription>
+        </properties>
+      </field>
+      <field column="ClassName" order="3">
+        <settings>
+          <ResourcePrefix>customtable.edit</ResourcePrefix>
+        </settings>
+        <properties>
+          <fielddescription>{$customtable.classname.description$}</fielddescription>
+          <validationerrormessage />
+        </properties>
+      </field>
+      <field column="ClassUsesVersioning" order="4" />
+      <field column="ClassIsDocumentType" order="5" />
+      <field column="ClassIsCoupledClass" order="6" />
+      <field column="ClassXmlSchema" order="7" />
+      <field column="ClassFormDefinition" order="8" />
+      <field column="ClassNodeNameSource" order="9" />
+      <field column="ClassTableName" order="10">
+        <settings>
+          <controlname>labelcontrol</controlname>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <Trim />
+          <AutoCompleteFirstRowSelected />
+          <FilterMode />
+        </settings>
+        <properties>
+          <visiblemacro ismacro="true">{%ClassIsCoupledClass%}</visiblemacro>
+          <fielddescription>{$customtable.classtablename.description$}</fielddescription>
+        </properties>
+      </field>
+      <field column="ClassInheritsFromClassID" order="11">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <visiblemacro ismacro="true">{%ClassIsCoupledClass%}</visiblemacro>
+          <fieldcaption>{$DocumentType.InheritsFrom$}</fieldcaption>
+        </properties>
+      </field>
+      <category name="DocumentType.NewSettings" dummy="true" order="12">
+        <properties>
+          <caption>{$customtable.newsettings$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="ClassNewPageUrl" visible="true" order="13">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Trim>False</Trim>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <FilterMode>False</FilterMode>
+        </settings>
+        <properties>
+          <fielddescription>{$customtable.classnewpageurl.description$}</fielddescription>
+          <fieldcaption>{$documenttype_edit_general.newpage$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ClassShowTemplateSelection" hasdependingfields="true" order="14">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.TemplateSelection$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ClassPageTemplateCategoryID" hasdependingfields="true" dependsonanotherfield="true" order="15">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <visiblemacro ismacro="true">{%ClassShowTemplateSelection%}</visiblemacro>
+          <fieldcaption>
+            <![CDATA[{$DocumentType_Edit_General.TemplateCategorySelection$}]]>
+          </fieldcaption>
+        </properties>
+      </field>
+      <field column="ClassDefaultPageTemplateID" order="16">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.DefaultTemplate$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ClassFormLayout" order="17" />
+      <field column="ClassEditingPageUrl" order="18">
+        <settings>
+          <FilterMode>False</FilterMode>
+        </settings>
+        <properties>
+          <fielddescription>{$customtable.classeditingpageurl.description$}</fielddescription>
+          <fieldcaption>{$customtable.edit.editingpage$}</fieldcaption>
+          <visiblemacro />
+        </properties>
+      </field>
+      <field column="ClassViewPageUrl" visible="true" order="19">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Trim>False</Trim>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <FilterMode>False</FilterMode>
+        </settings>
+        <properties>
+          <fielddescription>{$customtable.classviewpageurl.description$}</fielddescription>
+          <fieldcaption>{$customtable.edit.viewpage$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ClassPreviewPageUrl" order="20">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.PreviewPage$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ClassListPageUrl" visible="true" order="21">
+        <settings>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Trim>False</Trim>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <FilterMode>False</FilterMode>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+        </settings>
+        <properties>
+          <fielddescription>{$customtable.classlistpageurl.description$}</fielddescription>
+          <fieldcaption>{$DocumentType_Edit_General.ListPage$}</fieldcaption>
+        </properties>
+      </field>
+      <category name="documenttype.advanced" dummy="true" order="22">
+        <properties>
+          <caption>{$documenttype.advanced$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="ClassShowAsSystemTable" visible="" order="23" />
+      <field column="ClassUsePublishFromTo" order="24">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.UsePublishFromTo$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ClassSKUMappings" order="25" />
+      <field column="ClassIsMenuItemType" order="26">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.IsMenuItem$}</fieldcaption>
+        </properties>
+      </field>
+      <field column="ClassNodeAliasSource" order="27" />
+      <field column="ClassLastModified" order="28" />
+      <field column="ClassGUID" order="29" />
+      <field column="ClassCreateSKU" order="30" />
+      <field column="ClassIsProduct" order="31" />
+      <field column="ClassIsCustomTable" order="32" />
+      <field column="ClassShowColumns" order="33" />
+      <field column="ClassSearchTitleColumn" order="34" />
+      <field column="ClassSearchContentColumn" order="35" />
+      <field column="ClassSearchImageColumn" order="36" />
+      <field column="ClassSearchCreationDateColumn" order="37" />
+      <field column="ClassSearchSettings" order="38" />
+      <field column="ClassConnectionString" visible="" order="39" />
+      <field column="ClassSearchEnabled" order="40" />
+      <field column="ClassSKUDefaultDepartmentName" order="41" />
+      <field column="ClassSKUDefaultDepartmentID" order="42" />
+      <field column="ClassContactMapping" order="43" />
+      <field column="ClassContactOverwriteEnabled" order="44" />
+      <field column="ClassSKUDefaultProductType" order="45" />
+      <field column="ClassIsProductSection" order="46" />
+      <field column="ClassFormLayoutType" order="47" />
+      <field column="ClassVersionGUID" order="48" />
+      <field column="ClassDefaultObjectType" order="49" />
+      <field column="ClassIsForm" order="50" />
+      <field column="ClassResourceID" visible="" order="51" />
+      <field column="ClassCustomizedColumns" order="52" />
+      <field column="ClassCodeGenerationSettings" order="53" />
+      <field column="ClassIconClass" order="54" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Custom table</FormDisplayName>
+  <FormGUID>2c36b466-77ef-4500-92b6-6be1a14d780d</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>CustomTable</FormName>
+</cms.alternativeform>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDefaultObjectType />
+  <ClassDisplayName>Page template scope</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="PageTemplateScopeID" columntype="integer" guid="2198e351-37d1-413b-8478-96c340d4fa87" isPK="true" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>PageTemplateScopeID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="PageTemplateScopePath" columnsize="450" columntype="text" guid="9546eb9d-d482-4df7-81d3-7269cf644ff8" publicfield="false" system="true" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageTemplateScopeClassID" columntype="integer" guid="6dce0208-c825-49b2-809f-c945a3abe9ff" publicfield="false" system="true" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageTemplateScopeCultureID" columntype="integer" guid="aab07400-a230-4de9-81a1-9db8be770830" publicfield="false" system="true" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageTemplateScopeLevels" columnsize="450" columntype="text" guid="31e04b8d-0afe-4828-9b19-ea18be43c132" publicfield="false" system="true" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageTemplateScopeSiteID" columntype="integer" guid="2ba9fc4f-2ec2-400e-9676-d077214eba69" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>PageTemplateScopeSiteID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="PageTemplateScopeTemplateID" columntype="integer" guid="a86754fa-ce7c-4997-9082-f44adf46b012" publicfield="false" system="true" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="PageTemplateScopeLastModified" columntype="datetime" guid="ca965801-5580-4dc5-88cf-59601e7f5a2a" publicfield="false" system="true" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+          <timezonetype>inherit</timezonetype>
+        </settings>
+      </field>
+      <field column="PageTemplateScopeGUID" columntype="guid" guid="4be17f8e-dcca-452c-927a-e7c94c4a4187" publicfield="false" system="true" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>9bd4c694-369e-444e-842e-947383f8da43</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>cms.pagetemplatescope</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn>0</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>PageTemplateScopeLastModified</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search>
+      <item azureretrievable="True" content="False" id="284e6dbb-8d03-48be-a006-133a8c060edd" name="PageTemplateScopeID" searchable="True" tokenized="False" />
+      <item content="False" id="327a582f-4b1c-44e9-840a-073a2a46bf8a" name="PageTemplateScopeGUID" searchable="False" tokenized="False" />
+      <item azureretrievable="True" content="False" id="4cb30fb9-a997-4bc8-9e00-b7b88738f8bc" name="PageTemplateScopeClassID" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="5619696c-544a-4ebb-8f69-1e6ae8927c1a" name="PageTemplateScopeCultureID" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="5b86993d-46ae-4d09-a8ff-8d8857733202" name="PageTemplateScopeTemplateID" searchable="True" tokenized="False" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="7d85b506-d979-402f-9eb7-fa67f9bc3c98" name="PageTemplateScopeLevels" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="a71bcaf5-baed-43fa-8347-b07b3a80691f" name="PageTemplateScopePath" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="c353b86d-6e5b-435c-b97f-add4493ade9c" name="PageTemplateScopeSiteID" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="e4957792-478f-4a46-a0e9-a69bac8e4d7f" name="PageTemplateScopeLastModified" searchable="True" tokenized="False" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>PageTemplateScopePath</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_PageTemplateScope</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

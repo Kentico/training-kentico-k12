@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.groups.createpages$}</PermissionDescription>
+  <PermissionDisplayInMatrix>False</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Create pages</PermissionDisplayName>
+  <PermissionGUID>670ed23d-dd8c-40f0-b91d-52c02d213049</PermissionGUID>
+  <PermissionName>CreatePages</PermissionName>
+  <PermissionOrder>3</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Groups</CodeName>
+    <GUID>65f419f4-00f1-4905-a344-fc5b94983097</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

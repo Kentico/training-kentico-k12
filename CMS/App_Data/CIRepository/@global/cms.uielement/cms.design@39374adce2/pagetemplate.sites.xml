@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.sites$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>Sites</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>e587feb4-c356-4907-9efb-41d79ebd95b6</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>PageTemplate.Sites</ElementName>
+  <ElementOrder>6</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>M_NEdit</CodeName>
+    <GUID>0cee6b71-596b-49c7-bd30-54175f6d7bdb</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>PageTemplate.EditPageTemplate</CodeName>
+    <GUID>e818fd41-198a-4a96-ad4f-e55d170b6a22</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <bindingobjecttype>cms.pagetemplatesite</bindingobjecttype>
+      <checkmodifypermission>True</checkmodifypermission>
+      <resourceprefix>sitesselect</resourceprefix>
+      <listprefacetext>{$administration-pagetemplate_sites.sitetitle$}</listprefacetext>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+      <wherecondition>
+        <![CDATA[PageTemplateID = {% UIContext.ObjectID |(identity)GlobalAdministrator|(hash)fe5394424323ffa14acad4db9ee1fb2a15f918ff403c0a99a62670954b890284%}]]>
+      </wherecondition>
+      <includejquery>False</includejquery>
+      <bindingobjectprovidertype>CMS.PageTemplateSite</bindingobjectprovidertype>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+  <ElementVisibilityCondition>
+    <![CDATA[{%return (!UIContext.IsDialog && EditedObject.PageTemplateIsReusable && CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin))|(identity)GlobalAdministrator|(hash)de56e3a78235fc5fa75b0ebacedfef146a674d85115ba8aaf0b4d9e2d079583a%}]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

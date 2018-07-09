@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>cms.site</CodeName>
+    <GUID>8f2f80f1-13cb-4050-bc10-14a45b09f4e0</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>bae1857a-726d-48cd-8cac-ca34d571b8a6</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectrunningdomainnames</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT TOP 1 SiteID, SiteDomainName as 'SiteDomainAliasName' FROM CMS_Site 
+WHERE SiteID != @SiteID AND SiteStatus = 'RUNNING' AND 
+(
+	SiteDomainName=@DomainName OR 
+	SiteDomainName=@DomainName+':80' OR 
+	SiteDomainName IN 
+	(
+		SELECT SiteDomainAliasName FROM CMS_SiteDomainAlias WHERE SiteID=@SiteID
+		UNION ALL
+		SELECT SiteDomainAliasName + ':80' FROM CMS_SiteDomainAlias WHERE SiteID=@SiteID
+	)
+)
+UNION ALL
+SELECT TOP 1 CMS_SiteDomainAlias.SiteID, CMS_SiteDomainAlias.SiteDomainAliasName 
+FROM CMS_SiteDomainAlias LEFT JOIN CMS_Site ON CMS_Site.SiteID = CMS_SiteDomainAlias.SiteID 
+WHERE CMS_SiteDomainAlias.SiteID != @SiteID AND SiteStatus = 'RUNNING' AND 
+(
+	SiteDomainAliasName=@DomainName OR 
+	SiteDomainAliasName=@DomainName+':80' OR 
+	SiteDomainAliasName IN 
+	(
+		SELECT SiteDomainAliasName FROM CMS_SiteDomainAlias WHERE SiteID=@SiteID
+		UNION ALL
+		SELECT SiteDomainAliasName + ':80' FROM CMS_SiteDomainAlias WHERE SiteID=@SiteID
+	)
+)
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

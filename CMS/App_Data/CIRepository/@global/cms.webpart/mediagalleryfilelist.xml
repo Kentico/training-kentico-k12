@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>MediaLibrary</CodeName>
+    <GUID>ce9e2c3d-ba37-418a-b722-8748c3081c9f</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays files in the selected folder in a media library and allows playing or opening the files.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Media gallery - file list</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>MediaLibrary/MediaGalleryFileList.ascx</WebPartFileName>
+  <WebPartGUID>3a45e3b7-2862-4975-b534-9106d4f6349e</WebPartGUID>
+  <WebPartIconClass>icon-w-media-gallery-file-list</WebPartIconClass>
+  <WebPartName>MediaGalleryFileList</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="MediaLibraryName" columnsize="200" columntype="text" guid="07ad28a9-7c3b-45a3-b8cc-0f438fea14ba" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Media library</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$webpart.mediagalleryfilelist.medialibraryname.description$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <controlname>medialibraryselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DataSourceName" columnsize="200" columntype="text" guid="da754342-8d72-4cf4-b0ce-1f385f782461" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Data source name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.datasourcename$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="DisplayActiveContent" columntype="boolean" guid="bdbac427-9b03-42d2-8046-5b06aaeac023" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Display active content</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if active content (video, flash etc.) should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FileIDQueryStringKey" columnsize="200" columntype="text" guid="5977a475-015b-4fd3-86e7-ba90e0aeb169" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>fileid</defaultvalue>
+          <fieldcaption>File id querystring key</fieldcaption>
+          <fielddescription>Sets querystring parameter for file id value.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PreviewSuffix" columnsize="200" columntype="text" guid="8fe840fa-f771-4863-93f0-ff9c4559fd6d" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Preview suffix</fieldcaption>
+          <fielddescription>
+            <![CDATA[Preview suffix for identify file preview. More information can be found in DevGuide -> Modules -> Media libraries -> Names of files and previews.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="IconSet" columnsize="200" columntype="text" guid="5a47c8aa-50db-46e7-b529-3ab3e40d64f3" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Icon set name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Name of icon set used for file preview. By default, icons are taken from ~\CMS\App_Themes\Default\Images\FileIcons\ folder. If you specify an icon set name, icons will be taken from ~\CMS\App_Themes\Default\Images\FileIcons\<IconSetName> folder.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Content transformations">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="fdb5ee3c-11a2-4396-8828-2a4493d457bf" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <defaultvalue>Community.Transformations.MediaLibrary</defaultvalue>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.transformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedItemTransformationName" columnsize="250" columntype="text" guid="dcfac66e-bb6b-4593-8502-c441d14e5b5a" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <defaultvalue>Community.Transformations.MediaLibrarySelectedItem</defaultvalue>
+          <fieldcaption>Selected item transformation</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selectedtransf$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SeparatorTransformationName" columnsize="250" columntype="text" guid="1b4ad82c-5c5f-45f4-92a8-e402182736e1" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <defaultvalue>
+            <![CDATA[Community.Transformations.MediaLibraryItemSeparator]]>
+          </defaultvalue>
+          <fieldcaption>Item separator transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.separatortransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeaderTransformationName" columnsize="250" columntype="text" guid="2c9c84fa-56eb-4e3e-b429-8b952e13e997" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Header transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.headertransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FooterTransformationName" columnsize="250" columntype="text" guid="45f0a03b-6948-4f01-9cb1-7f9826d3003f" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Footer transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.footertransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.MediaLibrary</CodeName>
+    <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

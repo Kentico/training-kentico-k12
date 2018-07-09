@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.RoomUser</CodeName>
+    <GUID>3934275a-9e59-4d72-84c2-7206eeeee3dd</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>281ef4f7-6939-4788-bcf8-384f7aabb966</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>getkickedusers</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @ChatRoomID INT
+--SET @ChatRoomID = 5
+
+SELECT CRU.ChatRoomUserChatUserID AS ChatUserID, CRU.ChatRoomUserKickExpiration AS KickExpiration
+FROM Chat_RoomUser CRU
+WHERE CRU.ChatRoomUserRoomID = @ChatRoomID AND CRU.ChatRoomUserKickExpiration IS NOT NULL
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

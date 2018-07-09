@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>BasicViewers</CodeName>
+    <GUID>9b923a8b-b0c6-48f7-8cad-877830a05b72</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[The Basic datalist web part displays a multicolumn/multirow list of specified objects based on assigned transformations. This web part must be used together with a data source web part.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Basic datalist</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Viewers/Basic/BasicDataList.ascx</WebPartFileName>
+  <WebPartGUID>50d924e5-08be-4381-a433-7260e256d2fd</WebPartGUID>
+  <WebPartIconClass>icon-w-basic-datalist</WebPartIconClass>
+  <WebPartName>BasicDatalist</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="DataSourceName" columnsize="200" columntype="text" guid="6ff879f2-8d61-4cec-84fb-bc97cc39d8c3" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Data source name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.datasourcename$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="TransformationName" columnsize="250" columntype="text" guid="dea2b575-cad3-4b68-b6b6-2ba1e0798489" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.transformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AlternatingItemTransformationName" columnsize="250" columntype="text" guid="75844fb7-052f-47f7-b32b-47b17ef87387" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Alternating transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.alterntransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SeparatorTransformationName" columnsize="250" columntype="text" guid="335ac2e4-cef9-4355-b17e-dd24754b3deb" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Item separator transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.separatortransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeaderTransformationName" columnsize="250" columntype="text" guid="09f24044-2303-4f87-8179-a65896d12e91" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Header transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.headertransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FooterTransformationName" columnsize="250" columntype="text" guid="bc7052a0-2858-4aa4-aa84-d2efb0cdc692" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Footer transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.footertransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedItemTransformationName" columnsize="250" columntype="text" guid="3b086327-f466-4e33-af2b-651b73b96d3f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected item transformation name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selectedtransf$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedItemHeaderTransformationName" columnsize="250" columntype="text" guid="046e61c3-db67-45e6-a31b-1b1430f1feff" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected item header transformation</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selectedheadertransf$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedItemFooterTransformationName" columnsize="250" columntype="text" guid="d4db28a2-645f-4d61-8cac-3a5ca4c02194" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected item footer transformation</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selectedfootertransf$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ResolveDynamicControls" columntype="boolean" guid="5cb884d0-3658-4e78-800d-4118852972ec" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>{$webpart.properties.resolvedynamiccontrols$}</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$webpart.properties.description.resolvedynamiccontrols$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Layout">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="RepeatColumns" columntype="integer" guid="d2ee742a-e667-4546-8068-53ffadd5e927" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>3</defaultvalue>
+          <fieldcaption>Repeat columns</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.repeatcolumns$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field column="RepeatDirection" columnsize="50" columntype="text" guid="69f9da0d-9f20-4367-a782-c29122ac2041" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Repeat direction</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.repeatdirection$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="horizontal" text="Horizontal" /><item value="vertical" text="Vertical" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field column="RepeatLayout" columnsize="50" columntype="text" guid="5638826f-09f3-4c69-8555-b02c8f88bfd1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Repeat layout</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.repeatlayout$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="table" text="Table" /><item value="flow" text="Flow" />]]>
+          </Options>
+        </settings>
+      </field>
+      <category name="No data behavior">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="HideControlForZeroRows" columntype="boolean" guid="e90e5ab6-5c0e-4e11-ab82-5052ff535664" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="f8113ea2-e8d6-499e-b8de-91ada387f502" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

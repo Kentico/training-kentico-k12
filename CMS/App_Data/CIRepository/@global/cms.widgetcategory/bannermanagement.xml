@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widgetcategory>
+  <WidgetCategoryDisplayName>Banner management</WidgetCategoryDisplayName>
+  <WidgetCategoryGUID>44157ba2-1c9c-41ef-bbf5-3450fa606cba</WidgetCategoryGUID>
+  <WidgetCategoryImagePath />
+  <WidgetCategoryName>BannerManagement</WidgetCategoryName>
+  <WidgetCategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>b51398f0-a113-11de-a93c-048c55d89593</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryParentID>
+</cms.widgetcategory>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>polls.poll</CodeName>
+    <GUID>35aefb4e-1944-48af-8725-0aedf4bb17be</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>5f10622f-30c7-4fa4-9045-d4f215b31a64</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectsites</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[SELECT ##TOPN## ##COLUMNS## FROM CMS_Site INNER JOIN Polls_PollSite ON CMS_Site.SiteID=Polls_PollSite.SiteID WHERE Polls_PollSite.PollID=@PollID]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

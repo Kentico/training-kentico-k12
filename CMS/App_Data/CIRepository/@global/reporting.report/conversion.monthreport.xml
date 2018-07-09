@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>ConversionOverview</CodeName>
+    <GUID>793d5743-d2bd-4572-bdde-c4ee8bf9c5d3</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>Conversion - Monthly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>8ce740ca-115f-4815-820f-0d9b5c3e3083</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportGraph?conversion.monthreport.graph%%<br />
+%%control:ReportTable?TableMonthConversion%%<br />
+{$reports_general.created$} {%CMSContextCurrentTime%} {$reports_general.by$} {%CMSContextCurrentUserName%}
+]]>
+  </ReportLayout>
+  <ReportName>conversion.monthreport</ReportName>
+  <ReportParameters>
+    <form version="2">
+      <field column="FromDate" columntype="datetime" guid="0bfdcd76-0d0b-4c82-8875-621bd0dc10bd" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-1).Date|(identity)GlobalAdministrator|(hash)0f448c5a82f7fc9a2e8031614094172eabbe1b48ecedfb7f3b95ba2a6534cc80%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+          <TimeZoneType>inherit</TimeZoneType>
+        </settings>
+      </field>
+      <field column="ToDate" columntype="datetime" guid="0fe6d069-23bf-444d-b969-1ac16d2c0f94" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+          <TimeZoneType>inherit</TimeZoneType>
+        </settings>
+      </field>
+      <field allowempty="true" column="ConversionName" columnsize="200" columntype="text" guid="0b2d0c13-259b-402e-b45a-76f251d9be22" publicfield="false" spellcheck="false" visibility="none">
+        <properties>
+          <fieldcaption>To date</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

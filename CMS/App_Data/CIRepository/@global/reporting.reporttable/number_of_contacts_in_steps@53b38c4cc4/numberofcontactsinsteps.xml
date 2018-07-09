@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableConnectionString />
+  <TableDisplayName>NumberOfContactsInSteps</TableDisplayName>
+  <TableGUID>3168d3f5-3ba9-4784-9fca-79ff8195defc</TableGUID>
+  <TableName>NumberOfContactsInSteps</TableName>
+  <TableQuery>
+<![CDATA[
+SELECT 
+  StepDisplayName AS 'Step name',
+  [Value] AS 'Number of contacts'
+FROM (
+  SELECT
+    COUNT(StateObjectID) AS Value,
+    StateStepID
+  FROM CMS_AutomationState
+  WHERE StateObjectType = 'om.contact' AND StateStepID IN (
+    SELECT StepID FROM CMS_WorkflowStep WHERE StepWorkflowID = @AutomationProcessID
+  ) GROUP BY StateStepID
+) Groups JOIN CMS_WorkflowStep ON Groups.StateStepID = StepID
+ORDER BY StepType
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>Number_of_contacts_in_steps</CodeName>
+    <GUID>c6da41d3-5222-4f1b-ba97-6a858df8b25d</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>True</enablepaging>
+      <exportenabled>True</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>15</pagesize>
+      <SkinID>ReportGridAnalytics</SkinID>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

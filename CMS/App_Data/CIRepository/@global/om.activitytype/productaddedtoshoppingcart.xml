@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.activitytype>
+  <ActivityTypeDescription>The visitor added a product to the shopping cart.</ActivityTypeDescription>
+  <ActivityTypeDetailFormControl />
+  <ActivityTypeDisplayName>Product added to shopping cart</ActivityTypeDisplayName>
+  <ActivityTypeEnabled>True</ActivityTypeEnabled>
+  <ActivityTypeIsCustom>False</ActivityTypeIsCustom>
+  <ActivityTypeIsHiddenInContentOnly>False</ActivityTypeIsHiddenInContentOnly>
+  <ActivityTypeMainFormControl>SKUSelector</ActivityTypeMainFormControl>
+  <ActivityTypeManualCreationAllowed>False</ActivityTypeManualCreationAllowed>
+  <ActivityTypeName>productaddedtoshoppingcart</ActivityTypeName>
+</om.activitytype>

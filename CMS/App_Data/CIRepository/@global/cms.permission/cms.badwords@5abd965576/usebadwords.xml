@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.badwords.usebadwords$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Use bad words</PermissionDisplayName>
+  <PermissionEditableByGlobalAdmin>False</PermissionEditableByGlobalAdmin>
+  <PermissionGUID>98883b65-afbe-4628-a353-ed466c87b364</PermissionGUID>
+  <PermissionName>UseBadWords</PermissionName>
+  <PermissionOrder>2</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Badwords</CodeName>
+    <GUID>09642799-d831-4b69-a95d-28a9bdf496d9</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.general$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>General</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>39e4ef11-67a9-4c95-b8d9-eca1888da932</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Administration.BadWords.Edit.General</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementParentID>
+    <CodeName>Administration.BadWords.Edit</CodeName>
+    <GUID>83811a53-08db-455c-ad99-7eaf3963fd37</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Badwords</CodeName>
+      <GUID>09642799-d831-4b69-a95d-28a9bdf496d9</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_header>False</category_name_header>
+      <defaultformlayout>Standard</defaultformlayout>
+      <editextender>App_Code</editextender>
+      <extenderclassname>BadWordFormExtender</extenderclassname>
+      <defaultfieldlayout>default</defaultfieldlayout>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+      <titletext>{$general.general$}</titletext>
+      <includejquery>False</includejquery>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Badwords</CodeName>
+    <GUID>09642799-d831-4b69-a95d-28a9bdf496d9</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>~\CMSModules\BadWords\BadWords_Edit_General.aspx</ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

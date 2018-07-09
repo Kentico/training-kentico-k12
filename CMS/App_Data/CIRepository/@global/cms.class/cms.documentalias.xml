@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Page alias</ClassDisplayName>
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="AliasID" columntype="integer" guid="87333b1f-9786-492b-97b7-508fdd54225e" isPK="true" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>AliasID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AliasNodeID" columntype="integer" guid="6574a743-2505-4cf6-9102-7a832a56cfad" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>AliasNodeID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AliasCulture" columnsize="20" columntype="text" guid="542cc3b3-3857-4507-9cc4-5b33fe534073" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>AliasCulture</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AliasURLPath" columnsize="450" columntype="text" guid="37700e05-b8d1-42a5-872a-d665eeb1aa99" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>AliasURLPath</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AliasExtensions" columnsize="100" columntype="text" guid="91cfed84-abb6-462c-962c-c22bc966245c" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>AliasExtensions</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AliasWildcardRule" columnsize="440" columntype="text" guid="f02f7c44-7571-45d3-b73c-2cfe2db20415" publicfield="false" system="true" translatefield="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>AliasWildcardRule</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AliasPriority" columntype="integer" guid="c2134711-a476-45db-966d-aa0d6c082c28" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>AliasPriority</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AliasGUID" columntype="guid" guid="db45b3f2-594b-4ae4-86ab-c9b081f34a0c" publicfield="false" system="true" translatefield="true">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AliasLastModified" columntype="datetime" guid="5333de7f-c978-43e5-9998-2027e628d39f" publicfield="false" system="true" translatefield="true">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AliasSiteID" columntype="integer" guid="ce9a7e6e-0bba-44e4-84c7-3c673c8a79b2" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>AliasSiteID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AliasActionMode" columnsize="50" columntype="text" guid="d823583e-e18d-48c0-94b1-339c1dcfa796" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>Alia</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>67726e7f-fd77-4d3f-94dd-a9a3bdaec696</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>CMS.DocumentAlias</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.DocumentEngine</CodeName>
+    <GUID>83ff58cf-d7ed-4567-a68c-439daf7e85cf</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search>
+      <item id="1321cbc9-6eb1-4526-bcc7-cfa700dc3c64" name="AliasCulture" />
+      <item id="740ea9a1-98cc-475e-87e8-01773ab9292f" name="AliasExtensions" />
+      <item id="88b9ddbe-fdf6-403c-a43c-20ba120fcd37" name="AliasWildcardRule" />
+      <item id="a8dfff43-924a-4d49-9f10-994277fc70a6" name="AliasActionMode" />
+      <item id="b3f956e5-353a-46b2-bac9-804d2e1e860d" name="AliasID" />
+      <item id="d4dd4f29-1f54-488c-ba05-4a4a6a79ce7f" name="AliasLastModified" />
+      <item id="df56fac9-bf54-46c0-974a-231757f68b5e" name="AliasURLPath" />
+      <item id="f105edd0-7266-4d2c-acb0-0726c899bb92" name="AliasGUID" />
+      <item id="f30108a0-6584-4946-bc19-3e886e7670f5" name="AliasNodeID" />
+      <item id="fa03aa9b-19bb-4ba4-a261-c4ea7fc4bf65" name="AliasSiteID" />
+      <item id="fb4d9e0f-32a4-45a2-8503-d94bfd0d195c" name="AliasPriority" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_DocumentAlias</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

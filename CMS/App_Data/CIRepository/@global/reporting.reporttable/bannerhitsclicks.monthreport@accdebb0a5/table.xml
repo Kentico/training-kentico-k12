@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>Table</TableDisplayName>
+  <TableGUID>60c48c5a-e705-42c8-a53e-e4474020d599</TableGUID>
+  <TableName>table</TableName>
+  <TableQuery>
+<![CDATA[
+DECLARE @FromDateTrimmed DATETIME;
+DECLARE @ToDateTrimmed DATETIME;
+DECLARE @ToDateCompare AS DATETIME;
+
+SET @FromDateTrimmed = DATEADD(m, DATEDIFF(m, 0, CAST(@FromDate AS DATETIME)), 0);
+SET @ToDateTrimmed = DATEADD(m, DATEDIFF(m, 0, CAST(@ToDate AS DATETIME)), 0);
+SET @ToDateTrimmed = DATEADD(s, -31, @ToDateTrimmed);
+SET @ToDateCompare = CAST(@ToDate AS DATETIME);
+
+WITH daysseq AS
+(
+   SELECT @FromDateTrimmed AS DateValue
+   UNION ALL
+   SELECT DATEADD(m, 1, DateValue)
+   FROM    daysseq   
+   WHERE   DateValue < @ToDateTrimmed
+)
+SELECT CONVERT(CHAR(3), daysseq.DateValue, 101) + CONVERT(CHAR(4), daysseq.DateValue, 120), T3.clicks, T3.hits
+FROM daysseq
+LEFT JOIN
+(
+	SELECT T1.HitsStartTime, T2.hits, T1.clicks
+	FROM
+		(SELECT HitsStartTime, HitsCount AS clicks
+		FROM Analytics_Statistics
+		INNER JOIN Analytics_MonthHits ON Analytics_MonthHits.HitsStatisticsID = Analytics_Statistics.StatisticsID
+		WHERE (Analytics_Statistics.StatisticsObjectID = @BannerID) 
+			AND (@FromDateTrimmed IS NULL OR HitsStartTime >= @FromDateTrimmed)
+			AND (@ToDateCompare IS NULL OR HitsStartTime <= @ToDateCompare)
+			AND (StatisticsCode = 'bannerclick')
+		) AS T1
+	INNER JOIN 
+		(SELECT HitsStartTime, HitsCount AS hits
+		FROM Analytics_Statistics
+		INNER JOIN Analytics_MonthHits ON Analytics_MonthHits.HitsStatisticsID = Analytics_Statistics.StatisticsID
+		WHERE (Analytics_Statistics.StatisticsObjectID = @BannerID) 
+			AND (@FromDateTrimmed IS NULL OR HitsStartTime >= @FromDateTrimmed) 
+			AND (@ToDateCompare IS NULL OR HitsStartTime <= @ToDateCompare) 
+			AND (StatisticsCode = 'bannerhit')
+		) AS T2  
+	ON T1.HitsStartTime = T2.HitsStartTime
+ ) AS T3
+ON daysseq.DateValue = HitsStartTime
+OPTION (MAXRECURSION 0)
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>bannerhitsclicks.monthreport</CodeName>
+    <GUID>719ba9ee-5b65-4375-add1-a2d6c2f3c0ff</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <pagemode>1</pagemode>
+      <pagesize>10</pagesize>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

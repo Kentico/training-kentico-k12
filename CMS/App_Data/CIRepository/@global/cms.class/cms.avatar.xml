@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Avatar</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="AvatarID" columntype="integer" guid="070e07c2-613b-4ec3-b253-85490b5c2123" isPK="true" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AvatarName" columnsize="200" columntype="text" guid="fe64d27a-a61c-4f3f-af58-d61e35faa192" publicfield="false" system="true" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarName</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AvatarFileName" columnsize="200" columntype="text" guid="c57fbf46-2904-4329-b081-7be3ff62e105" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarFileName</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AvatarFileExtension" columnsize="10" columntype="text" guid="44852334-d234-4cb6-84db-d8f96b5a0411" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarFileExtension</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AvatarBinary" columntype="text" guid="d1455dfc-5c3c-4e66-a012-b567b76d20b1" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarBinary</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AvatarType" columnsize="50" columntype="text" guid="eb09494b-aa8f-455f-8282-0f305be2c4a0" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarType</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AvatarIsCustom" columntype="boolean" guid="824bb523-a40b-4c36-9b61-55cbd38e1572" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarIsCustom</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AvatarGUID" columntype="guid" guid="76a41f68-0412-46ef-9a71-f3b0b23f3c14" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarGUID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AvatarLastModified" columntype="datetime" guid="a0df33d7-2ea5-4ab1-8204-0b97d6b4bd40" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarLastModified</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AvatarMimeType" columnsize="100" columntype="text" guid="f54b64b6-e474-48f8-82bf-d774a84a0134" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarMimeType</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AvatarFileSize" columntype="integer" guid="cc46dcfc-ffb2-4901-9d99-1a066d74113c" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarFileSize</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AvatarImageHeight" columntype="integer" guid="1c43a226-2790-4c55-9bd1-69a5d738f3fb" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarImageHeight</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AvatarImageWidth" columntype="integer" guid="6df10f1e-1218-4cda-a594-1f991be5806c" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>AvatarImageWidth</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DefaultMaleUserAvatar" columntype="boolean" guid="4904d149-1611-444c-8306-2f2d3dcecd7d" publicfield="false" system="true" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>DefaultMaleUserAvatar</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DefaultFemaleUserAvatar" columntype="boolean" guid="70d2f645-011d-49d3-8740-bf9da38746bc" publicfield="false" system="true" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>DefaultFemaleUserAvatar</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DefaultGroupAvatar" columntype="boolean" guid="673ae3c3-2bfd-41c8-9747-58da08d6ca7b" publicfield="false" system="true" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>DefaultGroupAvatar</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DefaultUserAvatar" columntype="boolean" guid="5462d085-166f-4a76-a5e7-c5f912bf7538" publicfield="false" system="true" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>DefaultUserAvatar</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>ee73a58a-898b-4ca4-9abf-442380daae84</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>cms.avatar</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.Membership</CodeName>
+    <GUID>d4b7561a-f188-420c-8f68-63b5c573b2bf</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn>0</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>AvatarLastModified</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search>
+      <item content="False" id="12baac79-62ed-471e-ac7b-9a1fcfda5a36" name="AvatarGUID" searchable="False" tokenized="False" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="1dd2fa36-93fd-4bb3-8d67-ebae0adb1ddf" name="AvatarFileName" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="23e3bc97-0267-4695-a6e2-1d72a529d4eb" name="AvatarLastModified" searchable="True" tokenized="False" />
+      <item azurecontent="True" content="True" id="2c38ea3c-c14e-40d2-8b25-a256ffcdc46f" name="AvatarBinary" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="647ab8f6-a718-42ce-81fc-922ee2bd88ec" name="DefaultFemaleUserAvatar" searchable="True" tokenized="False" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="75406161-d4e8-4f22-b52b-0c43381ea982" name="AvatarFileExtension" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="7f545e1d-0ebb-4ee6-8ee0-72bda01a50a0" name="AvatarType" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="98b2c1d6-d1db-48b3-bf13-ad62a58ea484" name="AvatarName" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="a605b413-1289-43ab-b119-27315b153300" name="DefaultMaleUserAvatar" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="b29c7a1f-8b4f-4032-8b5a-b1416561b5e3" name="AvatarImageHeight" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="bdea6c2e-0643-4f3f-beb8-2fe2582351d0" name="AvatarIsCustom" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="d6594075-e5de-4c34-bedd-1a7810b3711c" name="AvatarFileSize" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="d9404fd1-8557-43c6-92b9-d098fffa2120" name="DefaultGroupAvatar" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="de521b94-fa1b-44d8-b4e5-b73aca5db1fb" name="AvatarImageWidth" searchable="True" tokenized="False" />
+      <item azureretrievable="True" content="False" id="e4d9ee47-3941-4125-a088-65bfe6c914c7" name="AvatarID" searchable="True" tokenized="False" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="e959dd00-8fb1-4573-b858-abe8aea435db" name="AvatarMimeType" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="ea7daa08-8916-448e-8dfe-94426638d4ce" name="DefaultUserAvatar" searchable="True" tokenized="False" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>AvatarName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_Avatar</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

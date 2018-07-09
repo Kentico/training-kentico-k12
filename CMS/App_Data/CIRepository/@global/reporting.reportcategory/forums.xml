@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>Forums</CategoryCodeName>
+  <CategoryDisplayName>Forums</CategoryDisplayName>
+  <CategoryGUID>0517a811-fbfa-4aeb-a9ae-8a58ce23e12e</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>5e7ffa76-b570-45b0-80f5-a56cba487a39</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

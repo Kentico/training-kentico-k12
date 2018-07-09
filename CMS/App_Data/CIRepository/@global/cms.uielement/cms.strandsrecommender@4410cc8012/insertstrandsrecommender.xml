@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition />
+  <ElementCaption />
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>Insert Strands Recommender</ElementDisplayName>
+  <ElementFeature />
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>b6a6e38d-465e-4719-a184-992c6e3f20d8</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>InsertStrandsRecommender</ElementName>
+  <ElementOrder>7</ElementOrder>
+  <ElementParentID>
+    <CodeName>Group.Components</CodeName>
+    <GUID>be623edb-e82f-415a-890b-adee9c2ea30c</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.WYSIWYGEditor</CodeName>
+      <GUID>8159098b-ea70-40df-ae2e-f7730ea6814e</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.StrandsRecommender</CodeName>
+    <GUID>1235e27c-5b04-4024-9032-d10ea62cafbe</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL />
+  <ElementType>PageTemplate</ElementType>
+  <ElementVisibilityCondition />
+</cms.uielement>

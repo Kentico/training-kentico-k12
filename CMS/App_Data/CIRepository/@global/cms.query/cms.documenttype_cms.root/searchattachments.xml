@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>CMS.Root</CodeName>
+    <GUID>a585aea3-10b5-4b74-9aad-747fcce72493</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>faa8ff41-9e2a-455e-b58b-5bd9c471a503</QueryGUID>
+  <QueryIsCustom>True</QueryIsCustom>
+  <QueryIsLocked>True</QueryIsLocked>
+  <QueryName>searchattachments</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+/* 
+Uncomment the following query after you configure Kentico CMS for full-text search as described in Developers Guide -> Installation and deployment -> Configuration of full-text search in files
+*/
+
+/*
+SELECT View_CMS_Tree_Joined.*, View_CMS_Tree_Joined.NodeName AS SearchResultName
+FROM CMS_Attachment INNER JOIN View_CMS_Tree_Joined
+ON View_CMS_Tree_Joined.DocumentID = CMS_Attachment.AttachmentDocumentID
+WHERE (##WHERE##) AND
+(([AttachmentName] Like N'%'+ @Expression + N'%') OR ([AttachmentTitle] Like N'%'+ @Expression + N'%') OR ([AttachmentDescription] Like N'%'+ @Expression + N'%')) OR (FREETEXT(AttachmentBinary, @expression)) 
+ORDER BY ##ORDERBY##
+*/
+
+SELECT View_CMS_Tree_Joined.*, View_CMS_Tree_Joined.DocumentName AS SearchResultName
+FROM CMS_Attachment INNER JOIN View_CMS_Tree_Joined 
+ON View_CMS_Tree_Joined.DocumentID = CMS_Attachment.AttachmentDocumentID 
+WHERE (##WHERE##) AND (([AttachmentName] Like N'%'+ @Expression + N'%') OR ([AttachmentTitle] Like N'%'+ @Expression + N'%') OR ([AttachmentDescription] Like N'%'+ @Expression + N'%')) ORDER BY ##ORDERBY##
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

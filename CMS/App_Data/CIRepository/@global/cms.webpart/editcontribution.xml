@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>UserContributions</CodeName>
+    <GUID>2e2bdcf1-76e8-4c03-a623-fc041aad1284</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>Enables editing of user contributions.</WebPartDescription>
+  <WebPartDisplayName>Edit contribution</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>usercontributions/editcontribution.ascx</WebPartFileName>
+  <WebPartGUID>1f507d90-c60a-4f76-9c8f-00d7d0242eb7</WebPartGUID>
+  <WebPartIconClass>icon-w-edit-contribution</WebPartIconClass>
+  <WebPartName>editContribution</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Path" columnsize="100" columntype="text" guid="3f16b146-9838-4168-9770-509020d7563f" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.path$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CultureCode" columnsize="100" columntype="text" guid="877707d0-493e-47c2-a7ef-12ef415f9473" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Culture code</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.culturecode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectculture</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="100" columntype="text" guid="847282c6-5a7a-497c-b3c6-7f20cf8900ee" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.sitename$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AlternativeFormName" columnsize="200" columntype="text" guid="2e92616c-5017-4dc3-8090-72651efd5131" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Alternative form name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Name of the alternative form which will be used to change form definition and/or layout.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectalternativeform</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ValidationErrorMessage" columnsize="250" columntype="text" guid="0f4b63bd-2e49-424d-833c-d922bff90372" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Validation error message</fieldcaption>
+          <fielddescription>
+            <![CDATA[This message will be displayed after validation failed. Default error message will be used if this one is not set.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="EditButtonText" columnsize="200" columntype="text" guid="c0ae6fab-9873-4dff-832c-2773529582a7" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Edit button label</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text used for 'Edit' button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DeleteButtonText" columnsize="200" columntype="text" guid="f01bdcbf-42a8-4f0e-aae2-f8b6d7960a92" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Delete button label</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text used for 'Delete' button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CloseEditModeButtonText" columnsize="200" columntype="text" guid="e9ded31b-d424-4595-9b92-b192b5766d1c" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Close edit mode label</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text used for 'Close edit mode' button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Security">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="CheckPermissions" columntype="boolean" guid="f9788132-265d-421f-bb41-79ede52c715e" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if page permissions should be checked. If not chosen, the access is controlled only by the Allow editing by users value.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="AllowDelete" columntype="boolean" guid="dd6c51e9-da23-44fa-9eb5-db4a3389b17f" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Allow delete</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the delete button should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="AllowUsers" columntype="integer" guid="c7905095-fafd-412d-8a3d-012e8c0307f6" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>2</defaultvalue>
+          <fieldcaption>Allow editing by users</fieldcaption>
+          <fielddescription>
+<![CDATA[
+Specifies what kind of users can edit the pages using this control:
+
+- All users (any user who comes to the web site)
+
+- Authenticated users (only users authenticated with a user name and password)
+
+- Page owners (only owners of the pages)
+]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>DropDownListControl</controlname>
+          <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+0;All
+1;Authenticated
+2;Page owner
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <category name="On-line marketing">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="LogActivity" columntype="boolean" guid="2fe00c76-29b1-4b62-985c-f5371a605cfa" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Log on-line marketing activity</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

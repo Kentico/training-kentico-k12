@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Categories</CodeName>
+    <GUID>a3dd14df-f865-41f7-9f08-05e6f35c56d4</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>Displays the list of personal categories.</WidgetDescription>
+  <WidgetDisplayName>Personal category list</WidgetDisplayName>
+  <WidgetDocumentation />
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>True</WidgetForUser>
+  <WidgetGUID>758088ad-ea1e-4c46-bb64-62293843c9b3</WidgetGUID>
+  <WidgetIconClass>icon-w-personal-category-list</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>PersonalCategoryList</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="DisplaySiteCategories" guid="85abfe5e-b238-4fac-97ac-f7d824bc9780" visible="false">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption />
+          <fielddescription />
+        </properties>
+      </field>
+      <field column="DisplayGlobalCategories" guid="4082860d-99bc-4db3-afb1-82226dc09822" visible="false" visibility="none">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption />
+          <fielddescription />
+        </properties>
+      </field>
+      <field column="DisplayCustomCategories" guid="3126bf02-63cb-446a-9a2d-bc00fa012752" visible="false">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <fieldcaption />
+          <fielddescription />
+        </properties>
+      </field>
+      <field column="StartingCategory" guid="62f07514-565e-4c71-945c-f4d13c2185ea" visible="false" />
+      <field column="UseDocumentFilter" guid="89cf3f74-83ec-4d1d-834b-6a1eb6ca7ed3" visible="false">
+        <settings>
+          <controlname>categoryselector</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>Starting category</fieldcaption>
+          <fielddescription>
+            <![CDATA[Code name of the category the tree structure should start from, if empty the whole structure of categories is loaded.]]>
+          </fielddescription>
+        </properties>
+      </field>
+      <field column="CombineWithDefaultCulture" guid="16b9d8a6-7a1e-4d72-8c1a-e3f0abfd3a5b" visible="false" />
+      <field column="CultureCode" guid="2a1d8109-a149-4592-ac15-058438ba992c" visible="false" />
+      <field column="AliasPath" guid="e017aed5-e825-4495-85ca-d45db188e129" visible="false">
+        <settings>
+          <controlname>categoryselector</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>Starting category</fieldcaption>
+          <fielddescription>
+            <![CDATA[Code name of the category the tree structure should start from, if empty the whole structure of categories is loaded.]]>
+          </fielddescription>
+        </properties>
+      </field>
+      <field column="MaxRelativeLevel" guid="499be72a-1871-4286-9027-3d68805a8b99" visible="false" />
+      <field column="SelectOnlyPublished" guid="503cbf2c-cbc5-4db1-a34c-5307d4e98065" visible="false" />
+      <field column="WhereCondition" guid="be3660f2-798d-4803-a6cd-d7e1859fe480" visible="false" />
+      <field column="OrderBy" guid="b008a10a-5a95-443f-a816-103f4880f93e" visible="false" />
+      <field column="SelectTopN" guid="ba67c4fb-9a6e-41d4-9c74-38500aec59ce" visible="false" />
+      <field column="TransformationName" guid="ad3c1e98-bb02-4684-9139-f085baaddb48" visible="false" />
+      <field column="DocumentListUrl" guid="2108a814-e65c-4938-ac43-dc900e5d342e" visible="false" />
+      <field column="DocumentListTarget" guid="50c06760-d8e7-443c-9b78-6c64417439d6" />
+      <field column="UseCodeNameInQuery" guid="0552b421-4091-43c2-9305-14655142d7cd" visible="false" />
+      <field column="RenderAsTree" guid="37329eb8-7f35-43ec-bece-b456c838f09c">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+      </field>
+      <field column="DisplayOnlyCategoryNames" guid="37558044-edda-42c5-a423-09de46885f14" visible="false" />
+      <field column="CategorySeparator" guid="dc1d3054-b55f-4ee0-9703-7bf8209c8c05" visible="false" />
+      <field column="CategorySeparatorRTL" guid="2c726d42-03d8-457e-9d16-97a09c5ecf7d" visible="false" />
+      <field column="CategoriesRoot" guid="33606827-8ee0-4c9d-9029-a459e9f5e79b" visible="false" />
+      <field column="PersonalCategoriesRoot" guid="a23a56a2-601f-49c6-9597-c667a46530cd" />
+      <field column="CategoryContentBefore" guid="6fa187f8-4b07-48fe-bc6b-aaf48b0d0808" visible="false" />
+      <field column="CategoryContentAfter" guid="0a483ba6-e934-4d57-af29-72c6930f9e3b" visible="false" />
+      <field column="RenderLinkTitle" guid="35c55972-5470-42b4-9586-b29531238ec9" visible="false" />
+      <field column="HideControlForZeroRows" guid="f286a62d-8b15-4023-93cb-3e597cf3462c" visible="false" />
+      <field column="ZeroRowsText" guid="edb4d401-99e6-490f-9185-e14a978beea1" visible="false" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>CategoryList</CodeName>
+    <GUID>90e53112-a778-4e33-8a6c-de60e90878e9</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

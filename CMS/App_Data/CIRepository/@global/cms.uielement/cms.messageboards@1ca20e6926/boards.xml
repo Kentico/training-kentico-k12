@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$messageboards.boards$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$board.header.boards$}</ElementDisplayName>
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>fcab9deb-2b93-495f-8771-59393e29b008</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Boards</ElementName>
+  <ElementOrder>4</ElementOrder>
+  <ElementParentID>
+    <CodeName>MessageBoards</CodeName>
+    <GUID>12c1eb41-9b97-4477-9331-620a7fff2ecb</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.MessageBoards</CodeName>
+      <GUID>0011c831-2e12-45bf-87ed-6a17607659f8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_custom>False</category_name_custom>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <includejquery>False</includejquery>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+      <category_name_header>False</category_name_header>
+      <titletext>{$board.header.messageboards$}</titletext>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.MessageBoards</CodeName>
+    <GUID>0011c831-2e12-45bf-87ed-6a17607659f8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/MessageBoards/Tools/Boards/Board_List.aspx]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

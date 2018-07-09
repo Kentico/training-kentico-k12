@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$analytics_codename.registereduser$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>Registered users</ElementDisplayName>
+  <ElementFromVersion>6.0</ElementFromVersion>
+  <ElementGUID>7a09c17f-9960-403a-a4da-c77b1f3cf3a8</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>registereduser</ElementName>
+  <ElementOrder>4</ElementOrder>
+  <ElementParentID>
+    <CodeName>Visitors</CodeName>
+    <GUID>e2179f04-6ac6-46fa-a6a0-7adbe006998c</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.WebAnalytics</CodeName>
+      <GUID>d3c82114-86f7-4aa9-8206-9b006100641c</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.WebAnalytics</CodeName>
+    <GUID>d3c82114-86f7-4aa9-8206-9b006100641c</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/WebAnalytics/Tools/Analytics_Report.aspx?statCodeName=registereduser&dataCodeName=registereduser&reportCodeName=registereduser.yearreport;registereduser.monthreport;registereduser.weekreport;registereduser.dayreport;registereduser.hourreport]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

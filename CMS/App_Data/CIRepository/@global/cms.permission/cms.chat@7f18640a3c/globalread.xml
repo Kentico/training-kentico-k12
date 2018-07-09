@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.chat.globalread$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Global read</PermissionDisplayName>
+  <PermissionEditableByGlobalAdmin>True</PermissionEditableByGlobalAdmin>
+  <PermissionGUID>d25c00a0-4c81-4124-95ee-93beb84a92cd</PermissionGUID>
+  <PermissionName>GlobalRead</PermissionName>
+  <PermissionOrder>1</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

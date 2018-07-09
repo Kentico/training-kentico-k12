@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>Conversion</CategoryCodeName>
+  <CategoryDisplayName>Conversion</CategoryDisplayName>
+  <CategoryGUID>7c6e7488-3d05-417f-8ff7-e63998bea5e2</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>WebAnalytics</CodeName>
+    <GUID>8d48afa7-5164-4ec1-94e7-19c18956f79c</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

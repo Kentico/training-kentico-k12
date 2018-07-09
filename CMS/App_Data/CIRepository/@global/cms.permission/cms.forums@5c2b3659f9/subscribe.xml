@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.forums.subscribe$}</PermissionDescription>
+  <PermissionDisplayInMatrix>False</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Subscribe</PermissionDisplayName>
+  <PermissionGUID>84dbfc14-176a-436d-bf57-374bb2ed1823</PermissionGUID>
+  <PermissionName>Subscribe</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Forums</CodeName>
+    <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

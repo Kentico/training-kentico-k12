@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>c924b592-83d9-4a8b-8c85-aa3d79d3974b</HelpTopicGUID>
+  <HelpTopicLink>abt_creating</HelpTopicLink>
+  <HelpTopicName>Define A/B tests</HelpTopicName>
+  <HelpTopicOrder>2</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>ABTestListing</CodeName>
+    <GUID>bbc600ae-e00d-4d82-a548-875800839488</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.ABTest</CodeName>
+      <GUID>f23e944e-1a51-46f0-8a2e-75bcfc2a70ea</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

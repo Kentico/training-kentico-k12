@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Chat</CodeName>
+    <GUID>68de8907-2d63-4f1f-90a4-57447cf79ea2</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>{$chat.webparts.autoinitiatedchat.description$}</WebPartDescription>
+  <WebPartDisplayName>Automatically initiated chat</WebPartDisplayName>
+  <WebPartFileName>Chat/AutoInitiatedChat.ascx</WebPartFileName>
+  <WebPartGUID>13fc68d5-8ff7-4215-b2e0-5855ee0c30cc</WebPartGUID>
+  <WebPartIconClass>icon-w-automatically-initiated-chat</WebPartIconClass>
+  <WebPartName>AutomaticallyInitiatedChat</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="InitiatorName" columnsize="100" columntype="text" guid="20b7c0b6-c11a-4b62-879b-adaffc6ab6ab" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.autoinitchat.initiatorsnamecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.autoinitchat.initiatorsname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="Messages" columntype="longtext" guid="de8158c6-7083-41c1-b47e-b57e4ec56f73" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.autoinitchat.messagescaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.autoinitchat.messages$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <IsTextArea>True</IsTextArea>
+          <Wrap>False</Wrap>
+        </settings>
+      </field>
+      <field column="Delay" columntype="integer" guid="8c69a540-b999-4e95-a107-1a5f35e8a46f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>20</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.autoinitchat.delaycaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.autoinitchat.delay$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>double</vt></p></r></rules>")%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field allowempty="true" column="TransformationName" columnsize="250" columntype="text" guid="7dd74507-37d6-4113-b21c-78085f36c7fc" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.initiatechattransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.initiatechattransformation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatInitiatedChatTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <category name="chat.webparts.properties.category.newchatwindow">
+        <properties>
+          <caption>
+            <![CDATA[{$chat.webparts.properties.category.newchatwindow$}]]>
+          </caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ChatMessageTransformationName" columnsize="250" columntype="text" guid="2e9f66a3-f30a-44ce-a7da-c869214b7c65" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.messagetransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.messagetransformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomMessageTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatRoomUserTransformationName" columnsize="250" columntype="text" guid="eaaa4650-563f-46d7-a2f0-b23ff655e1dd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$chat.webparts.properties.roomusertranscaption$}</fieldcaption>
+          <fielddescription>{$chat.webparts.properties.roomusertrans$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatRoomUserTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatErrorTransformationName" columnsize="250" columntype="text" guid="183bd4cf-c8b8-4d4f-8252-4e93991970fb" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errortransformationnamecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.errortransformationname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatErrorTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field allowempty="true" column="ChatErrorDeleteAllButtonTransformationName" columnsize="250" columntype="text" guid="18ce53ef-64bb-4719-bd84-59ccdf595882" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errordeletealltransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.errordeletealltransformation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatErrorDeleteAllTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

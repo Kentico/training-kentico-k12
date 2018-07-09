@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<notification.templatetext>
+  <GatewayID>
+    <CodeName>CMS.EmailGateway</CodeName>
+    <GUID>c534d31f-0f64-425b-a8de-d8b072438ba2</GUID>
+    <ObjectType>notification.gateway</ObjectType>
+  </GatewayID>
+  <TemplateHTMLText>
+<![CDATA[
+Hi there,<br />
+<br />
+New product in&nbsp;&#39;{%notificationsubscription.subscriptioneventdata1|(identity)GlobalAdministrator|(hash)7d882196be60f2c6ba0717302c55b337227b772becdc7227124df4f57e93f057%}&#39; section&nbsp;has been added.<br />
+<br />
+This is automatically generated notification. Please do not reply to this e-mail.<br />
+
+]]>
+  </TemplateHTMLText>
+  <TemplateID>
+    <CodeName>NewProduct</CodeName>
+    <GUID>c1b8e8a9-3dbb-46d0-a727-573dbdbefff1</GUID>
+    <ObjectType>notification.template</ObjectType>
+  </TemplateID>
+  <TemplatePlainText>
+<![CDATA[
+Hi there,
+
+New product in '{%notificationsubscription.subscriptioneventdata1|(identity)GlobalAdministrator|(hash)7d882196be60f2c6ba0717302c55b337227b772becdc7227124df4f57e93f057%}' section has been added.
+
+This is automatically generated notification. Please do not reply to this e-mail.
+]]>
+  </TemplatePlainText>
+  <TemplateSubject>New product has been added!</TemplateSubject>
+  <TemplateTextGUID>9abd0692-3189-424d-9ae7-21fcf69e1cce</TemplateTextGUID>
+</notification.templatetext>

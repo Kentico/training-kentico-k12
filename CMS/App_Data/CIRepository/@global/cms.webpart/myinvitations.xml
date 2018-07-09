@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>GroupMembers</CodeName>
+    <GUID>fde9d969-0d1e-4720-83a4-f7093b413333</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a list of invitations to join a group for the specified user. Users can accept or delete their invitations.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>My invitations</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Community/Membership/MyInvitations.ascx</WebPartFileName>
+  <WebPartGUID>7fc55c0a-0039-4a87-8bbf-21c04b0c05af</WebPartGUID>
+  <WebPartIconClass>icon-w-my-invitations</WebPartIconClass>
+  <WebPartName>MyInvitations</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field allowempty="true" column="UserName" columnsize="200" columntype="text" guid="5ede9b0a-5747-4584-8d9a-96df15244861" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>User name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects which user's group invitations should be displayed. If left empty, the current user will be used.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>usernameselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MemberJoined" columnsize="100" columntype="text" guid="8ef4d480-e01f-41ca-9360-b507d0bbb7d2" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Member joined caption</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to set the text displayed when a group invitation is successfully accepted.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="MemberWaiting" columnsize="100" columntype="text" guid="d962b345-d99d-4c07-bf01-59e250e96e2e" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Member waiting caption</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to set the text displayed when an invitation is accepted, but further approval from the group's administrators is required.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UserIsAlreadyMember" columnsize="100" columntype="text" guid="55da8402-fe85-48a1-b2b5-c09b1b79994f" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>User is already member caption</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text displayed if the invited user is already a member of the given group.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="GroupNoLongerExists" columnsize="100" columntype="text" guid="03f85b4b-0dd3-47f0-b054-15dc4f884693" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Group no longer exists caption</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text that is displayed if a user attempts to accept an invitation to a group that no longer exists.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="InvitationIsNotValid" columnsize="100" columntype="text" guid="dc07c049-9095-464a-8942-42e342013f5c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Invitation is not valid caption</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text that is displayed if a user attempts to accept a group invitation that is no longer valid.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="100" columntype="text" guid="88a7361f-511c-4377-ba32-8bd7968505dc" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>No invitations found.</defaultvalue>
+          <fieldcaption>Zero rows text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the text of the message that will be displayed if the given user currently has no invitations to join a group. This text will not be visible if the Hide control for zero rows property of the web part is enabled.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="HideControlForZeroRows" columntype="boolean" guid="82176580-d810-48ea-8eff-15cb8e159855" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide control for zero rows</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the web part should be hidden if the given user currently has no group invitations.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DeleteImageUrl" columnsize="200" columntype="text" guid="5f73a34d-ccda-4dcb-80f1-06cb91a7bd02" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Delete image URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the URL of an alternate image that will be used for the Delete invitation action in the list.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AcceptImageUrl" columnsize="200" columntype="text" guid="d36aeeca-1ddb-4c24-863e-23d719a5b627" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Accept image URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the URL of an alternate image that will be used for the Accept invitation action in the list.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

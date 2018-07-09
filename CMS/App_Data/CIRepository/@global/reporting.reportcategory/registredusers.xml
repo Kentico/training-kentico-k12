@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>RegistredUsers</CategoryCodeName>
+  <CategoryDisplayName>Registred users</CategoryDisplayName>
+  <CategoryGUID>a57bf8d4-1711-4a87-a289-10d4ec4d72df</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>WebAnalytics</CodeName>
+    <GUID>8d48afa7-5164-4ec1-94e7-19c18956f79c</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

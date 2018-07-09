@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>cms.EventAttendee</CodeName>
+    <GUID>3eb7dbd1-e72a-4381-817a-789413c477c6</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>749c6279-35b7-4bda-9cc1-e84bf69cbf0b</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>removeeventattendees</QueryName>
+  <QueryRequiresTransaction>True</QueryRequiresTransaction>
+  <QueryText>Proc_EventManager_RemoveDependencies</QueryText>
+  <QueryTypeID>1</QueryTypeID>
+</cms.query>

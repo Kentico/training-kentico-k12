@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>0</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>BannerManamentClicks</CodeName>
+    <GUID>cc317ba7-8c99-4a6c-9f04-be0e620e7dc6</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>Banner clicks - Monthly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>5e386127-1c00-4043-a7f9-cd19d87418cc</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportTable?bannerclick.monthreport.Table%%
+<p>
+	{$reports_general.created$} {%CMSContextCurrentTime%} {$reports_general.by$} {%CMSContextCurrentUserName%}</p>
+
+]]>
+  </ReportLayout>
+  <ReportName>bannerclick.monthreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="00f9400f-fb84-456d-9604-ad923c941a15" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-1).Date|(identity)GlobalAdministrator|(hash)0f448c5a82f7fc9a2e8031614094172eabbe1b48ecedfb7f3b95ba2a6534cc80%}]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="ToDate" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="2c75611e-7a37-4347-ab7f-523c77130308" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+        </properties>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="50" publicfield="false" spellcheck="false" guid="3c377166-126d-4c54-b49e-8b1d3ff08031" visibility="none">
+        <properties>
+          <defaultvalue>bannerclick</defaultvalue>
+          <fieldcaption>CodeName</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

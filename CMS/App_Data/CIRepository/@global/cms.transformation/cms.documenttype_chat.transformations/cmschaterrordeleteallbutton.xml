@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>Chat.Transformations</CodeName>
+    <GUID>bf7ea731-502b-43b5-ac6f-153551edb84d</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<br/><a href="#" onclick="${DeleteAll}">Close all errors.</a><br/><br/>
+
+]]>
+  </TransformationCode>
+  <TransformationCSS />
+  <TransformationGUID>d550a6ea-2f94-47aa-9d8a-8e5008df78f9</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>CMSChatErrorDeleteAllButton</TransformationName>
+  <TransformationType>jquery</TransformationType>
+</cms.transformation>

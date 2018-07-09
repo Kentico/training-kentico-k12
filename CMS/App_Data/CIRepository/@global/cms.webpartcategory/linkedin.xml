@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>LinkedIn</CategoryDisplayName>
+  <CategoryGUID>4905b50a-5747-4dfa-8fc8-298c6a586089</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>LinkedIn</CategoryName>
+  <CategoryParentID>
+    <CodeName>Membership</CodeName>
+    <GUID>9d58eec4-fb81-4dfb-87bb-e6bfbca98a08</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

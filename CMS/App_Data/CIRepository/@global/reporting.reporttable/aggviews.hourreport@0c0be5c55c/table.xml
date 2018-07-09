@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>table</TableDisplayName>
+  <TableGUID>5d1ae09c-51cd-4ecd-a49e-92d0cf105ea1</TableGUID>
+  <TableName>table</TableName>
+  <TableQuery>
+<![CDATA[
+DECLARE @PageViews TABLE
+	(
+		PagePath NVARCHAR(500),
+		Pageviews INT,
+		Percents DECIMAL(10,2)  
+	)
+
+	DECLARE @Sum DECIMAL;
+
+	SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'hour');
+	SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'hour');
+
+	SELECT @Sum =   
+		SUM(HitsCount)
+		FROM Analytics_Statistics
+		INNER JOIN Analytics_HourHits ON Analytics_HourHits.HitsStatisticsID = Analytics_Statistics.StatisticsID
+		LEFT JOIN View_CMS_Tree_Joined ON View_CMS_Tree_Joined.NodeID = Analytics_Statistics.StatisticsObjectID AND StatisticsObjectCulture = DocumentCulture 
+		WHERE (StatisticsSiteID = @CMSContextCurrentSiteID)
+		AND (StatisticsCode=@CodeName)
+		AND (HitsStartTime >= @FromDate)
+		AND (HitsEndTime <= @ToDate)
+
+	INSERT INTO @PageViews (PagePath, PageViews, Percents)
+		SELECT TOP 100 StatsWithPath.NodeAliasPath, SUM(StatsWithPath.HitsCount) AS PageViews, (SUM(StatsWithPath.HitsCount)/@Sum)*100 AS Percents FROM
+		(
+		SELECT
+		-- When NodeAliasPagePath is empty, use value from StatisticsObjectName instead. This could happed for example when document does not longer exist in one of the cultures.
+		-- In this case row can't be joined with View_CMS_Tree_Joined.
+			CASE
+				WHEN NodeAliasPath = '' OR NodeAliasPath IS NULL THEN StatisticsObjectName
+				ELSE NodeAliasPath
+			END AS NodeAliasPath, StatisticsObjectID AS ObjectID, HitsCount 
+			FROM Analytics_Statistics
+			INNER JOIN Analytics_HourHits ON Analytics_HourHits.HitsStatisticsID = Analytics_Statistics.StatisticsID
+			LEFT JOIN View_CMS_Tree_Joined ON Analytics_Statistics.StatisticsObjectID = View_CMS_Tree_Joined.NodeID AND StatisticsObjectCulture = DocumentCulture
+			WHERE (StatisticsSiteID = @CMSContextCurrentSiteID) AND (HitsStartTime >= @FromDate) AND (HitsEndTime <= @ToDate) AND (StatisticsCode = @CodeName)
+		) AS StatsWithPath
+		GROUP BY StatsWithPath.NodeAliasPath, StatsWithPath.ObjectID
+		ORDER BY PageViews DESC 
+  
+	SELECT PagePath AS '{$reports_aggviews_Hour.path_header$}',PageViews AS '{$reports_aggviews_Hour.hits_header$}',
+		CAST (Percents AS NVARCHAR(10)) +'%' AS '{$reports_aggviews_Hour.hits_percent_header$}'
+		FROM @PageViews ORDER BY PageViews DESC
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>aggviews.hourreport</CodeName>
+    <GUID>bda5d06d-a78f-47a2-8963-3976eeeb54af</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>True</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>10</pagesize>
+      <querynorecordtext>No data found</querynorecordtext>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

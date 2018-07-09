@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>GroupManagement</CodeName>
+    <GUID>35c19d90-c0f0-422e-adb5-9d586164c7d4</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Allows group administrators to manage the profile, properties and content of the specified group directly from the live site.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Group profile</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Community/Profile/GroupProfile.ascx</WebPartFileName>
+  <WebPartGUID>d4b7adc7-c0d5-4cad-9e85-bd26f8ba6721</WebPartGUID>
+  <WebPartIconClass>icon-w-group-profile</WebPartIconClass>
+  <WebPartName>GroupProfile</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Community">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="GroupName" columnsize="100" columntype="text" guid="84fa4b5c-42b2-4aca-8dca-c8e375109868" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Group name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.groupname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>communitygroupselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="NoPermissionMessage" columnsize="450" columntype="text" guid="5ca3591c-3dc6-45eb-ba24-19fc9c799e89" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>You are not allowed to manage this group.</defaultvalue>
+          <fieldcaption>No permissions message</fieldcaption>
+          <fielddescription>{$webpart.properties.nopermissionmessage$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowChangeGroupDisplayName" columntype="boolean" guid="6198f957-547a-4341-a1a7-5a0901fb41a1" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Allow change group display name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpart.allowuserchangedisplayname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowSelectTheme" columntype="boolean" guid="42b52957-d676-4cdb-8a68-0d0ea5ff2c00" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Allow select theme</fieldcaption>
+          <fielddescription>{$documentation.allowselecttheme$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Design">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="DisplayGeneral" columntype="boolean" guid="b2f11d44-bcbb-41ec-9044-36d1f428d56c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display general tab</fieldcaption>
+          <fielddescription>{$GroupProfile.DisplayGeneral$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplaySecurity" columntype="boolean" guid="3f210c64-f9cf-488e-a654-8e10ca169e26" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display security tab</fieldcaption>
+          <fielddescription>{$GroupProfile.DisplaySecurity$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMembers" columntype="boolean" guid="0b9d090b-b8b7-429f-9633-9aa0b5f26e95" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display members tab</fieldcaption>
+          <fielddescription>{$GroupProfile.DisplayMembers$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayRoles" columntype="boolean" guid="21808926-b01f-4d23-afc1-f5c1c8733e08" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display roles tab</fieldcaption>
+          <fielddescription>{$GroupProfile.DisplayRoles$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayForums" columntype="boolean" guid="616deb69-ce90-4826-8967-ce24f776f18e" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display forums tab</fieldcaption>
+          <fielddescription>{$GroupProfile.DisplayForums$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMediaLibrary" columntype="boolean" guid="ad6c4a88-86dd-4a9b-ae94-baeb7cd19460" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display media library tab</fieldcaption>
+          <fielddescription>{$GroupProfile.DisplayMediaLibrary$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayMessageBoards" columntype="boolean" guid="a0b24748-db1b-49f4-8633-8d33e10ba7aa" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display message boards tab</fieldcaption>
+          <fielddescription>{$GroupProfile.DisplayMessageBoards$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayPolls" columntype="boolean" guid="0cdbbb5c-6125-4a7f-b49d-69414ee29f24" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display polls tab</fieldcaption>
+          <fielddescription>{$GroupProfile.DisplayPolls$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

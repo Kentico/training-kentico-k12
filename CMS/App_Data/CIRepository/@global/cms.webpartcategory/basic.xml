@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Basic</CategoryDisplayName>
+  <CategoryGUID>a736f41a-e1c9-4ea8-899e-b63a76b9f045</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>Basic</CategoryName>
+  <CategoryParentID>
+    <CodeName>Maps</CodeName>
+    <GUID>9a393cc4-b4bb-4142-a213-b4460980e768</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

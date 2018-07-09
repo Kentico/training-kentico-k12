@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>OM.MVTest</CodeName>
+    <GUID>fca8a7a7-ff70-4a2e-8f5e-fd415978f28c</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <field column="MVTestMaxConversions">
+        <properties>
+          <controlcssclass>CalendarTextBox</controlcssclass>
+        </properties>
+      </field>
+    </form>
+  </FormDefinition>
+  <FormDisplayName>update</FormDisplayName>
+  <FormGUID>84483801-bb16-42ae-b794-c6c52a56f1a5</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormLayoutType>html</FormLayoutType>
+  <FormName>Update</FormName>
+</cms.alternativeform>

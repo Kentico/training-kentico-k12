@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportgraph>
+  <GraphConnectionString />
+  <GraphDisplayName>graph</GraphDisplayName>
+  <GraphGUID>4ac711b2-afd1-418a-8803-db686a9466fd</GraphGUID>
+  <GraphHeight>500</GraphHeight>
+  <GraphLegendPosition>100</GraphLegendPosition>
+  <GraphName>graph</GraphName>
+  <GraphQuery>
+<![CDATA[
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'month');
+ 
+ SELECT [Date] AS StartTime ,T1.Hits FROM
+  {%DatabaseSchema%}.Func_Analytics_EnsureDates (@FromDate,@ToDate,'month') AS Dates   
+  LEFT JOIN
+  (SELECT HitsStartTime AS StartTime, SUM(HitsCount) AS Hits 
+  FROM Analytics_Statistics
+  INNER JOIN Analytics_MonthHits ON Analytics_MonthHits.HitsStatisticsID = Analytics_Statistics.StatisticsID
+  WHERE (StatisticsSiteID = @CMSContextCurrentSiteID) AND
+  (StatisticsCode = N'conversion') AND 
+  (@ConversionName IS NULL OR @ConversionName IN ('',StatisticsObjectName))
+  GROUP BY HitsStartTime) AS T1
+  ON T1.StartTime = [Date]
+  ORDER BY [Date]
+]]>
+  </GraphQuery>
+  <GraphQueryIsStoredProcedure>False</GraphQueryIsStoredProcedure>
+  <GraphReportID>
+    <CodeName>conversion.monthreport</CodeName>
+    <GUID>8ce740ca-115f-4815-820f-0d9b5c3e3083</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </GraphReportID>
+  <GraphSettings>
+    <CustomData>
+      <BarDrawingStyle>Bar</BarDrawingStyle>
+      <barorientation>Vertical</barorientation>
+      <baroverlay>False</baroverlay>
+      <BorderSkinStyle>None</BorderSkinStyle>
+      <ChartAreaBorderStyle>NotSet</ChartAreaBorderStyle>
+      <ChartAreaGradient>None</ChartAreaGradient>
+      <displayitemvalue>False</displayitemvalue>
+      <exportenabled>True</exportenabled>
+      <LegendBorderSize>0</LegendBorderSize>
+      <LegendBorderStyle>NotSet</LegendBorderStyle>
+      <legendinside>False</legendinside>
+      <legendposition>None</legendposition>
+      <linedrawinstyle>Line</linedrawinstyle>
+      <PieDoughnutRadius>70</PieDoughnutRadius>
+      <PieDrawingDesign>Default</PieDrawingDesign>
+      <PieDrawingStyle>Doughnut</PieDrawingStyle>
+      <PieLabelStyle>Outside</PieLabelStyle>
+      <pieshowpercentage>False</pieshowpercentage>
+      <PlotAreaBorderSize>0</PlotAreaBorderSize>
+      <PlotAreaBorderStyle>NotSet</PlotAreaBorderStyle>
+      <plotareagradient>None</plotareagradient>
+      <reverseyaxis>False</reverseyaxis>
+      <SeriesBorderSize>4</SeriesBorderSize>
+      <SeriesBorderStyle>Solid</SeriesBorderStyle>
+      <seriesgradient>None</seriesgradient>
+      <seriesitemtooltip>#VALX{y}  -  #SER: #VALY</seriesitemtooltip>
+      <SeriesSymbols>Circle</SeriesSymbols>
+      <showas3d>False</showas3d>
+      <showmajorgrid>True</showmajorgrid>
+      <StackedBarDrawingStyle>Bar</StackedBarDrawingStyle>
+      <stackedbarmaxstacked>False</stackedbarmaxstacked>
+      <subscriptionenabled>True</subscriptionenabled>
+      <tenpowers>False</tenpowers>
+      <titlefontnew>Arial;bold;14;;</titlefontnew>
+      <titleposition>Center</titleposition>
+      <valuesaspercent>False</valuesaspercent>
+      <xaxisangle>0</xaxisangle>
+      <xaxisfont>Arial;bold;11;;</xaxisfont>
+      <xaxisformat>y</xaxisformat>
+      <xaxissort>True</xaxissort>
+      <xaxistitleposition>Center</xaxistitleposition>
+      <yaxisfont>Arial;bold;11;;</yaxisfont>
+      <yaxistitleposition>Center</yaxistitleposition>
+      <yaxisusexaxissettings>True</yaxisusexaxissettings>
+    </CustomData>
+  </GraphSettings>
+  <GraphTitle />
+  <GraphType>line</GraphType>
+  <GraphWidth>700</GraphWidth>
+  <GraphXAxisTitle>{$reports_general.label_months$}</GraphXAxisTitle>
+  <GraphYAxisTitle>{$reports_conversion.label_num$}</GraphYAxisTitle>
+</reporting.reportgraph>

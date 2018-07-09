@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>Traffic sources</TableDisplayName>
+  <TableGUID>e9761837-0f7f-42eb-871d-dea5ad211206</TableGUID>
+  <TableName>TrafficSources</TableName>
+  <TableQuery>
+<![CDATA[
+DECLARE @Sum DECIMAL (10,2);
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
+SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'{%if (Interval == null) { "year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
+
+SELECT @Sum = 
+SUM (HitsCount) FROM Analytics_Statistics 
+LEFT JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%} ON HitsStatisticsID = StatisticsID
+WHERE 
+((StatisticsCode = 'referringsite_direct') OR (StatisticsCode = 'referringsite_search')  OR (StatisticsCode = 'referringsite_referring')  
+OR (StatisticsCode = 'referringsite_inbound')) 
+AND ((HitsStartTime >=@FromDate) AND (HitsEndTime <=@ToDate) AND (StatisticsSiteID = @CMSContextCurrentSiteID)
+AND (StatisticsObjectID = @NodeID) AND (StatisticsObjectCulture = @CultureCode))
+
+SELECT '{'+'$analytics_codename.' + StatisticsCode + '$}' AS '{$reporting.alltraficsources.columntitle$}',SUM(HitsCount) AS '{$general.views$}' ,
+CAST (CAST (SUM(HitsCount)/@Sum*100 AS DECIMAL(10,2)) AS NVARCHAR (20))+'%' AS '{$general.percent$}'
+FROM Analytics_Statistics 
+LEFT JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%} ON HitsStatisticsID = StatisticsID
+WHERE
+((StatisticsCode = 'referringsite_direct') OR (StatisticsCode = 'referringsite_search')  OR (StatisticsCode = 'referringsite_referring')OR (StatisticsCode = 'referringsite_inbound'))
+ AND 
+((HitsStartTime >= @FromDate) AND (HitsEndTime <= @ToDate) AND (StatisticsSiteID = @CMSContextCurrentSiteID) AND (StatisticsObjectID = @NodeID) 
+   AND (StatisticsObjectCulture = @CultureCode))
+GROUP BY StatisticsCode
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>pagereports.Traffic</CodeName>
+    <GUID>716af0fd-6744-485e-82c6-48439401ed69</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>true</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>15</pagesize>
+      <querynorecordtext>No data found</querynorecordtext>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

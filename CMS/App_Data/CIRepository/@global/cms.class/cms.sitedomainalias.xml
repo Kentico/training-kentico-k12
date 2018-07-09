@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Site domain alias</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="SiteDomainAliasID" columntype="integer" guid="97dd2de6-e021-4be6-afc0-98bb257c2697" isPK="true" isunique="true" publicfield="false" system="true">
+        <properties>
+          <fieldcaption>SiteDomainAliasID</fieldcaption>
+        </properties>
+      </field>
+      <field column="SiteDomainAliasName" columnsize="400" columntype="text" guid="0128ef2c-a751-404e-a4ca-e635da780b90" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>Domain alias</fieldcaption>
+          <validationerrormessage>{$Site_Edit.AliasRequired$}</validationerrormessage>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>True</Trim>
+        </settings>
+      </field>
+      <field column="SiteID" columntype="integer" guid="6bcc14c5-26c8-4219-95fa-b17014252d3a" publicfield="false" system="true">
+        <properties>
+          <fieldcaption>SiteID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="SiteDefaultVisitorCulture" columnsize="50" columntype="text" guid="a69982ab-2f9e-4c9d-a11a-caa1bee222aa" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>Visitor culture</fieldcaption>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowDefault>False</AllowDefault>
+          <AllowEmpty>False</AllowEmpty>
+          <controlname>sitecultureselector</controlname>
+          <DisplayNameFormat>{%CultureName%}</DisplayNameFormat>
+          <SpecialFields>;{$Site_Edit.Automatic$}</SpecialFields>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteDomainGUID" columntype="guid" guid="9f8ec7b9-bd18-4c2f-aa37-86cc2e848fa7" publicfield="false" system="true">
+        <properties>
+          <fieldcaption>SiteDomainGUID</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="SiteDomainLastModified" columntype="datetime" guid="9ddf6eaa-3970-4615-9000-e40513eaa8c3" publicfield="false" system="true">
+        <properties>
+          <fieldcaption>SiteDomainLastModified</fieldcaption>
+        </properties>
+      </field>
+      <field allowempty="true" column="SiteDomainDefaultAliasPath" columnsize="450" columntype="text" guid="8552c789-8c92-4639-8b27-22e5c07706ae" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>Default alias path</fieldcaption>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteDomainRedirectUrl" columnsize="450" columntype="text" guid="f8cfa857-2f5c-465d-aa72-8d23841f0334" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>Redirect URL</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>True</Trim>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>a72f9763-8c28-4314-981e-6247776f8134</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>cms.sitedomainalias</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS</CodeName>
+    <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings />
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_SiteDomainAlias</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

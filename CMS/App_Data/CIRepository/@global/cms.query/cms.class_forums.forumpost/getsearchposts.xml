@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.ForumPost</CodeName>
+    <GUID>f40c961c-3d47-4e6a-997e-b127db2520c1</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>1a9a7d55-f30e-4436-ae3c-c00db048a20d</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>getsearchposts</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[SELECT ##TOPN## Forums_ForumPost.*, ForumSiteID FROM Forums_ForumPost LEFT JOIN Forums_Forum ON ForumID = PostForumID WHERE ##WHERE## ORDER BY ##ORDERBY##]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

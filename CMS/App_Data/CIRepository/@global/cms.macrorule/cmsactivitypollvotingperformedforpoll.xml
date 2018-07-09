@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.macrorule>
+  <MacroRuleCondition>
+    <![CDATA[{_was}Activity.LinkedToObject("polls.poll", "{poll}")]]>
+  </MacroRuleCondition>
+  <MacroRuleDescription>
+    <![CDATA[{$macrorule.cmsactivitypollvotingperformedforpoll.description$}]]>
+  </MacroRuleDescription>
+  <MacroRuleDisplayName>
+    <![CDATA[Activity 'Poll voting' performed for poll]]>
+  </MacroRuleDisplayName>
+  <MacroRuleEnabled>True</MacroRuleEnabled>
+  <MacroRuleGUID>433c16d7-c763-4854-8df1-3719188d7206</MacroRuleGUID>
+  <MacroRuleIsCustom>False</MacroRuleIsCustom>
+  <MacroRuleName>CMSActivityPollVotingPerformedForPoll</MacroRuleName>
+  <MacroRuleParameters>
+    <form version="2">
+      <field column="poll" columnsize="100" columntype="text" guid="51525ca0-50a3-42a6-9145-7855b23228a5" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>select poll</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>pollselector</controlname>
+          <GroupSelector>False</GroupSelector>
+          <ShowSiteFilter>False</ShowSiteFilter>
+        </settings>
+      </field>
+      <field allowempty="true" column="_was" columnsize="100" columntype="text" guid="d69e18e6-f3d8-446f-9b1e-e26053495b3a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>;was</defaultvalue>
+          <fieldcaption>select operation</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>macronegationoperator</controlname>
+          <Options>
+<![CDATA[
+;was
+!;was not
+]]>
+          </Options>
+          <RepeatDirection>horizontal</RepeatDirection>
+        </settings>
+      </field>
+    </form>
+  </MacroRuleParameters>
+  <MacroRuleRequiredData>Activity</MacroRuleRequiredData>
+  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
+  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
+  <MacroRuleText>
+    <![CDATA[Activity 'Poll voting' {_was} performed for poll {poll}]]>
+  </MacroRuleText>
+</cms.macrorule>

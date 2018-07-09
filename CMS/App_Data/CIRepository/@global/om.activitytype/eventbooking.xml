@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.activitytype>
+  <ActivityTypeDescription>
+    <![CDATA[The contact signed up for an event using the Booking system.]]>
+  </ActivityTypeDescription>
+  <ActivityTypeDisplayName>Event booking</ActivityTypeDisplayName>
+  <ActivityTypeEnabled>True</ActivityTypeEnabled>
+  <ActivityTypeIsCustom>False</ActivityTypeIsCustom>
+  <ActivityTypeIsHiddenInContentOnly>True</ActivityTypeIsHiddenInContentOnly>
+  <ActivityTypeManualCreationAllowed>False</ActivityTypeManualCreationAllowed>
+  <ActivityTypeName>eventbooking</ActivityTypeName>
+</om.activitytype>

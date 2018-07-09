@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>ForumPosts</CodeName>
+    <GUID>640f6aff-12a6-47de-b5d2-a3cf663c17dd</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a list of the most active threads from the selected forums based on the specified transformation. The order of the threads is determined by their post count.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Forum - Most active threads</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Forums/ForumMostActiveThreads.ascx</WebPartFileName>
+  <WebPartGUID>82c0dd59-a615-4a9f-a83a-2b452343740d</WebPartGUID>
+  <WebPartIconClass>
+<![CDATA[
+icon-w-forum-most-active-threads
+
+]]>
+  </WebPartIconClass>
+  <WebPartName>ForumMostActiveThreads</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Properties">
+        <properties>
+          <caption>Thread filter</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ForumGroups" columnsize="450" columntype="text" guid="e9e06de7-2f70-4b9a-add7-1f5be2f8b4f1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Forum groups</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the forum groups from which the displayed threads should be loaded. If empty, threads will be loaded from all forums, including ad-hoc forums.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>groupsselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="f85b3ffc-cfea-4c55-a16a-b74fc5252ac2" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Top N</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the maximum number of forum threads that will be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="200" columntype="text" guid="b48e51bf-c4c9-4f5b-bdfe-2e461d78ceb1" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.sitename$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="400" columntype="text" guid="6774feb8-1758-43ac-8f8e-f1f8628ebb9c" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Where condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Columns" columnsize="1000" columntype="text" guid="186ac94e-d80f-423b-a6cb-8d41d265ec89" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Columns</fieldcaption>
+          <fielddescription>
+            <![CDATA[Lists the database columns which should be loaded along with the given objects, separated by commas (,). If empty, all columns will be loaded. Specifying a list without unnecessary columns may significantly improve performance.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ShowGroupPosts" columntype="boolean" guid="f3739e65-b8c4-4d85-9039-549ee43f7fe3" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show group threads</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if threads from forums that belong under community groups or workgroups should also be loaded.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Transformation">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="f8fe4363-6d38-4399-a6bf-c2df311a2ecc" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Community.Transformations.ForumMostActiveThread</defaultvalue>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the transformation used to format the displayed forum threads. Transformations are specified as <class name>.<transformation name>.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="No data behaviour">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="HideControlForZeroRows" columntype="boolean" guid="28deb192-1072-4fff-b63b-27a38326b16a" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="398c56a5-bc96-495a-af61-38ec9b39f47d" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="7c27e06c-1b61-46d1-bcf7-7d4c8ffc3bda" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="d0ed7195-0e73-45d2-ba11-4806e684ac79" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Forums</CodeName>
+    <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>BannerManagement</CodeName>
+    <GUID>0bbaf6ee-691e-4b31-9ca5-db098255806b</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>Banner impressions  and clicks by category</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>6d8b9e62-2ae4-4a10-9ebd-fec97587b79e</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<h4>
+	{$banner.reports.clicksandhitsperbanner$}</h4>
+({$reports_general.from$} {%FromDate%} {$reports_general.to$} {%ToDate%})<br />
+<br />
+%%control:ReportTable?bannercategoryhitsclicks.hitsandclicks%%<br />
+<br />
+{$reports_general.created$} {%CMSContextCurrentTime%} {$reports_general.by$} {%CMSContextCurrentUserName%}<br />
+
+]]>
+  </ReportLayout>
+  <ReportName>bannercategoryhitsclicks</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="BannerCategoryID" columntype="integer" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="744a4f15-f706-4c5f-be72-c2bdc1852f33" visibility="none">
+        <properties>
+          <fieldcaption>Banner category ID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" spellcheck="false" guid="c32002f3-79a7-4c65-b9d6-901b8aae4a8c" visibility="none">
+        <properties>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>True</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" spellcheck="false" guid="a637f44d-1b37-4c4f-b79d-52557f8e130a" visibility="none">
+        <properties>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>True</EditTime>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

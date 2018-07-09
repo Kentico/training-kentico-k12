@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Syndication</CodeName>
+    <GUID>c31d87aa-73f3-4b5f-b607-a546575a7775</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays link on a page to blog comments RSS feed based on widget settings.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Blog comments RSS feed</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>04de5ac8-6a7d-4263-bce7-993540321eb4</WidgetGUID>
+  <WidgetIconClass>icon-w-blog-comments-rss-feed</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>BlogCommentsRSSFeedEditors</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="LinkText" guid="a526fda9-647b-4edd-8947-f288965a9d2d">
+        <properties>
+          <defaultvalue>Blog comments</defaultvalue>
+        </properties>
+      </field>
+      <field column="LinkIcon" guid="2495bd2a-71c5-4599-a15a-d05ddd6dc620" />
+      <field column="EnableRSSAutodiscovery" guid="2d9639d7-ce1f-4be7-8ac3-3a9eb420d8e0" />
+      <field column="FeedName" guid="7dd88605-7f7c-49c1-b420-612c34280d96" visible="false" />
+      <field column="FeedTitle" guid="02ea6032-e5bc-4ad6-b171-8cf3700bb520" />
+      <field column="FeedDescription" guid="b93c4faa-d7da-4223-a70d-757cf944403f" />
+      <field column="FeedLanguage" guid="a48b6d99-ac6e-4e6f-937a-edf17ece7f74" visible="false" />
+      <field column="QueryStringKey" guid="b7939bd3-7e28-4b97-929f-fddada90da0c" visible="false" />
+      <field column="HeaderXML" guid="31e9b748-1e3f-4ec7-b00e-2d199be7ae4b" visible="false" />
+      <field column="FooterXML" guid="3dcf3694-6a69-4931-8e99-bb497354ec5d" visible="false" />
+      <field column="TransformationName" guid="e6c86dd8-a1ac-4782-841b-2dc263b6bdd9" visible="false" />
+      <field column="SelectOnlyApproved" guid="0526cbee-debe-4bff-849b-f62b8f02b824" visible="false" />
+      <field column="OrderBy" guid="643dee71-7339-4a60-a7ea-3f1cb3d72151" visible="false" />
+      <field column="SelectTopN" guid="8c859b6f-5eaa-47e3-a905-8da5a6ccba7d" fieldtype="dropdownlist">
+        <settings>
+          <options>
+            <item value="10" text="10" />
+            <item value="25" text="25" />
+            <item value="50" text="50" />
+          </options>
+        </settings>
+        <properties>
+          <fieldcaption>Items</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.rssitemscount$}</fielddescription>
+          <defaultvalue>25</defaultvalue>
+        </properties>
+      </field>
+      <field column="SiteName" guid="11b04f5c-b17f-4150-96aa-4a4f1047f2b6" visible="false" />
+      <field column="WhereCondition" guid="bf340f2c-5217-47e9-8a9a-4c2fc9a4110c" visible="false" />
+      <field column="SelectedColumns" guid="669d41ce-d717-452d-a79c-4d9c7b0c3a7b" visible="false" />
+      <field column="UseDocumentFilter" guid="572262cf-e67c-4e2d-a25e-411698d80d1b" visible="false">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+      </field>
+      <field column="Path" guid="d1dc26d0-211a-4e15-b652-242a23b38f62">
+        <properties>
+          <fieldcaption>Blog</fieldcaption>
+          <fielddescription>
+            <![CDATA[Path to the blog for which the blog posts comments will be displayed in the RSS feed. If the value is empty current path is used.]]>
+          </fielddescription>
+        </properties>
+      </field>
+      <field column="CombineWithDefaultCulture" guid="0839ea6e-ff4b-4cd7-a012-887e39f26786" visible="false" />
+      <field column="CultureCode" guid="564ab35e-3658-4b97-be89-e823af4e1551" visible="false" />
+      <field column="MaxRelativeLevel" guid="90572295-3e55-495b-aee1-533fc1473b7c" visible="false" />
+      <field column="SelectOnlyPublished" guid="0c341d80-c3b9-4ddb-a020-b4c2d58038a2" visible="false" />
+      <field column="DocumentsWhereCondition" guid="a1fb320f-c3d3-4f81-ab88-906e013300d4" visible="false" />
+      <field column="CacheItemName" guid="fe788261-44b1-4896-944a-9c2e3961c2a9" visible="false" />
+      <field column="CacheMinutes" guid="6b6bded8-4f40-4b2d-86da-9727870851c5" visible="false" />
+      <field column="CacheDependencies" guid="49858114-49e4-4794-b241-20eca9d41362" visible="false" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>BlogCommentsRSSFeed</CodeName>
+    <GUID>66262f16-3d1b-463d-aaee-018ffee273b5</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

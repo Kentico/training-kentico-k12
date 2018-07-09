@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtask>
+  <TaskAllowExternalService>False</TaskAllowExternalService>
+  <TaskAssemblyName>CMS.Chat</TaskAssemblyName>
+  <TaskClass>CMS.Chat.OldRecordsCleaner</TaskClass>
+  <TaskCondition />
+  <TaskData />
+  <TaskDeleteAfterLastRun>False</TaskDeleteAfterLastRun>
+  <TaskDisplayName>Clean old chat records</TaskDisplayName>
+  <TaskEnabled>True</TaskEnabled>
+  <TaskGUID>b679317a-aa15-4eaf-8f8c-7f5c14f9b7e5</TaskGUID>
+  <TaskInterval>
+    <![CDATA[day;1/17/2012 3:48:42 PM;1;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
+  </TaskInterval>
+  <TaskName>ChatOldRecordsCleaner</TaskName>
+  <TaskResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </TaskResourceID>
+  <TaskRunIndividually>False</TaskRunIndividually>
+  <TaskRunInSeparateThread>False</TaskRunInSeparateThread>
+  <TaskServerName />
+  <TaskUseExternalService>False</TaskUseExternalService>
+</cms.scheduledtask>

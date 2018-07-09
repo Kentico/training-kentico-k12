@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>1</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>TopExistPages</CodeName>
+    <GUID>6e36495b-2934-4118-bc0b-2fab27305a51</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>Top exit pages (multilingual) - Yearly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>08ceb6cb-8513-4a1d-a21b-55a1913b13d7</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<br />
+%%control:ReportGraph?exitpage.multilingual.yearreport.graph%%<br />
+<br />
+%%control:ReportTable?exitpage.multilingual.yearreport.TableYearAggViewsCulture%%<br />
+<br />
+%%control:ReportGraph?exitpage.multilingual.yearreport.graph_pie%%<br />
+<br />
+{$reports_general.created$} {%cmscontextcurrenttime%} {$reports_general.by$} {%cmscontextcurrentusername%}
+]]>
+  </ReportLayout>
+  <ReportName>exitpage.multilingual.yearreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" spellcheck="false" guid="01ec716a-08dd-4ec6-a274-23d39e08b1ef" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddYears(-6).Date|(identity)GlobalAdministrator|(hash)8ec65f6993064d90e9db979fcdc1b605e689455eca866be895fe07db295697f8%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" publicfield="false" guid="c6b03eaf-3ded-441d-9031-557e03838ebb" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="CodeName" columntype="text" fieldtype="CustomUserControl" columnsize="20" publicfield="false" guid="27461c64-9782-49d7-8292-5dedc1431ee2" visibility="none">
+        <properties>
+          <defaultvalue>exitpage</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

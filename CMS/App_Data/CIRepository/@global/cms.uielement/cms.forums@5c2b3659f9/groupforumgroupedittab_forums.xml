@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition>
+    <![CDATA[{%CurrentUser.IsAuthorizedPerGroup(EditedObjectParent.GroupGroupID, "Manage", CurrentSiteID)|(identity)GlobalAdministrator|(hash)94b0d7a28935b706c0232d16b951556a5ff46b91ec70c2d65f35cb9ed119aa60%}]]>
+  </ElementAccessCondition>
+  <ElementCaption>{$forum_list.headercaption$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$forum_list.headercaption$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>de463408-6153-447b-b7ac-785479d98087</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>GroupForumGroupEditTab_Forums</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>Listing</CodeName>
+    <GUID>226b13a3-97c2-4895-99e4-39ea6247a399</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>EditGroupForumGroup</CodeName>
+    <GUID>79077afd-9f91-40fa-8926-7904f0e498f9</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Forums</CodeName>
+      <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <Data>
+      <DisplayBreadcrumbs>False</DisplayBreadcrumbs>
+      <EditInDialog>False</EditInDialog>
+      <includejquery>False</includejquery>
+      <ObjectType>forums.groupforum</ObjectType>
+      <OpenInDialog>False</OpenInDialog>
+      <ParentObjectType>forums.groupforumgroup</ParentObjectType>
+      <WhereCondition>
+        <![CDATA[ForumGroupID = {% ToInt(QueryString.parentobjectid, 0) @%} AND ForumSiteID = {% CurrentSiteID @%}]]>
+      </WhereCondition>
+    </Data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Forums</CodeName>
+    <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+</cms.uielement>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>
+    <![CDATA[Logon & Registration]]>
+  </CategoryDisplayName>
+  <CategoryGUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>MembershipLogonRegistration</CategoryName>
+  <CategoryParentID>
+    <CodeName>Membership</CodeName>
+    <GUID>9d58eec4-fb81-4dfb-87bb-e6bfbca98a08</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

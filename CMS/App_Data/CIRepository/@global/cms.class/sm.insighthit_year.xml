@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>InsightHit_Year</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="InsightHitID" columntype="integer" guid="3d9eaf80-02bf-49ad-8630-89e846346aef" isPK="true" publicfield="false" system="true">
+        <properties>
+          <fieldcaption>InsightHitID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="InsightHitPeriodFrom" columntype="datetime" guid="3652f67d-aa69-4577-acf5-581c2fcac93f" publicfield="false" system="true" />
+      <field column="InsightHitPeriodTo" columntype="datetime" guid="eaee1a17-a733-439d-96f9-508eb1587160" publicfield="false" system="true" />
+      <field column="InsightHitValue" columntype="longinteger" guid="c8437fe6-3f9b-43e8-a92b-9297bcbad6a2" publicfield="false" system="true" />
+      <field column="InsightHitInsightID" columntype="integer" guid="01c29601-79c6-4f26-ac0c-c7d64bfe3c48" publicfield="false" system="true" />
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayoutType>ascx</ClassFormLayoutType>
+  <ClassGUID>631a8a2e-fb07-4aba-99a0-48b3dd1261bd</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>SM.InsightHit_Year</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.SocialMarketing</CodeName>
+    <GUID>66fed7e0-3dfc-4367-9350-0ce620cc1d7e</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings />
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>SM_InsightHit_Year</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

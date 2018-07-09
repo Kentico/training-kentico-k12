@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription />
+  <ResourceDisplayName>Messaging</ResourceDisplayName>
+  <ResourceGUID>2b521e04-6b2d-4422-b1d2-c352e88e3b02</ResourceGUID>
+  <ResourceHasFiles>True</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.Messaging</ResourceName>
+  <ResourceURL />
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.edit$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$general.edit$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>0ab9fbb4-8169-443b-8038-d13b5bdb2822</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>EditBoards</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>Tabs</CodeName>
+    <GUID>8a688147-0b6c-4d66-b56c-ecd3f124eab6</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>Boards</CodeName>
+    <GUID>fcab9deb-2b93-495f-8771-59393e29b008</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.MessageBoards</CodeName>
+      <GUID>0011c831-2e12-45bf-87ed-6a17607659f8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <includejquery>False</includejquery>
+      <displaybreadcrumbs ismacro="True">
+        <![CDATA[{% ToBool(QueryString.showbreadcrumbs, true) |(identity)GlobalAdministrator|(hash)fe065a3fe04bc5c6f17c99286d5b1781da17ce67aed03e21f3de6be534bd8d26%}]]>
+      </displaybreadcrumbs>
+      <category_name_header>False</category_name_header>
+      <titletext>{$board.header.messageboards$}</titletext>
+      <objecttype>board.board</objecttype>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.MessageBoards</CodeName>
+    <GUID>0011c831-2e12-45bf-87ed-6a17607659f8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+</cms.uielement>

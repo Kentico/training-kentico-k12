@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>21c11b69-419f-484b-bd44-56ba65be089d</HelpTopicGUID>
+  <HelpTopicLink>media_lib_upload_live_site</HelpTopicLink>
+  <HelpTopicName>Allow users to upload content on the live site</HelpTopicName>
+  <HelpTopicOrder>3</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>MediaLibrary</CodeName>
+    <GUID>436564ee-89e9-4719-939a-0d7b57ece744</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.MediaLibrary</CodeName>
+      <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

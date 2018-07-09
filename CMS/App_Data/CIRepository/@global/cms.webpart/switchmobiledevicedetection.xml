@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Device_profile</CodeName>
+    <GUID>953bd274-80bb-4902-b468-dc6d7b4311fe</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Allows visitors to switch between the desktop version of the website (default device profile) and the device-specific version.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Switch mobile device detection</WebPartDisplayName>
+  <WebPartDocumentation>
+    <![CDATA[Additional information: <a href="~/CMSPages/GetDocLink.ashx?link=mobile_websites_developing" target="_blank">Developing website&#39;s for mobile devices</a>]]>
+  </WebPartDocumentation>
+  <WebPartFileName>DeviceProfiles/SwitchDeviceDetection.ascx</WebPartFileName>
+  <WebPartGUID>d5e3ee91-dead-4e08-b4f3-6e3c3e511813</WebPartGUID>
+  <WebPartIconClass>icon-w-switch-mobile-device-detection</WebPartIconClass>
+  <WebPartName>SwitchMobileDeviceDetection</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="LinkContentMobile" columntype="longtext" guid="2101fab9-eeaf-4894-936d-b915b63e9a1d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Show standard version.</defaultvalue>
+          <fieldcaption>Mobile link content</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the text of the link that allows visitors to view the desktop version of the page (Default device profile) instead of the device-specific version.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field column="LinkContentDesktop" columntype="longtext" guid="d97784f2-a92a-4e87-95fe-3971dda6d98a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Show mobile version.</defaultvalue>
+          <fieldcaption>Desktop link content</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the text of the link that allows visitors to view the device-specific version of the page instead of the default version.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.DeviceProfiles</CodeName>
+    <GUID>6a211ca9-a088-480d-b205-86af12b83935</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

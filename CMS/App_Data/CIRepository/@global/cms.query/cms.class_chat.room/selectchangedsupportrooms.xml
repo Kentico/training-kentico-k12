@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.Room</CodeName>
+    <GUID>b9ea7973-e2ba-465e-a56e-15e9614b4251</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>df695cdf-2c96-4323-97c9-e5ae7861402e</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectchangedsupportrooms</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @LastChange DATETIME
+--SET @LastChange = '2012-06-12 11:37:02.130' --  DATEADD(DAY, -1, GETDATE()) -- '2012-04-25 16:01:35.963' -- NULL
+--DECLARE @SiteID INT
+--SET @SiteID = 136;
+----SET @LastChange = NULL --DATEADD(DAY, -1, GETDATE())
+
+WITH RoomsWithAllMessages
+AS
+(
+    SELECT 
+        Chat_Room.*, 
+        Chat_SupportTakenRoom.* , 
+        (SELECT MAX(ChatMessageLastModified) FROM Chat_Message WHERE ChatMessageRoomID = ChatRoomID) AS LastMessageModification,
+        (SELECT MAX(ChatMessageLastModified)
+            FROM Chat_Message 
+            WHERE ChatMessageRoomID = ChatRoomID AND ChatMessageUserID = ChatSupportTakenRoomChatUserID
+        ) AS LastSupporterMessage
+    FROM Chat_Room
+    LEFT JOIN Chat_SupportTakenRoom ON ChatRoomID = ChatSupportTakenRoomRoomID
+    WHERE 
+        ChatRoomIsSupport = 1 AND 
+        ChatRoomEnabled = 1 AND
+        (ChatRoomSiteID IS NULL OR ChatRoomSiteID = @SiteID)
+)
+SELECT *
+FROM
+(
+    SELECT 
+        ChatRoomID, 
+        ChatRoomDisplayName, 
+        COUNT(ChatMessageID) AS UnreadMessagesCount, 
+        ChatSupportTakenRoomChatUserID AS TakenByChatUserID,
+        ChatSupportTakenRoomLastModification AS TakenStateLastChange,
+        CASE
+	        WHEN ISNULL(ChatSupportTakenRoomLastModification, CONVERT(datetime2, '00010101', 112)) >= ISNULL(LastMessageModification, CONVERT(datetime2, '00010101', 112)) THEN ChatSupportTakenRoomLastModification
+	        ELSE LastMessageModification
+        END AS LastChange
+    FROM RoomsWithAllMessages
+    -- CountedMessages - filtered unread messages  
+    LEFT JOIN Chat_Message ON ChatMessageRoomID = ChatRoomID AND
+        -- count only non-system messages:
+        ChatMessageSystemMessageType = 0 AND
+        -- count only messages newer than ResolvedDateTime:
+        (ChatSupportTakenRoomResolvedDateTime IS NULL OR ChatSupportTakenRoomResolvedDateTime < ChatMessageLastModified) AND
+        -- if room is taken, count only messages older then taken date time
+        (ChatSupportTakenRoomChatUserID IS NULL OR ChatSupportTakenRoomLastModification < ChatMessageLastModified) AND
+        -- do not count messages older than supporter last message  
+        (LastSupporterMessage IS NULL OR LastSupporterMessage < ChatMessageLastModified)
+    GROUP BY ChatRoomID, ChatRoomDisplayName, ChatSupportTakenRoomChatUserID, ChatSupportTakenRoomLastModification, LastMessageModification
+    ) AS T
+-- if @LastChange is NULL (it is the first request), return rooms with unread messages and taken rooms. Otherwise return changed rooms (new message or taken state changed)
+WHERE (@LastChange IS NULL AND (UnreadMessagesCount > 0 OR TakenByChatUserID IS NOT NULL)) OR (@LastChange IS NOT NULL AND LastChange > @LastChange)
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

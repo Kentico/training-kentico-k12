@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webtemplate>
+  <WebTemplateDescription>{$webtemplate.dancinggoat.description$}</WebTemplateDescription>
+  <WebTemplateDisplayName>Dancing Goat</WebTemplateDisplayName>
+  <WebTemplateFileName>~\App_Data\Templates\DancingGoat</WebTemplateFileName>
+  <WebTemplateGUID>96cc6b9d-4b14-40ab-9c70-e175d5ca6091</WebTemplateGUID>
+  <WebTemplateLicenses>X</WebTemplateLicenses>
+  <WebTemplateName>DancingGoat</WebTemplateName>
+  <WebTemplateOrder>1</WebTemplateOrder>
+  <WebTemplateShortDescription>
+    <![CDATA[A coffee seller's website which is excellent for evaluation purposes. It has a fully responsive design and loads of sample data.]]>
+  </WebTemplateShortDescription>
+  <WebTemplateThumbnailGUID>3ab53aba-a241-41c5-b5fd-e18b322fa189</WebTemplateThumbnailGUID>
+</cms.webtemplate>

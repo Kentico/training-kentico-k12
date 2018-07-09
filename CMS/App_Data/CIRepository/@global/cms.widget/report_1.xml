@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Content</CodeName>
+    <GUID>4ea8bea5-6cf0-4a77-81d0-7cf1463fcbc4</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Can be used to display a report on the pages of the website. Only existing reports created using the Reporting module can be selected.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Reporting</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>c92e506c-57b2-458a-bb39-6817792dc409</WidgetGUID>
+  <WidgetIconClass>icon-w-reporting</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>Report_1</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="ReportName" guid="b4537b71-e59f-406c-8a84-61af8849aa92" />
+      <field column="DisplayFilter" guid="92278a41-3689-40d2-8599-d187f7d7a1e9" />
+      <field column="EnableExport" guid="68bff69f-8337-4b0c-a0b0-37ac2c679345" />
+      <field column="EnableSubscription" guid="6e0c5d82-d1ea-4652-ac7b-baa9bba9862c" />
+      <field column="PartialCacheMinutes" guid="1d83edd9-bc28-4f6e-a563-0533301496d8" />
+      <field column="PartialCacheDependencies" guid="f6ba9295-40d2-4b30-b421-8bd96debe905" />
+      <field column="ParametersXmlSchema" guid="84af03a5-81f1-41b9-ae82-c455ff56035a" />
+      <field column="ParametersXmlData" guid="837746e7-96ef-4bb4-bb4d-96a3550806f3" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>Report</CodeName>
+    <GUID>29db550f-3572-4442-a1c8-4f5dd63fea1c</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.Notification</CodeName>
+    <GUID>bf8db5a0-b0f0-46b4-a942-b8be64449310</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>11d7ca9f-aab7-4c60-b2d2-d84dfd6200ba</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>CloseNotification</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @NotificationID INT
+--SET @NotificationID = 271
+  
+UPDATE [Chat_Notification]
+SET ChatNotificationIsRead = 1, ChatNotificationReadDateTime = GETDATE()
+WHERE ChatNotificationID = @NotificationID AND ChatNotificationIsRead = 0
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

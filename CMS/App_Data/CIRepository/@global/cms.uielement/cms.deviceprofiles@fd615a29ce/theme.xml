@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$general.theme$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>Theme</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>157be65c-8dfa-4990-a2ca-38030992ca69</ElementGUID>
+  <ElementIconClass />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Theme</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>Theme</CodeName>
+    <GUID>ff1bfdda-6f76-44a0-bb39-485b7033e528</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>EditDeviceProfile</CodeName>
+    <GUID>b8256c2a-09f7-47ff-a26f-1d7542003736</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.DeviceProfiles</CodeName>
+      <GUID>6a211ca9-a088-480d-b205-86af12b83935</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.DeviceProfiles</CodeName>
+    <GUID>6a211ca9-a088-480d-b205-86af12b83935</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+  <ElementVisibilityCondition>
+    <![CDATA[{%!UIContext.EditedObject.UsesExternalStorage|(identity)GlobalAdministrator|(hash)763ea3e2729f21d69fb88bd1aa6f104dbdde6cf7787d642878aa5cd11a470c23%}]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

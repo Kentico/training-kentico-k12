@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>WebAnalytics</CodeName>
+    <GUID>8145fa4a-5499-4cbe-8766-86f32b96b102</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[This web part logs a hit for a custom web analytics statistic when visitors access the page.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Analytics custom statistics</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<p><font size="2">In order for the statistic to be logged,&nbsp;Web analytics must be enabled in&nbsp;<strong>Settings -&gt; On-line marketing -&gt; Web analytics</strong>.</font><br />
+<br />
+Once the web parts logs some hits,&nbsp;you can create reports to display the statistic&#39;s data&nbsp;through the&nbsp;<font size="2"><strong>Reporting</strong> application. The results can then be viewed in the <strong>Web analytics</strong> application under the <strong>Custom </strong>category.<br />
+<br />
+See the&nbsp;<a href="~/CMSPages/GetDocLink.ashx?link=web_analytics" target="_blank">Web analytics </a>chapter for more information.</font></p>
+
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>WebAnalytics/CustomStatistics.ascx</WebPartFileName>
+  <WebPartGUID>e4bac2a1-7ff9-495a-8bd3-b2e82deddec5</WebPartGUID>
+  <WebPartIconClass>icon-w-analytics-custom-statistics</WebPartIconClass>
+  <WebPartName>AnalyticsCustomStatistics</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="StatisticsName" columnsize="100" columntype="text" guid="0ad09eff-acb4-4269-8fa7-dfa422ee2618" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Statistics name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the statistic that will be logged.]]>
+          </fielddescription>
+          <validationerrormessage>
+            <![CDATA[Only numbers, letters and '_' are allowed.]]>
+          </validationerrormessage>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>True</FilterMode>
+          <FilterType>3</FilterType>
+          <Trim>True</Trim>
+        </settings>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("Value.Matches(\"^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$</t><v>^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)a4c065c575620c7b07f4220b71ff24d19f4c9d43b9192710051a1a1a2f701414%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field allowempty="true" column="StatisticsObjectName" columnsize="100" columntype="text" guid="c7742ef4-0f1b-407b-983c-9a46e3d5b65b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Statistics object name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the name of a related object that will be logged along with the hit for the statistic. Usually, a macro expression must be entered to dynamically get the appropriate value. For example, entering {%cmscontext.currentuser.username|(identity)GlobalAdministrator|(hash)ac6eecccd105eccc3bd63ccf2bf0684ea24895f9c349b8ab04c1fb85257bacf1%} would cause the web part to log the name of the user that viewed the page.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="StatisticsValue" columnsize="200" columntype="text" guid="5759b506-f9da-4fc5-b16c-12ee485f29e6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Statistics value</fieldcaption>
+          <fielddescription>
+            <![CDATA[Assigns a value that will be logged for the hit. The value of a each statistic record is cumulative (each hit adds to the total value). You may enter a macro to get a value dynamically depending on the current context.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="OncePerUser" columntype="boolean" guid="533c923d-3ae7-4c20-a910-88fc06922c55" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Once per user</fieldcaption>
+          <fielddescription>
+            <![CDATA[If enabled, hits for the statistic will only be logged once per user session.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>4</WebPartType>
+</cms.webpart>

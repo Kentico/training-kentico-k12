@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>GeneralActions</CodeName>
+    <GUID>00086044-1f49-4574-ab89-9cd537147b34</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Redirects mobile device visitors accessing the page where it is placed to a specified URL. Two different redirection URLs can be specified based on if the device is recognized as a large or a small device. Its typical use is when creating a dedicated website section for mobile devices. It is typically placed on the website's main Home page and redirects mobile users to the Home page of the dedicated mobile section.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Mobile device redirection</WebPartDisplayName>
+  <WebPartFileName>General/MobileDeviceRedirection.ascx</WebPartFileName>
+  <WebPartGUID>13bff674-0ba2-453e-a0f3-77c8dbb206e5</WebPartGUID>
+  <WebPartIconClass>icon-w-mobile-device-redirection</WebPartIconClass>
+  <WebPartName>MobileDeviceRedirection</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Redirection settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="SmallDeviceRedirectionURL" columnsize="1000" columntype="text" guid="f0a298d3-9e73-4191-8f3c-12c028fb950a" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Small device redirection URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[URL to which mobile devices recognized as small should be redirected. The properties below can be used to configure small/large device recognition.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LargeDeviceRedirectionURL" columnsize="1000" columntype="text" guid="02973283-86f7-4b00-83f6-79f9ba67d277" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Large device redirection URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[URL to which mobile devices recognized as large should be redirected. The properties below can be used to configure small/large device recognition.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RedirectAndroid" columnsize="20" columntype="text" guid="4f0f4665-ccdc-409c-80e4-117e2beffe21" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>automatic</defaultvalue>
+          <fieldcaption>Redirect Android</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if Android mobile devices should be recognized as small or large devices. If set to Automatic, they will be recognized as small. If set to Never, they will never be redirected.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+automatic;Automatic
+never;Never
+small;As small device
+large;As large device
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="RedirectBlackBerry" columnsize="20" columntype="text" guid="5561fe9c-d490-41da-a822-ff050e8969d7" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>automatic</defaultvalue>
+          <fieldcaption>Redirect BlackBerry</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if BlackBerry mobile devices should be recognized as small or large devices. If set to Automatic, they will be recognized as small. If set to Never, they will never be redirected.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+automatic;Automatic
+never;Never
+small;As small device
+large;As large device
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="RedirectIPad" columnsize="20" columntype="text" guid="8869616d-6878-45a9-9de4-0845936f972f" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>automatic</defaultvalue>
+          <fieldcaption>Redirect iPad</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if iPad devices should be recognized as small or large devices. If set to Automatic, they will be recognized as large. If set to Never, they will never be redirected.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+automatic;Automatic
+never;Never
+small;As small device
+large;As large device
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="RedirectIPhone" columnsize="20" columntype="text" guid="b3fcc0ec-6867-4ed6-92be-44d1fb4a223c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>automatic</defaultvalue>
+          <fieldcaption>Redirect iPhone</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if iPhone devices should be recognized as small or large devices. If set to Automatic, they will be recognized as small. If set to Never, they will never be redirected.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+automatic;Automatic
+never;Never
+small;As small device
+large;As large device
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="RedirectNokia" columnsize="20" columntype="text" guid="7ee32f53-60a0-47ed-83c4-56401e4caa20" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>automatic</defaultvalue>
+          <fieldcaption>Redirect Nokia</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if Nokia mobile devices should be recognized as small or large devices. If set to Automatic, they will be recognized as small. If set to Never, they will never be redirected.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+automatic;Automatic
+never;Never
+small;As small device
+large;As large device
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="AlwaysRedirect" columntype="boolean" guid="d70befd7-6344-4d3f-8939-892dd92573a1" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Always redirect</fieldcaption>
+          <fielddescription>
+            <![CDATA[On first access from a mobile device, a redirection cookie is stored in the device's browser. If this option is disabled, the device is not redirected if the cookie is present in its browser, i.e. it is only redirected for the first time. If enabled, devices are redirected on each access.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="OtherSmallDevices" columntype="longtext" guid="d955d951-bfe5-4c11-825b-cab298f2f387" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Other small devices (User agent)</fieldcaption>
+          <fielddescription>
+            <![CDATA[List of additional user agents which should be recognized as small mobile devices. Multiple user agents can be entered, each on a separate line.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <IsTextArea>True</IsTextArea>
+        </settings>
+      </field>
+      <field allowempty="true" column="OtherLargeDevices" columntype="longtext" guid="14d69189-eda0-4a4b-9447-92dc8367f2a8" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Other large devices (User agent)</fieldcaption>
+          <fielddescription>
+            <![CDATA[List of additional user agents which should be recognized as large mobile devices. Multiple user agents can be entered, each on a separate line.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <IsTextArea>True</IsTextArea>
+        </settings>
+      </field>
+      <field allowempty="true" column="PreserveQueryString" columntype="boolean" guid="c48a31c5-cef7-4ed0-b47f-1f6f4110d1f9" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Preserve query string</fieldcaption>
+          <fielddescription>
+            <![CDATA[If enabled, the web part transfers all query string parameters from the original page URL to the mobile redirection URLs.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>4</WebPartType>
+</cms.webpart>

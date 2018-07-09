@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>MessageBoardSelectorWithAll</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription>
+    <![CDATA[Provides a drop-down list with available message boards and the (all) option.]]>
+  </UserControlDescription>
+  <UserControlDisplayName>Message board selector with all</UserControlDisplayName>
+  <UserControlFileName>inherited</UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>23f66599-ddc3-4f20-a6e0-9dfb85a801bf</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field column="ReturnColumnName" guid="5d0b7747-e884-44bf-9fa7-865af9b77051" visibility="" visible="" />
+      <field column="AddAllItemsRecord" columntype="boolean" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="c9ff0a95-54c0-4d9f-a2f9-84e837eb82dc" extra="true" order="1">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisableSelectorForAllSites" columntype="boolean" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="0cf8ed25-ee68-41ff-95bd-2d5c373b4b92" extra="true" order="2">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlParentID>
+    <CodeName>MessageBoardSelector</CodeName>
+    <GUID>12a8010a-7b21-4307-a3dc-b7cde1783778</GUID>
+    <ObjectType>cms.formusercontrol</ObjectType>
+  </UserControlParentID>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlResourceID>
+    <CodeName>CMS.MessageBoards</CodeName>
+    <GUID>0011c831-2e12-45bf-87ed-6a17607659f8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </UserControlResourceID>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

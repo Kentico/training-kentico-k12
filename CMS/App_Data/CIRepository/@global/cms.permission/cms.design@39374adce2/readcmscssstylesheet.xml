@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>
+    <![CDATA[{$permissiondescription.design.readcmscssstylesheet$}]]>
+  </PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Read CSS stylesheets</PermissionDisplayName>
+  <PermissionEditableByGlobalAdmin>False</PermissionEditableByGlobalAdmin>
+  <PermissionGUID>89ee32a9-8392-4336-982e-0a59a3d5f7c0</PermissionGUID>
+  <PermissionName>ReadCMSCSSStylesheet</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

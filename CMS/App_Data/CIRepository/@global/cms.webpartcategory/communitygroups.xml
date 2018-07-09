@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Groups</CategoryDisplayName>
+  <CategoryGUID>c745ceae-0786-4260-85a5-4558f82c027d</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>CommunityGroups</CategoryName>
+  <CategoryParentID>
+    <CodeName>Community</CodeName>
+    <GUID>dbeb60eb-49ab-46ad-800d-547ca3f45c23</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

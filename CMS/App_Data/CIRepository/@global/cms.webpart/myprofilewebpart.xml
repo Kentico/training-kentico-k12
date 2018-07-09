@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>MembershipLogonRegistration</CodeName>
+    <GUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Allows authenticated users to edit their personal settings (such as their name, e-mail address or avatar) and manage their public profile.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>My profile</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<font size="2">The fields available in the displayed profile may be affected by the visibility settings configured by individual users. To learn about visibility control, see </font><a href="~/CMSPages/GetDocLink.ashx?link=users_changing_info" target="_blank"><font size="2">Allowing users to change the information they share</font></a><font size="2">.</font><br />
+<br />
+&nbsp;
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Membership/Profile/myprofile.ascx</WebPartFileName>
+  <WebPartGUID>08524a87-86ed-4aba-b5a7-1933965ffc78</WebPartGUID>
+  <WebPartIconClass>icon-w-my-profile</WebPartIconClass>
+  <WebPartName>MyProfileWebpart</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Extended properties">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="AlternativeFormName" columnsize="100" columntype="text" guid="2c794132-4592-4cf8-8eb2-d675bb8adf6e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>cms.user.EditProfile</defaultvalue>
+          <fieldcaption>Form name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to select an alternative form that will be used to view and edit the user's profile. Alternative forms are specified in format <class name>.<form code name>. If you use a custom form, it is recommended to enable the 'Combine with user settings' option on the General tab of the form's editing interface.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectalternativeform</controlname>
+        </settings>
+      </field>
+      <field column="AllowEditVisibility" columntype="boolean" guid="d195a33c-f343-4d4c-a076-51ff2294c500" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Allow user to edit field visibility</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.alloweditvisibility$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AfterSaveRedirectURL" columnsize="200" columntype="text" guid="117b7940-c756-4e77-8a36-4fe387b3f52b" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>After save redirect URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[The relative URL where user is redirected, after form content is successfully modified. If empty, user will stay on the edit page.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ResourcePrefix" columnsize="200" columntype="text" guid="a6ae5450-8baf-44f0-972c-8c5cb7302034" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Resource prefix</fieldcaption>
+          <fielddescription>
+            <![CDATA[Prefix for the resource strings which are used for the localization.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Appearance">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="UseColonBehindLabel" columntype="boolean" guid="73e179bb-bde0-41fb-8abb-489cb6617a99" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display colon behind label</fieldcaption>
+          <fielddescription>
+            <![CDATA[Displays colon behind label text in form. Default value is true.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MarkRequiredFields" columntype="boolean" guid="c8a76145-d08c-4da1-8e14-061ea57653f8" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Display required field mark</fieldcaption>
+          <fielddescription>
+            <![CDATA[Displays required field mark next to field labels if fields are required. Default value is false.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SubmitButtonResourceString" columnsize="100" columntype="text" guid="f824f4f2-7b83-4f43-a408-6526756abfbb" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Submit button resource string</fieldcaption>
+          <fielddescription>
+            <![CDATA[Submit button label. Valid input is a resource string. Default value is general.submit.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="FormCssClass" columnsize="50" columntype="text" guid="e0fd9d58-cd35-4c5a-9253-b10bc877f5bf" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Form css class</fieldcaption>
+          <fielddescription>Form css class.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

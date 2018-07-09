@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.emailtemplate>
+  <EmailTemplateDisplayName>Membership - Registration</EmailTemplateDisplayName>
+  <EmailTemplateGUID>dcac774e-5ddb-4645-9704-cdadb8eda10a</EmailTemplateGUID>
+  <EmailTemplateName>Membership.Registration</EmailTemplateName>
+  <EmailTemplatePlainText>
+<![CDATA[
+Thank you for registering at our site.
+
+]]>
+  </EmailTemplatePlainText>
+  <EmailTemplateSubject>{$membership.registrationinfosubject$}</EmailTemplateSubject>
+  <EmailTemplateText>
+<![CDATA[
+<html>
+	<head>
+	</head>
+	<body>
+		Thank you for registering at our site.<br />
+	</body>
+</html>
+]]>
+  </EmailTemplateText>
+  <EmailTemplateType>membershipregistration</EmailTemplateType>
+</cms.emailtemplate>
