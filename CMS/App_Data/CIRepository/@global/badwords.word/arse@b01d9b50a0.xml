@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<badwords.word>
-  <WordExpression>arse</WordExpression>
-  <WordGUID>92998051-6789-4c4e-becf-62d70f777f1d</WordGUID>
-  <WordIsGlobal>True</WordIsGlobal>
-  <WordIsRegularExpression>False</WordIsRegularExpression>
-  <WordMatchWholeWord>True</WordMatchWholeWord>
-</badwords.word>

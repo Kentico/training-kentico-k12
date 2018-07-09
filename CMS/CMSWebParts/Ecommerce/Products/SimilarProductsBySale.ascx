@@ -1,2 +1,0 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="CMSWebParts_Ecommerce_Products_SimilarProductsBySale"  Codebehind="~/CMSWebParts/Ecommerce/Products/SimilarProductsBySale.ascx.cs" %>
-<cms:CMSDataList ID="lstElem" runat="server" />

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<badwords.word>
-  <WordExpression>chink</WordExpression>
-  <WordGUID>138910d3-da12-45e0-8a94-9b888246babe</WordGUID>
-  <WordIsGlobal>True</WordIsGlobal>
-  <WordIsRegularExpression>False</WordIsRegularExpression>
-</badwords.word>

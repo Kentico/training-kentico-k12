@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<badwords.word>
-  <WordExpression>nigga</WordExpression>
-  <WordGUID>6367e8cb-faca-4050-a869-19890a46517a</WordGUID>
-  <WordIsGlobal>True</WordIsGlobal>
-  <WordIsRegularExpression>False</WordIsRegularExpression>
-</badwords.word>

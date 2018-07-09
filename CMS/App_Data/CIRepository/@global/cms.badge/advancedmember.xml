@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<cms.badge>
-  <BadgeDisplayName>Advanced member</BadgeDisplayName>
-  <BadgeGUID>90cba1a8-38e3-47c8-ab98-2790a05d39d4</BadgeGUID>
-  <BadgeImageURL>/Objects/CMS_Badge/Default/advancedmember.gif</BadgeImageURL>
-  <BadgeIsAutomatic>True</BadgeIsAutomatic>
-  <BadgeName>AdvancedMember</BadgeName>
-  <BadgeTopLimit>100000</BadgeTopLimit>
-</cms.badge>

@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<badwords.word>
-  <WordExpression>dago</WordExpression>
-  <WordGUID>7d168028-18e4-4cc1-9a5d-a57bfcc96d3a</WordGUID>
-  <WordIsGlobal>True</WordIsGlobal>
-  <WordIsRegularExpression>False</WordIsRegularExpression>
-</badwords.word>

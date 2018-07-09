@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<badwords.word>
-  <WordExpression>asshole</WordExpression>
-  <WordGUID>abe7d6c5-0146-4346-b67c-c9027d2a7b66</WordGUID>
-  <WordIsGlobal>True</WordIsGlobal>
-  <WordIsRegularExpression>False</WordIsRegularExpression>
-</badwords.word>

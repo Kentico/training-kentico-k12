@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<cms.role>
-  <RoleDescription>Users with all permissions</RoleDescription>
-  <RoleDisplayName>CMS Power Users</RoleDisplayName>
-  <RoleGUID>96216fab-bd4f-40ed-8bbf-a2ae69d1ecd8</RoleGUID>
-  <RoleIsDomain>False</RoleIsDomain>
-  <RoleIsGroupAdministrator>False</RoleIsGroupAdministrator>
-  <RoleName>CMSPowerUsers</RoleName>
-</cms.role>
