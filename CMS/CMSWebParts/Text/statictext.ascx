@@ -1,2 +1,0 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="CMSWebParts_Text_statictext"  Codebehind="~/CMSWebParts/Text/statictext.ascx.cs" %>
-<asp:Literal ID="ltlText" runat="server" EnableViewState="false" />

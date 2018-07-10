@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<badwords.word>
-  <WordExpression>slut</WordExpression>
-  <WordGUID>351b45d3-9efe-4792-8e07-76dff2168208</WordGUID>
-  <WordIsGlobal>True</WordIsGlobal>
-  <WordIsRegularExpression>False</WordIsRegularExpression>
-  <WordMatchWholeWord>False</WordMatchWholeWord>
-</badwords.word>

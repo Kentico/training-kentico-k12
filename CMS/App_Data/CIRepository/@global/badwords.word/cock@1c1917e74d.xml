@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<badwords.word>
-  <WordExpression>cock</WordExpression>
-  <WordGUID>461a7a40-f8cb-418b-950b-06ce69b0a0dc</WordGUID>
-  <WordIsGlobal>True</WordIsGlobal>
-  <WordIsRegularExpression>False</WordIsRegularExpression>
-</badwords.word>

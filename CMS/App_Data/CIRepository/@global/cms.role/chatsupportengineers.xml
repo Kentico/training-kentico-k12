@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<cms.role>
-  <RoleDescription />
-  <RoleDisplayName>Chat support engineers</RoleDisplayName>
-  <RoleGUID>34e9b97b-237d-4b76-b5a6-92810406eda2</RoleGUID>
-  <RoleIsDomain>False</RoleIsDomain>
-  <RoleName>ChatSupportEngineers</RoleName>
-</cms.role>
