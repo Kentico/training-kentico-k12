@@ -1,0 +1,1516 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.DancingGoat.Samples</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.DancingGoat.Samples.AzureSearchWebPartGenerator">
+            <summary>
+            Class for generating data required for Azure search web part demo for Dancing Goat site.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.AzureSearchWebPartGenerator.Generate(System.String,System.String)">
+            <summary>
+            Creates Azure web part and all required items. 
+            </summary>
+            <param name="indexServiceName">Index service name.</param>
+            <param name="indexAdminKey">Index admin key.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.DataProtectionDataGenerator">
+            <summary>
+            Sample data protection data generator providing sample data for Dancing Goat demo site.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.DataProtectionDataGenerator.Generate(System.Int32)">
+            <summary>
+            Generates sample data protection data. Suitable only for Dancing Goat demo site.
+            </summary>
+            <param name="siteID">ID of the site to generate sample data for.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.DataProtectionDataGenerator.AreSamplesEnabled">
+            <summary>
+            Indicates if data protection samples are enabled.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.ABTestAndConversionDataGenerator">
+            <summary>
+            Class generating and deleting sample statistics for A/B tests and campaigns.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ABTestAndConversionDataGenerator.#ctor(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="site">Site to generate data for</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ABTestAndConversionDataGenerator.Generate">
+            <summary>
+            Generates statistics for AB tests on the current site.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ABTestAndConversionDataGenerator.ClearStatisticsData">
+            <summary>
+            Removes all previously logged data related to the Dancing Goat default A/B test and Campaign.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ABTestAndConversionDataGenerator.LogABConversionHits(System.Int32,System.DateTime)">
+            <summary>
+            Performs logging of A/B conversion hits.
+            </summary>
+            <param name="daysFromStart">Determines for which day should be the logging performed (selects correct values from the data arrays)</param>
+            <param name="logDate">Date the hit is assigned to</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ABTestAndConversionDataGenerator.LogABVisitHits(System.Int32,System.DateTime)">
+            <summary>
+            Performs logging of A/B visit hits.
+            </summary>
+            <param name="daysFromStart">Determines for which day should be the logging performed (selects correct values from the data arrays)</param>
+            <param name="logDate">Date the hit is assigned to</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ABTestAndConversionDataGenerator.GetABHitCodename(System.String,CMS.OnlineMarketing.ABTestInfo,CMS.OnlineMarketing.ABVariantInfo)">
+            <summary>
+            Constructs proper statistics code name for the A/B hit.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ABTestAndConversionDataGenerator.LogHit(System.String,System.Int32,System.Int32,System.DateTime,System.String)">
+            <summary>
+            Performs logging of the hit.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.ActivityDataParameters">
+            <summary>
+            Structure is used to box utm info about about activity that should be generated. 
+            Generator will generate number of Activities defined by Count and with specified UtmSource and UtmContent
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.CampaignConversionData">
+            <summary>
+            Represents campaign conversion with all data.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignConversionData.ConversionName">
+            <summary>
+            Campaign conversion name.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignConversionData.ConversionDisplayName">
+            <summary>
+            Campaign conversion display name.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignConversionData.ConversionActivityType">
+            <summary>
+            Campaign conversion activity type code name.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignConversionData.ConversionItemID">
+            <summary>
+            Campaign conversion detail item ID. For example nodeID for <c>pagevisit</c> <see cref="P:CMS.DancingGoat.Samples.CampaignConversionData.ConversionActivityType"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignConversionData.ConversionOrder">
+            <summary>
+            Campaign conversion order.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignConversionData.ConversionIsFunnelStep">
+            <summary>
+            Campaign conversion represents step in campaign journey, i.e. conversion required to reach desired conversion.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.CampaignData">
+            <summary>
+            Represents campaign with all data.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignName">
+            <summary>
+            Campaign object name.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignDisplayName">
+            <summary>
+            Campaign object display name.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignDescription">
+            <summary>
+            Campaign object description.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignOpenFrom">
+            <summary>
+            Campaign open from.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignOpenTo">
+            <summary>
+            Campaign open to.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignUTMCode">
+            <summary>
+            Campaign UTM code.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignContentInventory">
+            <summary>
+            Campaign content inventory.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignEmailPromotion">
+            <summary>
+            Campaign email promotion.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CampaignData.CampaignReportSetup">
+            <summary>
+            Campaign conversions and campaign journey steps.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.CampaignDataGenerator">
+            <summary>
+            Contains methods for generating sample data for the Campaign module.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGenerator.#ctor(CMS.SiteProvider.SiteInfo,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="site">Site the campaign data will be generated for</param>
+            <param name="contactFirstNamePrefix">First name prefix of contacts generated for sample campaigns.</param>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.CampaignDataGenerator.CAMPAIGN_COFFEE_CLUB_MEMBERSHIP_DRAFT">
+            <summary>
+            Code name of the draft 'Coffee club membership' campaign.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.CampaignDataGenerator.CAMPAIGN_COFFEE_CLUB_MEMBERSHIP_SCHEDULED">
+            <summary>
+            Code name of the scheduled 'Coffee club membership' campaign.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.CampaignDataGenerator.CAMPAIGN_CAFE_SAMPLE_PROMOTION_RUNNING">
+            <summary>
+            Code name of the running 'Cafe sample promotion' campaign.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.CampaignDataGenerator.CAMPAIGN_CAFE_SAMPLE_PROMOTION_FINISHED">
+            <summary>
+            Code name of the finished 'Cafe sample promotion' campaign.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGenerator.Generate">
+            <summary>
+            Performs campaigns sample data generating.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGenerator.GenerateCampaign(CMS.DancingGoat.Samples.CampaignData)">
+            <summary>
+            Generates campaign.
+            </summary>
+            <param name="campaignData">Campaign data for generating.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.CampaignDataGeneratorHelpers">
+            <summary>
+            Helper methods for campaign generation.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGeneratorHelpers.DeleteOldActivities(System.String)">
+            <summary>
+            Removes pre-generated activities.
+            </summary>
+            <param name="campaignUTMCode">UTM code of the campaign.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGeneratorHelpers.GenerateActivities(System.Collections.Generic.IEnumerable{CMS.DancingGoat.Samples.ActivityDataParameters},CMS.WebAnalytics.CampaignInfo,System.String,CMS.DancingGoat.Samples.ContactsIDData,System.Int32)">
+            <summary>
+            Generates activities for campaign.
+            </summary>
+            <param name="activityDataParameters">Contains count to specify how many activities should be generated with given utm content and utm source</param>
+            <param name="campaign">Campaign for which are activities generated.</param>
+            <param name="type">Activity type (<see cref="T:CMS.Activities.PredefinedActivityType"/>).</param>
+            <param name="contactsIDs">Represents IDs of all contacts for generating activities.</param>
+            <param name="conversionItemID">Conversion item ID.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGeneratorHelpers.CreateConversion(System.Int32,CMS.DancingGoat.Samples.CampaignConversionData)">
+            <summary>
+            Creates conversion for the campaign.
+            </summary>
+            <param name="campaignId">ID of the campaign.</param>
+            <param name="conversionData">Campaign conversion data for generating.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGeneratorHelpers.AddNewsletterAsset(CMS.WebAnalytics.CampaignInfo,System.Guid)">
+            <summary>
+            Adds the specific newsletter to campaign. If the newsletter does not exists it is created.
+            </summary>
+            <param name="campaign">Campaign where the newsletter is added.</param>
+            <param name="issueGuid">Guid of the newsletter issue.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGeneratorHelpers.CreateNewsletterAsset(System.Int32,System.Guid)">
+            <summary>
+            Creates newsletter if it does not exist.
+            </summary>
+            <param name="campaignId">ID of the campaign.</param>
+            <param name="nodeGuid">Newsletter node guid.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGeneratorHelpers.AddPageAsset(System.Int32,System.String)">
+            <summary>
+            Adds the specific asset to campaign. If the asset does not exist it is created.
+            </summary>
+            <param name="campaignId">ID of the campaign.</param>
+            <param name="pagePath">Assets page path.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignDataGeneratorHelpers.GetDocument(System.String)">
+            <summary>
+            Gets the document according to path.
+            </summary>
+            <param name="path">Path of the document.</param>
+            <returns>Document.</returns>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.ContactsIDData">
+            <summary>
+            Represents IDs of all contacts whose first name starts with the same prefix.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ContactsIDData.#ctor(System.String,System.Int32)">
+            <summary>
+            Creates the instance of <see cref="T:CMS.DancingGoat.Samples.ContactsIDData"/>.
+            </summary>
+            <param name="firstNamePrefix">Commont first name prefix of contacts.</param>
+            <param name="contactsCount">Represents number of contact IDs to retrieve. If value is <c>0</c> then all contact IDs with <paramref name="firstNamePrefix"/> are retrieved.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ContactsIDData.GetNextContactID">
+            <summary>
+            Returns ID of the next contact.
+            </summary>
+            <returns>Contact ID.</returns>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.AzureSearchWebPartValidator">
+            <summary>
+            Class for providing data validation required Azure search web part demo for Dancing Goat site.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.AzureSearchWebPartValidator.Validate">
+            <summary>
+            Returns <c>true</c> if all dependent items already exist and Coffee-Azure page is correctly set, <c>false</c> otherwise.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.AzureSearchWebPartValidator.IsAzurePageAvailable">
+            <summary>
+            Returns <c>true</c> if Coffee-Azure page exists, <c>false</c> otherwise.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleWebPartsGenerator">
+            <summary>
+            Helper class for sample web part generation purposes.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleWebPartsGenerator.EnsureWebpart(System.String,System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Creates a web part if it doesn't exist.
+            </summary>
+            <param name="webPartName">Web part code name.</param>
+            <param name="webPartDisplayName">Web part display name.</param>
+            <param name="webPartFilePath">Web part file path.</param>
+            <param name="webPartResourceId">Id of the module.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.ISampleDataGenerator">
+            <summary>
+            Represents a generator of representative sample data suitable for demonstration purposes.
+            </summary>
+            <remarks>
+            For internal use only. No backward compatibility guaranteed.
+            </remarks>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ISampleDataGenerator.Generate(System.Int32)">
+            <summary>
+            Generates sample data on specified site.
+            </summary>
+            <param name="siteID">ID of the site to generate sample data for.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.CampaignContactsDataGenerator">
+            <summary>
+            Contains methods for generating sample contacts for the Campaign module.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignContactsDataGenerator.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="contactFirstNamePrefix">First name prefix of contacts generated for sample campaigns.</param>
+            <param name="contactLastNamePrefix">Last name prefix of contacts generated for sample campaigns.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CampaignContactsDataGenerator.Generate">
+            <summary>
+            Performs campaign contacts sample data generating.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.ContactGroupSubscribersDataGenerator">
+            <summary>
+            Contains methods for generating sample data for the Contact groups module.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ContactGroupSubscribersDataGenerator.#ctor(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="site">Site the newsletters data will be generated for</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ContactGroupSubscribersDataGenerator.Generate">
+            <summary>
+            Performs contact group sample data generation.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.NewslettersDataGenerator">
+            <summary>
+            Contains methods for generating sample data for the Newsletters module.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.NewslettersDataGenerator.NEWSLETTER_COLOMBIA_COFFEE_PROMOTION">
+            <summary>
+            Code name of Colombia coffee promotion newsletter.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.NewslettersDataGenerator.NEWSLETTER_COLOMBIA_COFFEE_PROMOTION_SAMPLE">
+            <summary>
+            Code name of Colombia coffee promotion sample newsletter.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.NewslettersDataGenerator.NEWSLETTER_COFFEE_CLUB_MEMBERSHIP">
+            <summary>
+            Code name of Coffee club membership newsletter.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.NewslettersDataGenerator.#ctor(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="site">Site the newsletters data will be generated for</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.NewslettersDataGenerator.Generate">
+            <summary>
+            Performs newsletters sample data generation.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.NewslettersDataGenerator.GenerateClickedLinksToIssue(System.Int32,System.String,System.Int32,System.Int32,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Total clicks value must not be higher then the count of subscribers.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.NewslettersDataGenerator.GenerateOpenedEmailToIssue(System.Int32,System.Int32,System.Collections.Generic.IList{System.String})">
+            <summary>
+            Unique opens value must not be higher then the count of subscribers.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.NewslettersDataGenerator.GenerateUnsubscriptionsFromIssue(System.Int32,System.Int32,System.Int32,System.Collections.Generic.IList{CMS.Newsletters.SubscriberInfo})">
+            <summary>
+            Unsubscribed value must not be higher then the count of subscribers.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.OnlineMarketingDataGenerator">
+            <summary>
+            Contains methods for generating sample contacts with activities data.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.OnlineMarketingDataGenerator.#ctor(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="site">Site data will be generated for</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.OnlineMarketingDataGenerator.Generate">
+            <summary>
+            Performs contacts and activities generation.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.ScoringWithRulesGenerator">
+            <summary>
+            Contains methods for generating sample scoring objects with rules of various types.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ScoringWithRulesGenerator.#ctor(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="site">Site that will contain generated objects</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ScoringWithRulesGenerator.Generate">
+            <summary>
+            Performs scoring objects and rules generation.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.PersonaWithRulesGenerator">
+            <summary>
+            Contains methods for generating sample personas with rules of various types.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.PersonaWithRulesGenerator.PERSONA_CAFE_OWNER">
+            <summary>
+            Represents Tony, the Cafe Owner.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.PersonaWithRulesGenerator.PERSONA_COFEE_GEEK">
+            <summary>
+            Represents Martina, the Coffee Geek.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.PersonaWithRulesGenerator.#ctor(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="site">Site that will contain generated objects</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.PersonaWithRulesGenerator.Generate">
+            <summary>
+            Generates two personas with rules.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.PersonaWithRulesGenerator.GenerateBannerPersonalizationVariantsMacrosAndEnableVariants">
+            <summary>
+            Enables banner variants and adds the macro to the display condition.
+            Does not overwrite data.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleContactInfoIdentityCollector">
+            <summary>
+            Sample implementation of <see cref="T:CMS.DataProtection.IIdentityCollector"/> for collecting <see cref="T:CMS.ContactManagement.ContactInfo"/>s by an email address.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactInfoIdentityCollector.Collect(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.List{CMS.DataEngine.BaseInfo})">
+            <summary>
+            Collects all the <see cref="T:CMS.ContactManagement.ContactInfo"/>s and adds them to the <paramref name="identities"/> collection.
+            </summary>
+            <remarks>
+            Contacts are collected by their email address.
+            Duplicate customers are not added.
+            </remarks>
+            <param name="dataSubjectIdentifiersFilter">Key value collection containing data subject's information that identifies it.</param>
+            <param name="identities">List of already collected identities.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleCustomerInfoIdentityCollector">
+            <summary>
+            Sample implementation of <see cref="T:CMS.DataProtection.IIdentityCollector"/> for collecting <see cref="T:CMS.Ecommerce.CustomerInfo"/>s by an email address.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerInfoIdentityCollector.Collect(System.Collections.Generic.IDictionary{System.String,System.Object},System.Collections.Generic.List{CMS.DataEngine.BaseInfo})">
+            <summary>
+            Collects all the <see cref="T:CMS.Ecommerce.CustomerInfo"/>s and adds them to the <paramref name="identities"/> collection.
+            </summary>
+            <remarks>
+            Customers are collected by their email address.
+            Duplicate customers are not added.
+            </remarks>
+            <param name="dataSubjectIdentifiersFilter">Key value collection containing data subject's information that identifies it.</param>
+            <param name="identities">List of already collected identities.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.DancingGoatSamplesModule">
+            <summary>
+            Represents module with DataProtection sample code.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.DancingGoatSamplesModule.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DancingGoat.Samples.DancingGoatSamplesModule"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.DancingGoatSamplesModule.OnInit">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.DancingGoatSamplesModule.InitializeSamples">
+            <summary>
+            Registers sample personal data collectors immediately or attaches an event handler to register the collectors upon dedicated key insertion.
+            Disabling or toggling registration of the sample collectors is not supported.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.CollectedColumn">
+            <summary>
+            Represents a column collected by personal data collector.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CollectedColumn.Name">
+            <summary>
+            Gets the name of the column.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.CollectedColumn.DisplayName">
+            <summary>
+            Gets the display name of the column.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CollectedColumn.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DancingGoat.Samples.CollectedColumn"/> class from given name and display name.
+            </summary>
+            <param name="name">Name of the column.</param>
+            <param name="displayName">Display name of the column.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleContactDataCollector">
+            <summary>
+            Sample implementation of <see cref="T:CMS.DataProtection.IPersonalDataCollector"/> interface for collecting contact's personal data.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollector.Collect(System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo},System.String)">
+            <summary>
+            Collects personal data based on given <paramref name="identities"/>.
+            </summary>
+            <param name="identities">Collection of identities representing a data subject.</param>
+            <param name="outputFormat">Defines an output format for the result.</param>
+            <returns><see cref="T:CMS.DataProtection.PersonalDataCollectorResult"/> containing personal data.</returns>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleContactDataCollectorCore">
+            <summary>
+            Class responsible for retrieving contact's personal data. 
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.FormDefinition">
+            <summary>
+            Defines form's columns containing personal data.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.FormDefinition.FORM_CONSENT_COLUMN_NAME">
+            <summary>
+            The form's column name that contains the user's consent agreement.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.FormDefinition.EmailColumn">
+            <summary>
+            Gets the email column name.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.FormDefinition.FormColumns">
+            <summary>
+            Gets the code name and the display name of form fields.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.FormDefinition.#ctor(System.String,System.Collections.Generic.List{CMS.DancingGoat.Samples.CollectedColumn})">
+            <summary>
+            Initializes <see cref="T:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.FormDefinition"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.#ctor(CMS.DancingGoat.Samples.IPersonalDataWriter)">
+            <summary>
+            Constructs a new instance of the <see cref="T:CMS.DancingGoat.Samples.SampleContactDataCollectorCore"/>.
+            </summary>
+            <param name="writer">Writer to format output data.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.CollectData(System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo})">
+            <summary>
+            Collect and format all on-line marketing related personal data about given <paramref name="identities"/>.
+            Returns null if no data was found.
+            </summary>
+            <param name="identities">Identities to collect data about.</param>
+            <returns>Formatted personal data.</returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteContacts(System.Collections.Generic.IEnumerable{CMS.ContactManagement.ContactInfo})">
+            <summary>
+            Writes all contacts.
+            </summary>
+            <param name="contacts">Container of contacts.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteConsents(System.Collections.Generic.ICollection{System.Int32})">
+            <summary>
+            Writes data subject's consents.
+            </summary>
+            <param name="contactIDs">List of contact IDs.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.GetRevocationsOfSameConsent(System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{CMS.DataProtection.ConsentAgreementInfo}},System.Int32)">
+            <summary>
+            Gets list of revocations of same consent from given <paramref name="consentRevocations"/> if presented in the dictionary. 
+            Otherwise creates new empty list and inserts it into dictionary under <paramref name="consentId"/> key.
+            </summary>
+            <param name="consentRevocations">Dictionary with consents revocations indexed by ConsentID.</param>
+            <param name="consentId">Consent ID.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.GetAgreementsOfSameConsentContent(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{CMS.DataProtection.ConsentAgreementInfo}},System.String)">
+            <summary>
+            Gets list of agreements of same consent content from given <paramref name="consentContentAgreements"/> if presented in the dictionary. 
+            Otherwise creates new empty list and inserts it into dictionary under <paramref name="consentHash"/> key.
+            </summary>
+            <param name="consentContentAgreements">Dictionary with consent agreements indexed by consent hash.</param>
+            <param name="consentHash">Consent hash.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.IsAgreementOfDifferentConsentContent(CMS.DataProtection.ConsentAgreementInfo,CMS.DataProtection.ConsentInfo)">
+            <summary>
+            Returns <c>true</c> if <paramref name="consentAgreementInfo"/> is agreement of given <paramref name="consentInfo"/>, otherwise <c>false</c>.
+            </summary>
+            <param name="consentAgreementInfo">Consent agreement.</param>
+            <param name="consentInfo">Consent.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteConsents(System.Collections.Generic.Dictionary{System.Int32,CMS.DataProtection.ConsentInfo},System.Collections.Generic.Dictionary{System.String,CMS.DataProtection.ConsentArchiveInfo},System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.List{CMS.DataProtection.ConsentAgreementInfo}},System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{CMS.DataProtection.ConsentAgreementInfo}})">
+            <summary>
+            Writes data subject's consents.
+            </summary>
+            <param name="consents">Dictionary with consents indexed by ConsentID.</param>
+            <param name="consentContentArchives">Dictionary with consent archive items indexed by consent hash.</param>
+            <param name="consentContentAgreements">Dictionary with consent agreements indexed by consent hash.</param>
+            <param name="consentRevocations">Dictionary with consent revocation indexed by ConsentID.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteConsent(CMS.DataProtection.ConsentInfo,CMS.DataProtection.ConsentArchiveInfo,System.Collections.Generic.IEnumerable{CMS.DataProtection.ConsentAgreementInfo},System.Collections.Generic.IEnumerable{CMS.DataProtection.ConsentAgreementInfo})">
+            <summary>
+            Writes section with Consent.
+            </summary>
+            <param name="consentInfo">Consent.</param>
+            <param name="consentArchiveInfo">Consent archive. Can be null if archive item for given <paramref name="consentInfo"/> does not exist.</param>
+            <param name="consentAgreements">Agreements of given <paramref name="consentInfo"/>.</param>
+            <param name="consentRevocations">Revocations of given <paramref name="consentInfo"/>. Can be null if no revocations for given <paramref name="consentInfo"/> have been given.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteConsentContent(CMS.DataProtection.ConsentInfo,CMS.DataProtection.ConsentArchiveInfo)">
+            <summary>
+            Writes consent content.
+            </summary>
+            <param name="consentInfo">Consent.</param>
+            <param name="consentArchiveInfo">Consent archive. Can be null if archive item for given <paramref name="consentInfo"/> does not exist.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteConsentAgreements(System.Collections.Generic.IEnumerable{CMS.DataProtection.ConsentAgreementInfo})">
+            <summary>
+            Writes consent agreements.
+            </summary>
+            <param name="consentAgreements">Consent agreements.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteConsentRevocations(System.Collections.Generic.IEnumerable{CMS.DataProtection.ConsentAgreementInfo})">
+            <summary>
+            Writes consent revocations.
+            </summary>
+            <param name="consentRevocations">Consent revocations. Can be null if no revocations have been given.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteContactActivities(System.Collections.Generic.IEnumerable{CMS.Activities.ActivityInfo})">
+            <summary>
+            Writes all contact activities.
+            </summary>
+            <param name="contactActivities">List of contact activities.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteNewsletters(System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Gets and writes all newsletter subscriptions for specified <paramref name="contactEmails"/>.
+            </summary>
+            <param name="contactEmails">List of emails which are associated with contact.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteContactAccounts(System.Collections.Generic.ICollection{System.Int32})">
+            <summary>
+            Gets and writes all contact accounts for specified <paramref name="contactIDs"/>.
+            </summary>
+            <param name="contactIDs">List of contact IDs.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteContactGroups(System.Collections.Generic.IEnumerable{CMS.ContactManagement.ContactGroupInfo})">
+            <summary>
+            Writes all contact groups.
+            </summary>
+            <param name="contactContactGroups">Contact groups of a specified contact.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactDataCollectorCore.WriteDancingGoatSubmittedFormsData(System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{System.Int32})">
+            <summary>
+            Gets and writes all submitted forms with data on Dancing Goat site for specified <paramref name="emails"/> and <paramref name="contactIDs"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleCustomerDataCollector">
+            <summary>
+            Sample implementation of <see cref="T:CMS.DataProtection.IPersonalDataCollector"/> interface for collecting customer's personal data.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollector.Collect(System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo},System.String)">
+            <summary>
+            Collects personal data based on given <paramref name="identities"/>.
+            </summary>
+            <param name="identities">Collection of identities representing a data subject.</param>
+            <param name="outputFormat">Defines an output format for the result.</param>
+            <returns><see cref="T:CMS.DataProtection.PersonalDataCollectorResult"/> containing personal data.</returns>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore">
+            <summary>
+            Class responsible for retrieving customer's personal data. 
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.FullAddressInfo">
+            <summary>
+            Class represents the full address of the customer.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.#ctor(CMS.DancingGoat.Samples.IPersonalDataWriter)">
+            <summary>
+            Constructs a new instance of the <see cref="T:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore"/>.
+            </summary>
+            <param name="writer">Writer to format output data.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.CollectData(System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo})">
+            <summary>
+            Collect and format all e-commerce personal data about given <paramref name="identities"/>.
+            Returns null if no data was found.
+            </summary>
+            <param name="identities">Identities to collect data about.</param>
+            <returns>Formatted personal data.</returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.WriteOrders(System.Int32)">
+            <summary>
+            Writes all orders for the given customer to the current writer.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.WriteOrder(CMS.Ecommerce.OrderInfo,System.Collections.Generic.IReadOnlyDictionary{System.Int32,CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.FullAddressInfo},System.Collections.Generic.IReadOnlyDictionary{System.Int32,CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.FullAddressInfo},System.Collections.Generic.IReadOnlyDictionary{System.Int32,CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.FullAddressInfo})">
+            <summary>
+             Writes the given order with all the addresses to the current writer.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.WriteOrderItems(System.Int32)">
+            <summary>
+             Writes the order items for given order to the current writer.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.WriteAddress(CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.FullAddressInfo,System.String,System.String)">
+            <summary>
+             Writes the given address to the current writer.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.WriteShoppingCarts(System.Int32)">
+            <summary>
+            Writes all shopping carts for given user to the current writer.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.WriteShoppingCart(CMS.Ecommerce.ShoppingCartInfo,System.Collections.Generic.Dictionary{System.Int32,CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.FullAddressInfo})">
+            <summary>
+             Writes the given shopping cart with all the order addresses to the current writer.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.WriteShoppingCartItems(System.Int32)">
+            <summary>
+             Writes the given shopping cart to the current writer.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerDataCollectorCore.WriteWishList(System.Int32)">
+            <summary>
+             Writes the given wish list for given user.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter">
+            <summary>
+            Class used to transform data into human readable format.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.Culture">
+            <summary>
+            Culture used to format values.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.#ctor">
+            <summary>
+            Initializes instance of <see cref="T:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter"/>
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.WriteStartSection(System.String,System.String)">
+            <summary>
+            Writes start of a section using <paramref name="sectionDisplayName"/> followed by colon and increments indentation.
+            </summary>
+            <param name="sectionName">Name of the section in machine readable format. This parameter is ignored.</param>
+            <param name="sectionDisplayName">Name of the section in human readable format.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.Indent">
+            <summary>
+            Writes appropriate indentation.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.WriteBaseInfo(CMS.DataEngine.BaseInfo,System.Collections.Generic.List{CMS.DancingGoat.Samples.CollectedColumn},System.Func{System.String,System.Object,System.Object})">
+            <summary>
+            Writes data out of <paramref name="baseInfo"/>'s specified <paramref name="columns"/>.
+            </summary>
+            <remarks>
+            Omits columns with missing human readable name, ID and GUID columns.
+            </remarks>
+            <param name="baseInfo"><see cref="T:CMS.DataEngine.BaseInfo"/> instance to write.</param>
+            <param name="columns">Columns to write <paramref name="baseInfo"/>'s data from.</param>
+            <param name="valueTransformationFunction">Use this parameter to transform values from database.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="baseInfo"/> is null.</exception>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.WriteSectionValue(System.String,System.String,System.String)">
+            <summary>
+            Writes section with value on one line, enclosed in start and end section elements.
+            </summary>
+            <param name="sectionName">Name of the section in machine readable format.</param>
+            <param name="sectionDisplayName">Name of the section in human readable format.</param>
+            <param name="value">Value of element.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.WriteKeyValue(System.String,System.Object)">
+            <summary>
+            Writes in-line key name followed by column and value.
+            </summary>
+            <param name="keyName">Key name to write.</param>
+            <param name="value">Value associated with key.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.WriteEndSection">
+            <summary>
+            Ends section with new line, decreases indentation level.
+            </summary>
+            <remarks>
+            Does not write new line if the last written character was new line.
+            </remarks>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.GetResult">
+            <summary>
+            Gets result of previous write calls.
+            </summary>
+            <returns>String containing formatted data.</returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter.Dispose">
+            <summary>
+            Releases all resources used by the current instance of the <see cref="T:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter"/> class.
+            </summary>
+            <remarks>
+            This is a void action in <see cref="T:CMS.DancingGoat.Samples.HumanReadablePersonalDataWriter"/> as the class uses no disposable resources.
+            </remarks>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.IPersonalDataWriter">
+            <summary>
+            Defines interface of a writer used to format personal data.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.IPersonalDataWriter.WriteStartSection(System.String,System.String)">
+            <summary>
+            Writes start of a section.
+            </summary>
+            <param name="sectionName">Name of the section in machine readable format.</param>
+            <param name="sectionDisplayName">Name of the section in human readable format.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.IPersonalDataWriter.WriteBaseInfo(CMS.DataEngine.BaseInfo,System.Collections.Generic.List{CMS.DancingGoat.Samples.CollectedColumn},System.Func{System.String,System.Object,System.Object})">
+            <summary>
+            Writes data out of <paramref name="baseInfo"/>'s specified <paramref name="columns"/>.
+            </summary>
+            <param name="baseInfo"><see cref="T:CMS.DataEngine.BaseInfo"/> instance to write.</param>
+            <param name="columns"><paramref name="baseInfo"/>'s columns to write data from.</param>
+            <param name="valueTransformationFunction ">Use this function to transform values from database.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.IPersonalDataWriter.WriteSectionValue(System.String,System.String,System.String)">
+            <summary>
+            Writes section with value on one line, enclosed in start and end section elements.
+            </summary>
+            <param name="sectionName">Name of the section in machine readable format.</param>
+            <param name="sectionDisplayName">Name of the section in human readable format.</param>
+            <param name="value">Value of element.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.IPersonalDataWriter.WriteEndSection">
+            <summary>
+            Writes end of a section.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.IPersonalDataWriter.GetResult">
+            <summary>
+            Gets result of previous write calls.
+            </summary>
+            <returns>String containing formatted data.</returns>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.XmlPersonalDataWriter">
+            <summary>
+            Writer used to transform data into XML format.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.XmlPersonalDataWriter.#ctor">
+            <summary>
+            Initializes instance of <see cref="T:CMS.DancingGoat.Samples.XmlPersonalDataWriter"/>
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.XmlPersonalDataWriter.WriteStartSection(System.String,System.String)">
+            <summary>
+            Writes XML start tag.
+            </summary>
+            <param name="sectionName">Name of the section in machine readable format. Represents name of the tag.</param>
+            <param name="sectionDisplayName">Name of the section in human readable format. This parameter is ignored.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.XmlPersonalDataWriter.TransformElementName(System.String)">
+            <summary>
+            Replaces underscore in object names with dot.
+            </summary>
+            <param name="originalName">Name to transform.</param>
+            <returns>Transformed name.</returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.XmlPersonalDataWriter.WriteBaseInfo(CMS.DataEngine.BaseInfo,System.Collections.Generic.List{CMS.DancingGoat.Samples.CollectedColumn},System.Func{System.String,System.Object,System.Object})">
+            <summary>
+            Writes data out of <paramref name="baseInfo"/>'s specified <paramref name="columns"/>.
+            </summary>
+            <remarks>
+            Omits columns with missing human readable name.
+            </remarks>
+            <param name="baseInfo"><see cref="T:CMS.DataEngine.BaseInfo"/> instance to write.</param>
+            <param name="columns">Columns to write <paramref name="baseInfo"/>'s data from.</param>
+            <param name="valueTransformationFunction">Use this parameter to transform values from database.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="baseInfo"/> is null.</exception>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.XmlPersonalDataWriter.WriteSectionValue(System.String,System.String,System.String)">
+            <summary>
+            Writes section with value on one line, enclosed in start and end section elements.
+            </summary>
+            <param name="sectionName">Name of the section in machine readable format.</param>
+            <param name="sectionDisplayName">Name of the section in human readable format.</param>
+            <param name="value">Value of element.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.XmlPersonalDataWriter.WriteEndSection">
+            <summary>
+            Writes XML end tag.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.XmlPersonalDataWriter.GetResult">
+            <summary>
+            Gets result of previous write calls.
+            </summary>
+            <returns>XML string containing formatted data.</returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.XmlPersonalDataWriter.Dispose">
+            <summary>
+            Releases all resources used by the current instance of the <see cref="T:CMS.DancingGoat.Samples.XmlPersonalDataWriter"/> class.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleCustomerPersonalDataEraser">
+            <summary>
+            Sample implementation of <see cref="T:CMS.DataProtection.IPersonalDataEraser"/> interface for erasing customer's personal data.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerPersonalDataEraser.Erase(System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Erases personal data based on given <paramref name="identities"/> and <paramref name="configuration"/>.
+            </summary>
+            <param name="identities">Collection of identities representing a data subject.</param>
+            <param name="configuration">Configures which personal data should be erased.</param>
+            <remarks>
+            The erasure process can be configured via the following <paramref name="configuration"/> parameters:
+            <list type="bullet">
+            <item>
+            <term>deleteCustomers</term>
+            <description>Flag indicating whether customer(s) contained in <paramref name="identities"/> are to be deleted.</description>
+            </item>
+            <item>
+            <term>deleteOrdersOlderThanYears</term>
+            <description>Number indicating how old orders are to be deleted. Omit the parameter to keep all orders.</description>
+            </item>
+            <item>
+            <term>deleteShoppingCarts</term>
+            <description>Flag indicating whether shopping carts associated with customer(s), user(s) or contact(s) are to be deleted.</description>
+            </item>
+            <item>
+            <term>deleteWishlists</term>
+            <description>Flag indicating whether wishlists associated with customer(s) are to be deleted.</description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerPersonalDataEraser.DeleteOrders(System.Collections.Generic.List{System.Int32},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes orders based on <paramref name="configuration"/>'s <c>deleteOrdersOlderThanYears</c> number for given <paramref name="customerIds"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerPersonalDataEraser.DeleteOrdersCore(System.Collections.Generic.List{System.Int32},System.DateTime)">
+            <summary>
+            Deletes orders <paramref name="ordersOlderThan"/> for given <paramref name="customerIds"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerPersonalDataEraser.DeleteShoppingCarts(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes shopping carts for given <paramref name="customerIds"/> and <paramref name="contactIds"/>
+            based on <paramref name="configuration"/>'s <c>deleteShoppingCarts</c> flag.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerPersonalDataEraser.DeleteShoppingCartsCore(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Deletes shopping carts for given <paramref name="customerIds"/> and <paramref name="contactIds"/>
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerPersonalDataEraser.DeleteWishlists(System.Collections.Generic.List{CMS.Ecommerce.CustomerInfo},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes wishlists for given <paramref name="customers"/> based on <paramref name="configuration"/>'s <c>deleteWishlists</c> flag.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleCustomerPersonalDataEraser.DeleteCustomers(System.Collections.Generic.IEnumerable{CMS.Ecommerce.CustomerInfo},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes <paramref name="customers"/> based on <paramref name="configuration"/>'s <c>deleteCustomers</c> flag.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser">
+            <summary>
+            Sample implementation of <see cref="T:CMS.DataProtection.IPersonalDataEraser"/> interface for erasing contact's personal data.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.dancingGoatForms">
+            <summary>
+            Defines forms to delete personal data from and name of the column where data subject's email be found.
+            </summary>
+            <remarks>
+            GUIDs are used to select only specific forms on the Dancing Goat sample site.
+            </remarks>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.DANCING_GOAT_FORMS_CONSENT_COLUMN_NAME">
+            <summary>
+            The form's column name that contains the user's consent agreement.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.Erase(System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Erases personal data based on given <paramref name="identities"/> and <paramref name="configuration"/>.
+            </summary>
+            <param name="identities">Collection of identities representing a data subject.</param>
+            <param name="configuration">Configures which personal data should be erased.</param>
+            <remarks>
+            The erasure process can be configured via the following <paramref name="configuration"/> parameters:
+            <list type="bullet">
+            <item>
+            <term>deleteContacts</term>
+            <description>Flag indicating whether contact(s) contained in <paramref name="identities"/> are to be deleted.</description>
+            </item>
+            <item>
+            <term>deleteContactFromAccounts</term>
+            <description>Flag indicating whether contact's association with accounts is to be deleted.</description>
+            </item>
+            <item>
+            <term>deleteSubscriptionFromNewsletters</term>
+            <description>Flag indicating whether contact's subscription to newsletters is to be deleted.</description>
+            </item>
+            <item>
+            <term>deleteActivities</term>
+            <description>Flag indicating whether activities of contact are to be deleted.</description>
+            </item>
+            <item>
+            <term>deleteSubmittedFormsActivities</term>
+            <description>Flag indicating whether form activities of contact are to be deleted.</description>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.DeleteSubmittedFormsActivities(System.Collections.Generic.ICollection{System.Int32},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes contact's submitted forms activities based on <paramref name="configuration"/>'s <c>deleteSubmittedFormsActivities</c> flag.
+            </summary>
+            <remarks>Activities are deleted via bulk operation, considering the amount of activities for a contact.</remarks>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.DeleteDancingGoatSubmittedFormsData(System.Collections.Generic.ICollection{System.String},System.Collections.Generic.ICollection{System.Int32},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes all DancingGoat submitted forms data for <paramref name="emails"/> and <paramref name="contactIDs"/>, based on <paramref name="configuration"/>'s <c>deleteSubmittedFormsData</c> flag.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.DeleteActivities(System.Collections.Generic.List{System.Int32},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes contact's activities based on <paramref name="configuration"/>'s <c>deleteActivities</c> flag.
+            </summary>
+            <remarks>Activities are deleted via bulk operation, considering the amount of activities for a contact.</remarks>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.DeleteContactFromAccounts(System.Collections.Generic.ICollection{System.Int32},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes contact from accounts based on <paramref name="configuration"/>'s <c>deleteContactFromAccounts</c> flag.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.DeleteSubscriptionFromNewsletters(System.Collections.Generic.ICollection{System.String},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes contact from newsletter's subscription based on <paramref name="configuration"/>'s <c>deleteSubscriptionFromNewsletters</c> flag.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.SampleContactPersonalDataEraser.DeleteContacts(System.Collections.Generic.IEnumerable{CMS.ContactManagement.ContactInfo},System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Deletes <paramref name="contacts"/> based on <paramref name="configuration"/>'s <c>deleteContacts</c> flag.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.EcommerceSampleDataGenerator">
+            <summary>
+            Sample ecommerce data generator providing sample data for Dancing Goat demo site.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.EcommerceSampleDataGenerator.Generate(System.Int32)">
+            <summary>
+            Generates sample ecommerce data. Suitable only for Dancing Goat demo site.
+            </summary>
+            <param name="siteID">ID of the site to generate sample data for.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.EcommerceSampleDataGenerator.#ctor">
+            <summary>
+            Constructor. Creates new instance of EcommerceSampleDataGenerator.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.EcommerceSampleDataGenerator.GenerateEcommerceData(System.Int32)">
+            <summary>
+            Runs generator of Ecommerce data. It includes Customers, Orders, Order items and Order addresses
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.EcommerceSampleDataGenerator.GenerateOrderItems(CMS.Ecommerce.OrderInfo,System.Collections.Generic.IList{CMS.Ecommerce.SKUInfo})">
+            <summary>
+            Generates order items to given order using random products. Computes order
+            price and sets it to given totalPrice parameter.
+            </summary>
+            <param name="order">Order object to assign items</param>
+            <param name="products">List of products to select random order items from.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.EcommerceSampleDataGenerator.GenerateCustomer(System.String,System.Int32)">
+            <summary>
+            Generates customer with random name and returns the customer object.
+            </summary>
+            <param name="fullName">Full name of customer</param>
+            <param name="siteID">ID of the site to assign customer to</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.EcommerceSampleDataGenerator.GenerateOrderAddress(System.Int32,System.Int32,CMS.Ecommerce.AddressType)">
+            <summary>
+            Generates order address and returns address object.
+            </summary>
+            <param name="orderId">ID of order object to assign items</param>
+            <param name="countryId">ID of the country to be used in new address</param>
+            <param name="addressType">Type of the address</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.EcommerceSampleDataGenerator.GenerateAddress(System.Int32,System.Int32)">
+            <summary>
+            Generates address and returns the address object.
+            </summary>
+            <param name="countryID">ID of the country to be used in a new address.</param>
+            <param name="customerID">ID of the customer to be used in a new address.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.OnlineMarketingSampleDataGenerator">
+            <summary>
+            Sample online marketing data generator providing sample data for Dancing Goat demo site.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.OnlineMarketingSampleDataGenerator.CONTACT_FIRST_NAME_PREFIX">
+            <summary>
+            First name prefix of contacts generated for sample campaigns.
+            </summary>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.OnlineMarketingSampleDataGenerator.CONTACT_LAST_NAME_PREFIX">
+            <summary>
+            Last name prefix of contacts generated for sample campaigns.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.OnlineMarketingSampleDataGenerator.Generate(System.Int32)">
+            <summary>
+            Generates sample online marketing data. Suitable only for Dancing Goat demo site.
+            </summary>
+            <param name="siteID">ID of the site to generate sample data for.</param>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator">
+            <summary>
+            Contains methods for generating sample data for the Web analytics module.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.#ctor(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="site">Site the analytics will be generated for</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.Generate">
+            <summary>
+            Performs web analytics sample data generation.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.RegisterGenerators">
+            <summary>
+            Registers all methods generating the sample data to the output delegate.
+            </summary>
+            <returns>Delegates list containing all generators</returns>
+        </member>
+        <member name="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.StatisticCodeNames">
+            <summary>
+            Statistics code names being generated. 
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.Countries(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs countries obtained from <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mCountriesDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.RegisteredUsers(System.Random)">
+            <summary>
+            Iterates names in <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mNameDataSource" /> and log the name as registered user for random day in last month.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.MobileDevices(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs mobile devices obtained from <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mMobileDevicesDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.UrlReferrals(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs URL Referrals obtained from <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mReferralsDataSource"/>. Logs referring site as well (in this case the hits are aggregated by referral domain).
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.SearchEngines(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs search engines obtained from <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mSearchEnginesDataSource"/>. Logs search referring site as well.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.AggregatedViews(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Generates Aggregated views representing the views through RSS or atom feeds, therefore documents are filtered to match only Article type.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.FileDownloads(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs file downloads obtained from the <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mFileDownloadsDataSource"/>
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.VisitorsAndTopLandingAndExitPages(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Splits visitors between returning and the new ones. For the new visitors, logs first visit hit and both top and exit landing pages.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.OnSiteAndExternalKeywords(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs both on-site and external search keywords obtained from the <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mSearchKeywordDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.InvalidPages(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Picks random documents and alter their alias paths by adding space or removing some of the letters from the end of the path.
+            These paths are then logged as invalid ones.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.PageViewsAndAverageTimeOnPage(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Picks random documents for both cultures, distributes number of visitors across the pages while penalizing long document alias paths and logs page view. Logs average time on page for
+            every processed document as well as direct referring site.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.BrowserTypes(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs browser types obtained from <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mBrowsersDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.FlashJavaAndSilverligthSupport(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs support for Flash, Java and Silverlight.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.ThirdPartySupport(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random,System.Double,System.String,System.String,System.String)">
+            <summary>
+            Logs third party application support (usable for logging Flash, Java and Silverlight support).
+            </summary>
+            <param name="date">Date the hit will be assigned to</param>
+            <param name="visitors">Contains number of visitor per every culture</param>
+            <param name="random">Random number generator</param>
+            <param name="threshold">Relative threshold determining how many visitors do not support third party applications</param>
+            <param name="hitType">Codename of the statistics</param>
+            <param name="supportedValue">Value will be logged for the supporting visitors</param>
+            <param name="notsupportedValue">Value will be logged fo the not supporting visitors</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.OperatingSystems(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs browser types obtained from <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mOperatingSystemDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.ScreenColors(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs browser types obtained from <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mScreenColorDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.ScreenResolution(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs browser types obtained from <see cref="F:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.mScreenResolutionDataSource"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.Conversions(System.DateTime,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Logs hits for top 6 conversions found within the site.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.GetDataSourceFrequency(System.Collections.Generic.Dictionary{System.String,System.Int32})">
+            <summary>
+            Gets relative frequency of every item in <paramref name="input"/> on interval [0,1].
+            </summary>
+            <param name="input">Dictionary containing all data source items with their absolute frequency</param>
+            <returns>Computed relative frequency for every item in <paramref name="input"/></returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.GetRandomDataSourceValue(System.Collections.Generic.Dictionary{System.String,System.Int32},System.Random)">
+            <summary>
+            Gets random value from the <paramref name="input"/> while weight of every value is defined by its value in the input dictionary.
+            </summary>
+            <param name="input">Contains all the values the result will be picked from, where key is the output value and key is weight of the item</param>
+            <param name="random">Random number generator</param>
+            <returns>Single value randomly picked from <paramref name="input"/> with respect to the item weight.</returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.SplitVisitors(System.Double,System.Double,System.Random,System.Collections.Generic.Dictionary{System.String,System.Int32},System.Collections.Generic.Dictionary{System.String,System.Int32}@,System.Collections.Generic.Dictionary{System.String,System.Int32}@)">
+            <summary>
+            Splits visitors given in <paramref name="visitors"/> according to <paramref name="threshold"/> with respect to <paramref name="variance"/>. 
+            </summary>
+            <param name="threshold">Relative amount of visitors, where those for interval [0-threshold] are stored in <paramref name="belowThreshold"/>, while the rest in <paramref name="overThreshold"/></param>
+            <param name="variance">Specifies weight of the random variance added to the threshold</param>
+            <param name="random">Random number generator</param>
+            <param name="visitors">Input dictionary of visitors which will be splitted. Contains key value pair for every visitor culture</param>
+            <param name="belowThreshold">Out parameter where visitors below the threshold will be stored</param>
+            <param name="overThreshold">OUt parameter where visitors over the threshold will be stored</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.GetRelativeAmountOfVisitors(System.Double,System.Double,System.Random,System.Collections.Generic.Dictionary{System.String,System.Int32})">
+            <summary>
+            Gets relative amount of visitors from <paramref name="visitors"/> for each input culture.
+            </summary>
+            <param name="relativeAmount">Relative amount of visitors which will be returned. Has to be in interval [0,1]</param>
+            <param name="variance">Specifies weight of the random variance added to the threshold</param>
+            <param name="random">Random number generator</param>
+            <param name="visitors">Input dictionary of visitors from which the output will be obtained. Contains key value pair for every visitor culture</param>
+            <returns>Dictionary containing only relative amount of visitors from the <paramref name="visitors"/></returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.GetRandomValue(System.Random,System.Int32,System.Int32)">
+            <summary>
+            Gets pseudo-random number from the  <paramref name="baseValue"/> vicinity. The least value returned is always 1.
+            </summary>
+            <param name="random">Random number generator</param>
+            <param name="baseValue">Specifies the base value of the result</param>
+            <param name="variance">Specifies how much does the result differ from <paramref name="baseValue"/></param>
+            <returns>Pseudo-random number in <paramref name="baseValue"/> vicinity</returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.GetRandomDocuments(System.Int32,System.Int32,System.String)">
+            <summary>
+            Gets <paramref name="numberOfEnglishDocuments"/> documents in English culture and <paramref name="numberOfSpanishDocuments"/> in Spanish culture from the current site. 
+            </summary>
+            <param name="numberOfEnglishDocuments">Number of documents in English culture to be obtained</param>
+            <param name="numberOfSpanishDocuments">Number of documents in Spanish culture to be obtained</param>
+            <param name="documentType">Specifies filter of document types. Leave null for all document types</param>
+            <returns>Collection of randomly obtained documents from the current site</returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.Logit(System.Double)">
+            <summary>
+            Function, which maps interval [0,1] to whole real domain.
+            Input value is reduced to interval [1e-12, 1 - 1e-12] to avoid infinity or extreme large results.
+            </summary>
+            <param name="x">Input value.</param>
+            <returns>Product of Logit function on <paramref name="x"/></returns>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.WebAnalyticsDataGenerator.LogHit(System.String,System.Int32,System.Int32,System.DateTime,System.String,System.String,System.Int32)">
+            <summary>
+            Performs logging of the hit.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.LargeSizeImageVariantDefinition">
+            <summary>
+            Sample image variant definition for large-size device.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.LargeSizeImageVariantDefinition.Identifier">
+            <summary>
+            Definition identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.LargeSizeImageVariantDefinition.ContextScopes">
+            <summary>
+            Returns context scopes to restrict variant application.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.LargeSizeImageVariantDefinition.Filters">
+            <summary>
+            Collection of filters used for variant generation.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.MediumSizeImageVariantDefinition">
+            <summary>
+            Sample image variant definition for medium-size device.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.MediumSizeImageVariantDefinition.Identifier">
+            <summary>
+            Definition identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.MediumSizeImageVariantDefinition.ContextScopes">
+            <summary>
+            Returns context scopes to restrict variant application.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.MediumSizeImageVariantDefinition.Filters">
+            <summary>
+            Collection of filters used for variant generation.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SmallSizeImageVariantDefinition">
+            <summary>
+            Sample image variant definition for small-size device.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.SmallSizeImageVariantDefinition.Identifier">
+            <summary>
+            Definition identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.SmallSizeImageVariantDefinition.ContextScopes">
+            <summary>
+            Returns context scopes to restrict variant application.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.SmallSizeImageVariantDefinition.Filters">
+            <summary>
+            Collection of filters used for variant generation.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.SmallSquareImageVariantDefinition">
+            <summary>
+            Generates a small square image variant of Cafe images
+            which are then used in the Cafe email widget.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.SmallSquareImageVariantDefinition.Identifier">
+            <summary>
+            Definition identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.SmallSquareImageVariantDefinition.ContextScopes">
+            <summary>
+            Returns context scopes to restrict variant application.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.SmallSquareImageVariantDefinition.Filters">
+            <summary>
+            Collection of filters used for variant generation.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.TeaserImageVariantDefinition">
+            <summary>
+            Generates a teaser article image which is then used in the Article email widget.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.TeaserImageVariantDefinition.Identifier">
+            <summary>
+            Definition identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.TeaserImageVariantDefinition.ContextScopes">
+            <summary>
+            Returns context scopes to restrict variant application.
+            </summary>
+        </member>
+        <member name="P:CMS.DancingGoat.Samples.TeaserImageVariantDefinition.Filters">
+            <summary>
+            Collection of filters used for variant generation.
+            </summary>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.CropImageFilter">
+            <summary>
+            Sample filter for cropping image by specific parameters.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CropImageFilter.#ctor(System.Int32,System.Int32,CMS.Helpers.ImageHelper.ImageTrimAreaEnum)">
+            <summary>
+            Constructor, creates a new instance of <see cref="T:CMS.DancingGoat.Samples.CropImageFilter" />.
+            </summary>
+            <param name="cropWidth">Width of the crop area in pixels. Use <see cref="F:CMS.Helpers.ImageHelper.AUTOSIZE"/> to compute the width automatically with aspect ratio.</param>
+            <param name="cropHeight">Height of the crop area in pixels. Use <see cref="F:CMS.Helpers.ImageHelper.AUTOSIZE"/> to compute the height automatically with aspect ratio.</param>
+            <param name="cropTo">Defines the position of area to crop.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.CropImageFilter.ApplyFilter(CMS.ResponsiveImages.ImageContainer)">
+            <summary>
+            Applies the filter on the image data.
+            </summary>
+            <param name="container">Input image container.</param>
+            <returns>
+            New instance of <see cref="T:CMS.ResponsiveImages.ImageContainer"/> with the applied filter or <c>null</c> when the filter was not applied.
+            </returns>
+        </member>
+        <member name="T:CMS.DancingGoat.Samples.ResizeImageFilter">
+            <summary>
+            Sample filter for resizing image to a specific size.
+            </summary>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ResizeImageFilter.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor, creates a new instance of <see cref="T:CMS.DancingGoat.Samples.ResizeImageFilter" />.
+            </summary>
+            <param name="width">Resize width in pixels. Use <see cref="F:CMS.Helpers.ImageHelper.AUTOSIZE"/> to compute the width automatically with aspect ratio.</param>
+            <param name="height">Resize height in pixels. Use <see cref="F:CMS.Helpers.ImageHelper.AUTOSIZE"/> to compute the height automatically with aspect ratio.</param>
+        </member>
+        <member name="M:CMS.DancingGoat.Samples.ResizeImageFilter.ApplyFilter(CMS.ResponsiveImages.ImageContainer)">
+            <summary>
+            Applies the filter on the image data.
+            </summary>
+            <param name="container">Input image container.</param>
+            <returns>
+            New instance of <see cref="T:CMS.ResponsiveImages.ImageContainer"/> with the applied filter or <c>null</c> when the filter was not applied.
+            </returns>
+        </member>
+    </members>
+</doc>

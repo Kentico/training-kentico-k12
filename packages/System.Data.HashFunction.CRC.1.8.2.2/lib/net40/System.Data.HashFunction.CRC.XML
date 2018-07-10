@@ -1,0 +1,1239 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Data.HashFunction.CRC</name>
+    </assembly>
+    <members>
+        <member name="T:System.Data.HashFunction.CRC">
+            <summary>
+            Implementation of the cyclic redundancy check error-detecting code as defined at http://en.wikipedia.org/wiki/Cyclic_redundancy_check.
+            This implementation is generalized to encompass all possible CRC parameters from 1 to 64 bits.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRC.#ctor">
+            <remarks>Uses CRC settings set at <see cref="P:System.Data.HashFunction.CRC.DefaultSettings"/>.</remarks>
+            <inheritdoc cref="M:System.Data.HashFunction.CRC.#ctor(System.Data.HashFunction.CRC.Setting)"/>
+        </member>
+        <member name="M:System.Data.HashFunction.CRC.#ctor(System.Data.HashFunction.CRC.Setting)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+            <param name="settings"><inheritdoc cref="P:System.Data.HashFunction.CRC.Settings"/></param>
+            <exception cref="T:System.ArgumentNullException">settings</exception>
+            <inheritdoc cref="M:System.Data.HashFunction.HashFunctionBase.#ctor(System.Int32)"/>
+        </member>
+        <member name="M:System.Data.HashFunction.CRC.#cctor">
+            <summary>
+            Initializes static, dependent fields of the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRC.ComputeHashInternal(System.Data.HashFunction.Utilities.UnifiedData.UnifiedData)">
+            <inheritdoc />
+        </member>
+        <member name="M:System.Data.HashFunction.CRC.CalculateTable(System.Data.HashFunction.CRC.Setting)">
+            <summary>
+            Calculates the data-division table for the CRC parameters provided.
+            </summary>
+            <param name="settings">CRC parameters to calculate the table for.</param>
+            <returns>
+            Array of UInt64 values that allows a CRC implementation to look up the result
+            of dividing the index (data) by the polynomial.
+            </returns>
+            <remarks>
+            Resulting array contains 256 items if settings.Bits &gt;= 8, or 2 items if settings.Bits &lt; 8.
+            The table accounts for reflecting the index bits to fix the input endianness,
+            but it is not possible completely account for the output endianness if the CRC is mixed-endianness.
+            </remarks>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standards">
+            <summary>
+            Dictionary of Settings for each of the defined and implemented CRC standards.
+            </summary>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.Settings">
+            <summary>
+            The CRC parameters to use when calculating the hash value.
+            </summary>
+            <value>
+            The CRC parameters that will be used to calculate hash values.
+            </value>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.DefaultSettings">
+            <summary>
+            The set of CRC parameters to use when constructing <see cref="T:System.Data.HashFunction.CRC"/> via the default constructor.
+            </summary>
+            <value>
+            The current CRC parameters that will be used when a new <see cref="T:System.Data.HashFunction.CRC"/> instance is created via its default constructor.
+            </value>
+            <exception cref="T:System.ArgumentNullException">value</exception>
+            <remarks>
+            Defaults to the settings for <see cref="T:System.Data.HashFunction.CRCStandards.CRC32"/>.
+            </remarks>
+        </member>
+        <member name="T:System.Data.HashFunction.CRC.Setting">
+            <summary>
+            Storage for all CRC calculation parameters and cache location of the CRC data-division table.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRC.Setting.#ctor(System.Int32,System.UInt64,System.UInt64,System.Boolean,System.Boolean,System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRC.Setting"/> class.
+            </summary>
+            <param name="bits"><inheritdoc cref="P:System.Data.HashFunction.CRC.Setting.Bits"/></param>
+            <param name="polynomial"><inheritdoc cref="P:System.Data.HashFunction.CRC.Setting.Polynomial"/></param>
+            <param name="initialValue"><inheritdoc cref="P:System.Data.HashFunction.CRC.Setting.InitialValue"/></param>
+            <param name="reflectIn"><inheritdoc cref="P:System.Data.HashFunction.CRC.Setting.ReflectIn"/></param>
+            <param name="reflectOut"><inheritdoc cref="P:System.Data.HashFunction.CRC.Setting.ReflectOut"/></param>
+            <param name="xOrOut"><inheritdoc cref="P:System.Data.HashFunction.CRC.Setting.XOrOut"/></param>
+            <exception cref="T:System.ArgumentOutOfRangeException">bits;bitLength must be in the range [1, 64].</exception>
+        </member>
+        <member name="M:System.Data.HashFunction.CRC.Setting.PreCalculateTable">
+            <summary>
+            Calculates the DataDivisionTable property eagerly so that it is not calculated just-in-time.
+            </summary>
+            <returns>
+            True if the table was calculated, false if the table has already been calculated.
+            </returns>
+        </member>
+        <member name="M:System.Data.HashFunction.CRC.Setting.CheckInput(System.String,System.UInt64,System.Int32)">
+            <summary>
+            Ensures that the 64-bit inputValue is not greater than the maximum unsigned value for a [bitLength]-length integer.
+            </summary>
+            <param name="paramName">Name of the parameter being passed, used in exception that is thrown if the value is invalid.</param>
+            <param name="inputValue">Value to check.</param>
+            <param name="bitLength">Expected bit length of the inputValue parameter.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.Setting.Bits">
+            <summary>
+            Length of the produced CRC value, in bits.
+            </summary>
+            <value>
+            The length of the produced CRC value, in bits
+            </value>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.Setting.Polynomial">
+            <summary>
+            Divisor to use when calculating the CRC.
+            </summary>
+            <value>
+            The divisor that will be used when calculating the CRC value.
+            </value>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.Setting.InitialValue">
+            <summary>
+            Value to initialize the CRC register to before calculating the CRC.
+            </summary>
+            <value>
+            The value that will be used to initialize the CRC register before the calculation of the CRC value.
+            </value>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.Setting.ReflectIn">
+            <summary>
+            If true, the CRC calculation processes input as big endian bit order.
+            </summary>
+            <value>
+              <c>true</c> if the input should be processed in big endian bit order; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.Setting.ReflectOut">
+            <summary>
+            If true, the CRC calculation processes the output as big endian bit order.
+            </summary>
+            <value>
+              <c>true</c> if the CRC calculation processes the output as big endian bit order; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.Setting.XOrOut">
+            <summary>
+            Value to xor with the final CRC value.
+            </summary>
+            <value>
+            The value to xor with the final CRC value.
+            </value>
+        </member>
+        <member name="P:System.Data.HashFunction.CRC.Setting.DataDivisionTable">
+            <summary>
+            Lookup table of precalculated divisions of the index divided by the <see cref="P:System.Data.HashFunction.CRC.Setting.Polynomial"/>.
+            </summary>
+            <value>
+            The precalculated table giving the result of dividing the items index by the <see cref="P:System.Data.HashFunction.CRC.Setting.Polynomial"/>.
+            </value>
+        </member>
+        <member name="T:System.Data.HashFunction.CRC.Standard">
+            <summary>
+            Enumeration of all defined and implemented CRC standards.
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC3_ROHC">
+            <summary>
+            CRC standard named "CRC3_ROHC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC4_ITU">
+            <summary>
+            CRC standard named "CRC4_ITU".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC5_EPC">
+            <summary>
+            CRC standard named "CRC5_EPC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC5_ITU">
+            <summary>
+            CRC standard named "CRC5_ITU".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC5_USB">
+            <summary>
+            CRC standard named "CRC5_USB".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC6_CDMA2000A">
+            <summary>
+            CRC standard named "CRC6_CDMA2000A".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC6_CDMA2000B">
+            <summary>
+            CRC standard named "CRC6_CDMA2000B".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC6_DARC">
+            <summary>
+            CRC standard named "CRC6_DARC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC6_ITU">
+            <summary>
+            CRC standard named "CRC6_ITU".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC7">
+            <summary>
+            CRC standard named "CRC7".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC7_ROHC">
+            <summary>
+            CRC standard named "CRC7_ROHC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8">
+            <summary>
+            CRC standard named "CRC8".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_CDMA2000">
+            <summary>
+            CRC standard named "CRC8_CDMA2000".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_DARC">
+            <summary>
+            CRC standard named "CRC8_DARC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_DVBS2">
+            <summary>
+            CRC standard named "CRC8_DVBS2".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_EBU">
+            <summary>
+            CRC standard named "CRC8_EBU".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_ICODE">
+            <summary>
+            CRC standard named "CRC8_ICODE".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_ITU">
+            <summary>
+            CRC standard named "CRC8_ITU".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_MAXIM">
+            <summary>
+            CRC standard named "CRC8_MAXIM".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_ROHC">
+            <summary>
+            CRC standard named "CRC8_ROHC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC8_WCDMA">
+            <summary>
+            CRC standard named "CRC8_WCDMA".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC10">
+            <summary>
+            CRC standard named "CRC10".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC10_CDMA2000">
+            <summary>
+            CRC standard named "CRC10_CDMA2000".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC11">
+            <summary>
+            CRC standard named "CRC11".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC12_3GPP">
+            <summary>
+            CRC standard named "CRC12_3GPP".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC12_CDMA2000">
+            <summary>
+            CRC standard named "CRC12_CDMA2000".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC12_DECT">
+            <summary>
+            CRC standard named "CRC12_DECT".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC13_BBC">
+            <summary>
+            CRC standard named "CRC13_BBC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC14_DARC">
+            <summary>
+            CRC standard named "CRC14_DARC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC15">
+            <summary>
+            CRC standard named "CRC15".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC15_MPT1327">
+            <summary>
+            CRC standard named "CRC15_MPT1327".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.ARC">
+            <summary>
+            CRC standard named "ARC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_AUGCCITT">
+            <summary>
+            CRC standard named "CRC16_AUGCCITT".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_BUYPASS">
+            <summary>
+            CRC standard named "CRC16_BUYPASS".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_CCITTFALSE">
+            <summary>
+            CRC standard named "CRC16_CCITTFALSE".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_CDMA2000">
+            <summary>
+            CRC standard named "CRC16_CDMA2000".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_DDS110">
+            <summary>
+            CRC standard named "CRC16_DDS110".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_DECTR">
+            <summary>
+            CRC standard named "CRC16_DECTR".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_DECTX">
+            <summary>
+            CRC standard named "CRC16_DECTX".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_DNP">
+            <summary>
+            CRC standard named "CRC16_DNP".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_EN13757">
+            <summary>
+            CRC standard named "CRC16_EN13757".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_GENIBUS">
+            <summary>
+            CRC standard named "CRC16_GENIBUS".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_MAXIM">
+            <summary>
+            CRC standard named "CRC16_MAXIM".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_MCRF4XX">
+            <summary>
+            CRC standard named "CRC16_MCRF4XX".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_RIELLO">
+            <summary>
+            CRC standard named "CRC16_RIELLO".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_T10DIF">
+            <summary>
+            CRC standard named "CRC16_T10DIF".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_TELEDISK">
+            <summary>
+            CRC standard named "CRC16_TELEDISK".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_TMS37157">
+            <summary>
+            CRC standard named "CRC16_TMS37157".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC16_USB">
+            <summary>
+            CRC standard named "CRC16_USB".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRCA">
+            <summary>
+            CRC standard named "CRCA".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.KERMIT">
+            <summary>
+            CRC standard named "KERMIT".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.MODBUS">
+            <summary>
+            CRC standard named "MODBUS".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.X25">
+            <summary>
+            CRC standard named "X25".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.XMODEM">
+            <summary>
+            CRC standard named "XMODEM".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC24">
+            <summary>
+            CRC standard named "CRC24".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC24_FLEXRAYA">
+            <summary>
+            CRC standard named "CRC24_FLEXRAYA".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC24_FLEXRAYB">
+            <summary>
+            CRC standard named "CRC24_FLEXRAYB".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC31_PHILIPS">
+            <summary>
+            CRC standard named "CRC31_PHILIPS".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC32">
+            <summary>
+            CRC standard named "CRC32".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC32_BZIP2">
+            <summary>
+            CRC standard named "CRC32_BZIP2".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC32C">
+            <summary>
+            CRC standard named "CRC32C".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC32D">
+            <summary>
+            CRC standard named "CRC32D".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC32_MPEG2">
+            <summary>
+            CRC standard named "CRC32_MPEG2".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC32_POSIX">
+            <summary>
+            CRC standard named "CRC32_POSIX".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC32Q">
+            <summary>
+            CRC standard named "CRC32Q".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.JAMCRC">
+            <summary>
+            CRC standard named "JAMCRC".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.XFER">
+            <summary>
+            CRC standard named "XFER".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC40_GSM">
+            <summary>
+            CRC standard named "CRC40_GSM".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC64">
+            <summary>
+            CRC standard named "CRC64".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC64_WE">
+            <summary>
+            CRC standard named "CRC64_WE".
+            </summary>
+        </member>
+        <member name="F:System.Data.HashFunction.CRC.Standard.CRC64_XZ">
+            <summary>
+            CRC standard named "CRC64_XZ".
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.NamespaceDoc">
+            <summary>
+            Namespace containing all implemented CRC standards.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC3_ROHC">
+            <summary>
+            Automatically generated implementation of CRC3_ROHC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC3_ROHC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC3_ROHC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC4_ITU">
+            <summary>
+            Automatically generated implementation of CRC4_ITU CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC4_ITU.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC4_ITU"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC5_EPC">
+            <summary>
+            Automatically generated implementation of CRC5_EPC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC5_EPC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC5_EPC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC5_ITU">
+            <summary>
+            Automatically generated implementation of CRC5_ITU CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC5_ITU.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC5_ITU"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC5_USB">
+            <summary>
+            Automatically generated implementation of CRC5_USB CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC5_USB.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC5_USB"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC6_CDMA2000A">
+            <summary>
+            Automatically generated implementation of CRC6_CDMA2000A CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC6_CDMA2000A.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC6_CDMA2000A"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC6_CDMA2000B">
+            <summary>
+            Automatically generated implementation of CRC6_CDMA2000B CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC6_CDMA2000B.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC6_CDMA2000B"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC6_DARC">
+            <summary>
+            Automatically generated implementation of CRC6_DARC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC6_DARC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC6_DARC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC6_ITU">
+            <summary>
+            Automatically generated implementation of CRC6_ITU CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC6_ITU.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC6_ITU"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC7">
+            <summary>
+            Automatically generated implementation of CRC7 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC7.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC7"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC7_ROHC">
+            <summary>
+            Automatically generated implementation of CRC7_ROHC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC7_ROHC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC7_ROHC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8">
+            <summary>
+            Automatically generated implementation of CRC8 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_CDMA2000">
+            <summary>
+            Automatically generated implementation of CRC8_CDMA2000 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_CDMA2000.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_CDMA2000"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_DARC">
+            <summary>
+            Automatically generated implementation of CRC8_DARC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_DARC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_DARC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_DVBS2">
+            <summary>
+            Automatically generated implementation of CRC8_DVBS2 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_DVBS2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_DVBS2"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_EBU">
+            <summary>
+            Automatically generated implementation of CRC8_EBU CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_EBU.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_EBU"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_ICODE">
+            <summary>
+            Automatically generated implementation of CRC8_ICODE CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_ICODE.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_ICODE"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_ITU">
+            <summary>
+            Automatically generated implementation of CRC8_ITU CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_ITU.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_ITU"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_MAXIM">
+            <summary>
+            Automatically generated implementation of CRC8_MAXIM CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_MAXIM.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_MAXIM"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_ROHC">
+            <summary>
+            Automatically generated implementation of CRC8_ROHC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_ROHC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_ROHC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC8_WCDMA">
+            <summary>
+            Automatically generated implementation of CRC8_WCDMA CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC8_WCDMA.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC8_WCDMA"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC10">
+            <summary>
+            Automatically generated implementation of CRC10 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC10.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC10"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC10_CDMA2000">
+            <summary>
+            Automatically generated implementation of CRC10_CDMA2000 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC10_CDMA2000.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC10_CDMA2000"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC11">
+            <summary>
+            Automatically generated implementation of CRC11 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC11.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC11"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC12_3GPP">
+            <summary>
+            Automatically generated implementation of CRC12_3GPP CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC12_3GPP.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC12_3GPP"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC12_CDMA2000">
+            <summary>
+            Automatically generated implementation of CRC12_CDMA2000 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC12_CDMA2000.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC12_CDMA2000"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC12_DECT">
+            <summary>
+            Automatically generated implementation of CRC12_DECT CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC12_DECT.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC12_DECT"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC13_BBC">
+            <summary>
+            Automatically generated implementation of CRC13_BBC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC13_BBC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC13_BBC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC14_DARC">
+            <summary>
+            Automatically generated implementation of CRC14_DARC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC14_DARC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC14_DARC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC15">
+            <summary>
+            Automatically generated implementation of CRC15 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC15.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC15"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC15_MPT1327">
+            <summary>
+            Automatically generated implementation of CRC15_MPT1327 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC15_MPT1327.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC15_MPT1327"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.ARC">
+            <summary>
+            Automatically generated implementation of ARC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.ARC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.ARC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_AUGCCITT">
+            <summary>
+            Automatically generated implementation of CRC16_AUGCCITT CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_AUGCCITT.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_AUGCCITT"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_BUYPASS">
+            <summary>
+            Automatically generated implementation of CRC16_BUYPASS CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_BUYPASS.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_BUYPASS"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_CCITTFALSE">
+            <summary>
+            Automatically generated implementation of CRC16_CCITTFALSE CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_CCITTFALSE.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_CCITTFALSE"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_CDMA2000">
+            <summary>
+            Automatically generated implementation of CRC16_CDMA2000 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_CDMA2000.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_CDMA2000"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_DDS110">
+            <summary>
+            Automatically generated implementation of CRC16_DDS110 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_DDS110.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_DDS110"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_DECTR">
+            <summary>
+            Automatically generated implementation of CRC16_DECTR CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_DECTR.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_DECTR"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_DECTX">
+            <summary>
+            Automatically generated implementation of CRC16_DECTX CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_DECTX.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_DECTX"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_DNP">
+            <summary>
+            Automatically generated implementation of CRC16_DNP CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_DNP.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_DNP"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_EN13757">
+            <summary>
+            Automatically generated implementation of CRC16_EN13757 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_EN13757.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_EN13757"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_GENIBUS">
+            <summary>
+            Automatically generated implementation of CRC16_GENIBUS CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_GENIBUS.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_GENIBUS"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_MAXIM">
+            <summary>
+            Automatically generated implementation of CRC16_MAXIM CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_MAXIM.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_MAXIM"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_MCRF4XX">
+            <summary>
+            Automatically generated implementation of CRC16_MCRF4XX CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_MCRF4XX.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_MCRF4XX"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_RIELLO">
+            <summary>
+            Automatically generated implementation of CRC16_RIELLO CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_RIELLO.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_RIELLO"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_T10DIF">
+            <summary>
+            Automatically generated implementation of CRC16_T10DIF CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_T10DIF.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_T10DIF"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_TELEDISK">
+            <summary>
+            Automatically generated implementation of CRC16_TELEDISK CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_TELEDISK.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_TELEDISK"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_TMS37157">
+            <summary>
+            Automatically generated implementation of CRC16_TMS37157 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_TMS37157.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_TMS37157"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC16_USB">
+            <summary>
+            Automatically generated implementation of CRC16_USB CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC16_USB.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC16_USB"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRCA">
+            <summary>
+            Automatically generated implementation of CRCA CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRCA.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRCA"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.KERMIT">
+            <summary>
+            Automatically generated implementation of KERMIT CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.KERMIT.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.KERMIT"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.MODBUS">
+            <summary>
+            Automatically generated implementation of MODBUS CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.MODBUS.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.MODBUS"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.X25">
+            <summary>
+            Automatically generated implementation of X25 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.X25.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.X25"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.XMODEM">
+            <summary>
+            Automatically generated implementation of XMODEM CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.XMODEM.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.XMODEM"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC24">
+            <summary>
+            Automatically generated implementation of CRC24 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC24.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC24"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC24_FLEXRAYA">
+            <summary>
+            Automatically generated implementation of CRC24_FLEXRAYA CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC24_FLEXRAYA.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC24_FLEXRAYA"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC24_FLEXRAYB">
+            <summary>
+            Automatically generated implementation of CRC24_FLEXRAYB CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC24_FLEXRAYB.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC24_FLEXRAYB"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC31_PHILIPS">
+            <summary>
+            Automatically generated implementation of CRC31_PHILIPS CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC31_PHILIPS.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC31_PHILIPS"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC32">
+            <summary>
+            Automatically generated implementation of CRC32 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC32.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC32"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC32_BZIP2">
+            <summary>
+            Automatically generated implementation of CRC32_BZIP2 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC32_BZIP2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC32_BZIP2"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC32C">
+            <summary>
+            Automatically generated implementation of CRC32C CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC32C.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC32C"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC32D">
+            <summary>
+            Automatically generated implementation of CRC32D CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC32D.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC32D"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC32_MPEG2">
+            <summary>
+            Automatically generated implementation of CRC32_MPEG2 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC32_MPEG2.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC32_MPEG2"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC32_POSIX">
+            <summary>
+            Automatically generated implementation of CRC32_POSIX CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC32_POSIX.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC32_POSIX"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC32Q">
+            <summary>
+            Automatically generated implementation of CRC32Q CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC32Q.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC32Q"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.JAMCRC">
+            <summary>
+            Automatically generated implementation of JAMCRC CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.JAMCRC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.JAMCRC"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.XFER">
+            <summary>
+            Automatically generated implementation of XFER CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.XFER.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.XFER"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC40_GSM">
+            <summary>
+            Automatically generated implementation of CRC40_GSM CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC40_GSM.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC40_GSM"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC64">
+            <summary>
+            Automatically generated implementation of CRC64 CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC64.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC64"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC64_WE">
+            <summary>
+            Automatically generated implementation of CRC64_WE CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC64_WE.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC64_WE"/> class.
+            </summary>
+        </member>
+        <member name="T:System.Data.HashFunction.CRCStandards.CRC64_XZ">
+            <summary>
+            Automatically generated implementation of CRC64_XZ CRC standard, based on the <see cref="T:System.Data.HashFunction.CRC"/> class.
+            </summary>
+        </member>
+        <member name="M:System.Data.HashFunction.CRCStandards.CRC64_XZ.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Data.HashFunction.CRCStandards.CRC64_XZ"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>
