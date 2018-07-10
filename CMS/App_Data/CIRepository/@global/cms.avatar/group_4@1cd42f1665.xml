@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.avatar>
+  <AvatarFileExtension>.jpg</AvatarFileExtension>
+  <AvatarFileName>group02.jpg</AvatarFileName>
+  <AvatarFileSize>9092</AvatarFileSize>
+  <AvatarGUID>00a6eb8a-3d13-404f-898b-ab12ee1d2f1b</AvatarGUID>
+  <AvatarImageHeight>178</AvatarImageHeight>
+  <AvatarImageWidth>178</AvatarImageWidth>
+  <AvatarIsCustom>False</AvatarIsCustom>
+  <AvatarMimeType>image/jpeg</AvatarMimeType>
+  <AvatarName>Group 4</AvatarName>
+  <AvatarType>group</AvatarType>
+  <DefaultFemaleUserAvatar>False</DefaultFemaleUserAvatar>
+  <DefaultGroupAvatar>False</DefaultGroupAvatar>
+  <DefaultMaleUserAvatar>False</DefaultMaleUserAvatar>
+  <DefaultUserAvatar>False</DefaultUserAvatar>
+</cms.avatar>

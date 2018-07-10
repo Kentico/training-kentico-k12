@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>StrandsRecommender</CodeName>
+    <GUID>6e40242d-54a8-497b-89b8-385e2e766fc7</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays product recommendations provided by the Strands Recommender service. Inserts one Strands Recommender widget onto the page.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Strands recommendations</WidgetDisplayName>
+  <WidgetDocumentation />
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>12a0222f-af5c-4aee-ae89-3a9224e13025</WidgetGUID>
+  <WidgetIconClass>icon-w-strands-recommendations</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>StrandsRecommendations</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="RecommendationTemplateIdentifier" guid="cacbfe3c-9b43-4e36-9ae6-8650dd270a8d" />
+      <field column="CustomTransformation" guid="724c8464-c120-4a65-9daa-b043b4dc5c1c" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetSkipInsertProperties>False</WidgetSkipInsertProperties>
+  <WidgetWebPartID>
+    <CodeName>StrandsRecommendations</CodeName>
+    <GUID>e8984cbd-4643-4cc2-9b38-baae8fb2403b</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

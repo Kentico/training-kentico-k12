@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>dc20fa3d-345d-460e-bad9-2a503e79909c</HelpTopicGUID>
+  <HelpTopicLink>portal_content_inheriting</HelpTopicLink>
+  <HelpTopicName>Inherit content</HelpTopicName>
+  <HelpTopicOrder>2</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Properties.Template</CodeName>
+    <GUID>5bcc2097-7efa-49a7-9bb2-1c53b6bbbcc4</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Content</CodeName>
+      <GUID>98c6ee00-230a-4207-a6d3-03677b83b245</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

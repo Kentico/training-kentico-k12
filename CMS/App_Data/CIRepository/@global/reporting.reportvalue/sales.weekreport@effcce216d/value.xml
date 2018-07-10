@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportvalue>
+  <ValueDisplayName>value</ValueDisplayName>
+  <ValueFormatString />
+  <ValueGUID>49302fdb-d747-4715-ac97-ca83ad9e95fa</ValueGUID>
+  <ValueName>value</ValueName>
+  <ValueQuery>
+<![CDATA[
+/* Returns the volume of sales from @FromDate to @ToDate */ 
+SELECT
+   CAST(ISNULL(SUM(OrderGrandTotalInMainCurrency),0) AS DECIMAL(38,1)) 
+FROM 
+   COM_Order  
+WHERE
+   OrderSiteID = @CMSContextCurrentSiteID
+   AND (@FromDate <= OrderDate OR @FromDate IS NULL)
+   AND (@ToDate >= OrderDate OR @ToDate IS NULL)
+]]>
+  </ValueQuery>
+  <ValueQueryIsStoredProcedure>False</ValueQueryIsStoredProcedure>
+  <ValueReportID>
+    <CodeName>Sales.WeekReport</CodeName>
+    <GUID>d033dcb6-0646-4e49-a5c0-d14da5102ad3</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </ValueReportID>
+  <ValueSettings />
+</reporting.reportvalue>

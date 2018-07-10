@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>MessageBoard</CodeName>
+    <GUID>8922d2ca-a89c-4432-bf58-5556e24b4e8c</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a confirmation that the user has been successfully unsubscribed from the message board. The subscription is specified by the GUID or hash parameter in the URL.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Message board unsubscription</WebPartDisplayName>
+  <WebPartDocumentation>
+    <![CDATA[<p><span style="color: rgb(0, 0, 0);">You can modify the design using standard CSS styles, skin file, or by modifying the <b>CMSWebParts\MessageBoards\MessageBoardUnsubscription.ascx</b> file.</span></p>]]>
+  </WebPartDocumentation>
+  <WebPartFileName>MessageBoards/MessageBoardUnsubscription.ascx</WebPartFileName>
+  <WebPartGUID>8c80424f-2804-49ab-9fa9-c14234f3fe8e</WebPartGUID>
+  <WebPartIconClass>icon-w-message-board-unsubscription</WebPartIconClass>
+  <WebPartName>MessageBoardUnsubscription</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Dialog">
+        <properties>
+          <caption>Confirmation</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="UnsubscriptionInfoText" columntype="longtext" guid="1201015c-740c-41e5-a6f2-7d0cb0699cba" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Information text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text to be displayed to user when unsubscribtion web part is shown.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnsubscriptionInfoCssClass" columnsize="50" columntype="text" guid="cdb1ff16-fbd8-4347-b6cb-e46896245a06" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Information CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[CSS class which will be used for formating displayed information text.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnsubscriptionButtonText" columnsize="50" columntype="text" guid="ac7b49d9-4094-4f4c-8293-6b05836cf723" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unsubscription button text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text to be displayed on unsubscription confirmation button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnsubscriptionButtonCssClass" columnsize="50" columntype="text" guid="373dbbfa-54f2-40b7-9914-780635d1c907" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Unsubscription button CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[CSS class used for formating unsubscription confirmation button.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Unsubscription messages">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="UnsubscriptionText" columntype="longtext" guid="9c94e6f2-fde7-479d-ad4a-34ee78c9f02c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>You have been successfully unsubscribed.</defaultvalue>
+          <fieldcaption>Confirmation text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text displayed to the user after a successful unsubscription, e.g. 'You have been unsubscribed.']]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="UnsuccessfulUnsubscriptionText" columntype="longtext" guid="d06e95fc-9aa9-4d27-8361-21ddc56f2a21" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Unsubscription was unsuccessful.</defaultvalue>
+          <fieldcaption>Unsuccessful unsubscription text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the text which is displayed if the unsubscription is unsuccessful.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.MessageBoards</CodeName>
+    <GUID>0011c831-2e12-45bf-87ed-6a17607659f8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

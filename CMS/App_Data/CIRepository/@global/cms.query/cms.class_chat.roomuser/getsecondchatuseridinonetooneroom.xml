@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.RoomUser</CodeName>
+    <GUID>3934275a-9e59-4d72-84c2-7206eeeee3dd</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>ff90573a-c8c4-4c39-8ee6-287b67b7ed4a</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>getsecondchatuseridinonetooneroom</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @RoomID INT
+--SET @RoomID = 218
+--DECLARE @CurrentChatUserID INT
+--SET @CurrentChatUserID = 399
+
+
+SELECT CRU.*
+FROM Chat_RoomUser CRU
+WHERE CRU.ChatRoomUserRoomID = @RoomID
+AND CRU.ChatRoomUserChatUserID <> @CurrentChatUserID
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

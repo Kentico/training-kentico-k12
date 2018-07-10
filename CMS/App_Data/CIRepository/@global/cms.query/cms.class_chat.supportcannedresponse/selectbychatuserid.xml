@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.SupportCannedResponse</CodeName>
+    <GUID>9382769c-5c20-425b-b463-040832c88290</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>2972ecf3-52d3-46f8-9aeb-18c3be9d5234</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectbychatuserid</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @ChatUserID INT
+--SET @ChatUserID = 398
+--DECLARE @SiteID INT
+--SET @SiteID = 4
+
+
+SELECT CSCR.*
+FROM Chat_SupportCannedResponse  AS CSCR
+WHERE CSCR.ChatSupportCannedResponseChatUserID = @ChatUserID OR 
+(CSCR.ChatSupportCannedResponseChatUserID IS NULL AND (CSCR.ChatSupportCannedResponseSiteID IS NULL OR CSCR.ChatSupportCannedResponseSiteID = @SiteID))
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.WebDAV.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.WebDAV.Web.UI.AttachmentEditControl">
+            <summary>
+            Attachment WebDAV control.
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.AttachmentEditControl.#ctor">
+            <summary>
+            Creates instance.
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.AttachmentEditControl.GetUrl">
+            <summary>
+            Gets the attachment URL.
+            </summary>
+        </member>
+        <member name="T:CMS.WebDAV.Web.UI.MediaFileEditControl">
+            <summary>
+            Media file WebDAV control.
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.MediaFileEditControl.#ctor">
+            <summary>
+            Creates instance.
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.MediaFileEditControl.GetUrl">
+            <summary>
+            Gets the media file URL.
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.MediaFileEditControl.ReloadData(System.Boolean)">
+            <summary>
+            Reload controls data.
+            </summary>
+            <param name="forceReload">Indicates if controls </param>
+        </member>
+        <member name="T:CMS.WebDAV.Web.UI.MetaFileEditControl">
+            <summary>
+            Metafile WebDAV control.
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.MetaFileEditControl.#ctor">
+            <summary>
+            Creates instance.
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.MetaFileEditControl.GetUrl">
+            <summary>
+            Gets the meta file URL.
+            </summary>
+        </member>
+        <member name="T:CMS.WebDAV.Web.UI.WebDAVEditControl">
+            <summary>
+            Base control for WebDAV editing of files
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.WebDAVEditControl.CheckEnable">
+            <summary>
+            Checks the enabled status of the control
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.WebDAVEditControl.GetEditScript">
+            <summary>
+            Gets the editing action script
+            </summary>
+        </member>
+        <member name="T:CMS.WebDAV.Web.UI.WebDAVWebUIModule">
+            <summary>
+            Represents the WebDAV.Web.UI module.
+            </summary>
+        </member>
+        <member name="F:CMS.WebDAV.Web.UI.WebDAVWebUIModule.WEBDAV_JS">
+            <summary>
+            Javascript file providing WebDAV handling
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.WebDAVWebUIModule.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.WebDAVWebUIModule.OnInit">
+            <summary>
+            Initializes the module
+            </summary>
+        </member>
+        <member name="T:CMS.WebDAV.Web.UI.WebDAVWebUIModuleMetadata">
+            <summary>
+            Represents the WebDAV.Web.UI module metadata.
+            </summary>
+        </member>
+        <member name="M:CMS.WebDAV.Web.UI.WebDAVWebUIModuleMetadata.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+    </members>
+</doc>

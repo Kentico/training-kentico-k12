@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportvalue>
+  <ValueDisplayName>Banner Clicks</ValueDisplayName>
+  <ValueFormatString />
+  <ValueGUID>580fa3e9-aeef-4c9a-b1fd-f710b760b0a5</ValueGUID>
+  <ValueName>BannerClicksValue_1</ValueName>
+  <ValueQuery>
+<![CDATA[
+SELECT sum(t2.HitsCount)
+FROM Analytics_Statistics as t1, Analytics_HourHits as t2
+WHERE (t1.StatisticsCode = 'bannerclick') 
+AND (t1.StatisticsObjectID = @BannerId) 
+AND (t1.StatisticsID = t2.HitsStatisticsID) 
+AND (@FromDate IS NULL OR t2.HitsStartTime >= @FromDate) 
+AND (@ToDate IS NULL OR t2.HitsEndTime <= @ToDate)
+]]>
+  </ValueQuery>
+  <ValueQueryIsStoredProcedure>False</ValueQueryIsStoredProcedure>
+  <ValueReportID>
+    <CodeName>bannerhitsclicks.monthreport</CodeName>
+    <GUID>719ba9ee-5b65-4375-add1-a2d6c2f3c0ff</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </ValueReportID>
+  <ValueSettings />
+</reporting.reportvalue>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Community.Invitation</CodeName>
+    <GUID>a6d0fba0-8420-4a6a-a4e5-a94babe73387</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>11c13e03-ab4b-4486-b175-ce5d67a77b61</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectformyinvitations</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT ##COLUMNS## FROM Community_Invitation 
+JOIN CMS_User 
+ON Community_Invitation.InvitedByUserID = CMS_User.UserID 
+JOIN Community_Group 
+ON Community_Invitation.InvitationGroupID = Community_Group.GroupID
+WHERE ##WHERE## ORDER BY ##ORDERBY##
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.emailtemplate>
+  <EmailTemplateBcc />
+  <EmailTemplateCc />
+  <EmailTemplateDisplayName>Groups - Member joined confirmation</EmailTemplateDisplayName>
+  <EmailTemplateFrom />
+  <EmailTemplateGUID>03636c82-1f7f-44e0-9b51-b7a6c705114e</EmailTemplateGUID>
+  <EmailTemplateName>Groups.MemberJoinedConfirmation</EmailTemplateName>
+  <EmailTemplatePlainText>
+<![CDATA[
+Dear {%MemberUser.FirstName|(identity)GlobalAdministrator|(hash)45e7872ebe26cadabb30dcdff08c7bdf03e15f0e1272659edde9816fa58cfc7c%},
+
+welcome to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}'.
+
+
+Best Regards,
+
+The Community Team
+]]>
+  </EmailTemplatePlainText>
+  <EmailTemplateSubject />
+  <EmailTemplateText>
+<![CDATA[
+<html>
+	<head>
+	</head>
+	<body>
+		<p>Dear {%MemberUser.FirstName|(identity)GlobalAdministrator|(hash)45e7872ebe26cadabb30dcdff08c7bdf03e15f0e1272659edde9816fa58cfc7c%},<br />
+		<br />
+		welcome to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}'.</p>
+		<br />
+		<br />
+		Best Regards,
+		<br />
+		<br />
+		The Community Team
+	</body>
+</html>
+]]>
+  </EmailTemplateText>
+  <EmailTemplateType>groupmember</EmailTemplateType>
+</cms.emailtemplate>

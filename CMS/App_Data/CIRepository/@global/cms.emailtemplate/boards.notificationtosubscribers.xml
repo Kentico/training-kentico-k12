@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.emailtemplate>
+  <EmailTemplateBcc />
+  <EmailTemplateCc />
+  <EmailTemplateDisplayName>Boards - Notification to board subscribers</EmailTemplateDisplayName>
+  <EmailTemplateFrom />
+  <EmailTemplateGUID>856a1cbf-6340-4c20-b7da-ac32810b8546</EmailTemplateGUID>
+  <EmailTemplateName>Boards.NotificationToSubscribers</EmailTemplateName>
+  <EmailTemplatePlainText>
+<![CDATA[
+New message was added to the board you are subscribed to: 
+
+Board:   {%Board.BoardDisplayName|(identity)GlobalAdministrator|(hash)94c9a0e7125dd485d81392ed988a3b3bf13a2b97b1c42577b5b2fdad74cb7f3c%}
+Board URL:   {%DocumentLink%}
+Added by:   {%TrimSitePrefix(Message.MessageUserName)|(identity)GlobalAdministrator|(hash)551e79bea55576b52f95f3a4fa35b0c4af1a55ccd19d0063a3912fef3e915a3f%}  
+Date and time:   {%Message.MessageInserted|(identity)GlobalAdministrator|(hash)55205ed8e0012f3a1b773cffc8bdc0d3bc88ecce6efb7eff4ec80a6c477021a7%}  
+Text:   {%Message.MessageText|(identity)GlobalAdministrator|(hash)0be4b5c828954f3e208b5d4d157beddd77dc18cbf0488ff11fea2b9a5136ff4a%}  
+
+Unsubscription URL: {%UnsubscriptionLink%}
+]]>
+  </EmailTemplatePlainText>
+  <EmailTemplateSubject>
+    <![CDATA[New message was added to the board {%Board.BoardDisplayName|(identity)GlobalAdministrator|(hash)94c9a0e7125dd485d81392ed988a3b3bf13a2b97b1c42577b5b2fdad74cb7f3c%}]]>
+  </EmailTemplateSubject>
+  <EmailTemplateText>
+<![CDATA[
+<html>
+  <head>
+    <style>
+    body, td
+    {
+      font-size: 12px; 
+      font-family: Arial;
+    }
+    </style>
+  </head>  
+  <body>
+  <p>
+    New message was added to the board you are subscribed to:
+  </p>
+  <table>
+    <tr valign="top">
+    <td>
+    <strong>Board:&nbsp;</strong>
+    </td>
+    <td>
+    <a href="{%DocumentLink%}">{%Board.BoardDisplayName|(identity)GlobalAdministrator|(hash)94c9a0e7125dd485d81392ed988a3b3bf13a2b97b1c42577b5b2fdad74cb7f3c%}</a>
+    </td>
+    </tr>
+    <tr valign="top">
+    <td>
+    <strong>Added by:&nbsp;</strong>
+    </td>
+    <td>
+    {%TrimSitePrefix(Message.MessageUserName)|(identity)GlobalAdministrator|(hash)551e79bea55576b52f95f3a4fa35b0c4af1a55ccd19d0063a3912fef3e915a3f%}
+    </td>
+    </tr>
+    <tr valign="top">
+    <td>
+    <strong>Date and time:&nbsp;</strong>
+    </td>
+    <td>
+    {%Message.MessageInserted|(identity)GlobalAdministrator|(hash)55205ed8e0012f3a1b773cffc8bdc0d3bc88ecce6efb7eff4ec80a6c477021a7%}
+    </td>
+    </tr>
+    <tr valign="top">
+    <td>
+    <strong>Text:&nbsp;</strong>
+    </td>
+    <td>
+    {%Message.MessageText|(identity)GlobalAdministrator|(hash)0be4b5c828954f3e208b5d4d157beddd77dc18cbf0488ff11fea2b9a5136ff4a%}
+    </td>
+    </tr>
+  </table>    
+
+  <p>
+        <a href="{%UnsubscriptionLink%}">Click here to unsubscribe</a>
+  </p>
+  </body>
+</html>
+]]>
+  </EmailTemplateText>
+  <EmailTemplateType>boards</EmailTemplateType>
+</cms.emailtemplate>

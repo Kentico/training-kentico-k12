@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.polls.modify$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Modify</PermissionDisplayName>
+  <PermissionGUID>d51f7afe-e182-42cc-bf3d-df51f4593f56</PermissionGUID>
+  <PermissionName>Modify</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Polls</CodeName>
+    <GUID>587a4ab1-def8-451b-8b55-f885afe3c16b</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

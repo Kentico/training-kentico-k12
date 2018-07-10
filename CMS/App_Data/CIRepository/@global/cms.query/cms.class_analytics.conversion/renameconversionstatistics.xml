@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Analytics.Conversion</CodeName>
+    <GUID>8ff2047b-d987-4891-b82f-77f41b22eeab</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>529a9c1a-e6ce-4005-b406-e9547c3c30e2</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>RenameConversionStatistics</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+UPDATE Analytics_Statistics SET StatisticsObjectName = @NewName WHERE StatisticsObjectName = @OldName AND StatisticsSiteID = @SiteID AND StatisticsCode = 'conversion'
+
+UPDATE Analytics_Statistics SET StatisticsObjectName = @NewName WHERE  StatisticsCode LIKE 'abconversion;%' AND StatisticsSiteID = @SiteID AND StatisticsObjectName = @OldName
+
+UPDATE Analytics_Statistics SET StatisticsObjectName = @NewName WHERE  StatisticsCode LIKE 'mvtconversion;%' AND StatisticsSiteID = @SiteID AND StatisticsObjectName = @OldName
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

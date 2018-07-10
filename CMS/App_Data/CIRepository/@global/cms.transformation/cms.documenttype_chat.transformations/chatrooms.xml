@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>Chat.Transformations</CodeName>
+    <GUID>bf7ea731-502b-43b5-ac6f-153551edb84d</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<div class="ChatRoomListItem">
+        {{if Abandon}}
+        <div class="AbandonButton">
+        	<a href="#" onclick="${Abandon}">
+                	<img src='{%GetImageUrl("CMSModules/CMS_Chat/delete.png")|(identity)GlobalAdministrator|(hash)973cb3fca27d33b07061f3fee882fb189160357fdde6cadc370ba59fa26ca423%}' alt="{$chat.abandon$}" title="{$chat.abandon$}" width="12px" height="12px"/>
+                </a>
+        </div>        
+        {{/if}}
+        
+        {{if Delete}}
+        <div class="DeleteButton">
+        	<a href="#" onclick="${Delete}">
+                	<img src='{%GetImageUrl("CMSModules/CMS_Chat/reject.png")|(identity)GlobalAdministrator|(hash)1a5807a2a17f7f8bc0bea190ce2e73de396ee855dac066be6a99358728589339%}' alt="{$general.disable$}" title="{$general.disable$}" width="12px" height="12px"/>
+                </a>
+        </div>        
+        {{/if}}
+        
+        {{if Edit}}
+        <div class="EditButton">
+        	<a href="#" onclick="${Edit}">
+                	<img src='{%GetImageUrl("CMSModules/CMS_Chat/edit.png")|(identity)GlobalAdministrator|(hash)9a82169a5f8d3109b93292acfceedb2364c5e279c331ef6f04373ebbe910356a%}' alt="{$general.edit$}" title="{$general.edit$}" width="12px" height="12px"/>
+                </a>
+        </div>        
+        {{/if}}
+        
+        <div class="ChatRoomTitle"><!-- Do not change this class name -->
+	    {{if IsCurrentRoom}}
+        	<strong><span style="color: blue;">
+        {{else}}
+        	<a href="#" title="{$chat.enter$}" class="JoinRoom"> <!-- Do not change this class name -->
+                {{if IsCurrentUserIn}}
+                	<strong>
+                {{/if}}
+        {{/if}}
+	        
+        ${DisplayName}
+        (${OnlineUsersCount})
+                
+        {{if IsCurrentRoom}}
+        	</span></strong>
+        {{else}}
+        	{{if IsCurrentUserIn}}
+        		</strong>
+            {{/if}}
+            </a>
+        {{/if}}  
+  
+        <span class="ChatRoomInfoIcons">   
+        {{if IsPrivate}}
+            <img src='{%GetImageUrl("CMSModules/CMS_Chat/private_room16.png")|(identity)GlobalAdministrator|(hash)1da07231c348f3f0c7b8232373055dcba3f048d85afbb42cb004d0835c85496c%}' alt="{$chat.privateroom$}" title="{$chat.privateroom$}" width="12px" height="12px"/>
+        {{/if}}
+        {{if HasPassword}}
+            <img src='{%GetImageUrl("CMSModules/CMS_Chat/password.png")|(identity)GlobalAdministrator|(hash)8cc71b7f51a75ebf76bbb70442a2600bbff718908127606c915121ec00183442%}' alt="{$chat.passwordprotected$}" title="{$chat.passwordprotected$}" width="12px" height="12px"/>
+        {{/if}}
+        </span>
+        </div>
+        
+        {{if Description != ""}}
+        	<div class="ChatRoomListItemDescription">${Description}</div>
+        {{/if}}
+</div> 
+
+]]>
+  </TransformationCode>
+  <TransformationCSS />
+  <TransformationGUID>d2396311-25ad-4f54-9c44-c80d071c72ac</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>ChatRooms</TransformationName>
+  <TransformationType>jquery</TransformationType>
+</cms.transformation>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.metafile>
+  <MetaFileExtension>.png</MetaFileExtension>
+  <MetaFileGroupName>Thumbnail</MetaFileGroupName>
+  <MetaFileGUID>3ab53aba-a241-41c5-b5fd-e18b322fa189</MetaFileGUID>
+  <MetaFileImageHeight>154</MetaFileImageHeight>
+  <MetaFileImageWidth>200</MetaFileImageWidth>
+  <MetaFileMimeType>image/png</MetaFileMimeType>
+  <MetaFileName>dancing-goat.png</MetaFileName>
+  <MetaFileObjectID>
+    <CodeName>DancingGoat</CodeName>
+    <GUID>96cc6b9d-4b14-40ab-9c70-e175d5ca6091</GUID>
+    <ObjectType>cms.webtemplate</ObjectType>
+  </MetaFileObjectID>
+  <MetaFileObjectType>cms.webtemplate</MetaFileObjectType>
+  <MetaFileSize>37874</MetaFileSize>
+</cms.metafile>

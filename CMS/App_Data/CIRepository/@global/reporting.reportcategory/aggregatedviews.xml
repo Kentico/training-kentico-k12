@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>AggregatedViews</CategoryCodeName>
+  <CategoryDisplayName>Aggregated views</CategoryDisplayName>
+  <CategoryGUID>f7c37411-f8a5-4a6d-b9e1-c18cc0e70a17</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>WebAnalytics</CodeName>
+    <GUID>8d48afa7-5164-4ec1-94e7-19c18956f79c</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>5a36b71f-e20b-43d6-a4ef-7e3be3f77603</HelpTopicGUID>
+  <HelpTopicLink>ipaddresses_banning</HelpTopicLink>
+  <HelpTopicName>
+    <![CDATA[Find user's IP address]]>
+  </HelpTopicName>
+  <HelpTopicOrder>2</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>BannedIP</CodeName>
+    <GUID>dd3dbea4-07b5-4905-b090-f7eca0dacdd8</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.BannedIP</CodeName>
+      <GUID>0b5a5dd7-ce18-487a-96a3-a71434119b15</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

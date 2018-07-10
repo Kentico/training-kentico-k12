@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>LinkedIn</CodeName>
+    <GUID>4905b50a-5747-4dfa-8fc8-298c6a586089</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartCSS>webpartcss</WebPartCSS>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[This web part allows users to log into the website using their LinkedIn accounts.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>LinkedIn logon</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<p>
+	In order for this web part to work,&nbsp;LinkedIn authentication must be enabled and configured properly for the website. This can be done by global administrators in <strong>Settings -&gt; Security &amp; Membership -&gt; Authentication -&gt; LinkedIn</strong>.</p>
+
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Membership/LinkedIn/LinkedInLogon.ascx</WebPartFileName>
+  <WebPartGUID>69b67f83-f4a3-4382-b3ac-59653c6e505c</WebPartGUID>
+  <WebPartIconClass>icon-w-linkedin-logon</WebPartIconClass>
+  <WebPartName>LinkedInLogon</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Facebook button">
+        <properties>
+          <caption>Sign in/out button</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="SignInText" columnsize="250" columntype="text" guid="6414848e-9898-4571-bc2c-b3f0a5bd5dc5" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign in text</fieldcaption>
+          <fielddescription>Sets the text of the sign in link.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignOutText" columnsize="250" columntype="text" guid="809108d9-fece-4347-888a-09b1f40f525e" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign out text</fieldcaption>
+          <fielddescription>Sets the text of the sign out link.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ShowSignOut" columntype="boolean" guid="61487232-6449-4a62-b2d8-e2e75384d7d9" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show sign out</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.showsignout$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ShowAsButton" columntype="boolean" guid="b4c09e54-8b6a-4baa-9ed5-99cd70088f8c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show as button</fieldcaption>
+          <fielddescription>
+            <![CDATA[If enabled, buttons will be displayed instead of standard text links.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignInImageURL" columnsize="200" columntype="text" guid="b5017444-aeb5-4c7f-8541-e52b3b98f964" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign in image</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.signinimageurl$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignOutImageURL" columnsize="200" columntype="text" guid="19b6a964-9afb-438f-85d1-3ab380fb3400" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign out image</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.signoutimageurl$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Required data for new users">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="FirstName" columntype="boolean" guid="36facc9a-bb00-4ec7-b5cc-75e94221323f" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+          <fieldcaption>Require first name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates whether the web part loads the user's first name from LinkedIn during the registration process.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="LastName" columntype="boolean" guid="8b4c6494-2a75-46e3-b12e-196226594719" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+          <fieldcaption>Require last name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates whether the web part loads the user's last name from LinkedIn during the registration process.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="BirthDate" columntype="boolean" guid="be299bd1-6586-4beb-8dc1-378fa59ce0fb" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Require birth date</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates whether the web part loads the user's birth date from LinkedIn during the registration process. Note: If enabled, registration and authentication will only work if your application is approved for the "Apply with LinkedIn" program.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <category name="Extended settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="NotifyAdministrator" columntype="boolean" guid="47a93df4-871f-414a-954e-c9b927f5c90d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Notify administrator about new registrations</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a notification e-mail should be sent to the administrator when a new user registers via the web part.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Conversion tracking">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="TrackConversionName" columnsize="400" columntype="text" guid="974aec14-60e3-4087-a6fc-74100f8b6c54" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Track conversion name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the conversion that will be logged when a user successfully completes their registration via the web part.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>conversionselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ConversionValue" columntype="double" guid="8dc40eb9-08c6-4d98-a866-c606ed7ccd1a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Conversion value</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.conversionvalue$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>Chat.Transformations</CodeName>
+    <GUID>bf7ea731-502b-43b5-ac6f-153551edb84d</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<div class="ChatRoomUser {{if IsOnline}}OnlineUser{{else}}OfflineUser{{/if}}">
+  {{if KickUserPerm}}
+      <div class="PermaKickButton">
+              <a href="#" onclick="${KickUserPerm}">
+                      <img src='{%GetImageUrl("CMSModules/CMS_Chat/permakick.png")|(identity)GlobalAdministrator|(hash)649e381da39843c73545a1c16bc51a96e9e2869e11b28110840fee32b29edcac%}' title="{$chat.kickuserperm$}" alt="{$chat.kickuserperm$}" width="12px" height="12px"/>
+                  </a>
+          </div>
+  {{/if}}
+  
+  {{if KickUser}}
+      <div class="KickButton">
+              <a href="#" onclick="${KickUser}">
+                      <img src='{%GetImageUrl("CMSModules/CMS_Chat/kick.png")|(identity)GlobalAdministrator|(hash)5a7b9ec769f4bec92a622bdb317890356e42c623979037dccf80bbc9a7d2aefa%}' title="{$chat.kick$}" alt="{$chat.kick$}" width="12px" height="12px"/>
+                  </a>
+          </div>
+  {{/if}}
+  
+  {{if DeleteAdmin}}
+      <div class="DeleteAdminButton">
+              <a href="#" onclick="${DeleteAdmin}">
+                      <img src='{%GetImageUrl("CMSModules/CMS_Chat/security_agent_delete.png")|(identity)GlobalAdministrator|(hash)5b002bb737a6d6a4731f96e838e63a435ef5526aff915710d467b655f703900e%}' title="{$chat.deleteadmin$}" alt="{$chat.deleteadmin$}" width="12px" height="12px"/>
+                  </a>
+          </div>
+  {{/if}}
+  
+  {{if AddAdmin}}
+      <div class="AddAdminButton">
+              <a href="#" onclick="${AddAdmin}">
+                      <img src='{%GetImageUrl("CMSModules/CMS_Chat/security_agent_add.png")|(identity)GlobalAdministrator|(hash)b91028c4a3eafc1603b4386d136b6a57c695ac9b6b523a68b0b92105a623fcdb%}' title="{$chat.addadmin$}" alt="{$chat.addadmin$}" width="12px" height="12px"/>
+                  </a>
+          </div>
+  {{/if}}
+  
+  <div class="ChatRoomUserName"> <!-- Do not change this class name -->
+    {{if IsOnline}}
+        {{if IsCurrentUser}}<span class="CurrentUser"><strong>${Nickname}</strong></span> 
+        {{else}}
+            {{if OneOnOneChat}}
+                <a href="#" onclick="${OneOnOneChat}" target="_blank">${Nickname}</a>
+            {{else}}
+                ${Nickname}
+            {{/if}}
+        {{/if}}
+    {{else}}
+        <span>
+            <a href="#" onclick="return false;" title="{$chat.notpresent$}" style="text-decoration:none; cursor:default">${Nickname}</a>
+        </span>
+    {{/if}} 
+    {{if IsAdmin && !IsCreator}} <span class="UserAdmin"> <img src='{%GetImageUrl("CMSModules/CMS_Chat/security_agent.png")|(identity)GlobalAdministrator|(hash)8d88d1e62e6c3149cd08559b26332ca8ebd741edcd25b5aee8bea2604ba7038a%}' title="{$chat.livesite.admin$}" alt="{$chat.livesite.admin$}" width="12px" height="12px"/></span>{{/if}}
+    {{if IsCreator}} <span class="UserCreator"> <img src='{%GetImageUrl("CMSModules/CMS_Chat/security_agent_creator.png")|(identity)GlobalAdministrator|(hash)41f93c45753a4a09760534886c4d1955933d6014e2240b8af542dc8055960616%}' title="{$chat.livesite.creator$}" alt="{$chat.livesite.creator$}" width="12px" height="12px"/></span>{{/if}}
+  </div>
+</div>
+
+
+
+]]>
+  </TransformationCode>
+  <TransformationCSS />
+  <TransformationGUID>07675e70-c478-4651-8f77-cf98d145409c</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>ChatRoomUser</TransformationName>
+  <TransformationType>jquery</TransformationType>
+</cms.transformation>

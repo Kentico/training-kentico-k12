@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.metafile>
+  <MetaFileExtension>.png</MetaFileExtension>
+  <MetaFileGroupName>Thumbnail</MetaFileGroupName>
+  <MetaFileGUID>d7d4e0eb-44b8-4c3a-b148-4bf637ad6f3a</MetaFileGUID>
+  <MetaFileImageHeight>154</MetaFileImageHeight>
+  <MetaFileImageWidth>200</MetaFileImageWidth>
+  <MetaFileMimeType>image/png</MetaFileMimeType>
+  <MetaFileName>intranet.png</MetaFileName>
+  <MetaFileObjectID>
+    <CodeName>IntranetPortal</CodeName>
+    <GUID>7cab38db-8c2d-4bd6-95b9-d451ac08fbab</GUID>
+    <ObjectType>cms.webtemplate</ObjectType>
+  </MetaFileObjectID>
+  <MetaFileObjectType>cms.webtemplate</MetaFileObjectType>
+  <MetaFileSize>36822</MetaFileSize>
+</cms.metafile>

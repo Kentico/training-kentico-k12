@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DataSources</CodeName>
+    <GUID>36984e99-1ff8-464a-8788-b1ab4afaa585</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Creates a data source containing files stored in a specified media library. This data can then be connected to listing web parts (such as a Basic repeater) in order to be displayed.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Media files data source</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>MediaLibrary/MediaFileDataSource.ascx</WebPartFileName>
+  <WebPartGUID>242b69fb-b981-4a09-a96f-f75beadafcfa</WebPartGUID>
+  <WebPartIconClass>icon-w-media-files-data-source</WebPartIconClass>
+  <WebPartName>MediaFileDataSource</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Filter">
+        <properties>
+          <caption>Files filter</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="LibraryName" columnsize="200" columntype="text" guid="97f928c2-1499-4774-9b64-88854d234e74" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Media library name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects from which media library the files should be loaded.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>medialibraryselector</controlname>
+        </settings>
+      </field>
+      <field column="ShowGroupFiles" columntype="boolean" guid="b6064152-5e3c-4179-9f50-b606db41b28b" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show group files</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if files from group media libraries should also be included.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FileIDQueryStringKey" columnsize="200" columntype="text" guid="9061856f-605b-4f05-87ef-71b3eccd1f75" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>fileid</defaultvalue>
+          <fieldcaption>File ID querystring key</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the query string parameter that will store the ID of the currently selected media file as its value.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilePath" columnsize="450" columntype="text" guid="e08bcff9-d2b8-4bdf-af49-3c6fea236739" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>File path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Used to specify the path of the media file that should be displayed (not inlcuding the root directory of the media library).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="FileExtension" columnsize="50" columntype="text" guid="869540da-5718-4fa6-b9ce-e0759def1a9c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>File extensions</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies which file extensions should be allowed when selecting media files. Enter the values separated by semicolons, for example: .jpg;.png]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="91c220bb-dd25-475d-9c0b-17d1337228b8" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY expression</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.orderby$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="5a1a7a70-97c5-4251-a872-9524346593ad" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Select top N items</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selecttopn$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="200" columntype="text" guid="7778a3ef-2b86-4f53-a007-9dde1f08ea06" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.sitename$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="c620027d-c642-4b34-bd73-fec6757192b0" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Columns" columnsize="500" columntype="text" guid="205d525e-e0a6-4c4b-a30f-d54bb27671b1" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Selected columns</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.columns$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>columns</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterName" columnsize="200" columntype="text" guid="2795b4a8-50f2-4211-acd2-e4eb5f7a184a" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Filter</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.filtername$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="CheckPermissions" columntype="boolean" guid="15ddb7b5-cef5-4d50-84f2-2ff6d1dbb28a" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.datasourcecheckperm$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="6f537b3b-78cd-4117-a623-f6eeaa465e12" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="9c27db1a-15dc-4bcd-9b49-594e929804c3" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.MediaLibrary</CodeName>
+    <GUID>f1ae7bb7-e5e2-4944-b0a6-c92be4f95982</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>1</WebPartType>
+</cms.webpart>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>LiveID</CategoryDisplayName>
+  <CategoryGUID>6890dd98-65c5-4c32-8261-e2dfc9f4ae77</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>MembershipLiveID</CategoryName>
+  <CategoryParentID>
+    <CodeName>Membership</CodeName>
+    <GUID>9d58eec4-fb81-4dfb-87bb-e6bfbca98a08</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

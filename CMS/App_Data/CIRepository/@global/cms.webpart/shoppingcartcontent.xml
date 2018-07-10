@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Checkout</CodeName>
+    <GUID>5e13805d-aaaa-4bc8-b22c-a4474618e315</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartCSS>
+<![CDATA[
+.ShoppingCartItemsTable .Header 
+{
+  background-color: #E0E0E0;  
+  display:table-row;
+}
+.ShoppingCartItemsTable  
+{
+
+ display:table;
+}
+.ShoppingCartItemsTable .Item 
+{    
+  display:table-row;
+}
+
+.ShoppingCartItemsTable .ItemAlt
+{ 
+  background-color: #F4F4F4;  
+  display:table-row;
+}
+.ShoppingCartItemsTable .ItemRows 
+{ 
+  display:table-row;
+}
+
+.ShoppingCartItemsTable .UnitCountControl input
+{
+  width:20px;
+}
+
+.ShoppingCartItemsTable .Footer 
+{ 
+  display:table-row;
+}
+
+.ShoppingCartItemsTable .UpdateButton 
+{
+    float:right;
+}
+
+
+.ShoppingCartItemsTable .SubHeader .Item 
+{  
+  
+}
+.ShoppingCartItemsTable .Amount .UnitCountButton
+{
+  float:right;
+  margin:0;
+}
+
+.ShoppingCartItemsTable .SubHeader .Title 
+{
+ text-align:center;
+}
+
+/*product option*/
+.ShoppingCartItemsTable .SubHeader  
+{
+  display: table-row;
+}
+
+.ShoppingCartItemsTable .Header   div
+{
+  float:left;
+  padding: 10px;    
+}
+
+.ShoppingCartItemsTable .Item  div
+{
+  float:left;
+  margin: 10px;   
+}
+
+.ShoppingCartItemsTable  div > a > img
+{
+  float:right;    
+}
+
+.ShoppingCartItemsTable .ItemAlt  div
+{
+  float:left;
+  margin: 10px;   
+}
+
+
+.ShoppingCartItemsTable .Name
+{
+  
+  width:200px;
+}
+
+.ShoppingCartItemsTable .Amount
+{
+  
+  width:120px;
+}
+
+.ShoppingCartItemsTable .Number
+{
+  
+  width:100px;
+}
+
+.ShoppingCartItemsTable .Weight
+{
+
+  width:50px;
+}
+
+.ShoppingCartItemsTable .Discount
+{
+  
+  width:100px;
+}
+
+.ShoppingCartItemsTable .Tax
+{
+
+  width:70px;
+}
+
+.ShoppingCartItemsTable .Price
+{
+ 
+  width:80px;
+}
+
+.ShoppingCartItemsTable .Remove
+{
+
+  
+}
+
+]]>
+  </WebPartCSS>
+  <WebPartDescription>
+    <![CDATA[Displays the contents of the shopping cart. The web part uses a transformation to display the shopping cart items in a table or div format.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Shopping cart content</WebPartDisplayName>
+  <WebPartFileName>
+    <![CDATA[Ecommerce/Checkout/Viewers/ShoppingCartContent.ascx]]>
+  </WebPartFileName>
+  <WebPartGUID>ddf2fa96-58d1-45d6-9b56-4f288051683c</WebPartGUID>
+  <WebPartIconClass>icon-w-shopping-cart-content</WebPartIconClass>
+  <WebPartName>ShoppingCartContent</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="TransformationName" columnsize="500" columntype="text" guid="4e4f5926-2ebd-4516-9e16-c3c37f863e03" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Transformation used to display the products and product options in the shopping cart. Hierarchical or simple transformations can be used. The products are rendered on the hierarchical transformation level 0, product options on the level 1. The context of the CartItemInfo object is available.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>hierarchicaltransformationselector</controlname>
+        </settings>
+      </field>
+      <field column="ReadOnlyMode" columntype="boolean" guid="18309353-101d-4a15-9f81-e26aac563dac" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Read only mode</fieldcaption>
+          <fielddescription>
+            <![CDATA[If enabled, the shopping cart is displayed in the read only mode. the user won't be able to change the unit count of the items in the cart and won't be able to remove items from it.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Ecommerce</CodeName>
+    <GUID>684e021b-8b56-4cbf-8fd5-b7a791fd2dbc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

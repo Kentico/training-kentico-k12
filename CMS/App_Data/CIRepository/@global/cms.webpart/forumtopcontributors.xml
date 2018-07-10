@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Forums</CodeName>
+    <GUID>02855290-f69a-4f87-bb90-54b4a6ffd4b1</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a list of users who are the most active forum contributors, formatted according to a specified transformation. The order of the users is determined by their amount of posts in the forums on the current website.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Forum - Top contributors</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Forums/ForumTopContributors.ascx</WebPartFileName>
+  <WebPartGUID>73010213-698b-41c7-9bf5-02bfc9769e9e</WebPartGUID>
+  <WebPartIconClass>
+<![CDATA[
+icon-w-forum-top-contributors
+
+]]>
+  </WebPartIconClass>
+  <WebPartName>ForumTopContributors</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Properties">
+        <properties>
+          <caption>Content filter</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="f85b3ffc-cfea-4c55-a16a-b74fc5252ac2" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Top N</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the maximum number of users that will be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="400" columntype="text" guid="6774feb8-1758-43ac-8f8e-f1f8628ebb9c" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Where condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <category name="Transformation">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="f8fe4363-6d38-4399-a6bf-c2df311a2ecc" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Community.Transformations.ForumTopContributors</defaultvalue>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the transformation used to format the displayed forum users. Transformations are specified as <class name>.<transformation name>.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="No data behaviour">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="HideControlForZeroRows" columntype="boolean" guid="28deb192-1072-4fff-b63b-27a38326b16a" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="398c56a5-bc96-495a-af61-38ec9b39f47d" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="7c27e06c-1b61-46d1-bcf7-7d4c8ffc3bda" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="d0ed7195-0e73-45d2-ba11-4806e684ac79" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Forums</CodeName>
+    <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

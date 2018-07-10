@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$conversion.conversion.edit$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>Conversion Properties</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>2627e015-8b4d-43a7-8590-ecdd6ad43587</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>ConversionProperties</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>VerticalTabs</CodeName>
+    <GUID>8136b750-a785-438f-a412-32212cd4dde6</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>Conversions.List</CodeName>
+    <GUID>ed89f99b-0bfe-4efd-a754-2460718d69be</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.WebAnalytics</CodeName>
+      <GUID>d3c82114-86f7-4aa9-8206-9b006100641c</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_header>False</category_name_header>
+      <objecttype>analytics.conversion</objecttype>
+      <displaybreadcrumbs>True</displaybreadcrumbs>
+      <breadcrumbsitemtext>
+        <![CDATA[{% EditedObject.DisplayName |(identity)GlobalAdministrator|(hash)0867a9effc9ca558fb4182f557074a9789d72d53b55ce90ad79ca9a1d1e31389%}]]>
+      </breadcrumbsitemtext>
+      <category_name_custom>False</category_name_custom>
+      <includejquery>False</includejquery>
+      <category_name_codebehind>False</category_name_codebehind>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+      <category_name_javascript>False</category_name_javascript>
+      <objectparameterid>conversionID</objectparameterid>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.WebAnalytics</CodeName>
+    <GUID>d3c82114-86f7-4aa9-8206-9b006100641c</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementType>PageTemplate</ElementType>
+</cms.uielement>

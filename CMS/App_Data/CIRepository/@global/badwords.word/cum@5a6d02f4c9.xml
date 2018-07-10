@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<badwords.word>
+  <WordExpression>cum</WordExpression>
+  <WordGUID>54d3b019-7910-4a81-a77e-e12ecf7d77d7</WordGUID>
+  <WordIsGlobal>True</WordIsGlobal>
+  <WordIsRegularExpression>False</WordIsRegularExpression>
+  <WordMatchWholeWord>True</WordMatchWholeWord>
+</badwords.word>

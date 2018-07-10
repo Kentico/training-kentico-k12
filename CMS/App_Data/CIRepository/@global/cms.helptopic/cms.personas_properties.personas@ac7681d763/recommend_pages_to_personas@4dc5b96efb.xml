@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>381a5ff9-b23b-4f86-a8fb-136f9be82f78</HelpTopicGUID>
+  <HelpTopicLink>personas_recommending_pages</HelpTopicLink>
+  <HelpTopicName>Recommend pages to personas</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>properties.personas</CodeName>
+    <GUID>1396d102-fcad-4b5d-bf80-fe945ff7b7c8</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Personas</CodeName>
+      <GUID>904548ca-bed8-45bf-a6d0-42c1bae4d26d</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

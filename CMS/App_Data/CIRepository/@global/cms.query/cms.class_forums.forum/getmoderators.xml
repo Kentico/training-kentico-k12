@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.Forum</CodeName>
+    <GUID>32a7f4fb-dfa5-4394-a120-6af690f0f2e2</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>320c2790-0b30-4c56-8dc6-6035bdf4d96f</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>getmoderators</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[SELECT * FROM [CMS_USER] WHERE UserID IN (SELECT UserID FROM [Forums_ForumModerators] WHERE ForumID = @ForumID)]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

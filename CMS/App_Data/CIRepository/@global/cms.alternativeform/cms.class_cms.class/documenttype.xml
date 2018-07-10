@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>cms.class</CodeName>
+    <GUID>d7e91104-201b-4b11-9550-e93ad9a4d81f</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <category dummy="true" name="general.general" order="1">
+        <properties>
+          <caption>{$general.general$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="ClassDisplayName" order="2">
+        <settings>
+          <controlname>localizabletextbox</controlname>
+          <ValueIsContent>False</ValueIsContent>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteFirstRowSelected />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <FilterMode />
+          <Trim />
+        </settings>
+        <properties>
+          <fielddescription>{$documenttype.classdisplayname.description$}</fielddescription>
+        </properties>
+      </field>
+      <field column="ClassName" order="3">
+        <settings>
+          <ResourcePrefix>documenttype.edit</ResourcePrefix>
+        </settings>
+        <properties>
+          <fielddescription>{$documenttype.classname.description$}</fielddescription>
+          <validationerrormessage />
+        </properties>
+      </field>
+      <field column="ClassUsesVersioning" order="4" />
+      <field column="ClassIsDocumentType" order="5" />
+      <field column="ClassIsCoupledClass" order="6" />
+      <field column="ClassXmlSchema" order="7" />
+      <field column="ClassFormDefinition" order="8" />
+      <field column="ClassNodeNameSource" order="9" />
+      <field column="ClassTableName" order="10">
+        <settings>
+          <controlname>labelcontrol</controlname>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteFirstRowSelected />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <FilterMode />
+          <Trim />
+        </settings>
+        <properties>
+          <fielddescription>{$documenttype.classtablename.description$}</fielddescription>
+          <visiblemacro ismacro="true">{%ClassIsCoupledClass%}</visiblemacro>
+        </properties>
+      </field>
+      <field column="ClassURLPattern" visible="true" reftype="" order="11">
+        <properties>
+          <fielddescription>{$documenttype.classurlpattern.description$}</fielddescription>
+          <visiblemacro ismacro="true">{%ClassIsContentOnly == true%}</visiblemacro>
+        </properties>
+      </field>
+      <field column="ClassInheritsFromClassID" visible="true" order="12">
+        <settings>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <AllowAll>False</AllowAll>
+          <AllowDefault>False</AllowDefault>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>Uni_selector</controlname>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <DisplayNameFormat>{%ClassDisplayName%}</DisplayNameFormat>
+          <EditDialogWindowHeight>700</EditDialogWindowHeight>
+          <EditDialogWindowWidth>1000</EditDialogWindowWidth>
+          <EditWindowName>EditWindow</EditWindowName>
+          <EncodeOutput>True</EncodeOutput>
+          <GlobalObjectSuffix ismacro="true">{$general.global$}</GlobalObjectSuffix>
+          <ItemsPerPage>25</ItemsPerPage>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <ObjectType>cms.documenttype</ObjectType>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <ReturnColumnName>ClassID</ReturnColumnName>
+          <ReturnColumnType>id</ReturnColumnType>
+          <SelectionMode>1</SelectionMode>
+          <UseAutocomplete>False</UseAutocomplete>
+          <ValuesSeparator>;</ValuesSeparator>
+          <WhereCondition ismacro="true">
+            <![CDATA[ClassIsCoupledClass = 1 AND ClassID <> {%ClassID%} AND (ClassInheritsFromClassID IS NULL OR ClassInheritsFromClassID <> {%ClassID%})]]>
+          </WhereCondition>
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType.InheritsFrom$}</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documenttype.classinheritsfromclassid.description$}]]>
+          </fielddescription>
+          <visiblemacro ismacro="true">{%ClassIsCoupledClass%}</visiblemacro>
+        </properties>
+      </field>
+      <field column="ClassIconClass" spellcheck="false" visible="true" order="13">
+        <settings>
+          <controlname>documenttypeiconselector</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>{$documenttype.icon$}</fieldcaption>
+          <fielddescription>{$documenttype.classicons.description$}</fielddescription>
+        </properties>
+      </field>
+      <field column="ClassResourceID" order="14">
+        <settings>
+          <DisplayNone>True</DisplayNone>
+          <DisplayOnlyModulesInDevelopmentMode>True</DisplayOnlyModulesInDevelopmentMode>
+        </settings>
+        <properties>
+          <fieldcaption>{$pagetype.classresourceid$}</fieldcaption>
+          <fielddescription>{$pagetype.classresourceid.description$}</fielddescription>
+        </properties>
+      </field>
+      <category dummy="true" name="DocumentType.NewSettings" order="15">
+        <properties>
+          <caption>{$DocumentType.NewSettings$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="ClassNewPageUrl" visible="true" order="16">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+        <properties>
+          <fieldcaption>{$documenttype_edit_general.newpage$}</fieldcaption>
+          <fielddescription>{$documenttype.classnewpageurl.description$}</fielddescription>
+        </properties>
+      </field>
+      <field column="ClassShowTemplateSelection" hasdependingfields="true" visible="true" order="17">
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.TemplateSelection$}</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documenttype.classshowtemplateselection.description$}]]>
+          </fielddescription>
+          <visiblemacro ismacro="true">{%!ClassIsContentOnly%}</visiblemacro>
+        </properties>
+      </field>
+      <field column="ClassPageTemplateCategoryID" dependsonanotherfield="true" hasdependingfields="true" visible="true" order="18">
+        <settings>
+          <controlname>pagetemplatecategoryselector</controlname>
+          <ShowEmptyCategories>False</ShowEmptyCategories>
+          <WhereCondition>
+            <![CDATA[CategoryName != 'AdHoc' AND CategoryPath NOT LIKE 'UITemplates%']]>
+          </WhereCondition>
+        </settings>
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$DocumentType_Edit_General.TemplateCategorySelection$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documenttype.classpagetemplatecategoryid.description$}]]>
+          </fielddescription>
+          <visiblemacro ismacro="true">{%ClassShowTemplateSelection%}</visiblemacro>
+        </properties>
+      </field>
+      <field column="ClassDefaultPageTemplateID" visible="true" order="19">
+        <settings>
+          <controlname>selectpagetemplate</controlname>
+          <ReturnColumnName>PageTemplateID</ReturnColumnName>
+          <RootCategoryName>/</RootCategoryName>
+          <ShowOnlySiteTemplates>False</ShowOnlySiteTemplates>
+          <ShowTemplateButtons>False</ShowTemplateButtons>
+          <ShowTemplates>True</ShowTemplates>
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.DefaultTemplate$}</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documenttype.classdefaultpagetemplateid.description$}]]>
+          </fielddescription>
+          <visiblemacro ismacro="true">{%!ClassIsContentOnly%}</visiblemacro>
+        </properties>
+      </field>
+      <field column="ClassFormLayout" order="20" />
+      <category dummy="true" name="DocumentType.EditingSettings" order="21">
+        <properties>
+          <caption>{$DocumentType.EditingSettings$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="ClassViewPageUrl" visible="true" order="22">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.ViewPage$}</fieldcaption>
+          <fielddescription>{$documenttype.classviewpageurl.description$}</fielddescription>
+        </properties>
+      </field>
+      <field column="ClassEditingPageUrl" reftype="Required" order="23">
+        <settings>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.EditingPage$}</fieldcaption>
+          <fielddescription>{$documenttype.classeditingpageurl.description$}</fielddescription>
+          <visiblemacro />
+        </properties>
+      </field>
+      <field column="ClassPreviewPageUrl" visible="true" order="24">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.PreviewPage$}</fieldcaption>
+          <fielddescription>{$documenttype.classpreviewpageurl.description$}</fielddescription>
+        </properties>
+      </field>
+      <field column="ClassListPageUrl" visible="true" order="25">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.ListPage$}</fieldcaption>
+          <fielddescription>{$documenttype.classlistpageurl.description$}</fielddescription>
+        </properties>
+      </field>
+      <category dummy="true" name="documenttype.advanced" order="26">
+        <properties>
+          <caption>{$documenttype.advanced$}</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="ClassShowAsSystemTable" visible="" order="27" />
+      <field column="ClassUsePublishFromTo" visible="true" order="28">
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.UsePublishFromTo$}</fieldcaption>
+          <fielddescription>{$documenttype.classusepublishfromto.description$}</fielddescription>
+        </properties>
+      </field>
+      <field column="ClassSKUMappings" order="29" />
+      <field column="ClassIsMenuItemType" visible="true" order="30">
+        <properties>
+          <fieldcaption>{$DocumentType_Edit_General.IsMenuItem$}</fieldcaption>
+          <fielddescription>{$documenttype.classismenuitemtype.description$}</fielddescription>
+          <validationerrormessage>{$sysdev.class_edit_gen.displayname$}</validationerrormessage>
+        </properties>
+      </field>
+      <field column="ClassNodeAliasSource" order="31" />
+      <field column="ClassLastModified" order="32" />
+      <field column="ClassGUID" order="33" />
+      <field column="ClassCreateSKU" order="34" />
+      <field column="ClassIsProduct" order="35" />
+      <field column="ClassIsCustomTable" order="36" />
+      <field column="ClassShowColumns" order="37" />
+      <field column="ClassSearchTitleColumn" order="38" />
+      <field column="ClassSearchContentColumn" order="39" />
+      <field column="ClassSearchImageColumn" order="40" />
+      <field column="ClassSearchCreationDateColumn" order="41" />
+      <field column="ClassSearchSettings" order="42" />
+      <field column="ClassConnectionString" visible="" order="43" />
+      <field column="ClassSearchEnabled" order="44" />
+      <field column="ClassSKUDefaultDepartmentName" order="45" />
+      <field column="ClassSKUDefaultDepartmentID" order="46" />
+      <field column="ClassContactMapping" order="47" />
+      <field column="ClassContactOverwriteEnabled" order="48" />
+      <field column="ClassSKUDefaultProductType" order="49" />
+      <field column="ClassIsProductSection" order="50" />
+      <field column="ClassFormLayoutType" order="51" />
+      <field column="ClassVersionGUID" order="52" />
+      <field column="ClassDefaultObjectType" order="53" />
+      <field column="ClassIsForm" order="54" />
+      <field column="ClassCustomizedColumns" order="55" />
+      <field column="ClassCodeGenerationSettings" order="56" />
+      <field column="ClassIsContentOnly" order="57" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Page type</FormDisplayName>
+  <FormGUID>f54a457d-25b5-4ab5-b13f-a35e9df3f01a</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>DocumentType</FormName>
+</cms.alternativeform>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>93640ace-ef71-41d7-bc23-bba3ec939855</HelpTopicGUID>
+  <HelpTopicLink>web_templates_creating</HelpTopicLink>
+  <HelpTopicName>Create web templates</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.WebTemplates</CodeName>
+    <GUID>f95d0795-77d9-4047-ae4e-0b4616ff3b6d</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS</CodeName>
+      <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

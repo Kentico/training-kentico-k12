@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<om.activitytype>
+  <ActivityTypeDescription>The visitor rated some content.</ActivityTypeDescription>
+  <ActivityTypeDisplayName>Content rating</ActivityTypeDisplayName>
+  <ActivityTypeEnabled>True</ActivityTypeEnabled>
+  <ActivityTypeIsCustom>False</ActivityTypeIsCustom>
+  <ActivityTypeIsHiddenInContentOnly>True</ActivityTypeIsHiddenInContentOnly>
+  <ActivityTypeManualCreationAllowed>False</ActivityTypeManualCreationAllowed>
+  <ActivityTypeName>rating</ActivityTypeName>
+</om.activitytype>

@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>GeneralCookies</CodeName>
+    <GUID>913b74b6-7b34-4af2-b2b3-5db5b5ad4aba</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Provides a dialog to get user consent with cookie usage and activity tracking. Allows you to display a specified message and actions for a particular tracking consent and cookie levels.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Cookie law and tracking consent</WebPartDisplayName>
+  <WebPartFileName>General/CookieLaw.ascx</WebPartFileName>
+  <WebPartGUID>88de0ae1-7195-4e5c-b2ee-f6b4ee77efe0</WebPartGUID>
+  <WebPartIconClass>icon-w-cookie-law-consent</WebPartIconClass>
+  <WebPartName>CookieLaw</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Levels">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="MatchLevel" columnsize="10" columntype="text" guid="62f01669-9c6e-4b13-a2c3-4574c0a4e7ab" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Essential</defaultvalue>
+          <fieldcaption>Compare current cookie level to</fieldcaption>
+          <fielddescription>
+            <![CDATA[Cookie level to which the current level will be compared. Based on it the corresponding group of settings is applied.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+System;No cookies
+Essential;Only essential cookies
+All;All cookies
+]]>
+          </Options>
+        </settings>
+      </field>
+      <category name="Below_level_behavior">
+        <properties>
+          <caption>Below level behavior</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="BelowLevelVisible" columntype="boolean" guid="2e8bf58a-8ca0-4166-b754-bf4d54cc3833" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>If level is below, display</fieldcaption>
+          <fielddescription>
+            <![CDATA[Check this box if you want to display content of this web part if current user cookie level is below the compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="BelowLevelText" columntype="longtext" guid="6deb7ebd-935d-4df1-b62f-cf0025c1abec" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>
+            <![CDATA[In order to provide complete functionality, this web site needs your explicit consent to store browser cookies. If you don't allow cookies, you may not be able to use certain features of the web site including but not limited to: log in, buy products, see personalized content, switch between site cultures. It is recommended that you allow all cookies.]]>
+          </defaultvalue>
+          <fieldcaption>Text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Information text displayed when the current user level is below the compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="BelowShowDeny" columntype="boolean" guid="c55e00f3-9940-4d1e-af33-ff3b8e825350" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show deny button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show deny cookies button if current level is below compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="BelowShowSpecific" columntype="boolean" guid="cb1f1fb2-270b-4364-a64a-0f2e952a5649" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show allow specific button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show set specific level button if current level is below compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="BelowShowAll" columntype="boolean" guid="b8fbd024-04d0-43dc-9392-ef4a45fa1751" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show allow all button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show allow all cookies button if current level is below compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Exact_level_behavior">
+        <properties>
+          <caption>Exact level behavior</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ExactLevelVisible" columntype="boolean" guid="356eccb6-ae9a-41fc-8cc7-6d74ec29825d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>If level matches, display</fieldcaption>
+          <fielddescription>
+            <![CDATA[Check this box if you want to display content of this web part if current user cookie level equals to the compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ExactLevelText" columntype="longtext" guid="b3b27396-fd2c-4a8f-82b8-fae2c7d8e164" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>
+            <![CDATA[The web site is now storing only essential cookies on your computer. If you don't allow cookies, you may not be able to use certain features of the web site including but not limited to: log in, buy products, see personalized content, switch between site cultures. It is recommended that you allow all cookies.]]>
+          </defaultvalue>
+          <fieldcaption>Text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Information text displayed when the current user level equals to the compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ExactShowDeny" columntype="boolean" guid="96eac9c4-ad3a-4414-968b-c14e685296f5" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show deny button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show deny cookies button if current level equals to the compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ExactShowSpecific" columntype="boolean" guid="c50eab2a-2c7e-4e2e-87c3-a12bdbbc9dfc" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show allow specific button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show set specific level button if current level equals to the compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ExactShowAll" columntype="boolean" guid="8934e1e3-3cd8-4aba-a3f0-bda856312f32" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show allow all button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show allow all cookies button if current level is above compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Above_level_behavior">
+        <properties>
+          <caption>Above level behavior</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="AboveLevelVisible" columntype="boolean" guid="04827b10-264b-4709-9c57-cd3bd594c930" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>If level is above, display</fieldcaption>
+          <fielddescription>
+            <![CDATA[Check this box if you want to display content of this web part if current user cookie level is above the compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AboveLevelText" columntype="longtext" guid="130b4e52-f59d-4366-88df-8058a27e8c67" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>
+            <![CDATA[The web site now stores cookies on your computer. You may restrict this to using only some of them or none, however you may not be able to use certain features of the web site including but not limited to: log in, buy products, see personalized content, switch between site cultures.]]>
+          </defaultvalue>
+          <fieldcaption>Text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Information text displayed when the current user level is above the compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AboveShowDeny" columntype="boolean" guid="d50ec47a-cc64-4208-b429-a751ff6ea41d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show deny button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show deny cookies button if current level is above compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AboveShowSpecific" columntype="boolean" guid="b6a9d445-e819-4e94-9e08-99c7f1816df9" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show allow specific button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show set specific level button if current level is above compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AboveShowAll" columntype="boolean" guid="5c44c464-411e-4284-a274-06cca30c940d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Show allow all button</fieldcaption>
+          <fielddescription>
+            <![CDATA[Show allow all cookies button if current level is above compared level.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Consent_buttons">
+        <properties>
+          <caption>Consent buttons</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="DenyAllText" columnsize="100" columntype="text" guid="6989d30d-d96e-45ad-8bf5-89c0e4066fad" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Deny all cookies</defaultvalue>
+          <fieldcaption>Deny all button text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text of the button which denies usage of the cookies for the user.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowSpecificText" columnsize="100" columntype="text" guid="4e37a085-0f56-4542-98f5-ed35768a5f65" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Allow only essential cookies</defaultvalue>
+          <fieldcaption>Allow specific button text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text of the button which sets the specific value of cookie level for the user.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowSpecificSetLevel" columnsize="100" columntype="text" guid="d6a3eef9-286a-4a74-a67e-32b615b0ae0e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Essential</defaultvalue>
+          <fieldcaption>Allow specific button sets level</fieldcaption>
+          <fielddescription>
+            <![CDATA[Cookie level that will be set when the specific level button is clicked.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+System;No cookies
+Essential;Only essential cookies
+All;All cookies
+]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowAllText" columnsize="100" columntype="text" guid="d566d616-f13f-4ec4-908c-aeb01d32f0a5" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Allow all cookies</defaultvalue>
+          <fieldcaption>Allow all button text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text of the button which allows the usage of the cookies for the user.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="OnlineMarketing">
+        <properties>
+          <caption>On-line marketing</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="TrackingConsent" columnsize="200" columntype="text" guid="0d6a4941-d74d-46c4-b43e-82f4a8faec7e" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Tracking consent</fieldcaption>
+          <fielddescription>
+            <![CDATA[Select the consent object (Data protection) that describes tracking of personal data through the system's online marketing features for your website. The web part displays the consent's short text in addition to the cookie level text. If a visitor allows the 'All cookies' level, the system automatically assigns the selected consent to the contact entity representing the given visitor.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <AllowAll>False</AllowAll>
+          <AllowDefault>False</AllowDefault>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>Uni_selector</controlname>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <EditDialogWindowHeight>700</EditDialogWindowHeight>
+          <EditDialogWindowWidth>1000</EditDialogWindowWidth>
+          <EditWindowName>EditWindow</EditWindowName>
+          <EncodeOutput>True</EncodeOutput>
+          <GlobalObjectSuffix ismacro="true">{$general.global$}</GlobalObjectSuffix>
+          <ItemsPerPage>25</ItemsPerPage>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <ObjectSiteName>#currentsite</ObjectSiteName>
+          <ObjectType>cms.consent</ObjectType>
+          <OrderBy>ConsentDisplayName</OrderBy>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <ReturnColumnName>ConsentName</ReturnColumnName>
+          <ReturnColumnType>id</ReturnColumnType>
+          <UseDefaultNameFilter>True</UseDefaultNameFilter>
+          <ValuesSeparator>;</ValuesSeparator>
+        </settings>
+      </field>
+      <field allowempty="true" column="ConsentReferenceMarkup" columntype="longtext" guid="d2c2dab0-d770-46f3-9443-45d906c9bfe8" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Consent reference markup</fieldcaption>
+          <fielddescription>
+            <![CDATA[HTML content placed after the short text version of the consent. Can be used to display a pop-up window or a link to a page with the full text version of the consent.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>LargeTextArea</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+</cms.webpart>

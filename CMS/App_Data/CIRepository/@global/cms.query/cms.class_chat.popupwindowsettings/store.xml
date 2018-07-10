@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.PopupWindowSettings</CodeName>
+    <GUID>9a96d603-1afa-4796-8d14-10e3aa4bc7c8</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>d8e71eaf-3961-464d-84da-0c78354fe13d</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>Store</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>Proc_Chat_StorePopupWindowSettings</QueryText>
+  <QueryTypeID>1</QueryTypeID>
+</cms.query>

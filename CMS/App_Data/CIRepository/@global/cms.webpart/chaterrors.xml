@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Chat</CodeName>
+    <GUID>68de8907-2d63-4f1f-90a4-57447cf79ea2</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form version="2">
+      <field column="WebPartTitle" publicfield="false" reftype="Required" resolvedefaultvalue="False">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <Trim>False</Trim>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field column="Visible" reftype="Required" />
+      <field column="HideOnSubPages" reftype="Required" />
+      <field column="ShowForDocumentTypes" reftype="Required" />
+      <field column="DisplayToRoles" reftype="Required" />
+      <field column="Container" reftype="Required" />
+      <field column="ContainerTitle" reftype="Required" />
+      <field column="ContainerCSSClass" reftype="Required" />
+      <field column="ContainerCustomContent" reftype="Required" />
+      <field column="ContainerHideOnSubPages" reftype="Required" />
+      <field column="ContentBefore" reftype="Required" />
+      <field column="ContentAfter" reftype="Required" />
+      <field column="UseUpdatePanel" reftype="Required" />
+      <field column="TimeZoneType" reftype="Required" />
+      <field column="CustomTimeZone" reftype="Required" />
+      <field column="DisableViewState" reftype="Required" />
+      <field column="DisableMacros" reftype="Required" />
+      <field column="PartialCacheMinutes" reftype="Required" />
+      <field column="PartialCacheDependencies" reftype="Required" />
+      <field column="PreservePartialCacheOnPostback" guid="40c61552-1476-4aa6-803d-ca8cacd9e261" reftype="Required" />
+      <field column="EnableOutputFilter" reftype="Required" />
+      <field column="OutputResolveURLs" reftype="Required" />
+      <field column="OutputFixAttributes" reftype="Required" />
+      <field column="OutputFixJavascript" reftype="Required" />
+      <field column="OutputFixLowerCase" reftype="Required" />
+      <field column="OutputFixSelfClose" reftype="Required" />
+      <field column="OutputFixHTML5" reftype="Required" />
+      <field column="OutputConvertTablesToDivs" reftype="Required" />
+      <field column="OutputFixTags" fieldtype="Unknown" guid="452843ec-b4e1-400a-8212-03cc44e1d165" reftype="Required" order="35" />
+    </form>
+  </WebPartDefaultValues>
+  <WebPartDescription>{$chat.webparts.errors.description$}</WebPartDescription>
+  <WebPartDisplayName>Chat errors</WebPartDisplayName>
+  <WebPartFileName>Chat/ChatErrors.ascx</WebPartFileName>
+  <WebPartGUID>dff75922-a7ed-481e-9027-c4f03459cc3c</WebPartGUID>
+  <WebPartIconClass>icon-w-chat-errors</WebPartIconClass>
+  <WebPartName>ChatErrors</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field allowempty="true" column="ErrorTransformationName" columnsize="250" columntype="text" guid="05dd48b5-5c32-40b5-b3a1-4d023940f2f1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errortransformationnamecaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.errortransformationname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatErrorTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+      <field column="ShowDeleteAllBtn" columntype="boolean" guid="f845eefd-6f1b-44ec-ac8c-fa01dc753514" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errorshowdeleteallbtncaption$}]]>
+          </fieldcaption>
+          <fielddescription>{$chat.webparts.properties.errorshowdeleteallbtn$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ButtonDeleteAllTransformationName" columnsize="250" columntype="text" guid="e35c9599-fa6d-4db8-a5cb-30e5b7f86b2d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$chat.webparts.properties.errordeletealltransformationcaption$}]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[{$chat.webparts.properties.errordeletealltransformation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+          <WatermarkValueSettingKey>CMSChatErrorDeleteAllTrans</WatermarkValueSettingKey>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

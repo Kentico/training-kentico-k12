@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Checkout</CodeName>
+    <GUID>5e13805d-aaaa-4bc8-b22c-a4474618e315</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Allows customers to enter coupon codes during the checkout process to receive discounts or redeem gift cards.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Coupon codes</WebPartDisplayName>
+  <WebPartFileName>Ecommerce/Checkout/InputFields/DiscountCoupon.ascx</WebPartFileName>
+  <WebPartGUID>75324b10-3e56-4952-9f9b-b36a2ac7fd1a</WebPartGUID>
+  <WebPartIconClass>icon-w-discount-coupon</WebPartIconClass>
+  <WebPartName>DiscountCoupon</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field column="ShowUpdateButton" columntype="boolean" guid="a74eb96e-06e6-47c0-914a-5392d1042762" publicfield="false" reftype="Required" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+          <fieldcaption>Show Apply button</fieldcaption>
+          <fielddescription>
+<![CDATA[
+Enable this property to allow customers to manually validate their coupon codes and update the shopping cart totals using an Apply button. The Apply button appears next to the field for entering coupon codes. 
+
+If you clear this check box, the coupon code is applied automatically when the customer proceeds to the next step of the checkout process.
+]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field column="CouponCodeTransformationName" columnsize="200" columntype="text" guid="038ea049-197b-43e6-b151-5c6ee06441dd" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>Ecommerce.Transformations.CouponCodeItem</defaultvalue>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Transformation used to display the applied coupon codes.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Ecommerce</CodeName>
+    <GUID>684e021b-8b56-4cbf-8fd5-b7a791fd2dbc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

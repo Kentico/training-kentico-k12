@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.formusercontrol>
+  <UserControlCodeName>CssStylesheetSelector</UserControlCodeName>
+  <UserControlDefaultDataType>Text</UserControlDefaultDataType>
+  <UserControlDescription>
+    <![CDATA[Provides a drop-down list with available stylesheets.]]>
+  </UserControlDescription>
+  <UserControlDisplayName>CSS stylesheet selector</UserControlDisplayName>
+  <UserControlFileName>~/CMSFormControls/SelectCssStylesheet.ascx</UserControlFileName>
+  <UserControlForBinary>False</UserControlForBinary>
+  <UserControlForBoolean>False</UserControlForBoolean>
+  <UserControlForDateTime>False</UserControlForDateTime>
+  <UserControlForDecimal>False</UserControlForDecimal>
+  <UserControlForDocAttachments>False</UserControlForDocAttachments>
+  <UserControlForDocRelationships>False</UserControlForDocRelationships>
+  <UserControlForFile>False</UserControlForFile>
+  <UserControlForGuid>False</UserControlForGuid>
+  <UserControlForInteger>False</UserControlForInteger>
+  <UserControlForLongText>False</UserControlForLongText>
+  <UserControlForText>True</UserControlForText>
+  <UserControlForVisibility>False</UserControlForVisibility>
+  <UserControlGUID>3b749315-afee-4a47-8459-068ce34ea8f9</UserControlGUID>
+  <UserControlIsSystem>False</UserControlIsSystem>
+  <UserControlParameters>
+    <form version="2">
+      <field allowempty="true" column="AddDefaultRecord" columntype="boolean" guid="585fc154-4582-4bd2-9dba-edb93b8b1d53" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>
+            <![CDATA[Add 'default' record]]>
+          </fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the selector should contain the 'default' option as the first item in the list.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ReturnColumnName" columnsize="200" columntype="text" guid="e1827fe6-821d-4de1-8440-5f988a3e3278" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Return column name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Defines name of column which selector return as its value]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="200" columntype="text" guid="d2366d9c-fa61-409d-980d-36a5121164d7" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Site</fieldcaption>
+          <fielddescription>
+            <![CDATA[Only stylesheets assigned to the selected site will be displayed in the selector.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>siteselectorwithallfieldforglobaladmin</controlname>
+        </settings>
+      </field>
+    </form>
+  </UserControlParameters>
+  <UserControlPriority>0</UserControlPriority>
+  <UserControlShowInBizForms>False</UserControlShowInBizForms>
+  <UserControlShowInCustomTables>False</UserControlShowInCustomTables>
+  <UserControlShowInDocumentTypes>False</UserControlShowInDocumentTypes>
+  <UserControlShowInReports>False</UserControlShowInReports>
+  <UserControlShowInSystemTables>False</UserControlShowInSystemTables>
+  <UserControlShowInWebParts>True</UserControlShowInWebParts>
+  <UserControlType>2</UserControlType>
+</cms.formusercontrol>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>IntranetPortal</CodeName>
+    <GUID>65523f91-9b6f-4e70-9110-62cd05088ec3</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Allows content editors to select a single image on the Content -> Edit -> Page tab. The chosen image will then be displayed on the live site.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Employee of the month</WidgetDisplayName>
+  <WidgetDocumentation>
+    <![CDATA[This widget is intended for use on the Intranet Portal sample site or other websites that are based on its structure.]]>
+  </WidgetDocumentation>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>8c799268-9900-4270-b3fc-3e53e2d1b603</WidgetGUID>
+  <WidgetIconClass>icon-w-employee-of-the-month</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>IntranetPortal.EditableImage</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="ImageTitle" guid="eb11320f-6726-4496-9555-33fd414d3eda" hasdependingfields="false">
+        <properties>
+          <defaultvalue>Employee of the month</defaultvalue>
+        </properties>
+      </field>
+      <field column="DefaultImage" guid="3fa555fd-93b8-4edb-b2a4-1514e58f3bbd" hasdependingfields="false">
+        <properties>
+          <defaultvalue>
+            <![CDATA[~/getfile/a72aa3d2-6a8a-430f-b111-109d4c802dd6/jenniferw_photo.aspx]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="AlternateText" guid="672c1035-ebdc-4676-8138-2bcfd033d22a" hasdependingfields="false">
+        <properties>
+          <defaultvalue>Employee of the month</defaultvalue>
+        </properties>
+      </field>
+      <field column="SelectOnlyPublished" visible="false" guid="4975f9cb-da68-4b6d-ad46-c47d17b6976d" hasdependingfields="false" />
+      <field column="UseParentContent" visible="false" guid="380d1ba7-3a9f-4bb2-b42b-15299c9fae98" />
+      <field column="ImageWidth" guid="ab45c0de-3f7b-42f5-8dcc-567dae713f10" hasdependingfields="false">
+        <properties>
+          <defaultvalue>197</defaultvalue>
+        </properties>
+      </field>
+      <field column="ImageHeight" guid="7647a59c-ada6-4102-82da-1eabe47cad0e" hasdependingfields="false">
+        <properties>
+          <defaultvalue>197</defaultvalue>
+        </properties>
+      </field>
+      <field column="ImageAutoResize" visible="false" guid="a61e6240-7fd7-400e-bb58-30da19864602" hasdependingfields="false" />
+      <field column="ImageCssClass" visible="false" guid="3cf473ed-bb22-40c1-9821-24ecd8cc0e17" hasdependingfields="false" />
+      <field column="ImageStyle" visible="false" guid="39ac157c-2457-4962-9c80-2d41196ee679" hasdependingfields="false" />
+      <field column="DisplaySelectorTextBox" visible="false" guid="257c96ec-6e11-490b-99f0-a813afc1025a" hasdependingfields="false" />
+      <field column="CheckPermissions" visible="false" guid="dc67d4c7-68fa-4dd0-8602-d52b79c098a9" hasdependingfields="false" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetSkipInsertProperties>False</WidgetSkipInsertProperties>
+  <WidgetWebPartID>
+    <CodeName>EditableImage</CodeName>
+    <GUID>7b21609f-bc9d-4939-8d12-eb7d0473cc17</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

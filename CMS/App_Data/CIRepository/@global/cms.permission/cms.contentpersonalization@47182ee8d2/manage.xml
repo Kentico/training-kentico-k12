@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>
+    <![CDATA[{$permissiondescription.contentpersonalization.manage$}]]>
+  </PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Manage</PermissionDisplayName>
+  <PermissionEditableByGlobalAdmin>False</PermissionEditableByGlobalAdmin>
+  <PermissionGUID>071c873c-0f6e-4811-861b-9094664d28a7</PermissionGUID>
+  <PermissionName>Manage</PermissionName>
+  <PermissionOrder>2</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.ContentPersonalization</CodeName>
+    <GUID>60976a10-849f-49fd-ae87-04688c7c1f80</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.transformation>
+  <TransformationClassID>
+    <CodeName>CMS.Root</CodeName>
+    <GUID>a585aea3-10b5-4b74-9aad-747fcce72493</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </TransformationClassID>
+  <TransformationCode>
+<![CDATA[
+<url>
+<%# GetSitemapItem("loc") %>
+<%# GetSitemapItem("lastmod") %>
+<%# GetSitemapItem("changefreq") %>
+<%# GetSitemapItem("priority") %>
+</url>
+]]>
+  </TransformationCode>
+  <TransformationCSS />
+  <TransformationGUID>8d5a6991-b2bf-436d-ba82-5159eb98fc71</TransformationGUID>
+  <TransformationHierarchicalXML />
+  <TransformationIsHierarchical>False</TransformationIsHierarchical>
+  <TransformationName>GoogleSiteMap</TransformationName>
+  <TransformationType>ascx</TransformationType>
+</cms.transformation>

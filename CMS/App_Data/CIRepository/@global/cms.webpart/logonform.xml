@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>MembershipLogonRegistration</CodeName>
+    <GUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a form that allows users to log into the website. Authentication requires a valid user name and password.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Logon form</WebPartDisplayName>
+  <WebPartDocumentation>
+    <![CDATA[The <strong>Remember me </strong>checkbox displayed below the form allows users to store their login credentials using a cookie.&nbsp;This allows them to be authenticated automatically when they return to the website.]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Membership/Logon/logonform.ascx</WebPartFileName>
+  <WebPartGUID>39f8a4c7-2a88-4d9e-8c62-2a453fba5cd0</WebPartGUID>
+  <WebPartIconClass>icon-w-logon-form</WebPartIconClass>
+  <WebPartName>logonform</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Logon form settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="DefaultTargetURL" columnsize="500" columntype="text" guid="e84c0102-e935-4237-9999-27a18138464a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Default target URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.defaulttargeturl$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SkinID" columnsize="200" columntype="text" guid="fb716b03-502b-4d2e-8e5e-5633836edd18" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Skin ID</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.skinid$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="FailureText" columnsize="200" columntype="text" guid="8587e6d1-e8f6-4f1d-998c-db991c2775c4" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Logon failure text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.failuretext$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowPasswordRetrieval" columntype="boolean" guid="57e76af8-3841-4f98-a9dd-6ddc61a7ae05" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Allow forgotten password retrieval</fieldcaption>
+          <fielddescription>
+            <![CDATA[Enables or disables the link that allows users to retrieve a forgotten password by e-mail.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SendEmailFrom" columnsize="100" columntype="text" guid="8f310e56-36fa-45f6-a710-39605b7c434e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Send email from</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the e-mail address from which messages containing forgotten passwords will be sent. For example: mail@domain.com]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ResetPasswordURL" columnsize="200" columntype="text" guid="64e47a9d-6bab-4964-85da-da334ce0ac7b" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Reset password page URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the URL of a custom page where users can reset their password, e.g. ~/SpecialPages/ResetPassword.aspx. This page then serves as the target of the links sent to users if the 'Administration -> Settings -> Security & Membership -> Passwords -> Reset password requires e-mail approval' setting is enabled. If empty, the value will be taken from the 'Reset password page URL' setting.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

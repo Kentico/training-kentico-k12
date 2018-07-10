@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Text</CodeName>
+    <GUID>68d8e65b-a01c-49ae-b9b6-7580bbce4b09</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Allows content editors to select a single image on the Page tab of the Pages application, or when viewing the page in On-site editing mode. The web part displays the selected image on the live site.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Editable image</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Text/EditableImage.ascx</WebPartFileName>
+  <WebPartGUID>7b21609f-bc9d-4939-8d12-eb7d0473cc17</WebPartGUID>
+  <WebPartIconClass>icon-w-editable-image</WebPartIconClass>
+  <WebPartName>EditableImage</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ImageTitle" columnsize="200" columntype="text" guid="eb11320f-6726-4496-9555-33fd414d3eda" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Image title</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets a text caption displayed in editing mode above the area where content editors can select the image.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="DefaultImage" columnsize="2000" columntype="text" guid="3fa555fd-93b8-4edb-b2a4-1514e58f3bbd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Default image</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets a default image displayed if there is no image selected by content editors.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <Autoresize_Hashtable>True</Autoresize_Hashtable>
+          <controlname>mediaselectioncontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AlternateText" columnsize="200" columntype="text" guid="672c1035-ebdc-4676-8138-2bcfd033d22a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Alternate text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets a tooltip for the image displayed on the live website (the value of the alt attribute of the <img> tag).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectOnlyPublished" columntype="boolean" guid="4975f9cb-da68-4b6d-ad46-c47d17b6976d" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Select only published</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, images will not be displayed on the live site if their source page is not published. This only applies if the selected image is stored in the website's content tree as a file page.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="UseParentContent" columntype="boolean" guid="380d1ba7-3a9f-4bb2-b42b-15299c9fae98" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Inherit image if not set</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, the web part attempts to display an image from an ancestor page when no image is selected. The web part loads the image from the nearest ancestor page in the content tree hierarchy that contains an editable image web part with a matching "Web part control ID".]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <category name="Design">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ImageWidth" columnsize="50" columntype="text" guid="ab45c0de-3f7b-42f5-8dcc-567dae713f10" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Image width</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the maximum width of the displayed image in pixels.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ImageHeight" columnsize="50" columntype="text" guid="7647a59c-ada6-4102-82da-1eabe47cad0e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Image height</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the maximum heigth of the displayed image in pixels.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ImageAutoResize" columntype="longtext" guid="a61e6240-7fd7-400e-bb58-30da19864602" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Automatic image resize on upload</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies how newly uploaded images should automatically be resized. If the (use site settings) option is selected, the resizing configuration is taken from Settings -> System -> Files -> Image resizing.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>autoresizeconfiguration</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ImageCssClass" columnsize="100" columntype="text" guid="3cf473ed-bb22-40c1-9821-24ecd8cc0e17" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Image CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the name of the CSS class (from the currently used CSS stylesheet) that will be applied to the <img> tag representing the selected image.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ImageStyle" columnsize="200" columntype="text" guid="39ac157c-2457-4962-9c80-2d41196ee679" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Image style</fieldcaption>
+          <fielddescription>
+            <![CDATA[Directly sets the value of the style attribute of the selected image's <img> tag (e.g. border: 1px solid red).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplaySelectorTextBox" columntype="boolean" guid="257c96ec-6e11-490b-99f0-a813afc1025a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Display image page path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if a textbox containing the path of the currently selected image should be displayed to editors.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Security">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CheckPermissions" columntype="boolean" guid="dc67d4c7-68fa-4dd0-8602-d52b79c098a9" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, the content of the web part will not be displayed on the live site if the current user does not have read permissions for the given page.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>True</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

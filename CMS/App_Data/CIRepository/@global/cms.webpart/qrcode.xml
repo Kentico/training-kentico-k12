@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Text</CodeName>
+    <GUID>68d8e65b-a01c-49ae-b9b6-7580bbce4b09</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartCSS />
+  <WebPartDescription>
+    <![CDATA[Generates a Quick Response code (two-dimensional bar code) based on a specified text value and renders it on the page.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>QR Code</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Text/QRCode.ascx</WebPartFileName>
+  <WebPartGUID>b03b7bbb-eaa4-4b12-ae95-a181538efd98</WebPartGUID>
+  <WebPartIconClass>icon-w-qr-code</WebPartIconClass>
+  <WebPartName>QRCode</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Code" columntype="longtext" guid="dda567a5-f65a-4405-80ee-884b3d7ce0a6" publicfield="false" translatefield="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Text</fieldcaption>
+          <fielddescription>Text that will be encoded into the QR code.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Version" columntype="integer" guid="43f0dad9-8fea-4252-bfe2-55fa74bacc6a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>4</defaultvalue>
+          <fieldcaption>Version</fieldcaption>
+          <fielddescription>
+            <![CDATA[Version of the QR code. The higher the version is, the more data it can provide, but the QR code size is bigger.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+1;1
+2;2
+3;3
+4;4
+5;5
+6;6
+7;7
+8;8
+9;9
+10;10
+20;20
+30;30
+40;40
+]]>
+          </Options>
+        </settings>
+      </field>
+      <category name="Design">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Size" columntype="integer" guid="2deb65d9-6291-4801-b7ac-0748d60bed4d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>4</defaultvalue>
+          <fieldcaption>Size</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines the default size of the QR code. The size is also adjusted by the QR code type and the amount of data it handles.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="MaxSideSize" columntype="integer" guid="dff3d378-f167-4ab5-8151-79b272b0e5fe" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Maximum size in pixels</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ForegroundColor" columnsize="100" columntype="text" guid="dcc922a1-3847-458f-afb7-3a2624ec7020" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Foreground color</fieldcaption>
+          <fielddescription>
+            <![CDATA[Foreground color in HTML (CSS) representation. E.g. "Gray", "#ccc", "#aa00aa"]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="BackgroundColor" columnsize="100" columntype="text" guid="3fba6ed8-b603-4c1a-9485-782c32a5c3e5" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Background color</fieldcaption>
+          <fielddescription>
+            <![CDATA[Background color in HTML (CSS) representation. E.g. "Gray", "#ccc", "#aa00aa"]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="AlternateText" columnsize="200" columntype="text" guid="8bb0658c-75a9-434c-aba2-62d93c386f8c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Alternate text</fieldcaption>
+          <fielddescription>Alternate text of the QR code image.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="Tooltip" columnsize="200" columntype="text" guid="b6ca4a0a-1fe3-4613-9001-393b7f6c7170" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Tooltip</fieldcaption>
+          <fielddescription>QR code image tooltip.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Advanced">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Encoding" columnsize="2" columntype="text" guid="cebbdb30-c047-49c4-8edb-a8df9a9b2418" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>B</defaultvalue>
+          <fieldcaption>Encoding</fieldcaption>
+          <fielddescription>
+            <![CDATA[Encoding of the QR code, the less general the encoding is, the more data of that type the QR code can contain.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+N;Numeric
+AN;AplhaNumeric
+B;Byte
+]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="Correction" columnsize="1" columntype="text" guid="73001fa2-21c4-41b4-ae0d-f8d4eac3c118" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>M</defaultvalue>
+          <fieldcaption>Correction type</fieldcaption>
+          <fielddescription>Type of ECC code correction</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+L;L
+M;M
+Q;Q
+H;H
+]]>
+          </Options>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>True</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

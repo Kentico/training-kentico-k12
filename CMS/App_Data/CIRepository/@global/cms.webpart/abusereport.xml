@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>AbuseReport</CodeName>
+    <GUID>6054437f-0d27-4465-9302-d5080a079cb8</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartCSS />
+  <WebPartDescription>
+    <![CDATA[Allows users to write and submit reports concerning website abuse.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Abuse report</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>AbuseReport/AbuseReport.ascx</WebPartFileName>
+  <WebPartGUID>7aa8a4db-c56e-4c8f-a605-f739d01540c0</WebPartGUID>
+  <WebPartIconClass>icon-w-abuse-report</WebPartIconClass>
+  <WebPartName>AbuseReport</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Abuse_Report_settings">
+        <properties>
+          <caption>Abuse Report settings</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ConfirmationText" columnsize="200" columntype="text" guid="218b201b-3f29-4298-9f83-ececd70cde2d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Confirmation text</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.abusereportconfirm$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="ReportTitle" columnsize="200" columntype="text" guid="346e9de2-b000-4968-bd7e-bbed5d80dd89" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Title of abuse report</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.abusereporttitle$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.InitiatedChatRequest</CodeName>
+    <GUID>7bb6e013-df57-4931-befc-979dd52b0a5a</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>456af3bf-4741-4bba-9eca-7ee96fc45657</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>update</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+-- InitiatedChatRequestLastModification has to be set to SQL Server time because of synchronization across web farms
+
+UPDATE Chat_InitiatedChatRequest 
+SET 
+[InitiatedChatRequestUserID] = @InitiatedChatRequestUserID, 
+[InitiatedChatRequestContactID] = @InitiatedChatRequestContactID, 
+[InitiatedChatRequestRoomID] = @InitiatedChatRequestRoomID, 
+[InitiatedChatRequestState] = @InitiatedChatRequestState, 
+[InitiatedChatRequestInitiatorName] = @InitiatedChatRequestInitiatorName, 
+[InitiatedChatRequestInitiatorChatUserID] = @InitiatedChatRequestInitiatorChatUserID, 
+[InitiatedChatRequestLastModification] = GETDATE() 
+WHERE 
+[InitiatedChatRequestID] = @InitiatedChatRequestID
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

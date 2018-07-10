@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widgetcategory>
+  <WidgetCategoryDisplayName>Layouts</WidgetCategoryDisplayName>
+  <WidgetCategoryGUID>49738a73-d011-4331-8f26-1861bd9c0cfe</WidgetCategoryGUID>
+  <WidgetCategoryImagePath />
+  <WidgetCategoryName>Layouts</WidgetCategoryName>
+  <WidgetCategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>b51398f0-a113-11de-a93c-048c55d89593</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryParentID>
+</cms.widgetcategory>

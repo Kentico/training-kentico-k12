@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>SyndicationRSS</CodeName>
+    <GUID>fcec1ff1-21ce-48d3-8a63-3d96de0c5ccf</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[The Web service RSS feed web part can be used to create an RSS feed of data provided by an external web service. It uses a built-in web service data source as a source of the feed data. It displays a link leading to the feed, which is located at the URL of the page where the web part is placed, with a querystring parameter appended.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Web service RSS feed</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Syndication/WebServiceRSSFeed.ascx</WebPartFileName>
+  <WebPartGUID>9b0836eb-2691-4025-8a0f-228fd99a18ca</WebPartGUID>
+  <WebPartIconClass>icon-w-web-service-rss-feed</WebPartIconClass>
+  <WebPartName>WebServiceRSSFeed</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Feed link">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="LinkText" columnsize="200" columntype="text" guid="f6ab04f5-71a1-4edf-a5c2-23b618817a51" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>RSS 2.0</defaultvalue>
+          <fieldcaption>Link text</fieldcaption>
+          <fielddescription>Text for the feed link.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="LinkIcon" columnsize="2000" columntype="text" guid="36b19c45-df56-442f-b8c6-10d617de8f50" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Link icon</fieldcaption>
+          <fielddescription>Icon which will be displayed in the feed link.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>iconselector</controlname>
+        </settings>
+      </field>
+      <field column="EnableRSSAutodiscovery" columntype="boolean" guid="bf9b0f81-6e91-4b20-a241-40790303ee1d" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Enable RSS auto-discovery</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the RSS feed is automatically discovered by the browser.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="RSS">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="FeedName" columnsize="200" columntype="text" guid="f4e33b57-b874-4ac4-bd50-3ef592ebf26e" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Feed name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Serves as an identifier for the feed. The feed becomes active when the 'Feed querystring key' in the page URL matches the specified value. Allows you to identify the feed on pages with multiple feeds. If the value is empty, the GUID of the web part instance is used by default.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="FeedTitle" columnsize="450" columntype="text" guid="fad4b837-bc17-42b5-a92b-8656aa5a9fd0" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>Data</defaultvalue>
+          <fieldcaption>Feed title</fieldcaption>
+          <fielddescription>URL title of the feed.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FeedDescription" columntype="longtext" guid="02e8ea22-e14f-4830-9277-d488fd3bd314" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Feed description</fieldcaption>
+          <fielddescription>Description of the feed.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textareacontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FeedLanguage" columnsize="10" columntype="text" guid="77514181-fbed-40a5-95c5-f48f0ff125ab" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Feed language</fieldcaption>
+          <fielddescription>
+            <![CDATA[Language of the feed. If the value is empty the content culture will be used.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectculture</controlname>
+        </settings>
+      </field>
+      <field column="QueryStringKey" columnsize="200" columntype="text" guid="01290f55-6121-4890-a598-1208e1898912" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>rss</defaultvalue>
+          <fieldcaption>Feed querystring key</fieldcaption>
+          <fielddescription>
+            <![CDATA[Querystring key which is used for RSS feed identification on a page with multiple RSS feeds.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeaderXML" columntype="longtext" guid="ce71d877-d4ce-41c1-ab42-5c675faf8e24" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Feed header</fieldcaption>
+          <fielddescription>
+            <![CDATA[Custom feed header XML which is generated before feed items. If the value is empty default header for RSS feed is generated.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textareacontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FooterXML" columntype="longtext" guid="9919a025-ba81-4f99-a93d-f36e7614008f" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Feed footer</fieldcaption>
+          <fielddescription>
+            <![CDATA[Custom feed footer XML which is generated after feed items. If the value is empty default footer for RSS feed is generated.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textareacontrol</controlname>
+        </settings>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="b24375c5-aecf-42d1-a9bd-5a327ef568dc" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.transformationfeed$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="Filter">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="WebServiceUrl" columnsize="1000" columntype="text" guid="d32c051b-0453-46d2-a42c-7763f65ea227" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Web service URL (.asmx file)</fieldcaption>
+          <fielddescription>
+            <![CDATA[URL of the web service (e.g.: http://localhost/webservice1/Service.asmx).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WebServiceParameters" columntype="longtext" guid="4c0e2072-834a-4f4f-a084-5885b40c1984" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Web service parameter</fieldcaption>
+          <fielddescription>
+            <![CDATA[String value that is passed as a parameter to the web service.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textareacontrol</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="d72506be-646e-4825-ae89-9089543ecc1e" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="3ca1dd6b-9d3b-4dc9-aa5d-ee3f70d74d47" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>5</WebPartType>
+</cms.webpart>

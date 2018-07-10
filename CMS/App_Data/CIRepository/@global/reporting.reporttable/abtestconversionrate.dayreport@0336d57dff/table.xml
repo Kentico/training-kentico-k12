@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>table</TableDisplayName>
+  <TableGUID>639182ae-112b-4ce9-be1c-646f1e432b13</TableGUID>
+  <TableName>table</TableName>
+  <TableQuery>
+<![CDATA[
+
+EXEC Proc_Analytics_RemoveTempTable 
+ CREATE TABLE #AnalyticsTempTable (  
+  Hits DECIMAL(15,2),
+  Name NVARCHAR(300) COLLATE database_default,  
+  Culture NVARCHAR(300) COLLATE database_default,   
+  Page NVARCHAR(300) COLLATE database_default   
+);
+
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'day');
+SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'day');
+
+INSERT INTO #AnalyticsTempTable (Name,Hits,Page,Culture)
+SELECT X.Name AS Name,CAST (ISNULL (X.Hits,0) AS DECIMAL (15,2)) AS Hits, X.Page AS Page,X.Culture AS Culture  FROM
+(
+SELECT ABVariantDisplayName AS Name, ISNULL(SUM (HitsCount),0) AS Hits,ABVariantName,ABVariantPath AS Page, ABTestCulture AS Culture FROM Analytics_Statistics
+  LEFT JOIN OM_ABVariant ON ABVariantSiteID = @CMSContextCurrentSiteID AND
+    ABVariantName = SUBSTRING(StatisticsCode, CHARINDEX(';',StatisticsCode,14)+1,LEN (StatisticsCode))         
+  LEFT JOIN Analytics_DayHits ON StatisticsID = HitsSTatisticsID    
+  LEFT JOIN OM_ABTest ON ABTestSiteID = @CMSContextCurrentSiteID AND ABTestName = @TestName AND ABVariantTestID = ABTestID
+
+ WHERE   StatisticsSiteID = @CMSContextCurrentSiteID AND StatisticsCode LIKE 'abconversion;%' AND
+ @TestName = SUBSTRING(StatisticsCode, 14, CHARINDEX(';',StatisticsCode,14)-14)
+ AND HitsStartTime >= @FromDate AND HitsEndTime <= @ToDate   
+ AND  ISNULL(@ConversionName,'') IN ('',StatisticsObjectName)
+ 
+ GROUP BY ABVariantDisplayName,ABVariantName,ABVariantPath, ABTestCulture
+)
+ AS X
+
+ORDER BY X.Hits Desc
+
+ UPDATE #AnalyticsTempTable SET Hits = ISNULL (Hits/
+ (
+   SELECT CAST (SUM (HitsCount) AS DECIMAL (10,2)) FROM Analytics_Statistics
+   JOIN Analytics_DayHits ON Analytics_Statistics.StatisticsID = Analytics_DayHits.HitsStatisticsID
+   WHERE Analytics_Statistics.StatisticsCode = 'pageviews'  
+   AND HitsStartTime >= @FromDate AND HitsEndTime <= @ToDate   
+   AND Analytics_Statistics.StatisticsObjectID IN
+  (SELECT NodeID FROM View_CMS_Tree_Joined WHERE NodeAliasPath = Page AND NodeSiteID = @CMSContextCurrentSiteID AND (DocumentCulture = StatisticsObjectCulture OR StatisticsObjectCulture IS NULL))
+     /*culture */
+     AND (StatisticsObjectCulture IS NULL OR StatisticsObjectCulture = Culture OR Culture IS NULL)    
+   )
+  *100  ,0)
+  
+SELECT Name AS '{$om.variant.tabletitle$}',
+   CAST (CAST (ISNULL (Hits,0) AS DECIMAL (15,1)) AS NVARCHAR(15)) + '%' AS '{$om.selectedperiod$}'  
+ FROM #AnalyticsTempTable ORDER BY Hits DESC
+
+EXEC Proc_Analytics_RemoveTempTable
+
+
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>abtestconversionrate.dayreport</CodeName>
+    <GUID>ec5009e2-f69f-424f-9265-09629b397004</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>True</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>15</pagesize>
+      <querynorecordtext>No data found</querynorecordtext>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

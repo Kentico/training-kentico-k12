@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDisplayName>Blogs</ResourceDisplayName>
+  <ResourceGUID>16ff5f79-b1c3-4142-bf28-e9fec523a10e</ResourceGUID>
+  <ResourceHasFiles>True</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.Blog</ResourceName>
+  <ResourceURL />
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>8d48c018-fdbe-4425-927b-9e8c48bf63e6</HelpTopicGUID>
+  <HelpTopicLink>mvt_analyzing</HelpTopicLink>
+  <HelpTopicName>Analyze MVT test results</HelpTopicName>
+  <HelpTopicOrder>3</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>MVTestListing</CodeName>
+    <GUID>eaf9ce44-be29-409b-b2aa-e7b98b1c8ec2</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.MVTest</CodeName>
+      <GUID>e673e837-394a-45f9-9591-9e75fe757763</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

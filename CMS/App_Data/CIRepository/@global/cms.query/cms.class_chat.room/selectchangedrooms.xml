@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.Room</CodeName>
+    <GUID>b9ea7973-e2ba-465e-a56e-15e9614b4251</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>428c10e2-ddb1-4d63-a923-5aee75aa1ae4</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectchangedrooms</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT CR.* 
+FROM Chat_Room AS CR
+WHERE CR.ChatRoomIsOneToOne = 0
+ AND (CR.ChatRoomSiteID IS NULL OR CR.ChatRoomSiteID = @SiteID)
+ AND (@ChangedSince IS NULL OR CR.ChatRoomLastModification > @ChangedSince)
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

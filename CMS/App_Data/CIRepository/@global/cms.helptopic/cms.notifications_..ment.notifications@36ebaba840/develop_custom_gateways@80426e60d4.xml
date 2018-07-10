@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>7befbdd6-3c3d-4b7f-a801-d220cf972461</HelpTopicGUID>
+  <HelpTopicLink>custom_ntf_gateways</HelpTopicLink>
+  <HelpTopicName>Develop custom gateways</HelpTopicName>
+  <HelpTopicOrder>3</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.Notifications</CodeName>
+    <GUID>e9a854e5-8dc5-48b4-8df4-125c4d9cdabc</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Notifications</CodeName>
+      <GUID>c5f1114b-f87b-46bc-b169-7f8afaddc394</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

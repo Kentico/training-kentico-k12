@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>b02b596d-0291-44cb-92cf-e2825f785352</HelpTopicGUID>
+  <HelpTopicLink>field_editor_ref</HelpTopicLink>
+  <HelpTopicName>Define form fields (reference)</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Forms.Fields</CodeName>
+    <GUID>46207f71-e9bf-4352-bc4d-1ce096411732</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Form</CodeName>
+      <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

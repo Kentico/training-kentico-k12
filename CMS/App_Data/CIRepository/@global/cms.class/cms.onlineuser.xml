@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Online user</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="SessionID" columntype="integer" guid="32cfaa42-262d-480e-af85-6a9d91c7901d" isPK="true" isunique="true" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>LabelControl</controlname>
+          <ResolveMacros>True</ResolveMacros>
+        </settings>
+      </field>
+      <field column="SessionIdentificator" columnsize="50" columntype="text" guid="2f38ac64-c306-4112-bc22-bf6117e40270" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionIdentificator</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+          <ResolveMacros>True</ResolveMacros>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionUserID" columntype="integer" guid="d0da6070-20db-4152-bbbe-91160a729a73" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionUserID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionLocation" columnsize="450" columntype="text" guid="e31dfea7-f772-44c7-9dd9-d358026092b6" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionLocation</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="SessionLastActive" columntype="datetime" guid="ca40d956-661a-4d7e-9ce3-4e2fbf360313" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionLastActive</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionLastLogon" columntype="datetime" guid="62fa16a4-35f4-430b-84b5-e452579956f6" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionLastLogon</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field column="SessionExpires" columntype="datetime" guid="ba6ff814-af86-4817-b0b8-c4aecb41fc04" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionExpires</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field column="SessionExpired" columntype="boolean" guid="d6a1c704-c546-484e-80e8-30cc787d80d1" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionExpired</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionSiteID" columntype="integer" guid="34829794-9e25-475f-a652-a46ef9d29c11" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionSiteID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="SessionUserIsHidden" columntype="boolean" guid="62e1fac2-4fd5-4352-987d-ac03e5accf61" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionUserIsHidden</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionFullName" columnsize="450" columntype="text" guid="5d40596c-7c89-42c4-b99f-27aa25a0c2ff" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionFullName</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionEmail" columnsize="254" columntype="text" guid="b5f165cf-3a4e-4f51-8469-31a499d53924" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionEmail</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>emailinput</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionUserName" columnsize="254" columntype="text" guid="f0a124ea-0bf0-4d63-b5eb-eccb48525915" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionUserName</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionNickName" columnsize="254" columntype="text" guid="98afd8e5-981f-446f-85f6-c97caeeb1924" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionNickName</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionUserCreated" columntype="datetime" guid="d1a0445f-c641-4446-83ec-286e25550cca" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionUserCreated</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SessionContactID" columntype="integer" guid="306bba3e-a8a9-4663-bc14-fe220c0e6400" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>SessionContactID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>d9449b03-cbb8-41df-9c7f-e18e92fc6d3a</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>cms.onlineuser</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.Membership</CodeName>
+    <GUID>d4b7561a-f188-420c-8f68-63b5c573b2bf</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings>
+    <search />
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_Session</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

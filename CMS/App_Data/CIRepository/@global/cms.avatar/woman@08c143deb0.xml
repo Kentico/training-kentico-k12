@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.avatar>
+  <AvatarFileExtension>.jpg</AvatarFileExtension>
+  <AvatarFileName>avatar_woman.jpg</AvatarFileName>
+  <AvatarFileSize>2320</AvatarFileSize>
+  <AvatarGUID>3245121f-7887-48e1-90f2-d238e7214792</AvatarGUID>
+  <AvatarImageHeight>178</AvatarImageHeight>
+  <AvatarImageWidth>178</AvatarImageWidth>
+  <AvatarIsCustom>False</AvatarIsCustom>
+  <AvatarMimeType>image/jpeg</AvatarMimeType>
+  <AvatarName>Woman</AvatarName>
+  <AvatarType>user</AvatarType>
+  <DefaultFemaleUserAvatar>True</DefaultFemaleUserAvatar>
+  <DefaultGroupAvatar>False</DefaultGroupAvatar>
+  <DefaultMaleUserAvatar>False</DefaultMaleUserAvatar>
+  <DefaultUserAvatar>False</DefaultUserAvatar>
+</cms.avatar>

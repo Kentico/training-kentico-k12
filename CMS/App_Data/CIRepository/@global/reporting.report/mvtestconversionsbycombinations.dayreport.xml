@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>0</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>MVTestConversionsByCombinations</CodeName>
+    <GUID>a32e260a-f2c4-4ebd-a37f-fc1bee2c1ab0</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportDisplayName>
+    <![CDATA[Single MVT test - Conversions by combinations - Day report (detail)]]>
+  </ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>6b95bc9c-7b1b-42ce-9102-ef65cfc37ed0</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+<p>
+	%%control:ReportHtmlGraph?mvtestconversionsbycombinations.dayreport.graph_detail%%</p>
+
+]]>
+  </ReportLayout>
+  <ReportName>mvtestconversionsbycombinations.dayreport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" spellcheck="false" guid="7a87603b-60ec-420a-a955-dc19779a2db7" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddMonths(-1).Date|(identity)GlobalAdministrator|(hash)e9c935cb516d4df7030fcb583573ba7e4cdb1ea165e5db95d180f1e777932e7b%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" spellcheck="false" guid="a5caf187-45ff-4a90-b34e-cfbc68dbbd35" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>False</EditTime>
+        </settings>
+      </field>
+      <field column="MVTestName" visible="true" columntype="text" fieldtype="CustomUserControl" columnsize="100" publicfield="false" guid="62f2cdb5-4db6-4448-8caa-1ceb88780f3e" visibility="none">
+        <properties>
+          <fieldcaption>Test name</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Trim>False</Trim>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <FilterMode>False</FilterMode>
+          <controlname>textboxcontrol</controlname>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+        </settings>
+      </field>
+      <field column="CombinationName" visible="true" columntype="text" fieldtype="CustomUserControl" allowempty="true" columnsize="100" publicfield="false" spellcheck="false" guid="43c8d3fb-98de-4cbd-b5a8-69a2f5d4b09a" visibility="none">
+        <properties>
+          <fieldcaption>Combination name</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Trim>False</Trim>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <FilterMode>False</FilterMode>
+          <controlname>textboxcontrol</controlname>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+        </settings>
+      </field>
+      <field column="ConversionName" columntype="text" fieldtype="CustomUserControl" columnsize="100" publicfield="false" guid="ed9973f8-ce03-422d-b5ae-7d6a533e9e7a" visibility="none">
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

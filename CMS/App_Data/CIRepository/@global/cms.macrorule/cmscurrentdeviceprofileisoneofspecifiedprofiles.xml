@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.macrorule>
+  <MacroRuleCondition>
+    <![CDATA[CurrentDeviceProfile.CodeName.EqualsAny("{profiles}")]]>
+  </MacroRuleCondition>
+  <MacroRuleDescription>
+    <![CDATA[{$macrorule.cmscurrentdeviceprofileisoneofspecifiedprofiles.description$}]]>
+  </MacroRuleDescription>
+  <MacroRuleDisplayName>
+    <![CDATA[Current device profile is one of specified profiles]]>
+  </MacroRuleDisplayName>
+  <MacroRuleEnabled>True</MacroRuleEnabled>
+  <MacroRuleGUID>6bcf4a41-3bd6-436e-89cc-1808a43ee436</MacroRuleGUID>
+  <MacroRuleIsCustom>False</MacroRuleIsCustom>
+  <MacroRuleName>CMSCurrentDeviceProfileIsOneOfSpecifiedProfiles</MacroRuleName>
+  <MacroRuleParameters>
+    <form version="2">
+      <field column="profiles" columnsize="1000" columntype="text" guid="bd0f199b-95c0-465a-b88a-7d2f36544efd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>select profiles</fieldcaption>
+        </properties>
+        <settings>
+          <AddGlobalObjectNamePrefix>False</AddGlobalObjectNamePrefix>
+          <AddGlobalObjectSuffix>False</AddGlobalObjectSuffix>
+          <AllowAll>False</AllowAll>
+          <AllowDefault>False</AllowDefault>
+          <AllowEditTextBox>False</AllowEditTextBox>
+          <AllowEmpty>False</AllowEmpty>
+          <controlname>uni_selector</controlname>
+          <DialogWindowHeight>590</DialogWindowHeight>
+          <DialogWindowName>SelectionDialog</DialogWindowName>
+          <DialogWindowWidth>668</DialogWindowWidth>
+          <GlobalObjectSuffix>(global)</GlobalObjectSuffix>
+          <ItemsPerPage>25</ItemsPerPage>
+          <LocalizeItems>True</LocalizeItems>
+          <MaxDisplayedItems>25</MaxDisplayedItems>
+          <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
+          <ObjectType>CMS.DeviceProfile</ObjectType>
+          <RemoveMultipleCommas>False</RemoveMultipleCommas>
+          <ResourcePrefix>deviceprofileselect</ResourcePrefix>
+          <ReturnColumnName>ProfileName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ValuesSeparator>;</ValuesSeparator>
+        </settings>
+      </field>
+    </form>
+  </MacroRuleParameters>
+  <MacroRuleRequiresContext>True</MacroRuleRequiresContext>
+  <MacroRuleResourceName />
+  <MacroRuleText>
+    <![CDATA[Current device profile is one of the following: {profiles}]]>
+  </MacroRuleText>
+</cms.macrorule>

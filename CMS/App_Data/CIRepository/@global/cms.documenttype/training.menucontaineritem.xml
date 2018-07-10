@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.documenttype>
+  <ClassCodeGenerationSettings>
+    <Data>
+      <NameSpace>Training</NameSpace>
+    </Data>
+  </ClassCodeGenerationSettings>
+  <ClassDisplayName>Menu Container Item</ClassDisplayName>
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="MenuContainerItemID" columntype="integer" guid="bf9ba7e1-1324-40fc-be54-fa0efe27fe6c" isPK="true" publicfield="false">
+        <properties>
+          <fieldcaption>MenuContainerItemID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="Caption" columnsize="200" columntype="text" guid="c99f705a-4257-4518-a07c-590beffab6c9" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Caption</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="ReferencedPage" columntype="guid" guid="1d985d0e-9223-490f-955b-0bc7689db61d" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Referenced page</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>selectdocument</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>298e76cf-02c4-4464-b8e7-cd0c77a33e9e</ClassGUID>
+  <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassIsContentOnly>True</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>True</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassName>Training.MenuContainerItem</ClassName>
+  <ClassNodeNameSource>Caption</ClassNodeNameSource>
+  <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchSettings>
+    <search>
+      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="080b84ff-55be-4686-8415-796d329e4c3e" name="ReferencedPage" searchable="False" tokenized="False" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="988ea183-5e01-4ce9-abf9-d680bd8018f5" name="Caption" searchable="False" tokenized="True" />
+      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="e9800e14-e762-4410-9e1c-302d0c0cafad" name="MenuContainerItemID" searchable="True" tokenized="False" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassTableName>Training_MenuContainerItem</ClassTableName>
+  <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+</cms.documenttype>

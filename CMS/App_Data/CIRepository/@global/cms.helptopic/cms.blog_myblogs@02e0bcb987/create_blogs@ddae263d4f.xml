@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>085f93dc-bc80-49fd-b5c8-a899848cb5a9</HelpTopicGUID>
+  <HelpTopicLink>blogs_creating</HelpTopicLink>
+  <HelpTopicName>Create blogs</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>MyBlogs</CodeName>
+    <GUID>f9a3d08d-41bf-4922-b4a4-0b4110792785</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Blog</CodeName>
+      <GUID>16ff5f79-b1c3-4142-bf28-e9fec523a10e</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

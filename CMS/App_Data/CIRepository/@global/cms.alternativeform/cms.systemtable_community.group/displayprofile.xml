@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>Community.Group</CodeName>
+    <GUID>78a6ade6-ca83-400c-b537-d5213b7162e4</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form>
+      <field column="GroupID" visible="" />
+      <field column="GroupGUID" visible="" />
+      <field column="GroupLastModified" visible="">
+        <settings>
+          <editTime>false</editTime>
+        </settings>
+      </field>
+      <field column="GroupSiteID" visible="" />
+      <field column="GroupDisplayName" fieldcaption="Group display name">
+        <settings>
+          <controlname>viewsecuretext</controlname>
+        </settings>
+      </field>
+      <field column="GroupName" visible="" />
+      <field column="GroupDescription" fieldcaption="Description">
+        <settings>
+          <controlname>viewsecuretext</controlname>
+        </settings>
+      </field>
+      <field column="GroupNodeGUID" visible="" />
+      <field column="GroupApproveMembers" visible="" />
+      <field column="GroupAccess" fieldcaption="Access">
+        <settings>
+          <controlname>viewgroupaccess</controlname>
+        </settings>
+      </field>
+      <field column="GroupCreatedByUserID" visible="" />
+      <field column="GroupApprovedByUserID" visible="" />
+      <field column="GroupAvatarID" fieldcaption="Group avatar ID">
+        <settings>
+          <OutputFormat>
+            <![CDATA[{%GetGroupAvatarImage(Value, GetResourceString("general.avatar"), MaxSideSize)|(identity)GlobalAdministrator|(hash)f4e7b020fa4c3228eaca790e112784a5dd0d9a1280a2aa6278a9805f34c91d84%}]]>
+          </OutputFormat>
+          <controlname>viewgroupavatar</controlname>
+          <MaxSideSize>200</MaxSideSize>
+        </settings>
+      </field>
+      <field column="GroupApproved" visible="" />
+      <field column="GroupCreatedWhen" fieldcaption="Created">
+        <settings>
+          <controlname>viewdate</controlname>
+        </settings>
+      </field>
+      <field column="GroupEnabled" defaultvalue="false" fieldtype="Unknown" guid="00000000-0000-0000-0000-000000000000" order="15" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Display profile </FormDisplayName>
+  <FormGUID>1cd04c91-eee1-49c3-b7a8-385a5f521ea5</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormLayout>
+<![CDATA[
+<table>
+    <tbody>
+        <tr>
+            <td rowspan="4">$$input:GroupAvatarID$$</td>
+            <td style="vertical-align: top;" colspan="3">
+            <div style="font-size: 20px; font-weight: bold;">$$input:GroupDisplayName$$</div>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2">$$input:GroupDescription$$</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><strong>$$label:GroupAccess$$</strong></td>
+            <td style="width: 100%;">$$input:GroupAccess$$</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><strong>$$label:GroupCreatedWhen$$</strong></td>
+            <td style="width: 100%;">$$input:GroupCreatedWhen$$</td>
+        </tr>
+    </tbody>
+</table>
+]]>
+  </FormLayout>
+  <FormName>DisplayProfile</FormName>
+</cms.alternativeform>

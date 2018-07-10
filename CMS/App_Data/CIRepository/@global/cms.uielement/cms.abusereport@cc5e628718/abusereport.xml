@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$tools.ui.abusereport$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDescription>{$Tools.AbuseReport.Description$}</ElementDescription>
+  <ElementDisplayName>{$tools.ui.abusereport$}</ElementDisplayName>
+  <ElementFromVersion>5.0</ElementFromVersion>
+  <ElementGUID>ab617598-21c4-4621-9fa1-bcdabf472579</ElementGUID>
+  <ElementIconClass>icon-app-abuse-reports</ElementIconClass>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>AbuseReport</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementParentID>
+    <CodeName>SocialAndCommunity</CodeName>
+    <GUID>6e6d43f4-6663-43dc-9fce-a0e9ff39b615</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS</CodeName>
+      <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <includejquery>False</includejquery>
+      <descriptionlink>abuse_reports</descriptionlink>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.AbuseReport</CodeName>
+    <GUID>69d64093-d17a-47e2-a08b-71800ac187b2</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>1</ElementSize>
+  <ElementTargetURL>~/CMSModules/AbuseReport/AbuseReport_List.aspx</ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

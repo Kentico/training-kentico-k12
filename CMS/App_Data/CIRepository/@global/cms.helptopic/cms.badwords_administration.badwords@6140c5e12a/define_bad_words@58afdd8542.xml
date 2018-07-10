@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>f43f4c1f-e09d-4679-ba70-4d8ee7c5f3e3</HelpTopicGUID>
+  <HelpTopicLink>bad_words_defining</HelpTopicLink>
+  <HelpTopicName>Define bad words</HelpTopicName>
+  <HelpTopicOrder>2</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Administration.BadWords</CodeName>
+    <GUID>5bb05075-4f56-493a-8010-e41b25bc386f</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Badwords</CodeName>
+      <GUID>09642799-d831-4b69-a95d-28a9bdf496d9</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

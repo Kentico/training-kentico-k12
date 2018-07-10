@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Navigation</CategoryDisplayName>
+  <CategoryGUID>9d08bf54-24b5-46aa-b80f-1ebb73ed9018</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>Navigation</CategoryName>
+  <CategoryParentID>
+    <CodeName>/</CodeName>
+    <GUID>d782b5c3-27f3-45e6-a5cc-86c1944e2c8d</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

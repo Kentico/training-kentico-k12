@@ -1,0 +1,1676 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.ExternalAuthentication</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.ExternalAuthentication.CMSOpenIDHelper">
+            <summary>
+            OpenID helper class.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.CMSOpenIDHelper.RESPONSE_CANCELED">
+            <summary>
+            Represents OpenID response "Canceled".
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.CMSOpenIDHelper.RESPONSE_FAILED">
+            <summary>
+            Represents OpenID response "Failed".
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.CMSOpenIDHelper.RESPONSE_SETUPREQUIRED">
+            <summary>
+            Represents OpenID response "SetupRequired".
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.CMSOpenIDHelper.RESPONSE_AUTHENTICATED">
+            <summary>
+            Represents OpenID response "Authenticated".
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.ClaimedIdentifier">
+            <summary>
+            Returns OpenID Claimed Identifier for current user.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.OpenIDResponse">
+            <summary>
+            Returns OpenID Response as IAuthenticationResponse object.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.BirthDate">
+            <summary>
+            User birthdate.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.Country">
+            <summary>
+            User country.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.Culture">
+            <summary>
+            User culture.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.Email">
+            <summary>
+            User e-mail.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.FullName">
+            <summary>
+            User full name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.UserGender">
+            <summary>
+            Integer code with user gender.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.Language">
+            <summary>
+            User language.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.MailAddress">
+            <summary>
+            User mail address.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.Nickname">
+            <summary>
+            User nickname.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.PostalCode">
+            <summary>
+            User postal code.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.CMSOpenIDHelper.TimeZone">
+            <summary>
+            User time zone.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.#ctor">
+            <summary>
+            Constructor initializes OpenID transfer and connection.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.Initialize(System.Object)">
+            <summary>
+            Manually sets OpenID response for this object.
+            </summary>
+            <param name="response">IAuthenticationResponse object</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.GetResponseObject">
+            <summary>
+            Returns OpenID response as object.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.CheckStatus">
+            <summary>
+            Checks status of current user.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.CreateRelyingParty">
+            <summary>
+            Creates relying party for OpenID.
+            </summary>
+            <returns>OpenIdRelyingParty</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.SendRequest(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Send OpenID login request to specified openID provider with user demanded data.
+            </summary>
+            <param name="openIDprovider">URL of the OpenID provider</param>
+            <param name="birthDateRequest">Demand level for user birth date</param>
+            <param name="countryRequest">Demand level for user country</param>
+            <param name="emailRequest">Demand level for user e-mail</param>
+            <param name="fullNameRequest">Demand level for full name</param>
+            <param name="genderRequest">Demand level for user gender</param>
+            <param name="languageRequest">Demand level for user language</param>
+            <param name="nicknameRequest">Demand level for user nick name</param>
+            <param name="postalCodeRequest">Demand level for user postal code</param>
+            <param name="timeZoneRequest">Demand level for user time zone</param>
+            <returns>Returns NULL if request was sucessful, otherwise returns error message with additional data</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.IsValid(System.String)">
+            <summary>
+            Custom OpenID URL validation.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.GetGender(System.Nullable{DotNetOpenAuth.OpenId.Extensions.SimpleRegistration.Gender})">
+            <summary>
+            Gets integer representation of Gender object.
+            </summary>
+            <param name="gender">Gender object</param>
+            <returns>1 - Male, 2 - Female, null - if not set </returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.CMSOpenIDHelper.GetRequestValue(System.String)">
+            <summary>
+            Returns DemandLevel of given parameter.
+            </summary>
+            <param name="requestLevel">Name of requested level</param>
+            <returns>Returns DemandLevel</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityAttributeValueConverterFactory">
+            <summary>
+            Creates entity attribute value converters corresponding to entity attribute models.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueConverterFactory.CreateConverter(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Creates an entity attribute value converter that corresponds to the specified entity attribute model.
+            </summary>
+            <param name="attributeModel">The entity attribute model.</param>
+            <returns>An entity attribute value converter that corresponds to the specified entity attribute model, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.IEntityAttributeValueConverterFactory">
+            <summary>
+            Creates entity attribute value converters corresponding to entity attribute models.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IEntityAttributeValueConverterFactory.CreateConverter(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Creates an entity attribute value converter that corresponds to the specified entity attribute model.
+            </summary>
+            <param name="attributeModel">The entity attribute model.</param>
+            <returns>An entity attribute value converter that corresponds to the specified entity attribute model, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityAttributeValueConverterBase">
+            <summary>
+            Converts values of entity attributes to values compatible with form fields.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityAttributeValueConverterBase.mAttributeModel">
+            <summary>
+            The model of an entity attribute.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueConverterBase.#ctor(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Initializes a new instance of the EntityAttributeValueConverterBase.
+            </summary>
+            <param name="attributeModel">The model of an entity attribute.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueConverterBase.GetFormFieldValue(CMS.FormEngine.FormFieldInfo,System.Object,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter)">
+            <summary>
+            Computes a value compatible with the specified form field, and returns it.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <param name="entity">The Facebook API entity</param>
+            <param name="attributeValueFormatter">The object that provides formatting of entity attribute values.</param>
+            <returns>A value compatible with the specified form field, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueConverterBase.IsCompatibleWithFormField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Determines whether this converter is compatible with the specified form field.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <returns>True, if this mapping is compatible with the specified form field; otherwise, false.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueConverterBase.GetValue``1(System.Object)">
+            <summary>
+            Gets the attribute value of the specified entity regardless of value nullability, and returns it.
+            </summary>
+            <typeparam name="T">The type of entity attribute value.</typeparam>
+            <param name="entity">The entity to get the value from.</param>
+            <returns>The attribute value of the specified entity regardless of value nullability.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityBooleanAttributeValueConverter">
+            <summary>
+            Converts boolean values of entity attributes to values compatible with form fields.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityBooleanAttributeValueConverter.#ctor(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Initializes a new instance of the EntityBooleanAttributeValueConverterBase.
+            </summary>
+            <param name="attributeModel">The model of an entity attribute.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityBooleanAttributeValueConverter.GetFormFieldValue(CMS.FormEngine.FormFieldInfo,System.Object,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter)">
+            <summary>
+            Computes a value compatible with the specified form field, and returns it.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <param name="entity">The Facebook API entity</param>
+            <param name="attributeValueFormatter">The object that provides formatting of entity attribute values.</param>
+            <returns>A value compatible with the specified form field, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityBooleanAttributeValueConverter.IsCompatibleWithFormField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Determines whether this converter is compatible with the specified form field.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <returns>True, if this mapping is compatible with the specified form field; otherwise, false.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityCultureAttributeValueConverter">
+            <summary>
+            Converts locale values of entity attributes to values compatible with form fields.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityCultureAttributeValueConverter.#ctor(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Initializes a new instance of the EntityCultureAttributeValueConverterBase.
+            </summary>
+            <param name="attributeModel">The model of an entity attribute.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityCultureAttributeValueConverter.GetFormFieldValue(CMS.FormEngine.FormFieldInfo,System.Object,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter)">
+            <summary>
+            Computes a value compatible with the specified form field, and returns it.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <param name="entity">The Facebook API entity</param>
+            <param name="attributeValueFormatter">The object that provides formatting of entity attribute values.</param>
+            <returns>A value compatible with the specified form field, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityCultureAttributeValueConverter.IsCompatibleWithFormField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Determines whether this converter is compatible with the specified form field.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <returns>True, if this mapping is compatible with the specified form field; otherwise, false.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityDateTimeAttributeValueConverter">
+            <summary>
+            Converts date and time values of entity attributes to values compatible with form fields.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityDateTimeAttributeValueConverter.#ctor(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Initializes a new instance of the EntityDateTimeAttributeValueConverterBase.
+            </summary>
+            <param name="attributeModel">The model of an entity attribute.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityDateTimeAttributeValueConverter.GetFormFieldValue(CMS.FormEngine.FormFieldInfo,System.Object,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter)">
+            <summary>
+            Computes a value compatible with the specified form field, and returns it.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <param name="entity">The Facebook API entity</param>
+            <param name="attributeValueFormatter">The object that provides formatting of entity attribute values.</param>
+            <returns>A value compatible with the specified form field, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityDateTimeAttributeValueConverter.IsCompatibleWithFormField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Determines whether this converter is compatible with the specified form field.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <returns>True, if this mapping is compatible with the specified form field; otherwise, false.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityGenderAttributeValueConverter">
+            <summary>
+            Converts gender values of entity attributes to values compatible with form fields.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityGenderAttributeValueConverter.#ctor(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Initializes a new instance of the EntityGenderAttributeValueConverterBase.
+            </summary>
+            <param name="attributeModel">The model of an entity attribute.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityGenderAttributeValueConverter.GetFormFieldValue(CMS.FormEngine.FormFieldInfo,System.Object,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter)">
+            <summary>
+            Computes a value compatible with the specified form field, and returns it.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <param name="entity">The Facebook API entity</param>
+            <param name="attributeValueFormatter">The object that provides formatting of entity attribute values.</param>
+            <returns>A value compatible with the specified form field, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityGenderAttributeValueConverter.IsCompatibleWithFormField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Determines whether this converter is compatible with the specified form field.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <returns>True, if this mapping is compatible with the specified form field; otherwise, false.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityIntegerAttributeValueConverter">
+            <summary>
+            Converts integer values of entity attributes to values compatible with form fields.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityIntegerAttributeValueConverter.#ctor(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Initializes a new instance of the EntityBooleanAttributeValueConverterBase.
+            </summary>
+            <param name="attributeModel">The model of an entity attribute.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityIntegerAttributeValueConverter.GetFormFieldValue(CMS.FormEngine.FormFieldInfo,System.Object,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter)">
+            <summary>
+            Computes a value compatible with the specified form field, and returns it.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <param name="entity">The Facebook API entity</param>
+            <param name="attributeValueFormatter">The object that provides formatting of entity attribute values.</param>
+            <returns>A value compatible with the specified form field, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityIntegerAttributeValueConverter.IsCompatibleWithFormField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Determines whether this converter is compatible with the specified form field.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <returns>True, if this mapping is compatible with the specified form field; otherwise, false.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityTextAttributeValueConverter">
+            <summary>
+            Converts string values of entity attributes to values compatible with form fields.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityTextAttributeValueConverter.#ctor(CMS.ExternalAuthentication.Facebook.EntityAttributeModel)">
+            <summary>
+            Initializes a new instance of the EntityTextAttributeValueConverterBase.
+            </summary>
+            <param name="attributeModel">The model of an entity attribute.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityTextAttributeValueConverter.GetFormFieldValue(CMS.FormEngine.FormFieldInfo,System.Object,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter)">
+            <summary>
+            Computes a value compatible with the specified form field, and returns it.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <param name="entity">The Facebook API entity</param>
+            <param name="attributeValueFormatter">The object that provides formatting of entity attribute values.</param>
+            <returns>A value compatible with the specified form field, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityTextAttributeValueConverter.IsCompatibleWithFormField(CMS.FormEngine.FormFieldInfo)">
+            <summary>
+            Determines whether this converter is compatible with the specified form field.
+            </summary>
+            <param name="fieldInfo">The target of value conversion.</param>
+            <returns>True, if this mapping is compatible with the specified form field; otherwise, false.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityAttributeValueFormatter">
+            <summary>
+            Provides culture-sensitive formatting for attribute values of Facebook API entities.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueFormatter.Format(System.Boolean)">
+            <summary>
+            Formats a Boolean value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueFormatter.Format(System.Int64)">
+            <summary>
+            Formats an Int64 value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueFormatter.Format(System.Decimal)">
+            <summary>
+            Formats a Decimal value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueFormatter.Format(System.DateTime)">
+            <summary>
+            Formats a DateTime value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeValueFormatter.Format(CMS.Membership.UserGenderEnum)">
+            <summary>
+            Formats a UserGenderEnum value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter">
+            <summary>
+            Provides formatting for attribute values of Facebook API entities.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter.Format(System.Boolean)">
+            <summary>
+            Formats a Boolean value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter.Format(System.Int64)">
+            <summary>
+            Formats an Int64 value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter.Format(System.Decimal)">
+            <summary>
+            Formats a Decimal value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter.Format(System.DateTime)">
+            <summary>
+            Formats a DateTime value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter.Format(CMS.Membership.UserGenderEnum)">
+            <summary>
+            Formats a UserGenderEnum value, and returns it.
+            </summary>
+            <param name="value">A value to format.</param>
+            <returns>A string representation of the specified value.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityMapper`2">
+            <summary>
+            Provides mapping of Facebook API entities to CMS objects.
+            </summary>
+            <typeparam name="TEntity">The type of Facebook API entity.</typeparam>
+            <typeparam name="TInfo">The type of CMS object.</typeparam>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapper`2.mEntityModel">
+            <summary>
+            The model of Facebook API entity.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapper`2.mFormInfoProvider">
+            <summary>
+            The object that provides form info objects suitable for mapping.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapper`2.mAttributeValueConverterFactory">
+            <summary>
+            The object that creates entity attribute value converters.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapper`2.mAttributeValueFormatter">
+            <summary>
+            The objects that provides formatting of entity attribute values.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapper`2.mFormInfoCache">
+            <summary>
+            A collection of form info objects with object type names as keys.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapper`2.#ctor(CMS.ExternalAuthentication.Facebook.EntityModel,CMS.ExternalAuthentication.Facebook.IFormInfoProvider,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueConverterFactory,CMS.ExternalAuthentication.Facebook.IEntityAttributeValueFormatter)">
+            <summary>
+            Initializes a new instance of the EntityMapper class.
+            </summary>
+            <param name="entityModel">The model of Facebook API entity.</param>
+            <param name="formInfoProvider">The object that provides form info objects suitable for mapping.</param>
+            <param name="attributeValueConverterFactory">The object that creates entity attribute value converters.</param>
+            <param name="attributeValueFormatter">The objects that provides formatting of entity attribute values.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapper`2.Map(`0,`1,CMS.ExternalAuthentication.Facebook.EntityMapping)">
+            <summary>
+            Updates CMS object with data from Facebook API entity.
+            </summary>
+            <param name="entity">The Facebook API entity.</param>
+            <param name="info">The CMS object.</param>
+            <param name="mapping">The mapping between a Facebook API entity and a CMS object.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapper`2.CreateEntityMappingTask(CMS.ExternalAuthentication.Facebook.EntityMappingItem,CMS.DataEngine.BaseInfo)">
+            <summary>
+            Creates a task that contains information required for mapping, and returns it.
+            </summary>
+            <param name="item">The mapping item.</param>
+            <param name="info">The CMS object.</param>
+            <returns>A task that contains information required for mapping, if found; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapper`2.GetFormInfo(CMS.DataEngine.BaseInfo)">
+            <summary>
+            Retrieves an instance of form info suitable for mapping, and returns it.
+            </summary>
+            <param name="info">The CMS object to retrieve form info for.</param>
+            <returns>An instance of form info suitable for mapping, if found; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapper`2.SetValue(CMS.ExternalAuthentication.Facebook.EntityMapper{`0,`1}.EntityMappingTask,System.Object)">
+            <summary>
+            Sets the CMS object value.
+            </summary>
+            <param name="task">A task that contains information required for mapping.</param>
+            <param name="value">A CMS object value.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapper`2.IsEmptyValue(System.Object)">
+            <summary>
+            Indicates whether the given value is null or empty.
+            </summary>
+            <param name="value">A value to test.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityMapper`2.EntityMappingTask">
+            <summary>
+            Represents information required for mapping between a single Facebook API entity attribute and CMS object field.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapper`2.EntityMappingTask.FieldInfo">
+            <summary>
+            The CMS object field info.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapper`2.EntityMappingTask.Info">
+            <summary>
+            The CMS object.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapper`2.EntityMappingTask.AttributeModel">
+            <summary>
+            The Facebook API entity attribute model.
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.IEntityMapper`2">
+            <summary>
+            Provides mapping of Facebook API entities to CMS objects.
+            </summary>
+            <typeparam name="TEntity">The type of Facebook API entity.</typeparam>
+            <typeparam name="TInfo">The type of CMS object.</typeparam>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IEntityMapper`2.Map(`0,`1,CMS.ExternalAuthentication.Facebook.EntityMapping)">
+            <summary>
+            Updates CMS object with data from Facebook API entity.
+            </summary>
+            <param name="entity">The Facebook API entity.</param>
+            <param name="info">The CMS object.</param>
+            <param name="mapping">The mapping between a Facebook API entity and a CMS object.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityMapping">
+            <summary>
+            Represents a mapping between a CMS object and a Facebook API entity.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMapping.mItems">
+            <summary>
+            The dictionary that holds pairs of a form field name and related entity mapping item.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityMapping.Items">
+            <summary>
+            Gets the array of entity mapping items.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityMapping.HasItems">
+            <summary>
+            Gets a value that indicates whether this mapping contains items.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapping.#ctor">
+            <summary>
+            Initializes a new instance of the EntityMapping class.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapping.#ctor(System.Collections.Generic.IEnumerable{CMS.ExternalAuthentication.Facebook.EntityMappingItem})">
+            <summary>
+            Initializes a new instance of the EntityMapping class with the collection of entity mapping items.
+            </summary>
+            <param name="source">The collection of entity mapping items.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapping.Add(CMS.ExternalAuthentication.Facebook.EntityAttributeModel,CMS.FormEngine.FormFieldInfo,System.String)">
+            <summary>
+            Adds the specified entity mapping item to this mapping.
+            </summary>
+            <param name="attributeModel">The entity attribute name.</param>
+            <param name="fieldInfo">The form field name.</param>
+            <param name="scope">The form field scope.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapping.GetFromScope(System.String)">
+            <summary>
+            Creates a new entity mapping for the specified scope, and returns it.
+            </summary>
+            <param name="scope">The form field scope.</param>
+            <returns>A new entity mapping for the specified scope.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMapping.GetFacebookPermissionScopeNames(CMS.ExternalAuthentication.Facebook.EntityModel)">
+            <summary>
+            Retrieves a collection of Facebook permission scope names required to obtain required values of Facebook API object, and returns it.
+            </summary>
+            <param name="model">The model of the Facebook API object.</param>
+            <returns>A collection of Facebook permission scope names required to obtain required values of Facebook API object.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityMappingItem">
+            <summary>
+            Represents an item of an entity mapping.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMappingItem.mAttributeName">
+            <summary>
+            The name of the entity attribute that is the target of this mapping item.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityMappingItem.mFieldName">
+            <summary>
+            The name of the form field that is the source of this mapping item.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityMappingItem.AttributeName">
+            <summary>
+            Gets the name of the entity attribute that is the target of this mapping item.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityMappingItem.FieldName">
+            <summary>
+            Gets the name of the form field that is the source of this mapping item.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMappingItem.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the EntityMappingItem class with the specified entity attribute and form field name.
+            </summary>
+            <param name="attributeName">The name of the entity attribute of this mapping item.</param>
+            <param name="fieldName">The name of the form field of this mapping item.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityMappingSerializer">
+            <summary>
+            Provides serialization and deserialization between an entity mapping and its string representation.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMappingSerializer.SerializeEntityMapping(CMS.ExternalAuthentication.Facebook.EntityMapping)">
+            <summary>
+            Serializes the specified entity mapping into a string.
+            </summary>
+            <param name="mapping">The entity mapping to serialize.</param>
+            <returns>The string that contains the specified entity mapping.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityMappingSerializer.UnserializeEntityMapping(System.String)">
+            <summary>
+            Parses the specified string and returns the deserialized entity mapping.
+            </summary>
+            <param name="content">The string that contains an entity mapping.</param>
+            <returns>The deserialized entity mapping.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityModelProvider">
+            <summary>
+            Provides models of Facebook API entities.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityModelProvider.GetEntityModel``1">
+            <summary>
+            Creates a model of the specified Facebook API entity, and returns it.
+            </summary>
+            <typeparam name="T">A type of Facebook API entity.</typeparam>
+            <returns>A model of the specified Facebook API entity.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityAttributeModel">
+            <summary>
+            Represents a model of a Facebook API entity attribute.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.mPropertyInfo">
+            <summary>
+            The corresponding property info.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.mDisplayName">
+            <summary>
+            The display name.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.mDescription">
+            <summary>
+            The description.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.mFacebookPermissionScopeName">
+            <summary>
+            The name of a permission scope required by external application to obtain a value of this attribute.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.mAttributeValueConverterType">
+            <summary>
+            The type of the required entity attribute value converter.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.Name">
+            <summary>
+            Gets the attribute name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.DisplayName">
+            <summary>
+            Gets the attribute display name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.Description">
+            <summary>
+            Gets the attribute description.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.FacebookPermissionScopeName">
+            <summary>
+            Gets the name of a permission scope required by external application to obtain a value of this attribute.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.AttributeValueConverterType">
+            <summary>
+            Gets the type of the entity attribute value converter.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.PropertyInfo">
+            <summary>
+            Gets the corresponding property info.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityAttributeModel.#ctor(System.Reflection.PropertyInfo)">
+            <summary>
+            Initializes a new instance of the EntityAttributeInfo class.
+            </summary>
+            <param name="propertyInfo">The corresponding entity property info.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.EntityModel">
+            <summary>
+            Represents a model of a Facebook API entity.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.EntityModel.mItems">
+            <summary>
+            The dictionary that holds pairs of entity attribute name and the corresponding attribute model.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.EntityModel.Items">
+            <summary>
+            Gets the array of attribute models.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityModel.#ctor">
+            <summary>
+            Initializes a new instance of the EntityModel class.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityModel.#ctor(System.Collections.Generic.IEnumerable{CMS.ExternalAuthentication.Facebook.EntityAttributeModel})">
+            <summary>
+            Initializes a new instance of the EntityModel class with the collection of attribute models.
+            </summary>
+            <param name="source">The collection of attribute models.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.EntityModel.GetAttributeModel(System.String)">
+            <summary>
+            Searches for an attribute model with the specified name, and returns it.
+            </summary>
+            <param name="name">The attribute name.</param>
+            <returns>The attribute model with the specified name, if found; otherwise, null.</returns>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookAttribute.ResponsePropertyName">
+            <summary>
+            Gets or sets name of Facebook response's property that has data for property with this attribute.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookAttribute.PermissionScopeName">
+            <summary>
+            Gets or sets name of the Facebook permission scope that is required for getting this property in the response.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookAttribute.ValueConverterType">
+            <summary>
+            Gets or sets the type of a value converter.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookAttribute.#ctor(System.String)">
+            <summary>
+            Creates attribute specifying which Facebook response property has data for property with this attribute.
+            </summary>
+            <param name="responsePropertyName">Name of Facebook response's property that has data for property with this attribute.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper">
+            <summary>
+            Provides helper methods for mapping between Facebook API entities and CMS objects.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.mUserProfileMapper">
+            <summary>
+            Stores the instance of the Facebook user profile mapper for caching purposes.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.GetUserProfileMapping">
+            <summary>
+            Retrieves the current mapping between Facebook user profile and CMS user, and returns it.
+            </summary>
+            <returns>The current mapping between Facebook user profile and CMS user.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.GetUserProfileMappingTrigger(System.String)">
+            <summary>
+            Retrieves the current condition when the Facebook user profile mapping occurs, and returns it.
+            </summary>
+            <param name="siteName">The site name.</param>
+            <returns>The current condition when the Facebook user profile mapping occurs.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.GetUserProfileModel">
+            <summary>
+            Retrieves a model of the Facebook user profile, and returns it.
+            </summary>
+            <returns>A model of the Facebook user profile.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.GetUserProfileMapper">
+            <summary>
+            Retrieves an object that provides mapping between Facebook user profiles to CMS users, and returns it.
+            </summary>
+            <returns>An object that provides mapping between Facebook user profiles to CMS users.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.MapUserProfile(CMS.ExternalAuthentication.Facebook.FacebookUserProfile,CMS.Membership.UserInfo)">
+            <summary>
+            Maps the values of Facebook user profile attributes to the values of CMS user fields depending on the current mapping.
+            </summary>
+            <param name="userProfile">The Facebook user profile.</param>
+            <param name="user">The CMS user.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.GetUserProfileMappingInternal">
+            <summary>
+            Retrieves the current mapping between Facebook user profile and CMS user, and returns it.
+            </summary>
+            <returns>The current mapping between Facebook user profile and CMS user.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.GetUserProfileMappingTriggerInternal(System.String)">
+            <summary>
+            Retrieves the current condition when the Facebook user profile mapping occurs, and returns it.
+            </summary>
+            <param name="siteName">The site name.</param>
+            <returns>The current condition when the Facebook user profile mapping occurs.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.GetUserProfileModelInternal">
+            <summary>
+            Retrieves a model of the Facebook user profile, and returns it.
+            </summary>
+            <returns>A model of the Facebook user profile.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.GetUserProfileMapperInternal">
+            <summary>
+            Retrieves an object that provides mapping between Facebook user profiles to CMS users, and returns it.
+            </summary>
+            <returns>An object that provides mapping between Facebook user profiles to CMS users.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookMappingHelper.MapUserProfileInternal(CMS.ExternalAuthentication.Facebook.FacebookUserProfile,CMS.Membership.UserInfo)">
+            <summary>
+            Maps the values of Facebook user profile attributes to the values of CMS user fields depending on the current mapping.
+            </summary>
+            <param name="userProfile">The Facebook user profile.</param>
+            <param name="user">The CMS user.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.FacebookUserProfile">
+            <summary>
+            Represents partial information from Facebook user profile.
+            </summary>
+            <remarks>
+            This class is intended for updating users with information from their Facebook profile.
+            As a result it contains only a a limited number of properties available.
+            </remarks>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.FacebookName">
+            <summary>
+            Gets or sets user's full name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.FirstName">
+            <summary>
+            Gets or sets user's first name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.MiddleName">
+            <summary>
+            Gets or sets user's middle name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.LastName">
+            <summary>
+            Gets or sets user's last name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.Gender">
+            <summary>
+            Gets or sets user's gender.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.Birthday">
+            <summary>
+            Gets or sets user's birthday.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.Email">
+            <summary>
+            Gets or sets user's e-mail address.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.City">
+            <summary>
+            Gets or sets user's current city.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.Website">
+            <summary>
+            Gets or sets user's website.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.IsVerified">
+            <summary>
+            Indicates if user's Facebook account is verified.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.Locale">
+            <summary>
+            Gets or sets user's locale containing the ISO Language Code and ISO Country Code.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.LinkToFacebookProfile">
+            <summary>
+            Gets or sets the link to the user's Facebook profile page.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.Facebook.FacebookUserProfile.LastProfileChange">
+            <summary>
+            Gets or sets the timestamp of the last profile cahnge.
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.FacebookUserProfileMappingTriggerEnum">
+            <summary>
+            Specifies when the mapping of Facebook user profile occurs.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.FacebookUserProfileMappingTriggerEnum.None">
+            <summary>
+            Never.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.FacebookUserProfileMappingTriggerEnum.Registration">
+            <summary>
+            Only when the user signs in.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.FacebookUserProfileMappingTriggerEnum.Login">
+            <summary>
+            Every time the user logs in.
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.FacebookUserProvider">
+            <summary>
+            Provider allows you to get information about Facebook user.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookUserProvider.GetFacebookUser(System.String)">
+            <summary>
+            Gets public information about Facebook user. 
+            </summary>
+            <param name="facebookUserId">Facebook user's ID.</param>
+            <returns>Facebook user data class</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookUserProvider.GetFacebookUser(System.String,System.String,System.String)">
+            <summary>
+            Gets information about Facebook user. Access token define what information can be retrieved.
+            </summary>
+            <param name="facebookUserId">Facebook user's ID.</param>
+            <param name="accessToken">User's access token.</param>
+            <param name="appSecret">Facebook application secret key for improving security.</param>
+            <returns>Facebook user data class.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FacebookUserProvider.IsType``1(System.Reflection.PropertyInfo)">
+            <summary>
+            Indicates whether the given property is type T or nullable type T.
+            </summary>
+            <typeparam name="T">Type to test.</typeparam>
+            <param name="propertyInfo">Property to test.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.FormInfoProvider">
+            <summary>
+            Provides form info objects suitable for mapping.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.FormInfoProvider.mUserFieldCaptions">
+            <summary>
+            A dictionary of user field captions with field names as keys.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.FormInfoProvider.mUserSystemFieldNames">
+            <summary>
+            A set of user system field names suitable for mapping.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.FormInfoProvider.mUserSettingsFieldCaptions">
+            <summary>
+            A dictionary of user settings field captions with field names as keys.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.Facebook.FormInfoProvider.mUserSettingsSystemFieldNames">
+            <summary>
+            A set of user settings system field names suitable for mapping.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FormInfoProvider.GetFormInfo(CMS.DataEngine.BaseInfo)">
+            <summary>
+            Creates a new instance of the form info suitable for mapping, and returns it.
+            </summary>
+            <param name="info">The CMS object to create the form info for.</param>
+            <returns>A new instance of the form info suitable for mapping, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FormInfoProvider.GetFormInfo(CMS.DataEngine.ObjectTypeInfo)">
+            <summary>
+            Creates a new instance of the form info suitable for mapping, and returns it.
+            </summary>
+            <param name="typeInfo">The CMS object type info to create the form info for.</param>
+            <returns>A new instance of the form info suitable for mapping, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.FormInfoProvider.GetFormInfoInternal(CMS.DataEngine.ObjectTypeInfo,System.Collections.Generic.HashSet{System.String},System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Creates a new instance of the form info suitable for mapping, and returns it.
+            </summary>
+            <param name="typeInfo">The type info to retrieve the original form info from.</param>
+            <param name="systemFieldNames">A set of system field names suitable for mapping.</param>
+            <param name="fieldCaptions">A dictionary of field captions with field names as keys.</param>
+            <returns>A new instance of the form info suitable for mapping.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.Facebook.IFormInfoProvider">
+            <summary>
+            Provides form info objects suitable for mapping.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IFormInfoProvider.GetFormInfo(CMS.DataEngine.BaseInfo)">
+            <summary>
+            Creates a new instance of the form info suitable for mapping, and returns it.
+            </summary>
+            <param name="info">The CMS object to create the form info for.</param>
+            <returns>A new instance of the form info suitable for mapping, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.Facebook.IFormInfoProvider.GetFormInfo(CMS.DataEngine.ObjectTypeInfo)">
+            <summary>
+            Creates a new instance of the form info suitable for mapping, and returns it.
+            </summary>
+            <param name="typeInfo">The CMS object type info to create the form info for.</param>
+            <returns>A new instance of the form info suitable for mapping, if applicable; otherwise, null.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.FacebookConnectHelper">
+            <summary>
+            Helper class providing methods for correct Facebook Connect initialization.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.FacebookConnectHelper.GetFacebookEnabled(System.String)">
+            <summary>
+            Indicates if Facebook Connect is enabled for specified site.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.FacebookConnectHelper.GetFacebookApiKey(System.String)">
+            <summary>
+            Returns api key.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.FacebookConnectHelper.GetFacebookAppSecretKey(System.String)">
+            <summary>
+            Returns application secret.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.FacebookConnectHelper.FacebookIsAvailable(System.String)">
+            <summary>
+            Indicates if Facebook Connect is available/enabled on specified site.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.FacebookConnectHelper.ValidateFBAccessToken(System.String,System.String,System.String@)">
+            <summary>
+            Validate FB access token against https://graph.facebook.com
+            </summary>
+            <param name="accesstoken">Access token to validate</param>
+            <param name="appSecret">App secret of the current site for providing better security.</param>
+            <param name="facebookUserId">Returns Facebook user ID</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.LinkedIn.LinkedInAccessToken">
+            <summary>
+            Represents information about a LinkedIn user access token and its expiration date.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInAccessToken.AccessToken">
+            <summary>
+            Access token.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInAccessToken.Expiration">
+            <summary>
+            Date and time when the access token expires (UTC).
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedIn.LinkedInAccessToken.#ctor(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Initializes a new instance of the LinkedInAccessToken structure.
+            </summary>
+            <param name="accessToken">Access token.</param>
+            <param name="expiration">Date and time when the access token expires.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.LinkedIn.LinkedInData">
+            <summary>
+            Represents data required to get LinkedIn access token.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedIn.LinkedInData.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.ExternalAuthentication.LinkedIn.LinkedInData"/>.
+            </summary>
+            <remarks>
+            Values <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.EditorId"/>, <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.ApiKey"/> and <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.ApiSecret"/> are retrieved from query string.
+            </remarks>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedIn.LinkedInData.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.ExternalAuthentication.LinkedIn.LinkedInData"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.EditorId">
+            <summary>
+            Gets the editor id in order to set its value.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.ApiKey">
+            <summary>
+            Gets LinkedIn account api key.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.ApiSecret">
+            <summary>
+            Gets LinkedIn account api secret.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.Code">
+            <summary>
+            Gets LinkedIn code required to generate access token.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.Error">
+            <summary>
+            Gets the error message when access token was not retrieved.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.IsEmpty">
+            <summary>
+            Returns true when all of <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.ApiKey"/>, <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.ApiSecret"/>, <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.Code"/> are empty.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.UserDeniedAccess">
+            <summary>
+            Returns true when user does not allow access using LinkedIn page.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.SettingsMissing">
+            <summary>
+            Returns true when one of <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.ApiKey"/> and <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.ApiSecret"/> is empty or if <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.Code"/> or <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.Error"/> are empty.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInData.AdditionalQueryParameters">
+            <summary>
+            Contains additional query parameters used when opening authorization page.
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.LinkedIn.ILinkedInData">
+            <summary>
+            Represents data required to get LinkedIn access token.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.EditorId">
+            <summary>
+            Gets the editor id in order to set its value.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.ApiKey">
+            <summary>
+            Gets LinkedIn account api key.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.ApiSecret">
+            <summary>
+            Gets LinkedIn account api secret.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.Code">
+            <summary>
+            Gets LinkedIn code required to generate access token.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.Error">
+            <summary>
+            Gets the error message when access token was not retrieved.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.IsEmpty">
+            <summary>
+            Returns true when all of <see cref="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.ApiKey"/>, <see cref="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.ApiSecret"/>, <see cref="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.Code"/> are empty.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.UserDeniedAccess">
+            <summary>
+            Returns true when user does not allow access using LinkedIn page.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.SettingsMissing">
+            <summary>
+            Returns true when one of <see cref="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.ApiKey"/> and <see cref="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.ApiSecret"/> is empty or if <see cref="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.Code"/> or <see cref="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.Error"/> are empty.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.ILinkedInData.AdditionalQueryParameters">
+            <summary>
+            Contains additional query parameters used when opening authorization page.
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.LinkedIn.LinkedInAuthorization">
+            <summary>
+            Provides authorization methods for LinkedIn API.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.LinkedIn.LinkedInAuthorization.AUTHORIZATION_ENDPOINT">
+            <summary>
+            The authorization endpoint.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.LinkedIn.LinkedInAuthorization.TOKEN_ENDPOINT">
+            <summary>
+            The access token endpoint.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedIn.LinkedInAuthorization.#ctor(CMS.ExternalAuthentication.LinkedIn.ILinkedInData)">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.ExternalAuthentication.LinkedIn.LinkedInAuthorization"/>.
+            </summary>
+            <param name="data">Data required for LinkedIn authorization.</param>
+            <throws>
+            <see cref="T:System.ArgumentNullException"/> when data is null.
+            </throws>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedIn.LinkedInAuthorization.Authorize(System.Uri)">
+            <summary>
+            Performs authorization request to LinkedIn API.
+            </summary>
+            <param name="returnUrl">Url used for redirect once the LinkedIn access token request is received.</param>
+            <seealso cref="M:CMS.ExternalAuthentication.LinkedIn.LinkedInAuthorization.OpenAuthorizationPage(System.Uri)"/>
+            <returns>Instance of <see cref="T:CMS.ExternalAuthentication.LinkedIn.LinkedInAccessToken"/> if request is valid.</returns>
+            <throws>Exception when request in invalid.</throws>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedIn.LinkedInAuthorization.OpenAuthorizationPage(System.Uri)">
+            <summary>
+            Performs redirect to LinkedIn login page.
+            </summary>
+            <param name="returnUrl">Url used for redirect once the LinkedIn login form is submitted.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.LinkedInHelper">
+            <summary>
+            LinkedIn helper class.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.LinkedInHelper.RESPONSE_NOTAUTHENTICATED">
+            <summary>
+            Represents LinkedIn response "NotAuthenticated".
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.LinkedInHelper.RESPONSE_AUTHENTICATED">
+            <summary>
+            Represents LinkedIn response "Authenticated".
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedInHelper.MemberId">
+            <summary>
+            User member id.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedInHelper.FirstName">
+            <summary>
+            User first name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedInHelper.LastName">
+            <summary>
+            User last name.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedInHelper.BirthDate">
+            <summary>
+            User date of birth.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedInHelper.LinkedInResponse">
+            <summary>
+            Gets or sets LinkedIn Response as XmlDocument object.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.SendRequest(CMS.ExternalAuthentication.LinkedIn.ILinkedInData)">
+            <summary>
+            Redirects user to LinkedIn with received authToken.
+            </summary>
+            <param name="data">Linked in related data.</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.CheckStatus(System.Boolean,System.Boolean,System.Boolean,System.String[])">
+            <summary>
+            Checks status of current user. Returns LinkedIn response status.
+            </summary>
+            <param name="requireFirstName">Require first name</param>
+            <param name="requireLastName">Require last name</param>
+            <param name="requireBirthDate">Require birth date</param>
+            <param name="customFields">Array of custom LinkedIn profile field names</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.GetPurifiedUrl">
+            <summary>
+            Returns <see cref="P:CMS.Helpers.RequestContext.CurrentURL"/> with stripped OAuth parameters. 
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.LinkedInIsAvailable(System.String)">
+            <summary>
+            Indicates if LinkedIn is available/enabled on specified site.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.GetLinkedInEnabled(System.String)">
+            <summary>
+            Indicates if LinkedIn is enabled for specified site.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.GetLinkedInApiKey(System.String)">
+            <summary>
+            Returns api key.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.GetLinkedInSecretKey(System.String)">
+            <summary>
+            Returns application secret.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.Initialize(System.Xml.XmlDocument)">
+            <summary>
+            Loads LinkedIn response.
+            </summary>
+            <param name="response">LinkedIn response as XmlDocument object</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.GetXmlResponse(System.IO.Stream)">
+            <summary>
+            Returns LinkedIn response as XmlDocument.
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.LinkedInProvider">
+            <summary>
+            LinkedInProvider class
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.LinkedInProvider.ACCESS_TOKEN_PAGE">
+            <summary>
+            Access token page.
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.LinkedInProvider.SESSION_KEY">
+            <summary>
+            Key for storing data in session.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInProvider.GetLinkedInData">
+            <summary>
+            Returns instance of <see cref="T:CMS.ExternalAuthentication.LinkedIn.ILinkedInData"/> retrieved from session or created from current request.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInProvider.Authorize(CMS.ExternalAuthentication.LinkedIn.ILinkedInData,System.Uri,CMS.ExternalAuthentication.LinkedIn.LinkedInAccessToken@)">
+            <summary>
+            Attempts to authorize client application.
+            </summary>
+            <param name="data">Data required for LinkedIn authorization.</param>
+            <param name="returnUrl">Url used for redirect once the LinkedIn access token request is received.</param>
+            <param name="token">If <c>true</c> is returned instance of <see cref="T:CMS.ExternalAuthentication.LinkedIn.LinkedInAccessToken"/> is available.</param>
+            <returns>True when given data are valid, false otherwise</returns>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInProvider.OpenAuthorizationPage(CMS.ExternalAuthentication.LinkedIn.ILinkedInData,System.Uri)">
+            <summary>
+            Performs redirect to LinkedIn login page.
+            </summary>
+            <param name="data">Data required for redirect.</param>
+            <param name="returnUrl">Url used for redirect once the LinkedIn login form is submitted.</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.ExternalAuthenticationModule">
+            <summary>
+            Represents the External authentication module.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.ExternalAuthenticationModule.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.ExternalAuthenticationModule.OnInit">
+            <summary>
+            Module init
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.ExternalAuthenticationModule.SignOut_Before(System.Object,CMS.Membership.SignOutEventArgs)">
+            <summary>
+            SignOut event handler
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.JsonWebTokenClaims">
+            <summary>
+            Class for user information stored in token in JSON format
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.JsonWebTokenClaims.expUnixTime">
+            <summary>
+            Expiration time. The unit is given in seconds since midnight of 1/1/1970 in UTC.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.JsonWebTokenClaims.Expiration">
+            <summary>
+            Expiration time - DateTime object.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.JsonWebTokenClaims.Issuer">
+            <summary>
+            Identifies the principal who issued the token.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.JsonWebTokenClaims.Audience">
+            <summary>
+            Domain name for the application.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.JsonWebTokenClaims.UserId">
+            <summary>
+            An identifier for the user which is unique to the application. 
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.JsonWebTokenClaims.Version">
+            <summary>
+            Version identifier for the token.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.JsonWebTokenClaims.ClientIdentifier">
+            <summary>
+            The Windows client identifier of the application, if there is one.
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.OAuth2AccessTokenData">
+            <summary>
+            Captures the result of an access token request
+            (see RFC 6749 section 5 "Issuing an access token" for more info).
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.OAuth2AccessTokenData.AccessToken">
+            <summary>
+            The access token issued by the authorization server.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.OAuth2AccessTokenData.TokenType">
+            <summary>
+            The type of the access token.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.OAuth2AccessTokenData.Expires">
+            <summary>
+            The duration in seconds of the access token lifetime.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.OAuth2AccessTokenData.State">
+            <summary>
+            The refresh token, which can be used to obtain new access tokens.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.OAuth2AccessTokenData.Scope">
+            <summary>
+            The scope of the access request expressed as a list of space-delimited, case sensitive strings.
+            </summary>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.WindowsLiveLogin">
+            <summary>
+            Class for windows live login authentication.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.WindowsLiveLogin.Secret">
+            <summary>
+            Application secret
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.WindowsLiveLogin.UseServerSideAuthorization">
+            <summary>
+            Return true if user uses server side authorization scenario
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.WindowsLiveLogin.AppID">
+            <summary>
+            Application ID
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.WindowsLiveLogin.SiteName">
+            <summary>
+            Current site name
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.#ctor(System.String)">
+            <summary>
+            Object constructor
+            </summary>
+            <param name="siteName">Current site name</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.#ctor(System.String,System.String)">
+            <summary>
+            Object constructor
+            </summary>
+            <param name="appID">Application Id (stored in settings)</param>
+            <param name="secret">Application secret (stored in settings)</param>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.WindowsLiveLogin.User">
+            <summary>
+            Holds the user information after a successful sign-in.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.WindowsLiveLogin.User.Timestamp">
+            <summary>
+             Returns the timestamp as obtained from the SSO token.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.WindowsLiveLogin.User.Id">
+            <summary>
+            Returns the pairwise unique ID for the user.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.WindowsLiveLogin.User.Context">
+            <summary>
+            Returns the application context that was originally passed
+            to the sign-in request, if any.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.WindowsLiveLogin.User.Token">
+            <summary>
+            User token
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.User.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            User constructor.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.User.#ctor(System.DateTime,System.String,System.String,System.String)">
+            <summary>
+            User constructor.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.User.SetId(System.String)">
+            <summary>
+            Sets the pairwise unique ID for the user.
+            </summary>
+            <param name="id">User ID</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.SignOut(CMS.Membership.SignOutEventArgs)">
+            <summary>
+            SignOut handler method
+            </summary>
+            <param name="e">SignOutEventArgs</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.GetLogoutUrl(System.String)">
+            <summary>
+            Returns logout URL.
+            </summary>
+            <param name="redirectUrl">Redirect URL</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.ProcessLogin(System.String,System.String)">
+            <summary>
+            Authorize user
+            </summary>
+            <param name="code">Code representing user</param>
+            <param name="context">Context (url) for return page (that means LiveIDLogin webpart)</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.GetUserAccessToken(System.String)">
+            <summary>
+            Returns access token for user (represented by code)
+            </summary>
+            <param name="code">Code representing user (return after first live id request)</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.GetUserInformation(System.String)">
+            <summary>
+            Returns user information by given token.
+            </summary>
+            <param name="token">Token string</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.ParseUserInfo(System.String)">
+            <summary>
+            Create name-value collection from string with user data
+            </summary>
+            <param name="input">String to be parsed</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.GetLoginUrl">
+            <summary>
+            Returns live ID login URL 
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.ClearCookieAndRedirect(System.String)">
+            <summary>
+            Clear live id cookies and redirect to the logon page.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.ClearLiveCookie">
+            <summary>
+            Clears Live authentication cookie.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.AuthenticateClientToken(System.String,System.String,System.String)">
+            <summary>
+            Authenticate live ID user by authorization token
+            </summary>
+            <param name="token">Authorization token</param>
+            <param name="context">Return URL</param>        
+            <param name="accessToken">Access token - unique token for user, used in server authorization scenario. Store for possible future use</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.GetClaimsFromTokenSegment(System.String)">
+            <summary>
+            Parse token segment stored in JSON format to class
+            </summary>
+            <param name="claimsTokenSegment">Segment of data</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.ValidateSignature(System.String,System.String,System.String)">
+            <summary>
+            Validates the signature added to the end of token
+            </summary>
+            <param name="envelope">Envelope data segment</param>
+            <param name="token">Token (body) data segment</param>
+            <param name="signature">Hash signature</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.Base64UrlDecode(System.String)">
+            <summary>
+            Decode from Base 64
+            </summary>
+            <param name="encodedSegment">Segment to decode</param>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.WindowsLiveLogin.Base64UrlEncode(System.Byte[])">
+            <summary>
+            Encode to Base 64
+            </summary>
+            <param name="arg">Array of bytes to encode</param>
+        </member>
+    </members>
+</doc>

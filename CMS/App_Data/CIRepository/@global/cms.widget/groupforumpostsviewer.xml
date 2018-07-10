@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Community</CodeName>
+    <GUID>01147d5c-3e9b-4522-a32c-60d259992b25</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays the content of posts from the forums that belong under the current community group (or workgroup).]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Group forum posts viewer</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>False</WidgetForEditor>
+  <WidgetForGroup>True</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>3d1576ee-8027-45a0-84e9-086580b46db3</WidgetGUID>
+  <WidgetIconClass>icon-w-group-forum-posts-viewer</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>GroupForumPostsViewer</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="GroupName" guid="e9e06de7-2f70-4b9a-add7-1f5be2f8b4f1" visible="">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)344e781683b4070ac1e23041a4c89def6fa69f2898c66d22e08d6cd950dbd9b7%}]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="TransformationName" guid="f8fe4363-6d38-4399-a6bf-c2df311a2ecc" visible="">
+        <properties>
+          <defaultvalue>Community.Transformations.ForumGroupPostsList</defaultvalue>
+        </properties>
+      </field>
+      <field column="AlternatingItemTransformationName" guid="8b06ae69-2b86-415a-ae68-e7129fe927c6" visible="" />
+      <field column="SeparatorTransformationName" guid="1df021b5-62d3-4b3f-a9ec-87f202611a54" visible="" />
+      <field column="HeaderTransformationName" guid="2705789e-827f-4ec1-b4f0-abcd95e06a9a" visible="" />
+      <field column="FooterTransformationName" guid="0d95edfe-5407-422e-9395-71fac7ddda14" visible="" />
+      <field column="SelectOnlyApproved" guid="3abf2317-282a-454f-a608-963cd07f73de" visible="" />
+      <field column="OrderBy" guid="95ec6f52-dc03-45d5-a8c5-9e7bd40c2b81" visible="">
+        <properties>
+          <defaultvalue>PostTime DESC</defaultvalue>
+        </properties>
+      </field>
+      <field column="SelectTopN" guid="f85b3ffc-cfea-4c55-a16a-b74fc5252ac2">
+        <properties>
+          <defaultvalue>5</defaultvalue>
+        </properties>
+      </field>
+      <field column="SiteName" guid="b48e51bf-c4c9-4f5b-bdfe-2e461d78ceb1" visible="" />
+      <field column="WhereCondition" guid="6774feb8-1758-43ac-8f8e-f1f8628ebb9c" visible="" />
+      <field column="Columns" guid="e91f9443-72bb-4d05-a42c-a75c1e397b95" visibility="none" visible="">
+        <properties>
+          <defaultvalue>
+            <![CDATA[PostIDPath,PostForumID,PostText,PostTime,PostSubject]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="FilterName" guid="8395052e-e199-420c-afdf-b57a5b63e871" visible="" />
+      <field column="HideControlForZeroRows" guid="28deb192-1072-4fff-b63b-27a38326b16a" visibility="none" visible="">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="ZeroRowsText" guid="398c56a5-bc96-495a-af61-38ec9b39f47d" visibility="none" visible="">
+        <properties>
+          <defaultvalue>There are currently no posts.</defaultvalue>
+        </properties>
+      </field>
+      <field column="HidePagerForSinglePage" guid="c0cd0db9-17a5-4d32-a082-f34356b6b15c" visible="" />
+      <field column="PageSize" guid="c1d9e9bd-b4bd-42e4-a2ff-38b933703cb6" />
+      <field column="GroupSize" guid="db7eac41-2dd1-4ac8-94c2-2024adf73a38" />
+      <field column="PagingMode" guid="e5854b82-4163-4749-8d1c-c46c028d09e9" visible="" />
+      <field column="QueryStringKey" guid="aae0416a-7c95-4642-a51c-5913ccd24ac7" visible="" />
+      <field column="DisplayFirstLastAutomatically" guid="6ada545f-3e22-4fce-9e82-d24fb59f6bae" visible="" />
+      <field column="DisplayPreviousNextAutomatically" guid="6e58a6c7-e0f0-4e13-90cf-06812af633ae" visible="" />
+      <field column="Pages" guid="a5122944-baa0-42a3-9600-53adb0eed702" visible="" />
+      <field column="CurrentPage" guid="eb958c26-83ba-45e4-a29b-524f43c0c9af" visible="" />
+      <field column="PageSeparator" guid="ce64af22-5dea-4b96-95c5-bc3443f36e33" visible="" />
+      <field column="FirstPage" guid="f30467a0-330b-4492-b09a-d3ddd6431bb2" visible="" />
+      <field column="LastPage" guid="f6c0db59-c18e-4b5b-a615-565c2998d2fd" visible="" />
+      <field column="PreviousPage" guid="6455482b-2d6f-4f0c-bcfd-961528d2e7a4" visible="" />
+      <field column="NextPage" guid="610bf229-ea70-4e78-8045-11e52ae23fca" visible="" />
+      <field column="PreviousGroup" guid="8efba813-1e45-4873-8aa3-77feec01ecc7" visible="" />
+      <field column="NextGroup" guid="5c70f748-a38c-41bc-9c5e-07666eadfffc" visible="" />
+      <field column="DirectPage" guid="500ce4ea-fee6-4894-9f9a-65d52b5affb6" visible="">
+        <properties>
+          <fielddescription>
+            <![CDATA[Sets the transformation that implements direct page changing. Use a text box or drop-down list control with an ID set to "directPageControl" to register the page change event.]]>
+          </fielddescription>
+        </properties>
+      </field>
+      <field column="PagerLayout" guid="d75245b4-0215-44db-b549-47be0c7e163a" visible="" />
+      <field column="CacheItemName" guid="7c27e06c-1b61-46d1-bcf7-7d4c8ffc3bda" visible="" />
+      <field column="CacheMinutes" guid="d0ed7195-0e73-45d2-ba11-4806e684ac79" visible="" />
+      <field column="CacheDependencies" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" visible="" />
+      <category extra="true" name="WidgetContainer" order="43">
+        <properties>
+          <caption>Widget container</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Container" columnsize="200" columntype="text" extra="true" guid="36420a4e-4e6e-406e-a06f-9a7d606b98da" publicfield="false" visible="true" order="44">
+        <properties>
+          <fieldcaption>Widget container</fieldcaption>
+          <fielddescription>{$documentation.widgetproperties.container$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectcontainer</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ContainerTitle" columnsize="200" columntype="text" extra="true" guid="cd9a0801-5992-44f7-b744-c4790e657be8" publicfield="false" visible="true" order="45">
+        <properties>
+          <defaultvalue>Latest in forums</defaultvalue>
+          <fieldcaption>Widget container title</fieldcaption>
+          <fielddescription>{$documentation.widgetproperties.containertitle$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>encodingtextbox</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ContainerCSSClass" columnsize="200" columntype="text" extra="true" guid="6acf13fe-86a4-4f83-8510-29bf4ba75e39" publicfield="false" order="46">
+        <properties>
+          <fieldcaption>Container CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercssclass$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>unknown</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ContainerCustomContent" columntype="longtext" extra="true" guid="ce82495b-5e42-45aa-bcfa-7ae3072eb31b" publicfield="false" order="47">
+        <properties>
+          <fieldcaption>Container custom content</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>unknown</controlname>
+          <FilterMode>False</FilterMode>
+          <Wrap>True</Wrap>
+        </settings>
+      </field>
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>GroupForumPostsViewer</CodeName>
+    <GUID>8b7c9cdf-1256-4a62-9c4e-b4a7cd5bcd7b</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

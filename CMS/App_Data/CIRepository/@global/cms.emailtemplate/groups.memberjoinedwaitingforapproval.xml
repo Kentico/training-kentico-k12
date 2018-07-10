@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.emailtemplate>
+  <EmailTemplateBcc />
+  <EmailTemplateCc />
+  <EmailTemplateDisplayName>Groups - Member joined waiting for approval</EmailTemplateDisplayName>
+  <EmailTemplateFrom />
+  <EmailTemplateGUID>4c80e736-d3b4-4288-9d67-bf764634a32e</EmailTemplateGUID>
+  <EmailTemplateName>Groups.MemberJoinedWaitingForApproval</EmailTemplateName>
+  <EmailTemplatePlainText>
+<![CDATA[
+Dear {%MemberUser.FirstName|(identity)GlobalAdministrator|(hash)45e7872ebe26cadabb30dcdff08c7bdf03e15f0e1272659edde9816fa58cfc7c%},
+
+you are now waiting for approval to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}'.
+
+
+Best Regards,
+
+The Community Team
+]]>
+  </EmailTemplatePlainText>
+  <EmailTemplateSubject />
+  <EmailTemplateText>
+<![CDATA[
+<html>
+	<head>
+	</head>
+	<body>
+		<p>Dear {%MemberUser.FirstName|(identity)GlobalAdministrator|(hash)45e7872ebe26cadabb30dcdff08c7bdf03e15f0e1272659edde9816fa58cfc7c%},<br />
+		<br />
+		you are now waiting for approval to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}'.</p>
+		<br />
+		<br />
+		Best Regards,<br />
+		<br />
+		The Community Team
+	</body>
+</html>
+]]>
+  </EmailTemplateText>
+  <EmailTemplateType>groupmember</EmailTemplateType>
+</cms.emailtemplate>

@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>ComProducts</CodeName>
+    <GUID>629c7495-0973-4df6-9f21-b0a87686a061</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+<![CDATA[
+Displays products that other customers buy with the chosen product most often. By default, 4 products are displayed at the most.
+For example, if a customer bought product A together with products B and C, some other customer who is viewing the details of product A is being offered also products B and C.
+]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Similar products by sale</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Ecommerce/Products/SimilarProductsBySale.ascx</WebPartFileName>
+  <WebPartGUID>bf197760-82b8-4707-b196-2f19b4033781</WebPartGUID>
+  <WebPartIconClass>icon-w-similar-products-by-sales</WebPartIconClass>
+  <WebPartName>SimilarProductsBySale</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content filter">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Path" columnsize="450" columntype="text" guid="241cab25-72cd-42be-aa8b-57b3019d9bc8" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.path$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectpath</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ClassNames" columnsize="1000" columntype="text" guid="d5da90b0-17dd-49ba-96f6-5513b511fcac" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Page types</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.documenttypes$}</fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>selectclassnames</controlname>
+          <HideInheritedClasses>False</HideInheritedClasses>
+          <ReturnColumnName>ClassName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ShowOnlyCoupled>False</ShowOnlyCoupled>
+        </settings>
+      </field>
+      <field allowempty="true" column="CombineWithDefaultCulture" columnsize="5" columntype="text" guid="362f0553-8725-4496-b581-84d5b2bc3f5c" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Combine with default culture</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.combinewithculture$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>radiobuttonscontrol</controlname>
+          <Options>
+<![CDATA[
+true;Yes
+false;No
+;Use site settings
+]]>
+          </Options>
+          <RepeatDirection>vertical</RepeatDirection>
+        </settings>
+      </field>
+      <field allowempty="true" column="CultureCode" columnsize="20" columntype="text" guid="c9c4a61b-4ea1-44f3-9979-7891335e5a4b" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Culture code</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.culturecode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectculture</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MaxRelativeLevel" columntype="integer" guid="783fa353-6a6e-4792-a47c-de950115762b" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>-1</defaultvalue>
+          <fieldcaption>Maximum nesting level</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.maxnestinglevel$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="a7f73b45-d54c-4b7b-8c28-3f1d345fbc4a" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY expression</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.orderbyforpages$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectOnlyPublished" columntype="boolean" guid="d3a1f19e-f170-44c4-87ea-a355a6aaecd7" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Select only published</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selectpublished$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="1dad953f-1fd7-49f7-8704-27cace93be33" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Select top N products</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects only top N products. If left empty, all items are selected.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="200" columntype="text" guid="6be11cfd-933d-4d68-abcd-dd2491f243ee" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.sitename$}</fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowEmpty>True</AllowEmpty>
+          <AllowGlobal>False</AllowGlobal>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="1ce6f96b-a184-4ad7-bb81-d66f92a13020" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <category name="Layout">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="RepeatColumns" columntype="integer" guid="dd85132f-fe3a-42b2-9526-36762f71f3ca" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <defaultvalue>1</defaultvalue>
+          <fieldcaption>Repeat columns</fieldcaption>
+          <fielddescription>Specifies the number of columns.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="RepeatDirection" columnsize="50" columntype="text" guid="dab9bd0f-0134-4f18-960a-208ee0bd3101" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Repeat direction</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the direction in which the items are displayed if more than one column is used - either vertical or horizontal.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+horizontal;Horizontal
+vertical;Vertical
+]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="RepeatLayout" columnsize="50" columntype="text" guid="1103bd01-6b31-4764-b76b-e95cc05241d8" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <defaultvalue>table</defaultvalue>
+          <fieldcaption>Repeat layout</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the layout of the control - either tables or flow layout (without any predefined structure).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+table;Table
+flow;Flow
+]]>
+          </Options>
+        </settings>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="a8d1df96-a39b-4e56-bcd7-98fdce8e761b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Transformation name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.transformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AlternatingTransformationName" columnsize="250" columntype="text" guid="1baa1d43-8434-4539-9fcf-a3b1ddd4778e" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Alternating transformation</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.alterntransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="a8c139b6-1b7a-4e9f-8364-76f1eae161bc" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="7c499f89-0d87-4601-86fc-03c713ded74a" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CheckPermissions" columntype="boolean" guid="9450001f-1039-4653-b3f0-d0811b230b99" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.checkperm$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="No data behavior">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="HideControlForZeroRows" columntype="boolean" guid="2226ef55-96fc-4f0d-adbf-26824b1919b7" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="200" columntype="text" guid="52e77d44-555b-45a0-a524-91971c0f51ef" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Ecommerce</CodeName>
+    <GUID>684e021b-8b56-4cbf-8fd5-b7a791fd2dbc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

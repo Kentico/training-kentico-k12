@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.metafile>
+  <MetaFileExtension>.png</MetaFileExtension>
+  <MetaFileGroupName>Thumbnail</MetaFileGroupName>
+  <MetaFileGUID>e9672fde-067a-48d6-ae11-26e9149fe833</MetaFileGUID>
+  <MetaFileImageHeight>154</MetaFileImageHeight>
+  <MetaFileImageWidth>200</MetaFileImageWidth>
+  <MetaFileMimeType>image/png</MetaFileMimeType>
+  <MetaFileName>aspx.png</MetaFileName>
+  <MetaFileObjectID>
+    <CodeName>BlankSiteASPX</CodeName>
+    <GUID>762b1a36-8d31-4df4-beb8-cfe242703620</GUID>
+    <ObjectType>cms.webtemplate</ObjectType>
+  </MetaFileObjectID>
+  <MetaFileObjectType>cms.webtemplate</MetaFileObjectType>
+  <MetaFileSize>7861</MetaFileSize>
+</cms.metafile>

@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>SQLSearch</CodeName>
+    <GUID>609568eb-68a4-46ca-be98-1589f5454541</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays the results of search requests entered into SQL Search box or SQL Search dialog web parts. The format of the results is based on the specified transformation.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>SQL search results</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<p>
+ <span style="color: rgb(0, 0, 0);">Please see&nbsp;<a href="~/CMSPages/GetDocLink.ashx?link=cmssearchresults_controls" target="_blank">CMSSearchResults</a>&nbsp;for information&nbsp;about the control that this web part is based on.</span></p>
+
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Search/cmssearchresults.ascx</WebPartFileName>
+  <WebPartGUID>c854a1d2-617d-4b5e-b8f2-f81314b08f92</WebPartGUID>
+  <WebPartIconClass>icon-w-sql-search-results</WebPartIconClass>
+  <WebPartName>cmssearchresults</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Searched content filter">
+        <properties>
+          <caption>Search settings</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Path" columnsize="450" columntype="text" guid="358ab1b2-d77b-451b-83de-873a17522d38" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to limit the path of the pages that should be searched.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectpath</controlname>
+          <SinglePathMode>False</SinglePathMode>
+        </settings>
+      </field>
+      <field column="SearchMode" columnsize="50" columntype="text" guid="eee3ee5c-f698-4aac-8610-27238541ac89" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Search mode</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.searchmode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="anyword" text="Any word" /><item value="allwords" text="All words" /><item value="exactphrase" text="Exact phrase" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="CMSSearchDialogID" columnsize="200" columntype="text" guid="3a605393-498a-497d-a692-512e3d243efe" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Search dialog ID</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to define the ID of the SQL Search dialog web part that will provide the search parameters.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="NoResultText" columnsize="200" columntype="text" guid="f0276e90-8f52-43e5-877d-f9782c9f5152" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>No results text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.noresultstext$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ClassNames" columnsize="1000" columntype="text" guid="c06a931a-35d1-409d-a20e-5071275ac986" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Page types</fieldcaption>
+          <fielddescription>
+            <![CDATA[Allows searches to be restricted to specific page types. Page types must be entered using their code names and separated by semicolons (;). If empty, all page types are searched.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>selectclassnames</controlname>
+          <HideInheritedClasses>False</HideInheritedClasses>
+          <ReturnColumnName>ClassName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ShowOnlyCoupled>False</ShowOnlyCoupled>
+        </settings>
+      </field>
+      <field allowempty="true" column="CombineWithDefaultCulture" columnsize="5" columntype="text" guid="8e3871bd-d9ae-4582-9316-dc9694ae823c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Combine with default culture</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.combinewithdefaultculture$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>radiobuttonscontrol</controlname>
+          <Options>
+            <![CDATA[<item value="true" text="Yes" /><item value="false" text="No" /><item value="" text="Use site settings" />]]>
+          </Options>
+          <RepeatDirection>vertical</RepeatDirection>
+        </settings>
+      </field>
+      <field allowempty="true" column="CultureCode" columnsize="20" columntype="text" guid="5aa9b4c3-8a86-4822-a5b3-bbcf4b840dda" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Culture code</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.culture$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectculture</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="OrderBy" columnsize="200" columntype="text" guid="9af1d0b0-edd5-4b75-8ba9-f0a5cd9b062f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Order by</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the value of the ORDER BY clause in the statement used to retrieve the search results. This can be used to determine the order in which results are displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>orderby</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectOnlyPublished" columntype="boolean" guid="df81598d-1247-416f-84e3-61403f2c85a4" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Select only published</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if only published pages should be included in the search results.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SiteName" columnsize="50" columntype="text" guid="05505143-ccea-4156-97ff-3a8761f8f23c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the website (specified by its code name) that should be searched. If left empty, the current site is used.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selectsite</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="200" columntype="text" guid="4da0c51f-f633-4c2a-a799-c8b45ebadac2" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Where condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>wherecondition</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterName" columnsize="200" columntype="text" guid="92476053-84df-471c-ae49-b95cffcdcc02" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Filter name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.filtername$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="TransformationName" columnsize="250" columntype="text" guid="e3c73324-b586-4d3d-8fc0-8ded4cf898f5" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Search results transformation</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.transformationname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="Paging">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="EnablePaging" columntype="boolean" guid="a9c5f91a-1d92-4305-9315-a7c8e2689e00" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Enable paging</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.enablepaging$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PagingMode" columnsize="20" columntype="text" guid="d9b967e1-e4db-4a19-b874-04ca596acb6b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Paging mode</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagingmode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <options>
+            <![CDATA[<item value="querystring" text="Querystring" /><item value="postback" text="Postback" />]]>
+          </options>
+        </settings>
+      </field>
+      <field column="BackNextLocation" columnsize="8" columntype="text" guid="b3cf2132-6445-49b7-8330-0b9bea188a38" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>split</defaultvalue>
+          <fieldcaption>Navigation buttons</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.backnextlocation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="split" text="Split" /><item value="none" text="None" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="PagerPosition" columnsize="50" columntype="text" guid="ee7232df-bf47-4a9d-a62d-81ca8484571f" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Pager position</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagerposition$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <options>
+            <![CDATA[<item value="bottom" text="Bottom" /><item value="top" text="Top" /><item value="topandbottom" text="Top and bottom" />]]>
+          </options>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageSize" columntype="integer" guid="fe38d5e4-e2a5-469d-9380-d92e997fb242" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>10</defaultvalue>
+          <fieldcaption>Page size</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagesize$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="QueryStringKey" columnsize="200" columntype="text" guid="bc315ff9-8e5d-4303-b4dd-043c007b0803" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Query string key</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.querystring$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ShowFirstLast" columntype="boolean" guid="3aca0be0-f9c2-40ec-82f0-3902ee99d557" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show first and last buttons</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.showfirstlast$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PagerHTMLBefore" columntype="longtext" guid="3d1f9865-3ce3-4bac-9bb3-50cb666ce654" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>HTML before</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.pagerhtmlbefore$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PagerHTMLAfter" columntype="longtext" guid="bcd514e7-0dea-4dad-bc7a-06776a2b8408" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>HTML after</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagerhtmlafter$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ResultsPosition" columnsize="100" columntype="text" guid="7abe2db5-ba0b-41c7-92bb-f92f8d5411b1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Results position</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.resultsposition$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="top" text="Top" /><item value="bottom" text="Bottom" /><item value="none" text="None" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageNumbersSeparator" columnsize="200" columntype="text" guid="c923deef-200c-4cb3-9123-90532228b94d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>-</defaultvalue>
+          <fieldcaption>Numbers separator</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.pagenumbersseparator$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="CheckPermissions" columntype="boolean" guid="eeede248-df9f-4d03-90c4-c9a25c0c6d93" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.searchCheckPermissions$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Partial caching (hidden)">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="PartialCacheMinutes" columntype="integer" guid="374e7e34-ae9c-403f-be8b-d3691fd78b34" publicfield="false" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PartialCacheDependencies" columntype="longtext" guid="0d4952ed-6eed-4eaa-a88a-fb093729f288" publicfield="false" visibility="none">
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

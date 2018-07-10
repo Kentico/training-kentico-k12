@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.OnlineSupport</CodeName>
+    <GUID>2331646a-0399-458e-82e9-09909030c9b2</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>2fd475e8-fa5a-4437-af11-87b74c19d89c</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>entersupport</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>Proc_Chat_EnterSupport</QueryText>
+  <QueryTypeID>1</QueryTypeID>
+</cms.query>

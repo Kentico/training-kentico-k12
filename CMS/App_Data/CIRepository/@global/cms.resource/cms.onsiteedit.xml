@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription />
+  <ResourceDisplayName>CMS On-site editing</ResourceDisplayName>
+  <ResourceGUID>e2774a5e-1005-4911-877d-ad4af29a9976</ResourceGUID>
+  <ResourceHasFiles>False</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.OnSiteEdit</ResourceName>
+  <ResourceURL />
+  <ShowInDevelopment>False</ShowInDevelopment>
+</cms.resource>

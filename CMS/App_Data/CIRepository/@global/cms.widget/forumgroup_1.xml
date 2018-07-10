@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Forums</CodeName>
+    <GUID>329f7a61-e7c5-4a9c-bd36-53aa24fa28f1</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays the forums contained in a specified forum group. Users may browse the content of these forums, add posts and perform other actions.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Forum group</WidgetDisplayName>
+  <WidgetForDashboard>True</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>2958792f-3178-49d7-9496-78964c195ece</WidgetGUID>
+  <WidgetIconClass>icon-w-forum-group</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>ForumGroup_1</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="ForumViewMode" guid="42fb5932-0ec5-43c5-b5b8-f531d4d37c18" />
+      <field column="SiteName" guid="a044eb54-0d67-41f6-8874-2f73ae3c7e32" displayin="dashboard" />
+      <field column="GroupName" guid="2346510f-1407-4967-9f5b-28dac855e47e" />
+      <field column="EnableFavorites" visible="false" guid="9a29f88e-de50-415d-9e59-ffef7ed1c7e8" />
+      <field column="EnableSignature" visible="false" guid="4f1a0262-a100-44eb-a386-2c9b42ad88ac" />
+      <field column="DisplayAttachmentImage" visible="false" guid="580e7190-b998-4b60-a2dc-82a205bcaf53" />
+      <field column="AttachmentImageMaxSideSize" visible="false" guid="ef85e1d6-fa64-479a-a4db-c57510c8c0b1" />
+      <field column="RedirectToUserProfile" visible="false" guid="cba5ef4e-0a50-4309-892c-3fd6ae99c461" />
+      <field column="ThreadViewMode" visible="false" guid="28e37a6b-7ecb-45f6-9dc9-dda25292d75d" />
+      <field column="MaxRelativeLevel" visible="false" guid="2657fc9a-5acd-4a02-b39b-15b7e472bf15" />
+      <field column="EnableAvatars" visible="false" guid="7412f8d2-77a5-4e0f-8552-fcb297604c54" />
+      <field column="AvatarMaxSideSize" visible="false" guid="9558ffe0-ad41-4192-bf60-98d36ad15c35" />
+      <field column="DisplayBadgeInfo" visible="false" guid="e1bf5697-dd91-4a42-9174-82d0b362bec5" />
+      <field column="EnableMessaging" visible="false" guid="0f3b21e3-9c55-482e-9291-f85eff6848ad" />
+      <field column="EnableSubscription" visible="false" guid="23efc563-f514-401b-99a1-41b86c4e2306" />
+      <field column="OnSiteManagement" visible="false" guid="07ca4ad1-8c86-40a4-a220-0550218aa2c0" />
+      <field column="HideForumForUnauthorized" visible="false" guid="6795ac1a-bccb-4f16-a905-deafd673cf6b" />
+      <field column="UseRedirectForUnauthorized" visible="false" guid="51d5ca70-679e-49d7-aced-a3c5630f8eb4" />
+      <field column="LogonPageUrl" visible="false" guid="2a827224-7b5b-45a9-b718-a68976cb3464" />
+      <field column="AccessDeniedPageURL" visible="false" guid="a91f25f3-c219-4145-816c-daa6357f9e8c" />
+      <field column="AbuseReportAccess" visible="false" guid="72e459c0-0236-4d18-990f-f7c24094e20c" />
+      <field column="AbuseReportRoles" visible="false" guid="db3d9b79-52ca-4c15-a1b2-1a40c262399e" />
+      <field column="EnableThreadPaging" visible="false" guid="b06c646d-f38f-4511-a6e4-d94c4420e0ac" />
+      <field column="ThreadPageSize" visible="false" guid="37374cb6-0abc-4403-ba93-31641f116f68" />
+      <field column="EnablePostsPaging" visible="false" guid="27b370b0-dc1a-462c-bcd7-8a37acf0e61a" />
+      <field column="PostsPageSize" visible="false" guid="aa7edff8-eb6f-454d-b4b7-ce4254aff129" />
+      <field column="UseFriendlyURL" visible="false" guid="6588adc0-6af5-4c74-ba66-2e71a32d47f2" />
+      <field column="FriendlyBaseURL" visible="false" guid="41fa71a9-9c68-4ed0-b7df-d116c4324ce8" />
+      <field column="FriendlyURLExtension" visible="false" guid="3749daaf-caf8-463d-8d42-0a5290a4c39d" />
+      <field column="ShowMode" visible="false" guid="374fe8a7-f7cd-4251-a395-db57791aa419" />
+      <field column="ExpandTree" visible="false" guid="3fae3249-e577-437d-bd8c-29c97e9fec1b" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>ForumGroup</CodeName>
+    <GUID>d0faa3c9-62b9-4c90-800e-78c1fa496ebb</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

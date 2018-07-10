@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$BadWords_List.NewItemCaption$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDisplayName>{$badwords_list.newitemcaption$}</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>7c3ae191-3b32-41d8-bfce-7b28d3765b8e</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Administration.BadWords.New</ElementName>
+  <ElementOrder>1</ElementOrder>
+  <ElementParentID>
+    <CodeName>Administration.BadWords</CodeName>
+    <GUID>5bb05075-4f56-493a-8010-e41b25bc386f</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Badwords</CodeName>
+      <GUID>09642799-d831-4b69-a95d-28a9bdf496d9</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <category_name_header>False</category_name_header>
+      <defaultformlayout>Standard</defaultformlayout>
+      <editextender>App_Code</editextender>
+      <extenderclassname>BadWordFormExtender</extenderclassname>
+      <defaultfieldlayout>default</defaultfieldlayout>
+      <objecttype>badwords.word</objecttype>
+      <displaybreadcrumbs>True</displaybreadcrumbs>
+      <titletext>{$BadWords_List.NewItemCaption$}</titletext>
+      <includejquery>False</includejquery>
+      <category_name_breadcrumbs>False</category_name_breadcrumbs>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Badwords</CodeName>
+    <GUID>09642799-d831-4b69-a95d-28a9bdf496d9</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL>~\CMSModules\BadWords\BadWords_Edit_General.aspx</ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition />
+  <ElementCaption>{$administration-pagetemplate_header.templates$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>Templates</ElementDisplayName>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>618ecd01-9db1-4b50-9c67-3d2d2663851d</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>Notifications.Templates</ElementName>
+  <ElementOrder>2</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>ListingWithSiteSelector</CodeName>
+    <GUID>ad73ab07-caed-4e21-b897-90544d6e06f1</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>Development.Notifications</CodeName>
+    <GUID>e9a854e5-8dc5-48b4-8df4-125c4d9cdabc</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Notifications</CodeName>
+      <GUID>c5f1114b-f87b-46bc-b169-7f8afaddc394</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <data>
+      <wherecondition>
+<![CDATA[
+{% System.FormatId(UIContext.SiteID, " TemplateSiteID ={0} ", " TemplateSiteID IS NULL") |(identity)GlobalAdministrator|(hash)3856674bbe5bb4af2f5681c54a9161e7a9b75591a1eec745df0b46dbf6e1cfe4%}
+
+]]>
+      </wherecondition>
+      <allowall>False</allowall>
+      <allowempty>False</allowempty>
+      <allowglobal>True</allowglobal>
+      <siteselectortype>Classic</siteselectortype>
+      <includejquery>False</includejquery>
+      <displaybreadcrumbs>False</displaybreadcrumbs>
+      <selectortype>Classic</selectortype>
+      <objecttype>notification.template</objecttype>
+    </data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Notifications</CodeName>
+    <GUID>c5f1114b-f87b-46bc-b169-7f8afaddc394</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL />
+  <ElementType>PageTemplate</ElementType>
+  <ElementVisibilityCondition />
+</cms.uielement>

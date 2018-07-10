@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>CustomTables</CodeName>
+    <GUID>cdadf49c-ed8b-4679-87e1-9cf857b4b121</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a multicolumn/multirow list containing data retrieved from a specified custom table. The format of the data is determined by assigned transformations.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Custom table datalist</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Customtables/CustomTableDatalist.ascx</WebPartFileName>
+  <WebPartGUID>8193f3aa-9e42-4b1f-9423-2ef58e786e83</WebPartGUID>
+  <WebPartIconClass>icon-w-custom-table-datalist</WebPartIconClass>
+  <WebPartName>CustomTableDatalist</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CustomTable" columnsize="100" columntype="text" guid="a3750108-6b71-4ebb-8e7d-f148a138d9df" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Custom table</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.customtable$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>customtableselector</controlname>
+        </settings>
+      </field>
+      <category name="Content filter">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="OrderBy" columnsize="500" columntype="text" guid="ecbfbb55-4db5-4a00-9dac-2fb2123be23f" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>ORDER BY expression</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.orderby$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>orderby</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectTopN" columntype="integer" guid="88894138-c5f2-4443-bb1f-58bfb2e7fe7f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Select top N</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selecttopn$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="WhereCondition" columnsize="500" columntype="text" guid="99cabcde-306f-4cda-ba3a-1551a4e2d485" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>WHERE condition</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.where$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>wherecondition</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FilterName" columnsize="200" columntype="text" guid="fa68cff3-b2ac-4a08-a90c-3829243a0bd2" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Filter name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.filtername$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <category name="Transformations">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="TransformationName" columnsize="250" columntype="text" guid="05804e94-02fe-4d9f-a109-360e80206a30" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Transformation</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.transformation$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AlternatingTransformationName" columnsize="250" columntype="text" guid="062bb673-bf92-484f-9681-6e80c2998892" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Alternating transformation</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.alterntransform$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedItemTransformationName" columnsize="250" columntype="text" guid="aaa246e2-1713-4f38-99db-d777ba75a257" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected item transformation</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.selectedtransf$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>selecttransformation</controlname>
+        </settings>
+      </field>
+      <category name="Selection options">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="SelectedQueryStringKeyName" columnsize="200" columntype="text" guid="4e6d2a28-2080-41d6-91ad-c5de614fd330" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>ItemID</defaultvalue>
+          <fieldcaption>Selected item key name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selectedquerystringkeyname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedDatabaseColumnName" columnsize="100" columntype="text" guid="2d534d52-33ef-4b48-94fc-9483cb6deee0" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>ItemID</defaultvalue>
+          <fieldcaption>Selected item database column name</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selecteddatabasecolumnname$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedValidationType" columnsize="10" columntype="text" guid="01f1d9df-efc4-4e53-a6c6-fff49cc4cda7" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>int</defaultvalue>
+          <fieldcaption>Selected item validation type</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.selectedvalidationtype$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="int" text="{$validationtype.number$}" /><item value="string" text="{$validationtype.text$}" /><item value="guid" text="{$validationtype.guid$}" />]]>
+          </Options>
+        </settings>
+      </field>
+      <category name="Layout">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="RepeatColumns" columntype="integer" guid="42ed8349-a32e-45ae-94b7-5efdb694c7e4" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>3</defaultvalue>
+          <fieldcaption>Repeat columns</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.repeatcolumns$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field column="RepeatDirection" columnsize="50" columntype="text" guid="46a51cf7-44cb-4254-959d-9e782b644c92" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Repeat direction</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.repeatdirection$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="horizontal" text="Horizontal" /><item value="vertical" text="Vertical" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field column="RepeatLayout" columnsize="50" columntype="text" guid="d8363edb-b1ec-4c34-8a0e-af17bd1088e0" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Repeat layout</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.repeatlayout$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="table" text="Table" /><item value="flow" text="Flow" />]]>
+          </Options>
+        </settings>
+      </field>
+      <category name="Paging">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="EnablePaging" columntype="boolean" guid="d4977b2b-f96a-40da-af01-571f373ea09d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Enable paging</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.enablepaging$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PagingMode" columnsize="20" columntype="text" guid="f55a7e09-e04a-4aec-b045-c18896dd8a78" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Paging mode</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagingmode$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <options>
+            <![CDATA[<item value="querystring" text="Query string" /><item value="postback" text="Postback" />]]>
+          </options>
+        </settings>
+      </field>
+      <field column="BackNextLocation" columnsize="8" columntype="text" guid="b09fc1fa-d040-4c7c-8e27-4b224c648c15" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>split</defaultvalue>
+          <fieldcaption>Navigation buttons</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.backnextlocation$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="split" text="Split" /><item value="none" text="None" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="PagerPosition" columnsize="50" columntype="text" guid="d347be41-77a2-463a-bdec-67f36c902ae5" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Pager position</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagerposition$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <options>
+            <![CDATA[<item value="bottom" text="Bottom" /><item value="top" text="Top" /><item value="topandbottom" text="Top and bottom" />]]>
+          </options>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageSize" columntype="integer" guid="1c76750c-cd6f-4df4-9934-bf3d94c7e65e" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>10</defaultvalue>
+          <fieldcaption>Page size</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagesize$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="QueryStringKey" columnsize="200" columntype="text" guid="fbfd761c-0545-4c31-82bc-5dea273782f8" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Query string key</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.querystring$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ShowFirstLast" columntype="boolean" guid="1a4c91df-760a-4ea6-90c4-da172753b236" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Show first and last buttons</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.showfirstlast$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PagerHTMLBefore" columntype="longtext" guid="298c0742-825a-4a58-aae0-71a08cc60d63" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>HTML before</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.pagerhtmlbefore$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="PagerHTMLAfter" columntype="longtext" guid="1fef6fd6-dc0f-48bc-ab53-bb3ff38d1bbe" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>HTML after</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.pagerhtmlafter$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ResultsPosition" columnsize="100" columntype="text" guid="75c6c38e-6a35-40e3-96da-0dcfc7ff8f2a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Results position</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.resultsposition$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="top" text="Top" /><item value="bottom" text="Bottom" /><item value="none" text="None" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="PageNumbersSeparator" columnsize="200" columntype="text" guid="cad08270-8616-4870-8375-986f1b60cef3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>-</defaultvalue>
+          <fieldcaption>Numbers separator</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.pagenumbersseparator$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CheckPermissions" columntype="boolean" guid="be418218-3502-4231-a868-305734e0ef1d" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Check permissions</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.checkperm$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="865714e2-a629-4b6c-91cd-fd96302a41ac" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="a1b3687f-03ed-46b4-aa08-52f70c6b04de" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+      <category name="No data behavior">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="HideControlForZeroRows" columntype="boolean" guid="59fe21dc-b8bf-4318-94fd-9374e110a7fd" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Hide if no record found</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.hidenofound$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ZeroRowsText" columnsize="50" columntype="text" guid="f0ef7032-53a5-4e6e-8e8a-1e08e1c66237" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>No data found</defaultvalue>
+          <fieldcaption>No record found text</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.norecordtext$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>OM.MVTest</CodeName>
+    <GUID>fca8a7a7-ff70-4a2e-8f5e-fd415978f28c</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>d0fd7003-2fa4-41f9-b5ef-3af800c23d1b</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectwithhits</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT ##COLUMNS##
+  FROM (SELECT MVTestName, MVTestDisplayName, MVTestSiteID, MVTestID, MVTestCulture, MVTestOpenFrom, MVTestOpenTo, MVTestEnabled, MVTestConversions, SUM (HitsValue) AS HitsValue,
+   HitsStartTime,HitsEndTime, MVTestPage, MVTestMaxConversions, MVTestTargetConversionType  FROM OM_MVTest
+LEFT JOIN Analytics_Statistics ON Analytics_Statistics.StatisticsCode LIKE 'mvtconversion;'+ MVTestName+ ';%' AND Analytics_Statistics.StatisticsSiteID = OM_MVTest.MVTestSiteID
+LEFT JOIN Analytics_YearHits ON Analytics_Statistics.StatisticsID = Analytics_YearHits.HitsStatisticsID
+GROUP BY MVTestName, MVTestDisplayName, MVTestID, MVTestCulture, MVTestPage, MVTestOpenFrom, MVTestOpenTo, MVTestEnabled, MVTestConversions, MVTestSiteID
+,HitsStartTime,HitsEndTime, MVTestMaxConversions, MVTestTargetConversionType
+) AS X
+WHERE ##WHERE## ORDER BY ##ORDERBY##
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

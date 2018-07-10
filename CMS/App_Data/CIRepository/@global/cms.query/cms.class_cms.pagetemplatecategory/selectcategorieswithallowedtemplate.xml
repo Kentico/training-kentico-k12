@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>cms.pagetemplatecategory</CodeName>
+    <GUID>92a1be18-bad3-4aac-91f0-064d30d452fd</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>81401612-4861-4c13-b509-bd94433d5db0</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectCategoriesWithAllowedTemplate</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[SELECT DISTINCT CMS_PageTemplateCategory.CategoryID, CMS_PageTemplateCategory.CategoryDisplayName, CMS_PageTemplateCategory.CategoryParentID, CMS_PageTemplateSite.SiteID FROM CMS_PageTemplate INNER JOIN CMS_PageTemplateCategory ON CMS_PageTemplate.PageTemplateCategoryID = CMS_PageTemplateCategory.CategoryID INNER JOIN CMS_PageTemplateSite ON CMS_PageTemplate.PageTemplateID = CMS_PageTemplateSite.PageTemplateID WHERE (CMS_PageTemplateSite.SiteID = @SiteId)  AND (CMS_PageTemplateCategory.CategoryDisplayName <> 'ad-hoc')  ORDER BY ##ORDERBY##]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

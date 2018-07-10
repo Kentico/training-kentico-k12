@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>2cce7627-ca1e-45c8-b78a-a09e9f220e6b</HelpTopicGUID>
+  <HelpTopicLink>ntf_message_templates</HelpTopicLink>
+  <HelpTopicName>Create notification message templates</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.Notifications</CodeName>
+    <GUID>e9a854e5-8dc5-48b4-8df4-125c4d9cdabc</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Notifications</CodeName>
+      <GUID>c5f1114b-f87b-46bc-b169-7f8afaddc394</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

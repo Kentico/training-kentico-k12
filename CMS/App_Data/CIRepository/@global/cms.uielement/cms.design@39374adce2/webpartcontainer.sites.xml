@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementAccessCondition />
+  <ElementCaption>{$general.sites$}</ElementCaption>
+  <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>
+  <ElementDescription />
+  <ElementDisplayName>Sites</ElementDisplayName>
+  <ElementFeature />
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>13faa3ef-8abe-42bc-bae7-0a70251fa480</ElementGUID>
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>WebPartContainer.Sites</ElementName>
+  <ElementOrder>3</ElementOrder>
+  <ElementPageTemplateID>
+    <CodeName>M_NEdit</CodeName>
+    <GUID>0cee6b71-596b-49c7-bd30-54175f6d7bdb</GUID>
+    <ObjectType>cms.pagetemplate</ObjectType>
+  </ElementPageTemplateID>
+  <ElementParentID>
+    <CodeName>EditWebPartContainer</CodeName>
+    <GUID>d56ccc0c-ce73-42cf-b294-5a51192dc76c</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <Data>
+      <bindingobjectprovidertype>CMS.WebPartContainerSite</bindingobjectprovidertype>
+      <BindingObjectType>cms.webpartcontainersite</BindingObjectType>
+      <checkmodifypermission>True</checkmodifypermission>
+      <DisplayBreadcrumbs>False</DisplayBreadcrumbs>
+      <includejquery>False</includejquery>
+      <ListPrefaceText>{$webcontainers_edit_sites.sitetitle$}</ListPrefaceText>
+      <ResourcePrefix>siteselect</ResourcePrefix>
+      <WhereCondition>
+        <![CDATA[ContainerID = {% ToInt(QueryString.objectid, 0) @%}]]>
+      </WhereCondition>
+    </Data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>0</ElementSize>
+  <ElementTargetURL />
+  <ElementType>PageTemplate</ElementType>
+  <ElementVisibilityCondition>
+    <![CDATA[{%!UIContext.IsDialog|(identity)GlobalAdministrator|(hash)c3d441b15c0ddb7ae19b1d9468083585c112c95b489a1733240d080c09750577%}]]>
+  </ElementVisibilityCondition>
+</cms.uielement>

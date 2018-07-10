@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>0be204ef-8c21-41f7-99d9-6825917545eb</HelpTopicGUID>
+  <HelpTopicLink>notification_gateways</HelpTopicLink>
+  <HelpTopicName>Define notification gateways</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>NewGateway</CodeName>
+    <GUID>022b51fd-3dba-4a8c-a87b-ddc7db99e6c0</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Notifications</CodeName>
+      <GUID>c5f1114b-f87b-46bc-b169-7f8afaddc394</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

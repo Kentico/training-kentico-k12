@@ -1,0 +1,648 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Community</CodeName>
+    <GUID>dbeb60eb-49ab-46ad-800d-547ca3f45c23</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Displays a list of shortcut links that allow users to perform various community-related actions. The links are displayed according to the context of the current user.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Shortcuts</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Community/Shortcuts.ascx</WebPartFileName>
+  <WebPartGUID>d6b4865f-127f-4543-8cba-a60baa8f548a</WebPartGUID>
+  <WebPartIconClass>icon-w-shortcuts</WebPartIconClass>
+  <WebPartName>Shortcuts</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Profile links">
+        <properties>
+          <caption>Profile shortcuts</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="DisplayMyProfileLink" columntype="boolean" guid="9d646c8a-b04c-4693-b656-26e47562c3a3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display My profile link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the My profile link should be displayed. The URL of the link is generated according to the path entered into the Member profile path setting in Settings -> Community -> Members.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MyProfileText" columnsize="200" columntype="text" guid="d381d711-41b1-4304-8871-941eca5ac968" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>My profile link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify a different text caption for the My profile link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplayEditMyProfileLink" columntype="boolean" guid="a50c0a24-f383-4cbe-9971-dc21750c6ea0" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Edit my profile link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the Edit my profile link should be displayed. The URL of the link is generated according to the path entered into the Member management path setting in Settings -> Community -> Members.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="EditMyProfileText" columnsize="200" columntype="text" guid="19b26f78-4ed4-45b5-9970-d044b30f1d19" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Edit my profile link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify a different text caption for the Edit my profile link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Personal links">
+        <properties>
+          <caption>Personal shortcuts</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="DisplayJoinCommunity" columntype="boolean" guid="6fd3f7ea-ac1f-4e99-ae3b-b184679f679c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Join the community link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if the Join community link should be displayed. This link is only displayed to public (unauthenticated) users.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="JoinCommunityText" columnsize="200" columntype="text" guid="ae70598f-bc55-417a-ae66-7f87f1d3c72d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Join community link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Join community link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="JoinCommunityPath" columnsize="450" columntype="text" guid="a9802625-7bdf-4719-8a9f-4b071b76d9a9" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>/Logon</defaultvalue>
+          <fieldcaption>Join the community path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path of the page where visitors can join the community (i.e. register on the website). This path will be used to generate the URL of the Join community link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SinglePathMode>True</SinglePathMode>
+          <SiteID>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+          </SiteID>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplayMyMessages" columntype="boolean" guid="d52130f4-79e4-4af1-8f43-ab4ce5c6fe6a" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display My messages link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the My messages link should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MyMessagesText" columnsize="200" columntype="text" guid="9ef36242-3b77-4d5c-aee1-7ffa46ed985e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>My messages link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify a different text caption for the My messages link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="MyMessagesPath" columnsize="450" columntype="text" guid="18585af3-a90e-40de-ae90-1288491966f1" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>My messages path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path of the page where users can view their personal messages (the page should contain the My messages web part). This path will be used to generate the URL of the My messages link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SinglePathMode>True</SinglePathMode>
+          <SiteID>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+          </SiteID>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplayMyInvitations" columntype="boolean" guid="125bc593-609b-43d4-ba62-d963f41c0255" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display My invitations link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the My invitations link should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="MyInvitationsText" columnsize="200" columntype="text" guid="400eeda0-8d27-4c23-921f-94b2ff4aa89d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>My invitations link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify a different text caption for the My invitation link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="MyInvitationsPath" columnsize="450" columntype="text" guid="ace711ce-f653-457d-898f-64e7b4d7dfca" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>My invitations path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path of the page where users can view and manage their group invitations (the page should contain the My invitations/My sent invitations web parts). This path will be used to generate the URL of the My invitations link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SinglePathMode>True</SinglePathMode>
+          <SiteID>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+          </SiteID>
+        </settings>
+      </field>
+      <category name="Groups links">
+        <properties>
+          <caption>Groups shortcuts</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="DisplayCreateNewGroup" columntype="boolean" guid="152f40ca-202f-4baf-a3ed-6fa52d61ede3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Create new group link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if the Create new group link should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CreateNewGroupText" columnsize="200" columntype="text" guid="64219c1e-dae5-451e-bf9f-3d4d9be149df" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Create new group link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Create new group link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CreateNewGroupPath" columnsize="450" columntype="text" guid="10773d5d-d3e6-4d1c-9442-8995d9b3b245" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>/Groups/Create</defaultvalue>
+          <fieldcaption>Create new group path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path of the page where users can create new groups (the page should contain the Group registration web part). This path will be used to generate the URL of the Create new group link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SinglePathMode>True</SinglePathMode>
+          <SiteID>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+          </SiteID>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplayGroupLinks" columntype="boolean" guid="cb2fba89-44ee-4c67-9c9e-91538f132af8" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Join/Leave the group link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the Join/Leave group links should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="JoinGroupText" columnsize="200" columntype="text" guid="c932d1ea-7ccb-4d84-812e-cf63ca06bed8" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Join group link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Join group link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="JoinGroupPath" columnsize="450" columntype="text" guid="47b56502-c3b8-417e-82f6-084b17be5da0" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Join the group path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path that will be used to generate the URL of the Join group link. Leave this property empty to allow users to join the group that is currently selected.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="LeaveGroupText" columnsize="200" columntype="text" guid="72c68d75-a55e-4994-b2ed-066594cdd0f1" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Leave group link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Leave group link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="LeaveGroupPath" columnsize="450" columntype="text" guid="d75f198c-0d85-4082-89ee-aa42b587b503" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Leave group path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path that will be used to generate the URL of the Leave group link (the target page should contain the Leave group web part). Leave this property empty to allow users to leave the currently active group using a modal dialog.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplayManageGroup" columntype="boolean" guid="6b83ec94-ca3e-4f67-b3ad-ba86ef46fdd8" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display manage group link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the Manage group link should be displayed. The URL of the link is generated according to the path entered into the Group management path setting in Settings -> Community -> Groups. The link is only displayed to users who are authorized to manage the group.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ManageGroupText" columnsize="200" columntype="text" guid="f57b50f8-bb94-4d1d-b27f-71e7cb4d74de" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Manage group link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Manage group link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplayInviteToGroup" columntype="boolean" guid="a502ef1a-fd4a-457c-ac3a-5b423dc119f3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Invite to group link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if the Invite to group link should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="InviteGroupText" columnsize="200" columntype="text" guid="2bac3436-5964-4823-90e1-7049b8d8bff6" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Invite to group link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Invite to group link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="InviteGroupPath" columnsize="450" columntype="text" guid="5bddcf02-bc13-4c66-bf14-2e405c78aaac" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Invite to group path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path that will be used to generate the URL of the Invite to group link. Leave this property empty to allow members to invite other users to join the currently selected group.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+      <category name="Blog links">
+        <properties>
+          <caption>Blogs shortcuts</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="DisplayCreateNewBlog" columntype="boolean" guid="3fae613b-0cbc-4fb2-81c9-1761fe63e17f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Create new blog link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if the Create new blog link should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CreateNewBlogText" columnsize="200" columntype="text" guid="2f96f59d-51ca-4c7b-9e00-a86c4f85aceb" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Create new blog link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Create new blog link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CreateNewBlogPath" columnsize="450" columntype="text" guid="307a51ee-3dc6-4ae0-8fa5-221143af49fa" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>/Blogs/Create</defaultvalue>
+          <fieldcaption>Create new blog path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path of the page where users can create new blogs (the page should contain the New blog web part). This path will be used to generate the URL of the Create new blog link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SinglePathMode>True</SinglePathMode>
+          <SiteID>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+          </SiteID>
+        </settings>
+      </field>
+      <category name="Messaging links">
+        <properties>
+          <caption>Messaging shortcuts</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="DisplaySendMessage" columntype="boolean" guid="324f519d-0636-41da-b117-c5507babf349" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Send message link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if the Send message link should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SendMessageText" columnsize="200" columntype="text" guid="fe44e843-6186-4896-9548-832270512d20" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Send message link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Send message link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplayAddToContactList" columntype="boolean" guid="49cff6a5-32cd-4c58-844c-9f4587c082dc" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Add to contact list link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if the Add to contact list link should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AddToContactListText" columnsize="200" columntype="text" guid="c8ae927b-a9a8-43af-a04e-e76495f1f03b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Add to contact list link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Add to contact list link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplayAddToIgnoreList" columntype="boolean" guid="139d5867-92dc-422c-a8c3-0292f162d13b" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Add to ignore list link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if the Add to ignore list link should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AddToIgnoreListText" columnsize="200" columntype="text" guid="c83f3aaf-1899-4f09-b2b5-c206d00698a0" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Add to ignore list link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Add to ignore list link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Visible shortcuts">
+        <properties>
+          <caption>Membership shortcuts</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="DisplaySignIn" columntype="boolean" guid="931da67c-98ef-4736-9d1a-12d023385fee" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Sign in link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if the Sign in link should be displayed. This link is only displayed to public (unauthenticated users).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignInText" columnsize="200" columntype="text" guid="fcc7beb3-24f2-4603-aaff-fd80ba353531" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign in link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Sign in link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignInPath" columnsize="450" columntype="text" guid="7378bf14-01e1-4bc6-bfad-40ac482d88fe" publicfield="false" resolvedefaultvalue="False" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>/Logon</defaultvalue>
+          <fieldcaption>Sign in path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path of the page where visitors can log into the website. This path will be used to generate the URL of the Sign in link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+          <SinglePathMode>True</SinglePathMode>
+          <SiteID>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+          </SiteID>
+        </settings>
+      </field>
+      <field allowempty="true" column="DisplaySignOut" columntype="boolean" guid="043903ec-6579-4af0-a95e-f55a0be1e310" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display Sign out link</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines if the Sign out link should be displayed. This link is only displayed to authenticated users.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignOutText" columnsize="200" columntype="text" guid="2ce66d43-a4d1-48fe-86e8-2b2f4dc85dcf" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign out link text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to specify the text caption of the Sign out link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SignOutPath" columnsize="450" columntype="text" guid="27a5c975-b11a-4230-b2e7-1ebfc18989be" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Sign out path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the path that will be used to generate the URL of the Sign out link.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Community</CodeName>
+    <GUID>f1cc54a9-d5bb-4a69-bd8c-8918eb410656</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

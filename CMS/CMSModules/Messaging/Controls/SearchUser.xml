@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions parameters="UserID">
+    <action name="contact" caption="$Messaging.ContactList.Add$" fonticonclass="icon-check-circle" fonticonstyle="allow" commandargument="{0}" />
+    <action name="ignore" caption="$Messaging.IgnoreList.Add$" fonticonclass="icon-times-circle" fonticonstyle="critical" commandargument="{0}" confirmation="$messaging.ignorelist.addconfirmation$" />
+  </actions>
+  <columns>
+    <column source="##ALL##" externalsourcename="formattedusername" sort="UserName" caption="$general.UserName$" wrap="false" />
+    <column cssclass="filling-column" />
+  </columns>
+  <pager>
+    <key name="ShowDirectPageControl" value="false" />
+  </pager>
+  <options>
+    <key name="DisplayFilter" value="false" />
+    <key name="ShowSelection" value="false" />
+  </options>
+</grid>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>IntranetPortal</CodeName>
+    <GUID>65523f91-9b6f-4e70-9110-62cd05088ec3</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays a list of intranet portal workgroups where the current user is a member.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>My workgroups</WidgetDisplayName>
+  <WidgetDocumentation>
+    <![CDATA[This widget is intended for use on the Intranet Portal sample site or other websites that are based on its structure.]]>
+  </WidgetDocumentation>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>True</WidgetForUser>
+  <WidgetGUID>36b5c3b6-b9ab-4a23-b595-063e9dabd138</WidgetGUID>
+  <WidgetIconClass>icon-w-my-workgroups</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>IntranetPortal.MyWorkgroups</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="TransformationName" visible="" guid="9d9f3ec2-6bb2-48b1-b6b6-7aadc4ca844b" reftype="Required">
+        <properties>
+          <defaultvalue>IntranetPortal.Transformations.WorkgroupsList</defaultvalue>
+        </properties>
+      </field>
+      <field column="AlternatingItemTransformationName" visible="" guid="5f05f9e2-65b7-4d0a-9514-6428ce52a4b2" reftype="Required" />
+      <field column="SeparatorTransformationName" visible="" guid="2f0e265b-0d7d-4f9e-8b49-d7209916cab5" reftype="Required" />
+      <field column="HeaderTransformationName" visible="" guid="22c652c0-eaaa-4868-8f00-ba22c019b74b" reftype="Required" />
+      <field column="FooterTransformationName" visible="" guid="1ab37457-2be7-4305-a7ff-146b8c0798c2" reftype="Required" />
+      <field column="ShowFilterControl" visible="" guid="506e0993-8525-46e8-940a-43387170760b" reftype="Required">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="OrderBy" visible="" guid="450274e0-f6b9-47b8-b32f-ffcd34bc503a" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue>GroupDisplayName ASC</defaultvalue>
+        </properties>
+      </field>
+      <field column="SelectTopN" visible="" guid="b21c5184-d4f0-437f-81f3-5c44a21cc895" reftype="Required" />
+      <field column="SiteName" visible="" guid="5857aefa-9498-4825-9ba9-e4d54948baa7" reftype="Required" />
+      <field column="WhereCondition" visible="" guid="864a9e07-60f2-40a3-9f76-7e4e9cb9d7f6" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[GroupID IN (Select MemberGroupID FROM Community_GroupMember WHERE MemberUserID = '{%cmscontext.currentuser.userid|(identity)GlobalAdministrator|(hash)a075afb1005c76285c9f9ac78fd579f533b8e67e74a8a07d863aadd40b978023%}' AND MemberStatus = 0)]]>
+          </defaultvalue>
+        </properties>
+      </field>
+      <field column="Columns" visible="" guid="28e334f8-53d0-42ee-8a9f-a857fa431e25" reftype="Required" />
+      <field column="FilterName" visible="" guid="f32ff2be-2eb7-4806-816e-89abbe460415" reftype="Required" />
+      <field column="HideControlForZeroRows" visible="" guid="a992cab9-5283-451d-b10b-1b192b832ad1" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="ZeroRowsText" visible="" guid="28b80cb5-3dcd-4d62-b2b3-b5ac8245342a" visibility="none" reftype="Required">
+        <properties>
+          <defaultvalue>You are currently not member of any workgroup.</defaultvalue>
+        </properties>
+      </field>
+      <field column="EnablePaging" visible="" guid="1f48df78-9d06-420a-adc7-f8142c61939f" reftype="Required">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+        </properties>
+      </field>
+      <field column="PageSize" visible="" guid="06c2cf68-5d12-45f4-bf57-014537ac0fc9" reftype="Required" />
+      <field column="PagingMode" visible="" guid="8d1bb594-ac48-4946-8c65-544e139b7568" reftype="Required" />
+      <field column="QueryStringKey" visible="" guid="b8d73d3d-199b-4d87-a8a9-af5b9da83ea3" reftype="Required" />
+      <field column="GroupSize" visible="" guid="f1ecff3f-2371-4a43-8890-0f18e7124cc2" reftype="Required" />
+      <field column="DisplayFirstLastAutomatically" visible="" guid="7bef5585-aecb-47a6-a3d8-203dd07bf91d" reftype="Required" />
+      <field column="DisplayPreviousNextAutomatically" visible="" guid="def28085-099a-4c69-8951-bcc2d0a9ba6f" reftype="Required" />
+      <field column="HidePagerForSinglePage" visible="" guid="c2e7e75d-7552-4b32-ac31-ef2d166983a4" reftype="Required" />
+      <field column="Pages" visible="" guid="4a9c59b4-6c70-4fe6-8d21-5ab894b764a1" reftype="Required" />
+      <field column="CurrentPage" visible="" guid="62f17956-64d4-4bd5-b655-5f8bf9d36940" reftype="Required" />
+      <field column="PageSeparator" visible="" guid="c8f29db0-0872-4f99-b513-25e6911586f9" reftype="Required" />
+      <field column="FirstPage" visible="" guid="000ef8e5-de95-47c7-8fe4-ca0015f0a743" reftype="Required" />
+      <field column="LastPage" visible="" guid="904659d2-c468-4cd7-858b-6cb5347c5552" reftype="Required" />
+      <field column="PreviousPage" visible="" guid="40a988d9-f546-44e5-ba17-b0363547a56f" reftype="Required" />
+      <field column="NextPage" visible="" guid="54f4131b-ce93-4478-ab28-dcf7da4950fa" reftype="Required" />
+      <field column="PreviousGroup" visible="" guid="08440a66-4dae-49eb-9d6f-6345e1014fb7" reftype="Required" />
+      <field column="NextGroup" visible="" guid="e25c7e59-0d31-4d8e-831c-e673b3e3b6b8" reftype="Required" />
+      <field column="DirectPage" visible="" guid="2708c115-5d53-472b-85b7-9a6c278671ed" reftype="Required" />
+      <field column="PagerLayout" visible="" guid="3c8e00a9-fbe6-41cf-9a98-cc9f5c5dda81" reftype="Required" />
+      <field column="CacheItemName" visible="" guid="04b0ffae-c6d6-4ca7-aca9-31fc84a57e92" reftype="Required" />
+      <field column="CacheMinutes" visible="" guid="65b3da62-e792-47e2-9604-aa805cdf8711" reftype="Required" />
+      <field column="CacheDependencies" visible="" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" reftype="Required" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>GroupsViewer</CodeName>
+    <GUID>a546052a-e4c1-43d4-a9ac-16caa6ce4b49</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

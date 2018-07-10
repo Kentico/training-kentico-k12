@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DocumentWizard</CodeName>
+    <GUID>b6f9f350-4564-4886-b53f-d5460dd1dbc0</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Performs automatic transitions between page wizard steps based on a macro condition. Place the web part onto the page representing the step where you want the transition to occur.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Page wizard step action</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+<strong>Important</strong>: This web part only works on pages that are <a href="~/CMSPages/GetDocLink.ashx?link=portal_content_inheriting" target="_blank">nested</a> inside a parent page containing the <strong>Page wizard manager</strong> web part.<br />
+<br />
+For more information, refer to <a href="~/CMSPages/GetDocLink.ashx?link=wizards_creating" target="_blank">Creating wizards on websites</a> in the documentation.
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>DocumentWizard/DocumentWizardStepAction.ascx</WebPartFileName>
+  <WebPartGUID>85c66b2b-f56c-4412-b191-1db9f765f178</WebPartGUID>
+  <WebPartIconClass>icon-w-document-wizard-step-action</WebPartIconClass>
+  <WebPartName>DocumentWIzardStepAction</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <field allowempty="true" column="ActionType" columnsize="100" columntype="text" guid="15d3e87e-cfc4-48dd-897c-d7b2b07fcbd8" hasdependingfields="true" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>Skip</defaultvalue>
+          <fieldcaption>Action type</fieldcaption>
+          <fielddescription>
+            <![CDATA[Select the step transition type. You can either skip steps in the direction the user is moving in the wizard, or always move to the next/previous step.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+skip;Skip
+next;Next
+previous;Previous
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
+      <field allowempty="true" column="ValidateSkip" columntype="boolean" dependsonanotherfield="true" guid="abbdd8c9-9863-4806-9b48-141f2a6f5160" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Validate step</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates whether the wizard validates the step's data when performing the 'skip' action. If the validation fails, the wizard does NOT skip the step and displays the validation error message. The step validation requirements depend on the implementation of the web parts placed on the step.]]>
+          </fielddescription>
+          <visiblemacro ismacro="true">
+            <![CDATA[{%ActionType.Value == "skip"|(identity)GlobalAdministrator|(hash)bb149e048f7d539bdfcd9a3d2de155c26984c367295203b9ed11922630893fce%}]]>
+          </visiblemacro>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionCondition" columntype="longtext" guid="0be4dba8-da2d-49d1-a04e-727c7d1e83d7" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Action condition</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the macro condition that triggers the step action. If the condition is true, the selected action is performed immediately when users reach the step containing the web part.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>macrosyntaxhighlighter</controlname>
+          <ShowAutoCompletionAbove>False</ShowAutoCompletionAbove>
+          <ShowToolbar>True</ShowToolbar>
+          <SignMacro>True</SignMacro>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>4</WebPartType>
+</cms.webpart>

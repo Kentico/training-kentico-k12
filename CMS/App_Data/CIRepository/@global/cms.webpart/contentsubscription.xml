@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Notifications</CodeName>
+    <GUID>519a8fe2-79c7-4acb-8371-271d593a6082</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Using this webpart any user can subscribe to the e-mail notifications about page events (insert, update, delete).]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Content subscription</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>Notifications/ContentSubscription.ascx</WebPartFileName>
+  <WebPartGUID>8645e773-38b8-4a5e-941b-bd9251bfa670</WebPartGUID>
+  <WebPartIconClass>icon-w-content-subscription</WebPartIconClass>
+  <WebPartName>ContentSubscription</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Event settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="SiteName" columnsize="100" columntype="text" external="true" guid="f333b6a3-5ff4-4eb3-ba3f-b8e0cf3e74d0" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Site name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Determines whether the users are subscribed to site specific event or global event.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <options>
+            <![CDATA[<item value="#current#" text="(current site)" /><item value="-" text="(global)" />]]>
+          </options>
+        </settings>
+      </field>
+      <field allowempty="true" column="Path" columnsize="1000" columntype="text" guid="b64543e1-26c3-4368-8bdd-ebcc905dcee2" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>Path to the pages.</fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectpath</controlname>
+          <SinglePathMode>False</SinglePathMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="DocumentTypes" columnsize="1000" columntype="text" guid="d73ba2ec-fd10-4890-b554-1c403f0e14ba" publicfield="false" resolvedefaultvalue="False" visible="true">
+        <properties>
+          <fieldcaption>Page types</fieldcaption>
+          <fielddescription>Page types which should be included.</fielddescription>
+        </properties>
+        <settings>
+          <AllowAll>False</AllowAll>
+          <AllowEmpty>True</AllowEmpty>
+          <controlname>selectclassnames</controlname>
+          <HideInheritedClasses>False</HideInheritedClasses>
+          <ReturnColumnName>ClassName</ReturnColumnName>
+          <SelectionMode>3</SelectionMode>
+          <ShowOnlyCoupled>False</ShowOnlyCoupled>
+        </settings>
+      </field>
+      <field allowempty="true" column="EventDescription" columntype="longtext" guid="dff6b025-70ae-404e-b3da-b1199a7f6ad8" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Event description</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text which will be displayed to users in the subscription form.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <category name="Notification settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="GatewayNames" columnsize="450" columntype="text" guid="63a6eab2-1105-445a-8e71-894d26635075" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>CMS.EmailGateway</defaultvalue>
+          <fieldcaption>Gateway names</fieldcaption>
+          <fielddescription>Gateway codenames separated by semicolon.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>multiplenotificationgatewayselector</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="SubscriptionUseHTML" columntype="boolean" guid="5a1113ab-afab-4ebc-bc8f-ad8a5656a513" publicfield="false" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Notification preffered format</fieldcaption>
+          <fielddescription>
+            <![CDATA[Preffered format of the notification e-mail. If e-mail gateway supports both formats and e-mail templates for both formats are specified notification e-mail format is set to the preffered one.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <options>
+            <![CDATA[<item value="False" text="Plain text" /><item value="True" text="HTML" />]]>
+          </options>
+        </settings>
+      </field>
+      <category name="Create document">
+        <properties>
+          <caption>Create page</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="CreateEventEnabled" columntype="boolean" guid="342e9697-e78d-4b6a-b164-13e61acf270c" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Create event enabled</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if user should be subscribed to the event which is raised after the specified pages are created.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CreateEventDisplayName" columnsize="250" columntype="text" guid="8ee66776-feaf-47cc-b560-eb045312d7a8" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Create event display name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Localizable string or plain text which describes CREATE event and which is visible to the users.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CreateEventTemplateName" columnsize="250" columntype="text" guid="fe3c650e-7950-4f4d-9464-02e729aa31d0" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Create event template name</fieldcaption>
+          <fielddescription>Name of the template to use for CREATE event.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>notificationtemplateselector</controlname>
+        </settings>
+      </field>
+      <category name="Update document">
+        <properties>
+          <caption>Update page</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="UpdateEventEnabled" columntype="boolean" guid="a9b4a021-e31a-478f-9281-fc165fe8f53c" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Update event enabled</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if user should be subscribed to the event which is raised after the specified pages are updated.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="UpdateEventDisplayName" columnsize="250" columntype="text" guid="b7a8384c-52bf-40b5-aa7e-5118582f829f" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Update event display name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Localizable string or plain text which describes UPDATE event and which is visible to the users.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="UpdateEventTemplateName" columnsize="250" columntype="text" guid="ef13666d-9df4-4ff2-ac5f-26b8d21a00f4" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Update event template name</fieldcaption>
+          <fielddescription>Name of the template to use for UPDATE event.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>notificationtemplateselector</controlname>
+        </settings>
+      </field>
+      <category name="Delete document">
+        <properties>
+          <caption>Delete page</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="DeleteEventEnabled" columntype="boolean" guid="87a26e0b-4294-441d-add8-d06e46506e5e" publicfield="false" resolvedefaultvalue="False" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>False</defaultvalue>
+          <fieldcaption>Delete event enabled</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if user should be subscribed to the event which is raised after the specified pages are deleted.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>CheckBoxControl</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DeleteEventDisplayName" columnsize="250" columntype="text" guid="220546a1-f5e4-4d90-b1fb-c594b68be37a" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Delete event display name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Localizable string or plain text which describes DELETE event and which is visible to the users.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="DeleteEventTemplateName" columnsize="250" columntype="text" guid="70e8a83c-1544-4054-8108-8c40f1a86795" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Delete event template name</fieldcaption>
+          <fielddescription>Name of the template to use for DELETE event.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>notificationtemplateselector</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Notifications</CodeName>
+    <GUID>c5f1114b-f87b-46bc-b169-7f8afaddc394</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>OM.ABTest</CodeName>
+    <GUID>71a1d617-6161-4ad6-aee2-be5756048223</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDisplayName>update</FormDisplayName>
+  <FormGUID>96f2eb15-1d01-4935-b8d9-257c11aa6806</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormLayoutType>html</FormLayoutType>
+  <FormName>Update</FormName>
+</cms.alternativeform>

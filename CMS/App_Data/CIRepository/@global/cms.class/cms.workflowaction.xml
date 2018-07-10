@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.class>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDisplayName>Workflow action</ClassDisplayName>
+  <ClassEditingPageUrl />
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="ActionID" columntype="integer" guid="94b6d141-6fbe-40f9-8047-018916e0f5d7" isPK="true" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>ActionID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ActionDisplayName" columnsize="200" columntype="text" guid="cd2ba1dd-e906-45e5-b9e1-1b898ce889ca" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>ActionDisplayName</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="ActionName" columnsize="200" columntype="text" guid="acc9addc-b246-44c7-aec3-2083e3e9b8d1" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>ActionName</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionParameters" columntype="longtext" guid="c58d2b08-cbc8-46f1-92e5-142c8b40132d" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>ActionParameters</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textareacontrol</controlname>
+          <IsTextArea>True</IsTextArea>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionDescription" columntype="longtext" guid="66ff2236-1e8e-436e-b24e-344718a9a68c" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>ActionDescription</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Wrap>True</Wrap>
+        </settings>
+      </field>
+      <field column="ActionAssemblyName" columnsize="200" columntype="text" guid="2364fdc8-9909-4388-a29a-5ee7e304ada2" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>ActionAssemblyName</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ActionClass" columnsize="200" columntype="text" guid="df941c32-c138-4419-94bf-d018f47eaff8" publicfield="false" system="true" visible="true">
+        <properties>
+          <fieldcaption>ActionClass</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionResourceID" columntype="integer" guid="c9fc7426-e682-4cf0-bd8e-0d13cc66ad6d" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>{$general.module$}</fieldcaption>
+          <visiblemacro ismacro="true">
+            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)ba6174858905630f3624431bc0cee9dfa38ff6b76a076b8d08ebe3d0184ebcd3%}]]>
+          </visiblemacro>
+        </properties>
+        <settings>
+          <controlname>moduleselector</controlname>
+          <DisplayAllModules>True</DisplayAllModules>
+          <DisplayNone>True</DisplayNone>
+          <DisplayOnlyModulesInDevelopmentMode>False</DisplayOnlyModulesInDevelopmentMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionThumbnailGUID" columntype="guid" guid="9d1cc382-0149-460a-b3ad-d10f0948d258" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>ActionThumbnailGUID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionThumbnailClass" columnsize="200" columntype="text" guid="a53347e5-6466-49ad-84bb-9a87e3d9c65c" publicfield="false" system="true" />
+      <field allowempty="true" column="ActionIconGUID" columntype="guid" guid="96628928-6402-40fb-b9b2-407b0fe537f9" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>ActionIconGUID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionIconClass" columnsize="200" columntype="text" guid="5fb0fc98-94ef-456d-a1cb-9911023ddd6b" publicfield="false" system="true" />
+      <field column="ActionGUID" columntype="guid" guid="6dd91d6e-ee97-4a82-9624-a7649b6c195d" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>ActionGUID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ActionLastModified" columntype="datetime" guid="a699661a-1372-4535-b5dd-3add8c92d3c9" publicfield="false" system="true" visibility="none">
+        <properties>
+          <fieldcaption>ActionLastModified</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+        </settings>
+      </field>
+      <field column="ActionEnabled" columntype="boolean" guid="5bcd7c43-7a38-40bb-b996-e85195be2552" publicfield="false" system="true" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Enabled</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionWorkflowType" columntype="integer" guid="ed6b7241-0a4b-4ae0-a1ba-bdc07ce3756f" publicfield="false" system="true" visibility="none">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ActionAllowedObjects" columntype="longtext" guid="712791be-558b-4ddf-b9cb-d7c698ca8e20" publicfield="false" spellcheck="false" system="true">
+        <properties>
+          <fieldcaption>Action allowed objects</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>bc666071-3ba9-44ea-8470-1b75a9fe9f8a</ClassGUID>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>False</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassListPageUrl />
+  <ClassName>cms.workflowaction</ClassName>
+  <ClassNewPageUrl />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource />
+  <ClassPreviewPageUrl />
+  <ClassResourceID>
+    <CodeName>CMS.WorkflowEngine</CodeName>
+    <GUID>2b67f370-3df4-4a4d-8734-1974639c5b69</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ClassResourceID>
+  <ClassSearchContentColumn />
+  <ClassSearchCreationDateColumn />
+  <ClassSearchEnabled>False</ClassSearchEnabled>
+  <ClassSearchImageColumn />
+  <ClassSearchSettings />
+  <ClassSearchTitleColumn />
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CMS_WorkflowAction</ClassTableName>
+  <ClassUsePublishFromTo>False</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl />
+</cms.class>

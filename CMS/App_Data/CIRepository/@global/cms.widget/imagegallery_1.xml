@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>MediaServices</CodeName>
+    <GUID>54aa6abe-a8d0-4589-a53a-d6ce1cb306c2</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Displays a multi-column image gallery with the option of viewing thumbnails or full-size image details. The images are loaded from specified CMS.File documents.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Image gallery</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>abe5efbc-5112-4431-a3cd-d540fddc73bf</WidgetGUID>
+  <WidgetIconClass>icon-w-image-gallery</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>ImageGallery_1</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="Path" guid="7a7b6576-5ff2-424c-bc91-8ded31fd0dbf" visibility="none" dependsonanotherfield="false">
+        <properties>
+          <fielddescription>
+            <![CDATA[Specifies the path of the image documents that should be selected. If empty, the path will be set to all child documents under the page on which the widget is placed.]]>
+          </fielddescription>
+        </properties>
+      </field>
+      <field column="CombineWithDefaultCulture" visible="false" guid="5fb443da-9b22-4a17-a668-f036a09be5ac" dependsonanotherfield="false" />
+      <field column="CultureCode" visible="false" guid="89b813a4-2722-492d-a001-9b81e07a3ca7" dependsonanotherfield="false" />
+      <field column="MaxRelativeLevel" visible="false" guid="f6d90a5a-cb01-4c75-be2a-bd354fadb44a" dependsonanotherfield="false" />
+      <field column="OrderBy" visible="false" guid="c99e1b66-e1e4-4711-870a-e04c5fc897ed" dependsonanotherfield="false" />
+      <field column="SelectOnlyPublished" visible="false" guid="9823d1fd-4983-4b00-b6a5-38b129e4903e" dependsonanotherfield="false" />
+      <field column="SiteName" visible="false" guid="af43bb27-a566-4690-bb82-ec3b8838e669" dependsonanotherfield="false" />
+      <field column="WhereCondition" visible="false" guid="3acc6499-612d-4f18-9242-40c70ca9c09f" dependsonanotherfield="false" />
+      <field column="SelectedColumns" visible="false" guid="25bb02ed-92b1-4c87-810b-9e7995ac1033" dependsonanotherfield="false" />
+      <field column="DetailTransformation" visible="false" guid="3167117e-3e7b-471e-a667-f33245324a08" dependsonanotherfield="false" />
+      <field column="ThumbnailTransformation" visible="false" guid="ed4b8504-52a3-4a86-a921-bd07780b5a02" dependsonanotherfield="false" />
+      <field column="Columns" guid="45feb468-1dc0-4919-ae5d-0590ec2e15cd" dependsonanotherfield="false" />
+      <field column="RowsPerPage" guid="3427d458-a8ac-41e4-b80a-bbc376dd3f8d" dependsonanotherfield="false" />
+      <field column="RepeatDirection" visible="false" guid="ff485172-d5d2-47fa-b537-224c5d26c0d9" dependsonanotherfield="false" />
+      <field column="PagingMode" visible="false" guid="ad50e9fb-d084-4310-a312-a4db4d79f712" dependsonanotherfield="false" />
+      <field column="QueryStringKey" visible="false" guid="6e2cb0b0-335c-46ec-bef1-e2c16496de41" dependsonanotherfield="false" />
+      <field column="ShowFirstLast" visible="false" guid="0db6e3b7-3c59-458d-a390-9aea55e5c633" dependsonanotherfield="false" />
+      <field column="ShowButtonsOnTop" visible="false" guid="5ef6e5c9-54c5-49f6-a3f8-1ee1913466e7" dependsonanotherfield="false" />
+      <field column="RelationshipWithNodeGuid" visible="false" guid="99bf2c8b-d820-4c0d-befd-d629caa66807" dependsonanotherfield="false" />
+      <field column="RelatedNodeIsOnTheLeftSide" visible="false" guid="6c635663-f5a4-4844-a4aa-42ff3b2cdff5" dependsonanotherfield="false" />
+      <field column="RelationshipName" visible="false" guid="4a84d23c-fbfb-4222-a1bd-243fe4dd64d2" dependsonanotherfield="false" />
+      <field column="CheckPermissions" visible="false" guid="0c3aa715-3c8f-4973-8aa4-d49a446097b9" dependsonanotherfield="false" />
+      <field column="CacheItemName" visible="false" guid="bb9a9283-42df-49fb-80b8-86867373b68c" dependsonanotherfield="false" />
+      <field column="CacheMinutes" visible="false" guid="bb767e58-3f6a-452d-8ced-477827102183" dependsonanotherfield="false" />
+      <field column="CacheDependencies" visible="false" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" dependsonanotherfield="false" />
+      <field column="HideControlForZeroRows" visible="false" guid="3894f86b-14eb-4576-bdbb-29b24b2bbaf8" visibility="none" dependsonanotherfield="false">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="ZeroRowsText" visible="false" guid="5616fcaf-e672-4765-ab39-307cf2da8dc7" dependsonanotherfield="false" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>ImageGallery</CodeName>
+    <GUID>1d127e0a-665e-4384-9b10-c4ac52ff9266</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

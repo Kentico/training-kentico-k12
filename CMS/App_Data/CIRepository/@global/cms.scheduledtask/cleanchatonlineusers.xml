@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.scheduledtask>
+  <TaskAllowExternalService>False</TaskAllowExternalService>
+  <TaskAssemblyName>CMS.Chat</TaskAssemblyName>
+  <TaskClass>CMS.Chat.ChatOnlineUsersCleaner</TaskClass>
+  <TaskCondition />
+  <TaskData />
+  <TaskDeleteAfterLastRun>False</TaskDeleteAfterLastRun>
+  <TaskDisplayName>Clean chat online users</TaskDisplayName>
+  <TaskEnabled>True</TaskEnabled>
+  <TaskGUID>8e2dfde4-c894-4984-94da-3f9c81539e56</TaskGUID>
+  <TaskInterval>
+    <![CDATA[minute;8/8/2011 6:26:16 PM;1;00:00:00;23:59:00;Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday]]>
+  </TaskInterval>
+  <TaskName>cleanchatonlineusers</TaskName>
+  <TaskResourceID>
+    <CodeName>CMS.Chat</CodeName>
+    <GUID>944e7882-1698-4e87-9036-5d8cd4f98592</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </TaskResourceID>
+  <TaskRunIndividually>False</TaskRunIndividually>
+  <TaskRunInSeparateThread>False</TaskRunInSeparateThread>
+  <TaskServerName />
+  <TaskUseExternalService>False</TaskUseExternalService>
+</cms.scheduledtask>

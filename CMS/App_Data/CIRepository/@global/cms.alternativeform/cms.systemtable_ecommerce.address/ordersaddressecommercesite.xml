@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>Ecommerce.Address</CodeName>
+    <GUID>3cc96754-268c-4eeb-94cf-44204a27431a</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <field column="AddressPersonalName" visible="" fieldtype="" reftype="">
+        <properties>
+          <captionstyle>EditingFormLabelCell</captionstyle>
+        </properties>
+      </field>
+      <field column="AddressLine1" fieldtype="" reftype="">
+        <properties>
+          <explanationtext>e.g. street address, P.O.box, c/o</explanationtext>
+          <fieldcaption>Address line</fieldcaption>
+        </properties>
+      </field>
+      <field column="AddressLine2" fieldtype="" reftype="">
+        <properties>
+          <explanationtext>e.g. apartment, suite, unit, building, floor</explanationtext>
+          <fieldcaption>Address line 2</fieldcaption>
+        </properties>
+      </field>
+      <field column="AddressCity" fieldtype="" reftype="" />
+      <field column="AddressZip" fieldtype="" reftype="">
+        <properties>
+          <fieldcaption>Postal code:</fieldcaption>
+        </properties>
+      </field>
+      <field column="AddressCountryID" fieldtype="" reftype="">
+        <properties>
+          <validationerrormessage>Please select a country.</validationerrormessage>
+        </properties>
+      </field>
+      <field column="AddressStateID" fieldtype="" allowempty="">
+        <settings>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <Trim />
+          <AutoCompleteFirstRowSelected />
+          <controlname />
+          <FilterMode />
+        </settings>
+      </field>
+      <field column="AddressPhone" visible="" fieldtype="" reftype="">
+        <settings>
+          <ValueIsContent>False</ValueIsContent>
+          <controlname>localizabletextbox</controlname>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <Trim />
+          <AutoCompleteFirstRowSelected />
+          <FilterMode />
+        </settings>
+      </field>
+      <field column="AddressCustomerID" fieldtype="" reftype="" />
+      <field column="AddressID" fieldtype="" reftype="" />
+      <field column="AddressName" fieldtype="" reftype="" />
+      <field column="AddressGUID" fieldtype="" reftype="" />
+      <field column="AddressLastModified" fieldtype="" reftype="" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Orders address (E-commerce Site)</FormDisplayName>
+  <FormGUID>68d760a7-6842-4d74-a9b2-cbcfc07eb732</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormName>OrdersAddressEcommerceSite</FormName>
+</cms.alternativeform>

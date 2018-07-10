@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Chat.RoomUser</CodeName>
+    <GUID>3934275a-9e59-4d72-84c2-7206eeeee3dd</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>76a44fd4-47e9-4905-9b3b-c79689730096</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectadminstates</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+--DECLARE @ChatUserID INT
+--SET @ChatUserID = 406
+
+SELECT CRU.ChatRoomUserRoomID AS RoomID, CRU.ChatRoomUserAdminLevel AS AdminLevel, CRU.ChatRoomUserLastModification AS LastChange, CR.ChatRoomIsOneToOne
+FROM Chat_Room AS CR
+RIGHT JOIN Chat_RoomUser AS CRU ON CRU.ChatRoomUserRoomID = CR.ChatRoomID
+WHERE CRU.ChatRoomUserChatUserID = @ChatUserID
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

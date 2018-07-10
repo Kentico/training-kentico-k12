@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.translationservice>
+  <TranslationServiceAssemblyName>CMS.TranslationServices</TranslationServiceAssemblyName>
+  <TranslationServiceClassName>CMS.TranslationServices.TranslationsComService</TranslationServiceClassName>
+  <TranslationServiceDisplayName>Translations.com</TranslationServiceDisplayName>
+  <TranslationServiceEnabled>True</TranslationServiceEnabled>
+  <TranslationServiceGenerateTargetTag>True</TranslationServiceGenerateTargetTag>
+  <TranslationServiceGUID>9c05c042-39e7-44ff-bd54-a2bdb334cae0</TranslationServiceGUID>
+  <TranslationServiceIsMachine>False</TranslationServiceIsMachine>
+  <TranslationServiceName>TranslationsCom</TranslationServiceName>
+  <TranslationServiceSupportsCancel>False</TranslationServiceSupportsCancel>
+  <TranslationServiceSupportsDeadline>True</TranslationServiceSupportsDeadline>
+  <TranslationServiceSupportsInstructions>True</TranslationServiceSupportsInstructions>
+  <TranslationServiceSupportsPriority>False</TranslationServiceSupportsPriority>
+  <TranslationServiceSupportsStatusUpdate>False</TranslationServiceSupportsStatusUpdate>
+</cms.translationservice>

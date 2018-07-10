@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions parameters="SiteID">
+    <action name="edit" caption="$General.Edit$" fonticonclass="icon-edit" fonticonstyle="allow" />
+    <action name="delete" caption="$General.Delete$" fonticonclass="icon-bin" fonticonstyle="critical" />
+    <action name="openLiveSite" externalsourcename="openlivesite" caption="$Unigrid.SiteList.Actions.OpenLiveSite$" fonticonclass="icon-eye" fonticonstyle="allow" />
+    <action name="start" externalsourcename="start" caption="$Unigrid.SiteList.Actions.Start$" fonticonclass="icon-triangle-right" fonticonstyle="allow" />
+    <action name="stop" externalsourcename="stop" caption="$Unigrid.SiteList.Actions.Stop$" fonticonclass="icon-square" fonticonstyle="critical" />
+    <action name="export" caption="$Unigrid.SiteList.Actions.Export$" fonticonclass="icon-arrow-right-rect" />
+  </actions>
+  <columns>
+    <column source="SiteDisplayName" caption="$general.sitename$" wrap="false" cssclass="main-column-100" localize="true" >
+      <filter type="text" />
+    </column>
+    <column source="##ALL##" externalsourcename="sitestatus" caption="$Unigrid.SiteList.Columns.SiteStatus$" wrap="false" />
+    <column source="SiteDomainName"  caption="$Unigrid.SiteList.Columns.SiteDomainName$" wrap="false">
+      <filter type="text" />
+    </column>
+    <column source="Documents"  caption="$general.pages$" wrap="false" />
+    <column source="SiteIsContentOnly" externalsourcename="#yesnocolorless" caption="$Unigrid.SiteList.Columns.SiteIsContentOnly$" wrap="false" />
+    <column source="##ALL##" externalsourcename="culture" caption="$Unigrid.SiteList.Columns.DefaultCulture$" wrap="false" />
+  </columns>
+  <objecttype name="cms.sitelist" columns="SiteID, SiteName, SiteDisplayName, SiteStatus, SiteIsOffline, SiteDomainName, Documents, SiteIsContentOnly" />
+  <options>
+    <key name="DisplayFilter" value="true" />
+  </options>
+</grid>
+

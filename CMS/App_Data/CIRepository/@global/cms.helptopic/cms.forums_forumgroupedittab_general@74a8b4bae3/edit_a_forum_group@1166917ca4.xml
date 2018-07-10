@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>147f3785-1294-4b65-9e69-180c3a24823e</HelpTopicGUID>
+  <HelpTopicLink>forum_groups_properties</HelpTopicLink>
+  <HelpTopicName>Edit a forum group</HelpTopicName>
+  <HelpTopicOrder>1</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>ForumGroupEditTab_General</CodeName>
+    <GUID>ff02e464-a1d4-4f01-a0a7-ab6b2791b55c</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Forums</CodeName>
+      <GUID>16e96e6c-f16f-49dc-a640-2357418668b8</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

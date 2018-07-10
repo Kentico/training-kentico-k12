@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.uielement>
+  <ElementCaption>{$analytics_codename.MVTests$}</ElementCaption>
+  <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
+  <ElementDescription>{$onlinemarketing.mvttests.description$}</ElementDescription>
+  <ElementDisplayName>{$analytics_codename.MVTests$}</ElementDisplayName>
+  <ElementFeature>MVTesting</ElementFeature>
+  <ElementFromVersion>8.0</ElementFromVersion>
+  <ElementGUID>eaf9ce44-be29-409b-b2aa-e7b98b1c8ec2</ElementGUID>
+  <ElementIconClass>icon-app-mvt</ElementIconClass>
+  <ElementIconPath />
+  <ElementIsCustom>False</ElementIsCustom>
+  <ElementIsGlobalApplication>False</ElementIsGlobalApplication>
+  <ElementIsMenu>False</ElementIsMenu>
+  <ElementName>MVTestListing</ElementName>
+  <ElementOrder>10</ElementOrder>
+  <ElementParentID>
+    <CodeName>CMSDesk.OnlineMarketing</CodeName>
+    <GUID>7396a5d9-c69d-4a9a-a03f-41d5eee51be2</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS</CodeName>
+      <GUID>ce1a65a0-80dc-4c53-b0e7-bdecf0aa8c02</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </ElementParentID>
+  <ElementProperties>
+    <Data>
+      <category_name_Breadcrumbs>False</category_name_Breadcrumbs>
+      <category_name_Header>False</category_name_Header>
+      <descriptionlink>mvt_tests</descriptionlink>
+      <DisplayBreadcrumbs>False</DisplayBreadcrumbs>
+      <includejquery>False</includejquery>
+      <ObjectType>om.mvtest</ObjectType>
+    </Data>
+  </ElementProperties>
+  <ElementRequiresGlobalAdminPriviligeLevel>False</ElementRequiresGlobalAdminPriviligeLevel>
+  <ElementResourceID>
+    <CodeName>CMS.MVTest</CodeName>
+    <GUID>e673e837-394a-45f9-9591-9e75fe757763</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ElementResourceID>
+  <ElementSize>1</ElementSize>
+  <ElementTargetURL>
+    <![CDATA[~/CMSModules/OnlineMarketing/Pages/Content/MVTest/List.aspx]]>
+  </ElementTargetURL>
+  <ElementType>Url</ElementType>
+</cms.uielement>

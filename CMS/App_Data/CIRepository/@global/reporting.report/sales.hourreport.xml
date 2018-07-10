@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.report>
+  <ReportAccess>0</ReportAccess>
+  <ReportCategoryID>
+    <CodeName>Sales</CodeName>
+    <GUID>6b5745fd-6483-46b0-ae14-539b5ce8989f</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </ReportCategoryID>
+  <ReportConnectionString />
+  <ReportDisplayName>Sales - Hourly report</ReportDisplayName>
+  <ReportEnableSubscription>True</ReportEnableSubscription>
+  <ReportGUID>baf1be2c-d83c-4f21-99f4-3a4cdfb8cba8</ReportGUID>
+  <ReportLayout>
+<![CDATA[
+%%control:ReportGraph?Sales.HourReport.graph%%
+<h4>{$com.sales.totalvolumeofsales$}:&nbsp;%%control:ReportValue?Sales.HourReport.value%%</h4>
+%%control:ReportTable?Sales.HourReport.table%%
+]]>
+  </ReportLayout>
+  <ReportName>Sales.HourReport</ReportName>
+  <ReportParameters>
+    <form>
+      <field column="FromDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="8be8475a-3760-4355-83b1-41bf6852aab6" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">
+            <![CDATA[{%CurrentDateTime.AddDays(-1)|(identity)GlobalAdministrator|(hash)de464df022f2b5dd9adebd809299455e80ae9bbbc3cc896238ff860e81e2fb00%}]]>
+          </defaultvalue>
+          <fieldcaption>{$general.from$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>True</EditTime>
+        </settings>
+      </field>
+      <field column="ToDate" visible="true" columntype="datetime" fieldtype="CustomUserControl" allowempty="true" publicfield="false" guid="cfbf760c-1956-4a3f-a49e-2f2e72b001c2" visibility="none">
+        <properties>
+          <defaultvalue ismacro="true">{%CurrentDateTime%}</defaultvalue>
+          <fieldcaption>{$general.to$}</fieldcaption>
+        </properties>
+        <settings>
+          <TimeZoneType>inherit</TimeZoneType>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>True</DisplayNow>
+          <EditTime>True</EditTime>
+        </settings>
+      </field>
+    </form>
+  </ReportParameters>
+</reporting.report>

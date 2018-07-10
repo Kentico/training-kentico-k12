@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>GeneralCookies</CodeName>
+    <GUID>913b74b6-7b34-4af2-b2b3-5db5b5ad4aba</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Stores a cookie with a specified name and value in the client browser when the page containing the web part is accessed by a user.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Set cookie</WebPartDisplayName>
+  <WebPartFileName>General/SetCookie.ascx</WebPartFileName>
+  <WebPartGUID>dca8a0a7-cb3a-4fff-9740-d6edc0b19d75</WebPartGUID>
+  <WebPartIconClass>icon-w-set-cookie</WebPartIconClass>
+  <WebPartName>SetCookie</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Cookie settings">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="Name" columnsize="50" columntype="text" guid="25f2777a-155b-43fd-8a46-336a9262e4f0" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the cookie that will be stored when the page containing the web part is accessed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="CookieValue" columntype="longtext" guid="935940f9-c892-44aa-90d0-1be2ae154dac" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Value</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the value that will be saved by the cookie. You can enter various types of macro expressions to set the value dynamically.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Cols>5</Cols>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Rows>10</Rows>
+        </settings>
+      </field>
+      <field column="Expiration" columntype="datetime" guid="a460bbee-e204-4c77-b381-700ca485b005" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Expiration</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the exact date and time when the cookie should expire.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>calendarcontrol</controlname>
+          <DisplayNow>False</DisplayNow>
+          <EditTime>True</EditTime>
+          <TimeZoneType>inherit</TimeZoneType>
+        </settings>
+      </field>
+      <field allowempty="true" column="Path" columnsize="1000" columntype="text" guid="d1d798bc-9eef-4267-83f9-a736fcd492f2" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets a virtual path that will be transmitted with the cookie. If no value is entered, the path of the current request will be used by default.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>4</WebPartType>
+</cms.webpart>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.documenttype>
+  <ClassConnectionString>CMSConnectionString</ClassConnectionString>
+  <ClassContactOverwriteEnabled>False</ClassContactOverwriteEnabled>
+  <ClassCreateSKU>False</ClassCreateSKU>
+  <ClassCustomizedColumns />
+  <ClassDefaultObjectType />
+  <ClassDisplayName>File</ClassDisplayName>
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="FileID" columntype="integer" guid="ee63e3e8-0fce-4099-82bd-50df0c69b2fe" isPK="true" isunique="true" publicfield="false">
+        <properties>
+          <fieldcaption>FileID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="FileName" columnsize="100" columntype="text" guid="f820a7ac-1c87-4709-bcf8-f16115a81a8e" publicfield="false" translatefield="true" visible="true">
+        <properties>
+          <fieldcaption>File name</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="FileDescription" columnsize="500" columntype="text" guid="e8fb4f99-2300-4f3f-9d7e-66e23f9f696c" publicfield="false" translatefield="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Description</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>textareacontrol</controlname>
+          <FilterEnabled>False</FilterEnabled>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <field allowempty="true" column="FileAttachment" columntype="file" guid="ce4c5d10-c143-4ada-9d8a-7e7481b167ef" publicfield="false" translatefield="true" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>File</fieldcaption>
+          <visiblemacro ismacro="true">{%true%}</visiblemacro>
+        </properties>
+        <settings>
+          <Autoresize_Hashtable>True</Autoresize_Hashtable>
+          <controlname>directuploadcontrol</controlname>
+          <Extensions>inherit</Extensions>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassFormLayout />
+  <ClassFormLayoutType>html</ClassFormLayoutType>
+  <ClassGUID>5b168902-89b2-448f-9357-277df7dc7291</ClassGUID>
+  <ClassIconClass>icon-file</ClassIconClass>
+  <ClassIsContentOnly>False</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>True</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsProduct>False</ClassIsProduct>
+  <ClassIsProductSection>False</ClassIsProductSection>
+  <ClassName>CMS.File</ClassName>
+  <ClassNewPageUrl>~/CMSModules/Content/CMSDesk/New/NewFile.aspx</ClassNewPageUrl>
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource>FileName</ClassNodeNameSource>
+  <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchImageColumn>FileAttachment</ClassSearchImageColumn>
+  <ClassSearchSettings>
+    <search>
+      <item azurecontent="True" azuresearchable="True" content="True" id="05c72433-2378-4111-a13a-56ccd4fedad7" name="FileDescription" searchable="False" tokenized="True" />
+      <item azurecontent="True" azuresearchable="True" content="True" id="2af5049f-e9dc-4dc4-8455-f349fc2a7131" name="FileName" searchable="False" tokenized="True" />
+      <item azureretrievable="True" content="False" id="4c84e843-0844-4e5f-8674-81a281ebf529" name="FileID" searchable="True" tokenized="False" />
+      <item content="False" id="a2a5ef49-bf66-478f-8863-7a8dcd0ed3c1" name="FileAttachment" searchable="False" tokenized="False" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassShowColumns />
+  <ClassShowTemplateSelection>False</ClassShowTemplateSelection>
+  <ClassTableName>CONTENT_File</ClassTableName>
+  <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+  <ClassViewPageUrl>~/CMSModules/Content/CMSDesk/View/ViewFile.aspx</ClassViewPageUrl>
+</cms.documenttype>

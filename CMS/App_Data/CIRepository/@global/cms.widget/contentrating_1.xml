@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Content</CodeName>
+    <GUID>4ea8bea5-6cf0-4a77-81d0-7cf1463fcbc4</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>{$widgets.contentratingdesc$}</WidgetDescription>
+  <WidgetDisplayName>Content rating</WidgetDisplayName>
+  <WidgetForDashboard>False</WidgetForDashboard>
+  <WidgetForEditor>True</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>True</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>0568eb63-9d54-4367-bc75-a36a494a6b55</WidgetGUID>
+  <WidgetIconClass>icon-w-content-rating</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>ContentRating_1</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="ExternalValue" visible="" guid="d4aff14b-817c-4980-97c4-c41d4150c546" />
+      <field column="RatingType" guid="540c2db1-8556-49ca-8235-21983f4526e1" visibility="none" />
+      <field column="MaxRatingValue" guid="efe57275-b60d-48ca-a199-78ce7c4b1c8b" visibility="none" />
+      <field column="ShowResultMessage" visible="" guid="25fdd23b-d2f0-451a-b818-3d0015a48ae0" />
+      <field column="ResultMessage" visible="" guid="f699c134-9264-463a-b775-c3cb5930f9da" />
+      <field column="CheckPermissions" visible="" guid="69973329-371f-4f4a-aad8-de1c94ecf0ea" />
+      <field column="AllowZeroValue" visible="" guid="02f912b8-c3f3-47d5-bdfa-828ef0137bf7" />
+      <field column="ErrorMessage" visible="" guid="b4b86bde-7a4f-4966-bc2e-777409dc6eb3" />
+      <field column="AllowForPublic" visible="" guid="1872e792-e7e7-44bc-b55d-1951e3f1da47" />
+      <field column="CheckIfUserRated" visible="" guid="fa2afae6-cb0f-4c63-9dfe-958d335481af" />
+      <field column="HideToUnauthorizedUsers" visible="" guid="3db9447f-066e-40e1-ae14-ee8533cd2c4f" />
+      <field column="MessageAfterRating" visible="" guid="3ab152d0-4edf-4399-a7e7-48f8bad33418" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetSkipInsertProperties>False</WidgetSkipInsertProperties>
+  <WidgetWebPartID>
+    <CodeName>ContentRating</CodeName>
+    <GUID>c507e2b3-1fe3-4cb4-83ff-b3257f954591</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

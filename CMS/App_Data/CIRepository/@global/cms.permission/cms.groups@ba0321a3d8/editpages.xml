@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.groups.editpages$}</PermissionDescription>
+  <PermissionDisplayInMatrix>False</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Edit pages</PermissionDisplayName>
+  <PermissionGUID>3dc76a0e-057d-40d6-871f-2d412ae12a87</PermissionGUID>
+  <PermissionName>EditPages</PermissionName>
+  <PermissionOrder>4</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Groups</CodeName>
+    <GUID>65f419f4-00f1-4905-a344-fc5b94983097</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

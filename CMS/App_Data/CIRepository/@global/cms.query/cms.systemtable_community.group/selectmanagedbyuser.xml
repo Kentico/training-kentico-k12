@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Community.Group</CodeName>
+    <GUID>78a6ade6-ca83-400c-b537-d5213b7162e4</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>648042eb-4aff-4289-9282-ea076fa8499b</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectmanagedbyuser</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT ##TOPN## ##COLUMNS## FROM Community_Group JOIN Community_GroupMember ON Community_Group.GroupID = Community_GroupMember.MemberGroupID 
+JOIN CMS_User ON  Community_GroupMember.MemberUserID = CMS_User.UserID JOIN CMS_Role ON Community_Group.GroupID = CMS_Role.RoleGroupID 
+WHERE Community_Group.GroupSiteID = @SiteID AND CMS_User.UserID = @UserID AND CMS_Role.RoleIsGroupAdministrator = 1 ORDER BY ##ORDERBY##
+
+
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

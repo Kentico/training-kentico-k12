@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.widget>
+  <WidgetCategoryID>
+    <CodeName>Dashboard</CodeName>
+    <GUID>d230ceb4-ca2f-4815-8ada-f344a2394ef8</GUID>
+    <ObjectType>cms.widgetcategory</ObjectType>
+  </WidgetCategoryID>
+  <WidgetDescription>
+    <![CDATA[Allows manage events, modify their attendees and email notifications.]]>
+  </WidgetDescription>
+  <WidgetDisplayName>Event management</WidgetDisplayName>
+  <WidgetForDashboard>True</WidgetForDashboard>
+  <WidgetForEditor>False</WidgetForEditor>
+  <WidgetForGroup>False</WidgetForGroup>
+  <WidgetForInline>False</WidgetForInline>
+  <WidgetForUser>False</WidgetForUser>
+  <WidgetGUID>49b47445-a067-47c3-8520-374e014628cc</WidgetGUID>
+  <WidgetIconClass>icon-w-event-management</WidgetIconClass>
+  <WidgetIsEnabled>True</WidgetIsEnabled>
+  <WidgetName>EventManagement</WidgetName>
+  <WidgetProperties>
+    <form version="2">
+      <field column="ItemsPerPage" guid="e7dfea3c-31f3-4bb8-b29d-7b6213f7c9b4" hasdependingfields="false" />
+      <field column="OrderBy" guid="02edf82b-64e7-41eb-87d1-4cfa8dfb7643" hasdependingfields="false" />
+      <field column="Sorting" guid="6ea3daf3-e67c-42de-a2bc-86626bdda8cd" hasdependingfields="false" />
+    </form>
+  </WidgetProperties>
+  <WidgetSecurity>1</WidgetSecurity>
+  <WidgetWebPartID>
+    <CodeName>EventManagement</CodeName>
+    <GUID>01b1d13d-7444-4667-a7c3-293e69b0914c</GUID>
+    <ObjectType>cms.webpart</ObjectType>
+  </WidgetWebPartID>
+</cms.widget>

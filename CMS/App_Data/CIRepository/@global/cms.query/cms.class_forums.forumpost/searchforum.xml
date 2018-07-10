@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.ForumPost</CodeName>
+    <GUID>f40c961c-3d47-4e6a-997e-b127db2520c1</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>8159247c-a3bf-4944-aa10-48f47edd65e8</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>SearchForum</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT ##TOPN## [View_Forums_GroupForumPost_Joined].*, [CMS_User].UserName, [CMS_UserSettings].UserForumPosts, [CMS_UserSettings].UserActivityPoints,[CMS_UserSettings].UserGender, [CMS_UserSettings].UserPicture, [CMS_Badge].BadgeDisplayName, [CMS_Badge].BadgeImageURL, [CMS_Avatar].AvatarGUID, [CMS_Avatar].AvatarID
+FROM [View_Forums_GroupForumPost_Joined] 
+LEFT JOIN CMS_User ON [CMS_User].UserID = [View_Forums_GroupForumPost_Joined].PostUserID
+LEFT JOIN CMS_UserSettings ON [CMS_UserSettings].UserSettingsUserID = [View_Forums_GroupForumPost_Joined].PostUserID
+LEFT JOIN CMS_Badge ON [CMS_Badge].BadgeID = [CMS_UserSettings].UserBadgeID
+LEFT JOIN CMS_Avatar ON [CMS_Avatar].AvatarID = [CMS_UserSettings].UserAvatarID
+WHERE (##WHERE##) ORDER BY ##ORDERBY##
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

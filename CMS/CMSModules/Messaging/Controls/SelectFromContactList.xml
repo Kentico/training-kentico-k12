@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<grid>
+  <actions parameters="ContactListContactUserID">
+    <action name="delete" caption="$General.Delete$" fonticonclass="icon-bin" fonticonstyle="critical" commandargument="{0}" confirmation="$Messsaging.ContactList.DeletionConfirmation$" />
+  </actions>
+  <columns>
+    <column source="##ALL##" externalsourcename="formattedusername" sort="UserName" caption="$general.UserName$" wrap="false">
+      <filter path="~/CMSModules/Messaging/Controls/ContactIgnoreSearchBox.ascx" />
+    </column>
+    <column cssclass="filling-column" />
+  </columns>
+  <pager>
+    <key name="ShowDirectPageControl" value="false" />
+  </pager>
+  <options>
+    <key name="DisplayFilter" value="true" />
+  </options>
+</grid>

@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Layouts</CodeName>
+    <GUID>d5cb0ae0-d055-437e-829f-e2c09a7bdce3</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Displays a panel that can be collapsed or expanded by users. The panel contains a web part zone, so any type of content may be added.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Collapsible panel</WebPartDisplayName>
+  <WebPartDocumentation>
+<![CDATA[
+To&nbsp;insert content into the panel, edit the&nbsp;page on the <strong>Design</strong> tab. Here you can expand&nbsp;the panel&nbsp;and add any web parts that you need into the&nbsp;zone.<br />
+<br />
+For more information, see <a href="~/CMSPages/GetDocLink.ashx?link=layout_webparts" target="_blank">Working with layout web parts</a>.
+]]>
+  </WebPartDocumentation>
+  <WebPartFileName>Layouts/CollapsiblePanel.ascx</WebPartFileName>
+  <WebPartGUID>795450d7-84fb-41e3-b098-583e67f2591f</WebPartGUID>
+  <WebPartIconClass>icon-w-collapsible-panel</WebPartIconClass>
+  <WebPartName>CollapsiblePanel</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <caption>Header</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CollapsedText" columntype="longtext" guid="9b14a4c7-639c-4e05-91af-73d2643d175f" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Collapsed text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text displayed in the panel's header when it is collapsed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CollapsedImage" columnsize="1000" columntype="text" guid="c763b638-494a-47a1-8b35-5ca3dd849724" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Collapsed image</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to select an image that will be displayed in the panel's header when it is collapsed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <Autoresize_Hashtable>True</Autoresize_Hashtable>
+          <controlname>mediaselectioncontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ExpandedText" columntype="longtext" guid="0f7b38fe-b3db-4343-a215-6f570ed171fb" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Expanded text</fieldcaption>
+          <fielddescription>
+            <![CDATA[Text displayed in the panel's header when it is expanded.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ExpandedImage" columnsize="1000" columntype="text" guid="1c923e50-6df0-45e0-ab79-8bb651a54439" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Expanded image</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to select an image that will be displayed in the panel's header when it is expanded.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <Autoresize_Hashtable>True</Autoresize_Hashtable>
+          <controlname>mediaselectioncontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="HeaderCSSClass" columnsize="100" columntype="text" guid="dccc66e3-a837-491d-ac56-419c8f5a33c3" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Header CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class from the used stylesheet that will be applied to the header of the panel.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ImageCSSClass" columnsize="100" columntype="text" guid="b3dcdaf9-2f23-4dde-a51a-70d4b1bca328" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Image CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class from the used stylesheet that will be applied to the header image.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Design">
+        <properties>
+          <caption>Content</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CollapsedSize" columntype="integer" guid="45184bfd-b129-4040-94fb-e2172f263a72" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Collapsed size (px)</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the size of the panel when it is collapsed (in pixels). The size defines the panel's height if the Expand direction is set to Vertical or width if it is Horizontal. If empty, only the header will be visible when the panel is collapsed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ExpandedSize" columntype="integer" guid="7b1525b2-b12e-48fa-8e91-7b9a000e77d4" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Expanded size (px)</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the size of the panel when it is expanded (in pixels). The size defines the panel's height if the Expand direction is set to Vertical or width if it is Horizontal.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="ContentCSSClass" columnsize="100" columntype="text" guid="bc87e95b-ddf5-4f2a-ba99-3c38409ab17a" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Content CSS class</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the CSS class from the used stylesheet that will be applied to the content of the panel.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="Width" columnsize="100" columntype="text" guid="c176256a-8605-403e-b31f-ac9ff7e91cf9" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Width</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the width of the panel. It must be specified as a CSS style value, e.g. 200px or 50%.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Behavior">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="Collapsed" columntype="boolean" guid="beeccbc1-8a10-41ff-9448-f4ba8ec321ef" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Collapsed</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, the panel will be collapsed by default when the page is loaded.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AutoCollapse" columntype="boolean" guid="afde9344-1b36-49c2-99d8-e08bf24d7e48" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Auto collapse</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, the panel will automatically collapse when the user's mouse is moved outside of the panel. Please note that some web parts may contain classes that interfere with this functionality, and will require manual adjustments.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AutoExpand" columntype="boolean" guid="fc161b57-cb1e-4f37-b3a6-b467dcd475d1" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Auto expand</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, the panel will automatically expand when the user's mouse is moved over the panel.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="ExpandDirection" columnsize="100" columntype="text" guid="c6c7c437-d944-4bc0-b45e-51b5aa9a3090" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Expand direction</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the direction in which the panel will expand. Possible options are Vertical or Horizontal.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="vert" text="Vertical" /><item value="horz" text="Horizontal" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field allowempty="true" column="ScrollContent" columntype="boolean" guid="3f548d39-2d6a-4cd8-9e3e-ef7dbf894e06" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Scroll content</fieldcaption>
+          <fielddescription>
+            <![CDATA[If checked, a scrollbar will be displayed if the content is larger than the panel.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="AllowDesignMode" columntype="boolean" guid="f692a543-a175-42f2-82da-aa3f3dd56fb2" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Allow design mode</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.allowdesignmode$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>True</WebPartSkipInsertProperties>
+  <WebPartType>6</WebPartType>
+</cms.webpart>

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportgraph>
+  <GraphDisplayName>Forum posts by month graph</GraphDisplayName>
+  <GraphGUID>7745e64c-df0c-4d3e-b0f1-6cb45a5e0d79</GraphGUID>
+  <GraphHeight>400</GraphHeight>
+  <GraphLegendPosition>100</GraphLegendPosition>
+  <GraphName>ForumPostsByMonthGraph</GraphName>
+  <GraphQuery>
+<![CDATA[
+SELECT  Cast(Year(PostTime) AS nvarchar(20))+' ' + Cast( Month(PostTime) AS nvarchar(20)) AS 'Month', COUNT(*) as 'Number of posts' FROM Forums_ForumPost 
+WHERE PostForumID IN (SELECT ForumID FROM Forums_Forum WHERE ForumGroupID IN (SELECT GroupID FROM Forums_ForumGroup WHERE GroupSiteID = @CMSContextCurrentSiteID)) 
+AND {%DatabaseSchema%}.Func_Analytics_DateTrim(DateAdd(month, -1 * @LastXmonths, GetDate()),'month') < PostTime
+GROUP BY  Year(PostTime), Month(PostTime) ORDER BY Year(PostTime), Month(PostTime)
+]]>
+  </GraphQuery>
+  <GraphQueryIsStoredProcedure>False</GraphQueryIsStoredProcedure>
+  <GraphReportID>
+    <CodeName>NewPostsByMonth</CodeName>
+    <GUID>bb4591d6-33a3-4c59-8bf2-add9a11a563c</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </GraphReportID>
+  <GraphSettings>
+    <CustomData>
+      <barorientation>Vertical</barorientation>
+      <baroverlay>False</baroverlay>
+      <displayitemvalue>True</displayitemvalue>
+      <exportenabled>True</exportenabled>
+      <legendinside>False</legendinside>
+      <legendposition>None</legendposition>
+      <linedrawinstyle>Line</linedrawinstyle>
+      <pieshowpercentage>False</pieshowpercentage>
+      <plotareagradient>None</plotareagradient>
+      <querynorecordtext>No posts found</querynorecordtext>
+      <reverseyaxis>False</reverseyaxis>
+      <seriesgradient>None</seriesgradient>
+      <showas3d>False</showas3d>
+      <showmajorgrid>True</showmajorgrid>
+      <stackedbarmaxstacked>False</stackedbarmaxstacked>
+      <subscriptionenabled>True</subscriptionenabled>
+      <tenpowers>False</tenpowers>
+      <titlefontnew>Arial;bold;14;;</titlefontnew>
+      <titleposition>Center</titleposition>
+      <valuesaspercent>False</valuesaspercent>
+      <xaxisangle>60</xaxisangle>
+      <xaxisfont>Arial;bold;11;;</xaxisfont>
+      <xaxisinterval>1</xaxisinterval>
+      <xaxissort>True</xaxissort>
+      <xaxistitleposition>Center</xaxistitleposition>
+      <yaxisfont>Arial;bold;11;;</yaxisfont>
+      <yaxistitleposition>Center</yaxistitleposition>
+      <yaxisusexaxissettings>True</yaxisusexaxissettings>
+    </CustomData>
+  </GraphSettings>
+  <GraphTitle>
+    <![CDATA[{$Forums.NewPostsByMonth$} - {%CMSContextCurrentSiteName%}]]>
+  </GraphTitle>
+  <GraphType>bar</GraphType>
+  <GraphWidth>800</GraphWidth>
+  <GraphXAxisTitle>{$Forums.Months$}</GraphXAxisTitle>
+  <GraphYAxisTitle>{$Forums.NumberOfPosts$}</GraphYAxisTitle>
+</reporting.reportgraph>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Cookies</CategoryDisplayName>
+  <CategoryGUID>913b74b6-7b34-4af2-b2b3-5db5b5ad4aba</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>GeneralCookies</CategoryName>
+  <CategoryParentID>
+    <CodeName>General</CodeName>
+    <GUID>c4dcc9a6-220e-4efe-b264-288b53d08da6</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

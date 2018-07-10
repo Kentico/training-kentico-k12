@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reporttable>
+  <TableDisplayName>Local pages</TableDisplayName>
+  <TableGUID>1c6cbb77-12dd-41aa-b09f-5abefa676d3a</TableGUID>
+  <TableName>LocalPages</TableName>
+  <TableQuery>
+<![CDATA[
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
+SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
+SELECT TOP 100
+Tree.NodeAliasPath AS '{$general.pages$}',
+ SUM(HitsCount) AS '{$reports_searchkeyword.hits_header$}',
+ CAST(CAST(100*CAST(SUM(HitsCount) AS float)/NULLIF((
+  SELECT SUM(HitsCount)
+  FROM Analytics_Statistics
+  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%} ON Analytics_Statistics.StatisticsID = {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%}.HitsStatisticsID
+   RIGHT JOIN View_CMS_Tree_Joined AS Tree ON Analytics_Statistics.StatisticsObjectName = Tree.NodeID AND 
+  Analytics_Statistics.StatisticsObjectCulture=Tree.DocumentCulture
+  WHERE (StatisticsSiteID=@CMSContextCurrentSiteID)
+  AND (StatisticsCode='referringsite_local')
+  AND (HitsStartTime >= @FromDate)
+  AND (StatisticsObjectID = @NodeID)
+  AND (StatisticsObjectCulture= @CultureCode)
+  AND (HitsEndTime <= @ToDate)), 0) AS decimal(3)) AS VARCHAR)+'%' AS '{$reports_searchkeyword.percent_header$}'
+  FROM Analytics_Statistics
+  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%} ON Analytics_Statistics.StatisticsID = {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%}.HitsStatisticsID
+  RIGHT JOIN View_CMS_Tree_Joined AS Tree ON Analytics_Statistics.StatisticsObjectName = Tree.NodeID AND 
+  Analytics_Statistics.StatisticsObjectCulture=Tree.DocumentCulture  
+  WHERE (StatisticsSiteID = @CMSContextCurrentSiteID)
+  AND (StatisticsCode='referringsite_local')
+  AND (HitsStartTime >= @FromDate) AND (HitsEndTime <= @ToDate) AND (StatisticsObjectID = @NodeId)
+  AND (StatisticsObjectCulture= @CultureCode)
+  GROUP BY Tree.NodeAliasPath
+  ORDER BY SUM(HitsCount) DESC
+]]>
+  </TableQuery>
+  <TableQueryIsStoredProcedure>False</TableQueryIsStoredProcedure>
+  <TableReportID>
+    <CodeName>pagereports.Traffic</CodeName>
+    <GUID>716af0fd-6744-485e-82c6-48439401ed69</GUID>
+    <ObjectType>reporting.report</ObjectType>
+  </TableReportID>
+  <TableSettings>
+    <CustomData>
+      <enablepaging>False</enablepaging>
+      <exportenabled>True</exportenabled>
+      <pagemode>1</pagemode>
+      <pagesize>15</pagesize>
+      <querynorecordtext>No data found</querynorecordtext>
+      <subscriptionenabled>True</subscriptionenabled>
+    </CustomData>
+  </TableSettings>
+</reporting.reporttable>

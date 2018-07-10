@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>DataSources</CodeName>
+    <GUID>36984e99-1ff8-464a-8788-b1ab4afaa585</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDescription>
+    <![CDATA[Retrieves data from an SQL database using a query or stored procedure. This data source can then be connected to listing web parts (such as a Basic repeater) in order to be displayed. This web part may be used to provide data from an external database.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>SQL data source</WebPartDisplayName>
+  <WebPartDocumentation />
+  <WebPartFileName>DataSources/SQLDataSource.ascx</WebPartFileName>
+  <WebPartGUID>a3b5678a-56d5-4251-a4bb-b60114d8626d</WebPartGUID>
+  <WebPartIconClass>icon-w-sql-data-source</WebPartIconClass>
+  <WebPartName>SQLDataSource</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Connection">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ServerName" columnsize="450" columntype="text" guid="d01cc9b4-6804-48f0-91dd-b361e7635130" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Server name</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the name of the database server from which the data should be loaded. If both the Server name and Connection string properties are empty, the application connection string is used by default (this connects to the Kentico CMS database).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="AuthenticationMode" columntype="integer" guid="46d49fcb-3add-4a14-b674-0db5489ccb9c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <fieldcaption>Authentication mode</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects which authentication mode is used to connect to the SQL server (SQL server authentication or Windows authentication).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>radiobuttonscontrol</controlname>
+          <Options>
+            <![CDATA[<item value="0" text="SQL server authentication" /><item value="1" text="Windows authentication" />]]>
+          </Options>
+          <RepeatDirection>vertical</RepeatDirection>
+        </settings>
+      </field>
+      <field allowempty="true" column="DatabaseName" columnsize="450" columntype="text" guid="8397170f-3ead-41f7-8bf5-8a3f69c8f621" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Database name</fieldcaption>
+          <fielddescription>Specifies the name of the source database.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UserName" columnsize="450" columntype="text" guid="c71b2321-315e-407e-b731-4f157ae6ca0c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>User name</fieldcaption>
+          <fielddescription>
+            <![CDATA[User name to be used for SQL server authentication.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Password" columnsize="450" columntype="text" guid="eec43700-b7ce-4946-abb7-66b91a8a428d" publicfield="false" spellcheck="false" visible="true">
+        <properties>
+          <fieldcaption>Password</fieldcaption>
+          <fielddescription>Password to be used for SQL server authentication.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>encryptedpassword</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="Timeout" columntype="integer" guid="5613775d-16da-4dcc-8189-8ab2f3481136" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Timeout</fieldcaption>
+          <fielddescription>
+            <![CDATA[Sets the time to wait (in seconds) for the connection to successfully open.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="Language" columnsize="100" columntype="text" guid="1f0c1960-5305-49b3-9b2c-965b2a01b171" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Language</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the language of the connection. (English by default)]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Connection string">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="ConnectionString" columnsize="450" columntype="text" guid="7bc3b238-3e78-4bb4-b475-7975188f8ac2" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Connection string</fieldcaption>
+          <fielddescription>
+            <![CDATA[Can be used to enter a complete connection string for the database connection. If both the Server name and Connection string properties are empty, the application connection string is used by default (this connects to the Kentico CMS database).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <category name="Query">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field column="QueryType" columntype="integer" guid="f0f671d5-98c5-4096-b330-f537ffc25d2f" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <fieldcaption>Query type</fieldcaption>
+          <fielddescription>
+            <![CDATA[Selects the type of the used query. It can be either a standard SQL query or a stored procedure.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>dropdownlistcontrol</controlname>
+          <Options>
+            <![CDATA[<item value="0" text="SQL query" /><item value="1" text="Stored procedure" />]]>
+          </Options>
+        </settings>
+      </field>
+      <field column="QueryText" columnsize="450" columntype="text" guid="dd60fafa-8280-42e3-af9b-53a3b4ce482c" publicfield="false" spellcheck="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Query text</fieldcaption>
+          <fielddescription>
+            <![CDATA[The text of the query that will be used to retrieve the data.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textareacontrol</controlname>
+          <FilterMode>False</FilterMode>
+        </settings>
+      </field>
+      <category name="System settings">
+        <properties>
+          <visible>true</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CacheItemName" columnsize="200" columntype="text" guid="8807c5e5-c0bc-44f5-b237-a37d45857492" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache item name</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheitemname$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheMinutes" columntype="integer" guid="ee332543-bc06-46d2-9158-179ece17fa11" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Cache minutes</fieldcaption>
+          <fielddescription>{$documentation.webpartproperties.cacheminutes$}</fielddescription>
+        </properties>
+        <settings>
+          <controlname>textboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CacheDependencies" columntype="longtext" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Cache dependencies</fieldcaption>
+          <fielddescription>
+            <![CDATA[{$documentation.webpartproperties.cachedependencies$}]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>cachedependencies</controlname>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>1</WebPartType>
+</cms.webpart>

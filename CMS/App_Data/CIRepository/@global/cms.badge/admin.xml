@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.badge>
+  <BadgeDisplayName>Site admin</BadgeDisplayName>
+  <BadgeGUID>1f57161b-6d6f-46f4-8519-faffd2ce9eef</BadgeGUID>
+  <BadgeImageURL>/Objects/CMS_Badge/Default/siteadmin.gif</BadgeImageURL>
+  <BadgeIsAutomatic>False</BadgeIsAutomatic>
+  <BadgeName>Admin</BadgeName>
+  <BadgeTopLimit>0</BadgeTopLimit>
+</cms.badge>

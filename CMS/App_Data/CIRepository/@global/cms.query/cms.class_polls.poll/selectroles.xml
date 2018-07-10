@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>polls.poll</CodeName>
+    <GUID>35aefb4e-1944-48af-8725-0aedf4bb17be</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>2dfc08fc-9b0a-4ba8-a5fe-db86c1724cfa</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>selectroles</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+    <![CDATA[SELECT ##COLUMNS## FROM CMS_Role INNER JOIN Polls_PollRoles ON CMS_Role.RoleID=Polls_PollRoles.RoleID WHERE Polls_PollRoles.PollID=@PollID]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

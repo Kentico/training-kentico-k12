@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>{$permissiondescription.forms.editsqlqueries$}</PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Edit SQL Queries</PermissionDisplayName>
+  <PermissionEditableByGlobalAdmin>True</PermissionEditableByGlobalAdmin>
+  <PermissionGUID>ec72846f-757d-4a50-b1a9-3014485cdd43</PermissionGUID>
+  <PermissionName>EditSQLQueries</PermissionName>
+  <PermissionOrder>10</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Form</CodeName>
+    <GUID>385e528a-e013-4a84-bad9-d5956408741a</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

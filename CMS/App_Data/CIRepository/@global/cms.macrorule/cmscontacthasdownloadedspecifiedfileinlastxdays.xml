@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.macrorule>
+  <MacroRuleCondition>
+    <![CDATA[{_perfectum}Contact.VisitedPage("{item}", ToInt({days}))]]>
+  </MacroRuleCondition>
+  <MacroRuleDescription>
+    <![CDATA[{$macrorule.cmscontacthasdownloadedspecifiedfileinlastxdays.description$}]]>
+  </MacroRuleDescription>
+  <MacroRuleDisplayName>
+    <![CDATA[Contact has downloaded specified file in last X days]]>
+  </MacroRuleDisplayName>
+  <MacroRuleEnabled>True</MacroRuleEnabled>
+  <MacroRuleGUID>d310cdb3-0862-4486-9a9f-abdc4df7201a</MacroRuleGUID>
+  <MacroRuleIsCustom>False</MacroRuleIsCustom>
+  <MacroRuleName>CMSContactHasDownloadedSpecifiedFileInLastXDays</MacroRuleName>
+  <MacroRuleParameters>
+    <form version="2">
+      <field allowempty="true" column="_perfectum" columnsize="100" columntype="text" guid="4d9f30db-72cf-43b6-9bc8-0ecb820254de" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>;has</defaultvalue>
+          <fieldcaption>select operation</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>macronegationoperator</controlname>
+          <Options>
+<![CDATA[
+;has
+!;has not
+]]>
+          </Options>
+          <RepeatDirection>horizontal</RepeatDirection>
+        </settings>
+      </field>
+      <field column="item" columntype="guid" guid="0538ae35-5343-4911-aa86-9f4d266f6f4c" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>select file</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>selectdocument</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="days" columntype="integer" guid="cd63a86f-685a-4b8b-89b0-56b66a61b5da" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>0</defaultvalue>
+          <fieldcaption>enter days</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </MacroRuleParameters>
+  <MacroRuleRequiresContext>False</MacroRuleRequiresContext>
+  <MacroRuleResourceName>cms.onlinemarketing</MacroRuleResourceName>
+  <MacroRuleText>
+    <![CDATA[Contact {_perfectum} downloaded file {item} in the last {days} day(s)]]>
+  </MacroRuleText>
+</cms.macrorule>

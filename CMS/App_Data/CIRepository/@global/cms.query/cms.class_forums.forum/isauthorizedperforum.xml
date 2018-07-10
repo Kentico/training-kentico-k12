@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>Forums.Forum</CodeName>
+    <GUID>32a7f4fb-dfa5-4394-a120-6af690f0f2e2</GUID>
+    <ObjectType>cms.class</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>b4c6edfd-4c0e-4089-8199-feb4c235519c</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>isauthorizedperforum</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>
+<![CDATA[
+SELECT Forums_ForumRoles.ForumID, Forums_ForumRoles.RoleID, Forums_ForumRoles.PermissionID,
+ CMS_Permission.PermissionName FROM Forums_ForumRoles INNER JOIN CMS_Permission ON
+  CMS_Permission.PermissionID = Forums_ForumRoles.PermissionID WHERE (Forums_ForumRoles.ForumID = 
+  @ForumID) AND ((Forums_ForumRoles.RoleID IN (SELECT RoleID FROM View_CMS_UserRoleMembershipRole AS Roles
+  WHERE (Roles.SiteID = @SiteID OR Roles.SiteID IS NULL)
+   AND Roles.UserID = @UserID AND (Roles.ValidTo IS NULL OR Roles.ValidTo > @Now)
+ ))
+   OR (Forums_ForumRoles.RoleID    
+     IN (SELECT CMS_Role.RoleID FROM CMS_Role WHERE RoleName IN (##GENERICROLES##) AND CMS_Role.SiteID=@SiteID)))
+]]>
+  </QueryText>
+  <QueryTypeID>0</QueryTypeID>
+</cms.query>

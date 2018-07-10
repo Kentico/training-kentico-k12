@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>9c65db6c-5562-4156-9658-c5f0bcf3a854</HelpTopicGUID>
+  <HelpTopicLink>device_profiles_images</HelpTopicLink>
+  <HelpTopicName>Resize images for devices</HelpTopicName>
+  <HelpTopicOrder>3</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.DeviceProfiles</CodeName>
+    <GUID>b510ca56-2963-4e39-ba4f-5a13a7457e21</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.DeviceProfiles</CodeName>
+      <GUID>6a211ca9-a088-480d-b205-86af12b83935</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpartcategory>
+  <CategoryDisplayName>Atom</CategoryDisplayName>
+  <CategoryGUID>5707798e-4842-47ce-8014-ce71f0e9331a</CategoryGUID>
+  <CategoryImagePath />
+  <CategoryName>SyndicationAtom</CategoryName>
+  <CategoryParentID>
+    <CodeName>Syndication</CodeName>
+    <GUID>9ed02567-2d52-4db2-820f-6b3070e4724f</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </CategoryParentID>
+</cms.webpartcategory>

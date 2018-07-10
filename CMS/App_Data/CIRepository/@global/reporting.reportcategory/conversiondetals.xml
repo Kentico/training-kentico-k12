@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<reporting.reportcategory>
+  <CategoryCodeName>ConversionDetals</CategoryCodeName>
+  <CategoryDisplayName>Conversion details</CategoryDisplayName>
+  <CategoryGUID>d924f7a0-0126-4d4e-9376-3d87166c7468</CategoryGUID>
+  <CategoryParentID>
+    <CodeName>Conversion</CodeName>
+    <GUID>7c6e7488-3d05-417f-8ff7-e63998bea5e2</GUID>
+    <ObjectType>reporting.reportcategory</ObjectType>
+  </CategoryParentID>
+</reporting.reportcategory>

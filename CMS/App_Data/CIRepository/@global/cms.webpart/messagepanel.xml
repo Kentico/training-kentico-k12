@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>Checkout</CodeName>
+    <GUID>5e13805d-aaaa-4bc8-b22c-a4474618e315</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>
+    <![CDATA[Displays error messages generated during a multi-page checkout process.]]>
+  </WebPartDescription>
+  <WebPartDisplayName>Message panel</WebPartDisplayName>
+  <WebPartFileName>Ecommerce/Checkout/Viewers/MessagePanel.ascx</WebPartFileName>
+  <WebPartGUID>14d144eb-9715-4be6-bc14-069c2e0f8e03</WebPartGUID>
+  <WebPartIconClass>icon-w-message-panel</WebPartIconClass>
+  <WebPartName>MessagePanel</WebPartName>
+  <WebPartProperties>
+    <form version="2" />
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Ecommerce</CodeName>
+    <GUID>684e021b-8b56-4cbf-8fd5-b7a791fd2dbc</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

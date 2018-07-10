@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.permission>
+  <PermissionDescription>
+    <![CDATA[{$permissiondescription.design.destroycmswebpartcontainer$}]]>
+  </PermissionDescription>
+  <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
+  <PermissionDisplayName>Destroy web part containers</PermissionDisplayName>
+  <PermissionEditableByGlobalAdmin>False</PermissionEditableByGlobalAdmin>
+  <PermissionGUID>3bd2fd16-b3e8-48fc-b307-12fffd0320b9</PermissionGUID>
+  <PermissionName>DestroyCMSWebPartContainer</PermissionName>
+  <PermissionOrder>10</PermissionOrder>
+  <ResourceID>
+    <CodeName>CMS.Design</CodeName>
+    <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </ResourceID>
+</cms.permission>

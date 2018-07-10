@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.emailtemplate>
+  <EmailTemplateDisplayName>Membership - Registration confirmation</EmailTemplateDisplayName>
+  <EmailTemplateGUID>11e9d672-0fbc-46ae-8f0d-6cf8001578ce</EmailTemplateGUID>
+  <EmailTemplateName>RegistrationConfirmation</EmailTemplateName>
+  <EmailTemplatePlainText>
+<![CDATA[
+Thank you for registering at our site. Please click the link below to complete your registration:
+{%confirmaddress%}
+
+
+]]>
+  </EmailTemplatePlainText>
+  <EmailTemplateSubject>{$membership.registrationconfirmsubject$}</EmailTemplateSubject>
+  <EmailTemplateText>
+<![CDATA[
+<html>
+	<head>
+	</head>
+	<body>
+		Thank you for registering at our site. Please click the link below to complete your registration:  <br />
+<a href="{%confirmaddress%}">{%confirmaddress%}</a>
+	</body>
+</html>
+]]>
+  </EmailTemplateText>
+  <EmailTemplateType>membershipregistration</EmailTemplateType>
+</cms.emailtemplate>

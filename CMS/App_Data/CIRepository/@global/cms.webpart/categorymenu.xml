@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.webpart>
+  <WebPartCategoryID>
+    <CodeName>TaggingCategories</CodeName>
+    <GUID>2dffdb0b-dd29-451f-b14a-37720a4c9e28</GUID>
+    <ObjectType>cms.webpartcategory</ObjectType>
+  </WebPartCategoryID>
+  <WebPartDefaultValues>
+    <form />
+  </WebPartDefaultValues>
+  <WebPartDescription>Tree menu built from the specified categories.</WebPartDescription>
+  <WebPartDisplayName>Category menu</WebPartDisplayName>
+  <WebPartFileName>TaggingCategories/CategoryMenu.ascx</WebPartFileName>
+  <WebPartGUID>52dce137-e7c2-4f21-b523-04d71b8e6b3c</WebPartGUID>
+  <WebPartIconClass>icon-w-category-menu</WebPartIconClass>
+  <WebPartName>CategoryMenu</WebPartName>
+  <WebPartProperties>
+    <form version="2">
+      <category name="Content">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field column="DisplaySiteCategories" columntype="boolean" guid="4a192030-ea7f-4aa4-a0fe-d957a0cba13e" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display site categories</fieldcaption>
+          <fielddescription>Indicates if site categories should be displayed.</fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayGlobalCategories" columntype="boolean" guid="1fed361c-546e-4c4f-a2e6-7775ca5aab9d" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>true</defaultvalue>
+          <fieldcaption>Display global categories</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if global categories should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="DisplayPersonalCategories" columntype="boolean" guid="4e705488-ff47-4ac8-8816-913c628c369f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Display personal categories</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if personal categories should be displayed.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="StartingCategory" columnsize="250" columntype="text" guid="558c3b88-8221-4d0e-b731-cde34151ba0f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Starting category</fieldcaption>
+          <fielddescription>
+            <![CDATA[Code name of the category the tree structure should start from, if empty the whole structure of categories is loaded.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>categoryselector</controlname>
+          <DisplayGeneralCategories>True</DisplayGeneralCategories>
+          <DisplayPersonalCategories>False</DisplayPersonalCategories>
+        </settings>
+      </field>
+      <field allowempty="true" column="MaxRelativeLevel" columntype="integer" guid="18283eb2-8796-4dae-adb6-a45794bf7cfd" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Max relative level</fieldcaption>
+          <fielddescription>
+            <![CDATA[How many levels of categories is displayed, value is applied both to categories and personal categories trees.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <category name="Settings">
+        <properties>
+          <caption>Navigation</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CategoriesPagePath" columnsize="400" columntype="text" guid="bfe24d93-ad40-4464-b021-0019fbee0bba" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Categories page path</fieldcaption>
+          <fielddescription>
+            <![CDATA[Alias path of the page where the user is navigated after he clicks the category in the tree. Current page is used when left empty.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AllowSetPermissions>False</AllowSetPermissions>
+          <controlname>selectsinglepath</controlname>
+        </settings>
+      </field>
+      <field allowempty="true" column="CategoriesPageTarget" columnsize="200" columntype="text" guid="d3a87e48-2803-4178-9fa5-493a83b8f718" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Categories page target</fieldcaption>
+          <fielddescription>
+            <![CDATA[Specifies the name of the target frame in which the navigation links will be opened. For example: _blank]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="UseCodeNameInQuery" columntype="boolean" guid="262a4d53-99ee-4c83-ae91-873159ae8776" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Use code name in URL</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates if category code name will be used in query parameter. Category ID is used when unchecked.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Menu">
+        <properties>
+          <caption>Settings</caption>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CategoriesRoot" columnsize="250" columntype="text" guid="63c9c99c-278f-46f2-bde1-0107f8bb4010" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Categories root</fieldcaption>
+          <fielddescription>Display name of the categories root node.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="PersonalCategoriesRoot" columnsize="250" columntype="text" guid="9c82f649-7a8a-4fbb-ad8b-482e20cf4dd3" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Personal categories root</fieldcaption>
+          <fielddescription>Display name of the personal categories root node.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CategoryContentBefore" columnsize="250" columntype="text" guid="8feea92b-a288-4458-b44b-66d0348fbc22" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Category content before</fieldcaption>
+          <fielddescription>Text or HTML code rendered before category name.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CategoryContentAfter" columnsize="250" columntype="text" guid="593406e2-8267-4015-a1d3-5c7d9fda8971" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Category content after</fieldcaption>
+          <fielddescription>Text or HTML code rendered after category name.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="ExpandAll" columntype="boolean" guid="5a9ed1df-e131-4e6f-ad78-d0d6c6eab035" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Expand all</fieldcaption>
+          <fielddescription>
+            <![CDATA[If enabled, all branches in the tree menu will be expanded. Otherwise only the selected path is opened.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="RenderSubItems" columntype="boolean" guid="43b0a31f-efaa-4d51-ab8c-0d93acbecd96" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Render sub items</fieldcaption>
+          <fielddescription>
+            <![CDATA[Indicates whether the currently selected category should be expanded (if it has sub-items).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <field column="RenderLinkTitle" columntype="boolean" guid="72ef7439-c7d2-4b9e-a94b-3124cec15eb7" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+          <fieldcaption>Render link title</fieldcaption>
+          <fielddescription>
+            <![CDATA[If enabled, the menu will render category names as Title attributes (tooltips) for all links. This can improve the accessibility of your website.]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <controlname>checkboxcontrol</controlname>
+        </settings>
+      </field>
+      <category name="Layout">
+        <properties>
+          <visible>True</visible>
+        </properties>
+      </category>
+      <field allowempty="true" column="CSSPrefix" columnsize="200" columntype="text" guid="a64d619a-f500-41e9-a081-86dd4a8edb28" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>CSS prefix</fieldcaption>
+          <fielddescription>
+            <![CDATA[Through this property, you can set different CSS styles for individual menu levels. Enter the prefixes of the CSS classes that should be applied, starting from the first menu level and separated by semicolons (;).]]>
+          </fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="SelectedItemCSS" columnsize="200" columntype="text" guid="04f42871-7c5a-4f73-850a-579ac7f1fd30" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Selected item CSS</fieldcaption>
+          <fielddescription>CSS class applied to selected category node.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CategoriesRootImageUrl" columnsize="500" columntype="text" guid="5949e372-9eb6-4233-8c84-8fcc5bdee253" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Categories root image url</fieldcaption>
+          <fielddescription>Icon used for general categories root node.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="CategoriesImageUrl" columnsize="500" columntype="text" guid="856d1d55-566d-4460-a421-1ec0c1aa7daf" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Categories image url</fieldcaption>
+          <fielddescription>Icon used for general categories nodes.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="PersonalCategoriesRootImageUrl" columnsize="500" columntype="text" guid="e4d6a1e4-7f82-4872-b7b1-a9b1a5d0fc7f" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Personal categories root image url</fieldcaption>
+          <fielddescription>Icon used for personal categories root node.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="PersonalCategoriesImageUrl" columnsize="500" columntype="text" guid="3e52ccbc-a094-4919-a07d-976ec1c4da84" publicfield="false" visibility="none" visible="true">
+        <properties>
+          <fieldcaption>Personal categories image url</fieldcaption>
+          <fielddescription>Icon used for personal categories nodes.</fielddescription>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>textboxcontrol</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+    </form>
+  </WebPartProperties>
+  <WebPartResourceID>
+    <CodeName>CMS.Categories</CodeName>
+    <GUID>aafd78f2-91f7-47cc-bf0b-d1a048d9540a</GUID>
+    <ObjectType>cms.resource</ObjectType>
+  </WebPartResourceID>
+  <WebPartSkipInsertProperties>False</WebPartSkipInsertProperties>
+  <WebPartType>0</WebPartType>
+</cms.webpart>

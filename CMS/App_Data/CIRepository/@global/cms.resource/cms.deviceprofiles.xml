@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.resource>
+  <ResourceDescription>This section enables to define device profiles.</ResourceDescription>
+  <ResourceDisplayName>Device profiles</ResourceDisplayName>
+  <ResourceGUID>6a211ca9-a088-480d-b205-86af12b83935</ResourceGUID>
+  <ResourceHasFiles>True</ResourceHasFiles>
+  <ResourceInstallationState />
+  <ResourceInstalledVersion />
+  <ResourceName>CMS.DeviceProfiles</ResourceName>
+  <ResourceURL>
+    <![CDATA[~/CMSModules/DeviceProfiles/Pages/Development/List.aspx]]>
+  </ResourceURL>
+  <ShowInDevelopment>True</ShowInDevelopment>
+</cms.resource>

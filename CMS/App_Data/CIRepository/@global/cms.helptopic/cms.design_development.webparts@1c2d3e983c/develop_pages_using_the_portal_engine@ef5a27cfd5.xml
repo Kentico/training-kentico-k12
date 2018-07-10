@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.helptopic>
+  <HelpTopicGUID>db1c0e2c-8c64-42a1-bbdc-0222399d7c7e</HelpTopicGUID>
+  <HelpTopicLink>portal_developing_websites</HelpTopicLink>
+  <HelpTopicName>Develop pages using the portal engine</HelpTopicName>
+  <HelpTopicOrder>6</HelpTopicOrder>
+  <HelpTopicUIElementID>
+    <CodeName>Development.WebParts</CodeName>
+    <GUID>77af5783-40e0-4149-98a0-f68bdf1e32a2</GUID>
+    <ObjectType>cms.uielement</ObjectType>
+    <Parent>
+      <CodeName>CMS.Design</CodeName>
+      <GUID>b755e8fc-a06f-421a-b749-f2d31d1f2570</GUID>
+      <ObjectType>cms.resource</ObjectType>
+    </Parent>
+  </HelpTopicUIElementID>
+</cms.helptopic>
