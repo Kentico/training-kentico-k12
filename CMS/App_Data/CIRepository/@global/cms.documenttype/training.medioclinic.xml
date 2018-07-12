@@ -102,12 +102,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>7d639563-6429-4ff3-8bfa-b4b33ddfa11e</ClassGUID>
-  <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassIconClass>icon-id-card</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.MedioClinic</ClassName>
   <ClassNodeNameSource>MedioClinicName</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>

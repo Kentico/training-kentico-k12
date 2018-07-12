@@ -82,12 +82,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>bc6cf2ad-3a09-4fae-9154-d14585c4c3f9</ClassGUID>
-  <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassIconClass>icon-rectangle-paragraph</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.Article</ClassName>
   <ClassNodeNameSource>ArticleTitle</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.query>
+  <ClassID>
+    <CodeName>cms.user</CodeName>
+    <GUID>2e02c378-0f3d-45de-9b2d-b8cf2bd87b55</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </ClassID>
+  <QueryConnectionString>CMSConnectionString</QueryConnectionString>
+  <QueryGUID>b314eb8d-9dd8-4239-a920-ce707d046813</QueryGUID>
+  <QueryIsCustom>False</QueryIsCustom>
+  <QueryIsLocked>False</QueryIsLocked>
+  <QueryName>UpdateUserCounts</QueryName>
+  <QueryRequiresTransaction>False</QueryRequiresTransaction>
+  <QueryText>Proc_CMS_User_UpdateUserCounts</QueryText>
+  <QueryTypeID>1</QueryTypeID>
+</cms.query>

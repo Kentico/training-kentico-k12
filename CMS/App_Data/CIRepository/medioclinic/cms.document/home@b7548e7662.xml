@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for /Home -->
+<cms.node>
+  <NodeACLID>
+    <GUID>0072d163-58b7-495f-bbcd-1f15eaadf7e3</GUID>
+    <ObjectType>cms.acl</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </NodeACLID>
+  <NodeAlias>Home</NodeAlias>
+  <NodeClassID>
+    <CodeName>Training.HomeSection</CodeName>
+    <GUID>ec9ce807-e456-4f65-9963-ba5484fee46f</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </NodeClassID>
+  <NodeGUID>db893cd3-ab96-48af-a569-ff9686d473ff</NodeGUID>
+  <NodeInheritPageLevels>/</NodeInheritPageLevels>
+  <NodeInheritPageTemplate>False</NodeInheritPageTemplate>
+  <NodeIsACLOwner>False</NodeIsACLOwner>
+  <NodeIsContentOnly>True</NodeIsContentOnly>
+  <NodeName>Home</NodeName>
+  <NodeOrder>2</NodeOrder>
+  <NodeOwner>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </NodeOwner>
+  <NodeParentID>
+    <CodeName>/</CodeName>
+    <GUID>acdd2058-bde0-4c9d-8332-45f417220571</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </NodeParentID>
+  <NodeSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </NodeSiteID>
+  <NodeTemplateForAllCultures>True</NodeTemplateForAllCultures>
+</cms.node>

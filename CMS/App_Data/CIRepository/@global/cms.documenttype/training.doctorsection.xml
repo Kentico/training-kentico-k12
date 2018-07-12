@@ -32,12 +32,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>5306b221-73ff-4d18-bc06-a0edcec1ad7d</ClassGUID>
-  <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassIconClass>icon-box</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.DoctorSection</ClassName>
   <ClassNodeNameSource />
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>

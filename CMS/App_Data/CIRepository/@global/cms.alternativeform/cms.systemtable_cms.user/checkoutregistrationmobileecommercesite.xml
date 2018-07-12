@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>cms.user</CodeName>
+    <GUID>2e02c378-0f3d-45de-9b2d-b8cf2bd87b55</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <field column="UserMFRequired" guid="a104e30f-7366-4a87-a774-7e771b19a7e6" visible="" order="0" />
+      <field column="FirstName" guid="60af25ea-ad95-49ba-a446-2ea754cd10be" order="1" />
+      <field column="MiddleName" guid="bc86d726-a42d-4401-b92a-227e8e280293" order="2" />
+      <field column="LastName" guid="67305fcf-928a-45ea-8e29-735f17da0972" order="3" />
+      <field column="FullName" guid="5c3003d6-de76-4e96-aca4-cf1efa86b3fa" order="4" />
+      <field column="Email" guid="fcef0fb3-6145-48ed-8f41-e28b71a665a8" order="5">
+        <settings>
+          <AllowMultipleAddresses>False</AllowMultipleAddresses>
+        </settings>
+        <properties>
+          <fieldcaption>E-mail (user name)</fieldcaption>
+        </properties>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("(Value.Length <= 100)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MaxLength\" ><p n=\"maxlength\"><t>100</t><v>100</v><r>0</r><d></d><vt>integer</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)124ab8d8537f2f57b7cc6a3484a6c7b10aeb229ef6162e7c14680e56d033085c%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="UserPassword" guid="adaad374-af5a-4e1b-afc7-72b4fb798d19" order="6">
+        <settings>
+          <controlname>password</controlname>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteFirstRowSelected />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <FilterMode />
+          <Trim />
+        </settings>
+        <properties>
+          <fieldcaption>Password</fieldcaption>
+        </properties>
+      </field>
+      <field column="PreferredCultureCode" guid="03d85a82-c928-4967-b793-f33bedb426be" order="7" />
+      <field column="PreferredUICultureCode" guid="d0a047c0-ea96-4422-af97-fff6c35a80de" order="8" />
+      <field column="UserEnabled" guid="d5d58e7d-6b71-4a51-9226-d7ce166e8580" order="9">
+        <properties>
+          <defaultvalue>True</defaultvalue>
+        </properties>
+      </field>
+      <field column="UserIsExternal" guid="def5feec-077b-4c26-8c4a-005a4a8d82d8" order="10" />
+      <field column="UserPasswordFormat" guid="d3f178a2-6df1-4651-bec5-864be986332a" order="11" />
+      <field column="UserCreated" guid="d75ebe3e-3d7d-44ab-af34-0ee947c3a3eb" order="12" />
+      <field column="LastLogon" guid="8bb80186-0c9b-45cb-91d1-cbec14b8fdc7" order="13" />
+      <field column="UserStartingAliasPath" guid="e2152255-6ad0-4b88-8497-2b505c64d23c" order="14" />
+      <field column="UserGUID" guid="89fae932-ca98-420b-92a0-0fc146856ce3" order="15" />
+      <field column="UserLastModified" guid="e1f9c8fd-8c5d-415c-ad0e-935034d751de" order="16" />
+      <field column="UserLastLogonInfo" guid="c17d233f-cd61-42d7-9c98-f96267a12764" order="17" />
+      <field column="UserIsHidden" guid="82febdf9-9057-4cea-bbba-de40b8cf653e" order="18" />
+      <field column="UserVisibility" guid="150ce55f-7617-4fff-9d31-6f3792291b67" order="19" />
+      <field column="UserIsDomain" guid="6ca5c321-81dd-4fbf-8ccc-9df2675839f9" order="20" />
+      <field column="UserHasAllowedCultures" guid="e7db3339-6c1c-413d-8fa3-fa85d99b8c80" order="21" />
+      <field allowempty="true" column="ConfirmationDummyPassword" columnsize="200" columntype="text" dummy="altform" guid="b67d7600-2f8f-42c0-b744-82a904a6b0cf" publicfield="false" reftype="Required" system="true" visible="true" order="22">
+        <properties>
+          <fieldcaption>{$administration-user_new.confirmpassword$}</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>password</controlname>
+        </settings>
+        <rules>
+          <rule errormsg="Passwords do not match.">
+            <![CDATA[{%Rule("(Value == Fields[\"UserPassword\"].Value|(casesensitive)true)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"GeneralCondition\" ><p n=\"condition\"><t>Value == Fields[&quot;UserPassword&quot;].Value|(casesensitive)true</t><v>Value == Fields[&quot;UserPassword&quot;].Value|(casesensitive)true</v><r>0</r><d></d><vt>longtext</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)7a30c9dec1c768ff5354a03a8802a70ff8204d87811e3aa3da3bb15df25815df%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="UserID" guid="153b1cec-1580-43ae-adf8-ca0e4879d168" order="23" />
+      <field column="UserName" guid="aa4122b7-db14-48a5-885e-07a242f84702" order="24" />
+      <field column="TokenID" guid="deefedfb-15ed-47a1-a4ea-d8572a10d877" order="25">
+        <settings>
+          <controlname>unknown</controlname>
+        </settings>
+      </field>
+      <field column="TokenIteration" guid="2730c51a-b18e-4a87-9d7d-02fc674bf7cb" order="26">
+        <settings>
+          <controlname>unknown</controlname>
+        </settings>
+      </field>
+      <field column="MFrequired" guid="b7d6a1e4-28b1-48d5-8cc5-5ef572456e3d" order="27">
+        <settings>
+          <controlname>unknown</controlname>
+        </settings>
+      </field>
+      <field column="UserPrivilegeLevel" guid="40915ccd-31c3-40e7-bbf1-fd29fc61a7f8" order="28" />
+      <field column="UserMFSecret" guid="1f02533f-30a0-42a4-9106-a6a48c32f04f" order="29" />
+      <field column="UserMFTimestep" guid="78a7c81e-ff32-4dd3-8e0b-8b1f6e948738" order="30" />
+      <field column="UserSecurityStamp" guid="52911de8-d111-4afd-8567-cd0150927a95" order="31" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Checkout registration - mobile (E-commerce Site)</FormDisplayName>
+  <FormGUID>c9c0a15c-0c60-45fb-a2d3-897546eeeda3</FormGUID>
+  <FormHideNewParentFields>True</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormLayout>
+    <![CDATA[$$label:Email$$$$input:Email$$$$validation:Email$$$$label:UserPassword$$$$input:UserPassword$$ $$validation:UserPassword$$$$label:ConfirmationDummyPassword$$$$input:ConfirmationDummyPassword$$$$validation:ConfirmationDummyPassword$$]]>
+  </FormLayout>
+  <FormLayoutType>html</FormLayoutType>
+  <FormName>CheckoutRegistrationMobileEcommerceSite</FormName>
+</cms.alternativeform>

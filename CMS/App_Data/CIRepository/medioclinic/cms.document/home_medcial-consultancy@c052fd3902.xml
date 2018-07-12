@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for /Home/Medcial-consultancy -->
+<cms.node>
+  <NodeACLID>
+    <GUID>0072d163-58b7-495f-bbcd-1f15eaadf7e3</GUID>
+    <ObjectType>cms.acl</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </NodeACLID>
+  <NodeAlias>Medcial-consultancy</NodeAlias>
+  <NodeClassID>
+    <CodeName>Training.ServicesSection</CodeName>
+    <GUID>945d8c56-30c6-4796-93f9-208cc6fd5a88</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </NodeClassID>
+  <NodeGUID>48378b21-7d00-4ddb-b9ac-21060969cdcb</NodeGUID>
+  <NodeInheritPageLevels>/</NodeInheritPageLevels>
+  <NodeInheritPageTemplate>False</NodeInheritPageTemplate>
+  <NodeIsACLOwner>False</NodeIsACLOwner>
+  <NodeIsContentOnly>True</NodeIsContentOnly>
+  <NodeName>Medical consultancy</NodeName>
+  <NodeOrder>3</NodeOrder>
+  <NodeOwner>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </NodeOwner>
+  <NodeParentID>
+    <CodeName>/Home</CodeName>
+    <GUID>db893cd3-ab96-48af-a569-ff9686d473ff</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </NodeParentID>
+  <NodeSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </NodeSiteID>
+  <NodeTemplateForAllCultures>True</NodeTemplateForAllCultures>
+</cms.node>

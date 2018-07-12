@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for /Home/Medical consultancy -->
+<cms.documentlocalization>
+  <DocumentContent />
+  <DocumentCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentCreatedByUserID>
+  <DocumentCreatedWhen>2018-07-10 13:57:50Z</DocumentCreatedWhen>
+  <DocumentCulture>en-US</DocumentCulture>
+  <DocumentGUID>fb595bcd-a873-4272-98c2-5da4c9bf2a57</DocumentGUID>
+  <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
+  <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
+  <DocumentModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentModifiedByUserID>
+  <DocumentModifiedWhen>2018-07-11 12:53:03Z</DocumentModifiedWhen>
+  <DocumentName>Medical consultancy</DocumentName>
+  <DocumentNodeID>
+    <CodeName>/Home/Medcial-consultancy</CodeName>
+    <GUID>48378b21-7d00-4ddb-b9ac-21060969cdcb</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </DocumentNodeID>
+  <DocumentPriority>0</DocumentPriority>
+  <DocumentShowInSiteMap>True</DocumentShowInSiteMap>
+  <DocumentUrlPath />
+  <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
+  <DocumentWildcardRule />
+  <DocumentWorkflowCycleGUID>0cd56c68-281d-4ed8-8157-fedd0562dfe1</DocumentWorkflowCycleGUID>
+</cms.documentlocalization>

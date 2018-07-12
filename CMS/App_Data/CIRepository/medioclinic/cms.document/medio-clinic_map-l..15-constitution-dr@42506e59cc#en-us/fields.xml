@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documentfields.training.maplocation>
+  <MapLocationCity>Bedford</MapLocationCity>
+  <MapLocationCountry>USA;NewHampshire</MapLocationCountry>
+  <MapLocationStreet>15 Constitution Dr.</MapLocationStreet>
+  <MapLocationTooltipText>Our location</MapLocationTooltipText>
+</documentfields.training.maplocation>

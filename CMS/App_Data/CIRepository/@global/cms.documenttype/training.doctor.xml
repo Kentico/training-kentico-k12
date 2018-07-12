@@ -42,6 +42,19 @@
           <Trim>False</Trim>
         </settings>
       </field>
+      <field column="DoctorDegree" columnsize="100" columntype="text" guid="10bab721-d2c3-4dc1-878f-b759b6ea9789" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Doctor degree</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
       <field column="DoctorImage" columntype="file" guid="c0446066-da1c-4442-b7d4-c81c481f386a" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Photo</fieldcaption>
@@ -52,6 +65,19 @@
           </Allowed_Extensions>
           <controlname>DirectUploadControl</controlname>
           <Extensions>inherit</Extensions>
+        </settings>
+      </field>
+      <field column="DoctorSpecialty" columnsize="200" columntype="text" guid="7a0eae2d-391c-4513-927c-b4a33ba7e801" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Doctor specialty</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
         </settings>
       </field>
       <field allowempty="true" column="DoctorBio" columntype="longtext" guid="a3a27d6f-e4ef-473d-850d-8ae95366e617" publicfield="false" visible="true">
@@ -67,17 +93,42 @@
           <WidthUnitType>PX</WidthUnitType>
         </settings>
       </field>
+      <field column="DoctorEmergencyShift" columnsize="75" columntype="text" guid="dcee62ce-160c-43ee-aa0f-60c1b6e2fa74" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Emergency shift</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>DropDownListControl</controlname>
+          <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
+          <EditText>False</EditText>
+          <Options>
+<![CDATA[
+1;Monday
+2;Tuesday
+3;Wednesday
+4;Thursday
+5;Friday
+6;Saturday
+7;Sunday
+]]>
+          </Options>
+          <SortItems>False</SortItems>
+        </settings>
+      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>e6bdfa0a-1854-4415-8282-d885f7e41c8f</ClassGUID>
-  <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassIconClass>icon-user-frame</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.Doctor</ClassName>
-  <ClassNodeNameSource>DoctorFirstName</ClassNodeNameSource>
+  <ClassNodeAliasSource>DoctorLastName</ClassNodeAliasSource>
+  <ClassNodeNameSource>DoctorLastName</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>

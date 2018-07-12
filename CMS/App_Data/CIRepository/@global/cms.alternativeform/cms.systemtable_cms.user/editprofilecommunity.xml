@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>cms.user</CodeName>
+    <GUID>2e02c378-0f3d-45de-9b2d-b8cf2bd87b55</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </FormClassID>
+  <FormCoupledClassID>
+    <CodeName>cms.usersettings</CodeName>
+    <GUID>a8203aeb-7709-4079-ad7e-3f9fccadc929</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </FormCoupledClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <field column="UserID" guid="153b1cec-1580-43ae-adf8-ca0e4879d168" visible="" />
+      <field column="UserName" guid="aa4122b7-db14-48a5-885e-07a242f84702">
+        <settings>
+          <controlname>viewsecuretext</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>Username</fieldcaption>
+        </properties>
+      </field>
+      <field column="FirstName" guid="60af25ea-ad95-49ba-a446-2ea754cd10be" visible="" />
+      <field column="MiddleName" guid="bc86d726-a42d-4401-b92a-227e8e280293" visible="" />
+      <field column="LastName" guid="67305fcf-928a-45ea-8e29-735f17da0972" visible="" />
+      <field column="FullName" guid="5c3003d6-de76-4e96-aca4-cf1efa86b3fa" allowempty="">
+        <properties>
+          <fieldcaption>Full name</fieldcaption>
+        </properties>
+      </field>
+      <field column="Email" allowusertochangevisibility="true" guid="fcef0fb3-6145-48ed-8f41-e28b71a665a8" visibility="authenticated" visibilitycontrol="RadioButtonsHorizontalVisibilityControl">
+        <settings>
+          <AllowMultipleAddresses>False</AllowMultipleAddresses>
+        </settings>
+        <properties>
+          <fieldcaption>E-mail</fieldcaption>
+        </properties>
+      </field>
+      <field column="UserPassword" guid="adaad374-af5a-4e1b-afc7-72b4fb798d19" visible="" />
+      <field column="PreferredCultureCode" guid="03d85a82-c928-4967-b793-f33bedb426be" visible="" />
+      <field column="PreferredUICultureCode" guid="d0a047c0-ea96-4422-af97-fff6c35a80de" visible="" />
+      <field column="UserEnabled" guid="d5d58e7d-6b71-4a51-9226-d7ce166e8580" visible="" />
+      <field column="UserPrivilegeLevel" guid="40915ccd-31c3-40e7-bbf1-fd29fc61a7f8" />
+      <field column="UserIsExternal" guid="def5feec-077b-4c26-8c4a-005a4a8d82d8" visible="">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="UserPasswordFormat" guid="d3f178a2-6df1-4651-bec5-864be986332a" visible="" />
+      <field column="UserCreated" guid="d75ebe3e-3d7d-44ab-af34-0ee947c3a3eb" visible="">
+        <settings>
+          <editTime>false</editTime>
+          <timezonetype>inherit</timezonetype>
+        </settings>
+      </field>
+      <field column="LastLogon" guid="8bb80186-0c9b-45cb-91d1-cbec14b8fdc7" visible="">
+        <settings>
+          <editTime>false</editTime>
+          <timezonetype>inherit</timezonetype>
+        </settings>
+      </field>
+      <field column="UserStartingAliasPath" guid="e2152255-6ad0-4b88-8497-2b505c64d23c" visible="" />
+      <field column="UserGUID" guid="89fae932-ca98-420b-92a0-0fc146856ce3" visible="" />
+      <field column="UserLastModified" guid="e1f9c8fd-8c5d-415c-ad0e-935034d751de" visible="">
+        <settings>
+          <editTime>false</editTime>
+          <timezonetype>inherit</timezonetype>
+        </settings>
+      </field>
+      <field column="UserLastLogonInfo" guid="c17d233f-cd61-42d7-9c98-f96267a12764" visible="" />
+      <field column="UserIsHidden" guid="82febdf9-9057-4cea-bbba-de40b8cf653e" visible="">
+        <properties>
+          <defaultvalue>false</defaultvalue>
+        </properties>
+      </field>
+      <field column="UserVisibility" guid="150ce55f-7617-4fff-9d31-6f3792291b67" visible="">
+        <settings>
+          <controlname>largetextarea</controlname>
+        </settings>
+      </field>
+      <field column="UserIsDomain" guid="6ca5c321-81dd-4fbf-8ccc-9df2675839f9" visible="" />
+      <field column="UserHasAllowedCultures" guid="e7db3339-6c1c-413d-8fa3-fa85d99b8c80" visible="" />
+      <field column="UserMFRequired" guid="a104e30f-7366-4a87-a774-7e771b19a7e6" visible="" />
+      <field column="UserSecurityStamp" guid="52911de8-d111-4afd-8567-cd0150927a95" />
+      <field column="UserSettingsID" guid="f88177e0-3b3e-4f62-9ceb-1338a5a0722a" isunique="true" translatefield="" visible="" />
+      <field column="UserNickName" guid="efb1a8cb-a54b-4362-ba8e-f759e1ee834f">
+        <properties>
+          <fieldcaption>Nickname</fieldcaption>
+        </properties>
+      </field>
+      <field column="UserPicture" guid="ea2ec595-2e19-441e-88cf-f7c1181867ff" visible="" />
+      <field column="UserSignature" guid="028e7124-d2eb-4ee9-becf-60b6a2281521">
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <Wrap>True</Wrap>
+          <FilterEnabled />
+        </settings>
+        <properties>
+          <fieldcaption>Signature</fieldcaption>
+        </properties>
+      </field>
+      <field column="UserURLReferrer" guid="df3044e3-28fe-4b46-bb07-37428f5d833f" visible="" />
+      <field column="UserCampaign" guid="c4e77a91-8804-4956-a27d-dd89ddf30b3c" visible="" />
+      <field column="UserMessagingNotificationEmail" guid="8968e8bd-9223-41dd-831f-586632285df1">
+        <settings>
+          <AllowMultipleAddresses>False</AllowMultipleAddresses>
+          <controlname>emailinput</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>Messaging notification e-mail</fieldcaption>
+        </properties>
+      </field>
+      <field column="UserCustomData" guid="34e7ab20-5aab-4305-96da-ba828c4eafd0" visible="" />
+      <field column="UserRegistrationInfo" guid="b254202a-cd95-49cf-8002-422c37fbb311" visible="" />
+      <field column="UserPreferences" guid="8e07e797-b695-4ddf-86d1-bfff4e3028f8" visible="" />
+      <field column="UserActivationDate" guid="4b9bf86d-4b85-4d32-9599-c49a3ca30687" translatefield="" visible="" />
+      <field column="UserActivatedByUserID" guid="02ee7d84-59b9-4c6d-9505-23ef5620f70e" translatefield="" visible="" />
+      <field column="UserTimeZoneID" guid="b6c65099-1e1d-4ad7-a540-d872aae4a3bf">
+        <properties>
+          <fieldcaption>Time zone</fieldcaption>
+        </properties>
+      </field>
+      <field column="UserAvatarID" guid="7df4af3f-bd8e-49d2-814c-0a00613120bb" translatefield="">
+        <settings>
+          <controlname>useravatarselector</controlname>
+        </settings>
+        <properties>
+          <fieldcaption>Avatar</fieldcaption>
+        </properties>
+      </field>
+      <field column="UserAvatarType" guid="7c7b397a-d22b-4567-97c5-c657d276d4ee" />
+      <field column="UserBadgeID" guid="cf437fae-27be-4b53-af62-55975f3b0785" translatefield="" visible="" />
+      <field column="UserActivityPoints" guid="fc8a6be4-44ae-42a8-b6c0-be43147e2d33" translatefield="" visible="" />
+      <field column="UserForumPosts" guid="448e7d8f-a886-46a6-9be5-74b22fda0eb2" translatefield="" visible="" />
+      <field column="UserBlogComments" guid="69691713-f8ee-4104-a0d1-db52fddec111" translatefield="" visible="" />
+      <field column="UserGender" guid="bb81189b-8090-4d61-8e71-bb2a40e97ef6" translatefield="">
+        <settings>
+          <controlname>radiobuttonscontrol</controlname>
+          <Options>
+<![CDATA[
+1;{$General.Male$}
+2;{$General.Female$}
+]]>
+          </Options>
+          <RepeatDirection>horizontal</RepeatDirection>
+          <RepeatLayout>Table</RepeatLayout>
+        </settings>
+        <properties>
+          <fieldcaption>Gender</fieldcaption>
+        </properties>
+      </field>
+      <field column="UserDateOfBirth" guid="0000a8ba-40fb-4e91-8a1f-90e4913f0aec" translatefield="">
+        <properties>
+          <fieldcaption>Date of birth</fieldcaption>
+        </properties>
+      </field>
+      <field column="UserMessageBoardPosts" guid="4107fe8b-72a5-43bb-91c2-c5850262c303" translatefield="" visible="" />
+      <field column="UserSettingsUserGUID" guid="ca94536c-9d77-4451-9cad-e0b13f672e09" translatefield="" visible="" />
+      <field column="UserSettingsUserID" guid="821e0a34-28a4-4b59-8b3a-d3afcf53ed96" translatefield="" visible="" />
+      <field column="WindowsLiveID" guid="6cfd72b6-214c-4018-a970-284d411341ca" />
+      <field column="UserBlogPosts" guid="bfb792b5-40a1-491b-9c83-255e04b31f68" translatefield="" visible="" />
+      <field column="UserWaitingForApproval" guid="ea1dde05-b660-4fee-bac7-3475cb559340" translatefield="" visible="" />
+      <field column="UserDialogsConfiguration" guid="11e15a34-e0de-43cd-9cbe-74e26a1bd367" visible="" />
+      <field column="UserDescription" guid="01309c8c-b144-4662-8534-ca68fcdda40d" visible="" />
+      <field column="UserUsedWebParts" guid="f1a33942-073f-4e54-bccc-2b13f05d1a80" />
+      <field column="UserUsedWidgets" guid="9e0b3fb8-d9f1-40a3-adf9-460dd19ab044" />
+      <field column="UserFacebookID" guid="4971b905-286a-4e79-a1e8-454763b91a3d" />
+      <field column="UserLinkedInID" guid="72604a87-5d1d-4d70-a9c7-b16596f0416c" />
+      <field column="UserAuthenticationGUID" guid="75360e04-4c1f-44e0-b8f4-bc154e395e3d" />
+      <field column="UserSkype" guid="882a11c9-192a-4b38-81dd-3ee5b5e2477e" />
+      <field column="UserIM" guid="9634d746-a4db-44ce-930c-9c37ff5097a1" />
+      <field column="UserPhone" guid="f79c705a-da88-43d5-93a7-3d7d5ab0f281" />
+      <field column="UserPosition" guid="dbf94b10-7262-4d2c-8f6d-887bd8e7e7bc" />
+      <field column="UserLogActivities" guid="aa46b973-7036-4b71-aa50-b351a5658965" />
+      <field column="UserPasswordRequestHash" guid="734de788-ae15-4c25-88c6-1ec0c8cbfa87" />
+      <field column="UserInvalidLogOnAttempts" guid="6a65e39a-c6ec-484e-afec-a72c8bc212eb" />
+      <field column="UserInvalidLogOnAttemptsHash" guid="eb317070-1a19-4010-9df3-23379de984c0" />
+      <field column="UserPasswordLastChanged" guid="7235a5d3-07c7-4b8f-a2c3-979e4dd5bb47" />
+      <field column="UserAccountLockReason" guid="6acefd4b-46f2-4c6d-974b-4deb35f2c139" />
+      <field column="UserShowIntroductionTile" guid="c07f99fd-3e99-43c9-8859-78f4e306d532" />
+      <field column="UserDashboardApplications" guid="513a285e-0d1f-4b48-a652-ce7c094cb86b" />
+      <field column="UserDismissedSmartTips" guid="5509d0d2-2bb2-4f8a-ae3f-0bf71d22d47f" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Edit profile (Community)</FormDisplayName>
+  <FormGUID>52ab7093-1c5a-4af7-b085-b223f67ab909</FormGUID>
+  <FormHideNewParentFields>False</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormLayout>
+<![CDATA[
+<table>
+	<tbody>
+		<tr>
+			<td>
+				$$label:UserName$$</td>
+			<td>
+				$$input:UserName$$ $$validation:UserName$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:FullName$$</td>
+			<td>
+				$$input:FullName$$ $$validation:FullName$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:Email$$</td>
+			<td>
+				$$input:Email$$ $$validation:Email$$</td>
+		</tr>
+		<tr>
+			<td>
+				Display my e-mail to</td>
+			<td>
+				$$visibility:Email$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:UserNickName$$</td>
+			<td>
+				$$input:UserNickName$$ $$validation:UserNickName$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:UserSignature$$</td>
+			<td>
+				$$input:UserSignature$$ $$validation:UserSignature$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:UserMessagingNotificationEmail$$</td>
+			<td>
+				$$input:UserMessagingNotificationEmail$$ $$validation:UserMessagingNotificationEmail$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:UserTimeZoneID$$</td>
+			<td>
+				$$input:UserTimeZoneID$$ $$validation:UserTimeZoneID$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:UserAvatarID$$</td>
+			<td>
+				$$input:UserAvatarID$$ $$validation:UserAvatarID$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:UserGender$$</td>
+			<td>
+				$$input:UserGender$$ $$validation:UserGender$$</td>
+		</tr>
+		<tr>
+			<td>
+				$$label:UserDateOfBirth$$</td>
+			<td>
+				$$input:UserDateOfBirth$$ $$validation:UserDateOfBirth$$</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				$$submitbutton$$</td>
+		</tr>
+	</tbody>
+</table>
+]]>
+  </FormLayout>
+  <FormName>EditProfileCommunity</FormName>
+</cms.alternativeform>

@@ -29,17 +29,16 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="ServicesIconClass" columnsize="200" columntype="text" guid="e2df545c-efbf-419f-b75b-9d11ec226f21" publicfield="false" visible="true">
+      <field column="ServicesIcon" columntype="file" guid="e2df545c-efbf-419f-b75b-9d11ec226f21" publicfield="false" visible="true">
         <properties>
-          <fieldcaption>Icon class</fieldcaption>
+          <fieldcaption>Icon</fieldcaption>
         </properties>
         <settings>
-          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
-          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
-          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>TextBoxControl</controlname>
-          <FilterMode>False</FilterMode>
-          <Trim>False</Trim>
+          <Allowed_Extensions>
+            <![CDATA[pdf;doc;docx;ppt;pptx;xls;xlsx;htm;html;xml;bmp;gif;jpg;jpeg;png;wav;wma;wmv;mp3;mp4;mpg;mpeg;mov;avi;swf;rar;zip;txt;rtf]]>
+          </Allowed_Extensions>
+          <controlname>DirectUploadControl</controlname>
+          <Extensions>inherit</Extensions>
         </settings>
       </field>
       <field column="ServicesText" columntype="longtext" guid="39c78eda-3815-4314-9171-0f47493f9791" publicfield="false" visible="true">
@@ -58,12 +57,14 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>945d8c56-30c6-4796-93f9-208cc6fd5a88</ClassGUID>
-  <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassIconClass>icon-menu</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.ServicesSection</ClassName>
   <ClassNodeNameSource />
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
@@ -72,7 +73,6 @@
   <ClassSearchSettings>
     <search>
       <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="62a67d5e-2e69-4403-aca0-1e27a8e03b25" name="ServicesHeader" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="961bc20c-6a65-45a7-af1e-08dabbd5f8d9" name="ServicesIconClass" searchable="False" tokenized="True" />
       <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="e0e5ffe7-2f07-403b-bf40-4d004c67875e" name="ServicesText" searchable="False" tokenized="True" />
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="e96ac097-1055-4e6f-a7f6-8cf499e55462" name="ServicesSectionID" searchable="True" tokenized="False" />
     </search>

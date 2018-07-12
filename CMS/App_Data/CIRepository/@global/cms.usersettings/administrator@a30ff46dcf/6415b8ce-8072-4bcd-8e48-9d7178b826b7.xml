@@ -2,12 +2,20 @@
 <cms.usersettings>
   <UserAccountLockReason>0</UserAccountLockReason>
   <UserActivationDate>2018-07-09 10:30:48Z</UserActivationDate>
-  <UserDialogsConfiguration />
+  <UserDialogsConfiguration>
+    <Data>
+      <content.path>/</content.path>
+      <content.sitename>MedioClinic</content.sitename>
+      <content.viewmode>list</content.viewmode>
+      <selectedtab>content</selectedtab>
+    </Data>
+  </UserDialogsConfiguration>
   <UserFacebookID />
   <UserInvalidLogOnAttempts>0</UserInvalidLogOnAttempts>
   <UserLogActivities>False</UserLogActivities>
   <UserMessagingNotificationEmail />
   <UserNickName />
+  <UserPasswordLastChanged>2018-07-09 11:46:50Z</UserPasswordLastChanged>
   <UserPreferences />
   <UserRegistrationInfo />
   <UserSettingsUserGUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</UserSettingsUserGUID>

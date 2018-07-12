@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.alternativeform>
+  <FormClassID>
+    <CodeName>cms.user</CodeName>
+    <GUID>2e02c378-0f3d-45de-9b2d-b8cf2bd87b55</GUID>
+    <ObjectType>cms.systemtable</ObjectType>
+  </FormClassID>
+  <FormCustomizedColumns />
+  <FormDefinition>
+    <form version="2">
+      <field column="UserID" guid="153b1cec-1580-43ae-adf8-ca0e4879d168" visible="">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserName" guid="aa4122b7-db14-48a5-885e-07a242f84702" visible="">
+        <settings>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteFirstRowSelected />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <controlname />
+          <FilterMode />
+          <Trim />
+        </settings>
+        <properties>
+          <fieldcaption>E-mail (user name)</fieldcaption>
+        </properties>
+      </field>
+      <field column="FirstName" guid="60af25ea-ad95-49ba-a446-2ea754cd10be" visible="">
+        <settings>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteFirstRowSelected />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <controlname />
+          <FilterMode />
+          <Trim />
+        </settings>
+      </field>
+      <field column="MiddleName" guid="bc86d726-a42d-4401-b92a-227e8e280293" visible="">
+        <settings>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteFirstRowSelected />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <controlname />
+          <FilterMode />
+          <Trim />
+        </settings>
+      </field>
+      <field column="LastName" guid="67305fcf-928a-45ea-8e29-735f17da0972" visible="">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserMFRequired" guid="a104e30f-7366-4a87-a774-7e771b19a7e6" visible="" order="5" />
+      <field column="UserPrivilegeLevel" guid="40915ccd-31c3-40e7-bbf1-fd29fc61a7f8" order="6" />
+      <field column="UserHasAllowedCultures" guid="e7db3339-6c1c-413d-8fa3-fa85d99b8c80" visible="" order="7">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="PreferredUICultureCode" guid="d0a047c0-ea96-4422-af97-fff6c35a80de" visible="" order="8">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserEnabled" guid="d5d58e7d-6b71-4a51-9226-d7ce166e8580" visible="" order="9">
+        <settings>
+          <controlname />
+        </settings>
+        <properties>
+          <defaultvalue>True</defaultvalue>
+        </properties>
+      </field>
+      <field column="UserIsExternal" guid="def5feec-077b-4c26-8c4a-005a4a8d82d8" visible="" order="10">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserPasswordFormat" guid="d3f178a2-6df1-4651-bec5-864be986332a" visible="" order="11">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserCreated" guid="d75ebe3e-3d7d-44ab-af34-0ee947c3a3eb" visible="" order="12">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="LastLogon" guid="8bb80186-0c9b-45cb-91d1-cbec14b8fdc7" visible="" order="13">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserStartingAliasPath" guid="e2152255-6ad0-4b88-8497-2b505c64d23c" visible="" order="14">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserGUID" guid="89fae932-ca98-420b-92a0-0fc146856ce3" visible="" order="15">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserLastModified" guid="e1f9c8fd-8c5d-415c-ad0e-935034d751de" visible="" order="16">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserLastLogonInfo" guid="c17d233f-cd61-42d7-9c98-f96267a12764" visible="" order="17">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserIsHidden" guid="82febdf9-9057-4cea-bbba-de40b8cf653e" visible="" order="18">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserVisibility" guid="150ce55f-7617-4fff-9d31-6f3792291b67" visible="" order="19">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserIsDomain" guid="6ca5c321-81dd-4fbf-8ccc-9df2675839f9" visible="" order="20">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="Email" guid="fcef0fb3-6145-48ed-8f41-e28b71a665a8" allowempty="" order="21">
+        <settings>
+          <AllowMultipleAddresses>False</AllowMultipleAddresses>
+        </settings>
+        <properties>
+          <fieldcaption>E-mail (user name)</fieldcaption>
+        </properties>
+        <rules>
+          <rule>
+            <![CDATA[{%Rule("(Value.Length <= 100)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MaxLength\" ><p n=\"maxlength\"><t>100</t><v>100</v><r>0</r><d></d><vt>integer</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)124ab8d8537f2f57b7cc6a3484a6c7b10aeb229ef6162e7c14680e56d033085c%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="UserPassword" guid="adaad374-af5a-4e1b-afc7-72b4fb798d19" reftype="Required" order="22">
+        <settings>
+          <controlname>password</controlname>
+          <AutoCompleteEnableCaching />
+          <AutoCompleteFirstRowSelected />
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem />
+          <FilterMode />
+          <Trim />
+        </settings>
+        <properties>
+          <fieldcaption>Password</fieldcaption>
+        </properties>
+        <rules>
+          <rule errormsg="Passwords do not match!">
+            <![CDATA[{%Rule("(Value == Fields[\"ConfirmPassword\"].Value|(casesensitive)true)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"GeneralCondition\" ><p n=\"condition\"><t>Value == Fields[&quot;ConfirmPassword&quot;].Value|(casesensitive)true</t><v>Value == Fields[&quot;ConfirmPassword&quot;].Value|(casesensitive)true</v><r>0</r><d></d><vt>longtext</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)6e4e3b14e699ac5df3f4b61b8a712ba1afdf2398874d40eed5357b3a7450cba4%}]]>
+          </rule>
+        </rules>
+      </field>
+      <field column="ConfirmPassword" columnsize="200" columntype="text" dummy="altform" guid="d16cf9fa-136f-4127-a53a-a230443e910d" publicfield="false" system="true" visibility="none" visible="true" order="23">
+        <properties>
+          <fieldcaption>
+            <![CDATA[{$administration-user_edit_password.confirmpassword$}]]>
+          </fieldcaption>
+        </properties>
+        <settings>
+          <controlname>password</controlname>
+        </settings>
+      </field>
+      <field column="FullName" guid="5c3003d6-de76-4e96-aca4-cf1efa86b3fa" visible="" order="24">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="MFrequired" guid="535d3ee6-17d0-41d4-9e3b-4108f8b02176" order="25">
+        <settings>
+          <controlname>unknown</controlname>
+        </settings>
+      </field>
+      <field column="TokenIteration" guid="6f70fb5c-50d0-40b5-82fc-1081d58b417c" order="26">
+        <settings>
+          <controlname>unknown</controlname>
+        </settings>
+      </field>
+      <field column="TokenID" guid="89d97630-b544-4a6a-a904-bb7815ba2a43" order="27">
+        <settings>
+          <controlname>unknown</controlname>
+        </settings>
+      </field>
+      <field column="PreferredCultureCode" guid="03d85a82-c928-4967-b793-f33bedb426be" visible="" order="28">
+        <settings>
+          <controlname />
+        </settings>
+      </field>
+      <field column="UserMFSecret" guid="1f02533f-30a0-42a4-9106-a6a48c32f04f" order="29" />
+      <field column="UserMFTimestep" guid="78a7c81e-ff32-4dd3-8e0b-8b1f6e948738" order="30" />
+      <field column="UserSecurityStamp" guid="52911de8-d111-4afd-8567-cd0150927a95" order="31" />
+    </form>
+  </FormDefinition>
+  <FormDisplayName>Checkout registration (E-commerce)</FormDisplayName>
+  <FormGUID>d54f77c8-623a-4bae-aa6c-5600c551f6f7</FormGUID>
+  <FormHideNewParentFields>True</FormHideNewParentFields>
+  <FormIsCustom>False</FormIsCustom>
+  <FormLayoutType>html</FormLayoutType>
+  <FormName>CheckoutRegistration_E-commerce</FormName>
+</cms.alternativeform>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.attachment>
+  <AttachmentDocumentID>
+    <CodeName>en-US</CodeName>
+    <GUID>8307b822-fad2-495c-b0b3-a2c415350a43</GUID>
+    <ObjectType>cms.documentlocalization</ObjectType>
+    <Parent>
+      <CodeName>/Home/Cardio-therapy</CodeName>
+      <GUID>748405e1-ebd9-4721-ad80-65fde4db298a</GUID>
+      <ObjectType>cms.node</ObjectType>
+      <Site>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </Site>
+    </Parent>
+  </AttachmentDocumentID>
+  <AttachmentExtension>.png</AttachmentExtension>
+  <AttachmentGUID>9cebedb8-083b-43c1-a690-02880a895165</AttachmentGUID>
+  <AttachmentImageHeight>83</AttachmentImageHeight>
+  <AttachmentImageWidth>95</AttachmentImageWidth>
+  <AttachmentMimeType>image/png</AttachmentMimeType>
+  <AttachmentName>cardio-therapy.png</AttachmentName>
+  <AttachmentSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </AttachmentSiteID>
+  <AttachmentSize>3267</AttachmentSize>
+</cms.attachment>

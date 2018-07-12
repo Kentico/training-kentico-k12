@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for /Menu-items/Contact-us -->
+<cms.node>
+  <NodeACLID>
+    <GUID>0072d163-58b7-495f-bbcd-1f15eaadf7e3</GUID>
+    <ObjectType>cms.acl</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </NodeACLID>
+  <NodeAlias>Contact-us</NodeAlias>
+  <NodeClassID>
+    <CodeName>Training.MenuContainerItem</CodeName>
+    <GUID>298e76cf-02c4-4464-b8e7-cd0c77a33e9e</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </NodeClassID>
+  <NodeGUID>85f086f8-04b8-43e2-be99-0a66d87b7140</NodeGUID>
+  <NodeInheritPageLevels>/</NodeInheritPageLevels>
+  <NodeInheritPageTemplate>False</NodeInheritPageTemplate>
+  <NodeIsACLOwner>False</NodeIsACLOwner>
+  <NodeIsContentOnly>True</NodeIsContentOnly>
+  <NodeName>Contact us</NodeName>
+  <NodeOrder>2</NodeOrder>
+  <NodeOwner>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </NodeOwner>
+  <NodeParentID>
+    <CodeName>/Menu-items</CodeName>
+    <GUID>c102ae9b-d569-4367-ae86-c4246b72cc61</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </NodeParentID>
+  <NodeSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </NodeSiteID>
+  <NodeTemplateForAllCultures>True</NodeTemplateForAllCultures>
+</cms.node>

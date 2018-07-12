@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documentfields.training.doctor>
+  <DoctorBio>
+<![CDATA[
+<p>Dr. Snow&nbsp;graduated&nbsp;<em>summa cum laude&nbsp;</em>from <strong>Duke University School of Medicine</strong>. He&nbsp;subsequently completed his medicine residency training at <strong>Harvard University in Boston, Massachusetts</strong>, and completed his fellowship in adult cardiology and adult congenital heart disease at <strong>Stanford University in Stanford, California</strong>.</p>
+
+]]>
+  </DoctorBio>
+  <DoctorDegree>MD, PhD</DoctorDegree>
+  <DoctorEmergencyShift>6</DoctorEmergencyShift>
+  <DoctorFirstName>Jon</DoctorFirstName>
+  <DoctorImage>96a6893e-2617-464b-8501-8b25b26e9cbe</DoctorImage>
+  <DoctorLastName>Snow</DoctorLastName>
+  <DoctorSpecialty>Cardiologist</DoctorSpecialty>
+</documentfields.training.doctor>

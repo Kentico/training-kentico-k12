@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.attachment>
+  <AttachmentDocumentID>
+    <CodeName>en-US</CodeName>
+    <GUID>f92f467d-4811-4f5b-b576-c426e4aea984</GUID>
+    <ObjectType>cms.documentlocalization</ObjectType>
+    <Parent>
+      <CodeName>/Home/Emergency-services</CodeName>
+      <GUID>da94cfeb-bb76-48fc-973f-9f8ccda20bbc</GUID>
+      <ObjectType>cms.node</ObjectType>
+      <Site>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </Site>
+    </Parent>
+  </AttachmentDocumentID>
+  <AttachmentExtension>.png</AttachmentExtension>
+  <AttachmentGUID>688775b1-645d-4f02-b70f-338f5dad62a8</AttachmentGUID>
+  <AttachmentImageHeight>81</AttachmentImageHeight>
+  <AttachmentImageWidth>98</AttachmentImageWidth>
+  <AttachmentMimeType>image/png</AttachmentMimeType>
+  <AttachmentName>emergency-services.png</AttachmentName>
+  <AttachmentSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </AttachmentSiteID>
+  <AttachmentSize>2217</AttachmentSize>
+</cms.attachment>

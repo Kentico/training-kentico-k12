@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.attachment>
+  <AttachmentDocumentID>
+    <CodeName>en-US</CodeName>
+    <GUID>224318b4-7a01-48df-a586-b6f778e7f51b</GUID>
+    <ObjectType>cms.documentlocalization</ObjectType>
+    <Parent>
+      <CodeName>/Doctor-section/Snow</CodeName>
+      <GUID>4bdb49dd-0a06-4067-87db-2b6119a763cb</GUID>
+      <ObjectType>cms.node</ObjectType>
+      <Site>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </Site>
+    </Parent>
+  </AttachmentDocumentID>
+  <AttachmentExtension>.jpg</AttachmentExtension>
+  <AttachmentGUID>96a6893e-2617-464b-8501-8b25b26e9cbe</AttachmentGUID>
+  <AttachmentImageHeight>1366</AttachmentImageHeight>
+  <AttachmentImageWidth>2048</AttachmentImageWidth>
+  <AttachmentMimeType>image/jpeg</AttachmentMimeType>
+  <AttachmentName>823884802.jpg</AttachmentName>
+  <AttachmentSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </AttachmentSiteID>
+  <AttachmentSize>897283</AttachmentSize>
+</cms.attachment>

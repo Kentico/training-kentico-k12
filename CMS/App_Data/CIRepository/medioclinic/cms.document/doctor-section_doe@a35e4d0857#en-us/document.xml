@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for /Doctors/Doe -->
+<cms.documentlocalization>
+  <DocumentContent />
+  <DocumentCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentCreatedByUserID>
+  <DocumentCreatedWhen>2018-07-11 09:24:28Z</DocumentCreatedWhen>
+  <DocumentCulture>en-US</DocumentCulture>
+  <DocumentGUID>abc3b4cb-e4f8-404e-8385-71aa65d31e76</DocumentGUID>
+  <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
+  <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
+  <DocumentModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentModifiedByUserID>
+  <DocumentModifiedWhen>2018-07-11 13:36:18Z</DocumentModifiedWhen>
+  <DocumentName>Doe</DocumentName>
+  <DocumentNodeID>
+    <CodeName>/Doctor-section/Doe</CodeName>
+    <GUID>fa5f07fa-231d-4001-98c1-7281366f9603</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </DocumentNodeID>
+  <DocumentPriority>0</DocumentPriority>
+  <DocumentShowInSiteMap>True</DocumentShowInSiteMap>
+  <DocumentUrlPath />
+  <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
+  <DocumentWildcardRule />
+  <DocumentWorkflowCycleGUID>20426a36-dab8-4d3c-9381-119bff1c6f23</DocumentWorkflowCycleGUID>
+</cms.documentlocalization>

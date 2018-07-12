@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- This is a CI serialization file for /Menu items -->
+<cms.documentlocalization>
+  <DocumentContent />
+  <DocumentCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentCreatedByUserID>
+  <DocumentCreatedWhen>2018-07-10 13:39:25Z</DocumentCreatedWhen>
+  <DocumentCulture>en-US</DocumentCulture>
+  <DocumentGUID>680fbd3e-ffe3-4151-8410-d347a845e3f9</DocumentGUID>
+  <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
+  <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
+  <DocumentModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </DocumentModifiedByUserID>
+  <DocumentModifiedWhen>2018-07-10 13:39:25Z</DocumentModifiedWhen>
+  <DocumentName>Menu items</DocumentName>
+  <DocumentNodeID>
+    <CodeName>/Menu-items</CodeName>
+    <GUID>c102ae9b-d569-4367-ae86-c4246b72cc61</GUID>
+    <ObjectType>cms.node</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </DocumentNodeID>
+  <DocumentPriority>0</DocumentPriority>
+  <DocumentShowInSiteMap>True</DocumentShowInSiteMap>
+  <DocumentUrlPath />
+  <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
+  <DocumentWildcardRule />
+  <DocumentWorkflowCycleGUID>f3a361da-bf71-4908-83a4-02d37affe82a</DocumentWorkflowCycleGUID>
+</cms.documentlocalization>

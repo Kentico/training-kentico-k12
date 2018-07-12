@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documentfields.training.doctor>
+  <DoctorBio>
+<![CDATA[
+Dr. Vick has a background in Emergency medicine and general medicine. He earned his degree at&nbsp;<strong>University of Toronto School of Medicine</strong>. He pursued his interest in minor surgery and received his General Surgeon certification at <strong>Royal College of Surgeons England</strong>.<br />
+Dr. Vick enjoys the relationship building that general practice offers and uses this with a focus on disease prevention. Outside of medicine, Dr. Harris regularly participates in Ironman triathlons and enjoys spending time with his family.&nbsp;
+]]>
+  </DoctorBio>
+  <DoctorDegree>MD</DoctorDegree>
+  <DoctorEmergencyShift>1</DoctorEmergencyShift>
+  <DoctorFirstName>John</DoctorFirstName>
+  <DoctorImage>a4fbb23b-3c31-407b-b7b2-260117fb82d5</DoctorImage>
+  <DoctorLastName>Vick</DoctorLastName>
+  <DoctorSpecialty>General practitioner</DoctorSpecialty>
+</documentfields.training.doctor>

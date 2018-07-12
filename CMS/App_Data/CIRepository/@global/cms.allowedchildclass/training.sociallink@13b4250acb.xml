@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.allowedchildclass>
+  <Parent>
+    <CodeName>Training.SocialLink</CodeName>
+    <GUID>aee0a1e5-c919-4174-82a7-a16be86b7de9</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.documenttype_Training.MedioClinic">
+      <ParentClassID>
+        <CodeName>Training.MedioClinic</CodeName>
+        <GUID>7d639563-6429-4ff3-8bfa-b4b33ddfa11e</GUID>
+        <ObjectType>cms.documenttype</ObjectType>
+      </ParentClassID>
+    </Binding>
+  </Bindings>
+</cms.allowedchildclass>

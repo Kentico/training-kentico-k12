@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.attachment>
+  <AttachmentDocumentID>
+    <CodeName>en-US</CodeName>
+    <GUID>c94475fa-a25d-48bf-9ee7-83b6f9653202</GUID>
+    <ObjectType>cms.documentlocalization</ObjectType>
+    <Parent>
+      <CodeName>/Home</CodeName>
+      <GUID>db893cd3-ab96-48af-a569-ff9686d473ff</GUID>
+      <ObjectType>cms.node</ObjectType>
+      <Site>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </Site>
+    </Parent>
+  </AttachmentDocumentID>
+  <AttachmentExtension>.png</AttachmentExtension>
+  <AttachmentGUID>9fe318dd-cd5a-47d6-a050-23ad90100c85</AttachmentGUID>
+  <AttachmentImageHeight>400</AttachmentImageHeight>
+  <AttachmentImageWidth>900</AttachmentImageWidth>
+  <AttachmentMimeType>image/png</AttachmentMimeType>
+  <AttachmentName>mediobackground-thin.png</AttachmentName>
+  <AttachmentSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </AttachmentSiteID>
+  <AttachmentSize>520216</AttachmentSize>
+</cms.attachment>
