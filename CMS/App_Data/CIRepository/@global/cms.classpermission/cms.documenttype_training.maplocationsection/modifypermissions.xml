@@ -2,7 +2,7 @@
 <cms.classpermission>
   <ClassID>
     <CodeName>Training.MapLocationSection</CodeName>
-    <GUID>e83473a9-ca69-410d-99cd-dcbb1445c718</GUID>
+    <GUID>99971c0e-0450-4a38-8831-a9a965f010d6</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </ClassID>
   <PermissionDescription>
@@ -10,7 +10,7 @@
   </PermissionDescription>
   <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
   <PermissionDisplayName>{$permissionnames.modifypermissions$}</PermissionDisplayName>
-  <PermissionGUID>1b53bd26-600f-4c8c-8a64-64c4056b8ed5</PermissionGUID>
+  <PermissionGUID>ae28bcf1-f6b2-4c19-a565-37066b05a15a</PermissionGUID>
   <PermissionName>ModifyPermissions</PermissionName>
   <PermissionOrder>8</PermissionOrder>
 </cms.classpermission>

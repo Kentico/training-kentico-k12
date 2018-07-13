@@ -8,7 +8,7 @@
   <ClassDisplayName>Map Location Section</ClassDisplayName>
   <ClassFormDefinition>
     <form version="2">
-      <field column="MapLocationSectionID" columntype="integer" guid="b9a3b2ee-7f1e-4d32-981c-aaf79ae112b8" isPK="true" publicfield="false">
+      <field column="MapLocationSectionID" columntype="integer" guid="803ed95b-6c11-4094-8e61-54aea24a3e9e" isPK="true" publicfield="false">
         <properties>
           <fieldcaption>MapLocationSectionID</fieldcaption>
         </properties>
@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="MapLocationSectionName" columnsize="100" columntype="text" guid="76203c9b-a864-49ce-8cce-259089e2f3eb" publicfield="false" visible="true">
+      <field column="MapLocationSectionName" columnsize="100" columntype="text" guid="bd925760-7183-4723-b050-8336e7ac74c8" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Name</fieldcaption>
         </properties>
@@ -31,23 +31,24 @@
       </field>
     </form>
   </ClassFormDefinition>
-  <ClassGUID>e83473a9-ca69-410d-99cd-dcbb1445c718</ClassGUID>
-  <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassGUID>99971c0e-0450-4a38-8831-a9a965f010d6</ClassGUID>
+  <ClassIconClass>icon-map</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.MapLocationSection</ClassName>
-  <ClassNodeAliasSource>MapLocationSectionName</ClassNodeAliasSource>
   <ClassNodeNameSource>MapLocationSectionName</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="81b74ba6-074c-40f4-88a8-24757da7062a" name="MapLocationSectionID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="95a2abda-fccd-4bf6-8b16-f41919a97d9b" name="MapLocationSectionName" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="1435d106-77fd-41f6-8f33-c6ddd23f6b8f" name="MapLocationSectionName" searchable="False" tokenized="True" />
+      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="1d27042c-db5b-4e71-bd21-62c8f5368466" name="MapLocationSectionID" searchable="True" tokenized="False" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

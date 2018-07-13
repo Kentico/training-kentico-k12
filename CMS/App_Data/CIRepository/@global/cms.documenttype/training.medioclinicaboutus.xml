@@ -5,10 +5,10 @@
       <NameSpace>Training</NameSpace>
     </Data>
   </ClassCodeGenerationSettings>
-  <ClassDisplayName>Medio Clinic About us</ClassDisplayName>
+  <ClassDisplayName>Medio Clinic About Us</ClassDisplayName>
   <ClassFormDefinition>
     <form version="2">
-      <field column="MedioClinicAboutUsID" columntype="integer" guid="e6b05b8e-79d8-4d9d-bc57-e563c2e6df7e" isPK="true" publicfield="false">
+      <field column="MedioClinicAboutUsID" columntype="integer" guid="7c698a70-4944-457c-8d58-56bdbf38c2a1" isPK="true" publicfield="false">
         <properties>
           <fieldcaption>MedioClinicAboutUsID</fieldcaption>
         </properties>
@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="MedioClinicAboutUsHeader" columnsize="200" columntype="text" guid="6957feeb-cad6-48e0-9600-d8baad7edcfc" publicfield="false" visible="true">
+      <field column="MedioClinicAboutUsHeader" columnsize="200" columntype="text" guid="effed445-c216-4246-b934-44afa5bac583" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Header</fieldcaption>
         </properties>
@@ -29,7 +29,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="MedioClinicAboutUsText" columnsize="1000" columntype="text" guid="8e2d13cc-3cac-4ff7-867c-cced0279cd98" publicfield="false" visible="true">
+      <field column="MedioClinicAboutUs" columnsize="1000" columntype="text" guid="8033c9bb-f564-4021-a8bb-cec8718fe793" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Text</fieldcaption>
         </properties>
@@ -37,14 +37,14 @@
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
           <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
           <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>TextBoxControl</controlname>
+          <controlname>TextAreaControl</controlname>
           <FilterMode>False</FilterMode>
-          <Trim>False</Trim>
+          <Wrap>True</Wrap>
         </settings>
       </field>
     </form>
   </ClassFormDefinition>
-  <ClassGUID>a15d6c29-178b-461f-a4f9-1a93189512b1</ClassGUID>
+  <ClassGUID>fb211ee0-de34-4c8e-b265-3f4a01ad4e93</ClassGUID>
   <ClassIconClass>icon-menu</ClassIconClass>
   <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
@@ -54,15 +54,14 @@
   <ClassIsForm>False</ClassIsForm>
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.MedioClinicAboutUs</ClassName>
-  <ClassNodeNameSource>MedioClinicAboutUsHeader</ClassNodeNameSource>
+  <ClassNodeNameSource />
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="1f2ba7b1-2c0a-4a4a-896e-fd7798211c14" name="MedioClinicAboutUsHeader" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="a8c0345b-22d0-4ee7-bfd7-44d1dc9690e5" name="MedioClinicAboutUsText" searchable="False" tokenized="True" />
-      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="ea2702c0-2d1f-46fb-bde4-f3a3317c00a8" name="MedioClinicAboutUsID" searchable="True" tokenized="False" />
+      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="1cd4ef0b-5d13-4dfe-be2e-ea4a0a17747e" name="MedioClinicAboutUsID" searchable="True" tokenized="False" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="384efa91-7271-4960-a3db-76ce866177d5" name="MedioClinicAboutUs" searchable="False" tokenized="True" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

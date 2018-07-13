@@ -8,7 +8,7 @@
   <ClassDisplayName>Doctor Section</ClassDisplayName>
   <ClassFormDefinition>
     <form version="2">
-      <field column="DoctorSectionID" columntype="integer" guid="9cc7d15e-62e0-4fdf-b38f-b9cf868fba29" isPK="true" publicfield="false">
+      <field column="DoctorSectionID" columntype="integer" guid="9cc7d15e-62e0-4fdf-b38f-b9cf868fba29" isPK="true" isunique="true" publicfield="false">
         <properties>
           <fieldcaption>DoctorSectionID</fieldcaption>
         </properties>
@@ -41,7 +41,8 @@
   <ClassIsForm>False</ClassIsForm>
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.DoctorSection</ClassName>
-  <ClassNodeNameSource />
+  <ClassNodeAliasSource />
+  <ClassNodeNameSource>DoctorSectionName</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>

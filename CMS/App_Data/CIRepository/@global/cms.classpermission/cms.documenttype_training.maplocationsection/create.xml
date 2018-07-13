@@ -2,13 +2,13 @@
 <cms.classpermission>
   <ClassID>
     <CodeName>Training.MapLocationSection</CodeName>
-    <GUID>e83473a9-ca69-410d-99cd-dcbb1445c718</GUID>
+    <GUID>99971c0e-0450-4a38-8831-a9a965f010d6</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </ClassID>
   <PermissionDescription>{$permissiondescription.document.createanywhere$}</PermissionDescription>
   <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
   <PermissionDisplayName>{$permissionnames.createanywhere$}</PermissionDisplayName>
-  <PermissionGUID>5344dd77-9c49-4abe-be45-ff0bd3c460a7</PermissionGUID>
+  <PermissionGUID>26c53125-efbd-4245-98a4-a1d151ff7615</PermissionGUID>
   <PermissionName>Create</PermissionName>
   <PermissionOrder>4</PermissionOrder>
 </cms.classpermission>

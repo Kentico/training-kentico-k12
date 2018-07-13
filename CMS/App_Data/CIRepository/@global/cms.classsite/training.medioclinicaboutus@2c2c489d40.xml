@@ -2,7 +2,7 @@
 <cms.classsite>
   <Parent>
     <CodeName>Training.MedioClinicAboutUs</CodeName>
-    <GUID>a15d6c29-178b-461f-a4f9-1a93189512b1</GUID>
+    <GUID>fb211ee0-de34-4c8e-b265-3f4a01ad4e93</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </Parent>
   <Bindings>

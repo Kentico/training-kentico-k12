@@ -2,7 +2,7 @@
 <cms.classsite>
   <Parent>
     <CodeName>Training.SocialLink</CodeName>
-    <GUID>aee0a1e5-c919-4174-82a7-a16be86b7de9</GUID>
+    <GUID>07bd0007-e339-42a4-b814-6ae93924e0d3</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </Parent>
   <Bindings>

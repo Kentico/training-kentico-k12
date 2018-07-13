@@ -70,7 +70,7 @@
     </form>
   </ClassFormDefinition>
   <ClassGUID>195ac010-214a-4ba7-8faf-317b8086af3a</ClassGUID>
-  <ClassIconClass>icon-earth</ClassIconClass>
+  <ClassIconClass>icon-map-marker</ClassIconClass>
   <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>

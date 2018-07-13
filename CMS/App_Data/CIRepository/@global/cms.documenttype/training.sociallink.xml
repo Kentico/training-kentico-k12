@@ -5,10 +5,10 @@
       <NameSpace>Training</NameSpace>
     </Data>
   </ClassCodeGenerationSettings>
-  <ClassDisplayName>Social link</ClassDisplayName>
+  <ClassDisplayName>Social Link</ClassDisplayName>
   <ClassFormDefinition>
     <form version="2">
-      <field column="SocialLinkID" columntype="integer" guid="c90b73d4-0017-482c-97eb-984cab6d2865" isPK="true" publicfield="false">
+      <field column="SocialLinkID" columntype="integer" guid="9491d6ac-0b73-4341-b302-f71ad7b256ba" isPK="true" publicfield="false">
         <properties>
           <fieldcaption>SocialLinkID</fieldcaption>
         </properties>
@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="SocialLinkName" columnsize="200" columntype="text" guid="fb5cfa75-e19d-41d7-a7ee-07d9b1c7cc8b" publicfield="false" visible="true">
+      <field column="SocialLinkName" columnsize="200" columntype="text" guid="aba6ef4e-2ae9-4d1a-99b8-398557850c30" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Link name</fieldcaption>
         </properties>
@@ -29,7 +29,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="SocialLinkTitle" columnsize="200" columntype="text" guid="5e2c2a17-875b-4910-bf4b-71faae326998" publicfield="false" visible="true">
+      <field column="SocialLinkTitle" columnsize="200" columntype="text" guid="6feb9276-6039-4d0c-b92b-148faa33ca71" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Link title</fieldcaption>
         </properties>
@@ -42,7 +42,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="SocialLinkUrl" columnsize="2000" columntype="text" guid="844b2442-55a3-4f1a-8ebd-7f2f183941cc" publicfield="false" visible="true">
+      <field column="SocialLinkUrl" columnsize="2000" columntype="text" guid="85b20d89-619d-404c-b1fa-b4d68cbfde34" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Link Url</fieldcaption>
         </properties>
@@ -62,7 +62,7 @@
           <Dialogs_Content_Hide>False</Dialogs_Content_Hide>
         </settings>
       </field>
-      <field column="SocialLinkIcon" columntype="file" guid="a0792fd6-83f4-426e-913e-52d4c142cad8" publicfield="false" visible="true">
+      <field column="SocialLinkIcon" columntype="file" guid="c6fda66a-c96a-4566-98ac-ca3ab304d1ad" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Icon</fieldcaption>
         </properties>
@@ -76,7 +76,7 @@
       </field>
     </form>
   </ClassFormDefinition>
-  <ClassGUID>aee0a1e5-c919-4174-82a7-a16be86b7de9</ClassGUID>
+  <ClassGUID>07bd0007-e339-42a4-b814-6ae93924e0d3</ClassGUID>
   <ClassIconClass>icon-arrow-right-top-square</ClassIconClass>
   <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
@@ -92,10 +92,11 @@
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="5a124e5b-e7a9-4abb-8cea-613f2cf1de13" name="SocialLinkTitle" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="95a732aa-90c0-4c8d-a49d-ed5105f0c568" name="SocialLinkName" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="eb3c183e-3ea7-4b5a-9773-744e756db166" name="SocialLinkUrl" searchable="False" tokenized="True" />
-      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="ffc204a2-6a60-4745-a57f-c912653d528d" name="SocialLinkID" searchable="True" tokenized="False" />
+      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="1ffd2a36-901e-4a9c-bd20-6d4a8b4582a2" name="SocialLinkID" searchable="True" tokenized="False" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="4294e7ff-b1ed-4228-ad77-7a1110221086" name="SocialLinkUrl" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="5adbba49-0775-472b-9337-c895ad0b8c76" name="SocialLinkTitle" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="76e3de0e-e489-4b4b-900c-8fbbc7a230a8" name="SocialLinkName" searchable="False" tokenized="True" />
+      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="d4856ea4-82fc-48e5-a2c1-c680ba9cfe32" name="SocialLinkIcon" searchable="False" tokenized="False" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

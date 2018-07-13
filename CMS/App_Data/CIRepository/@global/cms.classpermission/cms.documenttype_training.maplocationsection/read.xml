@@ -2,13 +2,13 @@
 <cms.classpermission>
   <ClassID>
     <CodeName>Training.MapLocationSection</CodeName>
-    <GUID>e83473a9-ca69-410d-99cd-dcbb1445c718</GUID>
+    <GUID>99971c0e-0450-4a38-8831-a9a965f010d6</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </ClassID>
   <PermissionDescription>{$permissiondescription.document.read$}</PermissionDescription>
   <PermissionDisplayInMatrix>True</PermissionDisplayInMatrix>
   <PermissionDisplayName>{$permissionnames.read$}</PermissionDisplayName>
-  <PermissionGUID>c12423c4-c1a4-47c4-b236-fe153ea844a9</PermissionGUID>
+  <PermissionGUID>c68d476c-831f-4939-8d2e-55d83413604d</PermissionGUID>
   <PermissionName>Read</PermissionName>
   <PermissionOrder>1</PermissionOrder>
 </cms.classpermission>

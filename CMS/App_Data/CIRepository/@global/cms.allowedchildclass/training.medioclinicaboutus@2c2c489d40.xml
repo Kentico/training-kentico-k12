@@ -2,14 +2,14 @@
 <cms.allowedchildclass>
   <Parent>
     <CodeName>Training.MedioClinicAboutUs</CodeName>
-    <GUID>a15d6c29-178b-461f-a4f9-1a93189512b1</GUID>
+    <GUID>fb211ee0-de34-4c8e-b265-3f4a01ad4e93</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </Parent>
   <Bindings>
-    <Binding id="cms.documenttype_Training.MedioClinic">
+    <Binding id="cms.documenttype_Training.MedioClinicSection">
       <ParentClassID>
-        <CodeName>Training.MedioClinic</CodeName>
-        <GUID>7d639563-6429-4ff3-8bfa-b4b33ddfa11e</GUID>
+        <CodeName>Training.MedioClinicSection</CodeName>
+        <GUID>73b19814-702e-40b1-91fb-2f412af3f3da</GUID>
         <ObjectType>cms.documenttype</ObjectType>
       </ParentClassID>
     </Binding>

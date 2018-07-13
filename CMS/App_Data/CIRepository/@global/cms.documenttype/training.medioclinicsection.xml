@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.documenttype>
+  <ClassCodeGenerationSettings>
+    <Data>
+      <NameSpace>Training</NameSpace>
+    </Data>
+  </ClassCodeGenerationSettings>
+  <ClassDisplayName>Medio Clinic Section</ClassDisplayName>
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="MedioClinicSectionID" columntype="integer" guid="4aaaffbf-59ea-4f6d-ab21-1ed56711fe9b" isPK="true" publicfield="false">
+        <properties>
+          <fieldcaption>MedioClinicSectionID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="MedioClinicName" columnsize="200" columntype="text" guid="27b87270-67e1-4a37-abf8-bd19730d1048" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Clinic name</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="MedioClinicStreet" columnsize="200" columntype="text" guid="83f9b586-36f5-44b2-a5a1-0ee10bb8fa0c" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Street</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="MedioClinicCity" columnsize="200" columntype="text" guid="dc82174f-6a97-43e8-9ea8-df8c5a4f8037" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>City</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="MedioClinicCountry" columnsize="200" columntype="text" guid="e539352b-a770-4559-8470-093271b8bfa2" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Country</fieldcaption>
+        </properties>
+        <settings>
+          <AddAllItemsRecord>False</AddAllItemsRecord>
+          <AddNoneRecord>False</AddNoneRecord>
+          <AddSelectCountryRecord>True</AddSelectCountryRecord>
+          <controlname>countrySelector</controlname>
+          <EnableStateSelection>True</EnableStateSelection>
+        </settings>
+      </field>
+      <field column="MedioClinicZipCode" columnsize="200" columntype="text" guid="23582087-2913-4935-bcde-94e9d7b304e7" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Zip code</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="MedioClinicPhoneNumber" columnsize="200" columntype="text" guid="18f9ad85-b079-424c-9bfd-28fe3d0bdf5d" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Phone number</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="MedioClinicEmail" columnsize="300" columntype="text" guid="7505881a-6cd6-4b69-8468-f04acf471ac4" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Email</fieldcaption>
+        </properties>
+        <settings>
+          <AllowMultipleAddresses>False</AllowMultipleAddresses>
+          <controlname>emailinput</controlname>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>73b19814-702e-40b1-91fb-2f412af3f3da</ClassGUID>
+  <ClassIconClass>icon-id-card</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
+  <ClassIsContentOnly>True</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>True</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassName>Training.MedioClinicSection</ClassName>
+  <ClassNodeNameSource>MedioClinicName</ClassNodeNameSource>
+  <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchSettings>
+    <search>
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="19bee92b-4026-4517-9fcf-e15e474bc03b" name="MedioClinicName" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="355b9d03-14b6-4a65-aed6-af89c54f0ab8" name="MedioClinicCountry" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="3679bcb4-cd3f-411d-abce-82024e3eeefb" name="MedioClinicCity" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="56fa1d51-5df1-4dbe-8f5c-b16f185f1af4" name="MedioClinicPhoneNumber" searchable="False" tokenized="True" />
+      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="8d3ece6e-1c4f-4309-8c58-f29eb3ab4268" name="MedioClinicSectionID" searchable="True" tokenized="False" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="9a2685db-869f-488b-a377-ec0abc8e8bcc" name="MedioClinicZipCode" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="cadcbbe9-5139-4f9a-a937-ce0478bc6535" name="MedioClinicStreet" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="fcf1b162-18b8-4636-a99b-ded15110d0a2" name="MedioClinicEmail" searchable="False" tokenized="True" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassTableName>Training_MedioClinicSection</ClassTableName>
+  <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+</cms.documenttype>
