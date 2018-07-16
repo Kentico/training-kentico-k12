@@ -1,13 +1,24 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
     <title>@ViewBag.Title - Kentico Training</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+          crossorigin="anonymous">
+
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/images/Logo/favicon.png" rel="icon" type="image/png">
+    <link href="~/Content/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="~/Content/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 
 </head>
 <body>
-    To be done
+To be done
+@RenderBody()
 </body>
 </html>
