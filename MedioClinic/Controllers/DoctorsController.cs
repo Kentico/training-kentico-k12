@@ -2,7 +2,7 @@
 
 namespace MedioClinic.Controllers
 {
-    public class HomeController : Controller
+    public class DoctorsController : Controller
     {
         public ActionResult Index()
         {

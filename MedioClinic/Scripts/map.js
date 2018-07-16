@@ -1,14 +1,6 @@
-/* Languages dropsown */
-$(document).ready(function(){
-    $(".dropdown-trigger").dropdown({
-        hover: false,
-    });
-});
 
-
-
-  /* Contact us page - Google map */
-  function medioClinicMap(){
+  /* Google map callback */
+function initMap(){
 
     var myLatLng = { lat: 51.5, lng: -0.15};
 
