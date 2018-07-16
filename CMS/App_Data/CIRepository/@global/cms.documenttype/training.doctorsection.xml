@@ -55,6 +55,7 @@
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Training_DoctorSection</ClassTableName>
+  <ClassURLPattern>/Doctors/{% NodeAlias %}</ClassURLPattern>
   <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
   <ClassUsesVersioning>False</ClassUsesVersioning>
 </cms.documenttype>

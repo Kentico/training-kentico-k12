@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Menu items/Contact us -->
+<!-- This is a CI serialization file for /Doctors -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-11 11:40:51Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-07-10 13:58:07Z</DocumentCreatedWhen>
   <DocumentCulture>en-US</DocumentCulture>
-  <DocumentGUID>05feda21-d9cc-4e54-bbe8-59646d3a4888</DocumentGUID>
+  <DocumentGUID>fac41929-a003-4071-9df9-0c869b71c324</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-07-16 12:23:04Z</DocumentModifiedWhen>
-  <DocumentName>Contact us</DocumentName>
+  <DocumentModifiedWhen>2018-07-16 12:50:57Z</DocumentModifiedWhen>
+  <DocumentName>Doctors</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Menu-items/Contact-us</CodeName>
-    <GUID>85f086f8-04b8-43e2-be99-0a66d87b7140</GUID>
+    <CodeName>/Doctors</CodeName>
+    <GUID>f4673b3f-5a8a-43ee-9822-26438357c42a</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -32,7 +32,8 @@
   <DocumentPriority>0</DocumentPriority>
   <DocumentShowInSiteMap>True</DocumentShowInSiteMap>
   <DocumentUrlPath />
+  <DocumentUseCustomExtensions>False</DocumentUseCustomExtensions>
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>ce45d6a4-2e2f-4a71-a2dc-8ed1bf2ccd25</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>dc27498c-53d1-4911-aa38-8e815be8ca0d</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.attachment>
+  <AttachmentDocumentID>
+    <CodeName>en-US</CodeName>
+    <GUID>90dd6543-ed2e-497e-ab1c-fc7df23ec2b7</GUID>
+    <ObjectType>cms.documentlocalization</ObjectType>
+    <Parent>
+      <CodeName>/Doctors/Vick</CodeName>
+      <GUID>d4011357-1d20-4d70-b77b-6296f0069723</GUID>
+      <ObjectType>cms.node</ObjectType>
+      <Site>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </Site>
+    </Parent>
+  </AttachmentDocumentID>
+  <AttachmentExtension>.jpg</AttachmentExtension>
+  <AttachmentGUID>a4fbb23b-3c31-407b-b7b2-260117fb82d5</AttachmentGUID>
+  <AttachmentImageHeight>1366</AttachmentImageHeight>
+  <AttachmentImageWidth>2048</AttachmentImageWidth>
+  <AttachmentMimeType>image/jpeg</AttachmentMimeType>
+  <AttachmentName>904793412.jpg</AttachmentName>
+  <AttachmentSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </AttachmentSiteID>
+  <AttachmentSize>639464</AttachmentSize>
+</cms.attachment>

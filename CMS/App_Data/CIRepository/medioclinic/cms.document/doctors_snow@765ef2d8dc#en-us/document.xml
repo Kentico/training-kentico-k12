@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Menu items/Contact us -->
+<!-- This is a CI serialization file for /Doctors/Snow -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-11 11:40:51Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-07-11 09:43:03Z</DocumentCreatedWhen>
   <DocumentCulture>en-US</DocumentCulture>
-  <DocumentGUID>05feda21-d9cc-4e54-bbe8-59646d3a4888</DocumentGUID>
+  <DocumentGUID>224318b4-7a01-48df-a586-b6f778e7f51b</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-07-16 12:23:04Z</DocumentModifiedWhen>
-  <DocumentName>Contact us</DocumentName>
+  <DocumentModifiedWhen>2018-07-11 09:43:05Z</DocumentModifiedWhen>
+  <DocumentName>Snow</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Menu-items/Contact-us</CodeName>
-    <GUID>85f086f8-04b8-43e2-be99-0a66d87b7140</GUID>
+    <CodeName>/Doctors/Snow</CodeName>
+    <GUID>4bdb49dd-0a06-4067-87db-2b6119a763cb</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -34,5 +34,5 @@
   <DocumentUrlPath />
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>ce45d6a4-2e2f-4a71-a2dc-8ed1bf2ccd25</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>dd8bfe3a-c586-4f76-b750-17834036c58b</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>
