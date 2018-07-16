@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.CampaignLogging.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.CampaignLogging.Web.Mvc.CampaignApplicationBuilderExtensions">
+            <summary>
+            Provides methods for logging campaign details after customer visits some URL.
+            </summary>
+        </member>
+        <member name="M:Kentico.CampaignLogging.Web.Mvc.CampaignApplicationBuilderExtensions.UseCampaignLogger(Kentico.Web.Mvc.IApplicationBuilder)">
+            <summary>
+            Enables the campaign logging of UTM parameters for each request.
+            </summary>
+            <param name="builder">The application builder.</param>
+        </member>
+        <member name="T:Kentico.CampaignLogging.Web.Mvc.CampaignLoggerFilter">
+            <summary>
+            Handles logging of campaign details for visitors.
+            </summary>
+        </member>
+        <member name="M:Kentico.CampaignLogging.Web.Mvc.CampaignLoggerFilter.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Kentico.CampaignLogging.Web.Mvc.CampaignLoggerFilter"/> for campaign logging.
+            </summary>
+        </member>
+        <member name="M:Kentico.CampaignLogging.Web.Mvc.CampaignLoggerFilter.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            Stores the campaign UTM parameters of current url using the <see cref="T:CMS.WebAnalytics.ICampaignService"/>.
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+        <member name="M:Kentico.CampaignLogging.Web.Mvc.CampaignLoggerFilter.CheckUTMParams(System.Web.HttpContext,System.Object,System.Web.HttpValidationStatus@)">
+            <summary>
+            Cached result is not used to ensure campaign cookies in case of presence of UTM campaign in the query string.
+            </summary>
+        </member>
+    </members>
+</doc>

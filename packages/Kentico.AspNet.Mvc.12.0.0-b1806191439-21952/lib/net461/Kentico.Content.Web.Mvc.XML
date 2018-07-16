@@ -1,0 +1,434 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.Content.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.Content.Web.Mvc.ApplicationBuilderExtensions">
+            <summary>
+            Provides extension methods related to Kentico ASP.NET MVC integration features.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.ApplicationBuilderExtensions.UsePreview(Kentico.Web.Mvc.IApplicationBuilder)">
+            <summary>
+            Transparently handles preview URLs and also disables output caching in preview mode.
+            </summary>
+            <param name="builder">The application builder.</param>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.AttachmentExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:Kentico.Content.Web.Mvc.AttachmentExtensions"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.AttachmentExtensions.GetPath(CMS.DocumentEngine.Attachment,System.String)">
+            <summary>
+            Returns relative path for the attachment.
+            </summary>
+            <param name="attachment">The attachment.</param>
+            <param name="variant">Identifier of the attachmet variant.</param>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.DocumentAttachmentExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:CMS.DocumentEngine.DocumentAttachment"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.DocumentAttachmentExtensions.GetPath(CMS.DocumentEngine.DocumentAttachment,System.String)">
+            <summary>
+            Returns relative path for the attachment.
+            </summary>
+            <param name="attachment">The attachment.</param>
+            <param name="variant">Identifier of the attachmet variant.</param>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.FileUrlOptions">
+            <summary>
+            Represents options that affect the file URL.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.FileUrlOptions.AttachmentContentDisposition">
+            <summary>
+            Gets or sets a value that indicates whether the web browser will require some form of action from the user to open it.
+            </summary>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.NameValueCollectionExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:System.Collections.Specialized.NameValueCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.NameValueCollectionExtensions.Add(System.Collections.Specialized.NameValueCollection,System.String,System.Object)">
+            <summary>
+            Adds an entry with the specified name and value to the <see cref="T:System.Collections.Specialized.NameValueCollection"/>.
+            </summary>
+            <param name="collection">The name value collection.</param>
+            <param name="name">The key of the entry to add.</param>
+            <param name="value">The value of the entry to add</param>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.NameValueCollectionExtensions.AddSizeConstraint(System.Collections.Specialized.NameValueCollection,Kentico.Content.Web.Mvc.SizeConstraint)">
+            <summary>
+            Adds size constraint's values to the collection.
+            </summary>
+            <param name="collection">The name value collection.</param>
+            <param name="constraint">Size constraint.</param>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.NameValueCollectionExtensions.ToQueryString(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Returns a query string that represents the collection.
+            Uses the format: ?name1=value1&amp;name2=value2...
+            </summary>
+            <param name="collection">The name value collection.</param>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.SizeConstraint">
+            <summary>
+            Represents a size constraint that can be enforced on image when resizing.
+            </summary>
+        </member>
+        <member name="F:Kentico.Content.Web.Mvc.SizeConstraint.Empty">
+            <summary>
+            Gets a <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure that has width, height and maximum width or height of 0.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.SizeConstraint.WidthComponent">
+            <summary>
+            Gets the desired image width, in pixels. 
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.SizeConstraint.HeightComponent">
+            <summary>
+            Gets the desired image height, in pixels.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.SizeConstraint.MaxWidthOrHeightComponent">
+            <summary>
+            Gets the desired maximum image width or height.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.SizeConstraint.IsEmpty">
+            <summary>
+            Tests whether this structure has width, height and maximum width or height of 0.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.Width(System.Int32)">
+            <summary>
+            Creates a new size constraint that makes the image resize to the specified width. This constraint maintains the aspect ratio. The resized image is never made larger than the original.
+            </summary>
+            <param name="width">The width of the resized image.</param>
+            <returns>The new size constraint that makes the image resize to the specified width.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Width is less than or equal to 0.</exception>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.Height(System.Int32)">
+            <summary>
+            Creates a new size constraint that makes the image resize to the specified height. This constraint maintains the aspect ratio. The resized image is never made larger than the original.
+            </summary>
+            <param name="height">The height of the resized image.</param>
+            <returns>The new size constraint that makes the image resize to the specified height.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Height is less than or equal to 0.</exception>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.Size(System.Int32,System.Int32)">
+            <summary>
+            Creates a new size constraint that makes the image resize to the specified width and height. This constraint does not maintain the aspect ratio. The resized image is never made larger than the original.
+            </summary>
+            <param name="width">The width of the resized image.</param>
+            <param name="height">The height of the resized image.</param>
+            <returns>The new size constraint that makes the image resize to the specified width and height.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Width or height is less than or equal to 0.</exception>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.MaxWidthOrHeight(System.Int32)">
+            <summary>
+            Creates a new size constraint that makes the image resize to the width and height that do not exceed the specified value. This constraint maintains the aspect ratio. The resized image is never made larger than the original.
+            </summary>
+            <param name="maxWidthOrHeight">Maximum width or height of the resized image.</param>
+            <returns>The new size constraint that makes the image resize to the width and height that do not exceed the specified value.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Maximum width or height is less than or equal to 0.</exception>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.op_Equality(Kentico.Content.Web.Mvc.SizeConstraint,Kentico.Content.Web.Mvc.SizeConstraint)">
+            <summary>
+            Determines whether two <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structures are equal.
+            </summary>
+            <param name="x">The <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure on the left side of the equality operator.</param>
+            <param name="y">The <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure on the right side of the equality operator.</param>
+            <returns>True if <paramref name="x"/> and <paramref name="y"/> have equal width, height and maximum width or height; otherwise, false.</returns>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.op_Inequality(Kentico.Content.Web.Mvc.SizeConstraint,Kentico.Content.Web.Mvc.SizeConstraint)">
+            <summary>
+            Determines whether two <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structures are different.
+            </summary>
+            <param name="x">The <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure on the left side of the inequality operator.</param>
+            <param name="y">The <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure on the right side of the inequality operator.</param>
+            <returns>True if <paramref name="x"/> and <paramref name="y"/> differ in width or height or maximum width or height; otherwise, true.</returns>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is a <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure with the same width, height and maximum width or height as this <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure.
+            </summary>
+            <param name="other">The object to compare.</param>
+            <returns>True if <paramref name="other"/> is a <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> and has the same width, height and maximum width or height; otherwise, false.</returns>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.GetHashCode">
+            <summary>
+            Returns a hash code for this <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure.
+            </summary>
+            <returns>A hash code for this <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure.</returns>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.SizeConstraint.ToString">
+            <summary>
+            Creates a human-readable string that represents this <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure.
+            </summary>
+            <returns>A human-readable string that represents this <see cref="T:Kentico.Content.Web.Mvc.SizeConstraint"/> structure.</returns>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.UrlHelperFileMethods">
+            <summary>
+            Provides extension methods for the extension point <see cref="M:Kentico.Web.Mvc.UrlHelperExtensions.Kentico(System.Web.Mvc.UrlHelper)"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.UrlHelperFileMethods.ImageUrl(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.UrlHelper},System.String,Kentico.Content.Web.Mvc.SizeConstraint)">
+            <summary>
+            Generates a fully qualified URL to the specified image path.
+            </summary>
+            <param name="instance">The object that provides methods to build URLs to Kentico content.</param>
+            <param name="path">The virtual path of the image.</param>
+            <param name="constraint">The size constraint that is enforced on image when resizing.</param>
+            <returns>The fully qualified URL to the image.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="instance"/> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="path"/> is null, empty or contains query string parameters.</exception>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.UrlHelperFileMethods.FileUrl(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.UrlHelper},System.String,Kentico.Content.Web.Mvc.FileUrlOptions)">
+            <summary>
+            Generates a fully qualified URL to the specified file path.
+            </summary>
+            <param name="instance">The object that provides methods to build URLs to Kentico content.</param>
+            <param name="path">The virtual path of the file.</param>
+            <param name="options">Options that affect the file URL.</param>
+            <returns>The fully qualified URL to the file.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="instance"/> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="path"/> is null, empty or contains query string parameters.</exception>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.IFeatureSetExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:Kentico.Web.Mvc.IFeatureSet"/> interface.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.IFeatureSetExtensions.Preview(Kentico.Web.Mvc.IFeatureSet)">
+            <summary>
+            Returns a feature that provides information about preview.
+            </summary>
+            <param name="features">The set of features.</param>
+            <returns>A feature that provides information about preview.</returns>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.GlobalFilterCollectionExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:System.Web.Mvc.GlobalFilterCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.GlobalFilterCollectionExtensions.AddUniqueFilterType(System.Web.Mvc.GlobalFilterCollection,System.Object)">
+            <summary>
+            Adds the specified <paramref name="filter"/> only when there is no other filter of the same type already registered.
+            </summary>
+            <param name="filterCollection">The filter collection.</param>
+            <param name="filter">The filter.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="filterCollection"/> or <paramref name="filter"/> is null.</exception>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.Internal.IPathDecorator">
+            <summary>
+            Provides interface for decorating path with additional information.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.Internal.IPathDecorator.Decorate(System.String)">
+            <summary>
+            Decorates given path.
+            </summary>
+            <param name="path">Path to decorate</param>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.Internal.IVirtualContextPageRetriever">
+            <summary>
+            Retrieves page based on virtual context parameters.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.Internal.IVirtualContextPageRetriever.Retrieve">
+            <summary>
+            Retrieves page by its workflow cycle GUID from virtual context.
+            </summary>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.Internal.PreviewPathDecorator">
+            <summary>
+            Decorates path with virtual context prefix to include preview context.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.Internal.PreviewPathDecorator.#ctor(System.Boolean)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.Content.Web.Mvc.Internal.PreviewPathDecorator"/> class.
+            </summary>
+            <param name="readonlyMode">Indicates if readonly mode should be enabled to disallow modify actions and POST requests.</param>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.Internal.PreviewPathDecorator.Decorate(System.String)">
+            <summary>
+            Decorates given path.
+            </summary>
+            <param name="path">Path to decorate</param>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.Internal.VirtualContextPageRetriever">
+            <summary>
+            Retrieves page based on virtual context parameters.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.Internal.VirtualContextPageRetriever.Retrieve">
+            <summary>
+            Retrieves page by workflow cycle GUID stored in virtual context.
+            </summary>
+            <remarks>Retrieved page is stored into cache.</remarks>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.IPreviewFeature">
+            <summary>
+            Represents a feature that provides information about preview for the current request.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.IPreviewFeature.Enabled">
+            <summary>
+            Gets a value indicating whether preview is enabled.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.IPreviewFeature.CultureName">
+            <summary>
+            Gets the culture name in the format languagecode2-country/regioncode2.
+            </summary>
+            <value>The culture name in the format languagecode2-country/regioncode2, if preview information with culture is available; otherwise, null.</value>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.PreviewGlobalFilters">
+            <summary>
+            Class that provides registration of all the required global filters for the page preview feature.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.PreviewGlobalFilters.Register">
+            <summary>
+            Registers global filters for the Preview feature.
+            </summary>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.PreviewLinkPrincipalAssigner">
+            <summary>
+            Uses custom principal implementation for preview link requests to bypass authorization.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.PreviewLinkPrincipalAssigner.Init">
+            <summary>
+            Initializes the assigner.
+            </summary>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.ResponseFilterStream">
+            <summary>
+            Provides a stream with a processor that modifies the stream data.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.ResponseFilterStream.#ctor(System.IO.Stream,System.Text.Encoding,System.Func{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Content.Web.Mvc.ResponseFilterStream"/> with the data processor.
+            </summary>
+            <param name="outStream">Output stream where the data will be written once this stream is closed.</param>
+            <param name="encoding">Encoding of this stream.</param>
+            <param name="processor">Delegate which transforms the stream data.</param>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.ResponseFilterStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a block of bytes to the current stream using data read from a buffer.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.ResponseFilterStream.Close">
+            <summary>
+            Closes the current stream and releases any resources associated with the current stream.
+            Runs the processor over the stream data.
+            </summary>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.PreviewUrlsFilter">
+            <summary>
+            Sets the response filter which converts URLs into their "VirtualContext" form.
+            </summary>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.PreviewUrlProcessor">
+            <summary>
+            Processes <see cref="T:CMS.Helpers.VirtualContext"/> URLs for preview and Page builder.
+            </summary>
+            <remarks>Executes provided handlers to reflect the initialized virtual context and its properties in features.</remarks>
+        </member>
+        <member name="F:Kentico.Content.Web.Mvc.PreviewUrlProcessor.handlers">
+            <summary>
+            Actions to be executed after validation of <see cref="T:CMS.Helpers.VirtualContext"/> data.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.PreviewUrlProcessor.Instance">
+            <summary>
+            Returns instance of the <see cref="T:Kentico.Content.Web.Mvc.PreviewUrlProcessor"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.PreviewUrlProcessor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Content.Web.Mvc.PreviewUrlProcessor"/>. 
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.PreviewUrlProcessor.Register(System.Action{System.Web.HttpContextWrapper})">
+            <summary>
+            Registers handler to handle application request to the preview link URL.
+            </summary>
+            <param name="handler">Handler to be executed after the preview link context initialization.</param>
+            <seealso cref="M:Kentico.Content.Web.Mvc.PreviewUrlProcessor.ValidateAndInitializeVirtualContext(System.Web.HttpContextBase,System.String,System.Collections.Specialized.NameValueCollection)"/>
+            <seealso cref="M:Kentico.Content.Web.Mvc.PreviewUrlProcessor.PostVirtualContextInitialization(System.Web.HttpContextBase)"/>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.PreviewUrlProcessor.ValidateAndInitializeVirtualContext(System.Web.HttpContextBase,System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Validates values obtained from URL in <paramref name="nameValueCollection"/> and in case they are valid saves them into <see cref="T:CMS.Helpers.VirtualContext"/>.
+            </summary>
+            <param name="context">Context in which the request is being handled.</param>
+            <param name="relativeFilePath">Relative path of the request, stripped off the part containing <see cref="T:CMS.Helpers.VirtualContext"/> data.</param>
+            <param name="nameValueCollection">Collection containing values parsed from the URL address.</param>
+            <returns>Returns true if processor validated and saved values related to preview to <see cref="T:CMS.Helpers.VirtualContext"/>, otherwise false.</returns>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.PreviewUrlProcessor.PostVirtualContextInitialization(System.Web.HttpContextBase)">
+            <summary>
+            Method invokes registered handlers via <see cref="M:Kentico.Content.Web.Mvc.PreviewUrlProcessor.Register(System.Action{System.Web.HttpContextWrapper})"/>.
+            </summary>
+            <param name="context">Context in which the request is being handled.</param>
+            <seealso cref="M:Kentico.Content.Web.Mvc.PreviewUrlProcessor.Register(System.Action{System.Web.HttpContextWrapper})"/>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.PreviewOutputCacheFilter">
+            <summary>
+            Adds validation callback for the output cache item to ignore it in a preview mode.
+            </summary>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.PreviewFeature">
+            <summary>
+            Represents a feature that provides information about preview for the current request.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.PreviewFeature.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Content.Web.Mvc.PreviewFeature"/> class from the Kentico virtual context.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.PreviewFeature.Enabled">
+            <summary>
+            Gets a value indicating whether preview is enabled.
+            </summary>
+        </member>
+        <member name="P:Kentico.Content.Web.Mvc.PreviewFeature.CultureName">
+            <summary>
+            Gets the culture name in the format languagecode2-country/regioncode2.
+            </summary>
+            <value>The culture name in the format languagecode2-country/regioncode2, if preview information with culture is available; otherwise, null.</value>
+        </member>
+        <member name="T:Kentico.Content.Web.Mvc.UrlHelperPreviewMethods">
+            <summary>
+            Provides extension methods for the extension point <see cref="M:Kentico.Web.Mvc.UrlHelperExtensions.Kentico(System.Web.Mvc.UrlHelper)"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.Content.Web.Mvc.UrlHelperPreviewMethods.AuthenticateUrl(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.UrlHelper},System.String,System.Boolean)">
+            <summary>
+            When the page preview is active, extends the given <paramref name="url"/> by additional authentication information.
+            </summary>
+            <param name="instance">HtmlHelper extension point.</param>
+            <param name="url">URL that is to be authenticated. The following URL forms will be authenticated: Relative or absolute path. Query string parameters are not included in the authentication hash.</param>
+            <param name="readonlyMode">Indicates if readonly mode should be enabled to disallow modify actions and POST requests.</param>
+            <returns>
+            If the page preview is active, returns the given <paramref name="url"/> extended by authentication information.
+            If the page preview is not active, returns the original <paramref name="url"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="instance"/> is null.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="url"/> is null or empty.</exception>
+        </member>
+    </members>
+</doc>

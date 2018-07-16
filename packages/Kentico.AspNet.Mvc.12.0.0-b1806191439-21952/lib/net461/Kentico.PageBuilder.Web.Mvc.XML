@@ -1,0 +1,1562 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.PageBuilder.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ApplicationBuilderExtensions">
+            <summary>
+            Provides extension methods related to Kentico ASP.NET MVC integration features.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ApplicationBuilderExtensions.UsePageBuilder(Kentico.Web.Mvc.IApplicationBuilder,Kentico.PageBuilder.Web.Mvc.PageBuilderFeatureProperties)">
+            <summary>
+            Enables the Page builder feature to compose page content based on registered widgets.
+            </summary>
+            <param name="builder">The application builder.</param>
+            <param name="properties">Page builder feature properties.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IPageConfigurationRetriever">
+            <summary>
+            Provides interface for retrieving the editable areas configuration for a page.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IPageConfigurationRetriever.Retrieve(System.Int32,System.Boolean)">
+            <summary>
+            Retrieves configuration for a given page.
+            </summary>
+            <param name="pageIdentifier">Page identifier.</param>
+            <param name="latest">Indicates if latest version of the configuration should be retrieved.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IEditableAreaRenderer">
+            <summary>
+            Provides interface for editable area renderer.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IEditableAreaRenderer.RenderAreaContainer(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Renders editable area container for edit mode.
+            </summary>
+            <param name="defaultSectionIdentifier">Identifier of a default area section.</param>
+            <param name="allowedWidgets">Identifiers of allowed widgets in the area. If empty all widgets are allowed.</param>
+            <returns>Returns HTML markup representing editable area container for edit mode.</returns>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IEditableAreaRenderer.RenderSections(System.Web.Mvc.HtmlHelper,Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Renders sections in editable area for the live site.
+            </summary>
+            <param name="helper">HTML helper.</param>
+            <param name="configuration">Editable areas configuration.</param>
+            <param name="provider">Provider to retrieve section definitions.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageConfigurationRetriever">
+            <summary>
+            Retrieves editable areas configuration for a page.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageConfigurationRetriever.#ctor(Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationManager,Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.PageConfigurationRetriever"/> class.
+            </summary>
+            <param name="manager">Editable areas configuration manager.</param>
+            <param name="serializer">Serializer to load configuration.</param>
+            <param name="provider">Provider to retrieve widget definitions.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageConfigurationRetriever.Retrieve(System.Int32,System.Boolean)">
+            <summary>
+            Retrieves configuration for a given page.
+            </summary>
+            <param name="pageIdentifier">Page identifier.</param>
+            <param name="latest">Indicates if latest version of the configuration should be retrieved.</param>
+            <remarks>
+            Configuration is retrieved from cache if already cached.
+            </remarks>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IWidgetZoneRenderer">
+            <summary>
+            Provides interface for zone renderer.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IWidgetZoneRenderer.RenderZoneContainer">
+            <summary>
+            Renders widget zone container for edit mode.
+            </summary>
+            <returns>Returns HTML markup representing widget zone container for edit mode.</returns>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IWidgetZoneRenderer.RenderWidgets(System.Web.Mvc.HtmlHelper,Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Renders zone widgets for the live site.
+            </summary>
+            <param name="helper">HTML helper.</param>
+            <param name="configuration">Editable areas configuration.</param>
+            <param name="provider">Provider to retrieve widget definitions.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageBuilderScriptConfiguration">
+            <summary>
+            Encapsulates data sent to client and used by Page builder's script.
+            </summary>
+            <seealso cref="M:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods.PageBuilderScripts(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper},System.String[])"/>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.PageBuilderScriptConfiguration.PageIdentifier">
+            <summary>
+            Identifier of the page where the Page builder widgets will be initialized.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.EditableAreaRenderer">
+            <summary>
+            Renders editable area HTML markup.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreaRenderer.#ctor(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreaRenderer"/> class.
+            </summary>
+            <param name="areaIdentifier">Area identifier.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreaRenderer.RenderAreaContainer(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Renders editable area container for edit mode.
+            </summary>
+            <param name="defaultSectionIdentifier">Identifier of a default area section.</param>
+            <param name="allowedWidgets">Identifiers of allowed widgets in the area. If empty all widgets are allowed.</param>
+            <returns>Returns HTML markup representing editable area container for edit mode.</returns>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreaRenderer.RenderSections(System.Web.Mvc.HtmlHelper,Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Renders sections in editable area for the live site.
+            </summary>
+            <param name="helper">HTML helper.</param>
+            <param name="configuration">Editable areas configuration.</param>
+            <param name="provider">Provider to retrieve section definitions.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetZoneRenderer">
+            <summary>
+            Renders widget zone HTML markup.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetZoneRenderer.RenderZoneContainer">
+            <summary>
+            Renders widget zone container for edit mode.
+            </summary>
+            <returns>Returns HTML markup representing widget zone container for edit mode.</returns>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetZoneRenderer.RenderWidgets(System.Web.Mvc.HtmlHelper,Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Renders zone widgets for the live site.
+            </summary>
+            <param name="helper">HTML helper.</param>
+            <param name="configuration">Editable areas configuration.</param>
+            <param name="provider">Provider to retrieve widget definitions.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageBuilderAssetsProvider">
+            <summary>
+            Provides assets registration for Page builder.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderAssetsProvider.#ctor(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Instantiates the Page builder assets provider.
+            </summary>
+            <param name="htmlHelper">HtmlHelper instance.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderAssetsProvider.GetScriptFileTag">
+            <summary>
+            Gets the Page builder script file include tag.
+            </summary>
+            <returns>Renders script tag with source pointed to PageBuilder JavaScript file.</returns>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderAssetsProvider.GetStartupScriptTag(Kentico.PageBuilder.Web.Mvc.PageBuilderScriptConfiguration,Kentico.Content.Web.Mvc.Internal.IPathDecorator)">
+            <summary>
+            Gets the Page builder initialization script.
+            </summary>
+            <param name="configuration">Page builder initial configuration.</param>
+            <param name="decorator">Decorates the paths which need preview context to be initialized.</param>
+            <returns>Returns an initialization Page builder script with a defined configuration object.</returns>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods">
+            <summary>
+            Provides extension methods for extension point <see cref="M:Kentico.Web.Mvc.HtmlHelperExtensions.Kentico(System.Web.Mvc.HtmlHelper)"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods.PageBuilderScripts(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper},System.String[])">
+            <summary>
+            Renders necessary scripts for Page builder feature.
+            </summary>
+            <param name="instance">HtmlHelper extension point.</param>
+            <param name="scriptFiles">Additional custom scripts required for the Page builder.</param>
+            <returns>Returns HTML markup with script tags for scripts or returns <c>null</c> if edit mode is not initialized.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="instance"/> is <c>null</c>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the Page builder has not been initialized yet.</exception>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods.PageBuilderStyles(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper},System.String[])">
+            <summary>
+            Renders necessary stylesheet link tags for Page builder feature.
+            </summary>
+            <param name="instance">HtmlHelper extension point.</param>
+            <param name="styleFiles">Additional custom stylesheet files required for the Page builder.</param>
+            <returns>Returns HTML markup with link tags for stylesheets or returns <c>null</c> if edit mode is not initialized.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="instance"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods.PageBuilderScriptsInternal(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper},System.Collections.Generic.IEnumerable{System.String},Kentico.Builder.Web.Mvc.IAllowedDomainsRetriever,Kentico.Builder.Web.Mvc.IComponentLocalizationService)">
+            <summary>
+            Renders necessary scripts for Page builder feature.
+            </summary>
+            <param name="instance">HtmlHelper extension point.</param>
+            <param name="scriptFiles">Additional scripts required for the Page builder.</param>
+            <param name="retriever">Retriever of allowed domains to check origin of post messages on client.</param>
+            <param name="localizationService">Localization service to provide context of a culture.</param>
+            <returns>Returns HTML markup with script tags for scripts or returns <c>null</c> if edit mode is not initialized.</returns>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods.WidgetZone(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper})">
+            <summary>
+            Renders widget zone markup.
+            </summary>
+            <param name="instance">HtmlHelper extension point.</param>
+            <returns>Returns HTML markup for widget zone container for edit mode.</returns>
+            <remarks>
+            For the live site, <c>null</c> value is returned. The HTML markup of widgets included in the zone is rendered directly to the response.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="instance"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods.WidgetZoneInternal(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper},Kentico.PageBuilder.Web.Mvc.IWidgetZoneRenderer,Kentico.PageBuilder.Web.Mvc.IPageConfigurationRetriever,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Renders widget zone markup.
+            </summary>
+            <param name="instance">HtmlHelper extension point.</param>
+            <param name="renderer">Widgets zone renderer.</param>
+            <param name="retriever">Retriever for page configuration.</param>
+            <param name="provider">Provider for component definitions.</param>      
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods.EditableArea(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper},System.String,System.String,System.String[])">
+            <summary>
+            Renders editable area markup.
+            </summary>
+            <param name="instance">HtmlHelper extension point.</param>
+            <param name="areaIdentifier">Area identifier.</param>
+            <param name="defaultSectionIdentifier">Identifier of a section to be used as an initial one for the area.</param>
+            <param name="allowedWidgets">Identifiers of allowed widgets in the area. If none provided all widgets are allowed.</param>
+            <returns>Returns HTML markup for editable area container for edit mode.</returns>
+            <remarks>
+            For the live site, <c>null</c> value is returned. The HTML markup of area and widgets included in the zones is rendered directly to the response.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="instance"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="areaIdentifier"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="areaIdentifier"/> is empty or whitespace.</exception>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.HtmlHelperMethods.EditableAreaInternal(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper},Kentico.PageBuilder.Web.Mvc.IEditableAreaRenderer,Kentico.PageBuilder.Web.Mvc.IPageConfigurationRetriever,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Renders editable area markup.
+            </summary>
+            <param name="instance">HtmlHelper extension point.</param>
+            <param name="renderer">Editable area renderer.</param>
+            <param name="retriever">Retriever for page configuration.</param>
+            <param name="provider">Provider for component definitions.</param>      
+            <param name="defaultSectionIdentifier">Identifier of a section to be used as an initial one for the area.</param>
+            <param name="allowedWidgets">Identifiers of allowed widgets in the area. If none provided all widgets are allowed.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageBuilderFeatureProperties">
+            <summary>
+            Page builder feature properties.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.PageBuilderFeatureProperties.DefaultSectionIdentifier">
+            <summary>
+            Identifier of a default section for all areas.
+            </summary>
+            <remarks>This property is required and needs to be provided to define default section for all editable areas.</remarks>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderFeatureProperties.#ctor(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.PageBuilderFeatureProperties"/> class.
+            </summary>
+            <param name="defaultSectionIdentifier">Identifier of a default section.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IPageBuilderFeature">
+            <summary>
+            Represents a feature that provides information about Page builder for the current request.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.IPageBuilderFeature.Properties">
+            <summary>
+            Gets feature properties.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.IPageBuilderFeature.EditMode">
+            <summary>
+            Gets a value indicating whether edit mode is enabled.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IPageBuilderFeature.Initialize(System.Int32)">
+            <summary>
+            Initializes the Page builder.
+            </summary>
+            <param name="pageIdentifier">The identifier of the page where the Page builder stores and loads data from.</param>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.IPageBuilderFeature.PageIdentifier">
+            <summary>
+            Gets the identifier of the page where the Page builder stores and loads data from.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IFeatureSetExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:Kentico.Web.Mvc.IFeatureSet"/> interface.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IFeatureSetExtensions.PageBuilder(Kentico.Web.Mvc.IFeatureSet)">
+            <summary>
+            Returns a feature that provides information about Page builder.
+            </summary>
+            <param name="features">The set of features.</param>
+            <returns>A feature that provides information about Page builder.</returns>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IPageBuilderPostDataRetriever">
+            <summary>
+            Provides an interface for retrieving data from Page builder POST request.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IPageBuilderPostDataRetriever.Retrieve">
+            <summary>
+            Retrieves data from Page builder POST request or returns <c>null</c>.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature">
+            <summary>
+            Represents a feature that provides information about Page builder for the current request.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature.Properties">
+            <summary>
+            Gets feature properties.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature.EditMode">
+            <summary>
+            Gets a value indicating whether edit mode is enabled.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature.PageIdentifier">
+            <summary>
+            Gets the identifier of the page where the Page builder stores and loads data from.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature.#ctor(System.Web.HttpContextBase,Kentico.PageBuilder.Web.Mvc.PageBuilderFeatureProperties,Kentico.PageBuilder.Web.Mvc.IPageBuilderPostDataRetriever,Kentico.Content.Web.Mvc.Internal.IVirtualContextPageRetriever,Kentico.PageBuilder.Web.Mvc.IPageSecurityChecker)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature"/> class from the Kentico virtual context.
+            </summary>
+            <param name="context">HTTP context of the application.</param>
+            <param name="properties">Page builder feature properties.</param>
+            <param name="postDataRetriever">Retriever for POST data.</param>
+            <param name="pageRetriever">Retriever for page.</param>
+            <param name="securityChecker">Page security checker.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature.#ctor(System.Web.HttpContextBase,Kentico.PageBuilder.Web.Mvc.PageBuilderFeatureProperties)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature"/> class from the Kentico virtual context.
+            </summary>
+            <param name="context">HTTP context of the application.</param>
+            <param name="properties">Page builder feature properties.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderFeature.Initialize(System.Int32)">
+            <summary>
+            Initializes the Page builder.
+            </summary>
+            <param name="pageIdentifier">The identifier of the page where the Page builder stores and loads data from.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.CurrentPageRetriever">
+            <summary>
+            Encapsulates retrieving current page of Page builder feature.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.CurrentPageRetriever.Retrieve(Kentico.PageBuilder.Web.Mvc.IPageBuilderFeature)">
+            <summary>
+            Retrieves current page of Page builder feature.
+            </summary>
+            <param name="feature">Page builder feature.</param>
+            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="feature"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageBuilderPostDataRetriever">
+            <summary>
+            Retrieves data from Page builder POST request.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderPostDataRetriever.#ctor(System.Web.HttpContextBase,Kentico.PageBuilder.Web.Mvc.IPageSecurityChecker)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.PageBuilderPostDataRetriever"/> class.
+            </summary>
+            <param name="context">HTTP context of the application.</param>
+            <param name="checker">Page permission checker.</param>
+            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="context"/> or <paramref name="checker"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageBuilderPostDataRetriever.Retrieve">
+            <summary>
+            Retrieves data from Page builder POST request or returns <c>null</c>.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Is thrown when incorrect data format is retrieved.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties">
+            <summary>
+            Registration properties that will be used to create component definition.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties.ControllerType">
+            <summary>
+            Type of the registered component controller.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties.Identifier">
+            <summary>
+            Unique identifier of the component definition.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties.Name">
+            <summary>
+            Name of the registered component.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties.Description">
+            <summary>
+            Description of the registered component.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties.IconClass">
+            <summary>
+            Font-icon CSS class of the registered component.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties.#ctor(System.String,System.Type,System.String,System.String,System.String)">
+            <summary>
+            Creates an instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties"/> class.
+            </summary>
+            <param name="identifier">Unique identifier of the component definition.</param>
+            <param name="controllerType">Type of the registered component controller.</param>
+            <param name="name">Name of the registered component.</param>
+            <param name="description">Description of the registered component.</param>
+            <param name="iconClass">Font-icon CSS class of the registered component.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute">
+            <summary>
+            Registers definition of Page builder feature component.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute.MarkedType">
+            <summary>
+            Type of the registered component controller.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute.Identifier">
+            <summary>
+            Unique identifier of the component definition.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute.Name">
+            <summary>
+            Name of the registered component.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute.Description">
+            <summary>
+            Description of the registered component.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute.IconClass">
+            <summary>
+            Font-icon CSS class of the registered component.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute.#ctor(System.String,System.Type,System.String)">
+            <summary>
+            Creates an instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute"/> class.
+            </summary>
+            <param name="identifier">Unique identifier of the component definition.</param>
+            <param name="controllerType">Type of the component controller to register.</param>
+            <param name="name">Name of the registered component.</param>       
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute.PreInit">
+            <summary>
+            Registers the component definition during application pre-initialization.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.RegisterComponentAttribute.GetRegistrationProperties">
+            <summary>
+            Gets initialized instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ComponentDefinition">
+            <summary>
+            Definition of a widget for Page builder.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentDefinition.RouteName">
+            <summary>
+            Name of the route under which is the component available.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentDefinition.ControllerName">
+            <summary>
+            Name of the controller derived from controller class name without the <c>Controller</c> suffix.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentDefinition.ControllerFullName">
+            <summary>
+            Gets the fully qualified name of the component controller type, including its namespace without the assembly name.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentDefinition.Identifier">
+            <summary>
+            Unique identifier of the component definition.
+            </summary> 
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentDefinition.Name">
+            <summary>
+            Name of the registered component.
+            </summary> 
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentDefinition.Description">
+            <summary>
+            Description of the registered component.
+            </summary> 
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentDefinition.IconClass">
+            <summary>
+            Icon CSS class of the registered component.
+            </summary> 
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.RegisterSectionAttribute">
+            <summary>
+            Registers a section definition to be used within Page builder feature.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.RegisterSectionAttribute.#ctor(System.String,System.Type,System.String)">
+            <summary>
+            Creates an instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.RegisterSectionAttribute"/> class.
+            </summary>
+            <param name="identifier">Unique identifier of the section definition.</param>
+            <param name="controllerType">Type of the section controller to register.</param>
+            <param name="name">Name of the registered section.</param>
+            <remarks>
+            Make sure to provide unique identifier for the section definition from the start. 
+            This identifier is used within the page configuration and any further change can lead to incorrect configuration load.
+            Consider specifying identifier in format 'CompanyName.ModuleName.SectionName', e.g. 'Kentico.Content.SingleColumn'.
+            </remarks>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.RegisterSectionAttribute.GetRegistrationProperties">
+            <summary>
+            Gets initialized instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.SectionRegistrationProperties"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.SectionRegistrationProperties">
+            <summary>
+            Section registration properties that will be used to create section definition.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.SectionRegistrationProperties.#ctor(System.String,System.Type,System.String,System.String,System.String)">
+            <summary>
+            Creates an instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.SectionRegistrationProperties"/> class.
+            </summary>
+            <param name="identifier">Unique identifier of the section definition.</param>
+            <param name="controllerType">Type of the registered section controller.</param>
+            <param name="name">Name of the registered section.</param>
+            <param name="description">Description of the registered section.</param>
+            <param name="iconClass">Font-icon CSS class of the registered section.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.SectionMetadata">
+            <summary>
+            Metadata of a section definition.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionMetadata.TypeIdentifier">
+            <summary>
+            Type section identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionMetadata.MarkupUrl">
+            <summary>
+            URL of the section definition to retrieve the markup.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionMetadata.Name">
+            <summary>
+            Name of the registered section.
+            </summary> 
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionMetadata.Description">
+            <summary>
+            Description of the registered section.
+            </summary> 
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionMetadata.IconClass">
+            <summary>
+            Icon CSS class of the registered section.
+            </summary> 
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.EditableAreaConfiguration">
+            <summary>
+            Represents configuration of editable area within the <see cref="T:CMS.DocumentEngine.TreeNode"/> instance.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.EditableAreaConfiguration.Identifier">
+            <summary>
+            Identifier of the editable area.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.EditableAreaConfiguration.Sections">
+            <summary>
+            Sections within editable area.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreaConfiguration.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.SectionConfiguration">
+            <summary>
+            Represents configuration of section within the <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreaConfiguration"/> instance.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionConfiguration.Identifier">
+            <summary>
+            Identifier of the section.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionConfiguration.TypeIdentifier">
+            <summary>
+            Type section identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionConfiguration.Zones">
+            <summary>
+            Zones within the section.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.SectionConfiguration.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetVariantConfiguration">
+            <summary>
+            Represents the configuration variant of a widget within the <see cref="P:Kentico.PageBuilder.Web.Mvc.WidgetConfiguration.Variants"/> list.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetVariantConfiguration.Identifier">
+            <summary>
+            Identifier of the variant instance.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetVariantConfiguration.Properties">
+            <summary>
+            Widget variant properties.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageSecurityChecker">
+            <summary>
+            Checks page permissions for Page builder feature.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageSecurityChecker.#ctor(Kentico.Content.Web.Mvc.Internal.IVirtualContextPageRetriever)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.PageSecurityChecker"/>.
+            </summary>
+            <param name="retriever">Retrieves page from virtual context.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.PageSecurityChecker.Check(CMS.DataEngine.PermissionsEnum)">
+            <summary>
+            Checks page permissions.
+            </summary>
+            <param name="permission">Permission to check.</param>
+            <returns><c>True</c> if current user is granted with given permissions.</returns>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IPageSecurityChecker">
+            <summary>
+            Provides interface for checking page permissions for Page builder feature.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IPageSecurityChecker.Check(CMS.DataEngine.PermissionsEnum)">
+            <summary>
+            Checks page permissions.
+            </summary>
+            <param name="permission">Permission to check.</param>
+            <returns><c>True</c> if current user is granted with given permissions.</returns>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.EditModePathDecorator">
+            <summary>
+            Decorates path with virtual context prefix to include preview context and edit mode query string.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditModePathDecorator.Decorate(System.String)">
+            <summary>
+            Decorates given path.
+            </summary>
+            <param name="path">Path to decorate</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ICurrentPageRetriever">
+            <summary>
+            Provides the interface for retrieving the current page of Page builder.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ICurrentPageRetriever.Retrieve(Kentico.PageBuilder.Web.Mvc.IPageBuilderFeature)">
+            <summary>
+            Retrieves current page.
+            </summary>
+            <param name="feature">Page builder feature.</param>
+            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="feature"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IWidgetDefaultPropertiesProvider">
+            <summary>
+            Provides interface for providing widget default properties.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IWidgetDefaultPropertiesProvider.Get(Kentico.PageBuilder.Web.Mvc.WidgetDefinition)">
+            <summary>
+            Gets widget default properties.
+            </summary>
+            <param name="definition">Widget definition.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IWidgetDefaultPropertiesProvider.Get``1">
+            <summary>
+            Gets widget default properties.
+            </summary>
+            <typeparam name="TPropertiesType">Widget properties.</typeparam>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IWidgetPropertiesRetriever`1">
+            <summary>
+            Provides interface for retrieving widget properties.
+            </summary>
+            <typeparam name="TPropertiesType">Type of the widget properties.</typeparam>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IWidgetPropertiesRetriever`1.Retrieve(Kentico.PageBuilder.Web.Mvc.WidgetController{`0},Kentico.PageBuilder.Web.Mvc.IPageBuilderPostDataRetriever)">
+            <summary>
+            Retrieves widget properties.
+            </summary>
+            <param name="controller">Widget controller.</param>
+            <param name="retriever">Retriever for POST data.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetDefaultPropertiesUrlRetriever">
+            <summary>
+            Retrieves URL to retrieve default widget properties.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetDefaultPropertiesUrlRetriever.#ctor(System.Web.HttpContextBase,Kentico.Content.Web.Mvc.Internal.IPathDecorator)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetDefaultPropertiesUrlRetriever"/> class.
+            </summary>
+            <param name="context">Http context in which the URL is retrieved.</param>
+            <param name="decorator">Decorates URL with additional information.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetDefaultPropertiesUrlRetriever.GetUrl(Kentico.PageBuilder.Web.Mvc.IMarkupComponentDefinition)">
+            <summary>
+            Gets the URL to retrieve default widget properties.
+            </summary>
+            <param name="component">Widget definition.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.SectionDefinition">
+            <summary>
+            Definition of a section for Page builder.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.SectionDefinition.RouteName">
+            <summary>
+            Name of the route under which is the section available.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IMarkupComponentDefinition">
+            <summary>
+            Definition of a component with markup for Page builder.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.IMarkupComponentDefinition.RouteName">
+            <summary>
+            Name of the route under which is the component available.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.IMarkupComponentDefinition.ControllerName">
+            <summary>
+            Name of the controller derived from controller class name without the <c>Controller</c> suffix.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.IMarkupComponentDefinition.Identifier">
+            <summary>
+            Unique identifier of the component definition.
+            </summary> 
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ComponentMarkupRouteHandler">
+            <summary>
+            Handler for component markup route.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentMarkupRouteHandler.GetHttpHandler(System.Web.Routing.RequestContext)">
+            <summary>
+            Returns the HTTP handler by using the specified HTTP context. 
+            </summary>
+            <param name="requestContext">Request context.</param>
+            <returns>HTTP handler.</returns>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes">
+            <summary>
+            Provides Page builder routes and constants.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.WIDGETS_ROUTE_NAME">
+            <summary>
+            Name of the widgets route.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.WIDGETS_ROUTE">
+            <summary>
+            Default route for Page builder widgets markup retrieval.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.SECTIONS_ROUTE_NAME">
+            <summary>
+            Name of the sections route.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.SECTIONS_ROUTE">
+            <summary>
+            Default route for Page builder sections markup retrieval.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.DEFAULT_ACTION_NAME">
+            <summary>
+            Default action name for Page builder components markup retrieval.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.METADATA_ROUTE_NAME">
+            <summary>
+            Name of the metadata route.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.METADATA_ROUTE">
+            <summary>
+            Route for Page builder metadata retrieval action.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.CONFIGURATION_STORE_ROUTE_NAME">
+            <summary>
+            Name of the route for configuration storing.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.CONFIGURATION_CONTROLLER_NAME">
+            <summary>
+            Name of the controller for configuration.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.CONFIGURATION_STORE_ROUTE">
+            <summary>
+            Route for Page builder configuration store action.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.PROPERTIES_ROUTE_NAME">
+            <summary>
+            Name of the route for widget properties retrieval.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.PROPERTIES_ACTION_NAME">
+            <summary>
+            Name of the action to retrieve default widget properties.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.PROPERTIES_ROUTE">
+            <summary>
+            Route for Page builder widget properties retrieval action.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.CONFIGURATION_LOAD_ROUTE_NAME">
+            <summary>
+            Name of the route for configuration loading.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderRoutes.CONFIGURATION_LOAD_ROUTE">
+            <summary>
+            Route for Page builder configuration load action.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.SectionConstraint">
+            <summary>
+            Checks the route constraint to validate the section controller.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.SectionConstraint.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.SectionConstraint"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.SectionConstraint.Match(System.Web.HttpContextBase,System.Web.Routing.Route,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteDirection)">
+            <summary>
+            Determines whether the URL parameter contains a valid value for this constraint.
+            </summary>
+            <param name="httpContext">An object that encapsulates information about the HTTP request.</param>
+            <param name="route">The object that this constraint belongs to.</param>
+            <param name="parameterName">The name of the parameter that is being checked.</param>
+            <param name="values">An object that contains the parameters for the URL.</param>
+            <param name="routeDirection">An object that indicates whether the constraint check is being performed when an incoming request is being handled or when a URL is being generated.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionProvider">
+            <summary>
+            Retrieves list of registered component definitions for Page builder.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionProvider.GetAllWidgets">
+            <summary>
+            Gets list of all registered widget definitions.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionProvider.GetAllSections">
+            <summary>
+            Gets list of all registered section definitions.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionStore">
+            <summary>
+             Stores component definitions for Page builder.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionStore.#ctor">
+            <summary>
+            Creates an instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionStore"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionStore.Add(Kentico.PageBuilder.Web.Mvc.ComponentRegistrationProperties)">
+            <summary>
+            Adds a component (widget or section) definition to a appropriate store.
+            </summary>
+            <param name="properties">Properties of component to register.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionStore.GetAllWidgets">
+            <summary>
+            Gets all registered widget definitions.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionStore.GetAllSections">
+            <summary>
+            Gets all registered section definitions.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionStore.ClearWidgets">
+            <summary>
+            Clears collection of registered widgets.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentDefinitionStore.ClearSections">
+            <summary>
+            Clears collection of registered sections.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ControllerSuffixRemover">
+            <summary>
+            Removes "Controller" suffix from a controller name.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.ControllerSuffixRemover.CONTROLLER_NAME_SUFFIX">
+            <summary>
+            Controller suffix.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ControllerSuffixRemover.Remove(System.String)">
+            <summary>
+            Removes "Controller" suffix from given controller name.
+            </summary>
+            <param name="name">Name of a controller from which "Controller" suffix should be removed.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider">
+            <summary>
+            Provides interface to retrieve list of registered component definitions for Page builder.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider.GetAllWidgets">
+            <summary>
+            Gets list of registered widget definitions.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider.GetAllSections">
+            <summary>
+            Gets list of registered section definitions.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetDefaultPropertiesProvider">
+            <summary>
+            Provides default widget properties based on provided type identifier.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetDefaultPropertiesProvider.Get(Kentico.PageBuilder.Web.Mvc.WidgetDefinition)">
+            <summary>
+            Gets widget default properties.
+            </summary>
+            <param name="definition">Widget definition.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetDefaultPropertiesProvider.Get``1">
+            <summary>
+            Gets widget default properties.
+            </summary>
+            <typeparam name="TPropertiesType">Widget properties.</typeparam>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageBuilderPostData">
+            <summary>
+            Represents data from the body of HTTP post made by Page builder feature.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.PageBuilderPostData.Data">
+            <summary>
+            String representation of JSON data.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.PageBuilderPostData.PageIdentifier">
+            <summary>
+            Page identifier representing the context of a page.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetPropertiesRetriever`1">
+            <summary>
+            Retrieves properties for a widget controller from request body or route data.
+            </summary>
+            <typeparam name="TPropertiesType">Type of the widget properties.</typeparam>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetPropertiesRetriever`1.Retrieve(Kentico.PageBuilder.Web.Mvc.WidgetController{`0},Kentico.PageBuilder.Web.Mvc.IPageBuilderPostDataRetriever)">
+            <summary>
+            Retrieves widget properties.
+            </summary>
+            <param name="controller">Widget controller.</param>
+            <param name="retriever">Retriever for POST data.</param>
+            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="controller"/> or <paramref name="retriever"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer">
+            <summary>
+            Provides interface for serialization and deserialization of editable areas configuration to/from JSON format.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer.Serialize(Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration)">
+            <summary>
+            Serializes editable areas configuration to JSON string.
+            </summary>
+            <param name="configuration">Editable areas configuration.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer.Deserialize(System.String,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Deserializes JSON string to editable areas configuration.
+            </summary>
+            <param name="json">JSON string.</param>
+            <param name="provider">Provider for component definitions.</param>
+            <exception cref="T:System.InvalidOperationException"><paramref name="json"/> is in incorrect format.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="provider"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer.DeserializeProperties``1(System.String)">
+            <summary>
+            Deserializes JSON string to properties defined by the <typeparamref name="TPropertiesType"/> type.
+            </summary>
+            <typeparam name="TPropertiesType">Widget properties.</typeparam>
+            <param name="json">JSON string.</param>
+            <exception cref="T:System.InvalidOperationException"><paramref name="json"/> is in incorrect format.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IWidgetProperties">
+            <summary>
+            Interface for widget properties.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationValidator">
+            <summary>
+            Provides interface for validation of serialized <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationValidator.Validate(System.String)">
+            <summary>
+            Validates serialized <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/>.
+            </summary>
+            <param name="configuration">Configuration to validate.</param>
+            <exception cref="T:System.InvalidOperationException"><paramref name="configuration"/> is in incorrect format.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetConfiguration">
+            <summary>
+            Represents the configuration of a widget within the <see cref="P:Kentico.PageBuilder.Web.Mvc.ZoneConfiguration.Widgets"/> list.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetConfiguration.Identifier">
+            <summary>
+            Identifier of the widget instance.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetConfiguration.TypeIdentifier">
+            <summary>
+            Type widget identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetConfiguration.Variants">
+            <summary>
+            List of widget variants.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetConfiguration.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ZoneConfiguration">
+            <summary>
+            Represents the zone within the <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/> configuration class.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ZoneConfiguration.Identifier">
+            <summary>
+            Identifier of the widget zone.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ZoneConfiguration.Widgets">
+            <summary>
+            List of widgets within the zone.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ZoneConfiguration.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.ZoneConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration">
+            <summary>
+            Represents configuration of editable areas, sections, widget zones and widgets within the <see cref="T:CMS.DocumentEngine.TreeNode"/> instance.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration.EditableAreas">
+            <summary>
+            Editable areas within the page.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationSerializer">
+            <summary>
+            Handles serialization and deserialization of editable areas configuration to/from JSON format.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationSerializer.Serialize(Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration)">
+            <summary>
+            Serializes editable areas configuration to JSON string.
+            </summary>
+            <param name="configuration">Editable areas configuration.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationSerializer.Deserialize(System.String,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Deserializes JSON string to editable areas configuration.
+            </summary>
+            <param name="json">JSON string.</param>
+            <param name="provider">Provider for component definitions.</param>
+            <exception cref="T:System.InvalidOperationException"><paramref name="json"/> is in incorrect format.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="provider"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationSerializer.DeserializeProperties``1(System.String)">
+            <summary>
+            Deserializes JSON string to properties defined by the <typeparamref name="TPropertiesType"/> type.
+            </summary>
+            <typeparam name="TPropertiesType">Widget properties.</typeparam>
+            <param name="json">JSON string.</param>
+            <exception cref="T:System.InvalidOperationException"><paramref name="json"/> is in incorrect format.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationValidator">
+            <summary>
+            Class for validation of serialized <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationValidator.#ctor(Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Creates new instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationValidator"/>
+            </summary>
+            <param name="serializer">Editable areas configuration serializer.</param>
+            <param name="provider">Component definition provider.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationValidator.Validate(System.String)">
+            <summary>
+            Validates serialized <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/>.
+            </summary>
+            <param name="configuration">Serialized <see cref="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfiguration"/> in json format.</param>
+            <exception cref="T:System.InvalidOperationException"><paramref name="configuration"/> is in incorrect format.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.MetadataController">
+            <summary>
+            Provides endpoints for retrieving the Page builder metadata.
+            </summary>
+            <exclude />
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.MetadataController.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.MetadataController"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.MetadataController.#ctor(Kentico.PageBuilder.Web.Mvc.IComponentsMetadataBuilder,Kentico.PageBuilder.Web.Mvc.IPageSecurityChecker)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.MetadataController"/> class.
+            </summary>
+            <param name="builder">Custom builder to get components configuration.</param>
+            <param name="checker">Page security checker.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.MetadataController.GetAll">
+            <summary>
+            Gets metadata for all registered components.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IComponentUrlRetriever">
+            <summary>
+            Provides interface for retrieving various URLs for Page builder components.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IComponentUrlRetriever.GetUrl(Kentico.PageBuilder.Web.Mvc.IMarkupComponentDefinition)">
+            <summary>
+            Gets the URL.
+            </summary>
+            <param name="component">Component with markup definition.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetMetadata">
+            <summary>
+            Metadata of a widget definition.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetMetadata.TypeIdentifier">
+            <summary>
+            Type widget identifier.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetMetadata.MarkupUrl">
+            <summary>
+            URL of the widget definition to retrieve the markup.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetMetadata.DefaultPropertiesUrl">
+            <summary>
+            URL of the widget definition to retrieve the default properties.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetMetadata.Name">
+            <summary>
+            Name of the registered widget.
+            </summary> 
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetMetadata.Description">
+            <summary>
+            Description of the registered widget.
+            </summary> 
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetMetadata.IconClass">
+            <summary>
+            Icon CSS class of the registered widget.
+            </summary> 
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetMetadata.HasProperties">
+            <summary>
+            Indicates that registered widget has properties.
+            </summary> 
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IComponentsMetadataBuilder">
+            <summary>
+            Provides interface to build components metadata.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IComponentsMetadataBuilder.GetAll">
+            <summary>
+            Gets metadata for all registered components.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ComponentMarkupUrlRetriever">
+            <summary>
+            Retrieves URL to retrieve the component markup.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentMarkupUrlRetriever.#ctor(System.Web.HttpContextBase,Kentico.Content.Web.Mvc.Internal.IPathDecorator)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.ComponentMarkupUrlRetriever"/> class.
+            </summary>
+            <param name="context">Http context in which the URL is retrieved.</param>
+            <param name="decorator">Decorates markup URL with additional information.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentMarkupUrlRetriever.GetUrl(Kentico.PageBuilder.Web.Mvc.IMarkupComponentDefinition)">
+            <summary>
+            Gets the URL to retrieve the component markup.
+            </summary>
+            <param name="component">Component with markup definition.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ComponentsMetadataBuilder">
+            <summary>
+            Builds components metadata.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentsMetadataBuilder.#ctor(Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider,Kentico.PageBuilder.Web.Mvc.IComponentUrlRetriever,Kentico.PageBuilder.Web.Mvc.IComponentUrlRetriever,Kentico.Builder.Web.Mvc.IComponentLocalizationService)">
+            <summary>
+            Creates an instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.ComponentsMetadataBuilder"/> class.
+            </summary>
+            <param name="provider">Custom provider to retrieve list of registered widgets.</param>
+            <param name="markupUrlRetriever">Retriever to get the component markup URL.</param>
+            <param name="defaultPropertiesUrlRetriever">Retriever to get the widget default properties URL.</param>
+            <param name="localizationService">Localization service to localize component metadata.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentsMetadataBuilder.GetAll">
+            <summary>
+            Gets metadata for all registered components.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ComponentsMetadata">
+            <summary>
+            Metadata of multiple Page Builder components definitions.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentsMetadata.Widgets">
+            <summary>
+            List of widgets metadata.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.ComponentsMetadata.Sections">
+            <summary>
+            List of sections metadata.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ComponentsMetadata.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.ComponentsMetadata"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.ConfigurationController">
+            <summary>
+            Provides endpoints for retrieving and storing the Page builder configuration.
+            </summary>
+            <exclude />
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ConfigurationController.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.ConfigurationController"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ConfigurationController.#ctor(Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationManager,Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider,Kentico.PageBuilder.Web.Mvc.IWidgetDefaultPropertiesProvider,Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationValidator,Kentico.PageBuilder.Web.Mvc.IPageSecurityChecker)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.ConfigurationController"/>.
+            </summary>
+            <param name="manager">Manager for configuration.</param>
+            <param name="serializer">Serializer to load configuration.</param>
+            <param name="definitionProvider">Component definitions provider.</param>
+            <param name="propertiesProvider">Default widget properties provider.</param>
+            <param name="validator">Serialized editable areas configuration validator.</param>
+            <param name="checker">Page security checker.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ConfigurationController.Get(System.Int32)">
+            <summary>
+            Gets configuration for specified page.
+            </summary>
+            <param name="pageId">Page ID.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ConfigurationController.GetDefaultProperties(System.String)">
+            <summary>
+            Gets default properties for a widget type.
+            </summary>
+            <param name="typeIdentifier">Widget type identifier.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.ConfigurationController.Set">
+            <summary>
+            Sets configuration for specified page.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetRegistrationProperties">
+            <summary>
+            Widget registration properties that will be used to create widget definition.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetRegistrationProperties.PropertiesType">
+            <summary>
+            Type of the component properties model.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetRegistrationProperties.#ctor(System.String,System.Type,System.String,System.String,System.String)">
+            <summary>
+            Creates an instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetRegistrationProperties"/> class.
+            </summary>
+            <param name="identifier">Unique identifier of the widget definition.</param>
+            <param name="controllerType">Type of the registered widget controller.</param>
+            <param name="name">Name of the registered widget.</param>
+            <param name="description">Description of the registered widget.</param>
+            <param name="iconClass">Font-icon CSS class of the registered widget.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.RouteCollectionExtensions">
+            <summary>
+            Extends a <see cref="T:System.Web.Routing.RouteCollection"/> object for MVC routing.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.RouteCollectionExtensions.MapPageBuilderRoutes(Kentico.Web.Mvc.ExtensionPoint{System.Web.Routing.RouteCollection})">
+            <summary>
+            Adds routes for Page builder system services.
+            </summary>
+            <param name="extensionPoint">The object that provides methods to add Page builder routes.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="extensionPoint"/> is null.</exception>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.RegisterWidgetAttribute">
+            <summary>
+            Registers a widget definition to be used within Page builder feature.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.RegisterWidgetAttribute.#ctor(System.String,System.Type,System.String)">
+            <summary>
+            Creates an instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.RegisterWidgetAttribute"/> class.
+            </summary>
+            <param name="identifier">Unique identifier of the widget definition.</param>
+            <param name="controllerType">Type of the widget controller to register.</param>
+            <param name="name">Name of the registered widget.</param>
+            <remarks>
+            Make sure to provide unique identifier for the widget definition from the start. 
+            This identifier is used within the page configuration of widgets and any further change can lead to incorrect configuration load.
+            Consider specifying identifier in format 'CompanyName.ModuleName.WidgetName', e.g. 'Kentico.Content.ArticlesListWidget'.
+            </remarks>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.RegisterWidgetAttribute.GetRegistrationProperties">
+            <summary>
+            Gets initialized instance of the <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetRegistrationProperties"/> class.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetDefinition">
+            <summary>
+            Definition of a widget for Page builder.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetDefinition.RouteName">
+            <summary>
+            Name of the route under which is the widget available.
+            </summary>
+        </member>
+        <member name="P:Kentico.PageBuilder.Web.Mvc.WidgetDefinition.PropertiesType">
+            <summary>
+            Type of the registered widget properties model.
+            </summary>
+            <remarks>The type needs to implement the <see cref="T:Kentico.PageBuilder.Web.Mvc.IWidgetProperties"/> interface.</remarks>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationManager">
+            <summary>
+            Provides interface used for managing the Page builder configuration.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationManager.Store(System.Guid,System.String,Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationValidator)">
+            <summary>
+            Stores configuration to the storage.
+            </summary>
+            <param name="instanceGuid">Identifier of the editing instance.</param>
+            <param name="configuration">Configuration to store.</param>
+            <param name="validator">Validator for configuration.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationManager.Load(System.Int32,System.Boolean,Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Loads configuration from the storage.
+            </summary>
+            <param name="pageId">Identifier of the page.</param>
+            <param name="latest">Indicates if configuration should be loaded from latest version of a page if workflow is applied.</param>
+            <param name="serializer">Serializer to be used to load the data.</param>
+            <param name="provider">Component definitions provider.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationManager">
+            <summary>
+            Manages the Page builder configuration.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationManager.Load(System.Int32,System.Boolean,Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationSerializer,Kentico.PageBuilder.Web.Mvc.IComponentDefinitionProvider)">
+            <summary>
+            Loads widgets configuration from the storage.
+            </summary>
+            <param name="pageId">Identifier of the page.</param>
+            <param name="latest">Indicates if configuration should be loaded from latest version of a page if workflow is applied.</param>
+            <param name="serializer">Serializer to be used to load the data.</param>
+            <param name="provider">Component definitions provider.</param>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.EditableAreasConfigurationManager.Store(System.Guid,System.String,Kentico.PageBuilder.Web.Mvc.IEditableAreasConfigurationValidator)">
+            <summary>
+            Stores configuration to the storage.
+            </summary>
+            <param name="instanceGuid">Identifier of the editing instance.</param>
+            <param name="configuration">Configuration to store.</param>
+            <param name="validator">Validator for configuration.</param>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.PageBuilderConstants">
+            <summary>
+            Constants for Page builder feature.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderConstants.EVENT_LOG_SOURCE">
+            <summary>
+            Source of the event log.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderConstants.WIDGET_PROPERTIES_ROUTE_DATA_KEY">
+            <summary>
+            Route data key used to provide widget properties to a controller.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderConstants.AREA_IDENTIFIER_ROUTE_DATA_KEY">
+            <summary>
+            Route data key used to provide area identifier.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderConstants.SECTION_IDENTIFIER_ROUTE_DATA_KEY">
+            <summary>
+            Route data key used to provide section identifier.
+            </summary>
+        </member>
+        <member name="F:Kentico.PageBuilder.Web.Mvc.PageBuilderConstants.ZONE_INDEX_ROUTE_DATA_KEY">
+            <summary>
+            Route data key used to provide zone index within the section.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetController`1">
+            <summary>
+            Base class for Page builder widget controller with custom properties of type <typeparamref name="TPropertiesType"/>.
+            </summary>
+            <typeparam name="TPropertiesType">The properties type of the widget.</typeparam>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetController`1.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetController`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetController`1.#ctor(Kentico.PageBuilder.Web.Mvc.IWidgetPropertiesRetriever{`0},Kentico.PageBuilder.Web.Mvc.ICurrentPageRetriever)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetController`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetController`1.GetProperties">
+            <summary>
+            Gets properties of a widget based on <typeparamref name="TPropertiesType"/> type.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetController">
+            <summary>
+            Base class for Page builder widget controller without properties.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetController.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetController"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetController.#ctor(Kentico.PageBuilder.Web.Mvc.ICurrentPageRetriever)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetController"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetController.GetPage">
+            <summary>
+            Gets the page where the widget is placed.
+            </summary>
+        </member>
+        <member name="T:Kentico.PageBuilder.Web.Mvc.WidgetConstraint">
+            <summary>
+            Checks the route constraint to validate the widget controller.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetConstraint.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.PageBuilder.Web.Mvc.WidgetConstraint"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.PageBuilder.Web.Mvc.WidgetConstraint.Match(System.Web.HttpContextBase,System.Web.Routing.Route,System.String,System.Web.Routing.RouteValueDictionary,System.Web.Routing.RouteDirection)">
+            <summary>
+            Determines whether the URL parameter contains a valid value for this constraint.
+            </summary>
+            <param name="httpContext">An object that encapsulates information about the HTTP request.</param>
+            <param name="route">The object that this constraint belongs to.</param>
+            <param name="parameterName">The name of the parameter that is being checked.</param>
+            <param name="values">An object that contains the parameters for the URL.</param>
+            <param name="routeDirection">An object that indicates whether the constraint check is being performed when an incoming request is being handled or when a URL is being generated.</param>
+        </member>
+    </members>
+</doc>

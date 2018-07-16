@@ -1,0 +1,465 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.Membership</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.Membership.EmailService">
+            <summary>
+            Exposes method for sending messages to users using email.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.EmailService.SendAsync(Microsoft.AspNet.Identity.IdentityMessage)">
+            <summary>
+            Sends the given message (email).
+            </summary>
+            <param name="message">Message.</param>
+        </member>
+        <member name="M:Kentico.Membership.EmailService.CreateEmailMessage(Microsoft.AspNet.Identity.IdentityMessage)">
+            <summary>
+            Creates new instance of <see cref="T:CMS.EmailEngine.EmailMessage"/> from the
+            instance of <see cref="T:Microsoft.AspNet.Identity.IdentityMessage"/>.
+            </summary>
+            <param name="message">Instance of <see cref="T:Microsoft.AspNet.Identity.IdentityMessage"/>.</param>
+        </member>
+        <member name="T:Kentico.Membership.Role">
+            <summary>
+            Application identity role.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.Role.Id">
+            <summary>
+            Role ID.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.Role.Name">
+            <summary>
+            Role name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.Role.DisplayName">
+            <summary>
+            Role display name.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.Role.#ctor(CMS.Membership.RoleInfo)">
+            <summary>
+            Creates a new instance of <see cref="T:Kentico.Membership.Role"/> based on <see cref="T:CMS.Membership.RoleInfo"/>.
+            </summary>
+            <param name="roleInfo">Role info (CMS entity).</param>
+        </member>
+        <member name="M:Kentico.Membership.Role.#ctor">
+            <summary>
+            Creates empty role.
+            </summary>
+        </member>
+        <member name="T:Kentico.Membership.RoleStore">
+            <summary>
+            Identity role store implementation.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.RoleStore.Dispose">
+            <summary>
+            Performs tasks to dispose the role store.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.RoleStore.FindByIdAsync(System.Int32)">
+            <summary>
+            Returns instance of <see cref="T:Kentico.Membership.Role"/>.
+            </summary>
+            <param name="roleId">ID of the role.</param>
+        </member>
+        <member name="M:Kentico.Membership.RoleStore.FindByNameAsync(System.String)">
+            <summary>
+            Returns instance of <see cref="T:Kentico.Membership.Role"/>.
+            </summary>
+            <param name="roleName">Name of role.</param>
+        </member>
+        <member name="M:Kentico.Membership.RoleStore.CreateAsync(Kentico.Membership.Role)">
+            <summary>
+            Stores <see cref="T:Kentico.Membership.Role"/> in the database.
+            </summary>
+            <param name="role">Role.</param>
+        </member>
+        <member name="M:Kentico.Membership.RoleStore.DeleteAsync(Kentico.Membership.Role)">
+            <summary>
+            Deletes <see cref="T:Kentico.Membership.Role"/> from the database.
+            </summary>
+            <param name="role">Role.</param>
+        </member>
+        <member name="M:Kentico.Membership.RoleStore.UpdateAsync(Kentico.Membership.Role)">
+            <summary>
+            Updates <see cref="T:Kentico.Membership.Role"/> in the database.
+            </summary>
+            <param name="role">Role.</param>
+        </member>
+        <member name="T:Kentico.Membership.SignInManager">
+            <summary>
+            Manages sign in operations for users.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.SignInManager.#ctor(Kentico.Membership.UserManager,Microsoft.Owin.Security.IAuthenticationManager)">
+            <summary>
+            Creates the instance of <see cref="T:Kentico.Membership.SignInManager"/>.
+            </summary>
+            <param name="userManager">User manager.</param>
+            <param name="authenticationManager">Authentication manager.</param>
+        </member>
+        <member name="M:Kentico.Membership.SignInManager.Create(Microsoft.AspNet.Identity.Owin.IdentityFactoryOptions{Kentico.Membership.SignInManager},Microsoft.Owin.IOwinContext)">
+            <summary>
+            Factory method that creates the <see cref="T:Kentico.Membership.SignInManager"/> instance.
+            </summary>
+            <param name="options">Identity factory options.</param>
+            <param name="context">OWIN context.</param>
+        </member>
+        <member name="T:Kentico.Membership.User">
+            <summary>
+            Representation of user identity.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.Id">
+            <summary>
+            User ID.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.UserName">
+            <summary>
+            User name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.FirstName">
+            <summary>
+            First name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.LastName">
+            <summary>
+            Last name.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.Email">
+            <summary>
+            Email.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.PasswordHash">
+            <summary>
+            Password hash.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.Enabled">
+            <summary>
+            Indicates if the user is enabled.
+            This represents the lockout notion in ASP.NET Identity.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.GUID">
+            <summary>
+            Guid.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.SecurityStamp">
+            <summary>
+            A unique value that should change whenever user credentials have changed, e.g.:
+            password reset, external login removal, etc. 
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.Roles">
+            <summary>
+            Roles of the user.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.User.IsExternal">
+            <summary>
+            Indicates that the user can be logged in only through an external authentication provider.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.User.#ctor(CMS.Membership.UserInfo)">
+            <summary>
+            Creates new user from <see cref="T:CMS.Membership.UserInfo"/>.
+            </summary>
+            <param name="userInfo">User info (CMS entity).</param>
+        </member>
+        <member name="M:Kentico.Membership.User.#ctor">
+            <summary>
+            Creates empty user.
+            </summary>
+        </member>
+        <member name="T:Kentico.Membership.UserManager">
+            <summary>
+            Exposes user related API which will automatically save changes to the UserStore.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.UserManager.#ctor(Microsoft.AspNet.Identity.IUserStore{Kentico.Membership.User,System.Int32})">
+            <summary>
+            Creates a new instance of <see cref="T:Kentico.Membership.UserManager"/>.
+            </summary>
+            <param name="store">User store.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserManager.Initialize``1(Owin.IAppBuilder,``0)">
+            <summary>
+            Factory method that creates the user manager with <see cref="T:Kentico.Membership.UserStore"/>.
+            </summary>
+            <param name="app">Application builder.</param>
+            <param name="manager">Manager to be initialized.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserManager.UpdatePassword(Microsoft.AspNet.Identity.IUserPasswordStore{Kentico.Membership.User,System.Int32},Kentico.Membership.User,System.String)">
+            <summary>
+            Updates the user password.
+            </summary>
+            <param name="passwordStore">Unused implementation of UserPasswordStore.</param>
+            <param name="user">User.</param>
+            <param name="newPassword">New password in plain text format.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserManager.VerifyPasswordAsync(Microsoft.AspNet.Identity.IUserPasswordStore{Kentico.Membership.User,System.Int32},Kentico.Membership.User,System.String)">
+            <summary>
+            Verifies the user password.
+            </summary>
+            <param name="store">Unused implementation of UserPasswordStore.</param>
+            <param name="user">User.</param>
+            <param name="password">Password in plain text format.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserManager.UpdateSecurityStampInternal(Kentico.Membership.User)">
+            <summary>
+            Updates the security stamp if the store supports it.
+            </summary>
+            <param name="user">User whose stamp should be updated.</param>
+        </member>
+        <member name="T:Kentico.Membership.UserStore">
+            <summary>
+            Implements basic user management operations.
+            </summary>
+        </member>
+        <member name="P:Kentico.Membership.UserStore.SiteID">
+            <summary>
+            Returns <see cref="P:CMS.SiteProvider.SiteInfo.SiteID"/> that belongs to <see cref="T:CMS.SiteProvider.SiteInfo"/> managed by <see cref="T:Kentico.Membership.UserStore"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.#ctor(System.String)">
+            <summary>
+            Creates store to manage users for given site.
+            </summary>
+            <param name="siteName">Site name that represents <see cref="T:CMS.SiteProvider.SiteInfo"/> for which users are managed.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.CreateAsync(Kentico.Membership.User)">
+            <summary>
+            Inserts new user to the database.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.DeleteAsync(Kentico.Membership.User)">
+            <summary>
+            Deletes the user.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.FindByIdAsync(System.Int32)">
+            <summary>
+            Finds the user by user's ID.
+            </summary>
+            <param name="userId">User ID.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.FindByNameAsync(System.String)">
+            <summary>
+            Finds the user by user's username.
+            </summary>
+            <param name="userName">Username.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.UpdateAsync(Kentico.Membership.User)">
+            <summary>
+            Updates a user.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.Dispose">
+            <summary>
+            Performs tasks to dispose the user store.
+            </summary>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.Dispose(System.Boolean)">
+            <summary>
+            Disposes the user store.
+            </summary>
+            <param name="disposing">Describes whether or not should the managed resources be disposed.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetPasswordHashAsync(Kentico.Membership.User)">
+            <summary>
+            Gets the password hash for the user.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.HasPasswordAsync(Kentico.Membership.User)">
+            <summary>
+            Returns true if the user has the password set.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.SetPasswordHashAsync(Kentico.Membership.User,System.String)">
+            <summary>
+            Sets the password hash for the user.
+            </summary>
+            <param name="user">User.</param>
+            <param name="passwordHash">Password hash.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetAccessFailedCountAsync(Kentico.Membership.User)">
+            <summary>
+            Returns the current number of failed access attempts.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetLockoutEnabledAsync(Kentico.Membership.User)">
+            <summary>
+            Returns whether the user can be locked out.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetLockoutEndDateAsync(Kentico.Membership.User)">
+            <summary>
+            Returns the DateTimeOffset that represents the end of the user's lockout, any time
+            in the past should be considered not locked out.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.IncrementAccessFailedCountAsync(Kentico.Membership.User)">
+            <summary>
+            Used to record when an attempt to access the user has failed.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.ResetAccessFailedCountAsync(Kentico.Membership.User)">
+            <summary>
+            Used to reset the access failed count, typically after the account is successfully accessed.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.SetLockoutEnabledAsync(Kentico.Membership.User,System.Boolean)">
+            <summary>
+            Sets whether the user can be locked out.
+            </summary>
+            <param name="user">User.</param>
+            <param name="enabled">Whether the user can be locked out.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.SetLockoutEndDateAsync(Kentico.Membership.User,System.DateTimeOffset)">
+            <summary>
+            Locks a user out until the specified end date (set to a past date, to unlock a user).
+            </summary>
+            <param name="user">User.</param>
+            <param name="lockoutEnd">DateTimeOffset that represents the end of a user's lockout.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetTwoFactorEnabledAsync(Kentico.Membership.User)">
+            <summary>
+            Returns whether two factor authentication is enabled for the user.
+            </summary>
+            <param name="user">User.</param>
+            <remarks>Not enabled in current implementation.</remarks>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.SetTwoFactorEnabledAsync(Kentico.Membership.User,System.Boolean)">
+            <summary>
+            Sets whether two factor authentication is enabled for the user.
+            </summary>
+            <param name="user">User.</param>
+            <param name="enabled">Whether users should go through two-factor authentication.</param>
+            <remarks>Not used in current implementation.</remarks>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetRolesAsync(Kentico.Membership.User)">
+            <summary>
+            Returns all role names for the given user.
+            </summary>
+            <param name="user">User entity.</param>
+            <returns>List of role names.</returns>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.IsInRoleAsync(Kentico.Membership.User,System.String)">
+            <summary>
+            Checks whether user is in role with given role name.
+            </summary>
+            <param name="user">User entity.</param>
+            <param name="roleName">Role name.</param>
+            <returns>True if user is in role, false otherwise.</returns>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.RemoveFromRoleAsync(Kentico.Membership.User,System.String)">
+            <summary>
+            Removes <see cref="T:Kentico.Membership.User"/> from <see cref="T:Kentico.Membership.Role"/>.
+            </summary>
+            <param name="user">User entity.</param>
+            <param name="roleName">Role name.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.AddToRoleAsync(Kentico.Membership.User,System.String)">
+            <summary>
+            Adds <see cref="T:Kentico.Membership.User"/> to <see cref="T:Kentico.Membership.Role"/>.
+            </summary>
+            <param name="user">User entity.</param>
+            <param name="roleName">Role name.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.SetEmailAsync(Kentico.Membership.User,System.String)">
+            <summary>
+            Sets the user email.
+            </summary>
+            <param name="user">User.</param>
+            <param name="email">Email.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetEmailAsync(Kentico.Membership.User)">
+            <summary>
+            Gets the user email.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetEmailConfirmedAsync(Kentico.Membership.User)">
+            <summary>
+            Returns true if the user email is confirmed.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.SetEmailConfirmedAsync(Kentico.Membership.User,System.Boolean)">
+            <summary>
+            Enables user if her email was confirmed.
+            </summary>
+            <param name="user">User.</param>
+            <param name="confirmed">Indicates if the user email is confirmed.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.FindByEmailAsync(System.String)">
+            <summary>
+            Returns the user associated with the given email.
+            </summary>
+            <param name="email">Email.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.AddLoginAsync(Kentico.Membership.User,Microsoft.AspNet.Identity.UserLoginInfo)">
+            <summary>
+            Adds external login to user.
+            </summary>
+            <param name="user">User.</param>
+            <param name="login">External login information.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.RemoveLoginAsync(Kentico.Membership.User,Microsoft.AspNet.Identity.UserLoginInfo)">
+            <summary>
+            Removes external login to user.
+            </summary>
+            <param name="user">User.</param>
+            <param name="login">External login information.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetLoginsAsync(Kentico.Membership.User)">
+            <summary>
+            Returns all external logins of user.
+            </summary>
+            <param name="user">User.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.FindAsync(Microsoft.AspNet.Identity.UserLoginInfo)">
+            <summary>
+            Returns user based on given external login.
+            </summary>
+            <param name="login">External login information.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.SetSecurityStampAsync(Kentico.Membership.User,System.String)">
+            <summary>
+            Sets user's security stamp.
+            </summary>
+            <param name="user">User to which stamp should be assigned.</param>
+            <param name="stamp">Stamp to be assigned.</param>
+        </member>
+        <member name="M:Kentico.Membership.UserStore.GetSecurityStampAsync(Kentico.Membership.User)">
+            <summary>
+            Returns user's security stamp.
+            </summary>
+            <param name="user">User whose stamp should be returned.</param>
+        </member>
+    </members>
+</doc>

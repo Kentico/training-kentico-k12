@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.Glimpse</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.Glimpse.ConnectionStringRegistry">
+            <summary>
+            Represents a collection of connection strings and their names.
+            </summary>
+        </member>
+        <member name="M:Kentico.Glimpse.ConnectionStringRegistry.GetCustomConnectionStringName(System.String)">
+            <summary>
+            Returns a name of the specified connection string that is not default.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+            <returns>A name of the specified connection string, if found and is not default; otherwise, <code>null</code>.</returns>
+        </member>
+        <member name="T:Kentico.Glimpse.Database.KenticoDatabaseTab">
+            <summary>
+            Represents a Glimpse tab that displays Kentico debug information related to SQL queries.
+            </summary>
+        </member>
+        <member name="M:Kentico.Glimpse.Database.KenticoDatabaseTab.GetLayout">
+            <summary>
+            Gets the layout of debug information.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Kentico.Glimpse.Database.KenticoDatabaseTab.KeysHeadings">
+            <summary>
+            Gets the value that indicates whether the top level keys of debug information will be treated as section names.
+            </summary>
+        </member>
+        <member name="P:Kentico.Glimpse.Database.KenticoDatabaseTab.Name">
+            <summary>
+            Gets the display name of this tab.
+            </summary>
+        </member>
+        <member name="M:Kentico.Glimpse.Database.KenticoDatabaseTab.GetData(Glimpse.Core.Extensibility.ITabContext)">
+            <summary>
+            Returns debug information that will be sent to the Glimpse client.
+            </summary>
+            <param name="context">The tab context.</param>
+            <returns>An object with debug information that the Glimpse client can display.</returns>
+        </member>
+        <member name="T:Kentico.Glimpse.HtmlChartBuilder">
+            <summary>
+            Builds a HTML progress chart that displays a value relative to a maximum value.
+            The chart uses different colors depending on the percentage that the value represents.
+            Percentage is constrained to an interval from 5 to 95.
+            Percentage less than 25 is considered good (green color is used) while percentage greater than 75 is considered bad (red color is used).
+            Percentage from 25 to 75 is considered neutral (orange color is used).
+            When a threshold value is specified, any value that does not exceed this threshold is always considered good.
+            </summary>
+        </member>
+        <member name="M:Kentico.Glimpse.HtmlChartBuilder.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Glimpse.HtmlChartBuilder"/> class.
+            </summary>
+            <param name="value">The value to display relative to the maximum value.</param>
+            <param name="maxValue">The maximum value.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">The maximum value is negative or the value is negative or the value is greater than the maximum value.</exception>
+        </member>
+        <member name="M:Kentico.Glimpse.HtmlChartBuilder.WithThresholdValue(System.Int64)">
+            <summary>
+            Sets the threshold value. A value that does not exceed this threshold is always considered good.
+            </summary>
+            <param name="thresholdValue">The threshold value.</param>
+            <returns>This instance with the specified threshold value.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">The threshold value is negative.</exception>
+        </member>
+        <member name="M:Kentico.Glimpse.HtmlChartBuilder.Build">
+            <summary>
+            Builds the chart HTML and returns it.
+            </summary>
+            <returns>An HTML fragment that represents a progress chart using the specified properties.</returns>
+        </member>
+        <member name="T:Kentico.Glimpse.IConnectionStringRegistry">
+            <summary>
+            Represents a contract for a collection of connection strings and their names.
+            </summary>
+        </member>
+        <member name="M:Kentico.Glimpse.IConnectionStringRegistry.GetCustomConnectionStringName(System.String)">
+            <summary>
+            Returns a name of the specified connection string that is not default.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+            <returns>A name of the specified connection string, if found and is not default; otherwise, <code>null</code>.</returns>
+        </member>
+    </members>
+</doc>

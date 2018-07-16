@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.Tests.DocumentEngine</name>
+    </assembly>
+    <members>
+        <member name="T:Tests.DocumentEngine.IFakeMethodsExtensions">
+            <summary>
+            Provides support for faking documents within automated tests
+            </summary>
+        </member>
+        <member name="F:Tests.DocumentEngine.IFakeMethodsExtensions.mDocTypeClassId">
+            <summary>
+            Class ID used for faking document type classes
+            </summary>
+        </member>
+        <member name="M:Tests.DocumentEngine.IFakeMethodsExtensions.DocumentType``1(CMS.Tests.IFakeMethods,System.String,System.Action{CMS.DataEngine.DataClassInfo})">
+            <summary>
+            Fakes the given document type
+            </summary>
+            <param name="fake">Fake methods</param>
+            <param name="className">Class name</param>
+            <param name="setup">Setup action for further fields of the document type</param>
+        </member>
+        <member name="M:Tests.DocumentEngine.IFakeMethodsExtensions.CreateFakeDocumentTypeInfo``1(CMS.Tests.IFakeMethods,System.String,System.Action{CMS.DataEngine.DataClassInfo})">
+            <summary>
+            Creates a fake document type info for faking of the documents
+            </summary>
+            <param name="fake">Fake methods</param>
+            <param name="className">Class name</param>
+            <param name="setup">Setup action for further fields of the document type</param>
+        </member>
+    </members>
+</doc>

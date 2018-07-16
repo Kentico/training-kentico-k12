@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.Tests.Activities</name>
+    </assembly>
+    <members>
+        <member name="T:Tests.Activities.ActivityInitializerFake">
+            <summary>
+            Fake activity for test purposes.
+            </summary>
+        </member>
+        <member name="F:Tests.Activities.ActivityInitializerFake.ACTIVITY_TITLE">
+            <summary>
+            Specifies title used in <see cref="M:Tests.Activities.ActivityInitializerFake.Initialize(CMS.Activities.IActivityInfo)"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.Activities.ActivityInitializerFake.ACTIVITY_TYPE">
+            <summary>
+            Specifies type returned by <see cref="P:Tests.Activities.ActivityInitializerFake.ActivityType"/>.
+            </summary>
+        </member>
+        <member name="F:Tests.Activities.ActivityInitializerFake.SETTINGS_KEY_NAME">
+            <summary>
+            Specifies setting returned by <see cref="P:Tests.Activities.ActivityInitializerFake.SettingsKeyName"/>.
+            </summary>
+        </member>
+        <member name="M:Tests.Activities.ActivityInitializerFake.Initialize(CMS.Activities.IActivityInfo)">
+            <summary>
+            Sets <see cref="P:CMS.Activities.IActivityInfo.ActivityTitle"/> value to <see cref="F:Tests.Activities.ActivityInitializerFake.ACTIVITY_TITLE"/> title for the given <paramref name="activity"/>.
+            </summary>
+        </member>
+        <member name="P:Tests.Activities.ActivityInitializerFake.ActivityType">
+            <summary>
+            Value <see cref="F:CMS.Activities.PredefinedActivityType.PAGE_VISIT"/> is returned.
+            </summary>
+        </member>
+        <member name="P:Tests.Activities.ActivityInitializerFake.SettingsKeyName">
+            <summary>
+            Value SettingsKeyName is returned.
+            </summary>
+        </member>
+        <member name="T:Tests.Activities.ActivityInitializerWrapperBaseFake">
+            <summary>
+            Fake class for <see cref="T:CMS.Activities.ActivityInitializerWrapperBase"/>. Should be used only in tests.
+            </summary>
+        </member>
+        <member name="M:Tests.Activities.ActivityInitializerWrapperBaseFake.#ctor(CMS.Activities.IActivityInitializer)">
+            <summary>
+            Constructs new instance of <see cref="T:CMS.Activities.ActivityInitializerWrapperBase"/>.
+            </summary>
+            <param name="originalInitializer">Original activity initializer</param>
+        </member>
+        <member name="M:Tests.Activities.ActivityInitializerWrapperBaseFake.Initialize(CMS.Activities.IActivityInfo)">
+            <summary>
+            Initializes <see cref="T:CMS.Activities.IActivityInfo"/> properties.
+            </summary>
+            <param name="activity">Activity info</param>
+        </member>
+        <member name="T:Tests.Activities.ActivityLogServiceInMemoryFake">
+            <summary>
+            Logger saves activities to the memory so it can be used in unit tests without database access.
+            This implementation only logs activities (doesn't use registered filteres, modifiers or validators).
+            </summary>
+        </member>
+        <member name="P:Tests.Activities.ActivityLogServiceInMemoryFake.LoggedActivities">
+            <summary>
+            Gets collection containing all activities logged using the service.
+            </summary>
+        </member>
+        <member name="M:Tests.Activities.ActivityLogServiceInMemoryFake.#ctor">
+            <summary>
+            Instantiates new instance of <see cref="T:Tests.Activities.ActivityLogServiceInMemoryFake"/>.
+            </summary>
+        </member>
+        <member name="M:Tests.Activities.ActivityLogServiceInMemoryFake.Log(CMS.Activities.IActivityInitializer,System.Web.HttpRequestBase,System.Boolean)">
+            <summary>
+            Logs activity initialized by given <paramref name="activityInitializer"/> to the <see cref="P:Tests.Activities.ActivityLogServiceInMemoryFake.LoggedActivities"/>. 
+            </summary>
+            <param name="activityInitializer">Activity initializer used to initialize logged activity.</param>
+            <param name="currentRequest">Not used in current implementation</param>
+            <param name="loggingDisabledInAdministration">Not used in current implementation</param>
+        </member>
+        <member name="M:Tests.Activities.ActivityLogServiceInMemoryFake.LogWithoutModifiersAndFilters(CMS.Activities.IActivityInitializer)">
+            <summary>
+            Logs activity initialized by given <paramref name="activityInitializer"/> to the <see cref="P:Tests.Activities.ActivityLogServiceInMemoryFake.LoggedActivities"/>. 
+            </summary>
+            <param name="activityInitializer">Activity initializer used to initialize logged activity.</param>
+        </member>
+        <member name="M:Tests.Activities.ActivityLogServiceInMemoryFake.RegisterFilter(CMS.Activities.IActivityLogFilter)">
+            <summary>
+            Does not do anything in current implementation.
+            </summary>
+            <param name="filter">Activity filter</param>
+        </member>
+        <member name="M:Tests.Activities.ActivityLogServiceInMemoryFake.RegisterModifier(CMS.Activities.IActivityModifier)">
+            <summary>
+            Does not do anything in current implementation.
+            </summary>
+            <param name="activityModifier">Activity modifier</param>
+        </member>
+        <member name="M:Tests.Activities.ActivityLogServiceInMemoryFake.RegisterValidator(CMS.Activities.IActivityLogValidator)">
+            <summary>
+            Does not do anything in current implementation.
+            </summary>
+            <param name="activityLogValidator">Activity log validator</param>
+        </member>
+        <member name="M:Tests.Activities.ActivityLogServiceInMemoryFake.LogActivityToList(CMS.Activities.IActivityInitializer)">
+            <summary>
+            Logs activity created with given <paramref name="activityInitializer"/> to the <see cref="P:Tests.Activities.ActivityLogServiceInMemoryFake.LoggedActivities"/> collection.
+            </summary>
+            <param name="activityInitializer">Activity initializer used to initialize logged activity</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.Tests.Base</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.Tests.Base.ThreadQueueWorkerExtensions">
+            <summary>
+            Extension methods for testing thread queue worker.
+            </summary>
+        </member>
+        <member name="M:CMS.Tests.Base.ThreadQueueWorkerExtensions.WaitUntilQueueIsProcessed``2(CMS.Base.ThreadQueueWorker{``0,``1})">
+            <summary>
+            Waits for finishing processing the queue.
+            </summary>
+            <param name="worker">Thread queue worker instance.</param>
+        </member>
+    </members>
+</doc>

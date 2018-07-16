@@ -1,0 +1,375 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.Builder.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.Builder.Web.Mvc.BuilderConstants">
+            <summary>
+            Constants for builder feature.
+            </summary>
+        </member>
+        <member name="F:Kentico.Builder.Web.Mvc.BuilderConstants.REQUEST_HEADER_NAME">
+            <summary>
+            Name of the request header to identify the POST request from builder to retrieve widget markup.
+            </summary>
+        </member>
+        <member name="F:Kentico.Builder.Web.Mvc.BuilderConstants.REQUEST_HEADER_VALUE">
+            <summary>
+            Value of the request header to identify the POST request from builder to retrieve widget markup.
+            </summary>
+        </member>
+        <member name="F:Kentico.Builder.Web.Mvc.BuilderConstants.INSTANCE_HEADER_NAME">
+            <summary>
+            Name of the header to identify the editing instance of a form.
+            </summary>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.CurrentHttpContextProvider">
+            <summary>
+            Defines a method for retrieving current HTTP context.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.CurrentHttpContextProvider.Get">
+            <summary>
+            Gets an instance of current HTTP context.
+            </summary>
+            <returns>Returns an instance of HTTP context.</returns>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.ICurrentHttpContextProvider">
+            <summary>
+            Defines a method for retrieving current HTTP context.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ICurrentHttpContextProvider.Get">
+            <summary>
+            Gets an instance of current HTTP context.
+            </summary>
+            <returns>Returns an instance of HTTP context.</returns>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.AllowedDomainsRetriever">
+            <summary>
+            Retrieves allowed domains from/to which post messages can be received/sent on a client.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.AllowedDomainsRetriever.#ctor(CMS.SiteProvider.SiteInfo)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.Builder.Web.Mvc.AllowedDomainsRetriever"/> class.
+            </summary>
+            <param name="site">Site for which the allowed domains should be retrieved.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.AllowedDomainsRetriever.Retrieve">
+            <summary>
+            Retrieves allowed domains from/to which post messages can be received/sent on a client.
+            </summary>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.BuilderAssetsProvider">
+            <summary>
+            Provides assets registration for a general builder.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.#ctor(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Instantiates the builder assets provider.
+            </summary>
+            <param name="htmlHelper">HtmlHelper instance.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.GetScriptFilePath(System.String)">
+            <summary>
+            Returns the path to the builder script file.
+            </summary>
+            <param name="filename">Name of the script file.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.GetBuilderInitializationParameter(Kentico.Builder.Web.Mvc.BuilderScriptConfiguration,Kentico.Content.Web.Mvc.Internal.IPathDecorator)">
+            <summary>
+            Gets a dictionary representing the initialization parameter of a builder.
+            </summary>
+            <param name="configuration">Builder script initial configuration.</param>
+            <param name="decorator">Decorates the paths which need <see cref="T:CMS.Helpers.VirtualContext"/> to be initialized.</param>
+            <returns>Returns an initialization parameter created from the <paramref name="configuration"/> given.</returns>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.GetFontFaceLinkTag">
+            <summary>
+            Gets the builder font face stylesheet link tag.
+            </summary>
+            <returns>Returns a link tag with a font-face definition.</returns>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.GetAdditionalScriptsTags(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Gets tags for additional scripts.
+            </summary>
+            <param name="scriptFiles">Additional scripts required for the builder.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.GetAdditionalStylesheetLinkTags(System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Gets additional stylesheet tags for additional styles.
+            </summary>
+            <param name="styleFiles">Collection of additional stylesheet files required for the builder.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.GetLocalizationScriptTags(System.String,System.String)">
+            <summary>
+            Gets the Page builder localization script file.
+            </summary>
+            <param name="cultureCode">Culture code of the localization.</param>
+            <param name="defaultCultureCode">Default culture code used as fallback.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.GetScriptTag(System.String)">
+            <summary>
+            Returns the HTML 'script' tag with <paramref name="scriptPath"/>.
+            </summary>
+            <param name="scriptPath">Path to the script.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.GetStylesheetLinkTag(System.String)">
+            <summary>
+            Returns the HTML stylesheet tag with <paramref name="path"/>.
+            </summary>
+            <param name="path">Path to the stylesheet.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.BuilderAssetsProvider.TryDecoratePath(System.String,Kentico.Content.Web.Mvc.Internal.IPathDecorator)">
+            <summary>
+            Decorates the <paramref name="path"/> with <paramref name="pathDecorator"/>.
+            </summary>
+            <param name="path">Path to decorate.</param>
+            <param name="pathDecorator">Decorates path with <see cref="T:CMS.Helpers.VirtualContext"/>.</param>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.BuilderScriptConfiguration">
+            <summary>
+            Encapsulates data sent to client and used by the builder's script.
+            </summary>
+        </member>
+        <member name="P:Kentico.Builder.Web.Mvc.BuilderScriptConfiguration.ApplicationPath">
+            <summary>
+            Virtual path of the directory that contains the application hosted in the current application domain.
+            </summary>
+        </member>
+        <member name="P:Kentico.Builder.Web.Mvc.BuilderScriptConfiguration.ConfigurationStoreEndpoint">
+            <summary>
+            Endpoint for storing the builder configuration.
+            </summary>
+        </member>
+        <member name="P:Kentico.Builder.Web.Mvc.BuilderScriptConfiguration.ConfigurationLoadEndpoint">
+            <summary>
+            Endpoint for retrieving the builder configuration.
+            </summary>
+        </member>
+        <member name="P:Kentico.Builder.Web.Mvc.BuilderScriptConfiguration.MetadataEndpoint">
+            <summary>
+            Endpoint for retrieving the builder metadata.
+            </summary>
+        </member>
+        <member name="P:Kentico.Builder.Web.Mvc.BuilderScriptConfiguration.AllowedOrigins">
+            <summary>
+            List of domains that are passed to the client to allow post messages to be retrieved only from these origins.
+            </summary>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.IAllowedDomainsRetriever">
+            <summary>
+            Provides interface to retrieve allowed domains from/to which post messages can be received/sent on a client.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.IAllowedDomainsRetriever.Retrieve">
+            <summary>
+            Retrieves allowed domains from/to which post messages can be received/sent ona client.
+            </summary>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.ComponentLocalizationService">
+            <summary>
+            Encapsulates retrieving of localizable strings for Page builder components.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ComponentLocalizationService.GetCultureCode">
+            <summary>
+            Gets the culture code of a culture used to localize the resource strings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ComponentLocalizationService.GetDefaultCultureCode">
+            <summary>
+            Gets the default culture code to be used as fallback for localization.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ComponentLocalizationService.GetString(System.String)">
+            <summary>
+            Gets the string by the specified resource key.
+            </summary>
+            <param name="resourceKey">Resource key.</param>
+            <remarks>Culture of administration UI is used to retrieve the translation.</remarks>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.IComponentLocalizationService">
+            <summary>
+            Encapsulates retrieving of localizable strings for Page builder components.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.IComponentLocalizationService.GetCultureCode">
+            <summary>
+            Gets the culture code of a culture used to localize the resource strings.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.IComponentLocalizationService.GetDefaultCultureCode">
+            <summary>
+            Gets the default culture code to be used as fallback for localization.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.IComponentLocalizationService.GetString(System.String)">
+            <summary>
+            Gets the string by the specified resource key
+            </summary>
+            <param name="resourceKey">Resource key</param>
+            <remarks>Culture of administration UI is used to retrieve the translation.</remarks>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.ILocalizationScriptProvider">
+            <summary>
+            Provides localization script for Page builder feature.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ILocalizationScriptProvider.Get(System.String)">
+            <summary>
+            Gets the script with localization of resource strings.
+            </summary>
+            <param name="cultureCode">Culture code of the localization.</param>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.LocalizationScriptController">
+            <summary>
+            Controller to serve localization for resource strings to client side.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.LocalizationScriptController.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.Builder.Web.Mvc.LocalizationScriptController"/> class.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.LocalizationScriptController.Script(System.String)">
+            <summary>
+            Gets the script with localization of resource strings.
+            </summary>
+            <param name="cultureCode">Culture code of the localization.</param>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.LocalizationScriptProvider">
+            <summary>
+            Provides localization script for Page builder feature.
+            </summary>
+        </member>
+        <member name="P:Kentico.Builder.Web.Mvc.LocalizationScriptProvider.CacheMinutes">
+            <summary>
+            Cache minutes for localization script.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.LocalizationScriptProvider.#ctor(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:Kentico.Builder.Web.Mvc.LocalizationScriptProvider"/> class.
+            </summary>
+            <param name="resourcesFolderPath">Folder path where to search for the localizations.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.LocalizationScriptProvider.Get(System.String)">
+            <summary>
+            Gets the script with localization of resource strings.
+            </summary>
+            <param name="cultureCode">Culture code of the localization.</param>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.ComponentRegister`2">
+            <summary>
+            A thread-safe register of components.
+            </summary>
+            <typeparam name="TKey">The type of the keys in the register.</typeparam>
+            <typeparam name="TValue">The type of the components in the register.</typeparam>
+            <remarks>
+            The register is optimized for read operations while modifications to the register are less efficient.
+            </remarks>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ComponentRegister`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Builder.Web.Mvc.ComponentRegister`2"/> class that uses the specified <paramref name="comparer"/>.
+            </summary>
+            <param name="comparer">Comparer to be used for keys.</param>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ComponentRegister`2.TryAdd(`0,`1)">
+            <summary>
+            Tries to add a new key and value to the register, if given <paramref name="key"/> is not already present.
+            </summary>
+            <param name="key">The key of the element to add.</param>
+            <param name="value">The element to be added.</param>
+            <returns>Returns true if register did not contain <paramref name="key"/> and the new element was added. Otherwise returns false.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="key"/> is null.</exception>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ComponentRegister`2.TryAddUnsafe(`0,`1)">
+            <summary>
+            Tries to add a new key and value to the register, if given <paramref name="key"/> is not already present. This method is not thread-safe.
+            </summary>
+            <param name="key">The key of the element to add.</param>
+            <param name="value">The element to be added.</param>
+            <returns>Returns true if register did not contain <paramref name="key"/> and the new element was added. Otherwise returns false.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="key"/> is null.</exception>
+            <remarks>
+            This member is not thread-safe while providing optimal performance of the modification operation.
+            </remarks>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ComponentRegister`2.TryGetValue(`0,`1@)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <param name="value">Value associated with the key, if found, or the default value for the <typeparamref name="TValue"/> type.</param>
+            <returns>Returns true if <paramref name="key"/> is found. Otherwise returns false.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="key"/> is null.</exception>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.ComponentRegister`2.GetAll">
+            <summary>
+            Gets all values registered within the register.
+            </summary>
+            <returns>Returns enumeration of all registered values.</returns>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.BuilderRoutes">
+            <summary>
+            Provides builders routes nad constants.
+            </summary>
+        </member>
+        <member name="F:Kentico.Builder.Web.Mvc.BuilderRoutes.LOCALIZATION_SCRIPT_ROUTE_NAME">
+            <summary>
+            Name of the localization script route.
+            </summary>
+        </member>
+        <member name="F:Kentico.Builder.Web.Mvc.BuilderRoutes.LOCALIZATION_SCRIPT_CONTROLLER_NAME">
+            <summary>
+            Name of the controller for localization script.
+            </summary>
+        </member>
+        <member name="F:Kentico.Builder.Web.Mvc.BuilderRoutes.LOCALIZATION_SCRIPT_ROUTE">
+            <summary>
+            Default route for Page builder localization script retrieval.
+            </summary>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.RouteCollectionExtensions">
+            <summary>
+            Extends a <see cref="T:System.Web.Routing.RouteCollection"/> object for MVC routing.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.RouteCollectionExtensions.MapLocalizationScriptRoute(Kentico.Web.Mvc.ExtensionPoint{System.Web.Routing.RouteCollection})">
+            <summary>
+            Adds localization route for script to serve translations for resource strings.
+            </summary>
+            <param name="extensionPoint">The object that provides methods to add builders routes.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="extensionPoint"/> is null.</exception>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.SerializerHelper">
+            <summary>
+            Provides helper methods for serialization.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.SerializerHelper.GetDefaultContractResolver">
+            <summary>
+            Gets default contract resolver.
+            </summary>
+        </member>
+        <member name="T:Kentico.Builder.Web.Mvc.UseCamelCaseJsonMediaTypeFormatterAttribute">
+            <summary>
+            Controller decorated with this attribute uses <see cref="T:Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver"/> to handle JSON formatting in camel case.
+            </summary>
+        </member>
+        <member name="M:Kentico.Builder.Web.Mvc.UseCamelCaseJsonMediaTypeFormatterAttribute.Initialize(System.Web.Http.Controllers.HttpControllerSettings,System.Web.Http.Controllers.HttpControllerDescriptor)">
+            <summary>
+            Initializes controller with <see cref="T:System.Net.Http.Formatting.JsonMediaTypeFormatter"/> to handle JSON formatting.
+            </summary>
+            <param name="settings">The controller settings to initialize.</param>
+            <param name="descriptor">The controller descriptor.</param>
+        </member>
+    </members>
+</doc>

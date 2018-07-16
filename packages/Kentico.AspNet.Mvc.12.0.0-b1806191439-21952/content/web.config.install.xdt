@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <!-- Add empty CMSHashStringSalt -->
+  <appSettings xdt:Transform="InsertIfMissing">
+    <add key="CMSHashStringSalt" value=""
+         xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+  </appSettings>
+
+  <!-- Add empty CMS connection string -->
+  <connectionStrings xdt:Transform="InsertIfMissing">
+    <add name="CMSConnectionString" connectionString=""
+         xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)"/>
+  </connectionStrings>
+
+  <!-- Register CMSApplicationModule -->
+  <system.webServer xdt:Transform="InsertIfMissing">
+    <modules xdt:Transform="InsertIfMissing">
+      <add name="CMSApplicationModule" type="CMS.Base.ApplicationModule, CMS.Base" 
+           xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+    </modules>
+  </system.webServer>
+
+  <!-- Remove CMSApplicationModule first. This should prevent registering CMSApplicationModule twice. 
+       It may happen when a customer registers MVC application within Kentico CMS application. -->  
+  <system.webServer>
+    <modules>
+      <remove name="CMSApplicationModule"
+                xdt:Transform="InsertBefore(/configuration/system.webServer/modules/add)" />
+    </modules>
+  </system.webServer>
+  
+  <!-- Register CMS handlers -->
+  <system.webServer xdt:Transform="InsertIfMissing">
+    <handlers xdt:Transform="InsertIfMissing">
+      <add name="CMSGetAttachment" path="getattachment/*" verb="GET" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"
+           xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+      <add name="CMSGetMedia" path="getmedia/*" verb="GET" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"
+            xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+      <add name="CMSGetMetafile" path="getmetafile/*" verb="GET" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"
+            xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+      <add name="CMSGetFile" path="getfile/*" verb="GET" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"
+            xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+      <add name="CMSGetAvatar" path="getavatar/*" verb="GET" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"
+            xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />      
+    </handlers>
+  </system.webServer>
+  <location path="cmsctx"
+          xdt:Transform="InsertIfMissing" xdt:Locator="Match(path)">
+    <system.webServer xdt:Transform="InsertIfMissing">
+      <handlers xdt:Transform="InsertIfMissing">
+        <remove name="CMSPreviewLinkHandler"
+             xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+        <add name="CMSPreviewLinkHandler" path="*" verb="GET" type="System.Web.Handlers.TransferRequestHandler" preCondition="integratedMode,runtimeVersionv4.0"
+             xdt:Transform="InsertIfMissing" xdt:Locator="Match(name)" />
+      </handlers>
+    </system.webServer>
+  </location>
+
+  <!-- Remove CMS handlers prior their registration -->  
+  <system.webServer>
+    <handlers>
+      <remove name="CMSGetAttachment"
+                xdt:Transform="InsertBefore(/configuration/system.webServer/handlers/add)" />
+      <remove name="CMSGetMedia"
+                xdt:Transform="InsertBefore(/configuration/system.webServer/handlers/add)" />
+      <remove name="CMSGetMetafile"
+                xdt:Transform="InsertBefore(/configuration/system.webServer/handlers/add)" />
+      <remove name="CMSGetFile"
+                xdt:Transform="InsertBefore(/configuration/system.webServer/handlers/add)" />
+      <remove name="CMSGetAvatar"
+                xdt:Transform="InsertBefore(/configuration/system.webServer/handlers/add)" />
+    </handlers>
+  </system.webServer>
+  
+  
+</configuration>
