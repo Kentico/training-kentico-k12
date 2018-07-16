@@ -16,6 +16,32 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
+      <field column="Controller" columnsize="200" columntype="text" guid="3fb5b3f9-1d4a-4d96-ae92-d7c032ed5aa0" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Controller</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field allowempty="true" column="Action" columnsize="400" columntype="text" guid="bb93e9a5-d911-46ce-b3b2-c6ea8815079c" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Action</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
       <field column="Caption" columnsize="200" columntype="text" guid="c99f705a-4257-4518-a07c-590beffab6c9" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Caption</fieldcaption>
