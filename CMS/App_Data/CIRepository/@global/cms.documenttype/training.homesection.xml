@@ -109,6 +109,7 @@
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Training_HomeSection</ClassTableName>
+  <ClassURLPattern>/Home</ClassURLPattern>
   <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
   <ClassUsesVersioning>False</ClassUsesVersioning>
 </cms.documenttype>

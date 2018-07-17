@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.workflow>
+  <WorkflowAutoPublishChanges>False</WorkflowAutoPublishChanges>
+  <WorkflowDisplayName>Medio Clinic workflow</WorkflowDisplayName>
+  <WorkflowEnabled>True</WorkflowEnabled>
+  <WorkflowGUID>edf6126b-2a80-4b8c-9875-26ec08175fe6</WorkflowGUID>
+  <WorkflowName>MedioClinicWorkflow</WorkflowName>
+  <WorkflowRecurrenceType>1</WorkflowRecurrenceType>
+  <WorkflowSendApproveEmails>True</WorkflowSendApproveEmails>
+  <WorkflowSendArchiveEmails>True</WorkflowSendArchiveEmails>
+  <WorkflowSendPublishEmails>True</WorkflowSendPublishEmails>
+  <WorkflowSendReadyForApprovalEmails>True</WorkflowSendReadyForApprovalEmails>
+  <WorkflowSendRejectEmails>True</WorkflowSendRejectEmails>
+  <WorkflowType>0</WorkflowType>
+</cms.workflow>

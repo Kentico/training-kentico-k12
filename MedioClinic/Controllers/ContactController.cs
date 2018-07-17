@@ -1,6 +1,6 @@
 ﻿
 using System.Web.Mvc;
-using Kentico.Services;
+using Kentico.Services.Menu;
 using UI.Models.Shared;
 
 namespace MedioClinic.Controllers

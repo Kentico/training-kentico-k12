@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.workflowstep>
+  <StepActionParameters />
+  <StepDefinition>
+    <Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <TimeoutEnabled>false</TimeoutEnabled>
+      <TimeoutTarget>00000000-0000-0000-0000-000000000000</TimeoutTarget>
+      <SourcePoints>
+        <SourcePoint Guid="eb5b1c52-3f3a-48a6-aa6f-1894ad551f46">
+          <Label>Default</Label>
+          <Type>0</Type>
+          <StepRolesSecurity>0</StepRolesSecurity>
+          <StepUsersSecurity>0</StepUsersSecurity>
+        </SourcePoint>
+      </SourcePoints>
+      <Position>
+        <X>-1</X>
+        <Y>-1</Y>
+      </Position>
+    </Step>
+  </StepDefinition>
+  <StepDisplayName>Published</StepDisplayName>
+  <StepGUID>6e74e0ce-1388-403b-9757-0b64af9ce6bb</StepGUID>
+  <StepName>published</StepName>
+  <StepOrder>2</StepOrder>
+  <StepRolesSecurity>0</StepRolesSecurity>
+  <StepType>100</StepType>
+  <StepUsersSecurity>0</StepUsersSecurity>
+  <StepWorkflowID>
+    <CodeName>MedioClinicWorkflow</CodeName>
+    <GUID>edf6126b-2a80-4b8c-9875-26ec08175fe6</GUID>
+    <ObjectType>cms.workflow</ObjectType>
+  </StepWorkflowID>
+  <StepWorkflowType>0</StepWorkflowType>
+</cms.workflowstep>

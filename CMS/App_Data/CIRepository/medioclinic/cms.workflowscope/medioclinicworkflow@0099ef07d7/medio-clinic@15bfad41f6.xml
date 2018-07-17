@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.workflowscope>
+  <ScopeExcludeChildren>False</ScopeExcludeChildren>
+  <ScopeExcluded>False</ScopeExcluded>
+  <ScopeGUID>6ccd86fa-c819-42bd-aaa8-a9d4c9c43756</ScopeGUID>
+  <ScopeSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </ScopeSiteID>
+  <ScopeStartingPath>/Medio-Clinic</ScopeStartingPath>
+  <ScopeWorkflowID>
+    <CodeName>MedioClinicWorkflow</CodeName>
+    <GUID>edf6126b-2a80-4b8c-9875-26ec08175fe6</GUID>
+    <ObjectType>cms.workflow</ObjectType>
+  </ScopeWorkflowID>
+</cms.workflowscope>

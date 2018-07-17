@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Kentico.Services;
+using Kentico.Services.Menu;
 using UI;
 using UI.Models.Menu;
 using UI.Models.Shared;

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.culturesite>
+  <Parent>
+    <CodeName>es-ES</CodeName>
+    <GUID>61218e2e-2dc3-4a1c-9ac3-e40fb672e2f2</GUID>
+    <ObjectType>cms.culture</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="MedioClinic">
+      <SiteID>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </SiteID>
+    </Binding>
+  </Bindings>
+</cms.culturesite>

@@ -261,6 +261,12 @@
     <Reference Include="GlobalLink.Connect, Version=4.18.2.0, Culture=neutral, PublicKeyToken=946d606070618fd4, processorArchitecture=MSIL">
       <HintPath>..\packages\GlobalLink.Connect.4.18.3.1\lib\net46\GlobalLink.Connect.dll</HintPath>
     </Reference>
+    <Reference Include="Kentico.Content.Web.Mvc">
+      <HintPath>..\packages\Kentico.AspNet.Mvc.12.0.0-b1806191439-21952\lib\net461\Kentico.Content.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Kentico.Web.Mvc">
+      <HintPath>..\packages\Kentico.AspNet.Mvc.12.0.0-b1806191439-21952\lib\net461\Kentico.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="LinqToTwitter.net, Version=4.0.0.0, Culture=neutral, PublicKeyToken=957107be965c25d9, processorArchitecture=MSIL">
       <HintPath>..\packages\linqtotwitter.4.0.0\lib\net45\LinqToTwitter.net.dll</HintPath>
     </Reference>
@@ -438,8 +444,11 @@
     <Compile Include="Generated\Pages\MenuContainerItemProvider.generated.cs" />
     <Compile Include="Generated\Pages\MenuContainerProvider.generated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IMenuService.cs" />
-    <Compile Include="Services\MenuService.cs" />
+    <Compile Include="Services\Context\ISiteContext.cs" />
+    <Compile Include="Services\Query\DocumentQueryService.cs" />
+    <Compile Include="Services\Query\IDocumentQueryService.cs" />
+    <Compile Include="Services\Menu\IMenuService.cs" />
+    <Compile Include="Services\Menu\MenuService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

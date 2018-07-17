@@ -7,4 +7,5 @@
   <SiteIsOffline>False</SiteIsOffline>
   <SiteName>MedioClinic</SiteName>
   <SiteOfflineMessage />
+  <SitePresentationURL>http://localhost:49470</SitePresentationURL>
 </cms.site>
