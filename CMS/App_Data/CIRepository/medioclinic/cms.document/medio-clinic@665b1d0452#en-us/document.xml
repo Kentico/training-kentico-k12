@@ -17,7 +17,7 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-07-13 07:45:24Z</DocumentModifiedWhen>
+  <DocumentModifiedWhen>2018-07-17 12:04:32Z</DocumentModifiedWhen>
   <DocumentName>Medio Clinic</DocumentName>
   <DocumentNodeID>
     <CodeName>/Medio-Clinic</CodeName>
@@ -34,5 +34,5 @@
   <DocumentUrlPath />
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>ea2dddb1-c034-4696-a666-57c2210cb99d</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>344b8d3d-3935-4a04-b21b-341e01f73451</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>

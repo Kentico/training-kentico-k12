@@ -1,18 +1,18 @@
 ﻿using System.Web.Mvc;
-using Kentico.Services.Menu;
-using UI.Models.Shared;
+using Kentico.DI;
+using UI.Dto.Page;
 
 namespace MedioClinic.Controllers
 {
     public class HomeController : BaseController
     {
-        public HomeController(IMenuService menuService) : base (menuService)
+        public HomeController(IBusinessDependencies dependencies) : base (dependencies)
         {
         }
 
         public ActionResult Index()
         {
-            var model = GetPageDto(new PageMetadata()
+            var model = GetPageViewModel(new PageMetadataDto()
             {
                 Title = "Home"
             });

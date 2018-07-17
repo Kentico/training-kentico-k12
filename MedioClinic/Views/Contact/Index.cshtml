@@ -1,6 +1,6 @@
 ﻿@using System.Web.Optimization
 
-@model UI.Models.Shared.PageDto
+@model UI.ViewModel.PageViewModel<MedioClinic.Models.Contact.ContactViewModel>
 
 @section scripts {
     @Scripts.Render("~/Scripts/map.js")
@@ -31,11 +31,11 @@
                     <h5>Contact</h5>
                 </div>
                 <div class="kn-contact-content">
-                    7A Kentico St
-                    <br>Bedford NH 03110
-                    <br>USA, New Hampshire
-                    <br>617-600-225
-                    <br>info@medio-clinic.com
+                    @Model.Data.Clinic.Street
+                    <br>@Model.Data.Clinic.City
+                    <br>@Model.Data.Clinic.Country @Model.Data.Clinic.State
+                    <br>@Model.Data.Clinic.PhoneNumber
+                    <br>@Model.Data.Clinic.Email
                 </div>
                 <!-- </div> -->
                 <div class=".kn-contact-us-box-social">

@@ -667,7 +667,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Models\Doctors\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\materialize.min.css" />
@@ -697,7 +697,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\MultuCultureMvcRouteHandler.cs" />
-    <Compile Include="Lib\SiteContext.cs" />
+    <Compile Include="Lib\SiteContextService.cs" />
+    <Compile Include="Models\Contact\ContactViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

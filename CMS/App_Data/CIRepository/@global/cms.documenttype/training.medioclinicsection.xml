@@ -133,7 +133,7 @@
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Training_MedioClinicSection</ClassTableName>
-  <ClassURLPattern>/Contact</ClassURLPattern>
+  <ClassURLPattern>/{% DocumentCulture %}/Contact</ClassURLPattern>
   <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
   <ClassUsesVersioning>False</ClassUsesVersioning>
 </cms.documenttype>

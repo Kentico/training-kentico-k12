@@ -5,9 +5,9 @@ namespace Kentico.Services.Query
 {
     public class DocumentQueryService : IDocumentQueryService
     {
-        private ISiteContext SiteContext { get; }
+        private ISiteContextService SiteContext { get; }
 
-        public DocumentQueryService(ISiteContext siteContext)
+        public DocumentQueryService(ISiteContextService siteContext)
         {
             SiteContext = siteContext;
         }
@@ -17,12 +17,12 @@ namespace Kentico.Services.Query
             var query = DocumentHelper.GetDocuments<TDocument>();
 
             // Load latest version of documents as preview mode is enabled
-            if (SiteContext.IsPreviewEnabled())
+            if (SiteContext.IsPreviewEnabled)
             {
-                query = query.LatestVersion(true).Published(false).Culture(SiteContext.GetPreviewCulture());
+                query = query.LatestVersion(true).Published(false).Culture(SiteContext.PreviewCulture);
             } else
             {
-                query = query.Published(true).Culture(SiteContext.GetActiveSiteCulture());
+                query = query.PublishedVersion(true).Culture(SiteContext.CurrentSiteCulture);
             }
 
             return query;

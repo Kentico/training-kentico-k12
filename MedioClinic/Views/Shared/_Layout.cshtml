@@ -1,6 +1,6 @@
 ﻿@using System.Web.Optimization
 
-@model UI.Models.Shared.PageDto
+@model UI.ViewModel.PageViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,11 +40,20 @@
             <ul class="right hide-on-med-and-down">
                 @foreach (var menuItem in Model.MenuItems)
                 {
-                    <li class="btn-flat kn-current">
-                        <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
-                    </li>
+                    if (ViewContext.RouteData.Values["controller"]?.ToString().Equals(menuItem.Controller, StringComparison.OrdinalIgnoreCase) ?? false)
+                    {
+                        <li class="btn-flat kn-current">
+                            <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="btn-flat">
+                            <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
+                        </li>
+                    }
                 }
-            
+
                 <li>
                     <a class="dropdown-trigger" href="#" data-target="langs">
                         EN&nbsp;&nbsp;
@@ -80,10 +89,10 @@
                     <div class="grey-text text-lighten-4">
                         <p class="kn-smaller kn-address">
                             <address>
-                                <strong>Medio Clinic</strong>
-                                <br> 617-600-225
-                                <br> info@medio-clinic.com
-                                <br> 7A Kentico Street, Bedford, NH 03110, USA
+                                <strong>@Model.Footer.CompanyName</strong>
+                                <br> @Model.Footer.PhoneNumber
+                                <br> @Model.Footer.Email
+                                <br> @Model.Footer.FullAddress
                             </address>
                         </p>
                     </div>

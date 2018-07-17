@@ -55,7 +55,7 @@
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Training_DoctorSection</ClassTableName>
-  <ClassURLPattern>/Doctors</ClassURLPattern>
+  <ClassURLPattern>/{% DocumentCulture %}/Doctors</ClassURLPattern>
   <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
   <ClassUsesVersioning>False</ClassUsesVersioning>
 </cms.documenttype>

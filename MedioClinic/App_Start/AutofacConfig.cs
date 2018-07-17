@@ -3,9 +3,8 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Kentico.DI;
-using Kentico.Services;
+using Kentico.Repository;
 using Kentico.Services.Context;
-using Kentico.Services.Menu;
 using Kentico.Services.Query;
 
 namespace MedioClinic
@@ -24,11 +23,21 @@ namespace MedioClinic
             builder.RegisterSource(new CmsRegistrationSource());
 
             // Services
-            builder.RegisterType<MenuService>().As<IMenuService>();
             builder.RegisterType<DocumentQueryService>().As<IDocumentQueryService>();
-            builder.RegisterType<SiteContext>().As<ISiteContext>()
-                .WithParameter((parameter, context) => parameter.Name == "activeCulture",
-                    (parameter, context) => CultureInfo.CurrentUICulture.Name);
+            builder.RegisterType<SiteContext>().As<ISiteContextService>()
+                .WithParameter((parameter, context) => parameter.Name == "currentCulture",
+                    (parameter, context) => CultureInfo.CurrentUICulture.Name)
+                .InstancePerRequest();
+
+            // Business
+            builder.RegisterType<BusinessDependencies>().As<IBusinessDependencies>()
+                .InstancePerRequest();
+
+            // Repositories
+            builder.RegisterAssemblyTypes(typeof(IRepository).Assembly)
+                .Where(x => x.IsClass && !x.IsAbstract && typeof(IRepository).IsAssignableFrom(x))
+                .AsImplementedInterfaces()
+                .InstancePerRequest();
 
             // Resolves the dependencies
             DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));

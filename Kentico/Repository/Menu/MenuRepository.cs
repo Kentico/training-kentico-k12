@@ -5,13 +5,13 @@ using CMS.DocumentEngine.Types.Training;
 using Kentico.Services.Query;
 using UI.Models.Menu;
 
-namespace Kentico.Services.Menu
+namespace Kentico.Repository.Menu
 {
-    public class MenuService : IMenuService
+    public class MenuRepository : IMenuRepository
     {
         private IDocumentQueryService DocumentQueryService { get; }
 
-        public MenuService(IDocumentQueryService documentQueryService)
+        public MenuRepository(IDocumentQueryService documentQueryService)
         {
             DocumentQueryService = documentQueryService;
         }
@@ -28,20 +28,6 @@ namespace Kentico.Services.Menu
                     Caption = m.Caption,
                     Controller = m.Controller
                 });
-
-            /*
-        return MenuContainerItemProvider.GetMenuContainerItems()
-            .Path("/Menu-items", PathTypeEnum.Children)
-            .Columns("Caption", "Controller", "Action")
-            .OrderByAscending("NodeOrder")
-            .Select(m => new MenuItemDto()
-            {
-                Action = m.Action,
-                Caption = m.Caption,
-                Controller = m.Controller
-            });
-
-*/
         }
     }
 }

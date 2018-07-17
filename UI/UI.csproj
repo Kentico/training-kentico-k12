@@ -40,10 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\Page\PageFooterDto.cs" />
     <Compile Include="IDto.cs" />
-    <Compile Include="Models\Menu\MenuItemDto.cs" />
-    <Compile Include="Models\Shared\PageDto.cs" />
-    <Compile Include="Models\Shared\PageMetadata.cs" />
+    <Compile Include="Dto\Clinic\ClinicDto.cs" />
+    <Compile Include="Dto\Menu\MenuItemDto.cs" />
+    <Compile Include="ViewModel\IViewModel.cs" />
+    <Compile Include="ViewModel\PageViewModel.cs" />
+    <Compile Include="Dto\Page\PageMetadataDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
