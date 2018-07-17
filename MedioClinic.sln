@@ -4,6 +4,10 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedioClinic", "MedioClinic\MedioClinic.csproj", "{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico", "Kentico\Kentico.csproj", "{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{0DEABB23-0596-4B0C-ACB8-11A413BD0141}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +18,14 @@ Global
 		{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DEABB23-0596-4B0C-ACB8-11A413BD0141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DEABB23-0596-4B0C-ACB8-11A413BD0141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DEABB23-0596-4B0C-ACB8-11A413BD0141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DEABB23-0596-4B0C-ACB8-11A413BD0141}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,10 +1,13 @@
 ﻿@using System.Web.Optimization
+
+@model UI.Models.Shared.PageDto
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
-    <title>@ViewBag.Title - Kentico Training</title>
+    <title>@Model.Metadata.Title - Kentico Training</title>
     <link rel="shortcut icon" type="image/png" href="~/Content/images/Logo/favicon.png" />
 
     <!-- CSS  -->
@@ -35,15 +38,13 @@
                 </li>
             </ul>
             <ul class="right hide-on-med-and-down">
-                <li class="btn-flat kn-current">
-                    <a href="@Url.Action("Index", "Home")">Home</a>
-                </li>
-                <li class="btn-flat">
-                    <a href="@Url.Action("Index", "Doctors")">Our doctors</a>
-                </li>
-                <li class="btn-flat">
-                    <a href="@Url.Action("Index", "Contact")">Contact us</a>
-                </li>
+                @foreach (var menuItem in Model.MenuItems)
+                {
+                    <li class="btn-flat kn-current">
+                        <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
+                    </li>
+                }
+            
                 <li>
                     <a class="dropdown-trigger" href="#" data-target="langs">
                         EN&nbsp;&nbsp;
@@ -76,16 +77,16 @@
             <div class="row">
                 <div class="col l4 s12">
                     <h5 class="white-text">Contact</h5>
-                    <p class="grey-text text-lighten-4">
-                    <p class="kn-smaller kn-address">
-                        <address>
-                            <strong>Medio Clinic</strong>
-                            <br> 617-600-225
-                            <br> info@medio-clinic.com
-                            <br> 7A Kentico Street, Bedford, NH 03110, USA
-                        </address>
-                    </p>
-                    </p>
+                    <div class="grey-text text-lighten-4">
+                        <p class="kn-smaller kn-address">
+                            <address>
+                                <strong>Medio Clinic</strong>
+                                <br> 617-600-225
+                                <br> info@medio-clinic.com
+                                <br> 7A Kentico Street, Bedford, NH 03110, USA
+                            </address>
+                        </p>
+                    </div>
                 </div>
                 <div class="col l4 s12">
                     <h5 class="white-text">Follow Us</h5>

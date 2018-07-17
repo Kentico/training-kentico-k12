@@ -8,7 +8,12 @@ namespace MedioClinic
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+
+            // MVC routes
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // DI
+            AutofacConfig.ConfigureContainer();
         }
     }
 }

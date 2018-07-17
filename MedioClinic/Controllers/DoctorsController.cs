@@ -1,12 +1,23 @@
 ﻿using System.Web.Mvc;
+using Kentico.Services;
+using UI.Models.Shared;
 
 namespace MedioClinic.Controllers
 {
-    public class DoctorsController : Controller
+    public class DoctorsController : BaseController
     {
+        public DoctorsController(IMenuService menuService) : base(menuService)
+        {
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var model = GetPageDto(new PageMetadata()
+            {
+                Title = "Doctors"
+            });
+
+            return View(model);
         }
     }
 }
