@@ -113,6 +113,24 @@ namespace CMS.DocumentEngine.Types.Training
 			}
 		}
 
+
+		/// <summary>
+		/// Background image.
+		/// </summary>
+		[DatabaseField]
+		public Guid HomeBackgroundImage
+		{
+			get
+			{
+				return ValidationHelper.GetGuid(GetValue("HomeBackgroundImage"), Guid.Empty);
+			}
+			set
+			{
+				SetValue("HomeBackgroundImage", value);
+			}
+		}
+
+
 		/// <summary>
 		/// Link.
 		/// </summary>

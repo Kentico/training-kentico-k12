@@ -84,11 +84,11 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Icon.
 		/// </summary>
 		[DatabaseField]
-		public DocumentAttachment CompanySectionIcon
+		public Guid CompanySectionIcon
 		{
 			get
 			{
-				return GetFieldDocumentAttachment("CompanySectionIcon");
+				return ValidationHelper.GetGuid(GetValue("CompanySectionIcon"), Guid.Empty);
 			}
 			set
 			{

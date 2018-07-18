@@ -17,7 +17,7 @@ namespace Kentico.Repository.Clinic
             return DocumentQueryService.GetDocuments<MedioClinicSection>()
                 .TopN(1)
                 .Columns("MedioClinicName", "MedioClinicStreet", "MedioClinicCity", "MedioClinicCountry",
-                    "MedioClinicZipCode", "MedioClinicPhoneNumber", "MedioClinicEmail")
+                    "MedioClinicZipCode", "MedioClinicPhoneNumber", "MedioClinicEmail", "DocumentID")
                 .OrderByAscending("NodeOrder")
                 .ToList()
                 .Select(m =>

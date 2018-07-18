@@ -1,0 +1,46 @@
+﻿@model MedioClinic.Models.PageViewModel<MedioClinic.Models.Doctors.DoctorDetailViewModel>
+
+@if (Model.Data.Doctor != null)
+{
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="kn-doctor-profile">
+                    <div class="col l4 m6 s12">
+                        <img src="@Url.Kentico().ImageUrl(Model.Data.Doctor.ImagePath, SizeConstraint.Empty)" alt="Doctor's photo"/>
+                    </div>
+                    <div class="col l8 m6 s12">
+                        <div class="kn-doctor-profile-box">
+                            <div class="kn-doctor-profile-header">
+                                <h4>@Model.Data.Doctor.FullName</h4>
+                            </div>
+                            @if (Model.Data.Doctor.HasShiftToday)
+                            {
+                                <span class="kn-doctor-badge opened">Open</span>
+                            }
+                            else
+                            {
+                                <span class="kn-doctor-badge closed">now closed</span>
+
+                            }
+                            <br>
+                            <div class="kn-doctor-profile-degree">
+                                <div class="">
+                                    <strong>Academic Degree:&nbsp;</strong>@Model.Data.Doctor.Degree
+                                    <br>
+                                    <strong>Doctor Specialty:&nbsp;</strong>@Model.Data.Doctor.Specialty
+                                </div>
+                            </div>
+                            <div class="kn-doctor-profile-bio">
+                                <h5>Biograpy</h5>
+                                <p>
+                                   @Html.Raw(Model.Data.Doctor.Bio)
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

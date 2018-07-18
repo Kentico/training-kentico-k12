@@ -93,7 +93,7 @@
           <WidthUnitType>PX</WidthUnitType>
         </settings>
       </field>
-      <field column="DoctorEmergencyShift" columnsize="75" columntype="text" guid="dcee62ce-160c-43ee-aa0f-60c1b6e2fa74" publicfield="false" visible="true">
+      <field column="DoctorEmergencyShift" columntype="integer" guid="dcee62ce-160c-43ee-aa0f-60c1b6e2fa74" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Emergency shift</fieldcaption>
         </properties>
@@ -103,13 +103,13 @@
           <EditText>False</EditText>
           <Options>
 <![CDATA[
+0;Sunday
 1;Monday
 2;Tuesday
 3;Wednesday
 4;Thursday
 5;Friday
 6;Saturday
-7;Sunday
 ]]>
           </Options>
           <SortItems>False</SortItems>

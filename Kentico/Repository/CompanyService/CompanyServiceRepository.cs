@@ -15,11 +15,12 @@ namespace Kentico.Repository.CompanyService
         public IEnumerable<CompanyServiceDto> GetCompanyServices()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.CompanyService>()
+                .Columns("CompanySectionHeader", "CompanySectionText", "CompanySectionIcon", "DocumentID")
                 .Select(m => new CompanyServiceDto()
                 {
                     Header = m.CompanySectionHeader,
                     Text = m.CompanySectionText,
-                    IconPath = m.CompanySectionIcon.GetPath("")
+                    IconPath = m.Fields.CompanySectionIcon.GetPath("")
                 });
         }
     }

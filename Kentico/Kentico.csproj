@@ -444,6 +444,7 @@
     <Compile Include="Dto\Clinic\ClinicDto.cs" />
     <Compile Include="Dto\CompanyService\CompanyServiceDto.cs" />
     <Compile Include="Dto\Culture\CultureDto.cs" />
+    <Compile Include="Dto\Doctors\DoctorDto.cs" />
     <Compile Include="Dto\IDto.cs" />
     <Compile Include="Dto\Menu\MenuItemDto.cs" />
     <Compile Include="Dto\Page\PageFooterDto.cs" />
@@ -451,6 +452,8 @@
     <Compile Include="Dto\Home\HomeSectionDto.cs" />
     <Compile Include="Generated\Pages\CompanyService.generated.cs" />
     <Compile Include="Generated\Pages\CompanyServiceProvider.generated.cs" />
+    <Compile Include="Generated\Pages\Doctor.generated.cs" />
+    <Compile Include="Generated\Pages\DoctorProvider.generated.cs" />
     <Compile Include="Generated\Pages\HomeSection.generated.cs" />
     <Compile Include="Generated\Pages\HomeSectionProvider.generated.cs" />
     <Compile Include="Generated\Pages\MedioClinicSection.generated.cs" />
@@ -465,6 +468,8 @@
     <Compile Include="Repository\Clinic\IClinicRepository.cs" />
     <Compile Include="Repository\CompanyService\CompanyServiceRepository.cs" />
     <Compile Include="Repository\CompanyService\ICompanyServiceRepository.cs" />
+    <Compile Include="Repository\Doctors\DoctorsRepository.cs" />
+    <Compile Include="Repository\Doctors\IDoctorsRepository.cs" />
     <Compile Include="Services\Culture\CultureService.cs" />
     <Compile Include="Services\Culture\ICultureService.cs" />
     <Compile Include="Repository\Home\HomeSectionRepository.cs" />

@@ -12,6 +12,14 @@ namespace Kentico.Services.Query
             SiteContext = siteContext;
         }
 
+        public DocumentQuery<TDocument> GetDocument<TDocument>(int nodeId) where TDocument : TreeNode, new()
+        {
+            return GetDocuments<TDocument>()
+                .TopN(1)
+                .WhereEquals("NodeId", nodeId);
+
+        }
+
         public DocumentQuery<TDocument> GetDocuments<TDocument>() where TDocument : TreeNode, new()
         {
             var query = DocumentHelper.GetDocuments<TDocument>();

@@ -1,4 +1,4 @@
-﻿@model MedioClinic.Models.PageViewModel
+﻿@model MedioClinic.Models.PageViewModel<MedioClinic.Models.Doctors.DoctorsViewModel>
 
 <div class="section kn-section-top">
     <div class="container">
@@ -9,161 +9,45 @@
     </div>
 </div>
 <!--   Doctors Section   -->
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col l4 m12 s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets\Doctors photos\862722044.jpg" alt="Jon Doe, MD">
+@if (Model.Data.Doctors != null)
+{
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                @foreach (var doctor in Model.Data.Doctors)
+                {
+                    <div class="col l4 m12 s12">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="@Url.Kentico().ImageUrl(doctor.ImagePath, SizeConstraint.Empty)" alt="@doctor.FullName">
+                            </div>
+                            <div class="card-title">
+                                <a href="@Url.Action("Detail", "Doctors", new { nodeId = doctor.NodeId, nodeAlias = doctor.NodeAlias })" target="_blank">@doctor.FullName, @doctor.Degree</a>
+                            </div>
+                            <div class="card-content">
+                                <p>
+                                    @Html.Raw(doctor.Bio)
+                                </p>
+                            </div>
+                            <div class="kn-doctor-badges">
+                                @if (doctor.HasShiftToday)
+                                {
+                                    <span class="kn-doctor-badge opened">
+                                        Open
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="kn-doctor-badge closed">Now closed</span>
+                                }
+                            </div>
+                            <div class="card-action">
+                                <a href="@Url.Action("Detail", "Doctors", new { nodeId = doctor.NodeId, nodeAlias = doctor.NodeAlias })">See more</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-title">
-                        <a href="doctorprofile.html" target="_blank">Jon Doe, MD</a>
-                    </div>
-                    <div class="card-content">
-                        <p>
-                            I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.
-                        </p>
-                    </div>
-                    <div class="kn-doctor-badges">
-                        <span class="kn-doctor-badge opened">
-                            Open
-                        </span>
-                        <span class="kn-doctor-badge closed">Now closed</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="doctorprofile.html">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col l4 m12 s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets\Doctors photos\690657190.jpg" alt="Edith Piaf, MD">
-                    </div>
-                    <div class="card-title">
-                        <a href="doctorprofile.html" target="_blank">Edith Piaf, DDS</a>
-                    </div>
-                    <div class="card-content">
-                        <p>
-                            I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.
-                        </p>
-                    </div>
-                    <div class="kn-doctor-badges">
-                        <span class="kn-doctor-badge opened">
-                            Open
-                        </span>
-                        <span class="kn-doctor-badge closed">Now closed</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="doctorprofile.html">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col l4 m12 s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets\Doctors photos\830343990.jpg" alt="Janis Joplin, MD">
-                    </div>
-                    <div class="card-title">
-                        <a href="doctorprofile.html" target="_blank">Janis Joplin, MD</a>
-                    </div>
-                    <div class="card-content">
-                        <p>
-                            I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.
-                        </p>
-                    </div>
-                    <div class="kn-doctor-badges">
-                        <span class="kn-doctor-badge opened">
-                            Open
-                        </span>
-                        <span class="kn-doctor-badge closed">Now closed</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="doctorprofile.html">See more</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col l4 m12 s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets\Doctors photos\904793412.jpg" alt="John Vick, MD">
-                    </div>
-                    <div class="card-title">
-                        <a href="doctorprofile.html" target="_blank">John Vick, MD</a>
-                    </div>
-                    <div class="card-content">
-                        <p>
-                            I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.
-                        </p>
-                    </div>
-                    <div class="kn-doctor-badges">
-                        <span class="kn-doctor-badge opened">
-                            Open
-                        </span>
-                        <span class="kn-doctor-badge closed">Now closed</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="doctorprofile.html">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col l4 m12 s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets\Doctors photos\823884802.jpg" alt="Jon Snow, MD">
-                    </div>
-                    <div class="card-title">
-                        <a href="doctorprofile.html" target="_blank">Jon Snow, MD</a>
-                    </div>
-                    <div class="card-content">
-                        <p>
-                            I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.
-                        </p>
-                    </div>
-                    <div class="kn-doctor-badges">
-                        <span class="kn-doctor-badge opened">
-                            Open
-                        </span>
-                        <span class="kn-doctor-badge closed">Now closed</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="doctorprofile.html">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col l4 m12 s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="assets\Doctors photos\653832634.jpg" alt="Jack Sparrow, MD">
-                    </div>
-                    <div class="card-title">
-                        <a href="doctorprofile.html" target="_blank">Jack Sparrow, MD</a>
-                    </div>
-                    <div class="card-content">
-                        <p>
-                            I am a very simple card. I am good at containing small bits of information. I am convenient because
-                            I require little markup to use effectively.
-                        </p>
-                    </div>
-                    <div class="kn-doctor-badges">
-                        <span class="kn-doctor-badge opened">
-                            Open
-                        </span>
-                        <span class="kn-doctor-badge closed">Now closed</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="doctorprofile.html">See more</a>
-                    </div>
-                </div>
+                }
             </div>
         </div>
     </div>
-</div>
+}
