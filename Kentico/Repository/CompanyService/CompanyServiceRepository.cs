@@ -6,13 +6,10 @@ using Kentico.Content.Web.Mvc;
 
 namespace Kentico.Repository.CompanyService
 {
-    public class CompanyServiceRepository : ICompanyServiceRepository
+    public class CompanyServiceRepository : BaseRepository, ICompanyServiceRepository
     {
-        private IDocumentQueryService DocumentQueryService { get; }
-
-        public CompanyServiceRepository(IDocumentQueryService documentQueryService)
+        public CompanyServiceRepository(IDocumentQueryService documentQueryService) : base(documentQueryService)
         {
-            DocumentQueryService = documentQueryService;
         }
 
         public IEnumerable<CompanyServiceDto> GetCompanyServices()

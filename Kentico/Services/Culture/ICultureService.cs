@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using Kentico.Dto.Culture;
+using Kentico.Repository;
 
-namespace Kentico.Repository.Culture
+namespace Kentico.Services.Culture
 {
-    public interface ICultureRepository : IRepository
+    public interface ICultureService : IRepository
     {
         IEnumerable<CultureDto> GetSiteCultures();
     }

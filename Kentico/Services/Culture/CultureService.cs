@@ -1,13 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using CMS.SiteProvider;
 using Kentico.Dto.Culture;
 using Kentico.Services.Context;
 
-namespace Kentico.Repository.Culture
+namespace Kentico.Services.Culture
 {
-    public class CultureRepository : ICultureRepository
+    public class CultureRepository : ICultureService
     {
         private ISiteContextService SiteContextService { get; }
 

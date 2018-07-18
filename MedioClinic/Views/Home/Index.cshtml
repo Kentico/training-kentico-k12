@@ -1,27 +1,27 @@
 ﻿@model MedioClinic.Models.PageViewModel<MedioClinic.Models.Home.HomeViewModel>
 
-<div class="section kn-section-top">
-
-
-    <div class="kn-header-gradient">
-        <div class="container kn-header">
-            <h1 class="col l10 m4 s12">Welcome to Medio Clinic</h1>
-            <div class="row left">
-                <h5 class="col l10 m8 s12 kn-light">
-                    The goal of our clinic is to provide the best medical care. For comprehensive health at all times, it
-                    is also necessary to maintain a healthy lifestyle.
-                </h5>
-            </div>
-            <div class="row">
-                <div class="left">
-                    <a href="doctors.html" class="kn-btn-doctors btn waves-effect waves-light red darken-3">Our doctors</a>
-                    <br>
-                    <br>
+@if (Model.Data.HomeSection != null)
+{
+    <div class="section kn-section-top">
+        <div class="kn-header-gradient">
+            <div class="container kn-header">
+                <h1 class="col l10 m4 s12">@Model.Data.HomeSection.Title</h1>
+                <div class="row left">
+                    <h5 class="col l10 m8 s12 kn-light">
+                        @Model.Data.HomeSection.Text
+                    </h5>
+                </div>
+                <div class="row">
+                    <div class="left">
+                        <a href="@Url.Action("index", "Doctors")" class="kn-btn-doctors btn waves-effect waves-light red darken-3">@Model.Data.HomeSection.LinkText</a>
+                        <br>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+}
 
 @if (Model.Data.CompanyServices != null)
 {

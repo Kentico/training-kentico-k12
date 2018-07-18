@@ -5,13 +5,11 @@ using Kentico.Services.Query;
 
 namespace Kentico.Repository.Clinic
 {
-    public class ClinicRepository : IClinicRepository
+    public class ClinicRepository : BaseRepository, IClinicRepository
     {
-        private IDocumentQueryService DocumentQueryService { get; }
 
-        public ClinicRepository(IDocumentQueryService documentQueryService)
+        public ClinicRepository(IDocumentQueryService documentQueryService) : base(documentQueryService)
         {
-            DocumentQueryService = documentQueryService;
         }
 
         public ClinicDto GetClinic()
