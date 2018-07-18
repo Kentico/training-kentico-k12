@@ -12,10 +12,7 @@ namespace MedioClinic.Controllers
 
         public ActionResult Index()
         {
-            var model = GetPageViewModel(new PageMetadataDto()
-            {
-                Title = "Doctors"
-            });
+            var model = GetPageViewModel("Doctors");
 
             return View(model);
         }

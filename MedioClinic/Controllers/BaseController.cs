@@ -15,24 +15,36 @@ namespace MedioClinic.Controllers
             Dependencies = dependencies;
         }
 
-        public PageViewModel GetPageViewModel(PageMetadataDto metadata) 
+        public PageViewModel GetPageViewModel(string title) 
         {
             return new PageViewModel()
             {
                 MenuItems = Dependencies.MenuRepository.GetMenuItems() ?? new List<MenuItemDto>(),
-                Metadata = metadata ?? new PageMetadataDto(),
-                Footer = GetFooter()
+                Metadata = GetPageMetadata(title),
+                Footer = GetFooter(),
+                Cultures = Dependencies.CultureRepository.GetSiteCultures(),
             };
         }
 
-        public PageViewModel<TViewModel> GetPageViewModel<TViewModel>(TViewModel data, PageMetadataDto metadata) where TViewModel : IViewModel
+        public PageViewModel<TViewModel> GetPageViewModel<TViewModel>(TViewModel data, string title) where TViewModel : IViewModel
         {
             return new PageViewModel<TViewModel>()
             {
                 MenuItems = Dependencies.MenuRepository.GetMenuItems() ?? new List<MenuItemDto>(),
-                Metadata = metadata ?? new PageMetadataDto(),
+                Metadata = GetPageMetadata(title),
                 Footer = GetFooter(),
+                Cultures = Dependencies.CultureRepository.GetSiteCultures(),
                 Data = data
+            };
+        }
+
+
+        private PageMetadataDto GetPageMetadata(string title)
+        {
+            return new PageMetadataDto()
+            {
+                Title = title,
+                CompanyName = Dependencies.SiteContextService.SiteName
             };
         }
 
@@ -40,6 +52,10 @@ namespace MedioClinic.Controllers
         {
             var clinic = Dependencies.ClinicRepository.GetClinic();
 
+            if (clinic == null)
+            {
+                return null;
+            }
             return new PageFooterDto()
             {
                 Email = clinic.Email,

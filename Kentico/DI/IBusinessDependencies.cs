@@ -1,5 +1,7 @@
 ﻿using Kentico.Repository.Clinic;
+using Kentico.Repository.Culture;
 using Kentico.Repository.Menu;
+using Kentico.Services.Context;
 
 namespace Kentico.DI
 {
@@ -7,5 +9,7 @@ namespace Kentico.DI
     {
         IMenuRepository MenuRepository { get; }
         IClinicRepository ClinicRepository { get; }
+        ICultureRepository CultureRepository { get; }
+        ISiteContextService SiteContextService { get; }
     }
 }

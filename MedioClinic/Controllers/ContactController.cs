@@ -17,13 +17,15 @@ namespace MedioClinic.Controllers
         {
             var clinic = Dependencies.ClinicRepository.GetClinic();
 
+            if (clinic == null)
+            {
+                return HttpNotFound();
+            }
+
             var model = GetPageViewModel(new ContactViewModel()
             {
                 Clinic = clinic
-            }, new PageMetadataDto()
-            {
-                Title = "Contact"
-            });
+            }, "Contact");
 
             return View(model);
         }

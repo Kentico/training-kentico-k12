@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using Kentico.DI;
-using Kentico.Dto.Page;
 
 namespace MedioClinic.Controllers
 {
@@ -12,10 +11,7 @@ namespace MedioClinic.Controllers
 
         public ActionResult Index()
         {
-            var model = GetPageViewModel(new PageMetadataDto()
-            {
-                Title = "Home"
-            });
+            var model = GetPageViewModel("Home");
 
             return View(model);
         }

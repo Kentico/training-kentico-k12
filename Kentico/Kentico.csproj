@@ -442,6 +442,7 @@
     <Compile Include="DI\CmsRegistrationSource.cs" />
     <Compile Include="DI\IBusinessDependencies.cs" />
     <Compile Include="Dto\Clinic\ClinicDto.cs" />
+    <Compile Include="Dto\Culture\CultureDto.cs" />
     <Compile Include="Dto\IDto.cs" />
     <Compile Include="Dto\Menu\MenuItemDto.cs" />
     <Compile Include="Dto\Page\PageFooterDto.cs" />
@@ -455,6 +456,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Clinic\ClinicRepository.cs" />
     <Compile Include="Repository\Clinic\IClinicRepository.cs" />
+    <Compile Include="Repository\Culture\CultureRepository.cs" />
+    <Compile Include="Repository\Culture\ICultureRepository.cs" />
     <Compile Include="Services\Context\ISiteContextService.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Services\Query\DocumentQueryService.cs" />
