@@ -1,4 +1,5 @@
 using System.Web.Mvc;
+using System.Web.Optimization;
 using System.Web.Routing;
 using Kentico.Content.Web.Mvc;
 using Kentico.Web.Mvc;
@@ -23,6 +24,9 @@ namespace MedioClinic
 
             // DI
             AutofacConfig.ConfigureContainer();
+
+            // Bundles
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }

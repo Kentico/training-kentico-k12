@@ -669,24 +669,26 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\materialize.min.css" />
-    <Content Include="Content\css\style.css" />
-    <Content Include="Content\images\facebook.png" />
-    <Content Include="Content\images\Logo\favicon.png" />
-    <Content Include="Content\images\Logo\Logoic.png" />
-    <Content Include="Content\images\Logo\logoicon.svg" />
-    <Content Include="Content\images\Logo\mcfavicon.ico" />
-    <Content Include="Content\images\twitter.png" />
+    <Content Include="Content\Css\icon.css" />
+    <Content Include="Content\Css\materialize.min.css" />
+    <Content Include="Content\Css\style.css" />
+    <Content Include="Content\Images\facebook.png" />
+    <Content Include="Content\Images\Logo\favicon.png" />
+    <Content Include="Content\Images\Logo\Logoic.png" />
+    <Content Include="Content\Images\Logo\logoicon.svg" />
+    <Content Include="Content\Images\Logo\mcfavicon.ico" />
+    <Content Include="Content\Images\twitter.png" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\Master\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\Master\main.js" />
     <Content Include="Scripts\map.js" />
-    <Content Include="Scripts\materialize.js" />
-    <Content Include="Scripts\materialize.min.js" />
+    <Content Include="Scripts\Master\materialize.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContactController.cs" />

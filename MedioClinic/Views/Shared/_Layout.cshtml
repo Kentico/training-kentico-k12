@@ -12,10 +12,9 @@
     <link rel="shortcut icon" type="image/png" href="~/Content/images/Logo/favicon.png" />
 
     <!-- CSS  -->
-    @Styles.Render("https://fonts.googleapis.com/icon?family=Material+Icons")
-    @Styles.Render("https://use.fontawesome.com/releases/v5.1.0/css/all.css")
-    @Styles.Render("~/Content/css/materialize.min.css")
-    @Styles.Render("~/Content/css/style.css")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+          crossorigin="anonymous">
+    @Styles.Render("~/bundles/master-css")
 
 </head>
 <body>
@@ -37,9 +36,11 @@
                                          ViewContext.RouteData.Values["action"]?.ToString(),
                                          ViewContext.RouteData.Values["controller"]?.ToString(),
                                          new { culture = culture.CultureCode}
-                                         )">@culture.CultureShortName</a>
-                        </li>
-                    }
+                                         )">
+                                @culture.CultureShortName
+                                    </a>
+                                </li>
+                            }
                 </ul>
             }
             <ul class="right hide-on-med-and-down">
@@ -154,10 +155,7 @@
     </footer>
 
     <!-- Scripts -->
-    @Scripts.Render("https://code.jquery.com/jquery-2.1.1.min.js")
-    @Scripts.Render("~/Scripts/materialize.min.js")
-    @Scripts.Render("~/Scripts/main.js")
-
+    @Scripts.Render("~/bundles/master-scripts")
 
     <!-- Additional (view specific) scripts-->
     @RenderSection("scripts", false)
