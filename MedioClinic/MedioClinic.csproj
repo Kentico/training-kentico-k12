@@ -719,6 +719,7 @@
     <Content Include="Views\Doctors\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Doctors\Detail.cshtml" />
+    <Content Include="Views\Shared\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="CMSResources\CMS.resx" />

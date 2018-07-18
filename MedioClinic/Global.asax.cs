@@ -16,6 +16,9 @@ namespace MedioClinic
             // Allows you to enable and configure selected Kentico MVC integration features
             ApplicationBuilder builder = ApplicationBuilder.Current;
 
+            // Enables the not found handler feature
+            builder.UseNotFoundHandler();
+
             // Enables the preview feature
             builder.UsePreview();
 

@@ -15,6 +15,9 @@ namespace MedioClinic
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Use lowercase urls for consistency
+            routes.LowercaseUrls = true;
+
             // Map routes to Kentico HTTP handlers first as some Kentico URLs might be matched by the default ASP.NET MVC route resulting in displaying pages without images
             routes.Kentico().MapRoutes();
 
