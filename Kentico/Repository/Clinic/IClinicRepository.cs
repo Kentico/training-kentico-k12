@@ -1,4 +1,4 @@
-﻿using UI.Models.Clinic;
+﻿using Kentico.Dto.Clinic;
 
 namespace Kentico.Repository.Clinic
 {

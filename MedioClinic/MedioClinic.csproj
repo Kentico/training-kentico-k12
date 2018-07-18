@@ -699,6 +699,8 @@
     <Compile Include="Infrastructure\MultuCultureMvcRouteHandler.cs" />
     <Compile Include="Lib\SiteContextService.cs" />
     <Compile Include="Models\Contact\ContactViewModel.cs" />
+    <Compile Include="Models\IViewModel.cs" />
+    <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -719,10 +721,6 @@
     <ProjectReference Include="..\Kentico\Kentico.csproj">
       <Project>{cee4522f-b7c7-4f50-b1ff-23cf6e170be5}</Project>
       <Name>Kentico</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UI\UI.csproj">
-      <Project>{0DEABB23-0596-4B0C-ACB8-11A413BD0141}</Project>
-      <Name>UI</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

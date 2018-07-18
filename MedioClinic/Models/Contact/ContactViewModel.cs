@@ -1,5 +1,4 @@
-﻿using UI.Models.Clinic;
-using UI.ViewModel;
+﻿using Kentico.Dto.Clinic;
 
 namespace MedioClinic.Models.Contact
 {

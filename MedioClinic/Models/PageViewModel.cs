@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using UI.Dto.Page;
-using UI.Models.Menu;
+using Kentico.Dto.Menu;
+using Kentico.Dto.Page;
 
-namespace UI.ViewModel
+namespace MedioClinic.Models
 {
     public class PageViewModel 
     {

@@ -1,4 +1,4 @@
-﻿namespace UI.ViewModel
+﻿namespace MedioClinic.Models
 {
     public interface IViewModel
     {

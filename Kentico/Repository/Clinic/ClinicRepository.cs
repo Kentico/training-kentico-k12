@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using CMS.DocumentEngine.Types.Training;
+using Kentico.Dto.Clinic;
 using Kentico.Services.Query;
-using UI.Models.Clinic;
 
 namespace Kentico.Repository.Clinic
 {

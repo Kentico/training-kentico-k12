@@ -1,4 +1,4 @@
-﻿namespace UI.Dto.Page
+﻿namespace Kentico.Dto.Page
 {
     public class PageMetadataDto : IDto
     {

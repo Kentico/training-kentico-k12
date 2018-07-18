@@ -1,8 +1,8 @@
 ﻿
 using System.Web.Mvc;
 using Kentico.DI;
+using Kentico.Dto.Page;
 using MedioClinic.Models.Contact;
-using UI.Dto.Page;
 
 namespace MedioClinic.Controllers
 {

@@ -2,8 +2,8 @@
 using System.Linq;
 using CMS.DocumentEngine;
 using CMS.DocumentEngine.Types.Training;
+using Kentico.Dto.Menu;
 using Kentico.Services.Query;
-using UI.Models.Menu;
 
 namespace Kentico.Repository.Menu
 {

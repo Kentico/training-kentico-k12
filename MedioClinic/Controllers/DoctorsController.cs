@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using Kentico.DI;
-using UI.Dto.Page;
+using Kentico.Dto.Page;
 
 namespace MedioClinic.Controllers
 {

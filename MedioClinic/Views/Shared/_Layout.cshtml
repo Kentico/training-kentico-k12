@@ -1,6 +1,6 @@
 ﻿@using System.Web.Optimization
 
-@model UI.ViewModel.PageViewModel
+@model MedioClinic.Models.PageViewModel
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,22 +80,24 @@
 
     @RenderBody();
 
-
     <footer class="page-footer blue-grey darken-4">
         <div class="container">
             <div class="row">
                 <div class="col l4 s12">
-                    <h5 class="white-text">Contact</h5>
-                    <div class="grey-text text-lighten-4">
-                        <p class="kn-smaller kn-address">
-                            <address>
-                                <strong>@Model.Footer.CompanyName</strong>
-                                <br> @Model.Footer.PhoneNumber
-                                <br> @Model.Footer.Email
-                                <br> @Model.Footer.FullAddress
-                            </address>
-                        </p>
-                    </div>
+                    @if (Model.Footer != null)
+                    {
+                        <h5 class="white-text">Contact</h5>
+                        <div class="grey-text text-lighten-4">
+                            <p class="kn-smaller kn-address">
+                                <address>
+                                    <strong>@Model.Footer.CompanyName</strong>
+                                    <br> @Model.Footer.PhoneNumber
+                                    <br> @Model.Footer.Email
+                                    <br> @Model.Footer.FullAddress
+                                </address>
+                            </p>
+                        </div>
+                    }
                 </div>
                 <div class="col l4 s12">
                     <h5 class="white-text">Follow Us</h5>

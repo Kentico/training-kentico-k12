@@ -441,6 +441,11 @@
     <Compile Include="DI\BusinessDependencies.cs" />
     <Compile Include="DI\CmsRegistrationSource.cs" />
     <Compile Include="DI\IBusinessDependencies.cs" />
+    <Compile Include="Dto\Clinic\ClinicDto.cs" />
+    <Compile Include="Dto\IDto.cs" />
+    <Compile Include="Dto\Menu\MenuItemDto.cs" />
+    <Compile Include="Dto\Page\PageFooterDto.cs" />
+    <Compile Include="Dto\Page\PageMetadataDto.cs" />
     <Compile Include="Generated\Pages\MedioClinicSection.generated.cs" />
     <Compile Include="Generated\Pages\MedioClinicSectionProvider.generated.cs" />
     <Compile Include="Generated\Pages\MenuContainer.generated.cs" />
@@ -463,12 +468,6 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.1.9.0\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\UI\UI.csproj">
-      <Project>{0deabb23-0596-4b0c-acb8-11a413bd0141}</Project>
-      <Name>UI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

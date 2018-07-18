@@ -1,4 +1,4 @@
-﻿namespace UI.Models.Menu
+﻿namespace Kentico.Dto.Menu
 {
     public class MenuItemDto : IDto
     {

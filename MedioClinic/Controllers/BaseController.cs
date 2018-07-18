@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Kentico.DI;
-using UI.Dto.Page;
-using UI.Models.Menu;
-using UI.ViewModel;
+using Kentico.Dto.Menu;
+using Kentico.Dto.Page;
+using MedioClinic.Models;
 
 namespace MedioClinic.Controllers
 {

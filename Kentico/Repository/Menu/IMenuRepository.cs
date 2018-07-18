@@ -1,6 +1,6 @@
 ﻿
 using System.Collections.Generic;
-using UI.Models.Menu;
+using Kentico.Dto.Menu;
 
 namespace Kentico.Repository.Menu
 {

@@ -1,4 +1,4 @@
-﻿namespace UI.Models.Clinic
+﻿namespace Kentico.Dto.Clinic
 {
     public class ClinicDto : IDto
     {
