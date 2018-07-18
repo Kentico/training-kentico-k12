@@ -1,4 +1,4 @@
-﻿@model MedioClinic.Models.PageViewModel
+﻿@model MedioClinic.Models.PageViewModel<MedioClinic.Models.Home.HomeViewModel>
 
 <div class="section kn-section-top">
 
@@ -22,55 +22,27 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="section">
-        <!--   Icon Section   -->
-        <div class="row">
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <!-- <h2 class="center light-blue-text text-accent-1">
-                        <i class="fas fa-ambulance">&nbsp;</i>
-                    </h2> -->
-                    <img class="kn-icons kn-center" src="assets/Icons for homepage/Emergency-service.svg" />
-                    <h4 class="center">Emergency Service</h4>
-                    <p class="light center">
-                        We did most of the heavy lifting for you to provide a default stylings that incorporate our custom
-                        components. Additionally, we refined animations and transitions to provide a smoother experience
-                        for developers.
-                    </p>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <!-- <h2 class="center light-blue-text text-accent-1">
-                        <i class="fas fa-heartbeat">&nbsp;</i>
-                    </h2> -->
-                    <img class="kn-icons kn-center" src="assets/Icons for homepage/Cardio-therapy.svg" />
-                    <h4 class="center">Cardio Therapy</h4>
-                    <p class="light center">
-                        Our expert cardiologists provide you the tools you need to live a heart healthy life. We are committed
-                        to helping our patients return to the highest level of cardiovascular health, performance, and
-                        well-being.
-                    </p>
-                </div>
-            </div>
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <!-- <h2 class="center light-blue-text text-accent-1">
-                        <i class="fas fa-user-md">&nbsp;</i>
-                    </h2> -->
-                    <img class="kn-icons kn-center" src="assets/Icons for homepage/Medical-consultancy.svg" />
-                    <h4 class="center">Medical Consultancy</h4>
-                    <p class="light center">
-                        With our wide range of experts, we believe MEDIO Clinic can provide innovative and cost effective
-                        solutions, services, and expertise you require for your health care needs. Our Medical Team currently
-                        consists of 20 board-certified physicians with vast experience in their fields.
-                    </p>
-                </div>
+
+@if (Model.Data.CompanyServices != null)
+{
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                @foreach (var service in Model.Data.CompanyServices)
+                {<div class="col s12 m4">
+                        <div class="icon-block">
+                            <img class="kn-icons kn-center" src="@Url.Kentico().ImageUrl(service.IconPath, SizeConstraint.Empty)" />
+                            <h4 class="center">@service.Header</h4>
+                            <p class="light center">
+                                @service.Text
+                            </p>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
+        <br>
+        <br>
     </div>
-    <br>
-    <br>
-</div>
 
+}

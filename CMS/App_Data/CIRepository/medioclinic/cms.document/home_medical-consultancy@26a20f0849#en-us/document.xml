@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Home/Emergency services -->
+<!-- This is a CI serialization file for /Home/Medical Consultancy -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-10 13:56:40Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-07-18 07:17:15Z</DocumentCreatedWhen>
   <DocumentCulture>en-US</DocumentCulture>
-  <DocumentGUID>f92f467d-4811-4f5b-b576-c426e4aea984</DocumentGUID>
+  <DocumentGUID>743cf91c-004c-4506-81b3-c347f81ae88f</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-07-10 13:56:41Z</DocumentModifiedWhen>
-  <DocumentName>Emergency services</DocumentName>
+  <DocumentModifiedWhen>2018-07-18 07:17:15Z</DocumentModifiedWhen>
+  <DocumentName>Medical Consultancy</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Home/Emergency-services</CodeName>
-    <GUID>da94cfeb-bb76-48fc-973f-9f8ccda20bbc</GUID>
+    <CodeName>/Home/Medical-Consultancy</CodeName>
+    <GUID>0dcb9d4f-29e0-479c-b082-b94a6afdf2e2</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -34,5 +34,5 @@
   <DocumentUrlPath />
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>28aca444-6e4d-4a3d-bcdb-be45237f0854</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>95692f5f-05af-45bd-b021-75e102d388fa</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>

@@ -699,6 +699,7 @@
     <Compile Include="Infrastructure\MultuCultureMvcRouteHandler.cs" />
     <Compile Include="Lib\SiteContextService.cs" />
     <Compile Include="Models\Contact\ContactViewModel.cs" />
+    <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\IViewModel.cs" />
     <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -716,6 +717,8 @@
     <Content Include="Views\Contact\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CMSResources\CMS.resx" />
+    <EmbeddedResource Include="CMSResources\Hotfix.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kentico\Kentico.csproj">

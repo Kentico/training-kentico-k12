@@ -2,11 +2,11 @@
 <cms.attachment>
   <AttachmentDocumentID>
     <CodeName>en-US</CodeName>
-    <GUID>fb595bcd-a873-4272-98c2-5da4c9bf2a57</GUID>
+    <GUID>743cf91c-004c-4506-81b3-c347f81ae88f</GUID>
     <ObjectType>cms.documentlocalization</ObjectType>
     <Parent>
-      <CodeName>/Home/Medcial-consultancy</CodeName>
-      <GUID>48378b21-7d00-4ddb-b9ac-21060969cdcb</GUID>
+      <CodeName>/Home/Medical-Consultancy</CodeName>
+      <GUID>0dcb9d4f-29e0-479c-b082-b94a6afdf2e2</GUID>
       <ObjectType>cms.node</ObjectType>
       <Site>
         <CodeName>MedioClinic</CodeName>
@@ -16,7 +16,7 @@
     </Parent>
   </AttachmentDocumentID>
   <AttachmentExtension>.png</AttachmentExtension>
-  <AttachmentGUID>1815ea55-f00a-43ee-bcd3-4c33160e29f5</AttachmentGUID>
+  <AttachmentGUID>dc41bdbd-6cc7-41ae-a538-195b5a3eeaba</AttachmentGUID>
   <AttachmentImageHeight>95</AttachmentImageHeight>
   <AttachmentImageWidth>104</AttachmentImageWidth>
   <AttachmentMimeType>image/png</AttachmentMimeType>

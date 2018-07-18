@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.classsite>
   <Parent>
-    <CodeName>Training.ServicesSection</CodeName>
-    <GUID>945d8c56-30c6-4796-93f9-208cc6fd5a88</GUID>
+    <CodeName>Training.CompanyService</CodeName>
+    <GUID>5817112c-6940-4aa1-984b-d1f48cc6b421</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </Parent>
   <Bindings>

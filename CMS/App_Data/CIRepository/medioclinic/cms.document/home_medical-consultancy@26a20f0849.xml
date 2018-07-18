@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Home/Medcial-consultancy -->
+<!-- This is a CI serialization file for /Home/Medical-Consultancy -->
 <cms.node>
   <NodeACLID>
     <GUID>0072d163-58b7-495f-bbcd-1f15eaadf7e3</GUID>
@@ -10,18 +10,18 @@
       <ObjectType>cms.site</ObjectType>
     </Site>
   </NodeACLID>
-  <NodeAlias>Medcial-consultancy</NodeAlias>
+  <NodeAlias>Medical-Consultancy</NodeAlias>
   <NodeClassID>
-    <CodeName>Training.ServicesSection</CodeName>
-    <GUID>945d8c56-30c6-4796-93f9-208cc6fd5a88</GUID>
+    <CodeName>Training.CompanyService</CodeName>
+    <GUID>5817112c-6940-4aa1-984b-d1f48cc6b421</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </NodeClassID>
-  <NodeGUID>48378b21-7d00-4ddb-b9ac-21060969cdcb</NodeGUID>
+  <NodeGUID>0dcb9d4f-29e0-479c-b082-b94a6afdf2e2</NodeGUID>
   <NodeInheritPageLevels>/</NodeInheritPageLevels>
   <NodeInheritPageTemplate>False</NodeInheritPageTemplate>
   <NodeIsACLOwner>False</NodeIsACLOwner>
   <NodeIsContentOnly>True</NodeIsContentOnly>
-  <NodeName>Medical consultancy</NodeName>
+  <NodeName>Medical Consultancy</NodeName>
   <NodeOrder>3</NodeOrder>
   <NodeOwner>
     <CodeName>administrator</CodeName>

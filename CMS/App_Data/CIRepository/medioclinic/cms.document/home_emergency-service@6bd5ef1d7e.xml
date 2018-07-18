@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Home/Emergency-services -->
+<!-- This is a CI serialization file for /Home/Emergency-Service -->
 <cms.node>
   <NodeACLID>
     <GUID>0072d163-58b7-495f-bbcd-1f15eaadf7e3</GUID>
@@ -10,19 +10,19 @@
       <ObjectType>cms.site</ObjectType>
     </Site>
   </NodeACLID>
-  <NodeAlias>Emergency-services</NodeAlias>
+  <NodeAlias>Emergency-Service</NodeAlias>
   <NodeClassID>
-    <CodeName>Training.ServicesSection</CodeName>
-    <GUID>945d8c56-30c6-4796-93f9-208cc6fd5a88</GUID>
+    <CodeName>Training.CompanyService</CodeName>
+    <GUID>5817112c-6940-4aa1-984b-d1f48cc6b421</GUID>
     <ObjectType>cms.documenttype</ObjectType>
   </NodeClassID>
-  <NodeGUID>da94cfeb-bb76-48fc-973f-9f8ccda20bbc</NodeGUID>
+  <NodeGUID>410363c2-d1ff-460e-abc9-630816ff2a2e</NodeGUID>
   <NodeInheritPageLevels>/</NodeInheritPageLevels>
   <NodeInheritPageTemplate>False</NodeInheritPageTemplate>
   <NodeIsACLOwner>False</NodeIsACLOwner>
   <NodeIsContentOnly>True</NodeIsContentOnly>
-  <NodeName>Emergency services</NodeName>
-  <NodeOrder>1</NodeOrder>
+  <NodeName>Emergency Service</NodeName>
+  <NodeOrder>2</NodeOrder>
   <NodeOwner>
     <CodeName>administrator</CodeName>
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
