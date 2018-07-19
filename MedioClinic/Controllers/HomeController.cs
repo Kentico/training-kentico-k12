@@ -24,6 +24,11 @@ namespace MedioClinic.Controllers
         {
             var homeSection = HomeSectionRepository.GetHomeSection();
 
+            if (homeSection == null)
+            {
+                return HttpNotFound();
+            }
+
             var model = GetPageViewModel(new HomeViewModel()
             {
                 CompanyServices = CompanyServiceRepository.GetCompanyServices(),
