@@ -1,5 +1,6 @@
-﻿using Kentico.Repository.Clinic;
+﻿using Kentico.Repository.Company;
 using Kentico.Repository.Menu;
+using Kentico.Repository.Social;
 using Kentico.Services.Context;
 using Kentico.Services.Culture;
 
@@ -8,20 +9,24 @@ namespace Kentico.DI
     public class BusinessDependencies : IBusinessDependencies
     {
         public IMenuRepository MenuRepository { get; }
-        public IClinicRepository ClinicRepository { get; }
+        public ICompanyRepository CompanyRepository { get; }
         public ICultureService CultureRepository { get; }
         public ISiteContextService SiteContextService { get; }
+        public ISocialLinkRepository SocialLinkRepository { get; }
 
         public BusinessDependencies(
             IMenuRepository menuRepository,
-            IClinicRepository clinicRepository,
+            ICompanyRepository companyRepository,
             ICultureService cultureRepository,
-            ISiteContextService siteContextService)
+            ISiteContextService siteContextService,
+            ISocialLinkRepository socialLinkRepository
+            )
         {
             MenuRepository = menuRepository;
-            ClinicRepository = clinicRepository;
+            CompanyRepository = companyRepository;
             CultureRepository = cultureRepository;
             SiteContextService = siteContextService;
+            SocialLinkRepository = socialLinkRepository;
         }
     }
 }

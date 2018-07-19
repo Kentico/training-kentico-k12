@@ -4,7 +4,7 @@
     <div class="container">
         <!-- Doctors header section-->
         <div class="row">
-            <h1 class="header col s12">Our doctors</h1>
+            <h1 class="header col s12">@(Model.Data.DoctorSection?.Header)</h1>
         </div>
     </div>
 </div>
@@ -22,7 +22,7 @@
                                 <img src="@Url.Kentico().ImageUrl(doctor.ImagePath, SizeConstraint.Empty)" alt="@doctor.FullName">
                             </div>
                             <div class="card-title">
-                                <a href="@Url.Action("Detail", "Doctors", new { nodeId = doctor.NodeId, nodeAlias = doctor.NodeAlias })" target="_blank">@doctor.FullName, @doctor.Degree</a>
+                                <a href="@Url.Action("Detail", "Doctors", new { nodeId = doctor.NodeId, nodeAlias = doctor.NodeAlias })">@doctor.FullName, @doctor.Degree</a>
                             </div>
                             <div class="card-content">
                                 <p>

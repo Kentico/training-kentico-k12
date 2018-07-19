@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Kentico.Dto.CompanyService;
+using Kentico.Dto.Company;
 using Kentico.Dto.Sections;
 
 namespace MedioClinic.Models.Home

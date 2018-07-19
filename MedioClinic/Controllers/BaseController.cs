@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using Kentico.DI;
+using Kentico.Dto.Company;
 using Kentico.Dto.Menu;
 using Kentico.Dto.Page;
+using Kentico.Dto.Social;
 using MedioClinic.Models;
 
 namespace MedioClinic.Controllers
@@ -21,8 +23,9 @@ namespace MedioClinic.Controllers
             {
                 MenuItems = Dependencies.MenuRepository.GetMenuItems() ?? new List<MenuItemDto>(),
                 Metadata = GetPageMetadata(title),
-                Footer = GetFooter(),
+                Company = GetCompany(),
                 Cultures = Dependencies.CultureRepository.GetSiteCultures(),
+                SocialLinks = GetSocialLinks(),
             };
         }
 
@@ -32,12 +35,17 @@ namespace MedioClinic.Controllers
             {
                 MenuItems = Dependencies.MenuRepository.GetMenuItems() ?? new List<MenuItemDto>(),
                 Metadata = GetPageMetadata(title),
-                Footer = GetFooter(),
+                Company = GetCompany(),
                 Cultures = Dependencies.CultureRepository.GetSiteCultures(),
+                SocialLinks = GetSocialLinks(),
                 Data = data
             };
         }
 
+        private IEnumerable<SocialLinkDto> GetSocialLinks()
+        {
+            return Dependencies.SocialLinkRepository.GetSocialLinks();
+        }
 
         private PageMetadataDto GetPageMetadata(string title)
         {
@@ -48,21 +56,9 @@ namespace MedioClinic.Controllers
             };
         }
 
-        private PageFooterDto GetFooter()
+        private CompanyDto GetCompany()
         {
-            var clinic = Dependencies.ClinicRepository.GetClinic();
-
-            if (clinic == null)
-            {
-                return null;
-            }
-            return new PageFooterDto()
-            {
-                Email = clinic.Email,
-                PhoneNumber = clinic.PhoneNumber,
-                CompanyName = clinic.Name,
-                FullAddress = $"{clinic.Street}, {clinic.City}, {clinic.Country}"
-            };
+            return Dependencies.CompanyRepository.GetCompany();
         }
     }
 }

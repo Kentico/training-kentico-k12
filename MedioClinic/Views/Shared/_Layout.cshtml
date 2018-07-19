@@ -96,16 +96,16 @@
         <div class="container">
             <div class="row">
                 <div class="col l4 s12">
-                    @if (Model.Footer != null)
+                    @if (Model.Company != null)
                     {
                         <h5 class="white-text">Contact</h5>
                         <div class="grey-text text-lighten-4">
                             <p class="kn-smaller kn-address">
                                 <address>
-                                    <strong>@Model.Footer.CompanyName</strong>
-                                    <br> @Model.Footer.PhoneNumber
-                                    <br> @Model.Footer.Email
-                                    <br> @Model.Footer.FullAddress
+                                    <strong>@Model.Company.Name</strong>
+                                    <br> @Model.Company.PhoneNumber
+                                    <br> @Model.Company.Email
+                                    <br> @Model.Company.ShortAddress
                                 </address>
                             </p>
                         </div>
@@ -114,12 +114,12 @@
                 <div class="col l4 s12">
                     <h5 class="white-text">Follow Us</h5>
                     <div class="kn-social">
-                        <a href="http://www.facebook.com/KenticoCMS" title="Follow us on Facebook">
-                            <img alt="" src="~/Content/images/facebook.png">
-                        </a>
-                        <a href="https://twitter.com/Kentico" title="Follow us on Twitter">
-                            <img alt="" src="~/Content/images/twitter.png">
-                        </a>
+                        @foreach (var socialLink in Model.SocialLinks)
+                        {
+                            <a href="@socialLink.Url" title="Follow us on @socialLink.Title">
+                                <img alt="@socialLink.Title" src="@Url.Kentico().ImageUrl(socialLink.IconPath, SizeConstraint.Empty)">
+                            </a>
+                        }
                     </div>
                 </div>
                 <div class="col l4 s12">

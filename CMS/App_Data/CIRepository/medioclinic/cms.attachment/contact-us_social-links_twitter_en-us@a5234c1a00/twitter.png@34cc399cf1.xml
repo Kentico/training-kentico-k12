@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.attachment>
+  <AttachmentDocumentID>
+    <CodeName>en-US</CodeName>
+    <GUID>d43c69d3-ebaa-49eb-b67f-2a2b48f3ce71</GUID>
+    <ObjectType>cms.documentlocalization</ObjectType>
+    <Parent>
+      <CodeName>/Contact-us/Social-links/Twitter</CodeName>
+      <GUID>6d4b0046-42f7-4126-b92f-d690fc37e8bb</GUID>
+      <ObjectType>cms.node</ObjectType>
+      <Site>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </Site>
+    </Parent>
+  </AttachmentDocumentID>
+  <AttachmentExtension>.png</AttachmentExtension>
+  <AttachmentGUID>0a28c319-af4b-4a34-957c-d8676f141cf4</AttachmentGUID>
+  <AttachmentImageHeight>45</AttachmentImageHeight>
+  <AttachmentImageWidth>45</AttachmentImageWidth>
+  <AttachmentMimeType>image/png</AttachmentMimeType>
+  <AttachmentName>twitter.png</AttachmentName>
+  <AttachmentSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </AttachmentSiteID>
+  <AttachmentSize>1616</AttachmentSize>
+</cms.attachment>

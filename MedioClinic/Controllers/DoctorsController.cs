@@ -8,21 +8,31 @@ namespace MedioClinic.Controllers
     public class DoctorsController : BaseController
     {
         private IDoctorsRepository DoctorsRepository { get; }
+        private IDoctorSectionRepository DoctorSectionRepository { get; }
 
         public DoctorsController(
             IBusinessDependencies dependencies,
-            IDoctorsRepository doctorsRepository
+            IDoctorsRepository doctorsRepository,
+            IDoctorSectionRepository doctorSectionRepository
             ) : base(dependencies)
         {
             DoctorsRepository = doctorsRepository;
+            DoctorSectionRepository = doctorSectionRepository;
         }
 
         public ActionResult Index()
         {
+            var doctorsSection = DoctorSectionRepository.GetDoctorSection();
+
+            if (doctorsSection == null)
+            {
+                return HttpNotFound();
+            }
+
             var model = GetPageViewModel(new DoctorsViewModel()
             {
                 Doctors = DoctorsRepository.GetDoctors()
-            },"Doctors");
+            }, doctorsSection.Header);
 
             return View(model);
         }

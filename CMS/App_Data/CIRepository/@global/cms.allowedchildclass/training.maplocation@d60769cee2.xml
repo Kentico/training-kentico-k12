@@ -6,10 +6,10 @@
     <ObjectType>cms.documenttype</ObjectType>
   </Parent>
   <Bindings>
-    <Binding id="cms.documenttype_Training.MapLocationSection">
+    <Binding id="cms.documenttype_Training.OfficeLocationFolder">
       <ParentClassID>
-        <CodeName>Training.MapLocationSection</CodeName>
-        <GUID>99971c0e-0450-4a38-8831-a9a965f010d6</GUID>
+        <CodeName>Training.OfficeLocationFolder</CodeName>
+        <GUID>90a80de7-5e0b-40ed-981f-3b9f18419b98</GUID>
         <ObjectType>cms.documenttype</ObjectType>
       </ParentClassID>
     </Binding>

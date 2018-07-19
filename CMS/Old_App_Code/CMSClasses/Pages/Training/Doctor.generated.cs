@@ -169,11 +169,11 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Emergency shift.
 		/// </summary>
 		[DatabaseField]
-		public string DoctorEmergencyShift
+		public int DoctorEmergencyShift
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("DoctorEmergencyShift"), @"");
+				return ValidationHelper.GetInteger(GetValue("DoctorEmergencyShift"), 0);
 			}
 			set
 			{
@@ -328,7 +328,7 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Emergency shift.
 			/// </summary>
-			public string EmergencyShift
+			public int EmergencyShift
 			{
 				get
 				{

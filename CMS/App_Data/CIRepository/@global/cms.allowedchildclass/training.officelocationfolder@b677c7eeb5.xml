@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.allowedchildclass>
+  <Parent>
+    <CodeName>Training.OfficeLocationFolder</CodeName>
+    <GUID>90a80de7-5e0b-40ed-981f-3b9f18419b98</GUID>
+    <ObjectType>cms.documenttype</ObjectType>
+  </Parent>
+  <Bindings>
+    <Binding id="cms.documenttype_Training.ContactSection">
+      <ParentClassID>
+        <CodeName>Training.ContactSection</CodeName>
+        <GUID>133783ef-6a86-43d1-b519-ffb7526ba272</GUID>
+        <ObjectType>cms.documenttype</ObjectType>
+      </ParentClassID>
+    </Binding>
+  </Bindings>
+</cms.allowedchildclass>

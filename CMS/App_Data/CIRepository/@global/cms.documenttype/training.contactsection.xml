@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.documenttype>
+  <ClassCodeGenerationSettings>
+    <Data>
+      <NameSpace>Training</NameSpace>
+    </Data>
+  </ClassCodeGenerationSettings>
+  <ClassDisplayName>Contact section</ClassDisplayName>
+  <ClassFormDefinition>
+    <form version="2">
+      <field column="ContactSectionID" columntype="integer" guid="a6dd439e-b277-49a2-840b-fce24566d543" isPK="true" publicfield="false">
+        <properties>
+          <fieldcaption>ContactSectionID</fieldcaption>
+        </properties>
+        <settings>
+          <controlname>labelcontrol</controlname>
+        </settings>
+      </field>
+      <field column="Header" columnsize="200" columntype="text" guid="e07001eb-cece-4fbf-85b5-504131363440" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Header</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="Subheader" columnsize="200" columntype="text" guid="e52f2dfe-e299-4804-810c-1b3aecf93b14" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Subheader</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextBoxControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Trim>False</Trim>
+        </settings>
+      </field>
+      <field column="Text" columntype="longtext" guid="8c6b82fc-5946-487d-bfc8-16d0fe54741b" publicfield="false" visible="true">
+        <properties>
+          <fieldcaption>Text</fieldcaption>
+        </properties>
+        <settings>
+          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
+          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
+          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
+          <controlname>TextAreaControl</controlname>
+          <FilterMode>False</FilterMode>
+          <Wrap>True</Wrap>
+        </settings>
+      </field>
+    </form>
+  </ClassFormDefinition>
+  <ClassGUID>133783ef-6a86-43d1-b519-ffb7526ba272</ClassGUID>
+  <ClassIconClass>icon-id-card</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
+  <ClassIsContentOnly>True</ClassIsContentOnly>
+  <ClassIsCoupledClass>True</ClassIsCoupledClass>
+  <ClassIsCustomTable>False</ClassIsCustomTable>
+  <ClassIsDocumentType>True</ClassIsDocumentType>
+  <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassName>Training.ContactSection</ClassName>
+  <ClassNodeNameSource>Header</ClassNodeNameSource>
+  <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
+  <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
+  <ClassSearchEnabled>True</ClassSearchEnabled>
+  <ClassSearchSettings>
+    <search>
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="0037b7b0-43ca-4542-b228-51e23a689c86" name="Subheader" searchable="False" tokenized="True" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="9de48469-0670-4705-b64d-31ce63c53a5b" name="Text" searchable="False" tokenized="True" />
+      <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="d84bd280-a021-4b3a-a71b-29b169d52c22" name="ContactSectionID" searchable="True" tokenized="False" />
+      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="f3a1f72a-b879-4ad1-8de0-9bd07a5cc786" name="Header" searchable="False" tokenized="True" />
+    </search>
+  </ClassSearchSettings>
+  <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
+  <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
+  <ClassTableName>Training_ContactSection</ClassTableName>
+  <ClassURLPattern>/{% DocumentCulture %}/Contact</ClassURLPattern>
+  <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
+  <ClassUsesVersioning>False</ClassUsesVersioning>
+</cms.documenttype>

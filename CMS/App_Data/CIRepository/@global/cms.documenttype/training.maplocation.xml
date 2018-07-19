@@ -16,9 +16,10 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="MapLocationStreet" columnsize="200" columntype="text" guid="4567ac0d-9552-4aa6-ae73-c02a83da0bd3" publicfield="false" visible="true">
+      <field column="Latitude" columntype="double" guid="4567ac0d-9552-4aa6-ae73-c02a83da0bd3" publicfield="false" visible="true">
         <properties>
-          <fieldcaption>Street</fieldcaption>
+          <defaultvalue>0</defaultvalue>
+          <fieldcaption>Latitude</fieldcaption>
         </properties>
         <settings>
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
@@ -29,9 +30,10 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="MapLocationCity" columnsize="200" columntype="text" guid="f57e2d22-72a5-47e6-8288-d52540c89ea0" publicfield="false" visible="true">
+      <field column="Longitude" columntype="double" guid="f57e2d22-72a5-47e6-8288-d52540c89ea0" publicfield="false" visible="true">
         <properties>
-          <fieldcaption>City</fieldcaption>
+          <defaultvalue>0</defaultvalue>
+          <fieldcaption>Longitude</fieldcaption>
         </properties>
         <settings>
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
@@ -42,19 +44,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="MapLocationCountry" columnsize="200" columntype="text" guid="9003e0eb-982c-41b7-911e-bbfbde33207b" publicfield="false" visible="true">
-        <properties>
-          <fieldcaption>Country</fieldcaption>
-        </properties>
-        <settings>
-          <AddAllItemsRecord>False</AddAllItemsRecord>
-          <AddNoneRecord>False</AddNoneRecord>
-          <AddSelectCountryRecord>True</AddSelectCountryRecord>
-          <controlname>countrySelector</controlname>
-          <EnableStateSelection>True</EnableStateSelection>
-        </settings>
-      </field>
-      <field column="MapLocationTooltipText" columnsize="300" columntype="text" guid="7e315020-1277-444f-8af8-d19724cab2a9" publicfield="false" visible="true">
+      <field column="Tooltip" columnsize="300" columntype="text" guid="7e315020-1277-444f-8af8-d19724cab2a9" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Tooltip text</fieldcaption>
         </properties>
@@ -80,17 +70,13 @@
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.MapLocation</ClassName>
   <ClassNodeAliasSource />
-  <ClassNodeNameSource>MapLocationCity</ClassNodeNameSource>
+  <ClassNodeNameSource />
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="547c5d01-b61f-41d5-9b1f-e31f0d4053d8" name="MapLocationStreet" searchable="False" tokenized="True" />
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="983f6344-017b-478d-9621-8b807e167e05" name="MapLocationID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="a6d72343-66f1-4f76-914a-a32cf7058f39" name="MapLocationTooltipText" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="b4284f50-0bf4-4f57-9445-420d7a92c7a0" name="MapLocationCountry" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="f9bcc9e2-efd4-4b9a-88f6-710a280bb8d5" name="MapLocationCity" searchable="False" tokenized="True" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

@@ -6,10 +6,10 @@
     <ObjectType>cms.documenttype</ObjectType>
   </Parent>
   <Bindings>
-    <Binding id="cms.documenttype_Training.MedioClinicSection">
+    <Binding id="cms.documenttype_Training.SocialLinksFolder">
       <ParentClassID>
-        <CodeName>Training.MedioClinicSection</CodeName>
-        <GUID>73b19814-702e-40b1-91fb-2f412af3f3da</GUID>
+        <CodeName>Training.SocialLinksFolder</CodeName>
+        <GUID>6296d67c-26ca-48d7-a324-b321f6de7301</GUID>
         <ObjectType>cms.documenttype</ObjectType>
       </ParentClassID>
     </Binding>

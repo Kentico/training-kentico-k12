@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 using Kentico.DI;
-using Kentico.Repository.CompanyService;
+using Kentico.Repository.Company;
 using Kentico.Repository.Home;
 using MedioClinic.Models.Home;
 
@@ -22,11 +22,13 @@ namespace MedioClinic.Controllers
 
         public ActionResult Index()
         {
+            var homeSection = HomeSectionRepository.GetHomeSection();
+
             var model = GetPageViewModel(new HomeViewModel()
             {
                 CompanyServices = CompanyServiceRepository.GetCompanyServices(),
-                HomeSection = HomeSectionRepository.GetHomeSection()
-            }, "Home");
+                HomeSection = homeSection
+            }, homeSection.Title);
 
             return View(model);
         }

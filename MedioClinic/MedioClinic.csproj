@@ -669,20 +669,18 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Css\icon.css" />
-    <Content Include="Content\Css\materialize.min.css" />
-    <Content Include="Content\Css\style.css" />
+    <Content Include="Content\Css\Master\icon.css" />
+    <Content Include="Content\Css\Master\materialize.min.css" />
+    <Content Include="Content\Css\Master\style.css" />
     <Content Include="Content\Images\facebook.png" />
     <Content Include="Content\Images\Logo\favicon.png" />
     <Content Include="Content\Images\Logo\Logoic.png" />
     <Content Include="Content\Images\Logo\logoicon.svg" />
     <Content Include="Content\Images\Logo\mcfavicon.ico" />
     <Content Include="Content\Images\twitter.png" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Master\jquery-2.1.1.min.js" />
     <Content Include="Scripts\Master\main.js" />
-    <Content Include="Scripts\map.js" />
     <Content Include="Scripts\Master\materialize.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -709,9 +707,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />

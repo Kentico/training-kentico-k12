@@ -11,7 +11,7 @@ namespace MedioClinic
             );
 
             bundles.Add(new StyleBundle("~/bundles/master-css")
-                .IncludeDirectory("~/Content/Css", "*.css", true)
+                .IncludeDirectory("~/Content/Css/Master", "*.css", true)
             );
 
             // Enables minification
