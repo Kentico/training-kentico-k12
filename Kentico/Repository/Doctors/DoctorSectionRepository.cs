@@ -17,7 +17,7 @@ namespace Kentico.Repository.Doctors
         public DoctorSectionDto GetDoctorSection()
         {
             return DocumentQueryService.GetDocuments<DoctorSection>()
-                .Columns("DoctorSectionName")
+                .AddColumns("DoctorSectionName")
                 .TopN(1)
                 .ToList()
                 .Select(m => new DoctorSectionDto()

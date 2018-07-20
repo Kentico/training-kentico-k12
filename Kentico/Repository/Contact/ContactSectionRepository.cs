@@ -16,7 +16,7 @@ namespace Kentico.Repository.Contact
         {
             return DocumentQueryService.GetDocuments<ContactSection>()
                 .TopN(1)
-                .Columns("Header", "Subheader", "Text")
+                .AddColumns("Header", "Subheader", "Text")
                 .ToList()
                 .Select(m => new ContactSectionDto()
                 {

@@ -37,7 +37,7 @@ namespace Kentico.Repository.Doctors
         public IEnumerable<DoctorDto> GetDoctors()
         {
             return DocumentQueryService.GetDocuments<Doctor>()
-                .Columns(_doctorColumns)
+                .AddColumns(_doctorColumns)
                 .ToList()
                 .Select(DoctorDtoSelect);
         }
@@ -45,7 +45,7 @@ namespace Kentico.Repository.Doctors
         public DoctorDto GetDoctor(int nodeId)
         {
             return DocumentQueryService.GetDocument<Doctor>(nodeId)
-                .Columns(_doctorColumns)
+                .AddColumns(_doctorColumns)
                 .Select(DoctorDtoSelect)
                 .FirstOrDefault();
         }

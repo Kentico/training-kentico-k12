@@ -15,7 +15,7 @@ namespace Kentico.Repository.Company
         public IEnumerable<CompanyServiceDto> GetCompanyServices()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.CompanyService>()
-                .Columns("CompanySectionHeader", "CompanySectionText", "CompanySectionIcon", "DocumentID")
+                .AddColumns("CompanySectionHeader", "CompanySectionText", "CompanySectionIcon", "DocumentID")
                 .OrderByAscending("NodeOrder")
                 .ToList()
                 .Select(m => new CompanyServiceDto()

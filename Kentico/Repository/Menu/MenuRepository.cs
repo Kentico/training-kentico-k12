@@ -20,7 +20,7 @@ namespace Kentico.Repository.Menu
         {
             return DocumentQueryService.GetDocuments<MenuContainerItem>()
                 .Path("/Menu-items", PathTypeEnum.Children)
-                .Columns("Caption", "Controller", "Action")
+                .AddColumns("Caption", "Controller", "Action")
                 .OrderByAscending("NodeOrder")
                 .Select(m => new MenuItemDto()
                 {

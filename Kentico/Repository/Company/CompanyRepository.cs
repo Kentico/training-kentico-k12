@@ -13,7 +13,7 @@ namespace Kentico.Repository.Company
         public CompanyDto GetCompany()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.Company>()
-                .Columns("CompanyName", "Street", "City", "Country",
+                .AddColumns("CompanyName", "Street", "City", "Country",
             "ZipCode", "PhoneNumber", "Email", "DocumentID")
                 .TopN(1)
                 .ToList()

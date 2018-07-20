@@ -15,7 +15,7 @@ namespace Kentico.Repository.Social
         public IEnumerable<SocialLinkDto> GetSocialLinks()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.SocialLink>()
-                .Columns("SocialLinkTitle", "SocialLinkUrl", "SocialLinkIcon", "DocumentID")
+                .AddColumns("SocialLinkTitle", "SocialLinkUrl", "SocialLinkIcon", "DocumentID")
                 .OrderByAscending("NodeOrder")
                 .ToList()
                 .Select(m => new SocialLinkDto()

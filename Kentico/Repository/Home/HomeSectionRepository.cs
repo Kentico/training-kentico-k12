@@ -15,7 +15,7 @@ namespace Kentico.Repository.Home
         public HomeSectionDto GetHomeSection()
         {
             return DocumentQueryService.GetDocuments<HomeSection>()
-                .Columns("HomeHeader", "HomeText", "HomeButton")
+                .AddColumns("HomeHeader", "HomeText", "HomeButton")
                 .TopN(1)
                 .ToList()
                 .Select(m => new HomeSectionDto()

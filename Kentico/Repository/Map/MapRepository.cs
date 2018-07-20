@@ -14,7 +14,7 @@ namespace Kentico.Repository.Map
         public IEnumerable<MapLocationDto> GetOfficeLocations()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.MapLocation>()
-                .Columns("Longitude", "Latitude", "Tooltip")
+                .AddColumns("Longitude", "Latitude", "Tooltip")
                 .OrderByAscending("NodeOrder")
                 .ToList()
                 .Select(m => new MapLocationDto()

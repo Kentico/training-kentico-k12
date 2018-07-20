@@ -27,10 +27,16 @@ namespace Kentico.Services.Query
             // Load latest version of documents as preview mode is enabled
             if (SiteContext.IsPreviewEnabled)
             {
-                query = query.LatestVersion(true).Published(false).Culture(SiteContext.PreviewCulture);
+                query = query
+                    .AddColumns("NodeSiteID") // required for preview mode in Admin UI
+                    .LatestVersion(true)
+                    .Published(false)
+                    .Culture(SiteContext.PreviewCulture);
             } else
             {
-                query = query.PublishedVersion(true).Culture(SiteContext.CurrentSiteCulture);
+                query = query
+                    .PublishedVersion(true)
+                    .Culture(SiteContext.CurrentSiteCulture);
             }
 
             return query;
