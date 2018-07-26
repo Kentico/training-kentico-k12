@@ -12,13 +12,17 @@
 
  html {
   line-height: 1.5;
-  font-family: -apple-system, 'Source Sans Pro', BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, Roboto, BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   font-weight: normal;
   color: #455A64;
 }
 
 body {
   overflow:scroll;
+}
+
+a {
+    color:#c62828;
 }
 
 nav a {
@@ -32,12 +36,9 @@ nav, nav .nav-wrapper i, nav a.sidenav-trigger, nav a.sidenav-trigger i {
 nav .brand-logo {
   font-size: 1.2rem;
   letter-spacing: 0.05em;
-  padding: 0;
   font-variant-caps: all-small-caps;
-  font-stretch: condensed;
   color: #90A4AE; 
 }
-
 
 nav ul a {
   -webkit-transition: background-color .3s;
@@ -97,43 +98,21 @@ h5 {
 }
 
 .card-title {
-  margin-left: 24px;
-  margin-top: 10px;
-  margin-bottom: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 350px;
 }
 
 .card .card-content {
-  padding-top:0px;
-  padding-bottom:10px;
-  padding-left:24px;
+    padding: 10px;
+    margin: 10px;
 }
 
 .card.large .card-content {
   max-height:60%;
   padding-bottom: 10px;
   padding-top:10px;
-}
-
-.btn-flat {
-  border: none;
-  border-radius: 0px;
-  display: inline-block;
-  height: 56px;
-  line-height: 30px;
-  padding: 18px 0px 0px 0px;
-  text-transform: uppercase;
-  vertical-align: middle;
-  -webkit-tap-highlight-color: transparent;
-}
-/* 
-.btn-flat.selected {
-   border-bottom: 1px solid #C62828;
-   font-weight: bold;
-} */
-
-.kn-current {
-  border-bottom: 1px solid  #C62828;
-  font-weight: bold;
 }
 
 
@@ -180,14 +159,29 @@ h5 {
   font-weight: lighter; 
 }
 
+.kn-margin-m {
+    margin: 10px;
+}
+.kn-padding-m {
+    padding:10px;
+}
+
+.kn-padding-no-left-s {
+    padding: 2px 2px 2px 0px;
+}
+
+.kn-margin-no-left-s {
+    margin: 5px 5px 5px 0px;
+}
+
+
 .icon-block .material-icons {
 	font-size: inherit;
 }
 
 .kn-logo {
   height:45px;
-  vertical-align: middle;
-  margin:5px;
+  margin:10px;
   float:left;
 }
 
@@ -208,17 +202,49 @@ h5 {
   font-style: normal !important;
 }
 
+@supports (webkit-line-clamp: 3) {
+    .kn-doctor-card-content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 2;
+        margin-bottom: 15px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+        .kn-doctor-card-content:after {
+            display: none;
+        }
+}
+
+.kn-doctor-card-content {
+    position: relative;
+    height: 5em;
+    overflow: hidden;
+}
+
+    .kn-doctor-card-content:after {
+        content: "";
+        text-align: right;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: 1em;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 90%);
+    }
+
 .kn-address.heading {
   font-size: 1.2rem;
 }
 
-.kn-doctor-badges {
+.kn-badges {
   max-height:20%;
-  padding:0px 0px 10px 24px;
   overflow:hidden;
 }
 
-.kn-doctor-badge {
+.kn-badge {
   min-width: 3rem;
   padding: 0 6px;
   text-align: center;
@@ -232,14 +258,13 @@ h5 {
           box-sizing: border-box;
 }
 
-span.kn-doctor-badge.opened {
+span.kn-badge.opened {
   background-color: #398BCB;
 }
 
-  span.kn-doctor-badge.closed {
+  span.kn-badge.closed {
   background-color: #CFD8DC;
 }
-
 
 .kn-icons {
   width: 50px;
@@ -261,10 +286,6 @@ span.kn-doctor-badge.opened {
   padding: 20px;
 }
 
-/* .contact-us-box .contact-box-header {
-  max-height: 15%;
-} */
-
 .kn-contact-us-box .kn-contact-box-header h5 {
   font-size: 1.6rem;
   font-weight: 300;
@@ -272,7 +293,6 @@ span.kn-doctor-badge.opened {
 }
 
 .kn-contact-us-box .kn-contact-content {
-  /* max-height:60%; */
   color:#fff;
 }
 
@@ -341,10 +361,129 @@ padding:25px 0;
 }
 
 .kn-map {
-  height:400px;
+  height:500px;
 }
 
-/* KENTICO articleS STYLES */
+
+/* KENTICO Medical centers styles */
+
+.kn-medcenter {
+    position: relative;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+    .kn-medcenter .kn-medcenter-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .kn-medcenter a {
+        text-decoration: underline;
+    }
+
+    .kn-medcenter .kn-medcenter-title.activator {
+        cursor: pointer;
+    }
+
+    .kn-medcenter.small .kn-medcenter-image, .kn-medcenter.medium .kn-medcenter-image, .kn-medcenter.large .kn-medcenter-image {
+        max-height: 60%;
+        overflow: hidden;
+    }
+
+    .kn-medcenter.small .kn-medcenter-image, .kn-medcenter.medium .kn-medcenter-image, .kn-medcenter.large .kn-medcenter-image {
+        max-height: 60%;
+        overflow: hidden;
+    }
+
+        .kn-medcenter.small .kn-medcenter-image + .kn-medcenter-content, .kn-medcenter.medium .kn-medcenter-image + .kn-medcenter-content, .kn-medcenter.large .kn-medcenter-image + .kn-medcenter-content {
+            max-height: 40%;
+        }
+
+    .kn-medcenter.small .kn-medcenter-content, .kn-medcenter.medium .kn-medcenter-content, .kn-medcenter.large .kn-medcenter-content {
+        max-height: 100%;
+        overflow: hidden;
+    }
+
+    .kn-medcenter.small .kn-medcenter-action, .kn-medcenter.medium .kn-medcenter-action, .kn-medcenter.large .kn-medcenter-action {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .kn-medcenter.small {
+        height: 300px;
+    }
+
+    .kn-medcenter.medium {
+        height: 400px;
+    }
+
+    .kn-medcenter.large {
+        height: 500px;
+    }
+
+    .kn-medcenter .kn-medcenter-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+        color: #C62828;
+    }
+
+
+    .kn-medcenter .kn-medcenter-image {
+        position: relative;
+    }
+
+        .kn-medcenter .kn-medcenter-image img {
+            display: block;
+            border-radius: 2px 2px 0 0;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .kn-medcenter .kn-medcenter-image .kn-medcenter-title {
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            max-width: 100%;
+            padding: 24px;
+        }
+
+    .kn-medcenter .kn-medcenter-content {
+        padding: 24px;
+        border-radius: 0 0 2px 2px;
+    }
+
+        .kn-medcenter .kn-medcenter-content p {
+            margin: 0;
+        }
+
+        .kn-medcenter .kn-medcenter-content .kn-medcenter-title {
+            display: block;
+            line-height: 32px;
+            margin-bottom: 8px;
+        }
+
+            .kn-medcenter .kn-medcenter-content .kn-medcenter-title i {
+                line-height: 32px;
+            }
+
+    .kn-medcenter .kn-medcenter-action {
+        background-color: inherit;
+        border-top: 1px solid rgba(160, 160, 160, 0.2);
+        position: relative;
+        padding: 16px 24px;
+    }
+
+        .kn-medcenter .kn-medcenter-action:last-child {
+            border-radius: 0 0 2px 2px;
+        }
+
+/* KENTICO ARTICLES STYLES */
 .kn-article-panel {
   /* -webkit-transition: -webkit-box-shadow .25s;
   transition: -webkit-box-shadow .25s;

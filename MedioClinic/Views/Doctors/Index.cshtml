@@ -21,24 +21,24 @@
                             <div class="card-image">
                                 <img src="@Url.Kentico().ImageUrl(doctor.ImagePath, SizeConstraint.Empty)" alt="@doctor.FullName">
                             </div>
-                            <div class="card-title">
+                            <div class="card-title kn-margin-m kn-padding-m truncate">
                                 <a href="@Url.Action("Detail", "Doctors", new { nodeId = doctor.NodeId, nodeAlias = doctor.NodeAlias })">@doctor.FullName, @doctor.Degree</a>
                             </div>
-                            <div class="card-content">
+                            <div class="card-content kn-doctor-card-content">
                                 <p>
                                     @Html.Raw(doctor.Bio)
                                 </p>
                             </div>
-                            <div class="kn-doctor-badges">
+                            <div class="kn-badges kn-margin-m kn-padding-m">
                                 @if (doctor.HasShiftToday)
                                 {
-                                    <span class="kn-doctor-badge opened">
+                                    <span class="kn-badge opened">
                                         Open
                                     </span>
                                 }
                                 else
                                 {
-                                    <span class="kn-doctor-badge closed">Now closed</span>
+                                    <span class="kn-badge closed">Now closed</span>
                                 }
                             </div>
                             <div class="card-action">
