@@ -5,6 +5,9 @@
     <GUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a form that allows users to log into the website. Authentication requires a valid user name and password.]]>
   </WebPartDescription>

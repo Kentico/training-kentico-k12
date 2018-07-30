@@ -38,9 +38,9 @@
                                          new { culture = culture.CultureCode}
                                          )">
                                 @culture.CultureShortName
-                                    </a>
-                                </li>
-                            }
+                            </a>
+                        </li>
+                    }
                 </ul>
             }
             <ul class="right hide-on-med-and-down">
@@ -48,13 +48,13 @@
                 {
                     if (ViewContext.RouteData.Values["controller"]?.ToString().Equals(menuItem.Controller, StringComparison.OrdinalIgnoreCase) ?? false)
                     {
-                        <li class="btn-flat kn-current">
+                        <li>
                             <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
                         </li>
                     }
                     else
                     {
-                        <li class="btn-flat">
+                        <li>
                             <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
                         </li>
                     }
@@ -63,34 +63,34 @@
                 <li>
                     <a class="dropdown-trigger" href="#" data-target="langs">
                         @Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName
-                        <i class="fas fa-globe-africa"></i>
+                        <i class="fas fa-globe-africa right"></i>
                     </a>
                 </li>
             </ul>
+            <ul id="nav-mobile" class="sidenav">
+                @foreach (var menuItem in Model.MenuItems)
+                {
+                    if (ViewContext.RouteData.Values["controller"]?.ToString().Equals(menuItem.Controller, StringComparison.OrdinalIgnoreCase) ?? false)
+                    {
+                        <li>
+                            <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
+                        </li>
+                    }
+                }
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
         </div>
-        <ul id="nav-mobile" class="sidenav">
-            @foreach (var menuItem in Model.MenuItems)
-            {
-                if (ViewContext.RouteData.Values["controller"]?.ToString().Equals(menuItem.Controller, StringComparison.OrdinalIgnoreCase) ?? false)
-                {
-                    <li>
-                        <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
-                    </li>
-                }
-                else
-                {
-                    <li>
-                        <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
-                    </li>
-                }
-            }
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger">
-            <i class="material-icons">menu</i>
-        </a>
     </nav>
 
-    @RenderBody();
+    @RenderBody()
 
     <footer class="page-footer blue-grey darken-4">
         <div class="container">

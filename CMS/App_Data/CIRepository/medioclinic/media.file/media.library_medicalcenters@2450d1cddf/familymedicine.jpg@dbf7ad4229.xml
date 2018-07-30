@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<media.file>
+  <FileCreatedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </FileCreatedByUserID>
+  <FileCreatedWhen>2018-07-17 13:18:58Z</FileCreatedWhen>
+  <FileDescription />
+  <FileExtension>.jpg</FileExtension>
+  <FileGUID>0e1f1b21-af44-44bc-992c-a50f983ac0b2</FileGUID>
+  <FileImageHeight>1365</FileImageHeight>
+  <FileImageWidth>2048</FileImageWidth>
+  <FileLibraryID>
+    <CodeName>MedicalCenters</CodeName>
+    <GUID>cc4e04b6-c4ac-4327-8e9d-089871ad7b01</GUID>
+    <ObjectType>media.library</ObjectType>
+    <Site>
+      <CodeName>MedioClinic</CodeName>
+      <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+      <ObjectType>cms.site</ObjectType>
+    </Site>
+  </FileLibraryID>
+  <FileMimeType>image/jpeg</FileMimeType>
+  <FileModifiedByUserID>
+    <CodeName>administrator</CodeName>
+    <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
+    <ObjectType>cms.user</ObjectType>
+  </FileModifiedByUserID>
+  <FileName>familymedicine</FileName>
+  <FilePath>familymedicine.jpg</FilePath>
+  <FileSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </FileSiteID>
+  <FileSize>1082781</FileSize>
+  <FileTitle />
+</media.file>

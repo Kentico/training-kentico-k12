@@ -5,6 +5,9 @@
     <GUID>b67bb1a5-4c13-4d58-98a3-7eafec237d74</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDefaultValues>
     <form />
   </WebPartDefaultValues>

@@ -5,6 +5,9 @@
     <GUID>40b76ae1-211c-47f5-b282-60dffc30d58f</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Creates a data source containing media libraries that belong under a specified group. This data can then be provided to listing web parts (such as a Basic repeater) in order to be displayed.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>c4dcc9a6-220e-4efe-b264-288b53d08da6</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDefaultValues />
   <WebPartDescription>
     <![CDATA[This web part generates static text that displays the Powered by Kentico logo.]]>

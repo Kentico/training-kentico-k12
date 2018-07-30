@@ -5,6 +5,9 @@
     <GUID>b67bb1a5-4c13-4d58-98a3-7eafec237d74</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part is used to place custom developed filters onto your website and connect them to a datasource. The path to the user control implementing the filter must be specified.]]>
   </WebPartDescription>

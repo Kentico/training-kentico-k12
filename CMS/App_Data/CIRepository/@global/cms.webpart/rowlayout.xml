@@ -5,6 +5,9 @@
     <GUID>d5cb0ae0-d055-437e-829f-e2c09a7bdce3</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Provides a row layout for content. Each row defines a separate web part zone, so any type of content may be added.]]>
   </WebPartDescription>

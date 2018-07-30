@@ -11,6 +11,9 @@
 
 ]]>
   </WebPartCSS>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part allows developers to enter HTML content using a WYSIWYG editor and place it onto the page. Unlike with the Editable text web part, page editors cannot modify the content. The static content entered into the web part is displayed on the live site.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>640f6aff-12a6-47de-b5d2-a3cf663c17dd</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of forum threads that were most recently active (i.e. new posts were added to them). Threads are loaded from the selected forums and their format is based on the specified transformation.]]>
   </WebPartDescription>

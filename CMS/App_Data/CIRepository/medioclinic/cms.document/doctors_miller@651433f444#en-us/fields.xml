@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <documentfields.training.doctor>
-  <DoctorBio>
+  <Bio>
     <![CDATA[Dr. Sparrow is a graduate of <strong>George Washington University Medical School</strong>. He trained in internal medicine at the <strong>University of Oregon Health Sciences (UOHS)</strong> and worked in general practice since 2000. He enjoys the full spectrum of general practice from newborns, through their parents to those in their more senior years.]]>
-  </DoctorBio>
-  <DoctorDegree>MD, PhD.</DoctorDegree>
-  <DoctorEmergencyShift>7</DoctorEmergencyShift>
-  <DoctorFirstName>Jack</DoctorFirstName>
-  <DoctorImage>95a90b02-0627-4675-99f3-a206247149a3</DoctorImage>
-  <DoctorLastName>Sparrow</DoctorLastName>
-  <DoctorSpecialty>General practitioner</DoctorSpecialty>
+  </Bio>
+  <Degree>MD, PhD.</Degree>
+  <EmergencyShift>7</EmergencyShift>
+  <FirstName>Jack</FirstName>
+  <Image>95a90b02-0627-4675-99f3-a206247149a3</Image>
+  <LastName>Sparrow</LastName>
+  <Specialty>General practitioner</Specialty>
 </documentfields.training.doctor>

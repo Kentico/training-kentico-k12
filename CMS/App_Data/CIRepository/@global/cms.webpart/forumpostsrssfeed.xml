@@ -5,6 +5,9 @@
     <GUID>fcec1ff1-21ce-48d3-8a63-3d96de0c5ccf</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part creates an RSS feed of Kentico forum posts. Uses a built-in forum posts data source as a source of the feed data. Displays a link leading to the feed, which is located at the URL of the page where the web part is placed, with a querystring parameter appended.]]>
   </WebPartDescription>

@@ -67,15 +67,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Name.
 		/// </summary>
 		[DatabaseField]
-		public string HomeName
+		public string Name
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("HomeName"), @"");
+				return ValidationHelper.GetString(GetValue("Name"), @"");
 			}
 			set
 			{
-				SetValue("HomeName", value);
+				SetValue("Name", value);
 			}
 		}
 
@@ -84,15 +84,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Header.
 		/// </summary>
 		[DatabaseField]
-		public string HomeHeader
+		public string Header
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("HomeHeader"), @"");
+				return ValidationHelper.GetString(GetValue("Header"), @"");
 			}
 			set
 			{
-				SetValue("HomeHeader", value);
+				SetValue("Header", value);
 			}
 		}
 
@@ -101,32 +101,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Text.
 		/// </summary>
 		[DatabaseField]
-		public string HomeText
+		public string Text
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("HomeText"), @"");
+				return ValidationHelper.GetString(GetValue("Text"), @"");
 			}
 			set
 			{
-				SetValue("HomeText", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Background image.
-		/// </summary>
-		[DatabaseField]
-		public Guid HomeBackgroundImage
-		{
-			get
-			{
-				return ValidationHelper.GetGuid(GetValue("HomeBackgroundImage"), Guid.Empty);
-			}
-			set
-			{
-				SetValue("HomeBackgroundImage", value);
+				SetValue("Text", value);
 			}
 		}
 
@@ -135,15 +118,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Link.
 		/// </summary>
 		[DatabaseField]
-		public string HomeButton
+		public string Button
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("HomeButton"), @"");
+				return ValidationHelper.GetString(GetValue("Button"), @"");
 			}
 			set
 			{
-				SetValue("HomeButton", value);
+				SetValue("Button", value);
 			}
 		}
 
@@ -202,15 +185,15 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Name.
 			/// </summary>
-			public string HomeName
+			public string Name
 			{
 				get
 				{
-					return mInstance.HomeName;
+					return mInstance.Name;
 				}
 				set
 				{
-					mInstance.HomeName = value;
+					mInstance.Name = value;
 				}
 			}
 
@@ -218,15 +201,15 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Header.
 			/// </summary>
-			public string HomeHeader
+			public string Header
 			{
 				get
 				{
-					return mInstance.HomeHeader;
+					return mInstance.Header;
 				}
 				set
 				{
-					mInstance.HomeHeader = value;
+					mInstance.Header = value;
 				}
 			}
 
@@ -234,27 +217,15 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Text.
 			/// </summary>
-			public string HomeText
+			public string Text
 			{
 				get
 				{
-					return mInstance.HomeText;
+					return mInstance.Text;
 				}
 				set
 				{
-					mInstance.HomeText = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Background image.
-			/// </summary>
-			public DocumentAttachment HomeBackgroundImage
-			{
-				get
-				{
-					return mInstance.GetFieldDocumentAttachment("HomeBackgroundImage");
+					mInstance.Text = value;
 				}
 			}
 
@@ -262,15 +233,15 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Link.
 			/// </summary>
-			public string HomeButton
+			public string Button
 			{
 				get
 				{
-					return mInstance.HomeButton;
+					return mInstance.Button;
 				}
 				set
 				{
-					mInstance.HomeButton = value;
+					mInstance.Button = value;
 				}
 			}
 		}

@@ -5,6 +5,9 @@
     <GUID>fcec1ff1-21ce-48d3-8a63-3d96de0c5ccf</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Web service RSS feed web part can be used to create an RSS feed of data provided by an external web service. It uses a built-in web service data source as a source of the feed data. It displays a link leading to the feed, which is located at the URL of the page where the web part is placed, with a querystring parameter appended.]]>
   </WebPartDescription>

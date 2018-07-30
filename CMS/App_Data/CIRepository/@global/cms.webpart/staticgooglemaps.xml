@@ -5,6 +5,9 @@
     <GUID>57c27cdc-9b65-4853-b6b4-2b6d387c2193</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays maps with a single marker obtained from the Google maps service, according to location or address.]]>
   </WebPartDescription>

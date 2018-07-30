@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="ArticleTitle" columnsize="200" columntype="text" guid="5f90c766-d3fd-4d9b-b3f1-b16db61d148b" publicfield="false" visible="true">
+      <field column="Title" columnsize="200" columntype="text" guid="5f90c766-d3fd-4d9b-b3f1-b16db61d148b" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Title</fieldcaption>
         </properties>
@@ -29,7 +29,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="ArticleTeaserImage" columntype="file" guid="7af9d756-7ae9-4492-87c9-c0bca0859356" publicfield="false" visible="true">
+      <field column="Image" columntype="file" guid="7af9d756-7ae9-4492-87c9-c0bca0859356" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Teaser image</fieldcaption>
         </properties>
@@ -41,7 +41,7 @@
           <Extensions>inherit</Extensions>
         </settings>
       </field>
-      <field column="ArticleSummary" columnsize="400" columntype="text" guid="aa206ba7-1d5f-4343-ac12-a5624510e9dd" publicfield="false" visible="true">
+      <field column="Summary" columnsize="400" columntype="text" guid="aa206ba7-1d5f-4343-ac12-a5624510e9dd" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Summary</fieldcaption>
         </properties>
@@ -54,7 +54,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="ArticleText" columntype="longtext" guid="ceb49816-a24f-49e5-817f-d7a6fcd1c81d" publicfield="false" visible="true">
+      <field column="Text" columntype="longtext" guid="ceb49816-a24f-49e5-817f-d7a6fcd1c81d" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Text</fieldcaption>
         </properties>
@@ -67,7 +67,7 @@
           <WidthUnitType>PX</WidthUnitType>
         </settings>
       </field>
-      <field allowempty="true" column="ArticleImage" columntype="file" guid="98862e36-bf38-4b7a-90dd-decf31eacd05" publicfield="false" visible="true">
+      <field column="TeaserImage" columntype="file" guid="98862e36-bf38-4b7a-90dd-decf31eacd05" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Image</fieldcaption>
         </properties>
@@ -91,18 +91,13 @@
   <ClassIsForm>False</ClassIsForm>
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.Article</ClassName>
-  <ClassNodeNameSource>ArticleTitle</ClassNodeNameSource>
+  <ClassNodeNameSource>Title</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="04c3fee3-8bf0-4ac1-a068-6ad2a492d61a" name="ArticleTitle" searchable="False" tokenized="True" />
-      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="0b475c7a-a89f-43fb-bdde-de0111b2f5a1" name="ArticleImage" searchable="False" tokenized="False" />
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="0bb6b06a-4789-45ac-922c-a397e76a4c0a" name="ArticleID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="85a62dd9-5ce8-4de6-8dce-8539db0283b0" name="ArticleText" searchable="False" tokenized="True" />
-      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="d87c0042-304c-4b17-9032-59167eefbe2d" name="ArticleTeaserImage" searchable="False" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="e873082c-1128-4aaf-b6dd-0090a461b047" name="ArticleSummary" searchable="False" tokenized="True" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

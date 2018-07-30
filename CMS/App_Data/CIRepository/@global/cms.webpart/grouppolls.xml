@@ -5,6 +5,9 @@
     <GUID>59ab8a45-09a8-4fcf-aa41-01fbf4c562f1</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Allows group administrators to manage the polls belonging under the specified group directly from the live site.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>fde9d969-0d1e-4720-83a4-f7093b413333</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Allows to users to leave the currently active group (cancel their membership). The current group is taken from the context, which means that the web part must be placed onto a page that is owned by a group in order to work correctly.]]>
   </WebPartDescription>

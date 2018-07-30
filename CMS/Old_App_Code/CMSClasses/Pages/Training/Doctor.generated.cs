@@ -67,15 +67,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// First name.
 		/// </summary>
 		[DatabaseField]
-		public string DoctorFirstName
+		public string FirstName
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("DoctorFirstName"), @"");
+				return ValidationHelper.GetString(GetValue("FirstName"), @"");
 			}
 			set
 			{
-				SetValue("DoctorFirstName", value);
+				SetValue("FirstName", value);
 			}
 		}
 
@@ -84,15 +84,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Last name.
 		/// </summary>
 		[DatabaseField]
-		public string DoctorLastName
+		public string LastName
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("DoctorLastName"), @"");
+				return ValidationHelper.GetString(GetValue("LastName"), @"");
 			}
 			set
 			{
-				SetValue("DoctorLastName", value);
+				SetValue("LastName", value);
 			}
 		}
 
@@ -101,15 +101,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Doctor degree.
 		/// </summary>
 		[DatabaseField]
-		public string DoctorDegree
+		public string Degree
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("DoctorDegree"), @"");
+				return ValidationHelper.GetString(GetValue("Degree"), @"");
 			}
 			set
 			{
-				SetValue("DoctorDegree", value);
+				SetValue("Degree", value);
 			}
 		}
 
@@ -118,15 +118,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Photo.
 		/// </summary>
 		[DatabaseField]
-		public Guid DoctorImage
+		public Guid Image
 		{
 			get
 			{
-				return ValidationHelper.GetGuid(GetValue("DoctorImage"), Guid.Empty);
+				return ValidationHelper.GetGuid(GetValue("Image"), Guid.Empty);
 			}
 			set
 			{
-				SetValue("DoctorImage", value);
+				SetValue("Image", value);
 			}
 		}
 
@@ -135,15 +135,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Doctor specialty.
 		/// </summary>
 		[DatabaseField]
-		public string DoctorSpecialty
+		public string Specialty
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("DoctorSpecialty"), @"");
+				return ValidationHelper.GetString(GetValue("Specialty"), @"");
 			}
 			set
 			{
-				SetValue("DoctorSpecialty", value);
+				SetValue("Specialty", value);
 			}
 		}
 
@@ -152,15 +152,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Bio.
 		/// </summary>
 		[DatabaseField]
-		public string DoctorBio
+		public string Bio
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("DoctorBio"), @"");
+				return ValidationHelper.GetString(GetValue("Bio"), @"");
 			}
 			set
 			{
-				SetValue("DoctorBio", value);
+				SetValue("Bio", value);
 			}
 		}
 
@@ -169,15 +169,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Emergency shift.
 		/// </summary>
 		[DatabaseField]
-		public int DoctorEmergencyShift
+		public int EmergencyShift
 		{
 			get
 			{
-				return ValidationHelper.GetInteger(GetValue("DoctorEmergencyShift"), 0);
+				return ValidationHelper.GetInteger(GetValue("EmergencyShift"), 0);
 			}
 			set
 			{
-				SetValue("DoctorEmergencyShift", value);
+				SetValue("EmergencyShift", value);
 			}
 		}
 
@@ -240,11 +240,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.DoctorFirstName;
+					return mInstance.FirstName;
 				}
 				set
 				{
-					mInstance.DoctorFirstName = value;
+					mInstance.FirstName = value;
 				}
 			}
 
@@ -256,11 +256,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.DoctorLastName;
+					return mInstance.LastName;
 				}
 				set
 				{
-					mInstance.DoctorLastName = value;
+					mInstance.LastName = value;
 				}
 			}
 
@@ -272,11 +272,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.DoctorDegree;
+					return mInstance.Degree;
 				}
 				set
 				{
-					mInstance.DoctorDegree = value;
+					mInstance.Degree = value;
 				}
 			}
 
@@ -288,7 +288,7 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.GetFieldDocumentAttachment("DoctorImage");
+					return mInstance.GetFieldDocumentAttachment("Image");
 				}
 			}
 
@@ -300,11 +300,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.DoctorSpecialty;
+					return mInstance.Specialty;
 				}
 				set
 				{
-					mInstance.DoctorSpecialty = value;
+					mInstance.Specialty = value;
 				}
 			}
 
@@ -316,11 +316,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.DoctorBio;
+					return mInstance.Bio;
 				}
 				set
 				{
-					mInstance.DoctorBio = value;
+					mInstance.Bio = value;
 				}
 			}
 
@@ -332,11 +332,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.DoctorEmergencyShift;
+					return mInstance.EmergencyShift;
 				}
 				set
 				{
-					mInstance.DoctorEmergencyShift = value;
+					mInstance.EmergencyShift = value;
 				}
 			}
 		}

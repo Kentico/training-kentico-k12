@@ -5,6 +5,9 @@
     <GUID>f0ae85da-bbb5-4e8a-9ce0-c81772ac1731</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays all forums belonging under the selected community group (or workgroup). Users may browse the content of these forums, add posts and perform other actions.]]>
   </WebPartDescription>

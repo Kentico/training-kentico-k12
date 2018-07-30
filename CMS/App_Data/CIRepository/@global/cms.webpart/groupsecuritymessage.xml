@@ -5,6 +5,9 @@
     <GUID>3be83bc1-a16c-4bfb-b105-1c1c2c7e7ccc</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a message to users who do not have sufficient permissions to view the content of the currently active group. A different message can be displayed to different types of users.]]>
   </WebPartDescription>

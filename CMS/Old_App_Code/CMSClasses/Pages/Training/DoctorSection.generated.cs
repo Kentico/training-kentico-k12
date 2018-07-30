@@ -67,15 +67,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Section name.
 		/// </summary>
 		[DatabaseField]
-		public string DoctorSectionName
+		public string Name
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("DoctorSectionName"), @"");
+				return ValidationHelper.GetString(GetValue("Name"), @"");
 			}
 			set
 			{
-				SetValue("DoctorSectionName", value);
+				SetValue("Name", value);
 			}
 		}
 
@@ -138,11 +138,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.DoctorSectionName;
+					return mInstance.Name;
 				}
 				set
 				{
-					mInstance.DoctorSectionName = value;
+					mInstance.Name = value;
 				}
 			}
 		}

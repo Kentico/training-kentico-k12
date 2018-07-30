@@ -5,6 +5,9 @@
     <GUID>29b2ef5e-34f0-42ff-9173-56cdba275f88</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part converts the page to an XML feed displaying the data provided by a connected data source web part.]]>
   </WebPartDescription>

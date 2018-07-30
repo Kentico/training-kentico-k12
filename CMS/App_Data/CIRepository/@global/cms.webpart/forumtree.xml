@@ -5,6 +5,9 @@
     <GUID>97bd4d31-ac9b-48f6-b0e8-930482153847</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDefaultValues />
   <WebPartDescription>
     <![CDATA[Displays the content of a specified forum using a hierarchical tree layout. This web part is obsolete. We recommend using the Forum (Single forum - General) web part instead and selecting the Tree layout.]]>

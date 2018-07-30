@@ -5,6 +5,9 @@
     <GUID>0c130eb6-0414-4355-a04a-0f71860428de</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Checks for spelling errors in search expressions and offers a link that searches for the modified search terms. It can be used together with any of the Smart or SQL search web parts.]]>
   </WebPartDescription>

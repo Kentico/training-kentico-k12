@@ -5,6 +5,9 @@
     <GUID>cfb44aae-d20d-4415-9662-afe5d8edb4e5</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays the system event log. You can filter which events should be included in the log. Detailed information about each of the logged events can also be viewed.]]>
   </WebPartDescription>

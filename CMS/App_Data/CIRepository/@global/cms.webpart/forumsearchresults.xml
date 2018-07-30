@@ -5,6 +5,9 @@
     <GUID>7e5421b5-0b0a-42e4-b800-373283b7d722</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays the results of search requests entered into Forum search box or Forum search - advanced dialog web parts.]]>
   </WebPartDescription>

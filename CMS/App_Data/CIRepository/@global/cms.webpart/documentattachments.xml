@@ -5,6 +5,9 @@
     <GUID>61901043-c196-42b1-8b00-b45a34c41259</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of files attached to the selected page according to the specified transformations.]]>
   </WebPartDescription>

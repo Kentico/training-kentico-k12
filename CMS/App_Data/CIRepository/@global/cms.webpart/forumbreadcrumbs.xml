@@ -6,6 +6,9 @@
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
   <WebPartCSS />
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDefaultValues />
   <WebPartDescription>
     <![CDATA[Displays breadcrumb navigation for forums on the same page, which allows users to see their current location in the forums and link to previous levels. This web part is helpful if the layout of the forum doesn't display breadcrumbs by default.]]>

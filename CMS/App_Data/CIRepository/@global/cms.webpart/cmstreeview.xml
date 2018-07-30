@@ -5,6 +5,9 @@
     <GUID>9d08bf54-24b5-46aa-b80f-1ebb73ed9018</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a specified section of the website in a hierarchical menu, similar to the page content tree. Users may collapse or expand any node in the tree that has child items.]]>
   </WebPartDescription>

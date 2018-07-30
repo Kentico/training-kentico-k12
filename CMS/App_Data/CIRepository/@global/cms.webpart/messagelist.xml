@@ -5,6 +5,9 @@
     <GUID>8922d2ca-a89c-4432-bf58-5556e24b4e8c</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of posts that were added to the specified message board(s). Authorized users will also be able to approve, reject or edit the listed posts.]]>
   </WebPartDescription>

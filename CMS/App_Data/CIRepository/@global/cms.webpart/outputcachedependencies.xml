@@ -5,6 +5,9 @@
     <GUID>00086044-1f49-4574-ab89-9cd537147b34</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Defines cache dependencies for the output cache of the page where the web part is placed.]]>
   </WebPartDescription>

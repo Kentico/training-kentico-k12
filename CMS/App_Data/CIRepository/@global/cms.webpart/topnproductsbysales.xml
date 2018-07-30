@@ -5,6 +5,9 @@
     <GUID>629c7495-0973-4df6-9f21-b0a87686a061</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays the most selling products in your store based on their occurrence in orders. You can filter out some products in the web part's configuration or order the products by other fields.]]>
   </WebPartDescription>

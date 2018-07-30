@@ -5,6 +5,9 @@
     <GUID>81176802-75cc-4314-b44f-9e3aa90baa03</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>Displays in calendar scheduled events.</WebPartDescription>
   <WebPartDisplayName>Event calendar</WebPartDisplayName>
   <WebPartDocumentation />

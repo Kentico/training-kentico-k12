@@ -5,6 +5,9 @@
     <GUID>9d08bf54-24b5-46aa-b80f-1ebb73ed9018</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a flat tab menu for navigation on a specified section of the website. The format and behaviour of the tabs can be customized.]]>
   </WebPartDescription>

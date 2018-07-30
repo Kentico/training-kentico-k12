@@ -67,15 +67,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Header.
 		/// </summary>
 		[DatabaseField]
-		public string CompanySectionHeader
+		public string Header
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("CompanySectionHeader"), @"");
+				return ValidationHelper.GetString(GetValue("Header"), @"");
 			}
 			set
 			{
-				SetValue("CompanySectionHeader", value);
+				SetValue("Header", value);
 			}
 		}
 
@@ -84,15 +84,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Icon.
 		/// </summary>
 		[DatabaseField]
-		public Guid CompanySectionIcon
+		public Guid Icon1
 		{
 			get
 			{
-				return ValidationHelper.GetGuid(GetValue("CompanySectionIcon"), Guid.Empty);
+				return ValidationHelper.GetGuid(GetValue("Icon"), Guid.Empty);
 			}
 			set
 			{
-				SetValue("CompanySectionIcon", value);
+				SetValue("Icon", value);
 			}
 		}
 
@@ -101,15 +101,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Text.
 		/// </summary>
 		[DatabaseField]
-		public string CompanySectionText
+		public string Text
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("CompanySectionText"), @"");
+				return ValidationHelper.GetString(GetValue("Text"), @"");
 			}
 			set
 			{
-				SetValue("CompanySectionText", value);
+				SetValue("Text", value);
 			}
 		}
 
@@ -168,15 +168,15 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Header.
 			/// </summary>
-			public string CompanySectionHeader
+			public string Header
 			{
 				get
 				{
-					return mInstance.CompanySectionHeader;
+					return mInstance.Header;
 				}
 				set
 				{
-					mInstance.CompanySectionHeader = value;
+					mInstance.Header = value;
 				}
 			}
 
@@ -184,11 +184,11 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Icon.
 			/// </summary>
-			public DocumentAttachment CompanySectionIcon
+			public DocumentAttachment Icon
 			{
 				get
 				{
-					return mInstance.GetFieldDocumentAttachment("CompanySectionIcon");
+					return mInstance.GetFieldDocumentAttachment("Icon");
 				}
 			}
 
@@ -196,15 +196,15 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Text.
 			/// </summary>
-			public string CompanySectionText
+			public string Text
 			{
 				get
 				{
-					return mInstance.CompanySectionText;
+					return mInstance.Text;
 				}
 				set
 				{
-					mInstance.CompanySectionText = value;
+					mInstance.Text = value;
 				}
 			}
 		}

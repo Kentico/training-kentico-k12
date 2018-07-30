@@ -5,6 +5,9 @@
     <GUID>25ea0b9d-7959-4566-b760-adddfbb8c159</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Universal pager adds paging functionality to a web part displaying data (typically a Basic datalist, Repeater, etc.). It can be placed separately anywhere on the page with the web part to which it is connected.]]>
   </WebPartDescription>

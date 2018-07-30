@@ -5,6 +5,9 @@
     <GUID>519a8fe2-79c7-4acb-8371-271d593a6082</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Using this web part any user can subscribe to the notifications via any gateway of the chosen event.]]>
   </WebPartDescription>

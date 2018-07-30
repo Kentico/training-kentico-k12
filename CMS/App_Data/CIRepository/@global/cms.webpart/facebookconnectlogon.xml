@@ -5,6 +5,9 @@
     <GUID>5e2be9bf-d028-42c4-bea7-1c46d6cf1acf</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>{$facebook.webpart.connectlogon.description$}</WebPartDescription>
   <WebPartDisplayName>Facebook Connect logon</WebPartDisplayName>
   <WebPartDocumentation>

@@ -5,6 +5,9 @@
     <GUID>5707798e-4842-47ce-8014-ce71f0e9331a</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part changes a page to an Atom feed of data provided by a connected data source web part.]]>
   </WebPartDescription>

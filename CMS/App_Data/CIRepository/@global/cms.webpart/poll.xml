@@ -5,6 +5,9 @@
     <GUID>ebe7103f-1715-4cb8-9b9e-8afb03869568</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Poll web part allows you to insert your own Poll on the page.]]>
   </WebPartDescription>

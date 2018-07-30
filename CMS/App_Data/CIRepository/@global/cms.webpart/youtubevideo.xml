@@ -5,6 +5,9 @@
     <GUID>7a874b11-0b6d-4b6d-856d-e91795a87947</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Enables to insert the video from specified URL location.]]>
   </WebPartDescription>

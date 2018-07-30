@@ -5,6 +5,9 @@
     <GUID>e59c95b7-0abc-4049-b9f5-45d0fc2a736f</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Creates data source from RSS feed which is specified by URL. Result contains columns depending on given RSS feed.]]>
   </WebPartDescription>

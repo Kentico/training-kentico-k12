@@ -6,6 +6,9 @@
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
   <WebPartCSS />
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDefaultValues>
     <form version="2">
       <field column="WebPartTitle" guid="2bf266ee-b4fb-4f3b-9a91-523cf7b55e7e" />

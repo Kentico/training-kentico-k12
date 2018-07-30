@@ -67,15 +67,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Link name.
 		/// </summary>
 		[DatabaseField]
-		public string SocialLinkName
+		public string Name
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("SocialLinkName"), @"");
+				return ValidationHelper.GetString(GetValue("Name"), @"");
 			}
 			set
 			{
-				SetValue("SocialLinkName", value);
+				SetValue("Name", value);
 			}
 		}
 
@@ -84,15 +84,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Link title.
 		/// </summary>
 		[DatabaseField]
-		public string SocialLinkTitle
+		public string Title
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("SocialLinkTitle"), @"");
+				return ValidationHelper.GetString(GetValue("Title"), @"");
 			}
 			set
 			{
-				SetValue("SocialLinkTitle", value);
+				SetValue("Title", value);
 			}
 		}
 
@@ -101,15 +101,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Link Url.
 		/// </summary>
 		[DatabaseField]
-		public string SocialLinkUrl
+		public string Url
 		{
 			get
 			{
-				return ValidationHelper.GetString(GetValue("SocialLinkUrl"), @"");
+				return ValidationHelper.GetString(GetValue("Url"), @"");
 			}
 			set
 			{
-				SetValue("SocialLinkUrl", value);
+				SetValue("Url", value);
 			}
 		}
 
@@ -118,15 +118,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Icon.
 		/// </summary>
 		[DatabaseField]
-		public Guid SocialLinkIcon
+		public Guid Icon1
 		{
 			get
 			{
-				return ValidationHelper.GetGuid(GetValue("SocialLinkIcon"), Guid.Empty);
+				return ValidationHelper.GetGuid(GetValue("Icon"), Guid.Empty);
 			}
 			set
 			{
-				SetValue("SocialLinkIcon", value);
+				SetValue("Icon", value);
 			}
 		}
 
@@ -189,11 +189,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.SocialLinkName;
+					return mInstance.Name;
 				}
 				set
 				{
-					mInstance.SocialLinkName = value;
+					mInstance.Name = value;
 				}
 			}
 
@@ -205,11 +205,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.SocialLinkTitle;
+					return mInstance.Title;
 				}
 				set
 				{
-					mInstance.SocialLinkTitle = value;
+					mInstance.Title = value;
 				}
 			}
 
@@ -221,11 +221,11 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.SocialLinkUrl;
+					return mInstance.Url;
 				}
 				set
 				{
-					mInstance.SocialLinkUrl = value;
+					mInstance.Url = value;
 				}
 			}
 
@@ -237,7 +237,7 @@ namespace CMS.DocumentEngine.Types.Training
 			{
 				get
 				{
-					return mInstance.GetFieldDocumentAttachment("SocialLinkIcon");
+					return mInstance.GetFieldDocumentAttachment("Icon");
 				}
 			}
 		}

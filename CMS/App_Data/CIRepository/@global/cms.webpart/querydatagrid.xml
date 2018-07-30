@@ -5,6 +5,9 @@
     <GUID>2ebba45e-f1fa-4816-a2bf-d8c3e968eb19</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a grid (table) containing data retrieved by a specified query.]]>
   </WebPartDescription>

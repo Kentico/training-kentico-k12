@@ -5,6 +5,9 @@
     <GUID>9682b2f5-000d-4b72-84a2-24416f7224af</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>Displays all comments of the specified blog post.</WebPartDescription>
   <WebPartDisplayName>Comment view</WebPartDisplayName>
   <WebPartDocumentation />

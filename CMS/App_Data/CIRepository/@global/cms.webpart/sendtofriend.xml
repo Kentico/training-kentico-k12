@@ -5,6 +5,9 @@
     <GUID>46e23e43-a698-4fdb-8898-2526f4dd4e09</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Allows users to send the content of specified pages by e-mail. The e-mail may contain a message from the user and page content is generated based on the assigned transformation.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a button or link that allows users to log out. Once signed out, users will be redirected to a specified URL. The web part can also be used to provide a sign in button for unauthenticated users.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>f0ae85da-bbb5-4e8a-9ce0-c81772ac1731</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays the results of search requests entered into Forum search box or Forum search - advanced dialog web parts. Only the content of the forums belonging under the currently active group will be searched.]]>
   </WebPartDescription>

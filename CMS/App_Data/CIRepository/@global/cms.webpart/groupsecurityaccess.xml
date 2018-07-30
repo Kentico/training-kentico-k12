@@ -5,6 +5,9 @@
     <GUID>3be83bc1-a16c-4bfb-b105-1c1c2c7e7ccc</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part checks if the current user has sufficient permissions to view the content of the group to which the given page belongs. Unauthorized users are automatically redirected to a specified URL.]]>
   </WebPartDescription>

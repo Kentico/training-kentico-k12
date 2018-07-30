@@ -23,337 +23,337 @@ using CMS.DocumentEngine;
 
 namespace CMS.DocumentEngine.Types.Training
 {
-    /// <summary>
-    /// Represents a content item of type Doctor.
-    /// </summary>
-    public partial class Doctor : TreeNode
-    {
-        #region "Constants and variables"
+	/// <summary>
+	/// Represents a content item of type Doctor.
+	/// </summary>
+	public partial class Doctor : TreeNode
+	{
+		#region "Constants and variables"
 
-        /// <summary>
-        /// The name of the data class.
-        /// </summary>
-        public const string CLASS_NAME = "Training.Doctor";
-
-
-        /// <summary>
-        /// The instance of the class that provides extended API for working with Doctor fields.
-        /// </summary>
-        private readonly DoctorFields mFields;
-
-        #endregion
+		/// <summary>
+		/// The name of the data class.
+		/// </summary>
+		public const string CLASS_NAME = "Training.Doctor";
 
 
-        #region "Properties"
+		/// <summary>
+		/// The instance of the class that provides extended API for working with Doctor fields.
+		/// </summary>
+		private readonly DoctorFields mFields;
 
-        /// <summary>
-        /// DoctorID.
-        /// </summary>
-        [DatabaseIDField]
-        public int DoctorID
-        {
-            get
-            {
-                return ValidationHelper.GetInteger(GetValue("DoctorID"), 0);
-            }
-            set
-            {
-                SetValue("DoctorID", value);
-            }
-        }
+		#endregion
 
 
-        /// <summary>
-        /// First name.
-        /// </summary>
-        [DatabaseField]
-        public string DoctorFirstName
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("DoctorFirstName"), @"");
-            }
-            set
-            {
-                SetValue("DoctorFirstName", value);
-            }
-        }
+		#region "Properties"
+
+		/// <summary>
+		/// DoctorID.
+		/// </summary>
+		[DatabaseIDField]
+		public int DoctorID
+		{
+			get
+			{
+				return ValidationHelper.GetInteger(GetValue("DoctorID"), 0);
+			}
+			set
+			{
+				SetValue("DoctorID", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Last name.
-        /// </summary>
-        [DatabaseField]
-        public string DoctorLastName
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("DoctorLastName"), @"");
-            }
-            set
-            {
-                SetValue("DoctorLastName", value);
-            }
-        }
+		/// <summary>
+		/// First name.
+		/// </summary>
+		[DatabaseField]
+		public string FirstName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("FirstName"), @"");
+			}
+			set
+			{
+				SetValue("FirstName", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Doctor degree.
-        /// </summary>
-        [DatabaseField]
-        public string DoctorDegree
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("DoctorDegree"), @"");
-            }
-            set
-            {
-                SetValue("DoctorDegree", value);
-            }
-        }
+		/// <summary>
+		/// Last name.
+		/// </summary>
+		[DatabaseField]
+		public string LastName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LastName"), @"");
+			}
+			set
+			{
+				SetValue("LastName", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Photo.
-        /// </summary>
-        [DatabaseField]
-        public Guid DoctorImage
-        {
-            get
-            {
-                return ValidationHelper.GetGuid(GetValue("DoctorImage"), Guid.Empty);
-            }
-            set
-            {
-                SetValue("DoctorImage", value);
-            }
-        }
+		/// <summary>
+		/// Doctor degree.
+		/// </summary>
+		[DatabaseField]
+		public string Degree
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Degree"), @"");
+			}
+			set
+			{
+				SetValue("Degree", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Doctor specialty.
-        /// </summary>
-        [DatabaseField]
-        public string DoctorSpecialty
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("DoctorSpecialty"), @"");
-            }
-            set
-            {
-                SetValue("DoctorSpecialty", value);
-            }
-        }
+		/// <summary>
+		/// Photo.
+		/// </summary>
+		[DatabaseField]
+		public Guid Image
+		{
+			get
+			{
+				return ValidationHelper.GetGuid(GetValue("Image"), Guid.Empty);
+			}
+			set
+			{
+				SetValue("Image", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Bio.
-        /// </summary>
-        [DatabaseField]
-        public string DoctorBio
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("DoctorBio"), @"");
-            }
-            set
-            {
-                SetValue("DoctorBio", value);
-            }
-        }
+		/// <summary>
+		/// Doctor specialty.
+		/// </summary>
+		[DatabaseField]
+		public string Specialty
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Specialty"), @"");
+			}
+			set
+			{
+				SetValue("Specialty", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Emergency shift.
-        /// </summary>
-        [DatabaseField]
-        public int DoctorEmergencyShift
-        {
-            get
-            {
-                return ValidationHelper.GetInteger(GetValue("DoctorEmergencyShift"), 0);
-            }
-            set
-            {
-                SetValue("DoctorEmergencyShift", value);
-            }
-        }
+		/// <summary>
+		/// Bio.
+		/// </summary>
+		[DatabaseField]
+		public string Bio
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Bio"), @"");
+			}
+			set
+			{
+				SetValue("Bio", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Gets an object that provides extended API for working with Doctor fields.
-        /// </summary>
-        [RegisterProperty]
-        public DoctorFields Fields
-        {
-            get
-            {
-                return mFields;
-            }
-        }
+		/// <summary>
+		/// Emergency shift.
+		/// </summary>
+		[DatabaseField]
+		public int EmergencyShift
+		{
+			get
+			{
+				return ValidationHelper.GetInteger(GetValue("EmergencyShift"), 0);
+			}
+			set
+			{
+				SetValue("EmergencyShift", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Provides extended API for working with Doctor fields.
-        /// </summary>
-        [RegisterAllProperties]
-        public partial class DoctorFields : AbstractHierarchicalObject<DoctorFields>
-        {
-            /// <summary>
-            /// The content item of type Doctor that is a target of the extended API.
-            /// </summary>
-            private readonly Doctor mInstance;
+		/// <summary>
+		/// Gets an object that provides extended API for working with Doctor fields.
+		/// </summary>
+		[RegisterProperty]
+		public DoctorFields Fields
+		{
+			get
+			{
+				return mFields;
+			}
+		}
 
 
-            /// <summary>
-            /// Initializes a new instance of the <see cref="DoctorFields" /> class with the specified content item of type Doctor.
-            /// </summary>
-            /// <param name="instance">The content item of type Doctor that is a target of the extended API.</param>
-            public DoctorFields(Doctor instance)
-            {
-                mInstance = instance;
-            }
+		/// <summary>
+		/// Provides extended API for working with Doctor fields.
+		/// </summary>
+		[RegisterAllProperties]
+		public partial class DoctorFields : AbstractHierarchicalObject<DoctorFields>
+		{
+			/// <summary>
+			/// The content item of type Doctor that is a target of the extended API.
+			/// </summary>
+			private readonly Doctor mInstance;
 
 
-            /// <summary>
-            /// DoctorID.
-            /// </summary>
-            public int ID
-            {
-                get
-                {
-                    return mInstance.DoctorID;
-                }
-                set
-                {
-                    mInstance.DoctorID = value;
-                }
-            }
+			/// <summary>
+			/// Initializes a new instance of the <see cref="DoctorFields" /> class with the specified content item of type Doctor.
+			/// </summary>
+			/// <param name="instance">The content item of type Doctor that is a target of the extended API.</param>
+			public DoctorFields(Doctor instance)
+			{
+				mInstance = instance;
+			}
 
 
-            /// <summary>
-            /// First name.
-            /// </summary>
-            public string FirstName
-            {
-                get
-                {
-                    return mInstance.DoctorFirstName;
-                }
-                set
-                {
-                    mInstance.DoctorFirstName = value;
-                }
-            }
+			/// <summary>
+			/// DoctorID.
+			/// </summary>
+			public int ID
+			{
+				get
+				{
+					return mInstance.DoctorID;
+				}
+				set
+				{
+					mInstance.DoctorID = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Last name.
-            /// </summary>
-            public string LastName
-            {
-                get
-                {
-                    return mInstance.DoctorLastName;
-                }
-                set
-                {
-                    mInstance.DoctorLastName = value;
-                }
-            }
+			/// <summary>
+			/// First name.
+			/// </summary>
+			public string FirstName
+			{
+				get
+				{
+					return mInstance.FirstName;
+				}
+				set
+				{
+					mInstance.FirstName = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Doctor degree.
-            /// </summary>
-            public string Degree
-            {
-                get
-                {
-                    return mInstance.DoctorDegree;
-                }
-                set
-                {
-                    mInstance.DoctorDegree = value;
-                }
-            }
+			/// <summary>
+			/// Last name.
+			/// </summary>
+			public string LastName
+			{
+				get
+				{
+					return mInstance.LastName;
+				}
+				set
+				{
+					mInstance.LastName = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Photo.
-            /// </summary>
-            public DocumentAttachment Image
-            {
-                get
-                {
-                    return mInstance.GetFieldDocumentAttachment("DoctorImage");
-                }
-            }
+			/// <summary>
+			/// Doctor degree.
+			/// </summary>
+			public string Degree
+			{
+				get
+				{
+					return mInstance.Degree;
+				}
+				set
+				{
+					mInstance.Degree = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Doctor specialty.
-            /// </summary>
-            public string Specialty
-            {
-                get
-                {
-                    return mInstance.DoctorSpecialty;
-                }
-                set
-                {
-                    mInstance.DoctorSpecialty = value;
-                }
-            }
+			/// <summary>
+			/// Photo.
+			/// </summary>
+			public DocumentAttachment Image
+			{
+				get
+				{
+					return mInstance.GetFieldDocumentAttachment("Image");
+				}
+			}
 
 
-            /// <summary>
-            /// Bio.
-            /// </summary>
-            public string Bio
-            {
-                get
-                {
-                    return mInstance.DoctorBio;
-                }
-                set
-                {
-                    mInstance.DoctorBio = value;
-                }
-            }
+			/// <summary>
+			/// Doctor specialty.
+			/// </summary>
+			public string Specialty
+			{
+				get
+				{
+					return mInstance.Specialty;
+				}
+				set
+				{
+					mInstance.Specialty = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Emergency shift.
-            /// </summary>
-            public int EmergencyShift
-            {
-                get
-                {
-                    return mInstance.DoctorEmergencyShift;
-                }
-                set
-                {
-                    mInstance.DoctorEmergencyShift = value;
-                }
-            }
-        }
-
-        #endregion
+			/// <summary>
+			/// Bio.
+			/// </summary>
+			public string Bio
+			{
+				get
+				{
+					return mInstance.Bio;
+				}
+				set
+				{
+					mInstance.Bio = value;
+				}
+			}
 
 
-        #region "Constructors"
+			/// <summary>
+			/// Emergency shift.
+			/// </summary>
+			public int EmergencyShift
+			{
+				get
+				{
+					return mInstance.EmergencyShift;
+				}
+				set
+				{
+					mInstance.EmergencyShift = value;
+				}
+			}
+		}
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Doctor" /> class.
-        /// </summary>
-        public Doctor() : base(CLASS_NAME)
-        {
-            mFields = new DoctorFields(this);
-        }
+		#endregion
 
-        #endregion
-    }
+
+		#region "Constructors"
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="Doctor" /> class.
+		/// </summary>
+		public Doctor() : base(CLASS_NAME)
+		{
+			mFields = new DoctorFields(this);
+		}
+
+		#endregion
+	}
 }

@@ -5,6 +5,9 @@
     <GUID>0b4a9270-13de-4b08-9ec4-1073fdef9f58</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The On-line form web part allows you to insert your own on-line form on the page.]]>
   </WebPartDescription>

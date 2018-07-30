@@ -143,6 +143,9 @@
 
 ]]>
   </WebPartCSS>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays the contents of the shopping cart. The web part uses a transformation to display the shopping cart items in a table or div format.]]>
   </WebPartDescription>

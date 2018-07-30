@@ -5,6 +5,9 @@
     <GUID>a08d8f1a-7771-4832-95e2-2cfc4ca84695</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a filter that can be used to limit which users should be displayed from the connected data source. It is intended for use in combination with a Users data source web part.]]>
   </WebPartDescription>

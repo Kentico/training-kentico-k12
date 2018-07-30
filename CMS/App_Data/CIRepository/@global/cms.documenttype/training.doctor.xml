@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="DoctorFirstName" columnsize="200" columntype="text" guid="37e724ba-281d-4f8f-866b-1713f570b795" publicfield="false" visible="true">
+      <field column="FirstName" columnsize="200" columntype="text" guid="37e724ba-281d-4f8f-866b-1713f570b795" publicfield="false" visible="true">
         <properties>
           <fieldcaption>First name</fieldcaption>
         </properties>
@@ -29,7 +29,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="DoctorLastName" columnsize="200" columntype="text" guid="9f9b26af-6978-4a3d-938a-a5f8b8246584" publicfield="false" visible="true">
+      <field column="LastName" columnsize="200" columntype="text" guid="9f9b26af-6978-4a3d-938a-a5f8b8246584" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Last name</fieldcaption>
         </properties>
@@ -42,7 +42,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="DoctorDegree" columnsize="100" columntype="text" guid="10bab721-d2c3-4dc1-878f-b759b6ea9789" publicfield="false" visible="true">
+      <field column="Degree" columnsize="100" columntype="text" guid="10bab721-d2c3-4dc1-878f-b759b6ea9789" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Doctor degree</fieldcaption>
         </properties>
@@ -55,7 +55,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="DoctorImage" columntype="file" guid="c0446066-da1c-4442-b7d4-c81c481f386a" publicfield="false" visible="true">
+      <field column="Image" columntype="file" guid="c0446066-da1c-4442-b7d4-c81c481f386a" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Photo</fieldcaption>
         </properties>
@@ -67,7 +67,7 @@
           <Extensions>inherit</Extensions>
         </settings>
       </field>
-      <field column="DoctorSpecialty" columnsize="200" columntype="text" guid="7a0eae2d-391c-4513-927c-b4a33ba7e801" publicfield="false" visible="true">
+      <field column="Specialty" columnsize="200" columntype="text" guid="7a0eae2d-391c-4513-927c-b4a33ba7e801" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Doctor specialty</fieldcaption>
         </properties>
@@ -80,7 +80,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field allowempty="true" column="DoctorBio" columntype="longtext" guid="a3a27d6f-e4ef-473d-850d-8ae95366e617" publicfield="false" visible="true">
+      <field allowempty="true" column="Bio" columntype="longtext" guid="a3a27d6f-e4ef-473d-850d-8ae95366e617" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Bio</fieldcaption>
         </properties>
@@ -93,7 +93,7 @@
           <WidthUnitType>PX</WidthUnitType>
         </settings>
       </field>
-      <field column="DoctorEmergencyShift" columntype="integer" guid="dcee62ce-160c-43ee-aa0f-60c1b6e2fa74" publicfield="false" visible="true">
+      <field column="EmergencyShift" columntype="integer" guid="dcee62ce-160c-43ee-aa0f-60c1b6e2fa74" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Emergency shift</fieldcaption>
         </properties>
@@ -128,17 +128,13 @@
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.Doctor</ClassName>
   <ClassNodeAliasSource>DoctorLastName</ClassNodeAliasSource>
-  <ClassNodeNameSource>DoctorLastName</ClassNodeNameSource>
+  <ClassNodeNameSource>LastName</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="13bab4fd-0745-414b-abaf-698309469a51" name="DoctorFirstName" searchable="False" tokenized="True" />
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="3a498b57-4ed4-428a-9006-960286a9f205" name="DoctorID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="5ea59149-cd24-4a2c-8449-7fbbfc924270" name="DoctorBio" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="c53591fa-5329-428e-b776-7584b5a239ec" name="DoctorLastName" searchable="False" tokenized="True" />
-      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="f9f6a4e9-3c55-4fda-ad8b-7096cca19d15" name="DoctorImage" searchable="False" tokenized="False" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

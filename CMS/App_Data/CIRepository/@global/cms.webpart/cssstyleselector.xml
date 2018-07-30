@@ -5,6 +5,9 @@
     <GUID>c4dcc9a6-220e-4efe-b264-288b53d08da6</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Generates links that allow users to select up to five different styles for the website according to their preferences. The selected settings are stored in a browser cookie.]]>
   </WebPartDescription>

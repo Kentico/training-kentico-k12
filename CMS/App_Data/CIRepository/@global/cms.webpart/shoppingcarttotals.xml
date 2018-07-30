@@ -6,6 +6,9 @@
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
   <WebPartCSS />
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDefaultValues>
     <form />
   </WebPartDefaultValues>

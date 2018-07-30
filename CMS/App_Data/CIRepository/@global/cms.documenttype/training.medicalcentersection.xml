@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="MedicalCenterSectionName" columnsize="200" columntype="text" guid="32bb5bf2-8571-448d-8058-b05073bd75ef" publicfield="false" visible="true">
+      <field column="Name" columnsize="200" columntype="text" guid="32bb5bf2-8571-448d-8058-b05073bd75ef" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Section name</fieldcaption>
         </properties>
@@ -39,14 +39,13 @@
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassName>Training.MedicalCenterSection</ClassName>
-  <ClassNodeNameSource>MedicalCenterSectionName</ClassNodeNameSource>
+  <ClassNodeNameSource>Name</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="bdd6188f-a6fe-4a36-8633-dbcaa46cffd8" name="MedicalCenterSectionID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="eb0d2021-78c9-440a-9104-5398f8675979" name="MedicalCenterSectionName" searchable="False" tokenized="True" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

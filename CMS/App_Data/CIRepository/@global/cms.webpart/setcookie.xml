@@ -5,6 +5,9 @@
     <GUID>913b74b6-7b34-4af2-b2b3-5db5b5ad4aba</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Stores a cookie with a specified name and value in the client browser when the page containing the web part is accessed by a user.]]>
   </WebPartDescription>

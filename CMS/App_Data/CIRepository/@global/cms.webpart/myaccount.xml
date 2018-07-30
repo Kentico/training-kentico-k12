@@ -5,6 +5,9 @@
     <GUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays various information about the current user's account and allows its settings to be managed. This web part is only visible for authenticated users.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>36984e99-1ff8-464a-8788-b1ab4afaa585</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Creates a data source containing specified pages. This data may then be provided to listing web parts (such as a Basic repeater) in order to be displayed.]]>
   </WebPartDescription>

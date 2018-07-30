@@ -5,6 +5,9 @@
     <GUID>e59c95b7-0abc-4049-b9f5-45d0fc2a736f</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part retrieves data from a specified web service and provides it as a data source. The columns contained in the resulting data set depend on the specifics of the given web service. This data may then be displayed by a connected listing web part (such as a Basic repeater).]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>46e23e43-a698-4fdb-8898-2526f4dd4e09</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of pages that are related to the current page based on the assigned transformation.]]>
   </WebPartDescription>

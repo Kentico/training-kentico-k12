@@ -5,6 +5,9 @@
     <GUID>d5cb0ae0-d055-437e-829f-e2c09a7bdce3</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Provides a web part zone that can be used to group multiple web parts or assign additional formatting to them.]]>
   </WebPartDescription>

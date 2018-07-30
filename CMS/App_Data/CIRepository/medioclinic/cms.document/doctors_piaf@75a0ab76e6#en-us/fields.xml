@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <documentfields.training.doctor>
-  <DoctorBio>
-    <![CDATA[Dr. Piaf graduated&nbsp;<em>summa cum laude&nbsp;</em>from <strong>Harvard Medical School </strong>with a degree in General Medicine and Primary Care. During her practice she obtained Diplomas in Paediatrics and in Obstetrics.&nbsp;She enjoys the wide variety of work within general practice, especially children&rsquo;s and women&rsquo;s health.]]>
-  </DoctorBio>
-  <DoctorDegree>MD</DoctorDegree>
-  <DoctorEmergencyShift>4</DoctorEmergencyShift>
-  <DoctorFirstName>Edith</DoctorFirstName>
-  <DoctorImage>00edd293-819f-4475-967a-cf84a14c3a91</DoctorImage>
-  <DoctorLastName>Piaf</DoctorLastName>
-  <DoctorSpecialty>General practitioner</DoctorSpecialty>
+  <Bio>
+    <![CDATA[Dr. Piaf graduated <em>summa cum</em> laude from <strong>Harvard Medical School</strong> with a degree in <strong>General Medicine</strong> and <strong>Primary Care</strong>. During her practice she obtained <strong>Diplomas</strong> <strong>in Paediatrics</strong> and in <strong>Obstetrics</strong>. She enjoys the wide variety of work within general practice, especially children&rsquo;s and women&rsquo;s health.]]>
+  </Bio>
+  <Degree>MD</Degree>
+  <EmergencyShift>4</EmergencyShift>
+  <FirstName>Edith</FirstName>
+  <Image>00edd293-819f-4475-967a-cf84a14c3a91</Image>
+  <LastName>Piaf</LastName>
+  <Specialty>General practitioner</Specialty>
 </documentfields.training.doctor>

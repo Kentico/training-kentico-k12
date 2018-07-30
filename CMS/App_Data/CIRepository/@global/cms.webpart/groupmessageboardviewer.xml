@@ -5,6 +5,9 @@
     <GUID>20d24a83-b0ce-4431-baca-65b22eddca59</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>Used for displaying group message boards.</WebPartDescription>
   <WebPartDisplayName>Group message board viewer</WebPartDisplayName>
   <WebPartDocumentation />

@@ -5,6 +5,9 @@
     <GUID>ce9e2c3d-ba37-418a-b722-8748c3081c9f</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>Displays list of media libraries.</WebPartDescription>
   <WebPartDisplayName>Media libraries viewer</WebPartDisplayName>
   <WebPartDocumentation />

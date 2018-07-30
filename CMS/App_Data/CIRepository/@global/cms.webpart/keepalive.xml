@@ -5,6 +5,9 @@
     <GUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part generates hidden requests for the given page to prevent the current user's session from expiring. The time interval between requests can be specified.]]>
   </WebPartDescription>

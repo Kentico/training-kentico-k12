@@ -5,6 +5,9 @@
     <GUID>913b74b6-7b34-4af2-b2b3-5db5b5ad4aba</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDefaultValues />
   <WebPartDescription>
     <![CDATA[Simple pre-configured user consent with the cookie usage. Displays a message and a button to allow all cookies, if the current cookie level is lower than 'All cookies' level. This message disappears once the cookies are allowed by the user.]]>

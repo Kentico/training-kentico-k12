@@ -5,6 +5,9 @@
     <GUID>d5cb0ae0-d055-437e-829f-e2c09a7bdce3</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part provides an AJAX tab layout. Each tab defines a separate web part zone, so any type of content may be added. Users can click on the tabs to select which content should be displayed.]]>
   </WebPartDescription>

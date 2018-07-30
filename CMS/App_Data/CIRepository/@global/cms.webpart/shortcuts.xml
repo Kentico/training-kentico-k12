@@ -5,6 +5,9 @@
     <GUID>dbeb60eb-49ab-46ad-800d-547ca3f45c23</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of shortcut links that allow users to perform various community-related actions. The links are displayed according to the context of the current user.]]>
   </WebPartDescription>

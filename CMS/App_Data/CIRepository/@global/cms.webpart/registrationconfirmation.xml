@@ -5,6 +5,9 @@
     <GUID>d01e7e0e-fa1e-4a29-ac4b-940bfcba4c1e</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part can be used to approve new user accounts if email confirmation is required to register on the website. Users are typically directed to the page containing this web part through a link in the registration confirmation email.]]>
   </WebPartDescription>

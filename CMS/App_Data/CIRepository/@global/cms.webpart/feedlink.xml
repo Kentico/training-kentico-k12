@@ -5,6 +5,9 @@
     <GUID>9ed02567-2d52-4db2-820f-6b3070e4724f</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Feed link web part displays a link to RSS, Atom or XML feed based on the web part settings. It supports automatic feed discovery.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>9b923a8b-b0c6-48f7-8cad-877830a05b72</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Basic Universal Viewer web part renders specified objects using assigned transformations. It is able to display data from hierarchical grouped data sources. This web part must be used together with a data source web part.]]>
   </WebPartDescription>

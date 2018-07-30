@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="CompanySectionHeader" columnsize="200" columntype="text" guid="45f88f3a-a778-4e73-810c-70e712904240" publicfield="false" visible="true">
+      <field column="Header" columnsize="200" columntype="text" guid="45f88f3a-a778-4e73-810c-70e712904240" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Header</fieldcaption>
         </properties>
@@ -29,7 +29,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="CompanySectionIcon" columntype="file" guid="fd8aa603-0c1d-497a-9419-7bc833d7debe" publicfield="false" visible="true">
+      <field column="Icon" columntype="file" guid="fd8aa603-0c1d-497a-9419-7bc833d7debe" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Icon</fieldcaption>
         </properties>
@@ -41,7 +41,7 @@
           <Extensions>inherit</Extensions>
         </settings>
       </field>
-      <field column="CompanySectionText" columntype="longtext" guid="e0fc1eaf-3761-4230-a13c-e98a3835ee7d" publicfield="false" visible="true">
+      <field column="Text" columntype="longtext" guid="e0fc1eaf-3761-4230-a13c-e98a3835ee7d" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Text</fieldcaption>
         </properties>
@@ -64,16 +64,13 @@
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassName>Training.CompanyService</ClassName>
-  <ClassNodeNameSource>CompanySectionHeader</ClassNodeNameSource>
+  <ClassNodeNameSource>Header</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="0eb6ce33-56d1-4cc4-bab7-03afcf75babd" name="CompanyServiceID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="3efb58c1-25a9-457d-bfad-730d542810fd" name="CompanySectionText" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="480ba28b-0982-471e-85aa-81d272a57857" name="CompanySectionHeader" searchable="False" tokenized="True" />
-      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="ee24851c-609b-4d71-b45d-490edb5bf520" name="CompanySectionIcon" searchable="False" tokenized="False" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

@@ -5,6 +5,9 @@
     <GUID>fde9d969-0d1e-4720-83a4-f7093b413333</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of users who are members of the specified group based on the specified transformations. It is possible to limit which users should be loaded using the web part's properties.]]>
   </WebPartDescription>

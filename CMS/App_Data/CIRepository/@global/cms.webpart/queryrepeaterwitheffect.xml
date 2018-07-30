@@ -5,6 +5,9 @@
     <GUID>b5c63fba-8b88-46a5-a6e5-0e37ddf21ae3</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays data retrieved by a specified query. Data is formatted according to the assigned transformations. The web part can additionally be used to apply a JavaScript effect to the items. The scripts used to generate the effect must be specified through the web part's properties.]]>
   </WebPartDescription>

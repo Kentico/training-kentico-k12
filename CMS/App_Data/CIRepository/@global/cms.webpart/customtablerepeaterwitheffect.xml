@@ -5,6 +5,9 @@
     <GUID>cdadf49c-ed8b-4679-87e1-9cf857b4b121</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Renders data retrieved from a specified custom table according to the assigned transformations and applies an additional javascript effect to the displayed records. The scripts used to generate the effect must be specified through the web part's properties.]]>
   </WebPartDescription>

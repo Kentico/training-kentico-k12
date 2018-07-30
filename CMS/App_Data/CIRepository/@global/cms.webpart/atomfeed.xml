@@ -5,6 +5,9 @@
     <GUID>5707798e-4842-47ce-8014-ce71f0e9331a</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Atom feed web part can be used to create an Atom feed. It must be connected to a data source web part, which will provide data for the feed. It displays a link leading to the feed, which is located at the URL of the page where the web part is placed, with a querystring parameter appended.]]>
   </WebPartDescription>

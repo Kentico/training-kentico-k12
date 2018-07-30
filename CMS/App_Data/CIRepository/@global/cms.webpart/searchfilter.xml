@@ -5,6 +5,9 @@
     <GUID>60f9b918-8389-44b1-833b-ce0762eb73fb</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a filter that can be connected to smart search web parts and allows users to limit the range of their searches or set the order in which results are shown. Filtering options can either be specified manually or via a predefined SQL query.]]>
   </WebPartDescription>

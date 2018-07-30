@@ -5,6 +5,9 @@
     <GUID>60f9b918-8389-44b1-833b-ce0762eb73fb</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a search dialog that allows users to enter a search expression. The web part needs to be placed on the same page with a Smart search results web part, which ensures that results are displayed and specifies the search indexes that should be used.]]>
   </WebPartDescription>

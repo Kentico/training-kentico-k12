@@ -22,7 +22,7 @@
   <NodeIsACLOwner>False</NodeIsACLOwner>
   <NodeIsContentOnly>True</NodeIsContentOnly>
   <NodeName>Sparrow</NodeName>
-  <NodeOrder>4</NodeOrder>
+  <NodeOrder>5</NodeOrder>
   <NodeOwner>
     <CodeName>administrator</CodeName>
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>

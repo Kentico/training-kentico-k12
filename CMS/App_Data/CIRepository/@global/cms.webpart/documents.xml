@@ -5,6 +5,9 @@
     <GUID>cfb44aae-d20d-4415-9662-afe5d8edb4e5</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of pages that fulfill the specified criteria and provides additional related information. Users with sufficient permissions may also perform actions for each page, such as quickly opening the given page editing interface.]]>
   </WebPartDescription>

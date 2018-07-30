@@ -5,6 +5,9 @@
     <GUID>cdadf49c-ed8b-4679-87e1-9cf857b4b121</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a multicolumn/multirow list containing data retrieved from a specified custom table. The format of the data is determined by assigned transformations.]]>
   </WebPartDescription>

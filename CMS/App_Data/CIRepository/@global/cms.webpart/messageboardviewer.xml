@@ -5,6 +5,9 @@
     <GUID>8922d2ca-a89c-4432-bf58-5556e24b4e8c</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays the list of messages from all message boards on the specified site according to the given WHERE condition.]]>
   </WebPartDescription>

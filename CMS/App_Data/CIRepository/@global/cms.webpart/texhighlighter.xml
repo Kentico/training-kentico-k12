@@ -5,6 +5,9 @@
     <GUID>68d8e65b-a01c-49ae-b9b6-7580bbce4b09</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part highlights all words or characters on the page matching the specified text or regular expression. Highlighting is done using a selected CSS class.]]>
   </WebPartDescription>

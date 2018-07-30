@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="ArticleSectionName" columnsize="200" columntype="text" guid="042bd802-b1ea-4030-af86-14c70db89a62" publicfield="false" visible="true">
+      <field column="Name" columnsize="200" columntype="text" guid="042bd802-b1ea-4030-af86-14c70db89a62" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Section name</fieldcaption>
         </properties>
@@ -41,13 +41,12 @@
   <ClassIsForm>False</ClassIsForm>
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.ArticleSection</ClassName>
-  <ClassNodeNameSource>ArticleSectionName</ClassNodeNameSource>
+  <ClassNodeNameSource>Name</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="a3521aef-3e06-4cd4-8bdc-3a8db2db8ded" name="ArticleSectionName" searchable="False" tokenized="True" />
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="c59ee11f-2437-4239-9768-8709096035c5" name="ArticleSectionID" searchable="True" tokenized="False" />
     </search>
   </ClassSearchSettings>

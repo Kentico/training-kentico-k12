@@ -5,6 +5,9 @@
     <GUID>20d24a83-b0ce-4431-baca-65b22eddca59</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a message board, including a list of all posted messages and a dialog for adding new messages. The board will belong under the current group.]]>
   </WebPartDescription>

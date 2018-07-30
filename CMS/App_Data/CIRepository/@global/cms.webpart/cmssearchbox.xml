@@ -5,6 +5,9 @@
     <GUID>609568eb-68a4-46ca-be98-1589f5454541</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a simple text box that allows users to enter a search expression and redirects to a page with the search results. This web part uses the SQL search engine.]]>
   </WebPartDescription>

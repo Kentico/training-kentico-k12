@@ -5,6 +5,9 @@
     <GUID>7e5421b5-0b0a-42e4-b800-373283b7d722</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a simple search box that allows users to look for a specified expressions in the content of forums. When a search request is submitted, the web part redirects to a page where the results are displayed. This web part uses the SQL search engine.]]>
   </WebPartDescription>

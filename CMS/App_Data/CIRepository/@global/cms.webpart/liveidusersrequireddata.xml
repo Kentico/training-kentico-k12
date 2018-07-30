@@ -5,6 +5,9 @@
     <GUID>6890dd98-65c5-4c32-8261-e2dfc9f4ae77</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Allows users to merge their LiveID accounts with their existing account on the website. It may also be used to request additional information from new users who register through their LiveID account.]]>
   </WebPartDescription>

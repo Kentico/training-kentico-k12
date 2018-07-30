@@ -5,6 +5,9 @@
     <GUID>e04cf39b-67c5-4527-b48a-64308124c549</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The My messages web part provides user the possibility of managing recieved and sent messages. User can also manage his contact and ignore list.]]>
   </WebPartDescription>

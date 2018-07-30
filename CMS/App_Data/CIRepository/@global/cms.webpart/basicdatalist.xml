@@ -5,6 +5,9 @@
     <GUID>9b923a8b-b0c6-48f7-8cad-877830a05b72</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Basic datalist web part displays a multicolumn/multirow list of specified objects based on assigned transformations. This web part must be used together with a data source web part.]]>
   </WebPartDescription>

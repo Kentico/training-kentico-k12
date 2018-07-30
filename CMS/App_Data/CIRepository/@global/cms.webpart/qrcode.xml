@@ -6,6 +6,9 @@
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
   <WebPartCSS />
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Generates a Quick Response code (two-dimensional bar code) based on a specified text value and renders it on the page.]]>
   </WebPartDescription>

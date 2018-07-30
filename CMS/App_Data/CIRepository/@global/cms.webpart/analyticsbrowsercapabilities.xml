@@ -5,6 +5,9 @@
     <GUID>8145fa4a-5499-4cbe-8766-86f32b96b102</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Collects information about the browser and system used by visitors that access the page. The results can be viewed in the Web analytics application under the Browser capabilities category.]]>
   </WebPartDescription>

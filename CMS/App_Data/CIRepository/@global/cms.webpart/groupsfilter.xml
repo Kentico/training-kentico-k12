@@ -5,6 +5,9 @@
     <GUID>c745ceae-0786-4260-85a5-4558f82c027d</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a filter that can be used to limit which groups should be displayed from the connected data source. It is intended for use in combination with a Groups data source web part.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>e5af6eb8-e1fc-4aae-b573-5a5d2be89461</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a multi-column image gallery with the option of viewing thumbnails or full-size image details. The images are loaded from specified CMS.File documents and rendered based on assigned transformations.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>9b923a8b-b0c6-48f7-8cad-877830a05b72</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Basic repeater web part renders specified objects using the assigned transformations. This web part must be used together with a data source web part.]]>
   </WebPartDescription>

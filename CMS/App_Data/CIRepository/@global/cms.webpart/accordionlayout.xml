@@ -5,6 +5,9 @@
     <GUID>d5cb0ae0-d055-437e-829f-e2c09a7bdce3</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part provides an accordion layout divided into multiple panes that can be expanded or collapsed. Each pane defines a separate web part zone, so any content may be added into the layout. Users can click on the pane headers to select which one should be displayed.]]>
   </WebPartDescription>

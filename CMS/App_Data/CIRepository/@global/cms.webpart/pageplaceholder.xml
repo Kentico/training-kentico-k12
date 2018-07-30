@@ -5,6 +5,9 @@
     <GUID>f13dcc2f-c5d8-484b-8786-9e687c62b0f6</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Page placeholder web part determines the part of the page where nested subpages display their content. You can place multiple page placeholder web parts on a single page template.]]>
   </WebPartDescription>

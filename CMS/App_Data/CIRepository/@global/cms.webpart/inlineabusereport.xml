@@ -5,6 +5,9 @@
     <GUID>6054437f-0d27-4465-9302-d5080a079cb8</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a link that opens a modal dialog used for submitting abuse reports.]]>
   </WebPartDescription>

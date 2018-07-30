@@ -5,6 +5,9 @@
     <GUID>629c7495-0973-4df6-9f21-b0a87686a061</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
 <![CDATA[
 Displays products that other customers buy with the chosen product most often. By default, 4 products are displayed at the most.

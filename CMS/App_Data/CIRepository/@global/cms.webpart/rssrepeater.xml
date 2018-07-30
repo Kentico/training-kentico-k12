@@ -5,6 +5,9 @@
     <GUID>fcec1ff1-21ce-48d3-8a63-3d96de0c5ccf</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part changes a page to an RSS feed of data provided by a connected data source web part.]]>
   </WebPartDescription>

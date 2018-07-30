@@ -13,6 +13,9 @@
 }
 ]]>
   </WebPartCSS>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDefaultValues>
     <form />
   </WebPartDefaultValues>

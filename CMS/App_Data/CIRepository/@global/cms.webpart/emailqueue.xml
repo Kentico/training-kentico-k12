@@ -5,6 +5,9 @@
     <GUID>cfb44aae-d20d-4415-9662-afe5d8edb4e5</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of emails that are currently waiting to be sent and those that were not sent successfully. It also provides an interface for resending emails.]]>
   </WebPartDescription>

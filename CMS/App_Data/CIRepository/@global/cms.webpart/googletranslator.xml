@@ -5,6 +5,9 @@
     <GUID>f06ed0de-7c20-45f0-af6b-dea408ee3711</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays the Google translator box which allows users to translate the current page into a variety of languages.]]>
   </WebPartDescription>

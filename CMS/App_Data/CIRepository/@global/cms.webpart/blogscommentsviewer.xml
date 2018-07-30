@@ -5,6 +5,9 @@
     <GUID>9682b2f5-000d-4b72-84a2-24416f7224af</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays blog comments based on the filter settings in the web part properties.]]>
   </WebPartDescription>

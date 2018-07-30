@@ -5,6 +5,9 @@
     <GUID>16c890ee-6223-4455-8e5e-0f1fd0472fd6</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[This web part inserts custom HTML code into the HEAD element of the page.]]>
   </WebPartDescription>

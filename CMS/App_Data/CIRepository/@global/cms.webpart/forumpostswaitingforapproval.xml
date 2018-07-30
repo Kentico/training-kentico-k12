@@ -5,6 +5,9 @@
     <GUID>640f6aff-12a6-47de-b5d2-a3cf663c17dd</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays posts from moderated forums that are waiting for approval. Only posts that the current user is allowed to approve are shown.]]>
   </WebPartDescription>

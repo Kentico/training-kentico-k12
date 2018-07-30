@@ -5,6 +5,9 @@
     <GUID>544c59a5-850a-4445-9780-e2c5fdc47a38</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Allows users to merge their OpenID accounts with their existing account on the website. It may also be used to request additional information from new users who register through their OpenID account. Please note that OpenID authentication does not work when running in a Medium Trust environment.]]>
   </WebPartDescription>

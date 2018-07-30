@@ -5,6 +5,9 @@
     <GUID>35c19d90-c0f0-422e-adb5-9d586164c7d4</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Allows group administrators to edit the basic properties of the specified group directly from the live site.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>23d73e17-6cd5-46d3-ae87-9a14cab7df52</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of group's contributions or only the New page button.]]>
   </WebPartDescription>

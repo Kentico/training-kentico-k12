@@ -5,6 +5,9 @@
     <GUID>fc9fe123-adb8-4a87-9c79-1f96afb20587</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[{$emailmarketing.webparts.mysubscriptions.description$}]]>
   </WebPartDescription>

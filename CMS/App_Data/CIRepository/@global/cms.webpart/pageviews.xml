@@ -5,6 +5,9 @@
     <GUID>25ea0b9d-7959-4566-b760-adddfbb8c159</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays the number of page views that the page it is placed on has.]]>
   </WebPartDescription>

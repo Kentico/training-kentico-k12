@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="HomeName" columnsize="100" columntype="text" guid="0e6ec305-f140-4b30-9057-871d5cda0ab4" publicfield="false" visible="true">
+      <field column="Name" columnsize="100" columntype="text" guid="0e6ec305-f140-4b30-9057-871d5cda0ab4" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Name</fieldcaption>
         </properties>
@@ -29,7 +29,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="HomeHeader" columnsize="200" columntype="text" guid="460d94ec-e43b-497e-9eb1-ed31e943aff0" publicfield="false" visible="true">
+      <field column="Header" columnsize="200" columntype="text" guid="460d94ec-e43b-497e-9eb1-ed31e943aff0" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Header</fieldcaption>
         </properties>
@@ -42,7 +42,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="HomeText" columntype="longtext" guid="e32f995d-bad6-457c-9c80-c8b9b14c9173" publicfield="false" visible="true">
+      <field column="Text" columntype="longtext" guid="e32f995d-bad6-457c-9c80-c8b9b14c9173" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Text</fieldcaption>
         </properties>
@@ -55,7 +55,7 @@
           <WidthUnitType>PX</WidthUnitType>
         </settings>
       </field>
-      <field allowempty="true" column="HomeButton" columnsize="1000" columntype="text" guid="8f7ae3c0-2768-4038-a067-2646c5ab1505" publicfield="false" visible="true">
+      <field allowempty="true" column="Button" columnsize="1000" columntype="text" guid="8f7ae3c0-2768-4038-a067-2646c5ab1505" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Link</fieldcaption>
         </properties>
@@ -81,16 +81,13 @@
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.HomeSection</ClassName>
   <ClassNodeAliasSource>HomeName</ClassNodeAliasSource>
-  <ClassNodeNameSource>HomeName</ClassNodeNameSource>
+  <ClassNodeNameSource>Name</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="1389d858-5b22-4240-afcf-d082e273b0d3" name="HomeSectionID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="1bc2685f-e860-44a5-898c-6aef899fe22e" name="HomeButton" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="658d2b32-55d3-4e90-a607-9452d79b0daa" name="HomeText" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="bc4053b3-4498-4105-a995-e85615ed2fef" name="HomeHeader" searchable="False" tokenized="True" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

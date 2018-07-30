@@ -5,6 +5,9 @@
     <GUID>9d08bf54-24b5-46aa-b80f-1ebb73ed9018</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Site map web part renders a hierarchical view of the pages in the website structure.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>a3cd1584-c603-401c-a45a-3ae444d73243</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>Used to enable rating of page content.</WebPartDescription>
   <WebPartDisplayName>Content rating</WebPartDisplayName>
   <WebPartDocumentation />

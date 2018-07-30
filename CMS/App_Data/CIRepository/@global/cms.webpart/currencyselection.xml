@@ -5,6 +5,9 @@
     <GUID>5e13805d-aaaa-4bc8-b22c-a4474618e315</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Allows users to select a currency that E-commerce web parts use for displaying prices. Place the web part either on a checkout process page or anywhere on your website, e.g., on your master page header. Note that if there is only one valid currency in your store, the Currency selection is automatically hidden. The web part only offers currencies with valid exchange rate.]]>
   </WebPartDescription>

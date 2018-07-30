@@ -5,6 +5,9 @@
     <GUID>7adb2a2b-c1b8-433c-9e3b-ffc0883ac2f5</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of users who are members of a specified department. Displayed users can be filtered using the Filter section of web part properties.]]>
   </WebPartDescription>

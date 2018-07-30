@@ -15,13 +15,13 @@ namespace Kentico.Repository.Social
         public IEnumerable<SocialLinkDto> GetSocialLinks()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.SocialLink>()
-                .AddColumns("SocialLinkTitle", "SocialLinkUrl", "SocialLinkIcon", "DocumentID")
+                .AddColumns("Title", "Url", "Icon", "DocumentID")
                 .OrderByAscending("NodeOrder")
                 .ToList()
                 .Select(m => new SocialLinkDto()
                 {
-                    Url = m.SocialLinkUrl,
-                    Title = m.SocialLinkTitle,
+                    Url = m.Url,
+                    Title = m.Title,
                     IconPath = m.Fields.Icon.GetPath("")
                 });
         }

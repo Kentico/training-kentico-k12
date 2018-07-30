@@ -5,6 +5,9 @@
     <GUID>60f9b918-8389-44b1-833b-ce0762eb73fb</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Provides a complete search dialog where users can enter a search expression and the matching results are displayed below. The format of the results is based on the specified transformation.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>519a8fe2-79c7-4acb-8371-271d593a6082</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Using this webpart any user can subscribe to the e-mail notifications about page events (insert, update, delete).]]>
   </WebPartDescription>

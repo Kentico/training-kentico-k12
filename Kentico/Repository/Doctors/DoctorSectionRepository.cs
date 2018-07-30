@@ -17,12 +17,12 @@ namespace Kentico.Repository.Doctors
         public DoctorSectionDto GetDoctorSection()
         {
             return DocumentQueryService.GetDocuments<DoctorSection>()
-                .AddColumns("DoctorSectionName")
+                .AddColumns("Name")
                 .TopN(1)
                 .ToList()
                 .Select(m => new DoctorSectionDto()
                 {
-                    Header = m.DoctorSectionName
+                    Header = m.Name
                 })
                 .FirstOrDefault();
         }

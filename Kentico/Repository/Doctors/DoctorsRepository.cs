@@ -13,21 +13,21 @@ namespace Kentico.Repository.Doctors
 
         private readonly string[] _doctorColumns = 
         {
-            "NodeID", "NodeAlias", "DoctorBio", "DoctorDegree", "DoctorEmergencyShift", "DoctorFirstName",
-            "DoctorLastName", "DoctorImage", "DoctorSpecialty", "DocumentID"
+            "NodeID", "NodeAlias", "Bio", "Degree", "EmergencyShift", "FirstName",
+            "LastName", "Image", "Specialty", "DocumentID"
         };
 
         private Func<Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
         {
             NodeAlias = doctor.NodeAlias,
             NodeId = doctor.NodeID,
-            Bio = doctor.DoctorBio,
-            Degree = doctor.DoctorDegree,
-            EmergencyShift = doctor.DoctorEmergencyShift,
-            FirstName = doctor.DoctorFirstName,
-            LastName = doctor.DoctorLastName,
+            Bio = doctor.Bio,
+            Degree = doctor.Degree,
+            EmergencyShift = doctor.EmergencyShift,
+            FirstName = doctor.FirstName,
+            LastName = doctor.LastName,
             ImagePath = doctor.Fields.Image.GetPath(),
-            Specialty = doctor.DoctorSpecialty
+            Specialty = doctor.Specialty
         };
 
         public DoctorsRepository(IDocumentQueryService documentQueryService) : base(documentQueryService)

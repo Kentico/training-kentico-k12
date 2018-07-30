@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="DoctorSectionName" columnsize="200" columntype="text" guid="d4b35a9f-eba3-4074-80b4-270d68786c90" publicfield="false" visible="true">
+      <field column="Name" columnsize="200" columntype="text" guid="d4b35a9f-eba3-4074-80b4-270d68786c90" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Section name</fieldcaption>
         </properties>
@@ -42,13 +42,12 @@
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.DoctorSection</ClassName>
   <ClassNodeAliasSource />
-  <ClassNodeNameSource>DoctorSectionName</ClassNodeNameSource>
+  <ClassNodeNameSource>Name</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="815494d1-4bc7-45b6-930b-e8c2445d32c6" name="DoctorSectionName" searchable="False" tokenized="True" />
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="a3cf569e-f62a-48d1-a4dd-6c10f70be69d" name="DoctorSectionID" searchable="True" tokenized="False" />
     </search>
   </ClassSearchSettings>

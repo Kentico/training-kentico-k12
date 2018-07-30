@@ -5,6 +5,9 @@
     <GUID>9d08bf54-24b5-46aa-b80f-1ebb73ed9018</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Renders a navigation menu for a specified section of the website using &lt;UL&gt; and &lt;LI&gt; elements. It may utilize advanced CSS styles to display any type of menu, such as a drop-down menu. It produces much less code than other types of menus, but requires advanced knowledge of CSS styles and positioning to render advanced menu behavior.]]>
   </WebPartDescription>

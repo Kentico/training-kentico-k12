@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.usersettings>
   <UserAccountLockReason>0</UserAccountLockReason>
+  <UserActivationDate>2018-07-20 07:25:49Z</UserActivationDate>
+  <UserDialogsConfiguration />
   <UserFacebookID />
   <UserInvalidLogOnAttempts>0</UserInvalidLogOnAttempts>
   <UserLogActivities>True</UserLogActivities>
   <UserMessagingNotificationEmail />
   <UserNickName />
+  <UserPreferences />
+  <UserRegistrationInfo />
   <UserSettingsUserGUID>3758b9b5-045c-4b7d-b020-80f9b068d990</UserSettingsUserGUID>
   <UserSettingsUserID>
     <CodeName>public</CodeName>

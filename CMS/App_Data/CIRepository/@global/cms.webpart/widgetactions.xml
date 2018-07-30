@@ -5,6 +5,9 @@
     <GUID>c28ef141-4925-4c4f-a385-1c1b0081041b</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays buttons that allow users to add new widgets to a specific zone or reset widget zones to their default content.]]>
   </WebPartDescription>

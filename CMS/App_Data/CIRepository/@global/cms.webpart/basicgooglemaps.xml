@@ -5,6 +5,9 @@
     <GUID>a736f41a-e1c9-4ea8-899e-b63a76b9f045</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The web part displays maps obtained from the Google maps service. This web part must be used together with a data source web part.]]>
   </WebPartDescription>

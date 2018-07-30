@@ -6,6 +6,9 @@
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
   <WebPartCSS />
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Repeater web part displays the content of specified pages based on assigned transformations.]]>
   </WebPartDescription>

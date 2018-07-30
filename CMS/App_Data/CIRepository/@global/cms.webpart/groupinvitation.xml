@@ -5,6 +5,9 @@
     <GUID>fde9d969-0d1e-4720-83a4-f7093b413333</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Manages invitations to join the group. The GUID of the invitation that should be managed must be passed to the web part through the URL via the 'invitationguid' query string parameter.]]>
   </WebPartDescription>

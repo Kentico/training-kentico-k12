@@ -15,14 +15,14 @@ namespace Kentico.Repository.Home
         public HomeSectionDto GetHomeSection()
         {
             return DocumentQueryService.GetDocuments<HomeSection>()
-                .AddColumns("HomeHeader", "HomeText", "HomeButton")
+                .AddColumns("Header", "Text", "Button")
                 .TopN(1)
                 .ToList()
                 .Select(m => new HomeSectionDto()
                 {
-                    Title = m.HomeHeader,
-                    Text = m.HomeText,
-                    LinkText = m.HomeButton
+                    Title = m.Header,
+                    Text = m.Text,
+                    LinkText = m.Button
                 })
                 .FirstOrDefault();
         }

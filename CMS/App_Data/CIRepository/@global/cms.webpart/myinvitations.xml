@@ -5,6 +5,9 @@
     <GUID>fde9d969-0d1e-4720-83a4-f7093b413333</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of invitations to join a group for the specified user. Users can accept or delete their invitations.]]>
   </WebPartDescription>

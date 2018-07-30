@@ -6,6 +6,9 @@
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
   <WebPartCSS />
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Provides an editable text region that can be used to enter page content. Users can write content on the Page tab of the Pages application, or when viewing pages in On-site editing mode. ]]>
   </WebPartDescription>

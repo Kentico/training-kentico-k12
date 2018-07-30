@@ -5,6 +5,9 @@
     <GUID>9682b2f5-000d-4b72-84a2-24416f7224af</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of comments that were added to the specified blog(s). Authorized users will also be able to approve, reject or edit the listed comments.]]>
   </WebPartDescription>

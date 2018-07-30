@@ -14,6 +14,9 @@
 }
 ]]>
   </WebPartCSS>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays banners from a specified banner category according to their weight.]]>
   </WebPartDescription>

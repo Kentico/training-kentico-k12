@@ -5,6 +5,9 @@
     <GUID>f5f00663-844b-4069-a823-4fb748c38952</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Provides a layout divided into multiple steps. The wizard displays one step at a time and allows users to navigate through them in consecutive order. The content of each step is defined through a separate web part zone.]]>
   </WebPartDescription>

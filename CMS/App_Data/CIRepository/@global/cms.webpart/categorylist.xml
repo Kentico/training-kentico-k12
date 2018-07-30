@@ -5,6 +5,9 @@
     <GUID>2dffdb0b-dd29-451f-b14a-37720a4c9e28</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>Displays the list of specified categories.</WebPartDescription>
   <WebPartDisplayName>Category list</WebPartDisplayName>
   <WebPartDocumentation />

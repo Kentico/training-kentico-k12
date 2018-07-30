@@ -5,6 +5,9 @@
     <GUID>2dffdb0b-dd29-451f-b14a-37720a4c9e28</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays list of all the tags used within a group of pages or part of the content tree. Tag frequency is shown with font size; the most frequent tags use larger font size than the less frequent ones. Each tag links to the page which shows the list of the pages that are tagged with the specified key word.]]>
   </WebPartDescription>

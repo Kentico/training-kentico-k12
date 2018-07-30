@@ -5,6 +5,9 @@
     <GUID>9d64ed06-94cf-42f6-a178-8d78808ffdb0</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>Enables users to create a new blog.</WebPartDescription>
   <WebPartDisplayName>New blog</WebPartDisplayName>
   <WebPartDocumentation />

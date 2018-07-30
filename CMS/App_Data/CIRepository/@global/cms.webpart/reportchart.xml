@@ -5,6 +5,9 @@
     <GUID>a097d3c9-6a18-4f54-b407-4c7b742033ad</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Can be used to directly display an individual chart from a specified report, without the report's remaining content.]]>
   </WebPartDescription>

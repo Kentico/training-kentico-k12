@@ -5,6 +5,9 @@
     <GUID>b5c63fba-8b88-46a5-a6e5-0e37ddf21ae3</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of files attached to the selected page and applies an additional JavaScript effect. The scripts used to generate the effect must be specified through the web part's properties.]]>
   </WebPartDescription>

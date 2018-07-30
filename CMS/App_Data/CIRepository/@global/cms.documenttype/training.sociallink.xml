@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="SocialLinkName" columnsize="200" columntype="text" guid="aba6ef4e-2ae9-4d1a-99b8-398557850c30" publicfield="false" visible="true">
+      <field column="Name" columnsize="200" columntype="text" guid="aba6ef4e-2ae9-4d1a-99b8-398557850c30" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Link name</fieldcaption>
         </properties>
@@ -29,7 +29,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="SocialLinkTitle" columnsize="200" columntype="text" guid="6feb9276-6039-4d0c-b92b-148faa33ca71" publicfield="false" visible="true">
+      <field column="Title" columnsize="200" columntype="text" guid="6feb9276-6039-4d0c-b92b-148faa33ca71" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Link title</fieldcaption>
         </properties>
@@ -42,7 +42,7 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="SocialLinkUrl" columnsize="2000" columntype="text" guid="85b20d89-619d-404c-b1fa-b4d68cbfde34" publicfield="false" visible="true">
+      <field column="Url" columnsize="2000" columntype="text" guid="85b20d89-619d-404c-b1fa-b4d68cbfde34" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Link Url</fieldcaption>
         </properties>
@@ -62,7 +62,7 @@
           <Dialogs_Content_Hide>False</Dialogs_Content_Hide>
         </settings>
       </field>
-      <field column="SocialLinkIcon" columntype="file" guid="c6fda66a-c96a-4566-98ac-ca3ab304d1ad" publicfield="false" visible="true">
+      <field column="Icon" columntype="file" guid="c6fda66a-c96a-4566-98ac-ca3ab304d1ad" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Icon</fieldcaption>
         </properties>
@@ -86,17 +86,13 @@
   <ClassIsForm>False</ClassIsForm>
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.SocialLink</ClassName>
-  <ClassNodeNameSource>SocialLinkName</ClassNodeNameSource>
+  <ClassNodeNameSource>Name</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="1ffd2a36-901e-4a9c-bd20-6d4a8b4582a2" name="SocialLinkID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="4294e7ff-b1ed-4228-ad77-7a1110221086" name="SocialLinkUrl" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="5adbba49-0775-472b-9337-c895ad0b8c76" name="SocialLinkTitle" searchable="False" tokenized="True" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="76e3de0e-e489-4b4b-900c-8fbbc7a230a8" name="SocialLinkName" searchable="False" tokenized="True" />
-      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="d4856ea4-82fc-48e5-a2c1-c680ba9cfe32" name="SocialLinkIcon" searchable="False" tokenized="False" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>

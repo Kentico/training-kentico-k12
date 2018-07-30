@@ -5,6 +5,9 @@
     <GUID>0c130eb6-0414-4355-a04a-0f71860428de</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a Google search box with results depending on settings made at the Google Custom Search website (http://www.google.com/cse/).]]>
   </WebPartDescription>

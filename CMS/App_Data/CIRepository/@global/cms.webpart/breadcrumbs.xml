@@ -5,6 +5,9 @@
     <GUID>9d08bf54-24b5-46aa-b80f-1ebb73ed9018</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[The Breadcrumbs web part allows users to see their current position within the structure of the website. Also provides links to all ancestor documents (previous levels).]]>
   </WebPartDescription>

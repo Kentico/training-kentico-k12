@@ -5,6 +5,9 @@
     <GUID>36984e99-1ff8-464a-8788-b1ab4afaa585</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Retrieves data using a macro expression and provides it as a data source. To display the data, connect this data source to a listing web part (such as a Basic repeater).]]>
   </WebPartDescription>

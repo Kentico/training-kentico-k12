@@ -5,6 +5,9 @@
     <GUID>c745ceae-0786-4260-85a5-4558f82c027d</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of groups based on the specified transformations. It is possible to limit which groups should be loaded using the web part's properties.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>a08d8f1a-7771-4832-95e2-2cfc4ca84695</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of users that are currently on-line.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>02855290-f69a-4f87-bb90-54b4a6ffd4b1</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a list of users who are the most active forum contributors, formatted according to a specified transformation. The order of the users is determined by their amount of posts in the forums on the current website.]]>
   </WebPartDescription>

@@ -5,6 +5,9 @@
     <GUID>c4dcc9a6-220e-4efe-b264-288b53d08da6</GUID>
     <ObjectType>cms.webpartcategory</ObjectType>
   </WebPartCategoryID>
+  <WebPartDefaultConfiguration>
+    <page />
+  </WebPartDefaultConfiguration>
   <WebPartDescription>
     <![CDATA[Displays a link that opens the current page for editing (in the Pages application or in on-site editing mode). You can configure the web part to display the link only for users with permissions to edit the page.]]>
   </WebPartDescription>
