@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <documentfields.training.homesection>
   <Button>Our doctors</Button>
-  <Header>Welcome to MEDIO Clinic</Header>
-  <Name>Home</Name>
   <Text>
     <![CDATA[The goal of our clinic is to provide the best medical care. For comprehensive health at all times, it is also necessary to maintain a healthy lifestyle.]]>
   </Text>
+  <Title>Welcome to MEDIO Clinic</Title>
 </documentfields.training.homesection>

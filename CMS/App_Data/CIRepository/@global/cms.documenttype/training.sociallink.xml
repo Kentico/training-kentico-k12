@@ -16,19 +16,6 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="Name" columnsize="200" columntype="text" guid="aba6ef4e-2ae9-4d1a-99b8-398557850c30" publicfield="false" visible="true">
-        <properties>
-          <fieldcaption>Link name</fieldcaption>
-        </properties>
-        <settings>
-          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
-          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
-          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>TextBoxControl</controlname>
-          <FilterMode>False</FilterMode>
-          <Trim>False</Trim>
-        </settings>
-      </field>
       <field column="Title" columnsize="200" columntype="text" guid="6feb9276-6039-4d0c-b92b-148faa33ca71" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Link title</fieldcaption>
@@ -86,7 +73,7 @@
   <ClassIsForm>False</ClassIsForm>
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.SocialLink</ClassName>
-  <ClassNodeNameSource>Name</ClassNodeNameSource>
+  <ClassNodeNameSource />
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>

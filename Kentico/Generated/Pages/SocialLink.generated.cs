@@ -23,238 +23,205 @@ using CMS.DocumentEngine;
 
 namespace CMS.DocumentEngine.Types.Training
 {
-	/// <summary>
-	/// Represents a content item of type SocialLink.
-	/// </summary>
-	public partial class SocialLink : TreeNode
-	{
-		#region "Constants and variables"
+    /// <summary>
+    /// Represents a content item of type SocialLink.
+    /// </summary>
+    public partial class SocialLink : TreeNode
+    {
+        #region "Constants and variables"
 
-		/// <summary>
-		/// The name of the data class.
-		/// </summary>
-		public const string CLASS_NAME = "Training.SocialLink";
-
-
-		/// <summary>
-		/// The instance of the class that provides extended API for working with SocialLink fields.
-		/// </summary>
-		private readonly SocialLinkFields mFields;
-
-		#endregion
+        /// <summary>
+        /// The name of the data class.
+        /// </summary>
+        public const string CLASS_NAME = "Training.SocialLink";
 
 
-		#region "Properties"
+        /// <summary>
+        /// The instance of the class that provides extended API for working with SocialLink fields.
+        /// </summary>
+        private readonly SocialLinkFields mFields;
 
-		/// <summary>
-		/// SocialLinkID.
-		/// </summary>
-		[DatabaseIDField]
-		public int SocialLinkID
-		{
-			get
-			{
-				return ValidationHelper.GetInteger(GetValue("SocialLinkID"), 0);
-			}
-			set
-			{
-				SetValue("SocialLinkID", value);
-			}
-		}
+        #endregion
 
 
-		/// <summary>
-		/// Link name.
-		/// </summary>
-		[DatabaseField]
-		public string Name
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Name"), @"");
-			}
-			set
-			{
-				SetValue("Name", value);
-			}
-		}
+        #region "Properties"
+
+        /// <summary>
+        /// SocialLinkID.
+        /// </summary>
+        [DatabaseIDField]
+        public int SocialLinkID
+        {
+            get
+            {
+                return ValidationHelper.GetInteger(GetValue("SocialLinkID"), 0);
+            }
+            set
+            {
+                SetValue("SocialLinkID", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Link title.
-		/// </summary>
-		[DatabaseField]
-		public string Title
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Title"), @"");
-			}
-			set
-			{
-				SetValue("Title", value);
-			}
-		}
+        /// <summary>
+        /// Link title.
+        /// </summary>
+        [DatabaseField]
+        public string Title
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Title"), @"");
+            }
+            set
+            {
+                SetValue("Title", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Link Url.
-		/// </summary>
-		[DatabaseField]
-		public string Url
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Url"), @"");
-			}
-			set
-			{
-				SetValue("Url", value);
-			}
-		}
+        /// <summary>
+        /// Link Url.
+        /// </summary>
+        [DatabaseField]
+        public string Url
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Url"), @"");
+            }
+            set
+            {
+                SetValue("Url", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Icon.
-		/// </summary>
-		[DatabaseField]
-		public Guid Icon1
-		{
-			get
-			{
-				return ValidationHelper.GetGuid(GetValue("Icon"), Guid.Empty);
-			}
-			set
-			{
-				SetValue("Icon", value);
-			}
-		}
+        /// <summary>
+        /// Icon.
+        /// </summary>
+        [DatabaseField]
+        public Guid Icon1
+        {
+            get
+            {
+                return ValidationHelper.GetGuid(GetValue("Icon"), Guid.Empty);
+            }
+            set
+            {
+                SetValue("Icon", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Gets an object that provides extended API for working with SocialLink fields.
-		/// </summary>
-		[RegisterProperty]
-		public SocialLinkFields Fields
-		{
-			get
-			{
-				return mFields;
-			}
-		}
+        /// <summary>
+        /// Gets an object that provides extended API for working with SocialLink fields.
+        /// </summary>
+        [RegisterProperty]
+        public SocialLinkFields Fields
+        {
+            get
+            {
+                return mFields;
+            }
+        }
 
 
-		/// <summary>
-		/// Provides extended API for working with SocialLink fields.
-		/// </summary>
-		[RegisterAllProperties]
-		public partial class SocialLinkFields : AbstractHierarchicalObject<SocialLinkFields>
-		{
-			/// <summary>
-			/// The content item of type SocialLink that is a target of the extended API.
-			/// </summary>
-			private readonly SocialLink mInstance;
+        /// <summary>
+        /// Provides extended API for working with SocialLink fields.
+        /// </summary>
+        [RegisterAllProperties]
+        public partial class SocialLinkFields : AbstractHierarchicalObject<SocialLinkFields>
+        {
+            /// <summary>
+            /// The content item of type SocialLink that is a target of the extended API.
+            /// </summary>
+            private readonly SocialLink mInstance;
 
 
-			/// <summary>
-			/// Initializes a new instance of the <see cref="SocialLinkFields" /> class with the specified content item of type SocialLink.
-			/// </summary>
-			/// <param name="instance">The content item of type SocialLink that is a target of the extended API.</param>
-			public SocialLinkFields(SocialLink instance)
-			{
-				mInstance = instance;
-			}
+            /// <summary>
+            /// Initializes a new instance of the <see cref="SocialLinkFields" /> class with the specified content item of type SocialLink.
+            /// </summary>
+            /// <param name="instance">The content item of type SocialLink that is a target of the extended API.</param>
+            public SocialLinkFields(SocialLink instance)
+            {
+                mInstance = instance;
+            }
 
 
-			/// <summary>
-			/// SocialLinkID.
-			/// </summary>
-			public int ID
-			{
-				get
-				{
-					return mInstance.SocialLinkID;
-				}
-				set
-				{
-					mInstance.SocialLinkID = value;
-				}
-			}
+            /// <summary>
+            /// SocialLinkID.
+            /// </summary>
+            public int ID
+            {
+                get
+                {
+                    return mInstance.SocialLinkID;
+                }
+                set
+                {
+                    mInstance.SocialLinkID = value;
+                }
+            }
 
 
-			/// <summary>
-			/// Link name.
-			/// </summary>
-			public string Name
-			{
-				get
-				{
-					return mInstance.Name;
-				}
-				set
-				{
-					mInstance.Name = value;
-				}
-			}
+            /// <summary>
+            /// Link title.
+            /// </summary>
+            public string Title
+            {
+                get
+                {
+                    return mInstance.Title;
+                }
+                set
+                {
+                    mInstance.Title = value;
+                }
+            }
 
 
-			/// <summary>
-			/// Link title.
-			/// </summary>
-			public string Title
-			{
-				get
-				{
-					return mInstance.Title;
-				}
-				set
-				{
-					mInstance.Title = value;
-				}
-			}
+            /// <summary>
+            /// Link Url.
+            /// </summary>
+            public string Url
+            {
+                get
+                {
+                    return mInstance.Url;
+                }
+                set
+                {
+                    mInstance.Url = value;
+                }
+            }
 
 
-			/// <summary>
-			/// Link Url.
-			/// </summary>
-			public string Url
-			{
-				get
-				{
-					return mInstance.Url;
-				}
-				set
-				{
-					mInstance.Url = value;
-				}
-			}
+            /// <summary>
+            /// Icon.
+            /// </summary>
+            public DocumentAttachment Icon
+            {
+                get
+                {
+                    return mInstance.GetFieldDocumentAttachment("Icon");
+                }
+            }
+        }
+
+        #endregion
 
 
-			/// <summary>
-			/// Icon.
-			/// </summary>
-			public DocumentAttachment Icon
-			{
-				get
-				{
-					return mInstance.GetFieldDocumentAttachment("Icon");
-				}
-			}
-		}
+        #region "Constructors"
 
-		#endregion
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SocialLink" /> class.
+        /// </summary>
+        public SocialLink() : base(CLASS_NAME)
+        {
+            mFields = new SocialLinkFields(this);
+        }
 
-
-		#region "Constructors"
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="SocialLink" /> class.
-		/// </summary>
-		public SocialLink() : base(CLASS_NAME)
-		{
-			mFields = new SocialLinkFields(this);
-		}
-
-		#endregion
-	}
+        #endregion
+    }
 }

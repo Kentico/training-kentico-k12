@@ -23,209 +23,209 @@ using CMS.DocumentEngine;
 
 namespace CMS.DocumentEngine.Types.Training
 {
-	/// <summary>
-	/// Represents a content item of type ContactSection.
-	/// </summary>
-	public partial class ContactSection : TreeNode
-	{
-		#region "Constants and variables"
+    /// <summary>
+    /// Represents a content item of type ContactSection.
+    /// </summary>
+    public partial class ContactSection : TreeNode
+    {
+        #region "Constants and variables"
 
-		/// <summary>
-		/// The name of the data class.
-		/// </summary>
-		public const string CLASS_NAME = "Training.ContactSection";
-
-
-		/// <summary>
-		/// The instance of the class that provides extended API for working with ContactSection fields.
-		/// </summary>
-		private readonly ContactSectionFields mFields;
-
-		#endregion
+        /// <summary>
+        /// The name of the data class.
+        /// </summary>
+        public const string CLASS_NAME = "Training.ContactSection";
 
 
-		#region "Properties"
+        /// <summary>
+        /// The instance of the class that provides extended API for working with ContactSection fields.
+        /// </summary>
+        private readonly ContactSectionFields mFields;
 
-		/// <summary>
-		/// ContactSectionID.
-		/// </summary>
-		[DatabaseIDField]
-		public int ContactSectionID
-		{
-			get
-			{
-				return ValidationHelper.GetInteger(GetValue("ContactSectionID"), 0);
-			}
-			set
-			{
-				SetValue("ContactSectionID", value);
-			}
-		}
+        #endregion
 
 
-		/// <summary>
-		/// Header.
-		/// </summary>
-		[DatabaseField]
-		public string Header
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Header"), @"");
-			}
-			set
-			{
-				SetValue("Header", value);
-			}
-		}
+        #region "Properties"
+
+        /// <summary>
+        /// ContactSectionID.
+        /// </summary>
+        [DatabaseIDField]
+        public int ContactSectionID
+        {
+            get
+            {
+                return ValidationHelper.GetInteger(GetValue("ContactSectionID"), 0);
+            }
+            set
+            {
+                SetValue("ContactSectionID", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Subheader.
-		/// </summary>
-		[DatabaseField]
-		public string Subheader
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Subheader"), @"");
-			}
-			set
-			{
-				SetValue("Subheader", value);
-			}
-		}
+        /// <summary>
+        /// Title.
+        /// </summary>
+        [DatabaseField]
+        public string Title
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Title"), @"");
+            }
+            set
+            {
+                SetValue("Title", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Text.
-		/// </summary>
-		[DatabaseField]
-		public string Text
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Text"), @"");
-			}
-			set
-			{
-				SetValue("Text", value);
-			}
-		}
+        /// <summary>
+        /// Subtitle.
+        /// </summary>
+        [DatabaseField]
+        public string Subtitle
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Subtitle"), @"");
+            }
+            set
+            {
+                SetValue("Subtitle", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Gets an object that provides extended API for working with ContactSection fields.
-		/// </summary>
-		[RegisterProperty]
-		public ContactSectionFields Fields
-		{
-			get
-			{
-				return mFields;
-			}
-		}
+        /// <summary>
+        /// Text.
+        /// </summary>
+        [DatabaseField]
+        public string Text
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Text"), @"");
+            }
+            set
+            {
+                SetValue("Text", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Provides extended API for working with ContactSection fields.
-		/// </summary>
-		[RegisterAllProperties]
-		public partial class ContactSectionFields : AbstractHierarchicalObject<ContactSectionFields>
-		{
-			/// <summary>
-			/// The content item of type ContactSection that is a target of the extended API.
-			/// </summary>
-			private readonly ContactSection mInstance;
+        /// <summary>
+        /// Gets an object that provides extended API for working with ContactSection fields.
+        /// </summary>
+        [RegisterProperty]
+        public ContactSectionFields Fields
+        {
+            get
+            {
+                return mFields;
+            }
+        }
 
 
-			/// <summary>
-			/// Initializes a new instance of the <see cref="ContactSectionFields" /> class with the specified content item of type ContactSection.
-			/// </summary>
-			/// <param name="instance">The content item of type ContactSection that is a target of the extended API.</param>
-			public ContactSectionFields(ContactSection instance)
-			{
-				mInstance = instance;
-			}
+        /// <summary>
+        /// Provides extended API for working with ContactSection fields.
+        /// </summary>
+        [RegisterAllProperties]
+        public partial class ContactSectionFields : AbstractHierarchicalObject<ContactSectionFields>
+        {
+            /// <summary>
+            /// The content item of type ContactSection that is a target of the extended API.
+            /// </summary>
+            private readonly ContactSection mInstance;
 
 
-			/// <summary>
-			/// ContactSectionID.
-			/// </summary>
-			public int ID
-			{
-				get
-				{
-					return mInstance.ContactSectionID;
-				}
-				set
-				{
-					mInstance.ContactSectionID = value;
-				}
-			}
+            /// <summary>
+            /// Initializes a new instance of the <see cref="ContactSectionFields" /> class with the specified content item of type ContactSection.
+            /// </summary>
+            /// <param name="instance">The content item of type ContactSection that is a target of the extended API.</param>
+            public ContactSectionFields(ContactSection instance)
+            {
+                mInstance = instance;
+            }
 
 
-			/// <summary>
-			/// Header.
-			/// </summary>
-			public string Header
-			{
-				get
-				{
-					return mInstance.Header;
-				}
-				set
-				{
-					mInstance.Header = value;
-				}
-			}
+            /// <summary>
+            /// ContactSectionID.
+            /// </summary>
+            public int ID
+            {
+                get
+                {
+                    return mInstance.ContactSectionID;
+                }
+                set
+                {
+                    mInstance.ContactSectionID = value;
+                }
+            }
 
 
-			/// <summary>
-			/// Subheader.
-			/// </summary>
-			public string Subheader
-			{
-				get
-				{
-					return mInstance.Subheader;
-				}
-				set
-				{
-					mInstance.Subheader = value;
-				}
-			}
+            /// <summary>
+            /// Title.
+            /// </summary>
+            public string Title
+            {
+                get
+                {
+                    return mInstance.Title;
+                }
+                set
+                {
+                    mInstance.Title = value;
+                }
+            }
 
 
-			/// <summary>
-			/// Text.
-			/// </summary>
-			public string Text
-			{
-				get
-				{
-					return mInstance.Text;
-				}
-				set
-				{
-					mInstance.Text = value;
-				}
-			}
-		}
-
-		#endregion
+            /// <summary>
+            /// Subtitle.
+            /// </summary>
+            public string Subtitle
+            {
+                get
+                {
+                    return mInstance.Subtitle;
+                }
+                set
+                {
+                    mInstance.Subtitle = value;
+                }
+            }
 
 
-		#region "Constructors"
+            /// <summary>
+            /// Text.
+            /// </summary>
+            public string Text
+            {
+                get
+                {
+                    return mInstance.Text;
+                }
+                set
+                {
+                    mInstance.Text = value;
+                }
+            }
+        }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ContactSection" /> class.
-		/// </summary>
-		public ContactSection() : base(CLASS_NAME)
-		{
-			mFields = new ContactSectionFields(this);
-		}
+        #endregion
 
-		#endregion
-	}
+
+        #region "Constructors"
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactSection" /> class.
+        /// </summary>
+        public ContactSection() : base(CLASS_NAME)
+        {
+            mFields = new ContactSectionFields(this);
+        }
+
+        #endregion
+    }
 }

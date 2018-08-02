@@ -18,11 +18,11 @@
 }
 
 body {
-  overflow:scroll;
+  overflow-y: scroll;
 }
 
 a {
-    color:#c62828;
+    color: #c62828;
 }
 
 nav a {
@@ -40,16 +40,17 @@ nav .brand-logo {
   color: #90A4AE; 
 }
 
-nav ul a {
-  -webkit-transition: background-color .3s;
-  transition: background-color .3s;
-  font-size: 16px !important; 
-  color: #455A64;
-  display: block;
-  padding: 0 15px;
-  cursor: pointer;
-  font-variant-caps: all-small-caps;
-}
+    nav ul a {
+        -webkit-transition: background-color .3s;
+        -moz-transition: background-color .3s;
+        transition: background-color .3s;
+        font-size: 16px !important;
+        color: #455A64;
+        display: block;
+        padding: 0 15px;
+        cursor: pointer;
+        font-variant-caps: all-small-caps;
+    }
 
 .dropdown-content li:hover, .dropdown-content li.active {
   background-color: transparent;
@@ -132,7 +133,7 @@ h5 {
   background-color: #C62828;
 }
 
-.pagination li.disabled a {
+.pagination li.disabled {
   cursor: default;
   color: #CFD8DC;
 }
@@ -142,8 +143,8 @@ h5 {
 */
 
 .kn-section-top {
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .kn-header-gradient {
@@ -167,11 +168,11 @@ h5 {
 }
 
 .kn-padding-no-left-s {
-    padding: 2px 2px 2px 0px;
+    padding: 2px 2px 2px 0;
 }
 
 .kn-margin-no-left-s {
-    margin: 5px 5px 5px 0px;
+    margin: 5px 5px 5px 0;
 }
 
 
@@ -194,7 +195,7 @@ h5 {
   display: inline-block;
   margin-left: 0;
   margin-right:0;
-  font-size:0px;
+  font-size:0;
 }
 
 .kn-address {
@@ -202,7 +203,6 @@ h5 {
   font-style: normal !important;
 }
 
-@supports (webkit-line-clamp: 3) {
     .kn-doctor-card-content {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -216,7 +216,6 @@ h5 {
         .kn-doctor-card-content:after {
             display: none;
         }
-}
 
 .kn-doctor-card-content {
     position: relative;
@@ -271,10 +270,9 @@ span.kn-badge.opened {
 }
 
 .kn-center {
-  display:block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
-  width:50%;
 }
 
 .kn-contact-header {

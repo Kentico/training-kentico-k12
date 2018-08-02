@@ -116,7 +116,7 @@
                     <div class="kn-social">
                         @foreach (var socialLink in Model.SocialLinks)
                         {
-                            <a href="@socialLink.Url" title="Follow us on @socialLink.Title">
+                            <a href="@socialLink.Url" title="@socialLink.Title">
                                 <img alt="@socialLink.Title" src="@Url.Kentico().ImageUrl(socialLink.IconPath, SizeConstraint.Empty)">
                             </a>
                         }

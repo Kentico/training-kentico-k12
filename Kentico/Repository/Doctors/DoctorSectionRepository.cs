@@ -2,7 +2,6 @@
 using System.Linq;
 using CMS.DocumentEngine.Types.Training;
 using Kentico.Dto.Doctors;
-using Kentico.Dto.Sections;
 using Kentico.Services.Query;
 
 namespace Kentico.Repository.Doctors
@@ -17,12 +16,12 @@ namespace Kentico.Repository.Doctors
         public DoctorSectionDto GetDoctorSection()
         {
             return DocumentQueryService.GetDocuments<DoctorSection>()
-                .AddColumns("Name")
+                .AddColumns("Title")
                 .TopN(1)
                 .ToList()
                 .Select(m => new DoctorSectionDto()
                 {
-                    Header = m.Name
+                    Header = m.Title
                 })
                 .FirstOrDefault();
         }

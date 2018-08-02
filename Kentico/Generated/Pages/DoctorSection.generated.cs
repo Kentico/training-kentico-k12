@@ -23,143 +23,143 @@ using CMS.DocumentEngine;
 
 namespace CMS.DocumentEngine.Types.Training
 {
-	/// <summary>
-	/// Represents a content item of type DoctorSection.
-	/// </summary>
-	public partial class DoctorSection : TreeNode
-	{
-		#region "Constants and variables"
+    /// <summary>
+    /// Represents a content item of type DoctorSection.
+    /// </summary>
+    public partial class DoctorSection : TreeNode
+    {
+        #region "Constants and variables"
 
-		/// <summary>
-		/// The name of the data class.
-		/// </summary>
-		public const string CLASS_NAME = "Training.DoctorSection";
-
-
-		/// <summary>
-		/// The instance of the class that provides extended API for working with DoctorSection fields.
-		/// </summary>
-		private readonly DoctorSectionFields mFields;
-
-		#endregion
+        /// <summary>
+        /// The name of the data class.
+        /// </summary>
+        public const string CLASS_NAME = "Training.DoctorSection";
 
 
-		#region "Properties"
+        /// <summary>
+        /// The instance of the class that provides extended API for working with DoctorSection fields.
+        /// </summary>
+        private readonly DoctorSectionFields mFields;
 
-		/// <summary>
-		/// DoctorSectionID.
-		/// </summary>
-		[DatabaseIDField]
-		public int DoctorSectionID
-		{
-			get
-			{
-				return ValidationHelper.GetInteger(GetValue("DoctorSectionID"), 0);
-			}
-			set
-			{
-				SetValue("DoctorSectionID", value);
-			}
-		}
+        #endregion
 
 
-		/// <summary>
-		/// Section name.
-		/// </summary>
-		[DatabaseField]
-		public string Name
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Name"), @"");
-			}
-			set
-			{
-				SetValue("Name", value);
-			}
-		}
+        #region "Properties"
+
+        /// <summary>
+        /// DoctorSectionID.
+        /// </summary>
+        [DatabaseIDField]
+        public int DoctorSectionID
+        {
+            get
+            {
+                return ValidationHelper.GetInteger(GetValue("DoctorSectionID"), 0);
+            }
+            set
+            {
+                SetValue("DoctorSectionID", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Gets an object that provides extended API for working with DoctorSection fields.
-		/// </summary>
-		[RegisterProperty]
-		public DoctorSectionFields Fields
-		{
-			get
-			{
-				return mFields;
-			}
-		}
+        /// <summary>
+        /// Title.
+        /// </summary>
+        [DatabaseField]
+        public string Title
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Title"), @"");
+            }
+            set
+            {
+                SetValue("Title", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Provides extended API for working with DoctorSection fields.
-		/// </summary>
-		[RegisterAllProperties]
-		public partial class DoctorSectionFields : AbstractHierarchicalObject<DoctorSectionFields>
-		{
-			/// <summary>
-			/// The content item of type DoctorSection that is a target of the extended API.
-			/// </summary>
-			private readonly DoctorSection mInstance;
+        /// <summary>
+        /// Gets an object that provides extended API for working with DoctorSection fields.
+        /// </summary>
+        [RegisterProperty]
+        public DoctorSectionFields Fields
+        {
+            get
+            {
+                return mFields;
+            }
+        }
 
 
-			/// <summary>
-			/// Initializes a new instance of the <see cref="DoctorSectionFields" /> class with the specified content item of type DoctorSection.
-			/// </summary>
-			/// <param name="instance">The content item of type DoctorSection that is a target of the extended API.</param>
-			public DoctorSectionFields(DoctorSection instance)
-			{
-				mInstance = instance;
-			}
+        /// <summary>
+        /// Provides extended API for working with DoctorSection fields.
+        /// </summary>
+        [RegisterAllProperties]
+        public partial class DoctorSectionFields : AbstractHierarchicalObject<DoctorSectionFields>
+        {
+            /// <summary>
+            /// The content item of type DoctorSection that is a target of the extended API.
+            /// </summary>
+            private readonly DoctorSection mInstance;
 
 
-			/// <summary>
-			/// DoctorSectionID.
-			/// </summary>
-			public int ID
-			{
-				get
-				{
-					return mInstance.DoctorSectionID;
-				}
-				set
-				{
-					mInstance.DoctorSectionID = value;
-				}
-			}
+            /// <summary>
+            /// Initializes a new instance of the <see cref="DoctorSectionFields" /> class with the specified content item of type DoctorSection.
+            /// </summary>
+            /// <param name="instance">The content item of type DoctorSection that is a target of the extended API.</param>
+            public DoctorSectionFields(DoctorSection instance)
+            {
+                mInstance = instance;
+            }
 
 
-			/// <summary>
-			/// Section name.
-			/// </summary>
-			public string Name
-			{
-				get
-				{
-					return mInstance.Name;
-				}
-				set
-				{
-					mInstance.Name = value;
-				}
-			}
-		}
-
-		#endregion
+            /// <summary>
+            /// DoctorSectionID.
+            /// </summary>
+            public int ID
+            {
+                get
+                {
+                    return mInstance.DoctorSectionID;
+                }
+                set
+                {
+                    mInstance.DoctorSectionID = value;
+                }
+            }
 
 
-		#region "Constructors"
+            /// <summary>
+            /// Title.
+            /// </summary>
+            public string Title
+            {
+                get
+                {
+                    return mInstance.Title;
+                }
+                set
+                {
+                    mInstance.Title = value;
+                }
+            }
+        }
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="DoctorSection" /> class.
-		/// </summary>
-		public DoctorSection() : base(CLASS_NAME)
-		{
-			mFields = new DoctorSectionFields(this);
-		}
+        #endregion
 
-		#endregion
-	}
+
+        #region "Constructors"
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DoctorSection" /> class.
+        /// </summary>
+        public DoctorSection() : base(CLASS_NAME)
+        {
+            mFields = new DoctorSectionFields(this);
+        }
+
+        #endregion
+    }
 }

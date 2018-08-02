@@ -16,22 +16,9 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="Name" columnsize="100" columntype="text" guid="0e6ec305-f140-4b30-9057-871d5cda0ab4" publicfield="false" visible="true">
+      <field column="Title" columnsize="200" columntype="text" guid="460d94ec-e43b-497e-9eb1-ed31e943aff0" publicfield="false" visible="true">
         <properties>
-          <fieldcaption>Name</fieldcaption>
-        </properties>
-        <settings>
-          <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
-          <AutoCompleteFirstRowSelected>False</AutoCompleteFirstRowSelected>
-          <AutoCompleteShowOnlyCurrentWordInCompletionListItem>False</AutoCompleteShowOnlyCurrentWordInCompletionListItem>
-          <controlname>TextBoxControl</controlname>
-          <FilterMode>False</FilterMode>
-          <Trim>False</Trim>
-        </settings>
-      </field>
-      <field column="Header" columnsize="200" columntype="text" guid="460d94ec-e43b-497e-9eb1-ed31e943aff0" publicfield="false" visible="true">
-        <properties>
-          <fieldcaption>Header</fieldcaption>
+          <fieldcaption>Title</fieldcaption>
         </properties>
         <settings>
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
@@ -81,7 +68,7 @@
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.HomeSection</ClassName>
   <ClassNodeAliasSource>HomeName</ClassNodeAliasSource>
-  <ClassNodeNameSource>Name</ClassNodeNameSource>
+  <ClassNodeNameSource />
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>

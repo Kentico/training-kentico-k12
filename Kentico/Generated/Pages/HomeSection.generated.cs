@@ -23,242 +23,209 @@ using CMS.DocumentEngine;
 
 namespace CMS.DocumentEngine.Types.Training
 {
-	/// <summary>
-	/// Represents a content item of type HomeSection.
-	/// </summary>
-	public partial class HomeSection : TreeNode
-	{
-		#region "Constants and variables"
+    /// <summary>
+    /// Represents a content item of type HomeSection.
+    /// </summary>
+    public partial class HomeSection : TreeNode
+    {
+        #region "Constants and variables"
 
-		/// <summary>
-		/// The name of the data class.
-		/// </summary>
-		public const string CLASS_NAME = "Training.HomeSection";
-
-
-		/// <summary>
-		/// The instance of the class that provides extended API for working with HomeSection fields.
-		/// </summary>
-		private readonly HomeSectionFields mFields;
-
-		#endregion
+        /// <summary>
+        /// The name of the data class.
+        /// </summary>
+        public const string CLASS_NAME = "Training.HomeSection";
 
 
-		#region "Properties"
+        /// <summary>
+        /// The instance of the class that provides extended API for working with HomeSection fields.
+        /// </summary>
+        private readonly HomeSectionFields mFields;
 
-		/// <summary>
-		/// HomeSectionID.
-		/// </summary>
-		[DatabaseIDField]
-		public int HomeSectionID
-		{
-			get
-			{
-				return ValidationHelper.GetInteger(GetValue("HomeSectionID"), 0);
-			}
-			set
-			{
-				SetValue("HomeSectionID", value);
-			}
-		}
+        #endregion
 
 
-		/// <summary>
-		/// Name.
-		/// </summary>
-		[DatabaseField]
-		public string Name
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Name"), @"");
-			}
-			set
-			{
-				SetValue("Name", value);
-			}
-		}
+        #region "Properties"
+
+        /// <summary>
+        /// HomeSectionID.
+        /// </summary>
+        [DatabaseIDField]
+        public int HomeSectionID
+        {
+            get
+            {
+                return ValidationHelper.GetInteger(GetValue("HomeSectionID"), 0);
+            }
+            set
+            {
+                SetValue("HomeSectionID", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Header.
-		/// </summary>
-		[DatabaseField]
-		public string Header
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Header"), @"");
-			}
-			set
-			{
-				SetValue("Header", value);
-			}
-		}
+        /// <summary>
+        /// Title.
+        /// </summary>
+        [DatabaseField]
+        public string Title
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Title"), @"");
+            }
+            set
+            {
+                SetValue("Title", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Text.
-		/// </summary>
-		[DatabaseField]
-		public string Text
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Text"), @"");
-			}
-			set
-			{
-				SetValue("Text", value);
-			}
-		}
+        /// <summary>
+        /// Text.
+        /// </summary>
+        [DatabaseField]
+        public string Text
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Text"), @"");
+            }
+            set
+            {
+                SetValue("Text", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Link.
-		/// </summary>
-		[DatabaseField]
-		public string Button
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Button"), @"");
-			}
-			set
-			{
-				SetValue("Button", value);
-			}
-		}
+        /// <summary>
+        /// Link.
+        /// </summary>
+        [DatabaseField]
+        public string Button
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Button"), @"");
+            }
+            set
+            {
+                SetValue("Button", value);
+            }
+        }
 
 
-		/// <summary>
-		/// Gets an object that provides extended API for working with HomeSection fields.
-		/// </summary>
-		[RegisterProperty]
-		public HomeSectionFields Fields
-		{
-			get
-			{
-				return mFields;
-			}
-		}
+        /// <summary>
+        /// Gets an object that provides extended API for working with HomeSection fields.
+        /// </summary>
+        [RegisterProperty]
+        public HomeSectionFields Fields
+        {
+            get
+            {
+                return mFields;
+            }
+        }
 
 
-		/// <summary>
-		/// Provides extended API for working with HomeSection fields.
-		/// </summary>
-		[RegisterAllProperties]
-		public partial class HomeSectionFields : AbstractHierarchicalObject<HomeSectionFields>
-		{
-			/// <summary>
-			/// The content item of type HomeSection that is a target of the extended API.
-			/// </summary>
-			private readonly HomeSection mInstance;
+        /// <summary>
+        /// Provides extended API for working with HomeSection fields.
+        /// </summary>
+        [RegisterAllProperties]
+        public partial class HomeSectionFields : AbstractHierarchicalObject<HomeSectionFields>
+        {
+            /// <summary>
+            /// The content item of type HomeSection that is a target of the extended API.
+            /// </summary>
+            private readonly HomeSection mInstance;
 
 
-			/// <summary>
-			/// Initializes a new instance of the <see cref="HomeSectionFields" /> class with the specified content item of type HomeSection.
-			/// </summary>
-			/// <param name="instance">The content item of type HomeSection that is a target of the extended API.</param>
-			public HomeSectionFields(HomeSection instance)
-			{
-				mInstance = instance;
-			}
+            /// <summary>
+            /// Initializes a new instance of the <see cref="HomeSectionFields" /> class with the specified content item of type HomeSection.
+            /// </summary>
+            /// <param name="instance">The content item of type HomeSection that is a target of the extended API.</param>
+            public HomeSectionFields(HomeSection instance)
+            {
+                mInstance = instance;
+            }
 
 
-			/// <summary>
-			/// HomeSectionID.
-			/// </summary>
-			public int ID
-			{
-				get
-				{
-					return mInstance.HomeSectionID;
-				}
-				set
-				{
-					mInstance.HomeSectionID = value;
-				}
-			}
+            /// <summary>
+            /// HomeSectionID.
+            /// </summary>
+            public int ID
+            {
+                get
+                {
+                    return mInstance.HomeSectionID;
+                }
+                set
+                {
+                    mInstance.HomeSectionID = value;
+                }
+            }
 
 
-			/// <summary>
-			/// Name.
-			/// </summary>
-			public string Name
-			{
-				get
-				{
-					return mInstance.Name;
-				}
-				set
-				{
-					mInstance.Name = value;
-				}
-			}
+            /// <summary>
+            /// Title.
+            /// </summary>
+            public string Title
+            {
+                get
+                {
+                    return mInstance.Title;
+                }
+                set
+                {
+                    mInstance.Title = value;
+                }
+            }
 
 
-			/// <summary>
-			/// Header.
-			/// </summary>
-			public string Header
-			{
-				get
-				{
-					return mInstance.Header;
-				}
-				set
-				{
-					mInstance.Header = value;
-				}
-			}
+            /// <summary>
+            /// Text.
+            /// </summary>
+            public string Text
+            {
+                get
+                {
+                    return mInstance.Text;
+                }
+                set
+                {
+                    mInstance.Text = value;
+                }
+            }
 
 
-			/// <summary>
-			/// Text.
-			/// </summary>
-			public string Text
-			{
-				get
-				{
-					return mInstance.Text;
-				}
-				set
-				{
-					mInstance.Text = value;
-				}
-			}
+            /// <summary>
+            /// Link.
+            /// </summary>
+            public string Button
+            {
+                get
+                {
+                    return mInstance.Button;
+                }
+                set
+                {
+                    mInstance.Button = value;
+                }
+            }
+        }
+
+        #endregion
 
 
-			/// <summary>
-			/// Link.
-			/// </summary>
-			public string Button
-			{
-				get
-				{
-					return mInstance.Button;
-				}
-				set
-				{
-					mInstance.Button = value;
-				}
-			}
-		}
+        #region "Constructors"
 
-		#endregion
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeSection" /> class.
+        /// </summary>
+        public HomeSection() : base(CLASS_NAME)
+        {
+            mFields = new HomeSectionFields(this);
+        }
 
-
-		#region "Constructors"
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="HomeSection" /> class.
-		/// </summary>
-		public HomeSection() : base(CLASS_NAME)
-		{
-			mFields = new HomeSectionFields(this);
-		}
-
-		#endregion
-	}
+        #endregion
+    }
 }

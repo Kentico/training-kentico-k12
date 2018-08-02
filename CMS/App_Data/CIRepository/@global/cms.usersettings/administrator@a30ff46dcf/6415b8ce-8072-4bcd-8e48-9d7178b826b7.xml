@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.usersettings>
   <UserAccountLockReason>0</UserAccountLockReason>
-  <UserActivationDate>2018-07-09 10:30:48Z</UserActivationDate>
+  <UserActivationDate>2018-07-09 16:30:48Z</UserActivationDate>
   <UserDialogsConfiguration>
     <Data>
       <content.path>/medio-clinic</content.path>
@@ -15,7 +15,7 @@
   <UserLogActivities>False</UserLogActivities>
   <UserMessagingNotificationEmail />
   <UserNickName />
-  <UserPasswordLastChanged>2018-07-09 11:46:50Z</UserPasswordLastChanged>
+  <UserPasswordLastChanged>2018-07-09 17:46:50Z</UserPasswordLastChanged>
   <UserPreferences />
   <UserRegistrationInfo />
   <UserSettingsUserGUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</UserSettingsUserGUID>

@@ -16,9 +16,9 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="Name" columnsize="200" columntype="text" guid="042bd802-b1ea-4030-af86-14c70db89a62" publicfield="false" visible="true">
+      <field column="Title" columnsize="200" columntype="text" guid="042bd802-b1ea-4030-af86-14c70db89a62" publicfield="false" visible="true">
         <properties>
-          <fieldcaption>Section name</fieldcaption>
+          <fieldcaption>Title</fieldcaption>
         </properties>
         <settings>
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
@@ -41,7 +41,7 @@
   <ClassIsForm>False</ClassIsForm>
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.ArticleSection</ClassName>
-  <ClassNodeNameSource>Name</ClassNodeNameSource>
+  <ClassNodeNameSource>Title</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>

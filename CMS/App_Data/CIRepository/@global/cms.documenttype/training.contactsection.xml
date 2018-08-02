@@ -16,9 +16,9 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="Header" columnsize="200" columntype="text" guid="e07001eb-cece-4fbf-85b5-504131363440" publicfield="false" visible="true">
+      <field column="Title" columnsize="200" columntype="text" guid="e07001eb-cece-4fbf-85b5-504131363440" publicfield="false" visible="true">
         <properties>
-          <fieldcaption>Header</fieldcaption>
+          <fieldcaption>Title</fieldcaption>
         </properties>
         <settings>
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
@@ -29,9 +29,9 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="Subheader" columnsize="200" columntype="text" guid="e52f2dfe-e299-4804-810c-1b3aecf93b14" publicfield="false" visible="true">
+      <field column="Subtitle" columnsize="200" columntype="text" guid="e52f2dfe-e299-4804-810c-1b3aecf93b14" publicfield="false" visible="true">
         <properties>
-          <fieldcaption>Subheader</fieldcaption>
+          <fieldcaption>Subtitle</fieldcaption>
         </properties>
         <settings>
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>
@@ -67,16 +67,14 @@
   <ClassIsForm>False</ClassIsForm>
   <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.ContactSection</ClassName>
-  <ClassNodeNameSource>Header</ClassNodeNameSource>
+  <ClassNodeNameSource>Title</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="0037b7b0-43ca-4542-b228-51e23a689c86" name="Subheader" searchable="False" tokenized="True" />
       <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="9de48469-0670-4705-b64d-31ce63c53a5b" name="Text" searchable="False" tokenized="True" />
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="d84bd280-a021-4b3a-a71b-29b169d52c22" name="ContactSectionID" searchable="True" tokenized="False" />
-      <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="f3a1f72a-b879-4ad1-8de0-9bd07a5cc786" name="Header" searchable="False" tokenized="True" />
     </search>
   </ClassSearchSettings>
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
