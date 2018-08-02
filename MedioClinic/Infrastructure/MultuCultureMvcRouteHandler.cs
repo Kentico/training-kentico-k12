@@ -19,13 +19,6 @@ namespace MedioClinic.Infrastructure
         public const string CultureUrlParam = "culture";
 
         /// <summary>
-        /// Creates a new instance of the <see cref="MultiCultureMvcRouteHandler"/> class.
-        /// </summary>
-        public MultiCultureMvcRouteHandler()
-        {
-        }
-
-        /// <summary>
         /// Returns the HTTP handler by using the specified HTTP context. 
         /// <see cref="Thread.CurrentCulture"/> and <see cref="Thread.CurrentUICulture"/> of the current thread are set to the culture specified by the 'culture' URL parameter.
         /// </summary>
