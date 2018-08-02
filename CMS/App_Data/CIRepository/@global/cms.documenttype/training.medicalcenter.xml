@@ -16,7 +16,7 @@
           <controlname>labelcontrol</controlname>
         </settings>
       </field>
-      <field column="Name" columnsize="200" columntype="text" guid="eb8c7dec-b4b9-4de1-a49a-92500a720846" publicfield="false" visible="true">
+      <field column="CenterName" columnsize="200" columntype="text" guid="eb8c7dec-b4b9-4de1-a49a-92500a720846" publicfield="false" visible="true">
         <properties>
           <fieldcaption>Center name</fieldcaption>
         </properties>
@@ -85,7 +85,7 @@
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
   <ClassName>Training.MedicalCenter</ClassName>
-  <ClassNodeNameSource>Name</ClassNodeNameSource>
+  <ClassNodeNameSource>CenterName</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
   <ClassSearchCreationDateColumn>DocumentCreatedWhen</ClassSearchCreationDateColumn>
   <ClassSearchEnabled>True</ClassSearchEnabled>
