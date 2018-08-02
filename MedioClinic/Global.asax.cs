@@ -1,3 +1,4 @@
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -16,9 +17,6 @@ namespace MedioClinic
             // Allows you to enable and configure selected Kentico MVC integration features
             ApplicationBuilder builder = ApplicationBuilder.Current;
 
-            // Enables the not found handler feature
-            builder.UseNotFoundHandler();
-
             // Enables the preview feature
             builder.UsePreview();
 
@@ -30,6 +28,17 @@ namespace MedioClinic
 
             // Bundles
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+
+        protected void Application_Error()
+        {
+            // Sets 404 HTTP exceptions to be handled via IIS (behavior is specified in the "httpErrors" section in the Web.config file)
+            var error = Server.GetLastError();
+            if ((error as HttpException)?.GetHttpCode() == 404)
+            {
+                Server.ClearError();
+                Response.StatusCode = 404;
+            }
         }
     }
 }

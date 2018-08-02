@@ -4,7 +4,6 @@ using System.Web.Routing;
 using Kentico.Web.Mvc;
 using MedioClinic.Infrastructure;
 
-
 namespace MedioClinic
 {
     public class RouteConfig
@@ -21,6 +20,14 @@ namespace MedioClinic
             // Map routes to Kentico HTTP handlers first as some Kentico URLs might be matched by the default ASP.NET MVC route resulting in displaying pages without images
             routes.Kentico().MapRoutes();
 
+            // Maps not found route (needed separately to allow cultureless url)
+            routes.MapRoute(
+                "NotFound",
+                "notfound",
+                new { controller = "NotFound", action = "Index" }
+            );
+
+            // Maps route to doctor detail
             var route = routes.MapRoute(
                 name: "DoctorWithAlias",
                 url: "{culture}/Doctors/Detail/{nodeId}/{nodeAlias}",
@@ -28,16 +35,17 @@ namespace MedioClinic
             );
 
             // A route value determines the culture of the current thread
-            route.RouteHandler = new MultiCultureMvcRouteHandler(defaultCulture);
+            route.RouteHandler = new MultiCultureMvcRouteHandler();
 
+            // Maps routes with cultures
             route = routes.MapRoute(
-                name: "Default",
+                name: "DefaultWithCulture",
                 url: "{culture}/{controller}/{action}/{id}",
                 defaults: new { culture = defaultCulture.Name, controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
-          
+
             // A route value determines the culture of the current thread
-            route.RouteHandler = new MultiCultureMvcRouteHandler(defaultCulture);
+            route.RouteHandler = new MultiCultureMvcRouteHandler();
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿@using System.Web.Optimization
+﻿@using System.Globalization
+@using System.Web.Optimization
 
 @model MedioClinic.Models.PageViewModel<MedioClinic.Models.Contact.ContactViewModel>
 
 @section scripts {
 
-    <script>
+    <script type="text/javascript">
         /* Google map callback */
         function initMap() {
 
@@ -19,9 +20,11 @@
             @foreach (var location in Model.Data.OfficeLocations)
             {
                 <text>
-            var marker = new google.maps.Marker({
-                position: { lat: @location.Latitude, lng: @location.Longitude },
-                map: map
+                    var marker = new google.maps.Marker({
+                        position: {
+                            lat: @location.Latitude.ToString(CultureInfo.InvariantCulture),
+                            lng: @location.Longitude.ToString(CultureInfo.InvariantCulture) },
+                    map: map
             });
 
             marker.setMap(map);
@@ -101,19 +104,12 @@
                     </a>
                 </div>
                 <div class="kn-badges kn-margin-no-left-s kn-padding-no-left-s">
-                    @*@if (doctor.HasShiftToday)
-                    {*@
                     <span class="kn-badge opened">
                         Open
                     </span>
-                    @*}
-                    else
-                    {*@
                     <span class="kn-badge closed">Now closed</span>
-                    @*}*@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>

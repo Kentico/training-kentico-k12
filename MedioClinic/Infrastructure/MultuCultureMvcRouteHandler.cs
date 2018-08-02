@@ -12,18 +12,18 @@ namespace MedioClinic.Infrastructure
     /// </summary>
     public class MultiCultureMvcRouteHandler : MvcRouteHandler
     {
-        private readonly CultureInfo _defaultCulture;
 
+        /// <summary>
+        /// Name of the param used to identify culture (see RouteConfig.cs for details)
+        /// </summary>
+        public const string CultureUrlParam = "culture";
 
         /// <summary>
         /// Creates a new instance of the <see cref="MultiCultureMvcRouteHandler"/> class.
         /// </summary>
-        /// <param name="defaultCulture">Culture used when the requested culture does not exist.</param>
-        public MultiCultureMvcRouteHandler(CultureInfo defaultCulture)
+        public MultiCultureMvcRouteHandler()
         {
-            _defaultCulture = defaultCulture;
         }
-
 
         /// <summary>
         /// Returns the HTTP handler by using the specified HTTP context. 
@@ -33,22 +33,24 @@ namespace MedioClinic.Infrastructure
         /// <returns>HTTP handler.</returns>
         protected override IHttpHandler GetHttpHandler(RequestContext requestContext)
         {
-            // Get the requested culture from the route
-            var cultureName = requestContext.RouteData.Values["culture"].ToString();
-
-            CultureInfo culture;
             try
             {
-                culture = new CultureInfo(cultureName);
+
+                // Get the requested culture from the route
+                var cultureName = requestContext.RouteData.Values[CultureUrlParam].ToString();
+
+                // Get culture
+                var culture = new CultureInfo(cultureName);
+
+                // Set culture for the thread
+                Thread.CurrentThread.CurrentUICulture = culture;
+                Thread.CurrentThread.CurrentCulture = culture;
             }
             catch
             {
-                culture = _defaultCulture;
+                // Return 404 when culture prefix is invalid
+                requestContext.HttpContext.Response.StatusCode = 404;
             }
-
-            // Set the culture
-            Thread.CurrentThread.CurrentUICulture = culture;
-            Thread.CurrentThread.CurrentCulture = culture;
 
             return base.GetHttpHandler(requestContext);
         }
