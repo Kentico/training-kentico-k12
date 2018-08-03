@@ -1,4 +1,5 @@
-﻿@model MedioClinic.Models.PageViewModel<MedioClinic.Models.Doctors.DoctorsViewModel>
+﻿@using Kentico.Extensions
+@model MedioClinic.Models.PageViewModel<MedioClinic.Models.Doctors.DoctorsViewModel>
 
 <div class="section kn-section-top">
     <div class="container">
@@ -19,7 +20,7 @@
                     <div class="col l4 m12 s12">
                         <div class="card">
                             <div class="card-image">
-                                <img src="@Url.Kentico().ImageUrl(doctor.ImagePath, SizeConstraint.Empty)" alt="@doctor.FullName">
+                                <img src="@Url.KenticoImageUrl(doctor.ImagePath)" alt="@doctor.FullName">
                             </div>
                             <div class="card-title kn-margin-m kn-padding-m truncate">
                                 <a href="@Url.Action("Detail", "Doctors", new { nodeId = doctor.NodeId, nodeAlias = doctor.NodeAlias })">@doctor.FullName, @doctor.Degree</a>
