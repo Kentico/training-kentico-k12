@@ -3,10 +3,11 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 using CMS;
+using MedioClinic;
 
 [assembly: AssemblyDiscoverable]
 
-[assembly: AssemblyTitle("MedioClinic")]
+[assembly: AssemblyTitle(AppConfig.Sitename)]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCulture("")]
@@ -15,7 +16,7 @@ using CMS;
 [assembly: Guid("98cc63a9-cded-4df6-9764-fa8203f5b7bb")]
 
 [assembly: AssemblyCompany("CMS")]
-[assembly: AssemblyProduct("MedioClinic")]
+[assembly: AssemblyProduct(AppConfig.Sitename)]
 [assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyVersion("12.0.0.0")]

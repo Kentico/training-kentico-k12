@@ -11,8 +11,6 @@ namespace MedioClinic
 {
     public class AutofacConfig
     {
-        private const string Sitename = "MedioClinic";
-
         public static void ConfigureContainer()
         {
             // Initializes the Autofac builder instance
@@ -30,7 +28,7 @@ namespace MedioClinic
                 .WithParameter((parameter, context) => parameter.Name == "currentCulture",
                     (parameter, context) => CultureInfo.CurrentUICulture.Name)
                 .WithParameter((parameter, context) => parameter.Name == "sitename",
-                    (parameter, context) => Sitename)
+                    (parameter, context) => AppConfig.Sitename)
                 .InstancePerRequest();
 
             // Business

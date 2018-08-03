@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Web.Mvc;
+using System.Web.Mvc.Routing.Constraints;
 using System.Web.Routing;
 using Kentico.Web.Mvc;
 using MedioClinic.Infrastructure;
@@ -31,7 +32,8 @@ namespace MedioClinic
             var route = routes.MapRoute(
                 name: "DoctorWithAlias",
                 url: "{culture}/Doctors/Detail/{nodeId}/{nodeAlias}",
-                defaults: new { action = "Detail", controller = "Doctors", culture = defaultCulture.Name, nodeId = 0, nodeAlias = "" }
+                defaults: new { action = "Detail", controller = "Doctors", culture = defaultCulture.Name, nodeId = 0, nodeAlias = "" },
+                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), nodeId = new IntRouteConstraint(), nodeAlias = new OptionalRouteConstraint(new AlphaRouteConstraint()) }
             );
 
             // A route value determines the culture of the current thread
@@ -41,7 +43,8 @@ namespace MedioClinic
             route = routes.MapRoute(
                 name: "DefaultWithCulture",
                 url: "{culture}/{controller}/{action}/{id}",
-                defaults: new { culture = defaultCulture.Name, controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { culture = defaultCulture.Name, controller = "Home", action = "Index", id = UrlParameter.Optional },
+                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), id = new OptionalRouteConstraint(new IntRouteConstraint()) }
             );
 
             // A route value determines the culture of the current thread
