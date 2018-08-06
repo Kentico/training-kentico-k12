@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using Kentico.Dto.Culture;
-using Kentico.Repository;
 
-namespace Kentico.Services.Culture
+namespace Kentico.Repository.Culture
 {
     public interface ICultureService : IRepository
     {

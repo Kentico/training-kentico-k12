@@ -4,6 +4,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Kentico.DI;
 using Kentico.Repository;
+using Kentico.Services;
 using Kentico.Services.Context;
 using Kentico.Services.Query;
 
@@ -23,7 +24,12 @@ namespace MedioClinic
             builder.RegisterSource(new CmsRegistrationSource());
 
             // Services
-            builder.RegisterType<DocumentQueryService>().As<IDocumentQueryService>();
+            builder.RegisterAssemblyTypes(typeof(IService).Assembly)
+                .Where(x => x.IsClass && !x.IsAbstract && typeof(IService).IsAssignableFrom(x))
+                .AsImplementedInterfaces()
+                .InstancePerRequest();
+
+            // Site context
             builder.RegisterType<SiteContextService>().As<ISiteContextService>()
                 .WithParameter((parameter, context) => parameter.Name == "currentCulture",
                     (parameter, context) => CultureInfo.CurrentUICulture.Name)

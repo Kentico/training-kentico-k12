@@ -677,6 +677,7 @@
     <Content Include="Content\Images\Logo\Logoic.png" />
     <Content Include="Content\Images\Logo\logoicon.svg" />
     <Content Include="Content\Images\Logo\mcfavicon.ico" />
+    <Content Include="Content\Images\notfound.jpg" />
     <Content Include="Content\Images\twitter.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Master\jquery-2.1.1.min.js" />

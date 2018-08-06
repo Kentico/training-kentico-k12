@@ -4,7 +4,7 @@ using CMS.SiteProvider;
 using Kentico.Dto.Culture;
 using Kentico.Services.Context;
 
-namespace Kentico.Services.Culture
+namespace Kentico.Repository.Culture
 {
     public class CultureRepository : ICultureService
     {

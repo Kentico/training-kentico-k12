@@ -1,8 +1,8 @@
 ﻿using Kentico.Repository.Company;
+using Kentico.Repository.Culture;
 using Kentico.Repository.Menu;
 using Kentico.Repository.Social;
 using Kentico.Services.Context;
-using Kentico.Services.Culture;
 
 namespace Kentico.DI
 {

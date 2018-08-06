@@ -1,5 +1,6 @@
 ﻿@using System.Globalization
 @using System.Web.Optimization
+@using Kentico.Extensions
 
 @model MedioClinic.Models.PageViewModel<MedioClinic.Models.Contact.ContactViewModel>
 
@@ -94,22 +95,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col l4 m6 m12">
-                <div class="kn-medcenter">
-                    <img src="assets\Medical Centers photos\primarycare.jpg" alt="Primary Care">
+            @foreach (var medicalCenterImage in Model.Data.MedicalCenterImages)
+            {
+                <div class="col l4 m6 m12">
+                    <div class="kn-medcenter">
+                        <img src="@Url.KenticoImageUrl(medicalCenterImage.DirectUrl)" alt="@medicalCenterImage.Title">
+                    </div>
                 </div>
-                <div class="kn-medcenter-title kn-margin-no-left-s kn-padding-no-left-s truncate">
-                    <a href="medicalcenters.html" target="_blank">
-                        <strong>Primary care</strong>
-                    </a>
-                </div>
-                <div class="kn-badges kn-margin-no-left-s kn-padding-no-left-s">
-                    <span class="kn-badge opened">
-                        Open
-                    </span>
-                    <span class="kn-badge closed">Now closed</span>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>

@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CMS.DocumentEngine.Types.Training;
 using Kentico.Content.Web.Mvc;
 using Kentico.Dto.Doctors;
 using Kentico.Services.Query;
 
-namespace Kentico.Repository.Doctors
+namespace Kentico.Repository.Doctor
 {
-    public class DoctorsRepository : BaseRepository, IDoctorsRepository
+    public class DoctorRepository : BaseRepository, IDoctorRepository
     {
 
         private readonly string[] _doctorColumns = 
@@ -17,7 +16,7 @@ namespace Kentico.Repository.Doctors
             "LastName", "Image", "Specialty", "DocumentID"
         };
 
-        private Func<Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
+        private Func<CMS.DocumentEngine.Types.Training.Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
         {
             NodeAlias = doctor.NodeAlias,
             NodeId = doctor.NodeID,
@@ -30,13 +29,13 @@ namespace Kentico.Repository.Doctors
             Specialty = doctor.Specialty
         };
 
-        public DoctorsRepository(IDocumentQueryService documentQueryService) : base(documentQueryService)
+        public DoctorRepository(IDocumentQueryService documentQueryService) : base(documentQueryService)
         {
         }
 
         public IEnumerable<DoctorDto> GetDoctors()
         {
-            return DocumentQueryService.GetDocuments<Doctor>()
+            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.Doctor>()
                 .AddColumns(_doctorColumns)
                 .ToList()
                 .Select(DoctorDtoSelect);
@@ -44,7 +43,7 @@ namespace Kentico.Repository.Doctors
 
         public DoctorDto GetDoctor(int nodeId)
         {
-            return DocumentQueryService.GetDocument<Doctor>(nodeId)
+            return DocumentQueryService.GetDocument<CMS.DocumentEngine.Types.Training.Doctor>(nodeId)
                 .AddColumns(_doctorColumns)
                 .Select(DoctorDtoSelect)
                 .FirstOrDefault();

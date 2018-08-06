@@ -4,7 +4,7 @@ using CMS.DocumentEngine.Types.Training;
 using Kentico.Dto.Doctors;
 using Kentico.Services.Query;
 
-namespace Kentico.Repository.Doctors
+namespace Kentico.Repository.Doctor
 {
     public class DoctorSectionRepository : BaseRepository, IDoctorSectionRepository
     {

@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Kentico.DI;
 using Kentico.Repository.Contact;
 using Kentico.Repository.Map;
+using Kentico.Services.MediaLibrary;
 using MedioClinic.Models.Contact;
 
 namespace MedioClinic.Controllers
@@ -12,15 +13,18 @@ namespace MedioClinic.Controllers
 
         private IContactSectionRepository ContactSectionRepository { get; }
         private IMapRepository MapRepository { get; }
+        private IMediaLibraryService MediaLibraryService { get; }
 
         public ContactController(
             IBusinessDependencies dependencies, 
             IContactSectionRepository contactSectionRepository,
-            IMapRepository mapRepository
+            IMapRepository mapRepository,
+            IMediaLibraryService mediaLibraryService
             ) : base(dependencies)
         {
             ContactSectionRepository = contactSectionRepository;
             MapRepository = mapRepository;
+            MediaLibraryService = mediaLibraryService;
         }
 
         public ActionResult Index()
@@ -35,7 +39,8 @@ namespace MedioClinic.Controllers
             var model = GetPageViewModel(new ContactViewModel()
             {
                 ContactSection = contactSection,
-                OfficeLocations = MapRepository.GetOfficeLocations()
+                OfficeLocations = MapRepository.GetOfficeLocations(),
+                MedicalCenterImages = MediaLibraryService.GetMediaLibraryFiles("MedicalCenters", Dependencies.SiteContextService.SiteName, ".jpg", ".png")
             }, contactSection.Header);
 
             return View(model);

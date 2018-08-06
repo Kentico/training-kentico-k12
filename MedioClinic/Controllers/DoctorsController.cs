@@ -1,38 +1,38 @@
 ﻿using System.Web.Mvc;
 using Kentico.DI;
-using Kentico.Repository.Doctors;
+using Kentico.Repository.Doctor;
 using MedioClinic.Models.Doctors;
 
 namespace MedioClinic.Controllers
 {
     public class DoctorsController : BaseController
     {
-        private IDoctorsRepository DoctorsRepository { get; }
+        private IDoctorRepository DoctorRepository { get; }
         private IDoctorSectionRepository DoctorSectionRepository { get; }
 
         public DoctorsController(
             IBusinessDependencies dependencies,
-            IDoctorsRepository doctorsRepository,
+            IDoctorRepository doctorRepository,
             IDoctorSectionRepository doctorSectionRepository
             ) : base(dependencies)
         {
-            DoctorsRepository = doctorsRepository;
+            DoctorRepository = doctorRepository;
             DoctorSectionRepository = doctorSectionRepository;
         }
 
         public ActionResult Index()
         {
-            var doctorsSection = DoctorSectionRepository.GetDoctorSection();
+            var doctorSection = DoctorSectionRepository.GetDoctorSection();
 
-            if (doctorsSection == null)
+            if (doctorSection == null)
             {
                 return HttpNotFound();
             }
 
             var model = GetPageViewModel(new DoctorsViewModel()
             {
-                Doctors = DoctorsRepository.GetDoctors()
-            }, doctorsSection.Header);
+                Doctors = DoctorRepository.GetDoctors()
+            }, doctorSection.Header);
 
             return View(model);
         }
@@ -40,7 +40,7 @@ namespace MedioClinic.Controllers
         [Route("Detail/{nodeId}/{nodeAlias}")]
         public ActionResult Detail(int nodeId, string nodeAlias)
         {
-            var doctor = DoctorsRepository.GetDoctor(nodeId);
+            var doctor = DoctorRepository.GetDoctor(nodeId);
 
             if (doctor == null)
             {
