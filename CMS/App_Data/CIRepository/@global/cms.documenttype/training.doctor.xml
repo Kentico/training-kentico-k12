@@ -140,6 +140,9 @@
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Training_Doctor</ClassTableName>
+  <ClassURLPattern>
+    <![CDATA[/{% DocumentCulture %}/Doctors/Detail/{% NodeId %}/{% NodeAlias %}]]>
+  </ClassURLPattern>
   <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
   <ClassUsesVersioning>False</ClassUsesVersioning>
 </cms.documenttype>
