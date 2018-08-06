@@ -5,15 +5,15 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </FileCreatedByUserID>
-  <FileCreatedWhen>2018-07-17 13:18:58Z</FileCreatedWhen>
+  <FileCreatedWhen>2018-07-25 11:58:04Z</FileCreatedWhen>
   <FileDescription />
   <FileExtension>.jpg</FileExtension>
-  <FileGUID>bf424a48-e869-49d1-bfe9-bf172e82568e</FileGUID>
-  <FileImageHeight>835</FileImageHeight>
-  <FileImageWidth>1256</FileImageWidth>
+  <FileGUID>f82f67d4-9e63-493d-96dc-50c95e4c9ee0</FileGUID>
+  <FileImageHeight>836</FileImageHeight>
+  <FileImageWidth>1254</FileImageWidth>
   <FileLibraryID>
-    <CodeName>MedicalCenters</CodeName>
-    <GUID>cc4e04b6-c4ac-4327-8e9d-089871ad7b01</GUID>
+    <CodeName>Graphics</CodeName>
+    <GUID>0d02c536-32a9-4717-9dfe-ef18a3db8df6</GUID>
     <ObjectType>media.library</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -27,13 +27,13 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </FileModifiedByUserID>
-  <FileName>orthopedics</FileName>
-  <FilePath>orthopedics.jpg</FilePath>
+  <FileName>notfound</FileName>
+  <FilePath>notfound.jpg</FilePath>
   <FileSiteID>
     <CodeName>MedioClinic</CodeName>
     <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
     <ObjectType>cms.site</ObjectType>
   </FileSiteID>
-  <FileSize>395335</FileSize>
+  <FileSize>395771</FileSize>
   <FileTitle />
 </media.file>
