@@ -44,7 +44,7 @@ nav a {
             -webkit-transition: background-color .3s;
             -moz-transition: background-color .3s;
             transition: background-color .3s;
-            font-size: 16px !important;
+            font-size: 16px;
             color: #455A64;
             display: block;
             padding: 0 15px;
@@ -133,7 +133,7 @@ h5 {
     background-color: #C62828;
 }
 
-.pagination li.disabled {
+.pagination li disabled {
     cursor: default;
     color: #CFD8DC;
 }
@@ -200,7 +200,6 @@ h5 {
 
 .kn-address {
     display: block;
-    font-style: normal !important;
 }
 
 .kn-doctor-card-content {
@@ -345,9 +344,8 @@ span.kn-badge.closed {
 }
 
 .kn-doctor-profile-bio p {
-    padding: 0px;
-    margin: 0px;
-    font-size: normal;
+    padding: 0;
+    margin: 0;
 }
 
 .kn-doctor-profile-open {
@@ -544,7 +542,6 @@ span.kn-badge.closed {
 
     .kn-article.horizontal {
         display: -webkit-box;
-        display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
     }
@@ -571,7 +568,6 @@ span.kn-badge.closed {
 
         .kn-article.horizontal .kn-article-stacked {
             display: -webkit-box;
-            display: -webkit-flex;
             display: -ms-flexbox;
             display: flex;
             -webkit-box-orient: vertical;
@@ -588,8 +584,6 @@ span.kn-badge.closed {
 
             .kn-article.horizontal .kn-article-stacked .kn-article-content {
                 -webkit-box-flex: 1;
-                -webkit-flex-grow: 1;
-                -ms-flex-positive: 1;
                 flex-grow: 1;
             }
 
