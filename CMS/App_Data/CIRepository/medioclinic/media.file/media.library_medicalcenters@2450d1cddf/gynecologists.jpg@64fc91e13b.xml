@@ -9,8 +9,8 @@
   <FileDescription />
   <FileExtension>.jpg</FileExtension>
   <FileGUID>99079cd1-a272-43b5-bc2f-c4f639cd1a61</FileGUID>
-  <FileImageHeight>837</FileImageHeight>
-  <FileImageWidth>1254</FileImageWidth>
+  <FileImageHeight>611</FileImageHeight>
+  <FileImageWidth>900</FileImageWidth>
   <FileLibraryID>
     <CodeName>MedicalCenters</CodeName>
     <GUID>cc4e04b6-c4ac-4327-8e9d-089871ad7b01</GUID>
@@ -34,6 +34,6 @@
     <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
     <ObjectType>cms.site</ObjectType>
   </FileSiteID>
-  <FileSize>297899</FileSize>
+  <FileSize>87460</FileSize>
   <FileTitle />
 </media.file>
