@@ -1,5 +1,6 @@
 ﻿@using System.Threading
 @using System.Web.Optimization
+@using CMS.Helpers
 @using Kentico.Extensions
 
 @model MedioClinic.Models.PageViewModel
@@ -100,7 +101,7 @@
                 <div class="col l4 s12">
                     @if (Model.Company != null)
                     {
-                        <h5 class="white-text">Contact</h5>
+                    <h5 class="white-text">@Html.Localize("Footer.Contact")</h5>
                         <div class="grey-text text-lighten-4">
                             <p class="kn-smaller kn-address">
                                 <address>
@@ -114,7 +115,7 @@
                     }
                 </div>
                 <div class="col l4 s12">
-                    <h5 class="white-text">Follow Us</h5>
+                    <h5 class="white-text">@Html.Localize("Footer.FollowUs")</h5>
                     <div class="kn-social">
                         @foreach (var socialLink in Model.SocialLinks)
                         {
@@ -125,14 +126,14 @@
                     </div>
                 </div>
                 <div class="col l4 s12">
-                    <h5 class="white-text">Navigation</h5>
+                    <h5 class="white-text">@Html.Localize("Footer.Navigation")</h5>
                     <ul class="kn-smaller">
-                        <li>
-                            <a class="white-text" href="@Url.Action("Index", "Doctors")">Our doctors</a>
-                        </li>
-                        <li>
-                            <a class="white-text" href="@Url.Action("Index", "Contact")">Contact Us</a>
-                        </li>
+                        @foreach (var menuItem in Model.MenuItems)
+                        {
+                            <li>
+                                <a class="white-text" href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

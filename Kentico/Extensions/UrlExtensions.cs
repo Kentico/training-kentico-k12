@@ -7,9 +7,17 @@ namespace Kentico.Extensions
 {
     public static class UrlExtensions
     {
-        public static string KenticoImageUrl(this UrlHelper target, string path, IImageSizeConstraint size = null)
+
+        /// <summary>
+        /// Custom extension method for retrieving image urls based on their path
+        /// </summary>
+        /// <param name="helper">Html helper</param>
+        /// <param name="path">Path to file</param>
+        /// <param name="size">Size constraints</param>
+        /// <returns></returns>
+        public static string KenticoImageUrl(this UrlHelper helper, string path, IImageSizeConstraint size = null)
         {
-            return target.Kentico().ImageUrl(path, size?.GetSizeConstraint() ?? SizeConstraint.Empty);
+            return helper.Kentico().ImageUrl(path, size?.GetSizeConstraint() ?? SizeConstraint.Empty);
         }
 
     }

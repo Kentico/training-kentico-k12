@@ -476,6 +476,7 @@
     <Compile Include="Dto\Page\PageMetadataDto.cs" />
     <Compile Include="Dto\Home\HomeSectionDto.cs" />
     <Compile Include="Dto\Social\SocialLinkDto.cs" />
+    <Compile Include="Extensions\LocalizationExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Generated\Pages\Company.generated.cs" />
     <Compile Include="Generated\Pages\CompanyProvider.generated.cs" />

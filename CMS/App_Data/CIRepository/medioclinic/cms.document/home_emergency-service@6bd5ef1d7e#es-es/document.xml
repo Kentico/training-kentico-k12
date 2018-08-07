@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Doctors -->
+<!-- This is a CI serialization file for /Inicio/Nuestros servicios -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-17 10:38:37Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-08-07 18:46:01Z</DocumentCreatedWhen>
   <DocumentCulture>es-ES</DocumentCulture>
-  <DocumentGUID>749568d4-8a40-49d7-bd49-88108aeee1ba</DocumentGUID>
+  <DocumentGUID>f143ac77-0814-403b-8c07-55fd08239cfd</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-07-17 10:38:37Z</DocumentModifiedWhen>
-  <DocumentName>Doctors</DocumentName>
+  <DocumentModifiedWhen>2018-08-07 18:46:21Z</DocumentModifiedWhen>
+  <DocumentName>Nuestros servicios</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Doctors</CodeName>
-    <GUID>f4673b3f-5a8a-43ee-9822-26438357c42a</GUID>
+    <CodeName>/Home/Emergency-Service</CodeName>
+    <GUID>410363c2-d1ff-460e-abc9-630816ff2a2e</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -32,8 +32,7 @@
   <DocumentPriority>0</DocumentPriority>
   <DocumentShowInSiteMap>True</DocumentShowInSiteMap>
   <DocumentUrlPath />
-  <DocumentUseCustomExtensions>False</DocumentUseCustomExtensions>
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>7c778384-9e6b-426a-8160-ac0053d8a9a1</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>845730af-da9e-4421-a21f-76dafb89af62</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>

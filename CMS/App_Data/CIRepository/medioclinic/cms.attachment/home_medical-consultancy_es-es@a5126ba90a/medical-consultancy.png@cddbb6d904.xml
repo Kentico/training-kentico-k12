@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cms.attachment>
+  <AttachmentDocumentID>
+    <CodeName>es-ES</CodeName>
+    <GUID>7f9e8d8c-8f9c-41b2-be3e-97b894008bb5</GUID>
+    <ObjectType>cms.documentlocalization</ObjectType>
+    <Parent>
+      <CodeName>/Home/Medical-Consultancy</CodeName>
+      <GUID>0dcb9d4f-29e0-479c-b082-b94a6afdf2e2</GUID>
+      <ObjectType>cms.node</ObjectType>
+      <Site>
+        <CodeName>MedioClinic</CodeName>
+        <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+        <ObjectType>cms.site</ObjectType>
+      </Site>
+    </Parent>
+  </AttachmentDocumentID>
+  <AttachmentExtension>.png</AttachmentExtension>
+  <AttachmentGUID>cbd2ac62-7205-4493-bca0-cd433e846580</AttachmentGUID>
+  <AttachmentImageHeight>95</AttachmentImageHeight>
+  <AttachmentImageWidth>104</AttachmentImageWidth>
+  <AttachmentMimeType>image/png</AttachmentMimeType>
+  <AttachmentName>medical-consultancy.png</AttachmentName>
+  <AttachmentSiteID>
+    <CodeName>MedioClinic</CodeName>
+    <GUID>10586f95-2b72-44e1-9dbe-1fbc5981a4e2</GUID>
+    <ObjectType>cms.site</ObjectType>
+  </AttachmentSiteID>
+  <AttachmentSize>3656</AttachmentSize>
+</cms.attachment>

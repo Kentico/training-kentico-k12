@@ -7,7 +7,11 @@ using Kentico.Dto.Social;
 
 namespace MedioClinic.Models
 {
-    public class PageViewModel 
+
+    /// <summary>
+    /// Base class 
+    /// </summary>
+    public class PageViewModel  : IViewModel
     {
         public IEnumerable<MenuItemDto> MenuItems { get; set; }
         public PageMetadataDto Metadata { get; set; }

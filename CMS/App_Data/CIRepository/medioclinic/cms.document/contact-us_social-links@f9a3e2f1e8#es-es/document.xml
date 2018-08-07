@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Menu items/Our doctors (es) -->
+<!-- This is a CI serialization file for /Contact us/Vínculos sociales -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-17 10:38:54Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-08-07 19:10:18Z</DocumentCreatedWhen>
   <DocumentCulture>es-ES</DocumentCulture>
-  <DocumentGUID>ac723db1-719c-4628-9212-9c58d4b6729c</DocumentGUID>
+  <DocumentGUID>e72cfb8c-0199-476d-b499-48865c9f1273</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,13 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-07-17 10:39:08Z</DocumentModifiedWhen>
-  <DocumentName>Our doctors (es)</DocumentName>
+  <DocumentModifiedWhen>2018-08-07 19:10:43Z</DocumentModifiedWhen>
+  <DocumentName>
+    <![CDATA[Vínculos sociales]]>
+  </DocumentName>
   <DocumentNodeID>
-    <CodeName>/Menu-items/Our-doctors</CodeName>
-    <GUID>2913ed20-9555-44a5-8a23-3e56996c7f2d</GUID>
+    <CodeName>/Contact-us/Social-links</CodeName>
+    <GUID>02e6c8ed-9b52-4611-bd28-b8342a34468a</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -34,5 +36,5 @@
   <DocumentUrlPath />
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>75953d6b-f76f-461b-8850-5dcef66f4beb</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>4e6240c1-2cff-4acb-9f55-36dfccb177f5</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>

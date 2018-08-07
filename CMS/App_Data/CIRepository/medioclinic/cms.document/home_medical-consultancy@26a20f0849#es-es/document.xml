@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Menu items/Inicio -->
+<!-- This is a CI serialization file for /Inicio/Consultoria Medica -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-17 16:39:12Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-08-07 18:46:45Z</DocumentCreatedWhen>
   <DocumentCulture>es-ES</DocumentCulture>
-  <DocumentGUID>8706695c-5a40-42c4-9706-a4cdce3b008f</DocumentGUID>
+  <DocumentGUID>7f9e8d8c-8f9c-41b2-be3e-97b894008bb5</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-08-07 18:45:09Z</DocumentModifiedWhen>
-  <DocumentName>Inicio</DocumentName>
+  <DocumentModifiedWhen>2018-08-07 18:46:54Z</DocumentModifiedWhen>
+  <DocumentName>Consultoria Medica</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Menu-items/Home</CodeName>
-    <GUID>7f3cc129-53bf-45d0-9d9a-94185826d594</GUID>
+    <CodeName>/Home/Medical-Consultancy</CodeName>
+    <GUID>0dcb9d4f-29e0-479c-b082-b94a6afdf2e2</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -34,5 +34,5 @@
   <DocumentUrlPath />
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>63d48668-960d-433f-82a8-1a7f4eb66538</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>d6e9875a-4fcb-4d00-979d-b776ebb68d6a</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>

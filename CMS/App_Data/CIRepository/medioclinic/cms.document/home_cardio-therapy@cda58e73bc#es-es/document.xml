@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Menu items/Inicio -->
+<!-- This is a CI serialization file for /Inicio/Terapia de cardio -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-17 16:39:12Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-08-07 18:46:28Z</DocumentCreatedWhen>
   <DocumentCulture>es-ES</DocumentCulture>
-  <DocumentGUID>8706695c-5a40-42c4-9706-a4cdce3b008f</DocumentGUID>
+  <DocumentGUID>70fb57f2-ba2a-4da6-8f8b-69545502075a</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-08-07 18:45:09Z</DocumentModifiedWhen>
-  <DocumentName>Inicio</DocumentName>
+  <DocumentModifiedWhen>2018-08-07 18:46:39Z</DocumentModifiedWhen>
+  <DocumentName>Terapia de cardio</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Menu-items/Home</CodeName>
-    <GUID>7f3cc129-53bf-45d0-9d9a-94185826d594</GUID>
+    <CodeName>/Home/Cardio-Therapy</CodeName>
+    <GUID>afd1b701-72b2-47f2-97ea-df109cfb492f</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -34,5 +34,5 @@
   <DocumentUrlPath />
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>63d48668-960d-433f-82a8-1a7f4eb66538</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>0d16d3c7-d545-4863-a1ff-e2c9f33ba126</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Menu items/Contact us (es) -->
+<!-- This is a CI serialization file for /Contact us/Vínculos sociales/Facebook -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-17 10:40:45Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-08-07 19:10:25Z</DocumentCreatedWhen>
   <DocumentCulture>es-ES</DocumentCulture>
-  <DocumentGUID>d6501333-990b-446e-a739-fc161751d24e</DocumentGUID>
+  <DocumentGUID>2c266a42-aef7-456d-a1a4-c7d3b68a58b0</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-07-17 10:40:52Z</DocumentModifiedWhen>
-  <DocumentName>Contact us (es)</DocumentName>
+  <DocumentModifiedWhen>2018-08-07 19:10:26Z</DocumentModifiedWhen>
+  <DocumentName>Facebook</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Menu-items/Contact-us</CodeName>
-    <GUID>85f086f8-04b8-43e2-be99-0a66d87b7140</GUID>
+    <CodeName>/Contact-us/Social-links/Facebook</CodeName>
+    <GUID>83e96ab4-f66f-468b-947c-7300c2d6523c</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -34,5 +34,5 @@
   <DocumentUrlPath />
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>a9bae737-3065-4d5f-ad04-7fc5ea17d072</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>e80e458b-428f-4d8e-af86-4e45be4742d8</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- This is a CI serialization file for /Menu items/Inicio -->
+<!-- This is a CI serialization file for /Inicio -->
 <cms.documentlocalization>
   <DocumentContent />
   <DocumentCreatedByUserID>
@@ -7,9 +7,9 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentCreatedByUserID>
-  <DocumentCreatedWhen>2018-07-17 16:39:12Z</DocumentCreatedWhen>
+  <DocumentCreatedWhen>2018-08-07 18:43:14Z</DocumentCreatedWhen>
   <DocumentCulture>es-ES</DocumentCulture>
-  <DocumentGUID>8706695c-5a40-42c4-9706-a4cdce3b008f</DocumentGUID>
+  <DocumentGUID>3df0c612-40b6-4d18-b40b-bca01c5ae092</DocumentGUID>
   <DocumentInheritsStylesheet>True</DocumentInheritsStylesheet>
   <DocumentMenuItemHideInNavigation>False</DocumentMenuItemHideInNavigation>
   <DocumentModifiedByUserID>
@@ -17,11 +17,11 @@
     <GUID>6415b8ce-8072-4bcd-8e48-9d7178b826b7</GUID>
     <ObjectType>cms.user</ObjectType>
   </DocumentModifiedByUserID>
-  <DocumentModifiedWhen>2018-08-07 18:45:09Z</DocumentModifiedWhen>
+  <DocumentModifiedWhen>2018-08-07 18:43:44Z</DocumentModifiedWhen>
   <DocumentName>Inicio</DocumentName>
   <DocumentNodeID>
-    <CodeName>/Menu-items/Home</CodeName>
-    <GUID>7f3cc129-53bf-45d0-9d9a-94185826d594</GUID>
+    <CodeName>/Home</CodeName>
+    <GUID>db893cd3-ab96-48af-a569-ff9686d473ff</GUID>
     <ObjectType>cms.node</ObjectType>
     <Site>
       <CodeName>MedioClinic</CodeName>
@@ -32,7 +32,8 @@
   <DocumentPriority>0</DocumentPriority>
   <DocumentShowInSiteMap>True</DocumentShowInSiteMap>
   <DocumentUrlPath />
+  <DocumentUseCustomExtensions>False</DocumentUseCustomExtensions>
   <DocumentUseNamePathForUrlPath>False</DocumentUseNamePathForUrlPath>
   <DocumentWildcardRule />
-  <DocumentWorkflowCycleGUID>63d48668-960d-433f-82a8-1a7f4eb66538</DocumentWorkflowCycleGUID>
+  <DocumentWorkflowCycleGUID>78c6fff7-8d5b-4fab-8ba0-f366963f0537</DocumentWorkflowCycleGUID>
 </cms.documentlocalization>
