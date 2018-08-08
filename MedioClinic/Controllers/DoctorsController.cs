@@ -31,7 +31,8 @@ namespace MedioClinic.Controllers
 
             var model = GetPageViewModel(new DoctorsViewModel()
             {
-                Doctors = DoctorRepository.GetDoctors()
+                Doctors = DoctorRepository.GetDoctors(),
+                DoctorSection = doctorSection
             }, doctorSection.Header);
 
             return View(model);
