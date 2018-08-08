@@ -141,10 +141,9 @@
         <div class="footer-copyright white">
             <div class="container">
                 <div class="row">
-                    <div class="col s6">
+                    <div class="col s12">
                         <div class="blue-grey-text text-darken-2">
-                            Built with
-                            <a href="http://materializecss.com">Materialize</a> for the MVC Developer training. Kentico, @DateTime.Now.Year.
+                           @Html.Raw(Html.Localize("Footer.BuildWithNote")) Kentico, @DateTime.Now.Year.
                         </div>
                     </div>
                 </div>
