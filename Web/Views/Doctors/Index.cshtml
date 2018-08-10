@@ -1,0 +1,55 @@
+﻿@using Web.Models.Doctors
+
+@model Web.Models.PageViewModel<DoctorsViewModel>
+
+<div class="section kn-section-top">
+    <div class="container">
+        <!-- Doctors header section-->
+        <div class="row">
+            <h1 class="header col s12">@(Model.Data.DoctorSection?.Header)</h1>
+        </div>
+    </div>
+</div>
+<!--   Doctors Section   -->
+@if (Model.Data.Doctors != null)
+{
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                @foreach (var doctor in Model.Data.Doctors)
+                {
+                    <div class="col l4 m12 s12">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="@Url.KenticoImageUrl(doctor.ImagePath)" alt="@doctor.FullName">
+                            </div>
+                            <div class="card-title kn-margin-m kn-padding-m truncate">
+                                <a href="@Url.Action("Detail", "Doctors", new { nodeId = doctor.NodeId, nodeAlias = doctor.NodeAlias })">@doctor.FullName, @doctor.Degree</a>
+                            </div>
+                            <div class="card-content kn-doctor-card-content">
+                                <p>
+                                    @Html.Raw(doctor.Bio)
+                                </p>
+                            </div>
+                            <div class="kn-badges kn-margin-m kn-padding-m">
+                                @if (doctor.HasShiftToday)
+                                {
+                                    <span class="kn-badge opened">
+                                        Open
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="kn-badge closed">Now closed</span>
+                                }
+                            </div>
+                            <div class="card-action">
+                                <a href="@Url.Action("Detail", "Doctors", new { nodeId = doctor.NodeId, nodeAlias = doctor.NodeAlias })">See more</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
