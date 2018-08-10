@@ -1,4 +1,4 @@
-﻿using MedioClinic.Dto.Sections;
+﻿using MedioClinic.Dto.Home;
 
 namespace MedioClinic.Repository.Home
 {

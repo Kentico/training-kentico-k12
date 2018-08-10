@@ -704,7 +704,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\MultuCultureMvcRouteHandler.cs" />
+    <Compile Include="Infrastructure\MultiCultureMvcRouteHandler.cs" />
     <Compile Include="Infrastructure\SiteCultureConstraint.cs" />
     <Compile Include="Lib\SiteContextService.cs" />
     <Compile Include="Models\Contact\ContactViewModel.cs" />

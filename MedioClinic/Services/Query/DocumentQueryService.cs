@@ -30,14 +30,13 @@ namespace MedioClinic.Services.Query
                 query = query
                     .AddColumns("NodeSiteID") // required for preview mode in Admin UI
                     .OnSite(SiteContext.SiteName) // there could be more sites with matching documents
-                    .LatestVersion(true)
+                    .LatestVersion()
                     .Culture(SiteContext.PreviewCulture);
-            } else
-            {
+            } else {
                 query = query
                     .OnSite(SiteContext.SiteName) // there could be more sites with matching documents
-                    .Published(true)
-                    .PublishedVersion(true)
+                    .Published()
+                    .PublishedVersion()
                     .Culture(SiteContext.CurrentSiteCulture);
             }
 

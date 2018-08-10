@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using MedioClinic.Dto.Company;
-using MedioClinic.Dto.Sections;
+using MedioClinic.Dto.Home;
 
 namespace Web.Models.Home
 {

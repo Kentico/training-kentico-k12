@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using CMS.DocumentEngine.Types.Training;
-using MedioClinic.Dto.Sections;
+using MedioClinic.Dto.Home;
 using MedioClinic.Services.Query;
 
 namespace MedioClinic.Repository.Home

@@ -1,4 +1,4 @@
-﻿namespace MedioClinic.Dto.Sections
+﻿namespace MedioClinic.Dto.Home
 {
     public class HomeSectionDto : IDto
     {
