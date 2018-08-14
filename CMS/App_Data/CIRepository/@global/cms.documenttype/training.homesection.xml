@@ -44,7 +44,7 @@
       </field>
       <field allowempty="true" column="Button" columnsize="1000" columntype="text" guid="8f7ae3c0-2768-4038-a067-2646c5ab1505" publicfield="false" visible="true">
         <properties>
-          <fieldcaption>Link</fieldcaption>
+          <fieldcaption>Link button text</fieldcaption>
         </properties>
         <settings>
           <AutoCompleteEnableCaching>False</AutoCompleteEnableCaching>

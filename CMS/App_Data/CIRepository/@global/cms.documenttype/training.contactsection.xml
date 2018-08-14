@@ -5,7 +5,7 @@
       <NameSpace>Training</NameSpace>
     </Data>
   </ClassCodeGenerationSettings>
-  <ClassDisplayName>Contact section</ClassDisplayName>
+  <ClassDisplayName>Contact Section</ClassDisplayName>
   <ClassFormDefinition>
     <form version="2">
       <field column="ContactSectionID" columntype="integer" guid="a6dd439e-b277-49a2-840b-fce24566d543" isPK="true" publicfield="false">

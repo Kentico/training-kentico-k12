@@ -6,13 +6,6 @@
     <ObjectType>cms.documenttype</ObjectType>
   </Parent>
   <Bindings>
-    <Binding id="cms.documenttype_CMS.Root">
-      <ParentClassID>
-        <CodeName>CMS.Root</CodeName>
-        <GUID>a585aea3-10b5-4b74-9aad-747fcce72493</GUID>
-        <ObjectType>cms.documenttype</ObjectType>
-      </ParentClassID>
-    </Binding>
     <Binding id="cms.documenttype_Training.ContactSection">
       <ParentClassID>
         <CodeName>Training.ContactSection</CodeName>

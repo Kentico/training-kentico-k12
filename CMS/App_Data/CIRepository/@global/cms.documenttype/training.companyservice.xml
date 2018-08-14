@@ -5,7 +5,7 @@
       <NameSpace>Training</NameSpace>
     </Data>
   </ClassCodeGenerationSettings>
-  <ClassDisplayName>Company service</ClassDisplayName>
+  <ClassDisplayName>Company Service</ClassDisplayName>
   <ClassFormDefinition>
     <form version="2">
       <field column="CompanyServiceID" columntype="integer" guid="15e6d3ce-53f5-47ef-b403-ca236312b355" isPK="true" publicfield="false">
@@ -58,11 +58,13 @@
   </ClassFormDefinition>
   <ClassGUID>5817112c-6940-4aa1-984b-d1f48cc6b421</ClassGUID>
   <ClassIconClass>icon-doc-o</ClassIconClass>
+  <ClassInheritsFromClassID>0</ClassInheritsFromClassID>
   <ClassIsContentOnly>True</ClassIsContentOnly>
   <ClassIsCoupledClass>True</ClassIsCoupledClass>
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.CompanyService</ClassName>
   <ClassNodeNameSource>Header</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>
