@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedioClinic", "MedioClinic\MedioClinic.csproj", "{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98CC63A9-CDED-4DF6-9764-FA8203F5B7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE4522F-B7C7-4F50-B1FF-23CF6E170BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6500213-6CF9-462C-B95D-DCF91FC64889}
+	EndGlobalSection
+EndGlobal
