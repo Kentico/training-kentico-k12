@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Routing;
 using CMS.SiteProvider;
 
-namespace MedioClinic.Infrastructure
+namespace MedioClinic
 {
     /// <summary>
     /// Route constraint restricting the culture parameter to cultures allowed by the site.
