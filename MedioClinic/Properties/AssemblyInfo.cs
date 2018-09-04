@@ -2,7 +2,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 using CMS;
-using MedioClinic;
+using MedioClinic.Config;
 
 [assembly: AssemblyDiscoverable]
 

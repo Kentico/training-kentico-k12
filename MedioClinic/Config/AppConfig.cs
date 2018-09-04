@@ -1,4 +1,4 @@
-﻿namespace MedioClinic
+﻿namespace MedioClinic.Config
 {
     public static class AppConfig
     {
