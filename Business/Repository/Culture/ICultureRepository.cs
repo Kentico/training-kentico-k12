@@ -3,7 +3,7 @@ using Business.Dto.Culture;
 
 namespace Business.Repository.Culture
 {
-    public interface ICultureService : IRepository
+    public interface ICultureRepository : IRepository
     {
         IEnumerable<CultureDto> GetSiteCultures();
     }

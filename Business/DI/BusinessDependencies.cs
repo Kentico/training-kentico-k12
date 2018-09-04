@@ -10,14 +10,14 @@ namespace Business.DI
     {
         public IMenuRepository MenuRepository { get; }
         public ICompanyRepository CompanyRepository { get; }
-        public ICultureService CultureRepository { get; }
+        public ICultureRepository CultureRepository { get; }
         public ISiteContextService SiteContextService { get; }
         public ISocialLinkRepository SocialLinkRepository { get; }
 
         public BusinessDependencies(
             IMenuRepository menuRepository,
             ICompanyRepository companyRepository,
-            ICultureService cultureRepository,
+            ICultureRepository cultureRepository,
             ISiteContextService siteContextService,
             ISocialLinkRepository socialLinkRepository
             )

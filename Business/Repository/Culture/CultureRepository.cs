@@ -6,7 +6,7 @@ using Business.Services.Context;
 
 namespace Business.Repository.Culture
 {
-    public class CultureRepository : ICultureService
+    public class CultureRepository : ICultureRepository
     {
         private ISiteContextService SiteContextService { get; }
 

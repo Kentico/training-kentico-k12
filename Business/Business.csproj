@@ -515,8 +515,8 @@
     <Compile Include="Repository\Map\MapRepository.cs" />
     <Compile Include="Repository\Social\ISocialLinkRepository.cs" />
     <Compile Include="Repository\Social\SocialLinkRepository.cs" />
-    <Compile Include="Repository\Culture\CultureService.cs" />
-    <Compile Include="Repository\Culture\ICultureService.cs" />
+    <Compile Include="Repository\Culture\CultureRepository.cs" />
+    <Compile Include="Repository\Culture\ICultureRepository.cs" />
     <Compile Include="Repository\Home\HomeSectionRepository.cs" />
     <Compile Include="Repository\Home\IHomeSectionRepository.cs" />
     <Compile Include="Services\Context\ISiteContextService.cs" />

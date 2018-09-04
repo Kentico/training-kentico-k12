@@ -10,7 +10,7 @@ namespace Business.DI
     {
         IMenuRepository MenuRepository { get; }
         ICompanyRepository CompanyRepository { get; }
-        ICultureService CultureRepository { get; }
+        ICultureRepository CultureRepository { get; }
         ISiteContextService SiteContextService { get; }
         ISocialLinkRepository SocialLinkRepository { get; }
     }
