@@ -8,7 +8,7 @@ namespace Business.Extensions
     {
 
         /// <summary>
-        /// Custom extension method that localizes text based on given key
+        /// Custom extension method that localizes text based on a given key
         /// </summary>
         /// <param name="helper">Html helper</param>
         /// <param name="key">Full key stored in Localization app within Kentico</param>

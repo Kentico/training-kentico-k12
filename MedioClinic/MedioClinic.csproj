@@ -668,6 +668,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Config\ConnectionStrings.config" />
     <Content Include="Content\Css\Master\icon.css" />
     <Content Include="Content\Css\Master\materialize.min.css" />
     <Content Include="Content\Css\Master\style.css" />
