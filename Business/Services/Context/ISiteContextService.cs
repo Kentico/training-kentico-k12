@@ -3,17 +3,17 @@
     public interface ISiteContextService
     {
         /// <summary>
-        /// Holds the current codename of sitse
+        /// Holds the current codename of the site
         /// </summary>
         string SiteName { get; }
 
         /// <summary>
-        /// Holds active culture codename
+        /// Holds an active culture codename
         /// </summary>
         string CurrentSiteCulture { get; }
 
         /// <summary>
-        /// Indicates what preview culture should be used for preview mode
+        /// Indicates what preview culture should be used in the preview mode
         /// </summary>
         string PreviewCulture { get; }
 

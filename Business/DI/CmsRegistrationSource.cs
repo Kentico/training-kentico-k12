@@ -15,23 +15,24 @@ namespace Business.DI
 
 
         /// <summary>
-        /// Retrieve registrations for an unregistered service, to be used by the container.
+        /// Retrieves registration for an unregistered service that is to be used by the container.
         /// </summary>
         /// <param name="service">The service that was requested.</param>
-        /// <param name="registrationAccessor">A function that will return existing registrations for a service.</param>
+        /// <param name="registrationAccessor">A function that returns existing registrations for a service.</param>
         public IEnumerable<IComponentRegistration> RegistrationsFor(Service service, Func<Service, IEnumerable<IComponentRegistration>> registrationAccessor)
         {
-            // There are other registration exists in the container
+            // Checks if the container already contains an existing registration for the requested service
             if (registrationAccessor(service).Any())
             {
                 return Enumerable.Empty<IComponentRegistration>();
             }
-
+            // Checks if the required service carries valid type information
             if (!(service is IServiceWithType swt))
             {
                 return Enumerable.Empty<IComponentRegistration>();
             }
 
+            // Gets an instance of the requested service using CMS.Core.API
             object instance = null;
             if (CMS.Core.Service.IsRegistered(swt.ServiceType))
             {
@@ -43,7 +44,7 @@ namespace Business.DI
                 return Enumerable.Empty<IComponentRegistration>();
             }
 
-            // Register the instance in the container
+            // Registers the service instance in the container
             return new[] { RegistrationBuilder.ForDelegate(swt.ServiceType, (c, p) => instance).CreateRegistration() };
         }
     }

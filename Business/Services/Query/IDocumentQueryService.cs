@@ -10,7 +10,7 @@ namespace Business.Services.Query
         /// </summary>
         /// <typeparam name="TDocument">Type of the generated page</typeparam>
         /// <param name="nodeId">NodeId of the page</param>
-        /// <returns>DocumentQuery to given document</returns>
+        /// <returns>DocumentQuery to a document identified by its nodeId</returns>
         DocumentQuery<TDocument> GetDocument<TDocument>(int nodeId) where TDocument : TreeNode, new();
 
         /// <summary>

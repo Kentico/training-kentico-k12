@@ -21,7 +21,7 @@ namespace MedioClinic
             // Map routes to Kentico HTTP handlers first as some Kentico URLs might be matched by the default ASP.NET MVC route resulting in displaying pages without images
             routes.Kentico().MapRoutes();
 
-            // Maps not found route (needed separately to allow cultureless url)
+            // Maps the Not found route (the route needs to be registered separately to allow cultureless url)
             routes.MapRoute(
                 "NotFound",
                 "notfound",
