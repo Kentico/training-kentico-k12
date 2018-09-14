@@ -29,19 +29,19 @@ namespace MedioClinic
             try
             {
 
-                // Get the requested culture from the route
+                // Gets the requested culture from the route
                 var cultureName = requestContext.RouteData.Values[CultureUrlParam].ToString();
 
-                // Get culture
+                // Creates new CultureInfo object with the culture as parameter
                 var culture = new CultureInfo(cultureName);
 
-                // Set culture for the thread
+                // Sets culture for the thread
                 Thread.CurrentThread.CurrentUICulture = culture;
                 Thread.CurrentThread.CurrentCulture = culture;
             }
             catch
             {
-                // Return 404 when culture prefix is invalid
+                // Returns 404 when culture prefix is invalid
                 requestContext.HttpContext.Response.StatusCode = 404;
             }
 
