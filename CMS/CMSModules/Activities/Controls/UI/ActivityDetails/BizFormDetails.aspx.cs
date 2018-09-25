@@ -1,6 +1,7 @@
 ﻿using System;
 
 using CMS.Core;
+using CMS.FormEngine;
 using CMS.Helpers;
 using CMS.OnlineForms;
 using CMS.SiteProvider;
@@ -11,6 +12,9 @@ using CMS.UIControls;
 [Security(Resource = ModuleName.ACTIVITIES, Permission = "ReadActivities")]
 public partial class CMSModules_Activities_Controls_UI_ActivityDetails_BizFormDetails : CMSModalPage
 {
+    private const string FORM_ITEM_PREVIEW_ROUTE_TEMPLATE = "/Kentico.FormBuilder/FormItem/Preview/{0}/{1}";
+
+
     protected void Page_Init(object sender, EventArgs e)
     {
         // Check permissions
@@ -31,9 +35,22 @@ public partial class CMSModules_Activities_Controls_UI_ActivityDetails_BizFormDe
                 return;
             }
 
-            bizRecord.ItemID = recId;
-            bizRecord.SiteName = SiteInfoProvider.GetSiteName(bfi.FormSiteID);
-            bizRecord.FormName = bfi.FormName;
+            if (bfi.FormDevelopmentModel == (int)FormDevelopmentModelEnum.Mvc)
+            {
+                var path = string.Format(FORM_ITEM_PREVIEW_ROUTE_TEMPLATE, bfi.FormID, recId);
+                
+                string url = (bfi.Site as SiteInfo).SitePresentationURL;
+
+                mvcFrame.Src = url.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName);
+                mvcFrame.Visible = true;
+            }
+            else
+            {
+                bizRecord.ItemID = recId;
+                bizRecord.SiteName = SiteInfoProvider.GetSiteName(bfi.FormSiteID);
+                bizRecord.FormName = bfi.FormName;
+                bizRecord.Visible = true;
+            }
         }
     }
 

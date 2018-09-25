@@ -51,22 +51,6 @@
                 </div>
                 <div class="form-group">
                     <div class="editing-form-label-cell">
-                        <asp:Label CssClass="control-label" ID="lblPool" runat="server" EnableViewState="false" AssociatedControlID="lblValuePool" />
-                    </div>
-                    <div class="editing-form-value-cell">
-                        <asp:Label CssClass="form-control-text" ID="lblValuePool" runat="server" EnableViewState="false" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="editing-form-label-cell">
-                        <asp:Label CssClass="control-label" ID="lblTrustLevel" runat="server" EnableViewState="false" AssociatedControlID="lblValueTrustLevel" />
-                    </div>
-                    <div class="editing-form-value-cell">
-                        <asp:Label CssClass="form-control-text" ID="lblValueTrustLevel" runat="server" EnableViewState="false" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="editing-form-label-cell">
                         <asp:Label CssClass="control-label" ID="lblIP" runat="server" EnableViewState="false" AssociatedControlID="lblIPValue" />
                     </div>
                     <div class="editing-form-value-cell">

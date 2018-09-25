@@ -18,10 +18,6 @@
         <cms:LocalizedHyperlink ID="lnkJoinCommunity" runat="server" />
     </asp:Panel>
     <asp:Panel ID="pnlMyLinks" runat="server" CssClass="ShortcutMyLinks">
-        <asp:Panel ID="pnlMyMessages" runat="server" Visible="false" EnableViewState="false"
-            CssClass="ShortcutPanel">
-            <cms:LocalizedHyperlink ID="lnkMyMessages" runat="server" />
-        </asp:Panel>
         <asp:Panel ID="pnlMyInvitations" runat="server" Visible="false" EnableViewState="false"
             CssClass="ShortcutPanel">
             <cms:LocalizedHyperlink ID="lnkMyInvitations" runat="server" />
@@ -56,21 +52,6 @@
     <asp:Panel ID="pnlCreateNewBlog" runat="server" Visible="false" EnableViewState="false"
         CssClass="ShortcutPanel">
         <cms:LocalizedHyperlink ID="lnkCreateNewBlog" runat="server" />
-    </asp:Panel>
-</asp:Panel>
-<asp:Panel runat="server" ID="pnlMessageLinks" Visible="false" EnableViewState="false"
-    CssClass="ShortcutMessageLinks">
-    <asp:Panel ID="pnlSendMessage" runat="server" Visible="false" EnableViewState="false"
-        CssClass="ShortcutPanel">
-        <cms:LocalizedHyperlink ID="lnkSendMessage" runat="server" />
-    </asp:Panel>
-    <asp:Panel ID="pnlAddToContactList" runat="server" Visible="false" EnableViewState="false"
-        CssClass="ShortcutPanel">
-        <cms:LocalizedHyperlink ID="lnkAddToContactList" runat="server" />
-    </asp:Panel>
-    <asp:Panel ID="pnlAddToIgnoreList" runat="server" Visible="false" EnableViewState="false"
-        CssClass="ShortcutPanel">
-        <cms:LocalizedHyperlink ID="lnkAddToIgnoreList" runat="server" />
     </asp:Panel>
 </asp:Panel>
 <asp:Panel runat="server" ID="pnlSignInOut" Visible="false" EnableViewState="false"

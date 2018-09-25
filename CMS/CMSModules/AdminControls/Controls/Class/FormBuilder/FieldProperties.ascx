@@ -20,7 +20,7 @@
     </asp:PlaceHolder>
     <asp:PlaceHolder ID="plcDefaultValue" runat="server">
         <div class="label-property inline-block">
-            <cms:LocalizedLabel ID="lblDefaultValue" runat="server" CssClass="control-label" EnableViewState="false" ResourceString="TemplateDesigner.ColumnDefaultValue" DisplayColon="true" />
+            <cms:LocalizedLabel ID="lblDefaultValue" runat="server" CssClass="control-label" EnableViewState="false" ResourceString="formbuilder.defaultvalue" DisplayColon="true" />
         </div>
         <asp:Panel ID="pnlDefValue" runat="server">
             <cms:MessagesPlaceHolder ID="mphDefaultValue" runat="server" InfoTimeout="0" UseRelativePlaceHolder="false" Opacity="100" />
@@ -44,7 +44,7 @@
         <cms:LocalizableTextBox ID="txtExplanationText" runat="server" TextMode="MultiLine" />
     </div>
     <div class="label-property">
-        <cms:LocalizedLabel ID="lblTooltip" CssClass="control-label" ResourceString="dialogs.advanced.tooltip" DisplayColon="true" runat="server" EnableViewState="false" />
+        <cms:LocalizedLabel ID="lblTooltip" CssClass="control-label" ResourceString="formbuilder.tooltip" DisplayColon="true" runat="server" EnableViewState="false" />
     </div>
     <div class="field-property">
         <cms:MessagesPlaceHolder ID="mphTooltip" InfoTimeout="0" UseRelativePlaceHolder="false" Opacity="100" runat="server" />

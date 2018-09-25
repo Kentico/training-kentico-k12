@@ -129,42 +129,6 @@ public partial class CMSModules_System_Controls_System {
     protected global::System.Web.UI.WebControls.Label lblValueAspVersion;
     
     /// <summary>
-    /// lblPool control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblPool;
-    
-    /// <summary>
-    /// lblValuePool control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblValuePool;
-    
-    /// <summary>
-    /// lblTrustLevel control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblTrustLevel;
-    
-    /// <summary>
-    /// lblValueTrustLevel control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblValueTrustLevel;
-    
-    /// <summary>
     /// lblIP control.
     /// </summary>
     /// <remarks>

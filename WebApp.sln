@@ -4,7 +4,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMSApp", "CMS\CMSApp.csproj", "{BB8817AE-48DF-4672-A1CB-CFB7441B88DA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{DCF87F99-77EF-4740-B1A0-B9819C64FDC8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{49F0AABC-38E7-487A-9D8F-47F680B9CF1D}"
 	ProjectSection(SolutionItems) = preProject
 		Lib\CMS.Activities.dll = Lib\CMS.Activities.dll
 		Lib\CMS.Activities.Loggers.dll = Lib\CMS.Activities.Loggers.dll
@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{DCF87F99-77E
 		Lib\CMS.AmazonStorage.XML = Lib\CMS.AmazonStorage.XML
 		Lib\CMS.ApplicationDashboard.Web.UI.dll = Lib\CMS.ApplicationDashboard.Web.UI.dll
 		Lib\CMS.ApplicationDashboard.Web.UI.XML = Lib\CMS.ApplicationDashboard.Web.UI.XML
+		Lib\CMS.AspNet.Platform.dll = Lib\CMS.AspNet.Platform.dll
+		Lib\CMS.AspNet.Platform.xml = Lib\CMS.AspNet.Platform.xml
 		Lib\CMS.Automation.dll = Lib\CMS.Automation.dll
 		Lib\CMS.Automation.XML = Lib\CMS.Automation.XML
 		Lib\CMS.AzureStorage.dll = Lib\CMS.AzureStorage.dll
@@ -45,7 +47,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{DCF87F99-77E
 		Lib\CMS.ContinuousIntegration.dll = Lib\CMS.ContinuousIntegration.dll
 		Lib\CMS.ContinuousIntegration.xml = Lib\CMS.ContinuousIntegration.xml
 		Lib\CMS.Core.dll = Lib\CMS.Core.dll
-		Lib\CMS.Core.XML = Lib\CMS.Core.XML
+		Lib\CMS.Core.xml = Lib\CMS.Core.xml
 		Lib\CMS.CustomTables.dll = Lib\CMS.CustomTables.dll
 		Lib\CMS.CustomTables.XML = Lib\CMS.CustomTables.XML
 		Lib\CMS.DancingGoat.Samples.dll = Lib\CMS.DancingGoat.Samples.dll
@@ -97,7 +99,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{DCF87F99-77E
 		Lib\CMS.ImportExport.dll = Lib\CMS.ImportExport.dll
 		Lib\CMS.ImportExport.XML = Lib\CMS.ImportExport.XML
 		Lib\CMS.IO.dll = Lib\CMS.IO.dll
-		Lib\CMS.IO.XML = Lib\CMS.IO.XML
+		Lib\CMS.IO.xml = Lib\CMS.IO.xml
 		Lib\CMS.LicenseProvider.dll = Lib\CMS.LicenseProvider.dll
 		Lib\CMS.LicenseProvider.dll.config = Lib\CMS.LicenseProvider.dll.config
 		Lib\CMS.LicenseProvider.XML = Lib\CMS.LicenseProvider.XML
@@ -118,8 +120,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{DCF87F99-77E
 		Lib\CMS.MessageBoards.Web.UI.dll = Lib\CMS.MessageBoards.Web.UI.dll
 		Lib\CMS.MessageBoards.Web.UI.XML = Lib\CMS.MessageBoards.Web.UI.XML
 		Lib\CMS.MessageBoards.xml = Lib\CMS.MessageBoards.xml
-		Lib\CMS.Messaging.dll = Lib\CMS.Messaging.dll
-		Lib\CMS.Messaging.XML = Lib\CMS.Messaging.XML
 		Lib\CMS.Modules.dll = Lib\CMS.Modules.dll
 		Lib\CMS.Modules.Web.UI.dll = Lib\CMS.Modules.Web.UI.dll
 		Lib\CMS.Modules.Web.UI.xml = Lib\CMS.Modules.Web.UI.xml
@@ -256,12 +256,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{DCF87F99-77E
 		Lib\Ude.dll = Lib\Ude.dll
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Azure", "Azure", "{5439F7A4-13E3-4F51-BEE9-513C9FD96665}"
-	ProjectSection(SolutionItems) = preProject
-		Lib\Azure\Microsoft.WindowsAzure.Configuration.dll = Lib\Azure\Microsoft.WindowsAzure.Configuration.dll
-		Lib\Azure\Microsoft.WindowsAzure.Configuration.xml = Lib\Azure\Microsoft.WindowsAzure.Configuration.xml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -275,8 +269,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{5439F7A4-13E3-4F51-BEE9-513C9FD96665} = {DCF87F99-77EF-4740-B1A0-B9819C64FDC8}
 	EndGlobalSection
 EndGlobal

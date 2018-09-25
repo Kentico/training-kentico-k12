@@ -3,6 +3,8 @@
 using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.Helpers;
+using CMS.ImportExport;
+
 
 public partial class CMSAdminControls_ContextMenus_ReportContextMenu : CMSContextMenuControl
 {

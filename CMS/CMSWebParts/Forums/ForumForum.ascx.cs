@@ -1,10 +1,8 @@
 ﻿using System;
 
-using CMS.Base.Web.UI;
 using CMS.Forums;
 using CMS.Helpers;
 using CMS.PortalEngine.Web.UI;
-using CMS.SiteProvider;
 
 public partial class CMSWebParts_Forums_ForumForum : CMSAbstractWebPart
 {
@@ -28,7 +26,7 @@ public partial class CMSWebParts_Forums_ForumForum : CMSAbstractWebPart
 
 
     /// <summary>
-    /// Gets or sets the roles split by semicilon, which roles can report abuse, requires  security access state authorize roles.
+    /// Gets or sets the roles split by semicolon, which roles can report abuse, requires  security access state authorize roles.
     /// </summary>
     public string AbuseReportRoles
     {
@@ -91,23 +89,6 @@ public partial class CMSWebParts_Forums_ForumForum : CMSAbstractWebPart
         {
             SetValue("EnableSubscription", value);
             viewerForum.EnableSubscription = value;
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets the value that indicates whether private messaging is enabled.
-    /// </summary>
-    public bool EnableMessaging
-    {
-        get
-        {
-            return ValidationHelper.GetBoolean(GetValue("EnableMessaging"), viewerForum.EnableMessaging);
-        }
-        set
-        {
-            SetValue("EnableMessaging", value);
-            viewerForum.EnableMessaging = value;
         }
     }
 
@@ -300,7 +281,7 @@ public partial class CMSWebParts_Forums_ForumForum : CMSAbstractWebPart
 
 
     /// <summary>
-    /// Gets or sets max side sizfe of avatar image.
+    /// Gets or sets max side size of avatar image.
     /// </summary>
     public int AvatarMaxSideSize
     {
@@ -614,8 +595,7 @@ public partial class CMSWebParts_Forums_ForumForum : CMSAbstractWebPart
             viewerForum.MaxRelativeLevel = MaxRelativeLevel;
             viewerForum.DisplayBadgeInfo = DisplayBadgeInfo;
             viewerForum.RedirectToUserProfile = RedirectToUserProfile;
-            viewerForum.EnableMessaging = EnableMessaging;
-
+            
             // Behaviour
             viewerForum.EnableSubscription = EnableSubscription;
             viewerForum.EnableOnSiteManagement = OnSiteManagement;

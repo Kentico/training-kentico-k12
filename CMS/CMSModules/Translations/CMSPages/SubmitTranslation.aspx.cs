@@ -20,7 +20,7 @@ public partial class CMSModules_Translations_CMSPages_SubmitTranslation : CMSLiv
             LicenseHelper.CheckFeatureAndRedirect(RequestContext.CurrentDomain, FeatureEnum.TranslationServices);
         }
 
-        if (!QueryHelper.ValidateHash("hash", null, new HashSettings()))
+        if (!QueryHelper.ValidateHash("hash", null, new HashSettings("")))
         {
             ShowError(GetString("general.badhashtext"));
             uploadElem.StopProcessing = true;

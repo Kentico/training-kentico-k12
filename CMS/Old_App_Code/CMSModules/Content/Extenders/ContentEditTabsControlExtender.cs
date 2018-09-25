@@ -186,6 +186,7 @@ public class ContentEditTabsControlExtender : UITabsExtender
         switch (element.ElementName.ToLowerInvariant())
         {
             case "page":
+            case "pagemvc":
                 {
                     mode = "edit";
                 }
@@ -261,7 +262,6 @@ public class ContentEditTabsControlExtender : UITabsExtender
                     PreferredURL = tab.RedirectUrl
                 };
 
-            // Ensure correct URL
             tab.RedirectUrl = DocumentUIHelper.GetDocumentPageUrl(settings);
             tab.Text = DocumentUIHelper.GetUIElementDisplayName(element, Node);
         }

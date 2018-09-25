@@ -24,6 +24,11 @@ public partial class CMSAdminControls_UI_ContextHelp : CMSUserControl
             searchUrlPattern = DocumentationHelper.GetDocumentationSearchUrlPattern(),
             descriptionMenuItemId = description.ClientID
         });
+
+        ScriptHelper.RegisterModule(Page, "CMS/Raptor", new
+        {
+            labelId = lblVersion.ClientID
+        });
     }
 
 

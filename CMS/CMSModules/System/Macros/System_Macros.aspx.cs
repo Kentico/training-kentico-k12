@@ -17,7 +17,7 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
     private const string EVENTLOG_SOURCE_REFRESHSECURITYPARAMS = "Macros - Refresh security parameters";
 
     private readonly NameValueCollection processedObjects = new NameValueCollection();
-    
+
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
@@ -25,17 +25,17 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
         InitForm();
         InitAsyncDialog();
     }
-    
+
 
     #region "Async log"
-    
+
     /// <summary>
     /// Inits the async dialog.
     /// </summary>
     private void InitAsyncDialog()
     {
         ctlAsyncLog.TitleText = GetString("macros.refreshsecurityparams.title");
-        
+
         ctlAsyncLog.OnCancel += ctlAsyncLog_OnCancel;
         ctlAsyncLog.OnFinished += ctlAsyncLog_OnFinished;
     }
@@ -70,7 +70,7 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
     {
         // Set action name as process parameter
         ctlAsyncLog.Parameter = actionName;
-        
+
         // Log async action start
         EventLogProvider.LogEvent(EventType.INFORMATION, actionName, "STARTED");
 
@@ -168,7 +168,7 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
         ctlAsyncLog.AddLog(logText);
     }
 
-    
+
     /// <summary>
     /// Refreshes the security parameters in macros for all the objects of the specified object types.
     /// Signs all the macros with the current user if the old salt is not specified.
@@ -205,7 +205,7 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
                     {
                         infos.OrderByColumns = orderByIndex.GetOrderBy();
                     }
-                    
+
                     infos.PageSize = 1000;
 
                     // Skip object types derived from general data class object type to avoid duplicities
@@ -247,14 +247,26 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
                         catch (Exception ex)
                         {
                             string message = "Signing " + TypeHelper.GetNiceObjectTypeName(info.TypeInfo.ObjectType) + " " + info.Generalized.ObjectDisplayName + " failed: " + ex.Message;
-                            EventLogProvider.LogEvent(EventType.ERROR, "Import", "MACROSECURITY", message);
+
+                            using (var exceptionContext = new CMSActionContext())
+                            {
+                                exceptionContext.LogEvents = true;
+
+                                EventLogProvider.LogEvent(EventType.ERROR, "Import", "MACROSECURITY", message);
+                            }
                         }
                     }
                 }
-                catch (Exception e)
+                catch (Exception ex)
                 {
-                    AddLog(e.Message);
-                    EventLogProvider.LogException(EVENTLOG_SOURCE_REFRESHSECURITYPARAMS, "ERROR", e);
+                    AddLog(ex.Message);
+
+                    using (var exceptionContext = new CMSActionContext())
+                    {
+                        exceptionContext.LogEvents = true;
+
+                        EventLogProvider.LogException(EVENTLOG_SOURCE_REFRESHSECURITYPARAMS, "ERROR", ex);
+                    }
                 }
             }
         }

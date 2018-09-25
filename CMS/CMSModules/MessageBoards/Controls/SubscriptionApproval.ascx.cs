@@ -135,7 +135,7 @@ public partial class CMSModules_MessageBoards_Controls_SubscriptionApproval : CM
         }
 
         // Validate hash
-        if (!QueryHelper.ValidateHash("hash", "aliaspath", new HashSettings()))
+        if (!QueryHelper.ValidateHash("hash", "aliaspath", new HashSettings("")))
         {
             URLHelper.Redirect(AdministrationUrlHelper.GetErrorPageUrl("dialogs.badhashtitle", "dialogs.badhashtext"));
         }

@@ -91,7 +91,7 @@ public partial class CMSMessages_Error : MessagePage
     {
         bool isValid = false;
 
-        var hashSettings = new HashSettings() { Redirect = false };
+        var hashSettings = new HashSettings("") { Redirect = false };
 
         if (QueryHelper.ValidateHash("hash", "cancel", hashSettings))
         {

@@ -270,6 +270,8 @@ icon-pda
 icon-percent-sign
 icon-perfume
 icon-permission-list
+icon-personalisation
+icon-personalisation-variants
 icon-picture
 icon-pictures
 icon-piechart
@@ -326,3 +328,7 @@ icon-u
 icon-googletranslator
 icon-microsofttranslator
 icon-external-link
+icon-add-module
+icon-convert
+icon-recaptcha
+icon-scheme-path-circles-flipped

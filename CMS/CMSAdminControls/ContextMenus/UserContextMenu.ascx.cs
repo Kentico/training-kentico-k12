@@ -41,24 +41,7 @@ public partial class CMSAdminControls_ContextMenus_UserContextMenu : CMSContextM
             return ValidationHelper.GetBoolean(RequestStockHelper.GetItem("commPresent"), false);
         }
     }
-
-
-    /// <summary>
-    /// Indicates if the messaging module is loaded.
-    /// </summary>
-    public bool MessagingPresent
-    {
-        get
-        {
-            if (!RequestStockHelper.Contains("messagingPresent"))
-            {
-                RequestStockHelper.Add("messagingPresent", ModuleManager.IsModuleLoaded(ModuleName.MESSAGING));
-            }
-
-            return ValidationHelper.GetBoolean(RequestStockHelper.GetItem("messagingPresent"), false);
-        }
-    }
-
+    
     #endregion
 
 
@@ -76,25 +59,6 @@ public partial class CMSAdminControls_ContextMenus_UserContextMenu : CMSContextM
 
         currentUser = MembershipContext.AuthenticatedUser;
         string script = "";
-
-        // Send private message
-        script += "function ContextPrivateMessage(id) { \n" +
-                  "modalDialog('" + ApplicationUrlHelper.ResolveDialogUrl("~/CMSModules/Messaging/CMSPages/SendMessage.aspx") + "?userid=" + currentUser.UserID + "&requestid=' + id , 'sendMessage', 700, 650); \n" +
-                  " } \n";
-
-        // Add to contact list
-        script += "function ContextAddToContactList(usertoadd) { \n" +
-                  "if(confirm(" + ScriptHelper.GetString(ResHelper.GetString("messaging.contactlist.addconfirmation")) + "))" +
-                  "{" +
-                  Page.ClientScript.GetPostBackEventReference(this, "addtocontactlist", false) +
-                  "} } \n";
-
-        // Add to ignore list
-        script += "function ContextAddToIgnoretList(usertoadd) { \n" +
-                  "if(confirm(" + ScriptHelper.GetString(ResHelper.GetString("messaging.ignorelist.addconfirmation")) + "))" +
-                  "{" +
-                  Page.ClientScript.GetPostBackEventReference(this, "addtoignorelist", false) +
-                  "} } \n";
 
         // Group invitation
         script += "function ContextGroupInvitation(id) { \nmodalDialog('" + ApplicationUrlHelper.ResolveDialogUrl("~/CMSModules/Groups/CMSPages/InviteToGroup.aspx") + "?invitedid=' + id , 'inviteToGroup', 500, 450); \n } \n";
@@ -155,24 +119,6 @@ public partial class CMSAdminControls_ContextMenus_UserContextMenu : CMSContextM
         {
             ScriptHelper.RegisterClientScriptBlock(this, typeof(string), "UserContextMenuError", ScriptHelper.GetScript("alert('No user was selected.');"));
         }
-        else
-        {
-            // Add only if messaging is present
-            if (MessagingPresent)
-            {
-                // Add to contact or ignore list
-                switch (eventArgument)
-                {
-                    case "addtoignorelist":
-                        ModuleCommands.MessagingAddToIgnoreList(currentUser.UserID, selectedId);
-                        break;
-
-                    case "addtocontactlist":
-                        ModuleCommands.MessagingAddToContactList(currentUser.UserID, selectedId);
-                        break;
-                }
-            }
-        }
     }
 
     #endregion
@@ -203,34 +149,6 @@ public partial class CMSAdminControls_ContextMenus_UserContextMenu : CMSContextM
                 bool authenticated = AuthenticationHelper.IsAuthenticated();
 
                 table.Rows.Add(new object[] { ResHelper.GetString(resourcePrefix + ".invite|groupinvitation.invite"), authenticated ? "ContextGroupInvitation(GetContextMenuParameter('" + ContextMenu.MenuID + "'))" : "ContextRedirectToSignInUrl()" });
-            }
-        }
-
-        // Add only if messaging is present
-        if (MessagingPresent)
-        {
-            // Check if user is in ignore list
-            isInIgnoreList = ModuleCommands.MessagingIsInIgnoreList(currentUser.UserID, requestedUserId);
-
-            // Check if user is in contact list
-            isInContactList = ModuleCommands.MessagingIsInContactList(currentUser.UserID, requestedUserId);
-            bool authenticated = AuthenticationHelper.IsAuthenticated();
-
-            table.Rows.Add(new object[] { ResHelper.GetString(resourcePrefix + ".sendmessage|sendmessage.sendmessage"), authenticated ? "ContextPrivateMessage(GetContextMenuParameter('" + ContextMenu.MenuID + "'))" : "ContextRedirectToSignInUrl()" });
-
-            // Not for the same user
-            if (requestedUserId != currentUser.UserID)
-            {
-                // Add to ignore list or add to contact list actions
-                if (!isInIgnoreList)
-                {
-                    table.Rows.Add(new object[] { ResHelper.GetString(resourcePrefix + ".addtoignorelist|messsaging.addtoignorelist"), authenticated ? "ContextAddToIgnoretList(GetContextMenuParameter('" + ContextMenu.MenuID + "'))" : "ContextRedirectToSignInUrl()" });
-                }
-
-                if (!isInContactList)
-                {
-                    table.Rows.Add(new object[] { ResHelper.GetString(resourcePrefix + ".addtocontactlist|messsaging.addtocontactlist"), authenticated ? "ContextAddToContactList(GetContextMenuParameter('" + ContextMenu.MenuID + "'))" : "ContextRedirectToSignInUrl()" });
-                }
             }
         }
 

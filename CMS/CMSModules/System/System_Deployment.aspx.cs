@@ -121,16 +121,6 @@ public partial class CMSModules_System_System_Deployment : GlobalAdminPage
             lblSourceControlInfo.Text = GetString("Deployment.SourceControlInfo");
         }
 
-        if (!SystemContext.IsFullTrustLevel)
-        {
-            // Disable the form in Medium Trust and tell user what's wrong
-            chkSaveCSS.Enabled = chkSaveLayouts.Enabled = chkSavePageTemplate.Enabled = chkSaveTransformation.Enabled
-                = chkSaveWebpartContainer.Enabled = chkSaveWebpartLayout.Enabled = chkSaveAltFormLayouts.Enabled = chkSaveFormLayouts.Enabled
-                = btnSaveAll.Enabled = btnSourceControl.Enabled = btnSynchronize.Enabled = false;
-
-            ShowInformation(GetString("deployment.fulltrustrequired"));
-        }
-
         if (SystemContext.DevelopmentMode)
         {
             ShowInformation(GetString("Deployment.DevelopmentMode"));

@@ -1,10 +1,8 @@
 ﻿using System;
 
-using CMS.Base.Web.UI;
 using CMS.Forums;
 using CMS.Helpers;
 using CMS.PortalEngine.Web.UI;
-using CMS.SiteProvider;
 
 public partial class CMSWebParts_Forums_ForumGroup : CMSAbstractWebPart
 {
@@ -28,7 +26,7 @@ public partial class CMSWebParts_Forums_ForumGroup : CMSAbstractWebPart
 
 
     /// <summary>
-    /// Gets or sets the roles split by semicilon, which roles can report abuse, requires  security access state authorize roles.
+    /// Gets or sets the roles split by semicolon, which roles can report abuse, requires  security access state authorize roles.
     /// </summary>
     public string AbuseReportRoles
     {
@@ -96,24 +94,7 @@ public partial class CMSWebParts_Forums_ForumGroup : CMSAbstractWebPart
 
 
     /// <summary>
-    /// Gets or sets the value that indicates whether private messaging is enabled.
-    /// </summary>
-    public bool EnableMessaging
-    {
-        get
-        {
-            return ValidationHelper.GetBoolean(GetValue("EnableMessaging"), viewerForum.EnableMessaging);
-        }
-        set
-        {
-            SetValue("EnableMessaging", value);
-            viewerForum.EnableMessaging = value;
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets the value that indicates whether usernam should be link to the user profile page.
+    /// Gets or sets the value that indicates whether username should be link to the user profile page.
     /// </summary>
     public bool RedirectToUserProfile
     {
@@ -215,7 +196,7 @@ public partial class CMSWebParts_Forums_ForumGroup : CMSAbstractWebPart
 
 
     /// <summary>
-    /// Gets or sets the value which determines whether to display image prviews in attachment list.
+    /// Gets or sets the value which determines whether to display image previews in attachment list.
     /// </summary>
     public bool DisplayAttachmentImage
     {
@@ -625,8 +606,7 @@ public partial class CMSWebParts_Forums_ForumGroup : CMSAbstractWebPart
             viewerForum.MaxRelativeLevel = MaxRelativeLevel;
             viewerForum.DisplayBadgeInfo = DisplayBadgeInfo;
             viewerForum.RedirectToUserProfile = RedirectToUserProfile;
-            viewerForum.EnableMessaging = EnableMessaging;
-
+            
             // Behaviour
             viewerForum.EnableOnSiteManagement = OnSiteManagement;
             viewerForum.EnableSubscription = EnableSubscription;

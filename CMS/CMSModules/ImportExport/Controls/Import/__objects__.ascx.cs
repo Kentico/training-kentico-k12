@@ -162,7 +162,20 @@ InitCheckboxes();
             chkBindings.Checked = ValidationHelper.GetBoolean(ImportSettings.GetSettings(ImportExportHelper.SETTINGS_ADD_SITE_BINDINGS), true);
             chkDeleteSite.Checked = ValidationHelper.GetBoolean(ImportSettings.GetSettings(ImportExportHelper.SETTINGS_DELETE_SITE), false);
             chkRunSite.Checked = ValidationHelper.GetBoolean(ImportSettings.GetSettings(ImportExportHelper.SETTINGS_RUN_SITE), !singleObject);
-            chkUpdateSite.Checked = ValidationHelper.GetBoolean(ImportSettings.GetSettings(ImportExportHelper.SETTINGS_UPDATE_SITE_DEFINITION), !singleObject);
+
+            bool? updateSiteDefinition = ImportSettings.GetSettings(ImportExportHelper.SETTINGS_UPDATE_SITE_DEFINITION);
+
+            // Disable checkbox if value is already explicitly set to false
+            if (updateSiteDefinition == false)
+            {
+                chkUpdateSite.Enabled = false;
+                chkUpdateSite.Checked = false;
+            }
+            else
+            {
+                chkUpdateSite.Checked = ValidationHelper.GetBoolean(updateSiteDefinition, !singleObject);
+            }      
+
             chkSkipOrfans.Checked = ValidationHelper.GetBoolean(ImportSettings.GetSettings(ImportExportHelper.SETTINGS_SKIP_OBJECT_ON_TRANSLATION_ERROR), false);
             chkImportTasks.Checked = ValidationHelper.GetBoolean(ImportSettings.GetSettings(ImportExportHelper.SETTINGS_TASKS), true);
             chkLogSync.Checked = ImportSettings.LogSynchronization;

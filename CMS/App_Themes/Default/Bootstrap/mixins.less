@@ -629,21 +629,18 @@
 // Disabled style for buttons and dropdown menu
 .action-disabled {
     cursor: not-allowed;
-    background-color: @action-disabled-bg;
-    background-image: url(../../CMSPages/GetResource.ashx?image=General/BtnDisabledBg.png);
-    background-repeat: repeat;
     color: @action-disabled-color;
+    background-color: @action-disabled-bg;
+    background-image: repeating-linear-gradient(-45deg, transparent 0px, @action-disabled-bg-stripe 1px, @action-disabled-bg-stripe 2px, transparent 3px, transparent 4px);
 }
 
 .dropdown-disabled {
     cursor: not-allowed;
-    background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png);
-    background-repeat: repeat;
+    background-image: repeating-linear-gradient(-45deg, transparent 0px, @dropdown-disabled-bg-stripe 1px, @dropdown-disabled-bg-stripe 2px, transparent 3px, transparent 4px);
 
     &:hover {
         background-color: inherit;
-        background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png);
-        background-repeat: repeat;
+        background-image: repeating-linear-gradient(-45deg, transparent 0px, @dropdown-disabled-bg-stripe 1px, @dropdown-disabled-bg-stripe 2px, transparent 3px, transparent 4px);
     }
 }
 

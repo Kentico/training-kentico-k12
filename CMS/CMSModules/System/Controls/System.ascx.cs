@@ -22,7 +22,6 @@ using CMS.URLRewritingEngine;
 using CMS.WebFarmSync;
 using CMS.WinServiceEngine;
 
-
 public partial class CMSModules_System_Controls_System : CMSAdminControl
 {
     #region "Request statistics"
@@ -192,7 +191,7 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
         timRefresh.Interval = 1000 * ValidationHelper.GetInteger(drpRefresh.SelectedValue, 0);
         isSeparatedDB = SqlInstallationHelper.DatabaseIsSeparated();
 
-        // Check permissions            
+        // Check permissions
         RaiseOnCheckPermissions("READ", this);
 
         if (StopProcessing)
@@ -216,21 +215,11 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
         lblMachineNameValue.Text = HTMLHelper.HTMLEncode(SystemContext.MachineName);
         lblAspAccount.Text = GetString("Administration-System.Account");
         lblValueAspAccount.Text = HTMLHelper.HTMLEncode(WindowsIdentity.GetCurrent().Name);
-        lblPool.Text = GetString("Administration-System.Pool");
-        lblValuePool.Text = GetString("General.NA");
         plcSeparatedName.Visible = isSeparatedDB;
         plcSeparatedServerName.Visible = isSeparatedDB;
         plcSeparatedSize.Visible = isSeparatedDB;
         plcSeparatedVersion.Visible = isSeparatedDB;
         plcSeparatedHeader.Visible = isSeparatedDB;
-
-        lblValuePool.Text = HTMLHelper.HTMLEncode(SystemContext.ApplicationPoolName);
-
-        // Get application trust level
-        lblTrustLevel.Text = GetString("Administration-System.TrustLevel");
-        lblValueTrustLevel.Text = GetString("General.NA");
-
-        lblValueTrustLevel.Text = HTMLHelper.HTMLEncode(SystemContext.CurrentTrustLevel.ToString());
 
         lblAspVersion.Text = GetString("Administration-System.Version");
         lblValueAspVersion.Text = HTMLHelper.HTMLEncode(Environment.Version.ToString());
@@ -267,11 +256,11 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
                     break;
 
                 case "webfarmrestarted":
-                    if (ValidationHelper.ValidateHash("WebfarmRestarted", QueryHelper.GetString("restartedhash", String.Empty)))
+                    if (ValidationHelper.ValidateHash("WebfarmRestarted", QueryHelper.GetString("restartedhash", String.Empty), new HashSettings("")))
                     {
                         ShowConfirmation(GetString("Administration-System.WebframRestarted"));
                         // Restart other servers - create webfarm task for application restart
-                        WebFarmHelper.CreateTask(SystemTaskType.RestartApplication, "RestartApplication");
+                        WebFarmHelper.CreateTask(new RestartApplicationWebFarmTask());
                     }
                     else
                     {
@@ -358,7 +347,7 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
             Text = GetString("Administration-System.btnClearCounters"),
             ButtonStyle = ButtonStyle.Default,
             CommandName = "ClearCounters",
-            Visible = SystemContext.IsFullTrustLevel && LicenseHelper.CheckFeature(RequestContext.CurrentDomain, FeatureEnum.HealthMonitoring),
+            Visible = LicenseHelper.CheckFeature(RequestContext.CurrentDomain, FeatureEnum.HealthMonitoring),
         });
 
         HeaderActions.AddAction(new HeaderAction
@@ -373,7 +362,7 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
             Text = GetString("Administration-System.btnRestartServices"),
             ButtonStyle = ButtonStyle.Default,
             CommandName = "RestartServices",
-            Visible = SystemContext.IsFullTrustLevel && WinServiceHelper.ServicesAvailable(),
+            Visible = WinServiceHelper.ServicesAvailable(),
         });
     }
 
@@ -387,8 +376,8 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
         btnClearCache.Visible = true;
         btnRestart.Visible = true;
         btnRestartWebfarm.Visible = WebFarmButtonVisible;
-        btnRestartServices.Visible = SystemContext.IsFullTrustLevel && WinServiceHelper.ServicesAvailable();
-        btnClearCounters.Visible = SystemContext.IsFullTrustLevel && LicenseHelper.CheckFeature(RequestContext.CurrentDomain, FeatureEnum.HealthMonitoring);
+        btnRestartServices.Visible = WinServiceHelper.ServicesAvailable();
+        btnClearCounters.Visible = LicenseHelper.CheckFeature(RequestContext.CurrentDomain, FeatureEnum.HealthMonitoring);
     }
 
 
@@ -454,7 +443,7 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
             return;
         }
 
-        if (SystemHelper.RestartApplication(Request.PhysicalApplicationPath))
+        if (SystemHelper.RestartApplication())
         {
             if (SystemContext.IsRunningOnAzure)
             {
@@ -489,13 +478,13 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
         }
 
         // Restart current server
-        SystemHelper.RestartApplication(Request.PhysicalApplicationPath);
+        SystemHelper.RestartApplication();
 
         // Log event
         EventLogProvider.LogEvent(EventType.INFORMATION, "System", "RESTARTWEBFARM", GetString("Administration-System.WebframRestarted"));
 
         string url = URLHelper.UpdateParameterInUrl(RequestContext.CurrentURL, "lastaction", "WebfarmRestarted");
-        url = URLHelper.UpdateParameterInUrl(url, "restartedhash", ValidationHelper.GetHashString("WebfarmRestarted"));
+        url = URLHelper.UpdateParameterInUrl(url, "restartedhash", ValidationHelper.GetHashString("WebfarmRestarted", new HashSettings("")));
         URLHelper.Redirect(url);
     }
 
@@ -667,7 +656,7 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
         lblDBNameValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseName);
         lblServerVersionValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseServerVersion);
 
-        // DB information       
+        // DB information
         if (!RequestHelper.IsPostBack())
         {
             lblDBSizeValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseSize);

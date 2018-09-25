@@ -21,6 +21,7 @@ public partial class CMSModules_Categories_Controls_CategorySelectionDialog : CM
 
     private SelectionModeEnum mSelectionMode = SelectionModeEnum.SingleButton;
     private string mValuesSeparator = ";";
+    private string mSecurityPurpose;
 
     private bool mAllowMultiple;
     private bool? mAllowGlobalCategories;
@@ -707,7 +708,7 @@ function SelectAllItems(checkbox, hash) {
             if (AllowMultipleSelection)
             {
                 // Prepare checbox when in multiple selection mode
-                checkBox = string.Format("<span class=\"checkbox tree-checkbox\"><input id=\"chk{0}\" type=\"checkbox\" onclick=\"ProcessItem(this,'{1}',false,true);\" class=\"chckbox\" ", category.CategoryID, ValidationHelper.GetHashString(category.CategoryID.ToString(), new HashSettings { HashSalt = ClientID }));
+                checkBox = string.Format("<span class=\"checkbox tree-checkbox\"><input id=\"chk{0}\" type=\"checkbox\" onclick=\"ProcessItem(this,'{1}',false,true);\" class=\"chckbox\" ", category.CategoryID, ValidationHelper.GetHashString(category.CategoryID.ToString(), new HashSettings(mSecurityPurpose)));
                 if (catHasCheckedChildren || (hidItem.Value.IndexOfCSafe(ValuesSeparator + category.CategoryID + ValuesSeparator, true) >= 0))
                 {
                     checkBox += "checked=\"checked\" ";
@@ -855,7 +856,7 @@ function SelectAllItems(checkbox, hash) {
             if (!string.IsNullOrEmpty(hidItem.Value))
             {
                 hidItem.Value = hidItem.Value.Replace(ValuesSeparator + categoryObj.CategoryID + ValuesSeparator, ValuesSeparator);
-                hidHash.Value = ValidationHelper.GetHashString(hidItem.Value, new HashSettings { HashSalt = ClientID });
+                hidHash.Value = ValidationHelper.GetHashString(hidItem.Value, new HashSettings(mSecurityPurpose));
                 pnlHidden.Update();
             }
 
@@ -984,6 +985,7 @@ function SelectAllItems(checkbox, hash) {
             fireOnChanged = ValidationHelper.GetBoolean(parameters["FireOnChanged"], false);
             returnColumnName = ValidationHelper.GetString(parameters["ReturnColumnName"], null);
             disabledItems = ValidationHelper.GetString(parameters["DisabledItems"], null);
+            mSecurityPurpose = ValidationHelper.GetString(parameters["SecurityPurpose"], String.Empty);
 
             switch (SelectionMode)
             {
@@ -1007,7 +1009,7 @@ function SelectAllItems(checkbox, hash) {
                 if (!String.IsNullOrEmpty(values))
                 {
                     hidItem.Value = values;
-                    hidHash.Value = ValidationHelper.GetHashString(hidItem.Value, new HashSettings { HashSalt = ClientID });
+                    hidHash.Value = ValidationHelper.GetHashString(hidItem.Value, new HashSettings(mSecurityPurpose));
                     parameters["Values"] = null;
                 }
             }
@@ -1349,10 +1351,9 @@ function SelectAllItems(checkbox, hash) {
                 // Check hash of the selected item
                 string[] checkValues = values[1].Split('#');
 
-                var settings = new HashSettings
+                var settings = new HashSettings(mSecurityPurpose)
                 {
-                    Redirect = false,
-                    HashSalt = ClientID
+                    Redirect = false
                 };
 
                 isValid = (checkValues.Length == 2) && ValidationHelper.ValidateHash(checkValues[0].Trim(';'), checkValues[1], settings);
@@ -1361,7 +1362,7 @@ function SelectAllItems(checkbox, hash) {
             if (isValid)
             {
                 // Get new hash for currently selected items
-                result = ValidationHelper.GetHashString(values[0], new HashSettings { HashSalt = ClientID });
+                result = ValidationHelper.GetHashString(values[0], new HashSettings(mSecurityPurpose));
             }
         }
 

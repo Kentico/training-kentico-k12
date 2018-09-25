@@ -104,7 +104,7 @@ public partial class CMSModules_Content_Controls_Attachments_DocumentAttachments
         {
             // Add requirement for latest version of files for current document
             string newparams = "latestfordocid=" + documentId;
-            newparams += "&hash=" + ValidationHelper.GetHashString("d" + documentId);
+            newparams += "&hash=" + ValidationHelper.GetHashString("d" + documentId, new HashSettings(""));
 
             attachmentUrl += "&" + newparams;
         }

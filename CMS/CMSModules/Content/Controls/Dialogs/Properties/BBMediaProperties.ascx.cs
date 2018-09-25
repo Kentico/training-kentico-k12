@@ -278,7 +278,7 @@ public partial class CMSModules_Content_Controls_Dialogs_Properties_BBMediaPrope
                 {
                     // Add requirement for latest version of files for current document
                     string newparams = "latestforhistoryid=" + versionHistoryId;
-                    newparams += "&hash=" + ValidationHelper.GetHashString("h" + versionHistoryId);
+                    newparams += "&hash=" + ValidationHelper.GetHashString("h" + versionHistoryId, new HashSettings(""));
 
                     url += "&" + newparams;
                 }

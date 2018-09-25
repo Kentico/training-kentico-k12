@@ -110,7 +110,7 @@ public partial class CMSModules_Forums_Controls_SubscriptionApproval : CMSUserCo
         }
 
         // Validate hash
-        if (!QueryHelper.ValidateHash("hash", "aliaspath", new HashSettings()))
+        if (!QueryHelper.ValidateHash("hash", "aliaspath", new HashSettings("")))
         {
             URLHelper.Redirect(AdministrationUrlHelper.GetErrorPageUrl("dialogs.badhashtitle", "dialogs.badhashtext"));
         }

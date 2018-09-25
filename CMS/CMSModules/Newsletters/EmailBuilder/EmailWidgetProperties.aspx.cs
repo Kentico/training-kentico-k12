@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.Core;
+using CMS.DataEngine;
 using CMS.FormEngine;
 using CMS.FormEngine.Web.UI;
 using CMS.Helpers;
@@ -187,10 +188,18 @@ public partial class CMSModules_Newsletters_EmailBuilder_EmailWidgetProperties :
 
         foreach (var property in widgetInstance.Properties)
         {
-            if (!String.IsNullOrEmpty(property.Value))
+            if (property.Value == null)
             {
-                result[property.Name] = property.Value;
+                continue;
             }
+
+            var formField = widgetTypeFormInfo.GetFormField(property.Name);
+            if (formField == null)
+            {
+                continue;
+            }
+
+            result[property.Name] = DataTypeManager.ConvertToSystemType(TypeEnum.Field, formField.DataType, property.Value, CultureHelper.EnglishCulture);
         }
 
         return result;
@@ -207,7 +216,11 @@ public partial class CMSModules_Newsletters_EmailBuilder_EmailWidgetProperties :
             var properties = new NameValueCollection();
             propertiesForm.Fields.ForEach(fieldName =>
             {
-                properties.Add(fieldName, propertiesForm.Data.GetValue(fieldName)?.ToString());
+                var fieldDataType = propertiesForm.FormInformation.GetFormField(fieldName).DataType;
+                var fieldValue = propertiesForm.Data.GetValue(fieldName);
+                var value = DataTypeManager.GetStringValue(TypeEnum.Field, fieldDataType, fieldValue, CultureHelper.EnglishCulture);
+            
+                properties.Add(fieldName, value);
             });
 
             try

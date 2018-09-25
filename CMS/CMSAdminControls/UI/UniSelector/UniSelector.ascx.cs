@@ -1116,10 +1116,9 @@ return false;";
         if (!String.IsNullOrEmpty(value))
         {
             // Validate hash (if not special value - all, empty...)
-            var settings = new HashSettings
+            var settings = new HashSettings(ClientID)
             {
-                Redirect = false,
-                HashSalt = ClientID
+                Redirect = false
             };
 
             mHashIsValid = ValidationHelper.ValidateHash(value, hdnHash.Value, settings);
@@ -1276,7 +1275,7 @@ return false;";
             url += IsSiteManager ? "&siteManager=true" : String.Empty;
 
             // Add hash
-            string hash = ValidationHelper.GetHashString(url.Substring(url.IndexOf('?')));
+            string hash = ValidationHelper.GetHashString(url.Substring(url.IndexOf('?')), new HashSettings(""));
             url += "&hash=" + hash;
 
             mJavaScript.Append("function US_SelectionDialog_", UniSelectorClientID, "(values) { ", Page.ClientScript.GetCallbackEventReference(this, "values", "US_SelectionDialogReady_" + UniSelectorClientID, "'" + ScriptHelper.ResolveUrl(url) + "'"), "; } \n");
@@ -1739,6 +1738,10 @@ function SetHash_{0}(selector) {{
     private void SetupSingleTransformationMode()
     {
         btnSelect.OnClientClick = GetSelectionDialogScript();
+
+        var control = GetControlWithValue();
+        SetupEditButton(control);
+        SetupNewButton(control);
     }
 
 
@@ -2319,7 +2322,7 @@ function {0}_postback(){{
         {
             if (String.IsNullOrEmpty(hdnHash.Value))
             {
-                hdnHash.Value = ValidationHelper.GetHashString(String.Empty, new HashSettings { HashSalt = ClientID });
+                hdnHash.Value = ValidationHelper.GetHashString(String.Empty, new HashSettings(ClientID));
             }
 
             return;
@@ -2328,11 +2331,11 @@ function {0}_postback(){{
         switch (SelectionMode)
         {
             case SelectionModeEnum.SingleDropDownList:
-                hdnHash.Value = ValidationHelper.GetHashString(hdnValue.Value, new HashSettings { HashSalt = ClientID });
+                hdnHash.Value = ValidationHelper.GetHashString(hdnValue.Value, new HashSettings(ClientID));
                 break;
 
             default:
-                hdnHash.Value = ValidationHelper.GetHashString(hiddenField.Value, new HashSettings { HashSalt = ClientID });
+                hdnHash.Value = ValidationHelper.GetHashString(hiddenField.Value, new HashSettings(ClientID));
                 break;
         }
     }

@@ -34,7 +34,7 @@
   content: "\e6d8";
 }
 .cms-zone .icon-brand-mstranslator:before {
-  content: "\e909";
+  content: "\e90c";
 }
 .cms-zone .icon-brand-google:before {
   content: "\e6c8";
@@ -46,31 +46,31 @@
   content: "\e631";
 }
 .cms-zone .icon-arrow-curved-left:before {
-  content: "\e906";
-}
-.cms-zone .icon-arrow-curved-right:before {
-  content: "\e907";
-}
-.cms-zone .icon-two-rectangles-stacked:before {
   content: "\e908";
 }
+.cms-zone .icon-arrow-curved-right:before {
+  content: "\e909";
+}
+.cms-zone .icon-two-rectangles-stacked:before {
+  content: "\e90b";
+}
 .cms-zone .icon-rb-check:before {
-  content: "\e905";
+  content: "\e907";
 }
 .cms-zone .icon-octothorpe:before {
-  content: "\e902";
-}
-.cms-zone .icon-paragraph:before {
-  content: "\e903";
-}
-.cms-zone .icon-paragraph-short:before {
   content: "\e904";
 }
+.cms-zone .icon-paragraph:before {
+  content: "\e905";
+}
+.cms-zone .icon-paragraph-short:before {
+  content: "\e906";
+}
 .cms-zone .icon-brand-instagram:before {
-  content: "\e901";
+  content: "\e903";
 }
 .cms-zone .icon-cb-check:before {
-  content: "\e900";
+  content: "\e902";
 }
 .cms-zone .icon-arrow-leave-square:before {
   content: "\e800";
@@ -1462,7 +1462,7 @@
   content: "\e6c8";
 }
 .cms-zone .icon-microsofttranslator:before {
-  content: "\e909";
+  content: "\e90c";
 }
 .cms-zone .icon-external-link:before {
   content: "\e6d8";
@@ -1604,9 +1604,6 @@
 }
 .cms-zone .icon-w-newsletter-subscription:before {
   content: "\e675";
-}
-.cms-zone .icon-w-messaging-info-panel:before {
-  content: "\e64f";
 }
 .cms-zone .icon-w-newsletter-unsubscription:before {
   content: "\e60d";
@@ -3107,6 +3104,75 @@
 }
 .cms-zone .icon-me-exception:before {
   content: "\e693";
+}
+.cms-zone .icon-personalisation-variants:before {
+  content: "\e901";
+}
+.cms-zone .icon-personalisation:before {
+  content: "\e900";
+}
+.cms-zone .icon-android:before {
+  content: "\f17b";
+}
+.cms-zone .icon-apple:before {
+  content: "\f179";
+}
+.cms-zone .icon-cancel:before {
+  content: "\e804";
+}
+.cms-zone .icon-chrome:before {
+  content: "\f268";
+}
+.cms-zone .icon-circle-empty:before {
+  content: "\f10c";
+}
+.cms-zone .icon-desktop:before {
+  content: "\f108";
+}
+.cms-zone .icon-down-dir:before {
+  content: "\e805";
+}
+.cms-zone .icon-edge:before {
+  content: "\f282";
+}
+.cms-zone .icon-filter-1:before {
+  content: "\f0b0";
+}
+.cms-zone .icon-firefox:before {
+  content: "\f269";
+}
+.cms-zone .icon-internet-explorer:before {
+  content: "\f26b";
+}
+.cms-zone .icon-linux:before {
+  content: "\f17c";
+}
+.cms-zone .icon-mobile:before {
+  content: "\f10b";
+}
+.cms-zone .icon-opera:before {
+  content: "\f26a";
+}
+.cms-zone .icon-paragraph-center:before {
+  content: "\e90a";
+}
+.cms-zone .icon-safari:before {
+  content: "\f267";
+}
+.cms-zone .icon-windows:before {
+  content: "\f17a";
+}
+.cms-zone .icon-add-module:before {
+  content: "\e90e";
+}
+.cms-zone .icon-convert:before {
+  content: "\e90d";
+}
+.cms-zone .icon-recaptcha:before {
+  content: "\e910";
+}
+.cms-zone .icon-scheme-path-circles-flipped:before {
+  content: "\e90f";
 }
 .cms-zone .icon-crosshair {
   position: relative;

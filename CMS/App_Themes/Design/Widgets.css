@@ -543,19 +543,10 @@
   background: Transparent;
 }
 /* Specific widgets styles */
-.DashboardWidget .MyMessagesWebPart {
-  margin: 0 0 10px 0;
-}
-.DashboardWidget .MessagingBox {
-  padding: 5px 5px 0 5px;
-}
 .DashboardWidget .widget-content-heading {
   margin-top: 0;
   margin-bottom: 16px;
 }
 .DashboardWidget .TabsTabs {
   position: relative !important;
-}
-.WidgetMyMessages .TabsHeader .TabsTabs .TabControlLink {
-  top: 0 !important;
 }

@@ -1,0 +1,16 @@
+﻿.ktc-dropdown-editor {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    z-index: 10000;
+    background-color: #262524;
+    border: 1px solid #383838;
+    padding: 10px;
+    display: table;
+    margin: 1em 1em 1em auto;
+    box-sizing: border-box;
+}
+
+.ktc-dropdown-editor label {
+    color: #ffffff;
+    margin-right: 1em;
+}

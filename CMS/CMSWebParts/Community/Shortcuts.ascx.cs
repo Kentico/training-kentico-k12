@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web.UI;
 
 using CMS.Base;
 using CMS.Base.Web.UI;
@@ -15,7 +14,7 @@ using CMS.Modules;
 using CMS.PortalEngine.Web.UI;
 using CMS.SiteProvider;
 
-public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart, IPostBackEventHandler
+public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart
 {
     #region "Variables"
 
@@ -442,105 +441,6 @@ public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart, IPost
 
 
     /// <summary>
-    /// Gets or sets property to mark if Send message link should be displayed.
-    /// </summary>
-    public bool DisplaySendMessage
-    {
-        get
-        {
-            return ValidationHelper.GetBoolean(GetValue("DisplaySendMessage"), true);
-        }
-        set
-        {
-            SetValue("DisplaySendMessage", value);
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets text for the send message link.
-    /// </summary>
-    public string SendMessageText
-    {
-        get
-        {
-            return DataHelper.GetNotEmpty(ValidationHelper.GetString(GetValue("SendMessageText"), null), GetString("sendmessage.sendmessage"));
-        }
-        set
-        {
-            SetValue("SendMessageText", value);
-            lnkSendMessage.Text = value;
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets property to mark if Add to contact list link should be displayed.
-    /// </summary>
-    public bool DisplayAddToContactList
-    {
-        get
-        {
-            return ValidationHelper.GetBoolean(GetValue("DisplayAddToContactList"), true);
-        }
-        set
-        {
-            SetValue("DisplayAddToContactList", value);
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets text for the add to contact list link.
-    /// </summary>
-    public string AddToContactListText
-    {
-        get
-        {
-            return DataHelper.GetNotEmpty(ValidationHelper.GetString(GetValue("AddToContactListText"), null), GetString("messsaging.addtocontactlist"));
-        }
-        set
-        {
-            SetValue("AddToContactListText", value);
-            lnkAddToContactList.Text = value;
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets property to mark if Add to ignore list link should be displayed.
-    /// </summary>
-    public bool DisplayAddToIgnoreList
-    {
-        get
-        {
-            return ValidationHelper.GetBoolean(GetValue("DisplayAddToIgnoreList"), true);
-        }
-        set
-        {
-            SetValue("DisplayAddToIgnoreList", value);
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets text for the add to ignore list link.
-    /// </summary>
-    public string AddToIgnoreListText
-    {
-        get
-        {
-            return DataHelper.GetNotEmpty(ValidationHelper.GetString(GetValue("AddToIgnoreListText"), null), GetString("messsaging.addtoignorelist"));
-        }
-        set
-        {
-            SetValue("AddToIgnoreListText", value);
-            lnkAddToIgnoreList.Text = value;
-        }
-    }
-
-
-    /// <summary>
     /// Gets or sets property to mark if Invite to group link should be displayed.
     /// </summary>
     public bool DisplayInviteToGroup
@@ -622,72 +522,6 @@ public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart, IPost
         }
     }
 
-
-    /// <summary>
-    /// Indicates if the messaging module is loaded.
-    /// </summary>
-    public bool MessagingPresent
-    {
-        get
-        {
-            if (!RequestStockHelper.Contains("messagingPresent"))
-            {
-                RequestStockHelper.Add("messagingPresent", ModuleManager.IsModuleLoaded(ModuleName.MESSAGING));
-            }
-            return ValidationHelper.GetBoolean(RequestStockHelper.GetItem("messagingPresent"), false);
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets property to mark if My messages link should be displayed.
-    /// </summary>
-    public bool DisplayMyMessages
-    {
-        get
-        {
-            return ValidationHelper.GetBoolean(GetValue("DisplayMyMessages"), true);
-        }
-        set
-        {
-            SetValue("DisplayMyMessages", value);
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets path to be redirected to when user clicks My messages link.
-    /// </summary>
-    public string MyMessagesPath
-    {
-        get
-        {
-            // Get path from path selector
-            return ValidationHelper.GetString(GetValue("MyMessagesPath"), string.Empty);
-        }
-        set
-        {
-            SetValue("MyMessagesPath", value);
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets text for the my messages link.
-    /// </summary>
-    public string MyMessagesText
-    {
-        get
-        {
-            return DataHelper.GetNotEmpty(ValidationHelper.GetString(GetValue("MyMessagesText"), null), GetString("mydesk.mymessages"));
-        }
-        set
-        {
-            SetValue("MyMessagesText", value);
-            lnkMyMessages.Text = value;
-        }
-    }
-    
 
     /// <summary>
     /// Gets or sets property to mark if My invitations link should be displayed.
@@ -790,12 +624,8 @@ public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart, IPost
             lnkCreateNewBlog.Text = CreateNewBlogText;
             lnkJoinGroup.Text = JoinGroupText;
             lnkLeaveGroup.Text = LeaveGroupText;
-            lnkSendMessage.Text = SendMessageText;
-            lnkAddToContactList.Text = AddToContactListText;
-            lnkAddToIgnoreList.Text = AddToIgnoreListText;
             lnkInviteToGroup.Text = InviteGroupText;
             lnkManageGroup.Text = ManageGroupText;
-            lnkMyMessages.Text = MyMessagesText;
             lnkMyInvitations.Text = MyInvitationsText;
 
             // If current user is public...
@@ -822,7 +652,7 @@ public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart, IPost
             else
             {
                 // Display Sign out link if set so
-                if (DisplaySignOut && !RequestHelper.IsWindowsAuthentication())
+                if (DisplaySignOut && !AuthenticationMode.IsWindowsAuthentication())
                 {
                     pnlSignOut.Visible = true;
                     pnlSignInOut.Visible = true;
@@ -863,14 +693,6 @@ public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart, IPost
                         pnlCreateNewBlog.Visible = true;
                         pnlBlogLinks.Visible = true;
                     }
-                }
-
-                // Display My messages link
-                if (DisplayMyMessages)
-                {
-                    lnkMyMessages.NavigateUrl = GetUrl(MyMessagesPath);
-                    pnlMyMessages.Visible = true;
-                    pnlPersonalLinks.Visible = true;
                 }
 
                 // Display My invitations link
@@ -993,79 +815,6 @@ public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart, IPost
                         }
                     }
                 }
-
-                if (siteContextUser != null)
-                {
-                    // Show messaging links if enabled
-                    if (MessagingPresent && (currentUser.UserID != siteContextUser.UserID))
-                    {
-                        // Display Send message link if user is visiting an user's page
-                        if (DisplaySendMessage)
-                        {
-                            // Send private message
-                            script += "function ShortcutPrivateMessage(id) { \n" +
-                                      "modalDialog('" + ApplicationUrlHelper.ResolveDialogUrl("~/CMSModules/Messaging/CMSPages/SendMessage.aspx") + "?userid=" + currentUser.UserID + "&requestid=' + id , 'sendMessage', 390, 390); \n" +
-                                      " } \n";
-
-                            lnkSendMessage.Attributes.Add("onclick", "ShortcutPrivateMessage('" + siteContextUser.UserID + "');return false;");
-                            lnkSendMessage.NavigateUrl = RequestContext.CurrentURL;
-                            pnlSendMessage.Visible = true;
-                            pnlMessageLinks.Visible = true;
-                        }
-
-                        // Display Add to contact list link if user is visiting an user's page
-                        if (DisplayAddToContactList)
-                        {
-                            // Check if user is in contact list
-                            bool isInContactList = ModuleCommands.MessagingIsInContactList(currentUser.UserID, siteContextUser.UserID);
-
-                            // Add to actions
-                            if (!isInContactList)
-                            {
-                                lnkAddToContactList.Attributes.Add("onclick", "return ShortcutAddToContactList('" + siteContextUser.UserID + "')");
-                                lnkAddToContactList.NavigateUrl = RequestContext.CurrentURL;
-                                pnlAddToContactList.Visible = true;
-                                pnlMessageLinks.Visible = true;
-
-                                // Add to contact list
-                                script += "function ShortcutAddToContactList(usertoadd) { \n" +
-                                          "var confirmation = confirm(" + ScriptHelper.GetString(GetString("messaging.contactlist.addconfirmation")) + ");" +
-                                          "if(confirmation)" +
-                                          "{" +
-                                          "selectedIdElem = document.getElementById('" + hdnSelectedId.ClientID + "'); \n" +
-                                          "if (selectedIdElem != null) { selectedIdElem.value = usertoadd;}" +
-                                          ControlsHelper.GetPostBackEventReference(this, "addtocontactlist", false) +
-                                          "} return false;}\n";
-                            }
-                        }
-
-                        // Display Add to ignore list link if user is visiting an user's page
-                        if (DisplayAddToIgnoreList)
-                        {
-                            // Check if user is in ignore list
-                            bool isInIgnoreList = ModuleCommands.MessagingIsInIgnoreList(currentUser.UserID, siteContextUser.UserID);
-
-                            // Add to ignore list 
-                            if (!isInIgnoreList)
-                            {
-                                lnkAddToIgnoreList.Attributes.Add("onclick", "return ShortcutAddToIgnoretList('" + siteContextUser.UserID + "')");
-                                lnkAddToIgnoreList.NavigateUrl = RequestContext.CurrentURL;
-                                pnlAddToIgnoreList.Visible = true;
-                                pnlMessageLinks.Visible = true;
-
-                                // Add to ignore list
-                                script += "function ShortcutAddToIgnoretList(usertoadd) { \n" +
-                                          "var confirmation = confirm(" + ScriptHelper.GetString(GetString("messaging.ignorelist.addconfirmation")) + ");" +
-                                          "if(confirmation)" +
-                                          "{" +
-                                          "selectedIdElem = document.getElementById('" + hdnSelectedId.ClientID + "'); \n" +
-                                          "if (selectedIdElem != null) { selectedIdElem.value = usertoadd;}" +
-                                          ControlsHelper.GetPostBackEventReference(this, "addtoignorelist", false) +
-                                          "} return false; } \n";
-                            }
-                        }
-                    }
-                }
             }
 
             // Register menu management scripts
@@ -1116,46 +865,6 @@ public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart, IPost
 
             Response.Cache.SetNoStore();
             URLHelper.Redirect(UrlResolver.ResolveUrl(redirectUrl));
-        }
-    }
-
-
-    /// <summary>
-    /// Postback handling.
-    /// </summary>
-    /// <param name="eventArgument">Argument of postback event</param>
-    public void RaisePostBackEvent(string eventArgument)
-    {
-        if ((eventArgument == null))
-        {
-            return;
-        }
-
-        // Get ID of user
-        int selectedId = ValidationHelper.GetInteger(hdnSelectedId.Value, 0);
-
-        // Add only if messaging is present
-        if (MessagingPresent)
-        {
-            // Get the module entry
-            if (currentUser == null)
-            {
-                currentUser = MembershipContext.AuthenticatedUser;
-            }
-
-            // Add to contact or ignore list
-            switch (eventArgument)
-            {
-                case "addtoignorelist":
-                    ModuleCommands.MessagingAddToIgnoreList(currentUser.UserID, selectedId);
-                    break;
-
-                case "addtocontactlist":
-                    ModuleCommands.MessagingAddToContactList(currentUser.UserID, selectedId);
-                    break;
-            }
-
-            URLHelper.Redirect(RequestContext.CurrentURL);
         }
     }
 

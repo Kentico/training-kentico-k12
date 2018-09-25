@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 
-using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.Core;
 using CMS.DataEngine;
@@ -73,12 +72,6 @@ public partial class CMSModules_SocialMarketing_Pages_LinkedInCompanyAccessToken
         if (Parameters == null)
         {
             ShowError(GetString("dialogs.badhashtext"));
-            return;
-        }
-
-        if (!SystemContext.IsFullTrustLevel)
-        {
-            ShowError(GetString("socialnetworking.fulltrustrequired"));
             return;
         }
 

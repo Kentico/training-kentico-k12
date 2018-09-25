@@ -98,11 +98,6 @@
             List of files (controls) to delete files.
             </summary>
         </member>
-        <member name="F:CMS.OnlineForms.Web.UI.BizForm.mRegExEmailMacro">
-            <summary>
-            Regular expression for macros in e-mail body.
-            </summary>
-        </member>
         <member name="F:CMS.OnlineForms.Web.UI.BizForm.hideForm">
             <summary>
             Indicates if the form should be hidden.
@@ -151,11 +146,6 @@
         <member name="P:CMS.OnlineForms.Web.UI.BizForm.LocalMessagesPlaceHolder">
             <summary>
             Gets the local messages placeholder.
-            </summary>
-        </member>
-        <member name="P:CMS.OnlineForms.Web.UI.BizForm.RegExEmailMacro">
-            <summary>
-            Regular expression for macros in e-mail body, macros are in form $$type:fieldname$$.
             </summary>
         </member>
         <member name="P:CMS.OnlineForms.Web.UI.BizForm.FormName">
@@ -322,9 +312,9 @@
             Save uploaded file to file system.
             </summary>
             <param name="postedFile">Posted file</param>
-            <param name="fileName">File name</param>        
+            <param name="fileName">File name</param>
             <param name="filesFolderPath">Directory path where the file is saved to</param>
-            <param name="widht">Image required widht</param>
+            <param name="width">Image required width</param>
             <param name="height">Image required height</param>
             <param name="maxSideSize">Image required max side size</param>
             <param name="siteName">Site name</param>
@@ -336,108 +326,6 @@
             <param name="fileName">File name</param>
             <param name="directoryPath">Directory path</param>
             <param name="siteName">Site name</param>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.SendNotificationEmail(System.String,System.String,CMS.Base.IDataContainer,CMS.OnlineForms.BizFormInfo)">
-            <summary>
-            Sends notification email to specified person.
-            </summary>
-            <param name="fromEmail">From email address</param>
-            <param name="recipients">Email address of recipients where notification emails are sent. You can specify multiple addresses separated by semicolons.</param>
-            <param name="data">Data from BasicForm</param>
-            <param name="bfi">BizFormInfo</param>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.SendConfirmationEmail(System.String,System.String,CMS.Base.IDataContainer,CMS.OnlineForms.BizFormInfo)">
-            <summary>
-            Sends confirmation email (autoresponder).
-            </summary>
-            <param name="fromEmail">From email address</param>
-            <param name="toEmail">To email address</param>
-            <param name="data">Data from basic form</param>
-            <param name="bfi">BizFormInfo</param>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.ResolveEmailMessageText(System.String,CMS.OnlineForms.Web.UI.BizForm.IFormFieldInfoProvider,CMS.Base.IDataContainer)">
-            <summary>
-            Resolve confirmation email message text.
-            </summary>
-            <param name="emailLayout">Email layout template with macros to resolve</param>
-            <param name="formFieldInfoProvider">FormFieldInfo provider</param>
-            <param name="data">Form data</param>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.CreateMessageWithDefaultLayout(CMS.Base.IDataContainer,CMS.OnlineForms.Web.UI.BizForm.IFormFieldInfoProvider,CMS.MacroEngine.IMacroResolver,System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            Creates message body with default layout of items.
-            </summary>
-            <param name="data">Data container with form fields data.</param>
-            <param name="formFieldInfoInfoProvider">Provides access to form fields.</param>
-            <param name="resolver">Macro resolver.</param>
-            <param name="columnNames">Name of columns that should be included in message.</param>
-            <returns></returns>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.GetBizFormAttachmentLink(System.String)">
-            <summary>
-            Returns html code of link to bizform attached file.
-            </summary>
-            <param name="fileNameString">BizForm file name - guid + extension</param>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.GetFieldValue(CMS.Base.IDataContainer,System.String,CMS.FormEngine.FormFieldInfo)">
-            <summary>
-            Gets value of field for message with default layout. Value is transformed according to field type.
-            </summary>
-            <param name="data">Data container with form fields data.</param>
-            <param name="fieldName">Field name</param>
-            <param name="formFiledInfo">Field info object</param>
-            <returns>Value for given field, transformed according to field type.</returns>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.IsHtmlField(CMS.FormEngine.FormFieldInfo)">
-            <summary>
-            Checks if field is of html type.
-            </summary>
-            <param name="ffi">Field info</param>
-            <returns><c>True</c> if field is of html type.</returns>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.IsFileField(CMS.FormEngine.FormFieldInfo)">
-            <summary>
-            Checks if field is of file type.
-            </summary>
-            <param name="ffi">Field info</param>
-            <returns><c>True</c> if field is of file type.</returns>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.IsDateField(CMS.FormEngine.FormFieldInfo)">
-            <summary>
-            Checks if field is of date type.
-            </summary>
-            <param name="ffi">Field info</param>
-            <returns><c>True</c> if field is of date type.</returns>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.ConvertDate(System.Object)">
-            <summary>
-            Gets date from date time without time information.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.GetFieldValueForCustomMail(CMS.Base.IDataContainer,System.String,CMS.FormEngine.FormFieldInfo)">
-            <summary>
-            Returns field value for custom mail message. Value is transformed according to field type.
-            </summary>
-            <param name="data">Data container with form fields data.</param>
-            <param name="fieldName">Field name</param>
-            <param name="formFieldInfo">Form field info</param>
-            <returns>Value for given field, transformed according to field type.</returns>
-        </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.EnsureDataForSending(CMS.OnlineForms.BizFormInfo)">
-            <summary>
-            Ensures that essential data is initialized when notification or confirmation emails are send from an external code.
-            </summary>
-            <param name="bfi">BizFormInfo object</param>
-        </member>
-        <member name="T:CMS.OnlineForms.Web.UI.BizForm.IFormFieldInfoProvider">
-            <summary>
-            Provides access to form fields.
-            </summary>
-        </member>
-        <member name="T:CMS.OnlineForms.Web.UI.BizForm.FormFieldInfoProvider">
-            <summary>
-            Reads form field from FormInfo
-            </summary>
         </member>
         <member name="T:CMS.OnlineForms.Web.UI.FormsLiveTileModelProvider">
             <summary>

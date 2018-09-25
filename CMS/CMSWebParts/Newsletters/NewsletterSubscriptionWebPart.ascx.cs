@@ -708,8 +708,8 @@ public partial class CMSWebParts_Newsletters_NewsletterSubscriptionWebPart : CMS
         {
             try
             {
-                // Check if contact is not already subscribed
-                if (!mSubscriptionService.IsSubscribed(contact, newsletter))
+                // Check if contact is not marketable
+                if (!mSubscriptionService.IsMarketable(contact, newsletter))
                 {
                     toReturn = true;
 

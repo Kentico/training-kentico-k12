@@ -416,18 +416,18 @@
         </member>
         <member name="P:CMS.FormEngine.Web.UI.RecaptchaControl.PublicKey">
             <summary>
-            reCAPTCHA site key from https://www.google.com/recaptcha/admin. 
+            reCAPTCHA site key from https://www.google.com/recaptcha/admin.
             </summary>
         </member>
         <member name="P:CMS.FormEngine.Web.UI.RecaptchaControl.PrivateKey">
             <summary>
-            reCAPTCHA private key from https://www.google.com/recaptcha/admin. 
+            reCAPTCHA private key from https://www.google.com/recaptcha/admin.
             </summary>
         </member>
         <member name="P:CMS.FormEngine.Web.UI.RecaptchaControl.Language">
             <summary>
-            Optional. Forces the reCAPTCHA to render in a specific language. 
-            Auto-detects the user's language if unspecified. 
+            Optional. Forces the reCAPTCHA to render in a specific language.
+            Auto-detects the user's language if unspecified.
             Currently supported values are listed at https://developers.google.com/recaptcha/docs/language.
             </summary>
         </member>
@@ -464,7 +464,7 @@
         </member>
         <member name="P:CMS.FormEngine.Web.UI.RecaptchaControl.CheckFieldEmptiness">
             <summary>
-            Indicates that field should be checked on emptiness in validation step by BasicForm. Default TRUE. 
+            Indicates that field should be checked on emptiness in validation step by BasicForm. Default TRUE.
             It is preferable to set to FALSE for controls with complex input such as file uploaders. Field emptiness
             validation then must be placed in custom form control in IsValid() method.
             </summary>
@@ -538,61 +538,6 @@
         <member name="M:CMS.FormEngine.Web.UI.RecaptchaControl.GetCurrentCulture">
             <summary>
             Gets current short culture code.
-            </summary>
-        </member>
-        <member name="T:CMS.FormEngine.Web.UI.RecaptchaResponse">
-            <summary>
-            Encapsulates a response from reCAPTCHA web service.
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.RecaptchaResponse.IsValid">
-            <summary>
-            Indicates whether the reCAPTCHA validation was successful.
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.RecaptchaResponse.HostName">
-            <summary>
-            The hostname of the site where the reCAPTCHA was solved
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.RecaptchaResponse.TimeStamp">
-            <summary>
-            Timestamp of the challenge load.
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.RecaptchaResponse.ErrorCodes">
-            <summary>
-            Error codes explaining why reCAPTCHA validation failed.
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.RecaptchaResponse.ErrorMessage">
-            <summary>
-            Aggregated error message from all the error codes.
-            </summary>
-        </member>
-        <member name="T:CMS.FormEngine.Web.UI.RecaptchaValidator">
-            <summary>
-            Calls the reCAPTCHA server to validate the answer to a reCAPTCHA challenge.
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.RecaptchaValidator.PrivateKey">
-            <summary>
-            The shared key between the site and reCAPTCHA.
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.RecaptchaValidator.RemoteIP">
-            <summary>
-            The user's IP address.
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.RecaptchaValidator.Response">
-            <summary>
-            The user response token provided by reCAPTCHA, verifying the user on your site.
-            </summary>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.RecaptchaValidator.Validate">
-            <summary>
-            Validate reCAPTCHA response
             </summary>
         </member>
         <member name="T:CMS.FormEngine.Web.UI.SecurityCode">
@@ -1327,6 +1272,12 @@
             <remarks>
             Returned instance is used by <see cref="P:CMS.FormEngine.Web.UI.Html5InputFormControl.Input"/> property.
             </remarks>
+        </member>
+        <member name="M:CMS.FormEngine.Web.UI.Html5InputFormControl.AddStyleAttributes">
+            <summary>
+            Adds class and style attributes to input control considering
+            <see cref="P:CMS.FormEngine.Web.UI.FormEngineUserControl.CssClass"/> and <see cref="P:CMS.FormEngine.Web.UI.FormEngineUserControl.ControlStyle"/> values.
+            </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.Html5InputFormControl.AddWellKnownAttributes">
             <summary>
@@ -3411,29 +3362,29 @@
             </summary>
             <returns>Error message if the value doesn't match field's data type; otherwise null.</returns>
         </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateInteger">
+        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetIntErrorMessage">
             <summary>
-            Validates value for integer type.
+            Gets error message for integer type.
             </summary>
         </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateLongInteger">
+        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetLongErrorMessage">
             <summary>
-            Validates value for long integer type.
+            Gets error message for long integer type.
             </summary>
         </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateDouble">
+        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetNotNumberErrorMessage">
             <summary>
-            Validates value for double type.
+            Gets error message for double type.
             </summary>
         </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateDecimal">
+        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.FurtherValidateDecimal">
             <summary>
-            Validates value for decimal type.
+            Further validates value for decimal type.
             </summary>
         </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateDateTime">
+        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetDateTimeErrorMessage">
             <summary>
-            Validates value for DateTime type.
+            Gets error message for DateTime type.
             </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateTimeSpan">
@@ -3441,9 +3392,9 @@
             Validates value for TimeSpan type. Value must be less than 24hours to be accepted by Time DB data type.
             </summary>
         </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateGUID">
+        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetGuidErrorMessage">
             <summary>
-            Validates value for GUID type.
+            Gets error message for GUID type.
             </summary>
         </member>
         <member name="P:CMS.FormEngine.Web.UI.FormControlValidation.ContextResolver">
@@ -7804,22 +7755,15 @@
             Initializes the tasks for form resolvers synchronization
             </summary>
         </member>
-        <member name="M:CMS.FormEngine.Web.UI.FormEngineWebUISynchronization.ClearFormResolvers(System.String,System.Object,CMS.Core.BinaryData)">
+        <member name="T:CMS.FormEngine.Web.UI.ClearFormResolversWebFarmTask">
             <summary>
-            Clears the BizForm items
+            Clears Resolvers used in e-mail templates and other macro visual components.
             </summary>
-            <param name="target">Task target</param>
-            <param name="data">Task data</param>
-            <param name="binaryData">Task binary data</param>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
         </member>
-        <member name="T:CMS.FormEngine.Web.UI.FormEngineWebUITaskType">
+        <member name="M:CMS.FormEngine.Web.UI.ClearFormResolversWebFarmTask.ExecuteTask">
             <summary>
-            Web farm tasks for form controls operations
-            </summary>
-        </member>
-        <member name="F:CMS.FormEngine.Web.UI.FormEngineWebUITaskType.ClearFormResolvers">
-            <summary>
-            Clear form resolvers
+            Processes the web farm task by invoking the <see cref="M:CMS.FormEngine.Web.UI.FormEngineWebUIResolvers.ClearResolvers(System.Boolean)"/> method.
             </summary>
         </member>
         <member name="T:CMS.FormEngine.Web.UI.IUIContextManager">

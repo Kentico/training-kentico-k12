@@ -93,7 +93,7 @@ public partial class CMSAdminControls_UI_ScreenLock_ScreenLockDialog : CMSUserCo
         lblScreenLockWarningLogonAttempts.Text += " " + GetString("screenlock.loggedout");
 
         // Hide password field for Active directory users when Windows authentication is used
-        if (user.UserIsDomain && RequestHelper.IsWindowsAuthentication())
+        if (user.UserIsDomain && AuthenticationMode.IsWindowsAuthentication())
         {
             lblPassword.Visible = false;
             txtScreenLockDialogPassword.Visible = false;
@@ -144,7 +144,7 @@ public partial class CMSAdminControls_UI_ScreenLock_ScreenLockDialog : CMSUserCo
 
         if (userValidates)
         {
-            if (RequestHelper.IsWindowsAuthentication())
+            if (AuthenticationMode.IsWindowsAuthentication())
             {
                 return UnlockScreen();
             }

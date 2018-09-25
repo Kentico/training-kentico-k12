@@ -34,7 +34,7 @@ public partial class CMSMessages_Information : MessagePage
         string messageText = GetString("page.notconsistentparameters");
 
         // Hash settings do not allow redirect when hash is not valid
-        var hashSettings = new HashSettings { Redirect = false };
+        var hashSettings = new HashSettings("") { Redirect = false };
 
         // Validate the hash, exclude the requestguid parameter used in system development mode.
         if (QueryHelper.ValidateHash("hash", "requestguid", hashSettings))

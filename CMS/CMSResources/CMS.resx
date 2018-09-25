@@ -1344,9 +1344,6 @@
   <data name="administration-system.pending" xml:space="preserve">
     <value>Pending requests:</value>
   </data>
-  <data name="administration-system.pool" xml:space="preserve">
-    <value>Application pool name:</value>
-  </data>
   <data name="administration-system.refresh" xml:space="preserve">
     <value>Refresh interval (seconds):</value>
   </data>
@@ -1367,9 +1364,6 @@
   </data>
   <data name="administration-system.systemtimeinfo" xml:space="preserve">
     <value>System time information</value>
-  </data>
-  <data name="administration-system.trustlevel" xml:space="preserve">
-    <value>Application trust level:</value>
   </data>
   <data name="administration-system.version" xml:space="preserve">
     <value>ASP.NET version:</value>
@@ -11367,9 +11361,6 @@ You can select another payment method on the Billing tab.</value>
   <data name="deployment.developmentmode" xml:space="preserve">
     <value>It is not allowed to turn the deployment mode on or store the virtual files in the file system in development mode. Turn development mode off to enable these options.</value>
   </data>
-  <data name="deployment.fulltrustrequired" xml:space="preserve">
-    <value>Storing virtual objects in the file system requires fully trusted application. Please contact your system administrator to check the application configuration.</value>
-  </data>
   <data name="deployment.objectssavedsuccessfully" xml:space="preserve">
     <value>Virtual objects have been successfully saved to the ~/CMSVirtualFiles/ folder.</value>
   </data>
@@ -12129,7 +12120,7 @@ The arrow indicates the direction of layout mapping. You can choose a target lay
     <value>Please select a page.</value>
   </data>
   <data name="dialogs.content.listinginfo" xml:space="preserve">
-    <value>This is the full listing of the child page '{0}'. {1} the full listing and display only files.</value>
+    <value>This is the full listing of children of the '{0}' page. {1} to return to the original listing.</value>
   </data>
   <data name="dialogs.copy.listinfo" xml:space="preserve">
     <value>Pages to copy</value>
@@ -14059,9 +14050,10 @@ Site or global: The selector offers the current site, the global option, and bot
     <value>A page type from which fields are loaded into the current page type. These fields can be then modified without affecting the parent page type.</value>
   </data>
   <data name="documenttype.classismenuitemtype.description" xml:space="preserve">
-    <value>The default view mode for pages of this type is the Page tab instead of the Form tab.
-Pages of this type do not inherit the parent page's page template by default.
-Viewer web parts placed on pages automatically display child pages if their Path property is empty.</value>
+    <value>The default view mode after creating a page of this type is the Page tab.
+Viewer web parts placed on pages automatically display child pages if their Path property is empty.
+Custom &lt;head&gt; content is rendered on pages of this type if the header content is defined on the Header tab of page template properties.
+(For content-only page types, only the default view mode is changed to the Page tab.)</value>
   </data>
   <data name="documenttype.classlistpageurl.description" xml:space="preserve">
     <value>URL of the page displayed when the page is being viewed in list mode.</value>
@@ -14085,7 +14077,7 @@ Viewer web parts placed on pages automatically display child pages if their Path
     <value>Displays the full name of the database table used to store coupled data for pages of this type, that is, the content of the specific fields.</value>
   </data>
   <data name="documenttype.classurlpattern.description" xml:space="preserve">
-    <value>Pattern used for displaying content-only items on live site or in preview mode. For example: 
+    <value>Pattern used for displaying content-only items on live site or in preview mode. For example:
 
 /Articles/{% NodeID %}
 /{% DocumentCulture %}/News/{% NodeAlias %}</value>
@@ -14100,7 +14092,7 @@ Viewer web parts placed on pages automatically display child pages if their Path
     <value>Content-only page type</value>
   </data>
   <data name="documenttype.contentonly.explanation" xml:space="preserve">
-    <value>Suitable for pages whose only task is to hold content, for example, individual news articles on MVC sites. The pages don’t contain presentation properties and tabs. This allows content editors to use the pages without unnecessary distractions. 
+    <value>Suitable for pages whose only task is to hold content, for example, individual news articles on MVC sites. The pages don’t contain presentation properties and tabs. This allows content editors to use the pages without unnecessary distractions.
 
 Note that you cannot convert 'Content-only' page type to a standard page type later.</value>
   </data>
@@ -14830,9 +14822,6 @@ Do you want to continue?</value>
   <data name="emailtemplate.type.membershipunlockaccount" xml:space="preserve">
     <value>Account unlock</value>
   </data>
-  <data name="emailtemplate.type.messaging" xml:space="preserve">
-    <value>Messaging</value>
-  </data>
   <data name="emailtemplate.type.newsletter" xml:space="preserve">
     <value>Email campaign</value>
   </data>
@@ -15385,9 +15374,6 @@ Do you want to continue?</value>
   <data name="featureenum.messageboards" xml:space="preserve">
     <value>Message boards</value>
   </data>
-  <data name="featureenum.messaging" xml:space="preserve">
-    <value>Messaging</value>
-  </data>
   <data name="featureenum.multilingual" xml:space="preserve">
     <value>Multilingual</value>
   </data>
@@ -15833,6 +15819,9 @@ Size chart
   <data name="formbuilder.components" xml:space="preserve">
     <value>Components</value>
   </data>
+  <data name="formbuilder.defaultvalue" xml:space="preserve">
+    <value>Default value</value>
+  </data>
   <data name="formbuilder.deletefieldconfirmation" xml:space="preserve">
     <value>Are you sure you want to remove the component "{0}"?\r\n\r\nIt is possible to restore it back in the Field editor.</value>
   </data>
@@ -15856,9 +15845,6 @@ Size chart
   </data>
   <data name="formbuilder.nofieldselected" xml:space="preserve">
     <value>&lt;strong&gt;Selecting components&lt;/strong&gt;&lt;br/&gt;Please click on a component in the form preview to change its properties. Hold the &lt;i&gt;Ctrl&lt;/i&gt; key to select multiple components, which you can then drag as a group to a different position.</value>
-  </data>
-  <data name="formbuilder.mvc.nofieldselected" xml:space="preserve">
-    <value>&lt;strong&gt;Composing forms&lt;/strong&gt;&lt;br/&gt;Click on the blue plus (&lt;i aria-hidden="true" class="icon-plus"&gt;&lt;/i&gt;) button in the form builder preview window to add new form components. Move individual components either by using the drag handle (&lt;i aria-hidden="true" class="icon-dots-vertical"&gt;&lt;/i&gt;) displayed on component mouse over, or by selecting and dragging them by clicking on their header. Modify the properties of selected components by using the panel on the right, or remove them by clicking on the trash can (&lt;i aria-hidden="true" class="icon-bin"&gt;&lt;/i&gt;) icon.</value>
   </data>
   <data name="formbuilder.options" xml:space="preserve">
     <value>Options</value>
@@ -15886,6 +15872,9 @@ Size chart
   </data>
   <data name="formbuilder.saving" xml:space="preserve">
     <value>Saving...</value>
+  </data>
+  <data name="formbuilder.tooltip" xml:space="preserve">
+    <value>Tooltip</value>
   </data>
   <data name="formbuilder.trashtooltip" xml:space="preserve">
     <value>Drag controls here to remove them from the form</value>
@@ -17002,9 +16991,6 @@ Size chart
   <data name="general.fullscreen" xml:space="preserve">
     <value>Full screen</value>
   </data>
-  <data name="general.fulltrustrequired" xml:space="preserve">
-    <value>An error occured while completing the requested action as it might require fully trusted application. Please contact your system administrator to check the application configuration. Original error: {0}</value>
-  </data>
   <data name="general.fullwidth" xml:space="preserve">
     <value>Full width</value>
   </data>
@@ -17276,7 +17262,7 @@ Size chart
     <value>Multilingual</value>
   </data>
   <data name="general.multilingualreport" xml:space="preserve">
-    <value>Multilingual 
+    <value>Multilingual
 </value>
   </data>
   <data name="general.mustbeunique" xml:space="preserve">
@@ -19049,7 +19035,7 @@ If the object fields that store the dependencies do not allow null values, an er
   <data name="integration.loadconnectorfailed" xml:space="preserve">
     <value>Connector is not associated with any of loaded connectors. Possible reasons are:
  1) Connector name does not correspond with ConnectorName property within connector's code.
- 2) Assembly name or class name does not exist. 
+ 2) Assembly name or class name does not exist.
 Please review your settings or restart the application.</value>
   </data>
   <data name="integration.loadconnectorsfailed" xml:space="preserve">
@@ -21612,60 +21598,6 @@ If your application does not have a custom hash salt, and the connection string 
   <data name="messages.applicationtooltip" xml:space="preserve">
     <value>Allows you to communicate with other users within the system by sending messages. You can write new messages, manage your inbox and previously sent messages, and maintain your contact and ignore list.</value>
   </data>
-  <data name="messaging.action.delete" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="messaging.action.markasread" xml:space="preserve">
-    <value>Mark as read</value>
-  </data>
-  <data name="messaging.action.markasunread" xml:space="preserve">
-    <value>Mark as unread</value>
-  </data>
-  <data name="messaging.action.result.deleted" xml:space="preserve">
-    <value>were deleted.</value>
-  </data>
-  <data name="messaging.action.result.markasread" xml:space="preserve">
-    <value>were marked as read.</value>
-  </data>
-  <data name="messaging.action.result.markasunread" xml:space="preserve">
-    <value>were marked as unread.</value>
-  </data>
-  <data name="messaging.allmessages" xml:space="preserve">
-    <value>All messages</value>
-  </data>
-  <data name="messaging.body" xml:space="preserve">
-    <value>Message body</value>
-  </data>
-  <data name="messaging.confirmdelete" xml:space="preserve">
-    <value>Are you sure you want to delete messages?</value>
-  </data>
-  <data name="messaging.confirmmarkasread" xml:space="preserve">
-    <value>Are you sure you want to mark messages as read?</value>
-  </data>
-  <data name="messaging.confirmmarkasunread" xml:space="preserve">
-    <value>Are you sure you want to mark messages as unread?</value>
-  </data>
-  <data name="messaging.forwardmessage" xml:space="preserve">
-    <value>Forward message</value>
-  </data>
-  <data name="messaging.messagedoesntexist" xml:space="preserve">
-    <value>Message doesn't exist.</value>
-  </data>
-  <data name="messaging.originalmessage" xml:space="preserve">
-    <value>Original message</value>
-  </data>
-  <data name="messaging.replytomessage" xml:space="preserve">
-    <value>Reply to message</value>
-  </data>
-  <data name="messaging.selectedmessages" xml:space="preserve">
-    <value>Selected messages</value>
-  </data>
-  <data name="messaging.selectmessages" xml:space="preserve">
-    <value>You have to select some messages first.</value>
-  </data>
-  <data name="messaging.view" xml:space="preserve">
-    <value>View</value>
-  </data>
   <data name="metadata.errors.filemodify" xml:space="preserve">
     <value>You are not authorized to modify the metadata.</value>
   </data>
@@ -21996,9 +21928,6 @@ Please see &lt;a href="http://www.kentico.com/Product/product-links/how-kentico-
   </data>
   <data name="mydesk.mymessages" xml:space="preserve">
     <value>My messages</value>
-  </data>
-  <data name="mydesk.mymessages.description" xml:space="preserve">
-    <value>This section represents the user interface of the Messaging module. The message Inbox and Outbox are both displayed here. You can also create and send new messages. Contact list and Ignore list are displayed here too and you can add or remove users to/from these lists.</value>
   </data>
   <data name="mydesk.myprofile.description" xml:space="preserve">
     <value>This section displays the logged-on user details. You can edit your email address, preferred content culture and preferred user interface culture. User name and full name are displayed as well. However, you cannot edit them in this section.</value>
@@ -22513,7 +22442,7 @@ Open rate is one of the key metrics for judging a marketing email's success.</va
 Leave empty to use the page in the 'Unsubscription page URL' setting instead.</value>
   </data>
   <data name="newsletter_edit.newsletterunsubscriptiontemplate.description" xml:space="preserve">
-    <value>Template used in unsubscription confirmation emails. 
+    <value>Template used in unsubscription confirmation emails.
 Used when unsubscribing from a single email feed as well as all marketing emails.</value>
   </data>
   <data name="newsletter_edit.nooptintemplateselected" xml:space="preserve">
@@ -24048,15 +23977,6 @@ Used when unsubscribing from a single email feed as well as all marketing emails
   </data>
   <data name="objecttype.media_libraryrolepermission" xml:space="preserve">
     <value>Media library permissions</value>
-  </data>
-  <data name="objecttype.messaging_contactlist" xml:space="preserve">
-    <value>Contact list</value>
-  </data>
-  <data name="objecttype.messaging_ignorelist" xml:space="preserve">
-    <value>Ignore list</value>
-  </data>
-  <data name="objecttype.messaging_message" xml:space="preserve">
-    <value>Message</value>
   </data>
   <data name="objecttype.newsletter_abtest" xml:space="preserve">
     <value>Email campaign - A/B test</value>
@@ -25871,7 +25791,7 @@ Used when unsubscribing from a single email feed as well as all marketing emails
     <value>Manual</value>
   </data>
   <data name="om.contactlist.inactivecontacts.warning" xml:space="preserve">
-    <value>Automatic cleaning up of inactive contacts is not enabled. Enable the functionality to maintain an up-to-date list of contacts and improve site performance. 
+    <value>Automatic cleaning up of inactive contacts is not enabled. Enable the functionality to maintain an up-to-date list of contacts and improve site performance.
 &lt;br /&gt;
 You can enable deleting of inactive contacts in &lt;b&gt;Settings -&gt; Online marketing -&gt; Contact management -&gt; Inactive contacts&lt;/b&gt;. See our &lt;a href='{0}' title='documentation' target='_blank'&gt;documentation&lt;/a&gt; for more information.</value>
   </data>
@@ -26413,7 +26333,7 @@ Macros can combine multiple conditions that the contact has to fulfil.</value>
   </data>
   <data name="om.twotestsonepageerror" xml:space="preserve">
     <value>Each page can only have one test running for the same culture.
-The test "{0}" is currently running or is scheduled 
+The test "{0}" is currently running or is scheduled
 to run at the same time on page "{1}".</value>
   </data>
   <data name="om.ui.accounts" xml:space="preserve">
@@ -26766,9 +26686,9 @@ Text - e.g. label on a T-shirt</value>
   </data>
   <data name="optionselector.help" xml:space="preserve">
     <value>&lt;strong&gt;None:&lt;/strong&gt;
-No values will be offered. 
+No values will be offered.
 &lt;strong&gt;List of options:&lt;/strong&gt;
-To specify the list of options, you have three possibilities: 
+To specify the list of options, you have three possibilities:
 a) Type one value on one line. For example:
 GLaDOS
 Holly
@@ -27762,7 +27682,7 @@ When he's not out taking photos, he spends most of his time on the Internet or e
     <value>Point threshold must be greater than 0.</value>
   </data>
   <data name="personas.persona.nodatafound" xml:space="preserve">
-    <value>No persona found. Why don't you create one right now?</value>
+    <value>No personas found. Why don't you create one right now?</value>
   </data>
   <data name="personas.persona.picture" xml:space="preserve">
     <value>Image</value>
@@ -30811,9 +30731,6 @@ Global favicon: ~/CMSGlobalFiles/</value>
   <data name="settingscategory.cmsmessageboards" xml:space="preserve">
     <value>Message boards</value>
   </data>
-  <data name="settingscategory.cmsmessaging" xml:space="preserve">
-    <value>Messaging</value>
-  </data>
   <data name="settingscategory.cmsnewsletters" xml:space="preserve">
     <value>Email marketing</value>
   </data>
@@ -31247,7 +31164,7 @@ Global favicon: ~/CMSGlobalFiles/</value>
     <value>Allowed URL characters</value>
   </data>
   <data name="settingskey.cmsallowedurlcharacters.description" xml:space="preserve">
-    <value>Regular expression which limits usable characters in URL. &lt;br&gt; 
+    <value>Regular expression which limits usable characters in URL. &lt;br&gt;
 &lt;strong&gt;Example:&lt;/strong&gt; Value 'a-zA-Z0-9' (without quotes) limits URL only for alphanumeric characters.</value>
   </data>
   <data name="settingskey.cmsallowglobalcategories" xml:space="preserve">
@@ -31298,7 +31215,7 @@ Global favicon: ~/CMSGlobalFiles/</value>
   <data name="settingskey.cmsanalyticsexcludedurls.description" xml:space="preserve">
     <value>List of the page URLs and page aliases excluded from the logging by the analytics module, separated by semicolon. All child pages of the specified pages are also excluded.
 
-For example: 
+For example:
 /About-Us; /Contact; /Special-Pages</value>
   </data>
   <data name="settingskey.cmsanalyticsexcludesearchengines" xml:space="preserve">
@@ -31942,7 +31859,7 @@ When not set, users will not be able to use support chat unless any support pers
     <value>Show filter limit</value>
   </data>
   <data name="settingskey.cmschatwpdefaultshowfilterlimit.description" xml:space="preserve">
-    <value>Filter will be shown when there is at least the specified number of items displayed by a web part. 
+    <value>Filter will be shown when there is at least the specified number of items displayed by a web part.
 
 This setting can be overwritten by a specific web part's setting.</value>
   </data>
@@ -31962,7 +31879,7 @@ This setting can be overwritten by a specific web part's setting.</value>
     <value>Check page permissions</value>
   </data>
   <data name="settingskey.cmscheckdocumentpermissions.description" xml:space="preserve">
-    <value>If enabled, only pages for which the current user has the "Read" permission are displayed in the content tree (both on  in ##ui|cms.content|content##, in page listings and in various dialogs where the content tree is displayed). 
+    <value>If enabled, only pages for which the current user has the "Read" permission are displayed in the content tree (both on  in ##ui|cms.content|content##, in page listings and in various dialogs where the content tree is displayed).
 
 In case that a user doesn't have the "Read" permissions for any page at all, the root of the content tree is still displayed to them. If a user has the "Read" permission for a child page but not for its parent, the child page is not displayed.</value>
   </data>
@@ -32890,7 +32807,7 @@ Certain system actions which require global administrator execution context are 
     <value>Enable output caching</value>
   </data>
   <data name="settingskey.cmsenableoutputcache.description" xml:space="preserve">
-    <value>Enables output caching on the site. You still need to enable output caching on the pages on which you want to cache page output. 
+    <value>Enables output caching on the site. You still need to enable output caching on the pages on which you want to cache page output.
 
 Disable to stop caching page output on the site.</value>
   </data>
@@ -33342,7 +33259,7 @@ You need to &lt;strong&gt;configure IIS to allow custom URL extensions&lt;/stron
     <value>New version of geolocating database</value>
   </data>
   <data name="settingskey.cmsgeonewdb.description" xml:space="preserve">
-    <value>Geolocation data are based on free IP geolocating database 'GeoLite2 City'.&lt;br /&gt;&lt;br /&gt;You can download database updates from: &lt;strong&gt;&lt;a href="https://dev.maxmind.com/geoip/geoip2/geolite2/" target="_blank"&gt;https://dev.maxmind.com/geoip/geoip2/geolite2/&lt;/a&gt;&lt;/strong&gt;.&lt;br /&gt;You can download 'GeoLite2 ASN' with additional Organization/ASN data as well.&lt;br /&gt;&lt;br /&gt;Please upload geolocating database files into the following location: &lt;strong&gt;~/App_Data/CMSModules/WebAnalytics/MaxMind/&lt;/strong&gt;</value>
+    <value>Geolocation data is based on MaxMind's GeoIP2 Databases - either 'GeoLite2 City' (free) or 'GeoIP2 City'. To get additional Organization/ASN data, you can also use the 'GeoLite2 ASN' database.&lt;br /&gt;&lt;br /&gt;You can download the free databases and updates from: &lt;strong&gt;&lt;a href="https://dev.maxmind.com/geoip/geoip2/geolite2/" target="_blank"&gt;https://dev.maxmind.com/geoip/geoip2/geolite2/&lt;/a&gt;&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Place the Geolocation database files into the following location in your web project: &lt;strong&gt;~/App_Data/CMSModules/WebAnalytics/MaxMind/&lt;/strong&gt;</value>
   </data>
   <data name="settingskey.cmsgeoorganization" xml:space="preserve">
     <value>Organization/ASN (GeoLite2 ASN required)</value>
@@ -33628,7 +33545,7 @@ You need to &lt;strong&gt;configure IIS to allow custom URL extensions&lt;/stron
     <value>Event log size</value>
   </data>
   <data name="settingskey.cmslogsize.description" xml:space="preserve">
-    <value>The number of events stored in the Event log. When exceeded by 10% (or a different percentage set by means of the &lt;strong&gt;CMSLogKeepPercent&lt;/strong&gt; web.config key), the percentage of the oldest events is deleted from the log in a batch. 
+    <value>The number of events stored in the Event log. When exceeded by 10% (or a different percentage set by means of the &lt;strong&gt;CMSLogKeepPercent&lt;/strong&gt; web.config key), the percentage of the oldest events is deleted from the log in a batch.
 
 Set 0 if you don't want the system to log any events.</value>
   </data>
@@ -33781,18 +33698,6 @@ Optionally, the culture code can be used, e.g. "/Members/{UserName}/{CultureCode
   </data>
   <data name="settingskey.cmsmergecontactsforuser.description" xml:space="preserve">
     <value>Automatic contact merging will occur whenever multiple contacts exist for single user.</value>
-  </data>
-  <data name="settingskey.cmsmessagingemailfrom" xml:space="preserve">
-    <value>Messaging sender email</value>
-  </data>
-  <data name="settingskey.cmsmessagingemailfrom.description" xml:space="preserve">
-    <value>Notification email address of the email sender.</value>
-  </data>
-  <data name="settingskey.cmsmessagingemailsubject" xml:space="preserve">
-    <value>Messaging email subject</value>
-  </data>
-  <data name="settingskey.cmsmessagingemailsubject.description" xml:space="preserve">
-    <value>Notification email subject.</value>
   </data>
   <data name="settingskey.cmsmetaimagewatermark" xml:space="preserve">
     <value>Use watermark for object attachments</value>
@@ -34027,7 +33932,7 @@ It can either be a physical aspx file in the web project or a dedicated page in 
     <value>Password expiration warning period (days)</value>
   </data>
   <data name="settingskey.cmspasswordexpirationwarningperiod.description" xml:space="preserve">
-    <value>Indicates number of days before password expiration for which warning should be displayed. 
+    <value>Indicates number of days before password expiration for which warning should be displayed.
 &lt;strong&gt;Please note:&lt;/strong&gt; If set to 0, warning will be displayed only after password expiration.</value>
   </data>
   <data name="settingskey.cmspasswordformat" xml:space="preserve">
@@ -34391,14 +34296,14 @@ It can either be a physical aspx file in the web project or a dedicated page in 
     <value>Determines how often the application should check if there are any tasks ready to be executed (&lt;strong&gt;in seconds&lt;/strong&gt;).
 
 By default, the scheduler is configured to check tasks only on page requests; you can set the minimum time between the checks to any interval. If it is configured to check automatically, you can set an interval of 1 to 30 seconds.
- 
+
 Setting &lt;strong&gt;0&lt;/strong&gt; stops the scheduling of tasks.</value>
   </data>
   <data name="settingskey.cmsschedulerserviceinterval" xml:space="preserve">
     <value>Service scheduler interval</value>
   </data>
   <data name="settingskey.cmsschedulerserviceinterval.description" xml:space="preserve">
-    <value>Determines how often the external Windows service should check if there are any tasks ready to be executed (&lt;strong&gt;in seconds&lt;/strong&gt;). 
+    <value>Determines how often the external Windows service should check if there are any tasks ready to be executed (&lt;strong&gt;in seconds&lt;/strong&gt;).
 
 You can set an interval of 1 to 30 seconds.
 
@@ -34414,7 +34319,7 @@ Setting &lt;strong&gt;0&lt;/strong&gt; stops the scheduling of tasks.</value>
     <value>Use external service</value>
   </data>
   <data name="settingskey.cmsscheduleruseexternalservice.description" xml:space="preserve">
-    <value>Indicates if scheduled tasks that have the &lt;strong&gt;Use external service&lt;/strong&gt; option enabled should be processed by Kentico CMS Scheduler external Windows service. 
+    <value>Indicates if scheduled tasks that have the &lt;strong&gt;Use external service&lt;/strong&gt; option enabled should be processed by Kentico CMS Scheduler external Windows service.
 
 Please note that for this to work, the service must be installed and running. If enabled and the service is not running, these tasks are not processed at all. If disabled, all scheduled tasks are processed by the application itself.</value>
   </data>
@@ -39469,9 +39374,6 @@ Pickup directory from IIS: Emails are copied to the pickup directory used by a l
   <data name="socialnetworking.facebook.wrongcontrollocation" xml:space="preserve">
     <value>This control is supposed to be used from Settings only.</value>
   </data>
-  <data name="socialnetworking.fulltrustrequired" xml:space="preserve">
-    <value>Fully trusted application is required to authenticate with external services. Please contact your system administrator to check the application configuration.</value>
-  </data>
   <data name="socialnetworking.get" xml:space="preserve">
     <value>Get</value>
   </data>
@@ -39935,7 +39837,7 @@ Pickup directory from IIS: Emails are copied to the pickup directory used by a l
     <value>Indexed content</value>
   </data>
   <data name="srch.indexrequiresrebuild" xml:space="preserve">
-    <value>These changes require index rebuild. Please {0} to rebuild index now.</value>
+    <value>These changes require an index rebuild. Please {0} to rebuild index now.</value>
   </data>
   <data name="srch.indexselector.title" xml:space="preserve">
     <value>Select index</value>
@@ -42860,7 +42762,7 @@ If you expected some results, please make sure that:
     <value>Lock reason</value>
   </data>
   <data name="userlist.nopassword" xml:space="preserve">
-    <value>This user has an empty password, you should set some.</value>
+    <value>The user has an empty password. We recommend setting one.</value>
   </data>
   <data name="usermenu.changeuiculture" xml:space="preserve">
     <value>Change language</value>
@@ -45313,9 +45215,6 @@ The operation also resets the workflow version history tracked on the Versions t
   <data name="adm.user.lblcustomdata" xml:space="preserve">
     <value>Custom data:</value>
   </data>
-  <data name="adm.user.lblmessagenotifemail" xml:space="preserve">
-    <value>Messaging notification email:</value>
-  </data>
   <data name="adm.user.lblnickname" xml:space="preserve">
     <value>User nick name:</value>
   </data>
@@ -45372,9 +45271,6 @@ The operation also resets the workflow version history tracked on the Versions t
   </data>
   <data name="adm.user.lblwaitingforactivation" xml:space="preserve">
     <value>Waiting for approval:</value>
-  </data>
-  <data name="adm.user.messageemailincorrect" xml:space="preserve">
-    <value>Please enter messaging notification email in correct format.</value>
   </data>
   <data name="adm.usersettings.customfields" xml:space="preserve">
     <value>Custom user settings fields</value>
@@ -45863,9 +45759,6 @@ The operation also resets the workflow version history tracked on the Versions t
     <value>Identity to be used when signing user written macro expressions. When no particular identity is assigned, macro expression signatures contain the actual user name. This can cause problems when macros written by an user are evaluated in different environments (e.g. when using content staging). If the user account is not synchronized over the environments, the macro evaluation fails due to invalid signature.
 
 Only global administrator can assign macro signature identity.</value>
-  </data>
-  <data name="administration-user_edit_general.messagingemail" xml:space="preserve">
-    <value>Messaging notification email:</value>
   </data>
   <data name="administration-user_edit_general.middlename" xml:space="preserve">
     <value>Middle name:</value>
@@ -46592,6 +46485,9 @@ Only global administrator can assign macro signature identity.</value>
   </data>
   <data name="bizform.security.lbltitle" xml:space="preserve">
     <value>Allow management of this form to:</value>
+  </data>
+  <data name="bizform_edit.webformformonmvc.warning" xml:space="preserve">
+    <value>This form was created on a previous version of Kentico and its data structure is obsolete for content-only sites. The form's original functionality remains unchanged, but new features are not available.&lt;br/&gt;&lt;br/&gt;We recommend that you create a new form, and compose the form content on the &lt;strong&gt;Form builder&lt;/strong&gt; tab.</value>
   </data>
   <data name="bizform_edit.actionclearaftersave" xml:space="preserve">
     <value>Clear form</value>
@@ -47525,9 +47421,6 @@ Only global administrator can assign macro signature identity.</value>
   </data>
   <data name="cms.messageboards.description" xml:space="preserve">
     <value>This section allows management of message boards. These can be managed or deleted using this section of the administration interface.</value>
-  </data>
-  <data name="cms.messaging.description" xml:space="preserve">
-    <value>This section represents the user interface of the Messaging module. The message Inbox and Outbox are both displayed here. You can also create and send new messages. Contact list and Ignore list are displayed here too and you can add or remove users to/from these lists.</value>
   </data>
   <data name="cms.newsletter.description" xml:space="preserve">
     <value>This section displays a list of email campaigns, subscribers and email campaign templates. It provides interface for import and export of subscribers as well. You can check email queue and resend or delete all failed emails.</value>
@@ -53290,9 +53183,6 @@ Only global administrator can assign macro signature identity.</value>
   <data name="forumposts.titleforumposttime" xml:space="preserve">
     <value>Posted:</value>
   </data>
-  <data name="forumproperies.forumenablemessaging" xml:space="preserve">
-    <value>If enabled, an action that allows private messages to be sent to post authors will be displayed in the forums.</value>
-  </data>
   <data name="forumresults.searchresults" xml:space="preserve">
     <value>Search results</value>
   </data>
@@ -55843,159 +55733,6 @@ Only global administrator can assign macro signature identity.</value>
   <data name="messageuserbuttons.ignoreadded" xml:space="preserve">
     <value>User successfully added to the ignore list.</value>
   </data>
-  <data name="messaging.backtolist" xml:space="preserve">
-    <value>Messages</value>
-  </data>
-  <data name="messaging.contactlist.add" xml:space="preserve">
-    <value>Add to contact list</value>
-  </data>
-  <data name="messaging.contactlist.addconfirmation" xml:space="preserve">
-    <value>Are you sure you want to add the user to your contact list?</value>
-  </data>
-  <data name="messaging.contactlist.adduser" xml:space="preserve">
-    <value>Add user to contact list</value>
-  </data>
-  <data name="messaging.contactlist.delete" xml:space="preserve">
-    <value>Remove from contact list</value>
-  </data>
-  <data name="messaging.contactlist.deletesuccessful" xml:space="preserve">
-    <value>User was successfully removed from your contact list</value>
-  </data>
-  <data name="messaging.contactlist.nodatafound" xml:space="preserve">
-    <value>No users found in contact list.</value>
-  </data>
-  <data name="messaging.contactlist.username" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="messaging.date" xml:space="preserve">
-    <value>Date</value>
-  </data>
-  <data name="messaging.dateread" xml:space="preserve">
-    <value>Read date</value>
-  </data>
-  <data name="messaging.delete" xml:space="preserve">
-    <value>Delete message</value>
-  </data>
-  <data name="messaging.deleteall" xml:space="preserve">
-    <value>Delete all messages</value>
-  </data>
-  <data name="messaging.forward" xml:space="preserve">
-    <value>Forward</value>
-  </data>
-  <data name="messaging.forwardsign" xml:space="preserve">
-    <value>FW:</value>
-  </data>
-  <data name="messaging.from" xml:space="preserve">
-    <value>From</value>
-  </data>
-  <data name="messaging.ignorelist.add" xml:space="preserve">
-    <value>Add to ignore list</value>
-  </data>
-  <data name="messaging.ignorelist.addconfirmation" xml:space="preserve">
-    <value>Are you sure you want to add the user to your ignore list?</value>
-  </data>
-  <data name="messaging.ignorelist.adduser" xml:space="preserve">
-    <value>Add user to ignore list</value>
-  </data>
-  <data name="messaging.ignorelist.delete" xml:space="preserve">
-    <value>Remove user from ignore list</value>
-  </data>
-  <data name="messaging.ignorelist.deletesuccessful" xml:space="preserve">
-    <value>User was successfully removed from your ignore list</value>
-  </data>
-  <data name="messaging.ignorelist.nodatafound" xml:space="preserve">
-    <value>No users found in ignore list.</value>
-  </data>
-  <data name="messaging.ignorelist.username" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="messaging.inbox" xml:space="preserve">
-    <value>Inbox</value>
-  </data>
-  <data name="messaging.messageuserselector.contactlist" xml:space="preserve">
-    <value>Contact list</value>
-  </data>
-  <data name="messaging.messageuserselector.headercaption" xml:space="preserve">
-    <value>Select user</value>
-  </data>
-  <data name="messaging.newmessage" xml:space="preserve">
-    <value>New message</value>
-  </data>
-  <data name="messaging.nosubject" xml:space="preserve">
-    <value>--no-subject--</value>
-  </data>
-  <data name="messaging.notificationemail" xml:space="preserve">
-    <value>Messaging notification email</value>
-  </data>
-  <data name="messaging.numofmessages" xml:space="preserve">
-    <value>{0} message(s) in total</value>
-  </data>
-  <data name="messaging.outbox" xml:space="preserve">
-    <value>Outbox</value>
-  </data>
-  <data name="messaging.outboxmessageunread" xml:space="preserve">
-    <value>-</value>
-  </data>
-  <data name="messaging.reply" xml:space="preserve">
-    <value>Reply</value>
-  </data>
-  <data name="messaging.resign" xml:space="preserve">
-    <value>RE:</value>
-  </data>
-  <data name="messaging.search.addedsuccessfulytocontactlist" xml:space="preserve">
-    <value>User was added to your contact list.</value>
-  </data>
-  <data name="messaging.search.addedsuccessfulytoignorelist" xml:space="preserve">
-    <value>User was added to your ignore list.</value>
-  </data>
-  <data name="messaging.search.nousersfound" xml:space="preserve">
-    <value>No users found</value>
-  </data>
-  <data name="messaging.search.username" xml:space="preserve">
-    <value>Username</value>
-  </data>
-  <data name="messaging.sendmessage" xml:space="preserve">
-    <value>Send message</value>
-  </data>
-  <data name="messaging.sendmessageto" xml:space="preserve">
-    <value>Send message to</value>
-  </data>
-  <data name="messaging.to" xml:space="preserve">
-    <value>To</value>
-  </data>
-  <data name="messaging.unreadofall" xml:space="preserve">
-    <value>{0} unread message(s) of {1} total</value>
-  </data>
-  <data name="messaging.viewmessage" xml:space="preserve">
-    <value>View message</value>
-  </data>
-  <data name="messsaging.addtocontactlist" xml:space="preserve">
-    <value>Add to contact list</value>
-  </data>
-  <data name="messsaging.addtoignorelist" xml:space="preserve">
-    <value>Add to ignore list</value>
-  </data>
-  <data name="messsaging.addtoignorelistconfirmation" xml:space="preserve">
-    <value>Are you sure you want to add user to the ignore list?</value>
-  </data>
-  <data name="messsaging.alldeletionconfirmation" xml:space="preserve">
-    <value>Are you sure you want to delete all messages?</value>
-  </data>
-  <data name="messsaging.allmessagesdeleted" xml:space="preserve">
-    <value>All messages successfully deleted.</value>
-  </data>
-  <data name="messsaging.contactlist.deletionconfirmation" xml:space="preserve">
-    <value>Are you sure you want to remove the user from your contact list?</value>
-  </data>
-  <data name="messsaging.deletionconfirmation" xml:space="preserve">
-    <value>Are you sure you want to delete the message?</value>
-  </data>
-  <data name="messsaging.ignorelist.deletionconfirmation" xml:space="preserve">
-    <value>Are you sure you want to remove the user from your ignore list?</value>
-  </data>
-  <data name="messsaging.messagedeleted" xml:space="preserve">
-    <value>Message has been successfully deleted.</value>
-  </data>
   <data name="metadata.inherit" xml:space="preserve">
     <value>Inherit</value>
   </data>
@@ -56043,9 +55780,6 @@ Only global administrator can assign macro signature identity.</value>
   </data>
   <data name="myaccount.forumsignature" xml:space="preserve">
     <value>Signature:</value>
-  </data>
-  <data name="myaccount.messagingemail" xml:space="preserve">
-    <value>Messaging notification email:</value>
   </data>
   <data name="myaccount.myaddresses" xml:space="preserve">
     <value>Addresses</value>
@@ -61643,6 +61377,12 @@ Some of the pages couldn't be destroyed as you do not have the 'Destroy' permiss
   <data name="siteimport.wzdstepworkflows.noworkflows" xml:space="preserve">
     <value>No workflows to be imported</value>
   </data>
+  <data name="siteimport.bizform.incompatibletypes" xml:space="preserve">
+    <value>The form '{0}' is only compatible with content-only sites. Import of this form was skipped.</value>
+  </data>
+  <data name="clone.bizform.incompatibletypes" xml:space="preserve">
+    <value>This form is only compatible with content-only sites. Cloning of this form was canceled.</value>
+  </data>
   <data name="sites-domainaliases.newalias" xml:space="preserve">
     <value>New domain alias</value>
   </data>
@@ -66022,5 +65762,20 @@ Before sending the data to other services or data subjects, make sure it contain
   </data>
   <data name="bizform.formbuildermvc.presentationurlmissing" xml:space="preserve">
     <value>Current site's presentation URL is missing.</value>
+  </data>
+  <data name="visibilityconditionform.noavailableconditions" xml:space="preserve">
+    <value>There are no available visibility conditions for current form component.</value>
+  </data>
+  <data name="visibilityconditionform.currentvisibilitycondition.isnotvalid" xml:space="preserve">
+    <value>Current form component will be always hidden because current visibility condition is invalid.</value>
+  </data>
+  <data name="documenttype_edit_general.ismenuitem.contentonly" xml:space="preserve">
+    <value>Use Page tab:</value>
+  </data>
+  <data name="documenttype.classismenuitemtype.description.contentonly" xml:space="preserve">
+    <value>Indicates whether the Page tab is displayed for pages of this type in the Pages application. Also sets the Page tab as the default tab after creating a page of this type.</value>
+  </data>
+  <data name="bizformgeneral.reloadform" xml:space="preserve">
+    <value>Reload form</value>
   </data>
 </root>

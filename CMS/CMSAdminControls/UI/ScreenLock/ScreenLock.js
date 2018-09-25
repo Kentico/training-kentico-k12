@@ -35,6 +35,11 @@ var getResultShort, ScreenLockLogoutUser, ScreenLockValidateUser, ScreenLockRedi
             updateScreenLockWarning();
 
             window.top.layouts[0].resizeAll();
+
+            // Create and dispatch 'screenLockDialogShow' event.
+            var event = document.createEvent('Event');
+            event.initEvent('screenLockDialogShow', true, true);
+            $cmsj('#screenLockWarningDialog')[0].dispatchEvent(event);
         },
         
         updateScreenLockWarning = function () {
@@ -228,6 +233,11 @@ var getResultShort, ScreenLockLogoutUser, ScreenLockValidateUser, ScreenLockRedi
         screenLockWarningDialogOn = false;
 
         window.top.layouts[0].resizeAll();
+
+        // Create and dispatch 'screenLockDialogHide' event.
+        var event = document.createEvent('Event');
+        event.initEvent('screenLockDialogHide', true, true);
+        $cmsj('#screenLockWarningDialog')[0].dispatchEvent(event);
     };
 
 

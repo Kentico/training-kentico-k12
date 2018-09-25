@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Security;
 
-using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.Core;
 using CMS.FormEngine.Web.UI;
@@ -146,10 +144,6 @@ public partial class CMSModules_PortalEngine_UI_WebContainers_Container_New : CM
             {
                 ProcessPage(webPartContainerObj);
             }
-        }
-        catch (SecurityException ex)
-        {
-            ShowError(!SystemContext.IsFullTrustLevel ? ResHelper.GetStringFormat("general.fulltrustrequired", ex.Message) : ex.Message);
         }
         catch (Exception ex)
         {

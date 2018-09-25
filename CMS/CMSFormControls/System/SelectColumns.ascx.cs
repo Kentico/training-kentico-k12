@@ -160,7 +160,7 @@ function GetSelectedColumns(hdnSelColId) {
 
                     string properties = ScriptHelper.GetString(hdnProperties.Value, false);
 
-                    script += "function OpenModalDialog(hdnSelColId, hdnColId) { modalDialog('" + ResolveUrl("~/CMSFormControls/Selectors/GridColumnDesigner.aspx") + "?queryname=" + properties + "&SelColId=' + hdnSelColId + '&ColId=' + hdnColId + '&hash=" + ValidationHelper.GetHashString("?queryname=" + properties + "&SelColId=" + hdnSelectedColumns.ClientID + "&ColId=" + txtColumns.ClientID) + "' ,'GridColumnDesigner', 700, 560); return false;}\n";
+                    script += "function OpenModalDialog(hdnSelColId, hdnColId) { modalDialog('" + ResolveUrl("~/CMSFormControls/Selectors/GridColumnDesigner.aspx") + "?queryname=" + properties + "&SelColId=' + hdnSelColId + '&ColId=' + hdnColId + '&hash=" + ValidationHelper.GetHashString("?queryname=" + properties + "&SelColId=" + hdnSelectedColumns.ClientID + "&ColId=" + txtColumns.ClientID, new HashSettings("")) + "' ,'GridColumnDesigner', 700, 560); return false;}\n";
                 }
                 else
                 {

@@ -93,24 +93,6 @@ public partial class CMSWebParts_Community_Shortcuts {
     protected global::System.Web.UI.WebControls.Panel pnlMyLinks;
     
     /// <summary>
-    /// pnlMyMessages control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel pnlMyMessages;
-    
-    /// <summary>
-    /// lnkMyMessages control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::CMS.Base.Web.UI.LocalizedHyperlink lnkMyMessages;
-    
-    /// <summary>
     /// pnlMyInvitations control.
     /// </summary>
     /// <remarks>

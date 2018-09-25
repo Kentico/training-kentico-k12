@@ -495,7 +495,6 @@ internal static class UpgradeProcedure
             ModuleName.FORUMS,
             ModuleName.MEDIALIBRARY,
             ModuleName.MESSAGEBOARD,
-            ModuleName.MESSAGING,
             ModuleName.NEWSLETTER,
             ModuleName.NOTIFICATIONS,
             ModuleName.ONLINEMARKETING,

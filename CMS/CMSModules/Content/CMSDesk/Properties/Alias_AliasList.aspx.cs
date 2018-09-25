@@ -59,13 +59,16 @@ public partial class CMSModules_Content_CMSDesk_Properties_Alias_AliasList : CMS
     {
         var columnList = GetColumns(columns);
         var where = SqlHelper.AddWhereCondition(completeWhere, "AliasSiteID = " + SiteContext.CurrentSiteID);
-        return DocumentAliasInfoProvider.GetDocumentAliasesWithNodesDataQuery()
+        var query = DocumentAliasInfoProvider.GetDocumentAliasesWithNodesDataQuery()
                                         .Source(s => s.InnerJoin<DataClassInfo>("NodeClassID", "ClassID"))
                                         .Where(where)
                                         .OrderBy(currentOrder)
                                         .TopN(currentTopN)
-                                        .Page(currentOffset / currentPageSize, currentPageSize)
                                         .Columns(columnList);
+        query.Offset = currentOffset;
+        query.MaxRecords = currentPageSize;
+
+        return query;
     }
 
 

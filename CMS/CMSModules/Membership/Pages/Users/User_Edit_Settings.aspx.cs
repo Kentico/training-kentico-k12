@@ -55,7 +55,6 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_Settings : CMSU
         lblActivatedByUser.Text = GetString("adm.user.lblActivatedByUser");
         lblActivationDate.Text = GetString("adm.user.lblActivationDate");
         lblCampaign.Text = GetString("adm.user.lblCampaign");
-        lblMessageNotifEmail.Text = GetString("adm.user.lblMessageNotifEmail");
         lblNickName.Text = GetString("adm.user.lblNickName");
         lblRegInfo.Text = GetString("adm.user.lblRegInfo");
         lblTimeZone.Text = GetString("adm.user.lblTimeZone");
@@ -147,7 +146,6 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_Settings : CMSU
 
         activationDate.SelectedDateTime = userInfo.UserSettings.UserActivationDate;
         txtCampaign.Text = userInfo.UserCampaign;
-        txtMessageNotifEmail.Text = userInfo.UserMessagingNotificationEmail;
         txtNickName.Text = userInfo.UserNickName;
         LoadRegInfo(userInfo.UserSettings);
         timeZone.Value = userInfo.UserSettings.UserTimeZoneID;
@@ -218,13 +216,6 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_Settings : CMSU
             RedirectToAccessDenied("CMS.Users", "Modify");
         }
 
-        // If some email address is set check the format
-        if (!txtMessageNotifEmail.IsValid())
-        {
-            ShowError(GetString("adm.user.messageemailincorrect"));
-            return;
-        }
-
         if (!UserPictureFormControl.IsValid())
         {
             ShowError(UserPictureFormControl.ErrorMessage);
@@ -252,8 +243,7 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_Settings : CMSU
         txtNickName.Text = txtNickName.Text.Trim();
         txtUserSignature.Text = txtUserSignature.Text.Trim();
         txtUserDescription.Text = txtUserDescription.Text.Trim();
-        txtMessageNotifEmail.Text = txtMessageNotifEmail.Text.Trim();
-
+        
         if (userInfo == null)
         {
             // only update valid user info
@@ -262,7 +252,6 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_Settings : CMSU
 
         userInfo.UserSettings.UserActivationDate = activationDate.SelectedDateTime;
         userInfo.UserCampaign = txtCampaign.Text;
-        userInfo.UserMessagingNotificationEmail = txtMessageNotifEmail.Text;
         userInfo.UserNickName = txtNickName.Text;
 
         // Check that Windows Live ID is not already registered to some user

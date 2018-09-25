@@ -1,0 +1,36 @@
+﻿cmsdefine([
+    'CMS.Builder/MessageService',
+    'CMS.Builder/MessageTypes'
+], function (msgService, messageTypes) {
+
+    var Module = function (serverData) {
+        var frame = document.getElementById(serverData.frameId);
+        var receiveMessage = function (event) {
+            switch (event.data.msg) {
+                case messageTypes.MESSAGING_ERROR:
+                    msgService.showError(event.data.data, true);
+                    frame.src = "about:blank";
+                    break;
+
+                case messageTypes.MESSAGING_EXCEPTION:
+                    msgService.showError(event.data.data);
+                    frame.src = "about:blank";
+                    break;
+
+                case messageTypes.MESSAGING_WARNING:
+                    msgService.showWarning(event.data.data);
+                    break;
+            }
+        };
+
+        var registerPostMessageListener = function () {
+            window.addEventListener('message', receiveMessage);
+        };
+
+        registerPostMessageListener();
+
+        window.CMS = window.CMS || {};
+    };
+
+    return Module;
+});

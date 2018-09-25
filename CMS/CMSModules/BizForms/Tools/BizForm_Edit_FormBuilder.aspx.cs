@@ -11,7 +11,7 @@ using CMS.UIControls;
 // Edited object
 [EditedObject(BizFormInfo.OBJECT_TYPE, "formId")]
 [Security(Resource = "CMS.Form", Permission = "ReadForm")]
-[UIElement("CMS.Form", "Forms.FormBuldier")]
+[UIElement("CMS.Form", "Forms.FormBuilder")]
 public partial class CMSModules_BizForms_Tools_BizForm_Edit_FormBuilder : CMSBizFormPage
 {
     #region "Properties"
@@ -91,8 +91,6 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_FormBuilder : CMSBiz
         // Update form to log synchronization
         if (FormInfo != null)
         {
-            // Enforce Form property reload next time the data are needed
-            FormInfo.ResetFormInfo();
             BizFormInfoProvider.SetBizFormInfo(FormInfo);
         }
     }

@@ -63,7 +63,7 @@ public partial class CMSModules_OnlineMarketing_Controls_Content_CombinationPane
         }
 
         // Move cookies expiration to next 30 days
-        HttpCookie cookieMVTTest = CookieHelper.GetExistingCookie(cookieTestName);
+        var cookieMVTTest = CookieHelper.GetExistingCookie(cookieTestName);
         if (cookieMVTTest != null)
         {
             CookieHelper.SetValue(cookieMVTTest.Name, cookieMVTTest.Value, cookieMVTTest.Path, DateTime.Now.AddDays(30), false);

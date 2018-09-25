@@ -394,7 +394,7 @@ function UpdateLabel_", ClientID, @"(content, context) {
             }
         }
         // Check whether safe user name is required and if so get safe username
-        else if (RequestHelper.IsMixedAuthentication() && UserInfoProvider.UseSafeUserName)
+        else if (AuthenticationMode.IsMixedAuthentication() && UserInfoProvider.UseSafeUserName)
         {
             userName = ValidationHelper.GetSafeUserName(userName, SiteContext.CurrentSiteName);
 

@@ -267,15 +267,6 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
         {
             plcError.Visible = false;
 
-            // Check renamed DLL library
-            if (!SystemContext.IsFullTrustLevel)
-            {
-                // Error label is displayed when OpenID library is not enabled
-                lblError.ResourceString = "socialnetworking.fulltrustrequired";
-                plcError.Visible = true;
-                plcContent.Visible = false;
-            }
-
             // Check if LinkedIn module is enabled
             if (!LinkedInHelper.LinkedInIsAvailable(SiteContext.CurrentSiteName) && !plcError.Visible)
             {

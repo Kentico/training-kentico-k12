@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.AspNet.Platform</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.AspNet.Platform.ApplicationErrorLogger">
+            <summary>
+            Logs last application error.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.ApplicationErrorLogger.LogLastApplicationError">
+            <summary>
+            Logs the last application error.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.ApplicationRuntime">
+            <summary>
+            Provides functions for application management.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.ApplicationRuntime.Restart(CMS.Base.RestartRequiredEventArgs)">
+            <summary>
+            Attempts to restart an application using <see cref="M:System.Web.HttpRuntime.UnloadAppDomain"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.WebEnvironmentInitializer">
+            <summary>
+            Class is responsible for initializing website environment.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.WebEnvironmentInitializer.SetUp">
+            <summary>
+            Methods sets properties <see cref="P:CMS.Base.SystemContext.IsWebSite"/>, <see cref="P:CMS.Base.SystemContext.ApplicationPath"/> and <see cref="P:CMS.Base.SystemContext.WebApplicationPhysicalPath"/> by values provided by <see cref="T:System.Web.HttpRuntime"/> implementation.
+            </summary>
+            <remarks>
+            <para>
+            The method is not intended to be used directly from your code.
+            </para>
+            <para>
+            Method is called automatically during the application startup for applications hosted within the web server.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:CMS.AspNet.Platform.CacheAccessorImpl.Insert(System.String,System.Object,CMS.Helpers.CMSCacheDependency,System.DateTime,System.TimeSpan,CMS.Helpers.CMSCacheItemPriority,CMS.Helpers.CMSCacheItemRemovedCallback)">
+            <summary>
+            Inserts an object into the cache.
+            </summary>
+            <param name="key">The cache key used to reference the object.</param>
+            <param name="value">The object to be inserted in the cache.</param>
+            <param name="dependencies">The file or cache key dependencies for the item. When any dependency changes, the object becomes invalid and is removed from the cache.</param>
+            <param name="absoluteExpiration">The time at which the inserted object expires and is removed from the cache. </param>
+            <param name="slidingExpiration">The interval between the time the inserted object was last accessed and the time at which that object expires.</param>
+            <param name="priority">The cost of the object relative to other items stored in the cache.</param>
+            <param name="onRemoveCallback">A delegate that, if provided, will be called when an object is removed from the cache.</param>
+        </member>
+        <member name="M:CMS.AspNet.Platform.CacheAccessorImpl.Get(System.String)">
+            <summary>
+            Retrieves the specified item from the cache.
+            </summary>
+            <param name="key">The identifier for the cache item to retrieve.</param>
+        </member>
+        <member name="M:CMS.AspNet.Platform.CacheAccessorImpl.Remove(System.String)">
+            <summary>
+            Removes the specified item from the cache.
+            </summary>
+            <param name="key">The identifier for the cache item to remove.</param>
+        </member>
+        <member name="M:CMS.AspNet.Platform.CacheAccessorImpl.GetEnumerator">
+            <summary>
+            <summary>Retrieves a dictionary enumerator used to iterate through the key settings and their values contained in the cache.</summary>
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.Cache.Extension.CMSCacheDependencyExtensions">
+            <summary>
+            Extension methods for <see cref="T:CMS.Helpers.CMSCacheDependency"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.Cache.Extension.CMSCacheDependencyExtensions.CreateCacheDependency(CMS.Helpers.CMSCacheDependency)">
+            <summary>
+            Creates instance of <see cref="T:System.Web.Caching.CacheDependency"/> based on <paramref name="cmsDependency"/> values.
+            </summary>
+            <param name="cmsDependency">Cache dependency abstraction object.</param>
+        </member>
+        <member name="T:CMS.AspNet.Platform.BrowserImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpBrowserCapabilitiesBase"/> object implementing <see cref="T:CMS.Base.IBrowser"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.CachePolicyImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpCachePolicyBase"/> object implementing <see cref="T:CMS.Base.ICache"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.HttpContext.Extensions.IHttpCookieExtensions">
+            <summary>
+            Extensions for <see cref="T:CMS.Base.IHttpCookie"/> interface.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.HttpContext.Extensions.IHttpCookieExtensions.ToHttpCookie(CMS.Base.IHttpCookie)">
+            <summary>
+            Returns instance of <see cref="T:System.Web.HttpCookie"/> with same values as <see cref="T:CMS.Base.IHttpCookie"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.HttpApplicationImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpApplication"/> object implementing <see cref="T:CMS.Base.IHttpApplication"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.HttpContextImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpContextBase"/> object implementing <see cref="T:CMS.Base.IHttpContext"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.HttpContextAccessorImpl">
+            <summary>
+            Implementation providing <see cref="T:CMS.Base.IHttpContext"/> implementation based on <see cref="P:CMS.Helpers.CMSHttpContext.Current"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.HttpCookieImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpCookie"/> object implementing <see cref="T:CMS.Base.IHttpCookie"/> interface.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.HttpCookieImpl.#ctor">
+            <summary>
+            Constructor is required for <see cref="T:CMS.Core.ObjectFactory"/>
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.HttpCookieCollectionImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpCookieCollection"/> object implementing <see cref="T:CMS.Base.IHttpCookieCollection"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.RequestImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpRequestBase"/> object implementing <see cref="T:CMS.Base.IRequest"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.RequestContextImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.Routing.RequestContext"/> object implementing <see cref="T:CMS.Base.IRequestContext"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.HttpRequestExtensions">
+            <summary>
+            Extension methods for request objects.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.HttpRequestExtensions.GetEffectiveUrl(System.Web.HttpRequestBase)">
+            <summary>
+            Returns effective URL with correct port number based on <see cref="P:CMS.Helpers.RequestContext.IsSSL"/> property for <see cref="T:System.Security.Policy.Url"/> property.
+            </summary>
+            <param name="request"><see cref="T:System.Web.HttpRequestBase"/> object.</param>
+            <remarks>
+            When SSL offloading proxy is used <see cref="P:System.Web.HttpRequestBase.Url"/> does not contain valid port and scheme.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="request"/></exception>
+        </member>
+        <member name="M:CMS.AspNet.Platform.HttpRequestExtensions.GetEffectiveUrl(System.Web.HttpRequest)">
+            <summary>
+            Returns effective URL with correct port number based on <see cref="P:CMS.Helpers.RequestContext.IsSSL"/> property for <see cref="P:System.Web.HttpRequest.Url"/> property.
+            </summary>
+            <param name="request"><see cref="T:System.Web.HttpRequest"/> object.</param>
+            <remarks>
+            When SSL offloading proxy is used <see cref="P:System.Web.HttpRequest.Url"/> does not contain valid port and scheme.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="request"/></exception>
+        </member>
+        <member name="T:CMS.AspNet.Platform.ResponseImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpResponseBase"/> object implementing <see cref="T:CMS.Base.IResponse"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.RouteDataImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.Routing.RouteData"/> object implementing <see cref="T:CMS.Base.IRouteData"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.ServerImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpServerUtilityBase"/> object implementing <see cref="T:CMS.Base.IServer"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.SessionImpl">
+            <summary>
+            Wrapper over <see cref="T:System.Web.HttpSessionStateBase"/> object implementing <see cref="T:CMS.Base.ISession"/> interface.
+            </summary>
+        </member>
+        <member name="T:CMS.AspNet.Platform.PlatformModule">
+            <summary>
+            Represents the module providing basic full framework implementations.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.PlatformModule.#ctor">
+            <summary>
+            Creates new instance of <see cref="T:CMS.AspNet.Platform.PlatformModule"/>
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.PlatformModule.OnPreInit">
+            <summary>
+            Handles the module pre-initialization.
+            </summary>
+        </member>
+        <member name="M:CMS.AspNet.Platform.PlatformModule.OnInit">
+            <summary>
+            Handles the module initialization.
+            </summary>
+        </member>
+        <member name="T:CMS.Membership.AuthenticationMode">
+            <summary>
+            Specifies the ASP.NET authentication scheme that is used to identify users.
+            </summary>
+        </member>
+        <member name="P:CMS.Membership.AuthenticationMode.AuthenticationTypeCheck">
+            <summary>
+            Gets the value that sets the type of current authentication
+            AUTH_TYPE_DEFAULT  - Use default
+            AUTH_TYPE_FORMS    - Forcibly sets Forms authentication
+            AUTH_TYPE_WINDOWS  - Forcibly sets Windows authentication
+            AUTH_TYPE_BOTH     - Forcibly sets Windows authentication  and Forms authentication
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.AuthenticationMode.IsWindowsAuthentication">
+            <summary>
+            Returns true if the authentication mode is Windows authentication.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.AuthenticationMode.IsFormsAuthentication">
+            <summary>
+            Returns true if the authentication mode is Forms authentication.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.AuthenticationMode.IsMixedAuthentication">
+            <summary>
+            If true, mixed authentication is used.
+            </summary>
+        </member>
+    </members>
+</doc>

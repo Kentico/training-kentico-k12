@@ -19,4 +19,13 @@ public partial class CMSModules_Activities_Controls_UI_ActivityDetails_BizFormDe
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::CMS.OnlineForms.Web.UI.BizForm bizRecord;
+    
+    /// <summary>
+    /// mvcFrame control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.HtmlControls.HtmlIframe mvcFrame;
 }

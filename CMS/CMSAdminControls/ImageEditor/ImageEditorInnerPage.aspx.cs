@@ -26,10 +26,7 @@ public partial class CMSAdminControls_ImageEditor_ImageEditorInnerPage : LivePag
 
                 query = URLHelper.RemoveParameterFromUrl(query, "hash");
 
-                var settings = new HashSettings
-                {
-                    HashSalt = HashValidationSalts.GET_IMAGE_VERSION
-                };
+                var settings = new HashSettings(HashValidationSalts.GET_IMAGE_VERSION);
 
                 query = URLHelper.AddParameterToUrl(query, "hash", ValidationHelper.GetHashString(query, settings));
 

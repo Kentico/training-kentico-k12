@@ -14,7 +14,7 @@
         </a>
     </div>
     <div id="listOfContacts" class="tab-pane active">
-         <cms:UniGrid runat="server" ID="gridElem" OrderBy="ContactLastName" RememberState="False"
+         <cms:UniGrid runat="server" ID="gridElem" OrderBy="ContactLastName" RememberState="False" ShowActionsMenu="True"
             Columns="ContactID,ContactLastName,ContactFirstName,ContactEmail,ContactStatusID,ContactCountryID,ContactCreated"
             IsLiveSite="false" HideFilterButton="True" FilterLimit="0">
             <GridActions Parameters="ContactID">

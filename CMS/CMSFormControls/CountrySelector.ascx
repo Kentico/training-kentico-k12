@@ -11,6 +11,9 @@
                     ObjectType="cms.state" ResourcePrefix="stateselector" />
             </asp:PlaceHolder>
         </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="uniSelectorCountry:drpSingleSelect" />
+        </Triggers>
     </cms:CMSUpdatePanel>
 </div>
     

@@ -18,7 +18,7 @@
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation />
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <TargetFrameworkProfile />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -59,9 +59,6 @@
   <Choose>
     <When Condition="'$(CMSAzureBuild)' == 'true'">
       <ItemGroup>
-        <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-          <HintPath>..\Lib\Azure\Microsoft.WindowsAzure.Configuration.dll</HintPath>
-        </Reference>
         <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
         <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=2.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
           <Private>False</Private>
@@ -193,6 +190,9 @@
     <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.2.0\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WindowsAzure.Storage.7.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
@@ -729,7 +729,6 @@
     <Content Include="App_Themes\Default\Images\favicon.ico" />
     <Content Include="App_Themes\Default\Images\Kentico.ico" />
     <Content Include="App_Themes\Default\Images\background.png" />
-    <Content Include="App_Themes\Default\Images\logon-background.png" />
     <Content Include="App_Themes\Default\Images\logon-logo.png" />
     <Content Include="App_Themes\Design\Chat\ChatCMSDesk.css" />
     <Content Include="App_Themes\Design\Chat\ChatLiveSite.css" />
@@ -1499,6 +1498,7 @@
     <Content Include="CMSModules\AdminControls\Controls\UIControls\SmartTipPlaceholder.ascx" />
     <Content Include="CMSModules\BizForms\FormControls\FormFieldSelector.ascx" />
     <Content Include="CMSModules\Activities\Controls\UI\ActivityDetails\NewsletterUnsubscriptionFromAll.ascx" />
+    <Content Include="CMSModules\BizForms\Tools\BizForm_Edit_EditRecordMVC.aspx" />
     <Content Include="CMSModules\BizForms\Tools\BizForm_Edit_FormBuilderMVC.aspx" />
     <Content Include="CMSModules\ContactManagement\Controls\ContactDemographics.ascx" />
     <Content Include="CMSModules\ContactManagement\Filters\CountryFilter.ascx" />
@@ -1596,10 +1596,12 @@
     <Content Include="CMSPages\WebService.asmx" />
     <Content Include="CMSScripts\Bootstrap\ui-bootstrap-custom-tpls-1.3.3.js" />
     <Content Include="CMSScripts\CMSModules\AdminControls\MultipartUploader.js" />
-    <Content Include="CMSScripts\CMSModules\CMS.PageBuilder\DragAndDropService.js" />
-    <Content Include="CMSScripts\CMSModules\CMS.PageBuilder\MessageService.js" />
-    <Content Include="CMSScripts\CMSModules\CMS.PageBuilder\MessageTypes.js" />
-    <Content Include="CMSScripts\CMSModules\CMS.PageBuilder\Messaging.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\FormBuilder\Messaging.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\PageBuilder\DragAndDropService.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\MessageService.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\MessageTypes.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\PageBuilder\Messaging.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\PageBuilder\ModalDialogService.js" />
     <Content Include="CMSScripts\CMSModules\CMS\NumericUpDown.js" />
     <Content Include="CMSScripts\CMSModules\AdminControls\StarsRating.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Charts\amCharts\amcharts.js" />
@@ -2068,6 +2070,7 @@
     <Content Include="CMSScripts\CMSModules\CMS\FontIconSelector.js" />
     <Content Include="CMSScripts\CMSModules\CMS\interceptor.js" />
     <Content Include="CMSScripts\CMSModules\CMS\localizationHelper.js" />
+    <Content Include="CMSScripts\CMSModules\CMS\Raptor.js" />
     <Content Include="CMSScripts\CMSModules\CMS\RegisterClientLocalization.js" />
     <Content Include="CMSScripts\CMSModules\CMS\ObjectTypeGraph.js" />
     <Content Include="CMSScripts\CMSModules\CMS\ObjectWithEvents.js" />
@@ -2576,8 +2579,6 @@
     <Content Include="CMSModules\Membership\Pages\Users\General\User_OnlineDB.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Footer.aspx" />
-    <Content Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Footer.aspx" />
     <Content Include="CMSModules\Newsletters\Controls\VariantMailout.ascx" />
     <Content Include="CMSModules\Newsletters\Controls\WinnerOptions.ascx" />
     <Content Include="CMSModules\Newsletters\Controls\GroupSizeSlider.ascx" />
@@ -3506,36 +3507,6 @@
     <Content Include="CMSModules\MessageBoards\Tools\Boards\Board_List.xml" />
     <Content Include="CMSModules\MessageBoards\Tools\Messages\Message_Edit.aspx" />
     <Content Include="CMSModules\MessageBoards\Tools\Messages\Message_List.aspx" />
-    <Content Include="CMSModules\Messaging\CMSPages\MessageUserSelector_ContactList.aspx" />
-    <Content Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Frameset.aspx" />
-    <Content Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Header.aspx" />
-    <Content Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Search.aspx" />
-    <Content Include="CMSModules\Messaging\CMSPages\PublicMessageUserSelector.aspx" />
-    <Content Include="CMSModules\Messaging\CMSPages\SendMessage.aspx" />
-    <Content Include="CMSModules\Messaging\Controls\ContactIgnoreSearchBox.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\ContactList.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\IgnoreList.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\Inbox.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\Inbox.xml" />
-    <Content Include="CMSModules\Messaging\Controls\MessageUserButtons.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\MyMessages.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\Outbox.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\Outbox.xml" />
-    <Content Include="CMSModules\Messaging\Controls\SearchUser.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\SearchUser.xml" />
-    <Content Include="CMSModules\Messaging\Controls\SelectFromContactList.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\SelectFromContactList.xml" />
-    <Content Include="CMSModules\Messaging\Controls\SendMessage.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\ViewMessage.ascx" />
-    <Content Include="CMSModules\Messaging\Dialogs\MessageUserSelector_ContactList.aspx" />
-    <Content Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Frameset.aspx" />
-    <Content Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Header.aspx" />
-    <Content Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Search.aspx" />
-    <Content Include="CMSModules\Messaging\FormControls\MessageUserSelector.ascx" />
-    <Content Include="CMSModules\Messaging\MyMessages\MyMessages_ContactList.aspx" />
-    <Content Include="CMSModules\Messaging\MyMessages\MyMessages_IgnoreList.aspx" />
-    <Content Include="CMSModules\Messaging\MyMessages\MyMessages_Inbox.aspx" />
-    <Content Include="CMSModules\Messaging\MyMessages\MyMessages_Outbox.aspx" />
     <Content Include="CMSModules\Newsletters\CMSPages\Unsubscribe.aspx" />
     <Content Include="CMSModules\Newsletters\Controls\MySubscriptions.ascx" />
     <Content Include="CMSModules\Newsletters\FormControls\NewsletterSelector.ascx" />
@@ -3921,6 +3892,8 @@
     <Content Include="CMSModules\Sites\Pages\CultureChange.aspx" />
     <Content Include="CMSModules\Sites\Pages\Site_Delete.aspx" />
     <Content Include="CMSTemplates\BlankSiteASPX\root.aspx" />
+    <Content Include="CMSTemplates\CorporateSite\HomeASPX.aspx" />
+    <Content Include="CMSTemplates\CorporateSite\HomeMixed.aspx" />
     <Content Include="CMSWebParts\AbuseReport\AbuseReport.ascx" />
     <Content Include="CMSWebParts\AbuseReport\InlineAbuseReport.ascx" />
     <Content Include="CMSWebParts\Attachments\AttachmentsDataSource.ascx" />
@@ -4141,13 +4114,6 @@
     <Content Include="CMSWebParts\MessageBoards\MessageBoardUnsubscription.ascx" />
     <Content Include="CMSWebParts\MessageBoards\MessageBoardViewer.ascx" />
     <Content Include="CMSWebParts\MessageBoards\Syndication\MessageBoardRSSFeed.ascx" />
-    <Content Include="CMSWebParts\Messaging\ContactList.ascx" />
-    <Content Include="CMSWebParts\Messaging\IgnoreList.ascx" />
-    <Content Include="CMSWebParts\Messaging\Inbox.ascx" />
-    <Content Include="CMSWebParts\Messaging\MessagingInfoPanel.ascx" />
-    <Content Include="CMSWebParts\Messaging\MyMessages.ascx" />
-    <Content Include="CMSWebParts\Messaging\Outbox.ascx" />
-    <Content Include="CMSWebParts\Messaging\SendMessage.ascx" />
     <Content Include="CMSWebParts\Navigation\cmsbreadcrumbs.ascx" />
     <Content Include="CMSWebParts\Navigation\cmslistmenu.ascx" />
     <Content Include="CMSWebParts\Navigation\cmssitemap.ascx" />
@@ -4234,6 +4200,14 @@
     <Content Include="CMSWebParts\WebServices\GridForWebService.ascx" />
     <Content Include="CMSWebParts\WebServices\RepeaterForWebService.ascx" />
     <Content Include="CMSWebParts\Widgets\WidgetActions.ascx" />
+    <Content Include="CorporateSite\Images\close.png" />
+    <Content Include="CorporateSite\Images\loading.gif" />
+    <Content Include="CorporateSite\Images\next.png" />
+    <Content Include="CorporateSite\Images\prev.png" />
+    <Content Include="CorporateSite\Scripts\jquery-1.7.2.min.js" />
+    <Content Include="CorporateSite\Scripts\lightbox.js" />
+    <Content Include="CorporateSite\Scripts\LightboxBundle.js" />
+    <Content Include="CorporateSite\Stylesheets\lightbox.css" />
     <Content Include="DancingGoatMvc\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
     <Content Include="DancingGoatMvc\media\CoffeeGallery\Brew-Bar.jpg" />
     <Content Include="DancingGoatMvc\media\CoffeeGallery\Cauca-Farmer.jpg" />
@@ -4249,7 +4223,136 @@
     <Content Include="DancingGoatMvc\media\CoffeeGallery\Work-And-Coffee.jpg" />
     <Content Include="DancingGoatMvc\media\Graphics\default-image-product.png" />
     <Content Include="DancingGoatMvc\media\Graphics\Logos\logo-dancing-goat-inverted.png" />
+    <Content Include="DancingGoat\Fonts\Core-icons.svg" />
+    <Content Include="DancingGoat\Icons\icons-core.css" />
+    <Content Include="DancingGoat\Images\Favicons\favicon-16.png" />
+    <Content Include="DancingGoat\Images\Favicons\favicon-32.png" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Bakery-And-Coffee.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Brew-Bar.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Cauca-Farmer.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Coffee-Cherries.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Coffee-Region.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Coffee-Shop.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Coffee-Triangle.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Colombia-Coffee.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Kona-Coffee.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Robusta.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\St-Helena-Coffee.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Thailand-Coffee.jpg" />
+    <Content Include="DancingGoat\media\CoffeeGallery\Work-And-Coffee.jpg" />
+    <Content Include="DancingGoat\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
+    <Content Include="DancingGoat\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
+    <Content Include="DancingGoat\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
+    <Content Include="DancingGoat\media\EmailCampaigns\dancing-goat-newsletter.jpg" />
+    <Content Include="DancingGoat\media\EmailCampaigns\logo-dancing-goat-inverted.png" />
+    <Content Include="DancingGoat\media\EmailCampaigns\logo-dancing-goat.png" />
+    <Content Include="DancingGoat\media\Graphics\CSS sprites\continents.png" />
+    <Content Include="DancingGoat\media\Graphics\default-image-article.jpg" />
+    <Content Include="DancingGoat\media\Graphics\default-image-cafe.jpg" />
+    <Content Include="DancingGoat\media\Graphics\default-image-product.png" />
+    <Content Include="DancingGoat\media\Graphics\Icons\chevron-down.png" />
+    <Content Include="DancingGoat\media\Graphics\Icons\facebook.png" />
+    <Content Include="DancingGoat\media\Graphics\Icons\magnifier.png" />
+    <Content Include="DancingGoat\media\Graphics\Icons\twitter.png" />
+    <Content Include="DancingGoat\media\Graphics\Logos\dancing-goat.png" />
+    <Content Include="DancingGoat\media\Graphics\Logos\facebook.png" />
+    <Content Include="DancingGoat\media\Graphics\Logos\twitter.png" />
+    <Content Include="DancingGoat\media\Graphics\page-404.jpg" />
+    <Content Include="DancingGoat\media\Graphics\__thumbnails\404_jpg_300_200.jpg" />
+    <Content Include="DancingGoat\media\Graphics\__thumbnails\default-cafe_jpg_300_300.jpg" />
+    <Content Include="DancingGoat\media\Graphics\__thumbnails\default-product_png_200_200.png" />
+    <Content Include="DancingGoat\media\Graphics\__thumbnails\default-product_png_500_500.png" />
+    <Content Include="DancingGoat\media\Graphics\__thumbnails\default-product_png_60_60.png" />
+    <Content Include="DancingGoat\media\Graphics\__thumbnails\default-product_png_70_70.png" />
+    <Content Include="DancingGoat\media\Graphics\__thumbnails\our-story_jpg_200_93.jpg" />
+    <Content Include="DancingGoat\media\Homepage\banner-b2b.jpg" />
+    <Content Include="DancingGoat\media\Homepage\banner-b2c.jpg" />
+    <Content Include="DancingGoat\media\Homepage\banner-default.jpg" />
+    <Content Include="DancingGoat\media\LandingPage\banner-buena-vista.jpg" />
+    <Content Include="DancingGoat\media\LandingPage\banner-colombia-1.jpg" />
+    <Content Include="DancingGoat\media\LandingPage\banner-colombia-2.jpg" />
+    <Content Include="DancingGoat\media\LandingPage\map-latin-america.png" />
+    <Content Include="DancingGoat\Scripts\Main.js" />
+    <Content Include="DancingGoat\Scripts\Modules\ChangeImgSrcToBackground.js" />
+    <Content Include="DancingGoat\Scripts\Modules\DeleteAddress.js" />
+    <Content Include="DancingGoat\Scripts\Modules\FloatingBox.js" />
+    <Content Include="DancingGoat\Scripts\Modules\ResponsiveMenuDropdown.js" />
+    <Content Include="DancingGoat\Scripts\Modules\MobileMenu.js" />
+    <Content Include="DancingGoat\Scripts\Modules\ProductFilter.js" />
+    <Content Include="DancingGoat\Scripts\Modules\ScrollToForm.js" />
+    <Content Include="DancingGoat\Scripts\Modules\ScrollToMap.js" />
+    <Content Include="DancingGoat\Scripts\Vendor\DomReady\DomReady.js" />
+    <Content Include="DancingGoat\Scripts\Vendor\jQuery\jQuery.min.js" />
+    <Content Include="DancingGoat\Scripts\Vendor\RequireJS\require.min.js" />
+    <Content Include="EcommerceSite\images\blank.gif" />
+    <Content Include="EcommerceSite\images\fancybox-x.png" />
+    <Content Include="EcommerceSite\images\fancybox-y.png" />
+    <Content Include="EcommerceSite\images\fancybox.png" />
+    <Content Include="EcommerceSite\images\fancy_close.png" />
+    <Content Include="EcommerceSite\images\fancy_loading.png" />
+    <Content Include="EcommerceSite\images\fancy_nav_left.png" />
+    <Content Include="EcommerceSite\images\fancy_nav_right.png" />
+    <Content Include="EcommerceSite\images\fancy_shadow_e.png" />
+    <Content Include="EcommerceSite\images\fancy_shadow_n.png" />
+    <Content Include="EcommerceSite\images\fancy_shadow_ne.png" />
+    <Content Include="EcommerceSite\images\fancy_shadow_nw.png" />
+    <Content Include="EcommerceSite\images\fancy_shadow_s.png" />
+    <Content Include="EcommerceSite\images\fancy_shadow_se.png" />
+    <Content Include="EcommerceSite\images\fancy_shadow_sw.png" />
+    <Content Include="EcommerceSite\images\fancy_shadow_w.png" />
+    <Content Include="EcommerceSite\images\fancy_title_left.png" />
+    <Content Include="EcommerceSite\images\fancy_title_main.png" />
+    <Content Include="EcommerceSite\images\fancy_title_over.png" />
+    <Content Include="EcommerceSite\images\fancy_title_right.png" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\apple_ipod_shuffle.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\apple_mac_pro.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\cant_touch_tees.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\htc_evo.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\samsung_led_hdtv.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\apple_ipod_shuffle_jpg_200_62.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\apple_ipod_shuffle_jpg_300_92.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\apple_mac_pro_jpg_200_62.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\apple_mac_pro_jpg_300_92.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\cant_touch_tees_jpg_200_62.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\cant_touch_tees_jpg_300_92.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\htc_evo_jpg_200_62.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\htc_evo_jpg_300_92.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\samsung_led_hdtv_jpg_200_62.jpg" />
+    <Content Include="EcommerceSite\media\HeadlineBannerImages\__thumbnails\samsung_led_hdtv_jpg_300_92.jpg" />
+    <Content Include="EcommerceSite\media\PTSansFont\Paratype-PT-Sans-Free-Font-License.txt" />
+    <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.svg" />
+    <Content Include="EcommerceSite\media\PTSansFont\PTSansRegular.svg" />
+    <Content Include="EcommerceSite\Scripts\Bundle.js" />
+    <Content Include="EcommerceSite\Scripts\FancyboxInit.js" />
+    <Content Include="EcommerceSite\Scripts\jquery-1.7.2.min.js" />
+    <Content Include="EcommerceSite\Scripts\jquery-carousel.js" />
+    <Content Include="EcommerceSite\Scripts\jquery.fancybox-1.3.4.js" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\images\ajax-loader.gif" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\images\icons-18-black.png" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\images\icons-18-white.png" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\images\icons-36-black.png" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\images\icons-36-white.png" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\jquery.mobile-1.3.2.css" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\jquery.mobile-1.3.2.js" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\jquery.mobile-1.3.2.min.css" />
+    <Content Include="EcommerceSite\Scripts\JQueryMobile\jquery.mobile-1.3.2.min.js" />
+    <Content Include="EcommerceSite\Stylesheets\jquery.fancybox-1.3.4.css" />
     <Content Include="Global.asax" />
+    <Content Include="IntranetPortal\media\IT\IT-related graphics\IT.jpg" />
+    <Content Include="IntranetPortal\media\IT\IT-related graphics\IT_col.jpg" />
+    <Content Include="IntranetPortal\media\IT\IT-related graphics\msoffice.jpg" />
+    <Content Include="IntranetPortal\media\IT\IT-related graphics\msoffice_col.jpg" />
+    <Content Include="IntranetPortal\media\Media\Team Building Trip\IM001775.JPG" />
+    <Content Include="IntranetPortal\media\Media\Team Building Trip\IM002595.JPG" />
+    <Content Include="IntranetPortal\media\Media\Team Building Trip\IM002601.JPG" />
+    <Content Include="IntranetPortal\media\Media\Team Building Trip\IM002628.JPG" />
+    <Content Include="IntranetPortal\media\Media\Trees for Bugs\Trees-for-bugs-1.jpg" />
+    <Content Include="IntranetPortal\media\Media\Trees for Bugs\Trees-for-bugs-2.jpg" />
+    <Content Include="IntranetPortal\media\Media\Trees for Bugs\Trees-for-bugs-3.jpg" />
+    <Content Include="IntranetPortal\media\Media\Trees for Bugs\Trees-for-bugs-4.jpg" />
+    <Content Include="IntranetPortal\media\Media\Trees for Bugs\Trees-for-bugs-5.jpg" />
+    <Content Include="IntranetPortal\media\Microsoft_Office_Upgrade\Microsoft Office graphics\msoffice.jpg" />
+    <Content Include="IntranetPortal\media\Microsoft_Office_Upgrade\Microsoft Office graphics\msoffice_col.jpg" />
     <Content Include="ObjectTranslationRESTService.svc" />
     <Content Include="DocumentRESTService.svc" />
     <Content Include="Default.aspx" />
@@ -4264,6 +4367,13 @@
     <Content Include="CMSModules\SharePoint\CMSPages\MultiFileUploader.ashx" />
     <Content Include="CMSModules\Membership\CMSPages\SignOut.ashx" />
     <Content Include="App_Data\Templates\DancingGoat\Template.zip" />
+    <Content Include="DancingGoat\Fonts\Core-icons.eot" />
+    <Content Include="DancingGoat\Fonts\Core-icons.ttf" />
+    <Content Include="DancingGoat\Fonts\Core-icons.woff" />
+    <Content Include="DancingGoat\Fonts\PTSerif-Bold.woff" />
+    <Content Include="DancingGoat\Fonts\SourceSansPro-Bold.woff" />
+    <Content Include="DancingGoat\Fonts\SourceSansPro-Light.woff" />
+    <Content Include="DancingGoat\Fonts\SourceSansPro-Regular.woff" />
     <Content Include="App_Themes\Default\CMSModules\cms.onlinemarketing.less" />
     <Content Include="App_Themes\Default\CMSModules\cms.onlinemarketing\magnific-popup.less" />
     <Content Include="App_Themes\Default\CMSModules\cms.emailmarketing.less" />
@@ -4761,6 +4871,13 @@
     </Compile>
     <Compile Include="CMSModules\BizForms\FormControls\FormFieldSelector.ascx.designer.cs">
       <DependentUpon>FormFieldSelector.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSModules\BizForms\Tools\BizForm_Edit_EditRecordMVC.aspx.cs">
+      <DependentUpon>BizForm_Edit_EditRecordMVC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\BizForms\Tools\BizForm_Edit_EditRecordMVC.aspx.designer.cs">
+      <DependentUpon>BizForm_Edit_EditRecordMVC.aspx</DependentUpon>
     </Compile>
     <Compile Include="CMSModules\BizForms\Tools\BizForm_Edit_FormBuilderMVC.aspx.cs">
       <DependentUpon>BizForm_Edit_FormBuilderMVC.aspx</DependentUpon>
@@ -7367,20 +7484,6 @@
     </Compile>
     <Compile Include="CMSModules\Forums\Controls\Subscriptions\UserSubscriptionList.ascx.designer.cs">
       <DependentUpon>UserSubscriptionList.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Footer.aspx.cs">
-      <DependentUpon>MessageUserSelector_Footer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Footer.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_Footer.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Footer.aspx.cs">
-      <DependentUpon>MessageUserSelector_Footer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Footer.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_Footer.aspx</DependentUpon>
     </Compile>
     <Compile Include="CMSModules\Newsletters\Controls\VariantMailout.ascx.cs">
       <DependentUpon>VariantMailout.ascx</DependentUpon>
@@ -10470,13 +10573,6 @@
     <Compile Include="CMSModules\Membership\Pages\Users\User_Edit_Add_Item_Dialog.aspx.designer.cs">
       <DependentUpon>User_Edit_Add_Item_Dialog.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\MessageMenu.ascx.cs">
-      <DependentUpon>MessageMenu.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\MessageMenu.ascx.designer.cs">
-      <DependentUpon>MessageMenu.ascx</DependentUpon>
-    </Compile>
     <Compile Include="CMSModules\MyDesk\MyProfile\MyProfile_Categories.aspx.cs">
       <DependentUpon>MyProfile_Categories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -12924,84 +13020,6 @@
     <Compile Include="CMSModules\MessageBoards\Tools\Messages\Message_List.aspx.designer.cs">
       <DependentUpon>Message_List.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_ContactList.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_ContactList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Frameset.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_Frameset.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Header.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_Header.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Search.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_Search.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\PublicMessageUserSelector.aspx.designer.cs">
-      <DependentUpon>PublicMessageUserSelector.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\SendMessage.aspx.designer.cs">
-      <DependentUpon>SendMessage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\ContactIgnoreSearchBox.ascx.designer.cs">
-      <DependentUpon>ContactIgnoreSearchBox.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\ContactList.ascx.designer.cs">
-      <DependentUpon>ContactList.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\IgnoreList.ascx.designer.cs">
-      <DependentUpon>IgnoreList.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\Inbox.ascx.designer.cs">
-      <DependentUpon>Inbox.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\MessageUserButtons.ascx.designer.cs">
-      <DependentUpon>MessageUserButtons.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\MyMessages.ascx.designer.cs">
-      <DependentUpon>MyMessages.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\Outbox.ascx.designer.cs">
-      <DependentUpon>Outbox.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\SearchUser.ascx.designer.cs">
-      <DependentUpon>SearchUser.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\SelectFromContactList.ascx.designer.cs">
-      <DependentUpon>SelectFromContactList.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\SendMessage.ascx.designer.cs">
-      <DependentUpon>SendMessage.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\ViewMessage.ascx.designer.cs">
-      <DependentUpon>ViewMessage.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_ContactList.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_ContactList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Frameset.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_Frameset.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Header.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_Header.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Search.aspx.designer.cs">
-      <DependentUpon>MessageUserSelector_Search.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\FormControls\MessageUserSelector.ascx.designer.cs">
-      <DependentUpon>MessageUserSelector.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\MyMessages\MyMessages_ContactList.aspx.designer.cs">
-      <DependentUpon>MyMessages_ContactList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\MyMessages\MyMessages_IgnoreList.aspx.designer.cs">
-      <DependentUpon>MyMessages_IgnoreList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\MyMessages\MyMessages_Inbox.aspx.designer.cs">
-      <DependentUpon>MyMessages_Inbox.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\MyMessages\MyMessages_Outbox.aspx.designer.cs">
-      <DependentUpon>MyMessages_Outbox.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CMSModules\Newsletters\CMSPages\SubscriptionApproval.aspx.cs">
       <DependentUpon>SubscriptionApproval.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -14503,6 +14521,27 @@
     <Compile Include="CMSTemplates\BlankSiteASPX\root.aspx.designer.cs">
       <DependentUpon>root.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\HomeASPX.aspx.cs">
+      <DependentUpon>HomeASPX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\HomeASPX.aspx.designer.cs">
+      <DependentUpon>HomeASPX.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\HomeMixed.aspx.cs">
+      <DependentUpon>HomeMixed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\HomeMixed.aspx.designer.cs">
+      <DependentUpon>HomeMixed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\Root.master.cs">
+      <DependentUpon>Root.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\Root.master.designer.cs">
+      <DependentUpon>Root.master</DependentUpon>
+    </Compile>
     <Compile Include="CMSWebParts\AbuseReport\AbuseReport.ascx.designer.cs">
       <DependentUpon>AbuseReport.ascx</DependentUpon>
     </Compile>
@@ -15575,27 +15614,6 @@
     </Compile>
     <Compile Include="CMSWebParts\MessageBoards\Syndication\MessageBoardRSSFeed.ascx.designer.cs">
       <DependentUpon>MessageBoardRSSFeed.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\ContactList.ascx.designer.cs">
-      <DependentUpon>ContactList.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\IgnoreList.ascx.designer.cs">
-      <DependentUpon>IgnoreList.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\Inbox.ascx.designer.cs">
-      <DependentUpon>Inbox.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\MessagingInfoPanel.ascx.designer.cs">
-      <DependentUpon>MessagingInfoPanel.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\MyMessages.ascx.designer.cs">
-      <DependentUpon>MyMessages.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\Outbox.ascx.designer.cs">
-      <DependentUpon>Outbox.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\SendMessage.ascx.designer.cs">
-      <DependentUpon>SendMessage.ascx</DependentUpon>
     </Compile>
     <Compile Include="CMSWebParts\Navigation\cmsbreadcrumbs.ascx.designer.cs">
       <DependentUpon>cmsbreadcrumbs.ascx</DependentUpon>
@@ -18856,110 +18874,6 @@
       <DependentUpon>Message_List.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_ContactList.aspx.cs">
-      <DependentUpon>MessageUserSelector_ContactList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Frameset.aspx.cs">
-      <DependentUpon>MessageUserSelector_Frameset.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Header.aspx.cs">
-      <DependentUpon>MessageUserSelector_Header.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\MessageUserSelector_Search.aspx.cs">
-      <DependentUpon>MessageUserSelector_Search.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\PublicMessageUserSelector.aspx.cs">
-      <DependentUpon>PublicMessageUserSelector.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\CMSPages\SendMessage.aspx.cs">
-      <DependentUpon>SendMessage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\ContactIgnoreSearchBox.ascx.cs">
-      <DependentUpon>ContactIgnoreSearchBox.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\ContactList.ascx.cs">
-      <DependentUpon>ContactList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\IgnoreList.ascx.cs">
-      <DependentUpon>IgnoreList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\Inbox.ascx.cs">
-      <DependentUpon>Inbox.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\MessageUserButtons.ascx.cs">
-      <DependentUpon>MessageUserButtons.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\MyMessages.ascx.cs">
-      <DependentUpon>MyMessages.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\Outbox.ascx.cs">
-      <DependentUpon>Outbox.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\SearchUser.ascx.cs">
-      <DependentUpon>SearchUser.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\SelectFromContactList.ascx.cs">
-      <DependentUpon>SelectFromContactList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\SendMessage.ascx.cs">
-      <DependentUpon>SendMessage.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Controls\ViewMessage.ascx.cs">
-      <DependentUpon>ViewMessage.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_ContactList.aspx.cs">
-      <DependentUpon>MessageUserSelector_ContactList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Frameset.aspx.cs">
-      <DependentUpon>MessageUserSelector_Frameset.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Header.aspx.cs">
-      <DependentUpon>MessageUserSelector_Header.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\Dialogs\MessageUserSelector_Search.aspx.cs">
-      <DependentUpon>MessageUserSelector_Search.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\FormControls\MessageUserSelector.ascx.cs">
-      <DependentUpon>MessageUserSelector.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\MyMessages\MyMessages_ContactList.aspx.cs">
-      <DependentUpon>MyMessages_ContactList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\MyMessages\MyMessages_IgnoreList.aspx.cs">
-      <DependentUpon>MyMessages_IgnoreList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\MyMessages\MyMessages_Inbox.aspx.cs">
-      <DependentUpon>MyMessages_Inbox.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Messaging\MyMessages\MyMessages_Outbox.aspx.cs">
-      <DependentUpon>MyMessages_Outbox.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="CMSModules\Newsletters\CMSPages\Unsubscribe.aspx.cs">
       <DependentUpon>Unsubscribe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -20468,34 +20382,6 @@
       <DependentUpon>MessageBoardRSSFeed.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CMSWebParts\Messaging\ContactList.ascx.cs">
-      <DependentUpon>ContactList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\IgnoreList.ascx.cs">
-      <DependentUpon>IgnoreList.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\Inbox.ascx.cs">
-      <DependentUpon>Inbox.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\MessagingInfoPanel.ascx.cs">
-      <DependentUpon>MessagingInfoPanel.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\MyMessages.ascx.cs">
-      <DependentUpon>MyMessages.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\Outbox.ascx.cs">
-      <DependentUpon>Outbox.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSWebParts\Messaging\SendMessage.ascx.cs">
-      <DependentUpon>SendMessage.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="CMSWebParts\Navigation\cmsbreadcrumbs.ascx.cs">
       <DependentUpon>cmsbreadcrumbs.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -21256,7 +21142,6 @@
     <Content Include="CMSModules\MediaLibrary\CMSPages\MetaDataEditor.aspx" />
     <Content Include="CMSModules\MediaLibrary\Controls\MediaLibrary\MediaFileMetaDataEditor.ascx" />
     <Content Include="CMSModules\Membership\Controls\Users\UserFilter.ascx" />
-    <Content Include="CMSModules\Messaging\Controls\MessageMenu.ascx" />
     <Content Include="CMSModules\Newsletters\Tools\Newsletters\Newsletter_Issue_SubscribersClicks.aspx" />
     <Content Include="CMSModules\Newsletters\Tools\Newsletters\Newsletter_Issue_TrackedLinks.aspx" />
     <Content Include="CMSModules\OnlineMarketing\Controls\UI\ABTest\Edit.ascx" />
@@ -21596,6 +21481,13 @@
     <Content Include="CMSScripts\Underscore\underscore-min.map" />
     <Content Include="CMSModules\Chat\web.config" />
     <Content Include="CMSTemplates\BlankSiteASPX\Blank.master" />
+    <Content Include="CMSTemplates\CorporateSite\Root.master" />
+    <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.eot" />
+    <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.ttf" />
+    <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.woff" />
+    <Content Include="EcommerceSite\media\PTSansFont\PTSansRegular.eot" />
+    <Content Include="EcommerceSite\media\PTSansFont\PTSansRegular.ttf" />
+    <Content Include="EcommerceSite\media\PTSansFont\PTSansRegular.woff" />
     <Content Include="CMSScripts\CMSModules\CMS.ContactManagement\ContactProfile\app.config.json" />
     <Content Include="CMSScripts\CMSModules\CMS.ContactManagement\ContactProfile\build.localization.json" />
     <Content Include="CMSScripts\CMSModules\CMS.ContactManagement\ContactProfile\app\shared\cms.application.service.js" />
@@ -21650,7 +21542,9 @@
     <Content Include="CMSModules\Membership\web.config" />
     <Content Include="CMSModules\PortalEngine\UI\PageTemplates\ASPX\Template.master" />
     <Content Include="CMSModules\PortalEngine\web.config" />
-    <Content Include="CMSModules\web.config" />
+    <Content Include="CMSModules\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="CMSModules\Widgets\web.config" />
     <Content Include="RESTService.svc" />
     <Content Include="wse3policy.config" />
@@ -21688,6 +21582,10 @@
     </Reference>
     <Reference Include="CMS.ApplicationDashboard.Web.UI, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
       <HintPath>..\Lib\CMS.ApplicationDashboard.Web.UI.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="CMS.AspNet.Platform, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
+      <HintPath>..\Lib\CMS.AspNet.Platform.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="CMS.Automation, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
@@ -21998,10 +21896,6 @@
       <HintPath>..\Lib\CMS.MessageBoards.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="CMS.Messaging, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
-      <HintPath>..\Lib\CMS.Messaging.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="CMS.Modules, Version=12.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9">
       <HintPath>..\Lib\CMS.Modules.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
@@ -22183,6 +22077,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\CMSModules\WebAnalytics\MaxMind\" />
+    <Folder Include="CorporateSite\media\VideoGallery\__thumbnails\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -22223,10 +22118,8 @@
   <PropertyGroup>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>
-      xcopy "$(ProjectDir)..\Lib\*" "$(TargetDir)" /y /r
-      xcopy "$(ProjectDir)..\Lib\Azure\*" "$(TargetDir)" /y /r
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy "$(ProjectDir)..\Lib\*" "$(TargetDir)" /y /r
+</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PipelineCollectFilesPhaseDependsOn>

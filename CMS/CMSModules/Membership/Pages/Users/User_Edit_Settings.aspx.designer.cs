@@ -138,15 +138,6 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_Settings {
     protected global::System.Web.UI.WebControls.Label lblMessageNotifEmail;
     
     /// <summary>
-    /// txtMessageNotifEmail control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::CMSFormControls_Inputs_EmailInput txtMessageNotifEmail;
-    
-    /// <summary>
     /// lblTimeZone control.
     /// </summary>
     /// <remarks>

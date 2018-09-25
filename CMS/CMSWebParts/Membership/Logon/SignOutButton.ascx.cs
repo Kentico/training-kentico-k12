@@ -197,7 +197,7 @@ public partial class CMSWebParts_Membership_Logon_SignOutButton : CMSAbstractWeb
             if (!MembershipContext.AuthenticatedUser.IsPublic())
             {
                 // Hide for windows authentication
-                if (RequestHelper.IsWindowsAuthentication())
+                if (AuthenticationMode.IsWindowsAuthentication())
                 {
                     Visible = false;
                 }

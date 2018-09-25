@@ -143,7 +143,7 @@ namespace CMSApp.CMSAdminControls.UI.UniGrid.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            QueryHelper.ValidateHash("hash", settings: new HashSettings { Redirect = true });
+            QueryHelper.ValidateHash("hash", settings: new HashSettings("") { Redirect = true });
 
             if (RequestHelper.IsCallback() || !InitializeProperties())
             {

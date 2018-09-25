@@ -3178,5 +3178,10 @@
             Gets the coupon code.
             </summary>
         </member>
+        <member name="P:CMS.Ecommerce.Web.UI.CouponCodeViewModel.IsApplied">
+            <summary>
+            Indicates that the coupon code is applied.
+            </summary>
+        </member>
     </members>
 </doc>

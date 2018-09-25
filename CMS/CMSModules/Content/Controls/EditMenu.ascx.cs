@@ -1442,18 +1442,18 @@ refTimerId_", ClientID, @" = setInterval('RfMenu_", ClientID, "()', 200);");
                     else
                     {
                         string refreshScript = null;
-                        string tab = "Page";
+                        string elementName = DocumentUIHelper.GetPageTabElementName(node);
 
                         // If not menu item type nor EditLive view mode, switch to form mode to keep editing the form
                         if (!TreePathUtils.IsMenuItemType(node.NodeClassName) && (PortalContext.ViewMode != ViewModeEnum.EditLive))
                         {
-                            refreshScript = String.Format("SetMode('{0}', true);", ViewModeEnum.EditForm);
+                            refreshScript = $"SetMode('{ViewModeEnum.EditForm}', true);";
 
                             PortalContext.ViewMode = ViewModeEnum.EditForm;
-                            tab = "EditForm";
+                            elementName = "EditForm";
                         }
 
-                        refreshScript += String.Format("RefreshTree({0}, {0}); SelectNode({0}, null, '{1}');", node.NodeID, tab);
+                        refreshScript += $"RefreshTree({node.NodeID}, {node.NodeID}); SelectNode({node.NodeID}, null, '{elementName}');";
 
                         // Document tree is refreshed and new document is displayed
                         AddScript(refreshScript);

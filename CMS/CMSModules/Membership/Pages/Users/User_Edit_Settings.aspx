@@ -65,14 +65,6 @@
             </div>
             <div class="form-group">
                 <div class="editing-form-label-cell">
-                    <asp:Label AssociatedControlID="txtMessageNotifEmail" CssClass="control-label" ID="lblMessageNotifEmail" runat="server" EnableViewState="false" />
-                </div>
-                <div class="editing-form-value-cell">
-                    <cms:EmailInput ID="txtMessageNotifEmail" runat="server" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="editing-form-label-cell">
                     <asp:Label AssociatedControlID="timeZone" CssClass="control-label" ID="lblTimeZone" runat="server" EnableViewState="false" />
                 </div>
                 <div class="editing-form-value-cell">

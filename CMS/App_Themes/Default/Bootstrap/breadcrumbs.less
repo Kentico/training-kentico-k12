@@ -2,6 +2,15 @@
 // Breadcrumbs
 // --------------------------------------------------
 
+// Kentico logo within the breadcrumb
+.cms-navbar {
+    .icon-kentico {
+        background-color: #F05A22;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
 
 .breadcrumb {
     padding: @base-unit * 0.75 @base-unit;
@@ -27,69 +36,64 @@
     }
 }
 
-    // CMS breadcrumbs starts with logo without a breadcrumb divider
-    .breadcrumb.cms-nav-breadcrumb {
-        padding: 0;
-        color: @navbar-inverse-color;
-        background: @color-gray-50;
+// CMS breadcrumbs starts with logo without a breadcrumb divider
+.breadcrumb.cms-nav-breadcrumb {
+    padding: 0;
+    color: @navbar-inverse-color;
+    background: @color-gray-50;
+    font-size: 0;
 
-        > li {
-            &:before {
-                color: @dark-bg-icon-color;
-            }
+    > li {
+        font-size: @font-size-base;
 
-            &.no-ico:before {
-                content: none;
-            }
-
-            &.breadcrumb-last span {
-                color: @color-gray-100;
-            }
-        }
-
-        a {
-            color: @navbar-inverse-link-color;
-        }
-        // Kentico logo within the breadcrumb
-        .icon-kentico {
-            vertical-align: middle;
-            padding-right: @base-unit * 0.625; // ~10px
-            text-decoration: none;
-            color: @navbar-inverse-icon-color;
-            display: inline-block;
-        }
-        // Breadcrumbs shortening
-        > li.ico-after:after {
-            font-family: @icon-font-name;
-            content: @icon-chevron-right; // ">"
-            .cms-icon-50;
-            margin: 0 @base-unit * 0.25;
-            text-align: center;
+        &:before {
             color: @dark-bg-icon-color;
         }
 
-        > li.dropdown {
-            .dropdown-toggle {
-                display: inline-block;
-
-                &:hover {
-                    background: @color-gray-70;
-                }
-            }
-
-            &.open {
-                .dropdown-toggle {
-                    background: @color-gray-70;
-                }
-            }
+        &.no-ico:before {
+            content: none;
         }
 
-        .icon-ellipsis {
-            font-size: @base-unit;
-            padding: @base-unit (@base-unit * 0.25);
-            text-align: center;
+        &.breadcrumb-last span {
+            color: @color-gray-100;
         }
     }
+
+    a {
+        color: @navbar-inverse-link-color;
+    }
+    // Breadcrumbs shortening
+    > li.ico-after:after {
+        font-family: @icon-font-name;
+        content: @icon-chevron-right; // ">"
+        .cms-icon-50;
+        margin: 0 @base-unit * 0.25;
+        text-align: center;
+        color: @dark-bg-icon-color;
+    }
+
+    > li.dropdown {
+        .dropdown-toggle {
+            display: inline-block;
+
+            &:hover {
+                background: @color-gray-70;
+            }
+        }
+
+        &.open {
+            .dropdown-toggle {
+                background: @color-gray-70;
+            }
+        }
+    }
+
+    .icon-ellipsis {
+        font-size: @base-unit;
+        padding: @base-unit (@base-unit * 0.25);
+        text-align: center;
+    }
+}
 
 // Breadcrumbs in dialog
 .breadcrumbs-dialog {

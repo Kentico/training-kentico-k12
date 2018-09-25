@@ -80,7 +80,7 @@ public partial class CMSModules_DocumentTypes_Pages_Development_DocumentType_Edi
         if (DialogMode)
         {
             // Check hash
-            if (!ValidationHelper.ValidateHash("?editonlycode=1", QueryHelper.GetString("hash", String.Empty)))
+            if (!ValidationHelper.ValidateHash("?editonlycode=1", QueryHelper.GetString("hash", String.Empty), new HashSettings("")))
             {
                 URLHelper.Redirect(AdministrationUrlHelper.GetErrorPageUrl("dialogs.badhashtitle", "dialogs.badhashtext"));
             }

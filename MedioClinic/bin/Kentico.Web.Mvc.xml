@@ -1,0 +1,709 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kentico.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Kentico.Web.Mvc.ApplicationBootstrapper">
+            <summary>
+            Initializes Kentico integration with ASP.NET MVC. This class is for internal use only.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ApplicationBootstrapper.Run">
+            <summary>
+            Runs the bootstrapper process.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.ApplicationBuilder">
+            <summary>
+            Configures the request pipeline using Kentico ASP.NET MVC integration features.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ApplicationBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.ApplicationBuilder"/> class.
+            </summary>
+        </member>
+        <member name="P:Kentico.Web.Mvc.ApplicationBuilder.Current">
+            <summary>
+            Gets the current application builder.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.ApplicationBuilderExtensions">
+            <summary>
+            Provides extension methods related to Kentico ASP.NET MVC integration features.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ApplicationBuilderExtensions.UseDataAnnotationsLocalization(Kentico.Web.Mvc.IApplicationBuilder)">
+            <summary>
+            Enables localization of ASP.NET model meta-data based on data annotation attributes.
+            Display names or validation results declared with data annotation attributes can contain keys of Kentico resource strings that will be resolved automatically using Kentico localization API.
+            The localization uses a custom model metadata provider based on data annotations and is therefore not compatible with other providers or their customizations.
+            </summary>
+            <param name="builder">The application builder.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ApplicationBuilderExtensions.UseResourceSharingWithAdministration(Kentico.Web.Mvc.IApplicationBuilder)">
+            <summary>
+            When request is sent from administration domain of the site, 
+            adds header Access-Control-Allow-Origin into response to enable cross origin resource sharing (CORS) with the administration.
+            </summary>
+            <param name="builder">The application builder.</param>
+        </member>
+        <member name="T:Kentico.Web.Mvc.CrossOriginResourceSharingWithCurrentSiteModule">
+            <summary>
+            Module enabling cross origin resource sharing (CORS) with domains bound to current site.
+            When request is sent from current site's domain, adds Access-Control-Allow-Origin header into response to enable CORS.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.CrossOriginResourceSharingWithCurrentSiteModule.Initialize">
+            <summary>
+            Initializes a module and prepares it to handle requests.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.CrossOriginResourceSharingWithCurrentSiteModule.SetHeaderToAllowCurrentSiteOrigin(System.Web.HttpContextBase)">
+            <summary>
+            Sets response header Access-Control-Allow-Origin if request Origin is current site
+            </summary>
+            <param name="httpContext">HTTP context</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.CrossOriginResourceSharingWithCurrentSiteModule.IsCurrentSiteOrigin(System.String)">
+            <summary>
+            Finds out if the <paramref name="requestOrigin"/> (URI) belongs to current site's administration
+            so the request origin can be considered as trusted.
+            </summary>
+            <param name="requestOrigin">URI of the request origin</param>
+            <returns>True, if the requestHeaders origin domain is one of current site's domains</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.CrossOriginResourceSharingWithCurrentSiteModule.SetAccessControlAllowOriginHeader(System.Web.HttpResponseBase,System.String)">
+            <summary>
+            If the Access-Control-Allow-Origin header is not present, it is added and set to given <paramref name="origin"/>. 
+            In case the header is already set, it is replaced by given <paramref name="origin"/>.
+            </summary>
+            <param name="response">Response where the header will be set</param>
+            <param name="origin">Origin URI as the value of the header</param>
+            <remarks>
+            Adding another origin when the header is already set will not work, browsers won't accept the response.
+            Having allowed origin different than request origin is useless. Therefore is in that case the header value replaced by <paramref name="origin"/>
+            </remarks>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedCompareAttributeAdapter">
+            <summary>
+            Provides an adapter for the <see cref="T:System.ComponentModel.DataAnnotations.CompareAttribute"/> attribute that localizes error messages in validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedCompareAttributeAdapter.#ctor(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext,System.ComponentModel.DataAnnotations.CompareAttribute)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.LocalizedCompareAttributeAdapter"/> class.
+            </summary>
+            <param name="metadata">The model metadata.</param>
+            <param name="context">The controller context.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.CompareAttribute"/> attribute.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedCompareAttributeAdapter.Validate(System.Object)">
+            <summary>
+            Retrieves a collection of localized validation errors for the model and returns it.
+            </summary>
+            <param name="container">The container for the model.</param>
+            <returns>A collection of localized validation errors for the model, or an empty collection if no errors have occurred.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedCompareAttributeAdapter.GetClientValidationRules">
+            <summary>
+            Retrieves a collection of localized client validation rules for the model and returns it.
+            </summary>
+            <returns>A collection of localized client validation rules for the model.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedCompareAttributeAdapter.FormatPropertyForClientValidation(System.String)">
+            <summary>
+            Formats the property for client validation by prepending an asterisk (*) and a dot.
+            </summary>
+            <returns>The string "*." is prepended to the property.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.EmbeddiedViewAssembly">
+            <summary>
+            Holds information about <see cref="T:Kentico.Web.Mvc.EmbeddedView"/>s in assembly.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.EmbeddedViewAssemblyAttribute">
+            <summary>
+            Holds information about embedded views in assembly.
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+        </member>
+        <member name="P:Kentico.Web.Mvc.EmbeddedViewAssemblyAttribute.ViewPaths">
+            <summary>
+            List of view paths
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.EmbeddedViewAssemblyAttribute.#ctor(System.String[])">
+            <summary>
+            Creates new instance of <see cref="T:Kentico.Web.Mvc.EmbeddedViewAssemblyAttribute"/>.
+            </summary>
+            <param name="viewPaths">View paths</param>
+        </member>
+        <member name="T:Kentico.Web.Mvc.EmbeddedViewBootstrapper">
+            <summary>
+            Ensures initialization of view engine used for embedded system views.
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+        </member>
+        <member name="M:Kentico.Web.Mvc.EmbeddedViewBootstrapper.Register">
+            <summary>
+            Registers dynamic module with initialization routine.
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+        </member>
+        <member name="T:Kentico.Web.Mvc.EmbeddedViewLoader">
+            <summary>
+            Loads mapping information from assembly about view path and view type.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.EmbeddedViewMapping">
+            <summary>
+            Maps view relative path to view type
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.FeatureSet">
+            <summary>
+            Represents a set of features available for the current request.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.FeatureSet.SetFeature``1(``0)">
+            <summary>
+            Adds or replaces a feature of the specified type.
+            </summary>
+            <typeparam name="T">The type of the feature.</typeparam>
+            <param name="feature">The feature to add or replace.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.FeatureSet.GetFeature``1">
+            <summary>
+            Returns a feature of the specified type.
+            </summary>
+            <typeparam name="T">The type of the feature.</typeparam>
+            <returns>A feature of the specified type, if available; otherwise, null.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.FeatureSet.RemoveFeature``1">
+            <summary>
+            Removes a feature of the specified type.
+            </summary>
+            <typeparam name="T">The type of the feature.</typeparam>
+        </member>
+        <member name="T:Kentico.Web.Mvc.RouteCollectionAddRoutesMethods">
+            <summary>
+            Provides methods to add routes to Kentico HTTP handlers.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.RouteCollectionAddRoutesMethods.MapRoutes(Kentico.Web.Mvc.ExtensionPoint{System.Web.Routing.RouteCollection})">
+            <summary>
+            Adds routes to Kentico HTTP handlers.
+            </summary>
+            <param name="instance">The object that provides methods to add routes to Kentico HTTP handlers.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="instance"/> is null.</exception>
+        </member>
+        <member name="T:Kentico.Web.Mvc.AjaxHelperExtensions">
+            <summary>
+            Provides methods to render HTML fragments.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.AjaxHelperExtensions.Kentico(System.Web.Mvc.AjaxHelper)">
+            <summary>
+            Represents support for rendering HTML in AJAX scenarios within a view.
+            </summary>
+            <param name="target">An instance of the <see cref="T:System.Web.Mvc.AjaxHelper"/> class.</param>
+            <returns>An object that provides methods for rendering HTML in AJAX scenarios within a view..</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.IApplicationBuilder">
+            <summary>
+            Interface for configuring the request pipeline using Kentico ASP.NET MVC integration features.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.RouteCollectionExtensions">
+            <summary>
+            Provides methods to add routes to Kentico HTTP handlers.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.RouteCollectionExtensions.Kentico(System.Web.Routing.RouteCollection)">
+            <summary>
+            Returns an object that provides methods to add routes to Kentico HTTP handlers.
+            </summary>
+            <param name="target">An instance of the <see cref="T:System.Web.Routing.RouteCollection"/> class.</param>
+            <returns>An object that provides methods to add routes to Kentico HTTP handlers.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.HttpContextExtensions">
+            <summary>
+            Provides extension methods for the <see cref="T:System.Web.HttpContext"/> and <see cref="T:System.Web.HttpContextBase"/> classes.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.HttpContextExtensions.Kentico(System.Web.HttpContext)">
+            <summary>
+            Returns a feature set for the specified request.
+            </summary>
+            <param name="context">The object that encapsulates information about an HTTP request.</param>
+            <returns>A feature set for the specified request.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.HttpContextExtensions.Kentico(System.Web.HttpContextBase)">
+            <summary>
+            Returns a feature set for the specified request.
+            </summary>
+            <param name="context">The object that encapsulates information about an HTTP request.</param>
+            <returns>A feature set for the specified request.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizationHelper">
+            <summary>
+            Provides methods for localization of model validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizationHelper.LocalizeValidationResults(System.Collections.Generic.IEnumerable{System.Web.Mvc.ModelValidationResult},System.Object[])">
+            <summary>
+            Localizes the specified collection of validation errors and formats error messages using the string representation of a corresponding object in a specified array.
+            </summary>
+            <param name="results">A collection of validation errors.</param>
+            <param name="arguments">An object array that contains zero or more objects to format.</param>
+            <returns>A collection of localized validation errors.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizationHelper.LocalizeValidationRules(System.Collections.Generic.IEnumerable{System.Web.Mvc.ModelClientValidationRule},System.Object[])">
+            <summary>
+            Localizes the specified collection of client validation rules and formats error messages using the string representation of a corresponding object in a specified array.
+            </summary>
+            <param name="rules">A collection of client validation rules.</param>
+            <param name="arguments">An object array that contains zero or more objects to format.</param>
+            <returns>A collection of localized client validation rules.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedDataTypeAttributeAdapter">
+            <summary>
+            Provides an adapter for attributes derived from the <see cref="T:System.ComponentModel.DataAnnotations.DataTypeAttribute"/> attribute, e.g. Phone or EmailAddress, that localizes error messages in validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedDataTypeAttributeAdapter.#ctor(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext,System.ComponentModel.DataAnnotations.DataTypeAttribute,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.LocalizedDataTypeAttributeAdapter"/> class.
+            </summary>
+            <param name="metadata">The model metadata.</param>
+            <param name="context">The controller context.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.DataTypeAttribute"/> attribute.</param>
+            <param name="ruleName">The name of the client validation rule.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedDataTypeAttributeAdapter.Validate(System.Object)">
+            <summary>
+            Retrieves a collection of localized validation errors for the model and returns it.
+            </summary>
+            <param name="container">The container for the model.</param>
+            <returns>A collection of localized validation errors for the model, or an empty collection if no errors have occurred.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedDataTypeAttributeAdapter.GetClientValidationRules">
+            <summary>
+            Retrieves a collection of localized client validation rules for the model and returns it.
+            </summary>
+            <returns>A collection of localized client validation rules for the model.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedMaxLengthAttributeAdapter">
+            <summary>
+            Provides an adapter for the <see cref="T:System.ComponentModel.DataAnnotations.MaxLengthAttribute"/> attribute that localizes error messages in validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedMaxLengthAttributeAdapter.#ctor(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext,System.ComponentModel.DataAnnotations.MaxLengthAttribute)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.LocalizedMaxLengthAttributeAdapter"/> class.
+            </summary>
+            <param name="metadata">The model metadata.</param>
+            <param name="context">The controller context.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.MaxLengthAttribute"/> attribute.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedMaxLengthAttributeAdapter.Validate(System.Object)">
+            <summary>
+            Retrieves a collection of localized validation errors for the model and returns it.
+            </summary>
+            <param name="container">The container for the model.</param>
+            <returns>A collection of localized validation errors for the model, or an empty collection if no errors have occurred.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedMaxLengthAttributeAdapter.GetClientValidationRules">
+            <summary>
+            Retrieves a collection of localized client validation rules for the model and returns it.
+            </summary>
+            <returns>A collection of localized client validation rules for the model.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedMinLengthAttributeAdapter">
+            <summary>
+            Provides an adapter for the <see cref="T:System.ComponentModel.DataAnnotations.MinLengthAttribute"/> attribute that localizes error messages in validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedMinLengthAttributeAdapter.#ctor(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext,System.ComponentModel.DataAnnotations.MinLengthAttribute)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.LocalizedMinLengthAttributeAdapter"/> class.
+            </summary>
+            <param name="metadata">The model metadata.</param>
+            <param name="context">The controller context.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.MinLengthAttribute"/> attribute.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedMinLengthAttributeAdapter.Validate(System.Object)">
+            <summary>
+            Retrieves a collection of localized validation errors for the model and returns it.
+            </summary>
+            <param name="container">The container for the model.</param>
+            <returns>A collection of localized validation errors for the model, or an empty collection if no errors have occurred.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedMinLengthAttributeAdapter.GetClientValidationRules">
+            <summary>
+            Retrieves a collection of localized client validation rules for the model and returns it.
+            </summary>
+            <returns>A collection of localized client validation rules for the model.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedDataAnnotationsModelMetadataProvider">
+            <summary>
+            Localizes model metadata that come from <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> and <see cref="T:System.ComponentModel.DisplayNameAttribute"/> data annotation attributes.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedDataAnnotationsModelMetadataProvider.CreateMetadata(System.Collections.Generic.IEnumerable{System.Attribute},System.Type,System.Func{System.Object},System.Type,System.String)">
+            <summary>
+            Gets the localized metadata for the specified property.
+            </summary>
+            <param name="attributes">The attributes.</param>
+            <param name="containerType">The type of the container.</param>
+            <param name="modelAccessor">The model accessor.</param>
+            <param name="modelType">The type of the model.</param>
+            <param name="propertyName">The name of the property.</param>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedRangeAttributeAdapter">
+            <summary>
+            Provides an adapter for the <see cref="T:System.ComponentModel.DataAnnotations.RangeAttribute"/> attribute that localizes error messages in validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRangeAttributeAdapter.#ctor(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext,System.ComponentModel.DataAnnotations.RangeAttribute)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.LocalizedRangeAttributeAdapter"/> class.
+            </summary>
+            <param name="metadata">The model metadata.</param>
+            <param name="context">The controller context.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.RangeAttribute"/> attribute.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRangeAttributeAdapter.Validate(System.Object)">
+            <summary>
+            Retrieves a collection of localized validation errors for the model and returns it.
+            </summary>
+            <param name="container">The container for the model.</param>
+            <returns>A collection of localized validation errors for the model, or an empty collection if no errors have occurred.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRangeAttributeAdapter.GetClientValidationRules">
+            <summary>
+            Retrieves a collection of localized client validation rules for the model and returns it.
+            </summary>
+            <returns>A collection of localized client validation rules for the model.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedRegularExpressionAttributeAdapter">
+            <summary>
+            Provides an adapter for the <see cref="T:System.ComponentModel.DataAnnotations.RegularExpressionAttribute"/> attribute that localizes error messages in validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRegularExpressionAttributeAdapter.#ctor(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext,System.ComponentModel.DataAnnotations.RegularExpressionAttribute)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.LocalizedRegularExpressionAttributeAdapter"/> class.
+            </summary>
+            <param name="metadata">The model metadata.</param>
+            <param name="context">The controller context.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.RegularExpressionAttribute"/> attribute.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRegularExpressionAttributeAdapter.Validate(System.Object)">
+            <summary>
+            Retrieves a collection of localized validation errors for the model and returns it.
+            </summary>
+            <param name="container">The container for the model.</param>
+            <returns>A collection of localized validation errors for the model, or an empty collection if no errors have occurred.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRegularExpressionAttributeAdapter.GetClientValidationRules">
+            <summary>
+            Retrieves a collection of localized client validation rules for the model and returns it.
+            </summary>
+            <returns>A collection of localized client validation rules for the model.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedRequiredAttributeAdapter">
+            <summary>
+            Provides an adapter for the <see cref="T:System.ComponentModel.DataAnnotations.RequiredAttribute"/> attribute that localizes error messages in validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRequiredAttributeAdapter.#ctor(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext,System.ComponentModel.DataAnnotations.RequiredAttribute)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.LocalizedRequiredAttributeAdapter"/> class.
+            </summary>
+            <param name="metadata">The model metadata.</param>
+            <param name="context">The controller context.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.RequiredAttribute"/> attribute.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRequiredAttributeAdapter.Validate(System.Object)">
+            <summary>
+            Retrieves a collection of localized validation errors for the model and returns it.
+            </summary>
+            <param name="container">The container for the model.</param>
+            <returns>A collection of localized validation errors for the model, or an empty collection if no errors have occurred.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedRequiredAttributeAdapter.GetClientValidationRules">
+            <summary>
+            Retrieves a collection of localized client validation rules for the model and returns it.
+            </summary>
+            <returns>A collection of localized client validation rules for the model.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.LocalizedStringLengthAttributeAdapter">
+            <summary>
+            Provides an adapter for the <see cref="T:System.ComponentModel.DataAnnotations.StringLengthAttribute"/> attribute that localizes error messages in validation errors and client validation rules.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedStringLengthAttributeAdapter.#ctor(System.Web.Mvc.ModelMetadata,System.Web.Mvc.ControllerContext,System.ComponentModel.DataAnnotations.StringLengthAttribute)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.LocalizedStringLengthAttributeAdapter"/> class.
+            </summary>
+            <param name="metadata">The model metadata.</param>
+            <param name="context">The controller context.</param>
+            <param name="attribute">The <see cref="T:System.ComponentModel.DataAnnotations.StringLengthAttribute"/> attribute.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedStringLengthAttributeAdapter.Validate(System.Object)">
+            <summary>
+            Retrieves a collection of localized validation errors for the model and returns it.
+            </summary>
+            <param name="container">The container for the model.</param>
+            <returns>A collection of localized validation errors for the model, or an empty collection if no errors have occurred.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.LocalizedStringLengthAttributeAdapter.GetClientValidationRules">
+            <summary>
+            Retrieves a collection of localized client validation rules for the model and returns it.
+            </summary>
+            <returns>A collection of localized client validation rules for the model.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.IFeatureSet">
+            <summary>
+            Represents a set of features available for the current request.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.IFeatureSet.SetFeature``1(``0)">
+            <summary>
+            Adds or replaces a feature of the specified type.
+            </summary>
+            <typeparam name="T">The type of the feature.</typeparam>
+            <param name="feature">The feature to add or replace.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.IFeatureSet.GetFeature``1">
+            <summary>
+            Returns a feature of the specified type.
+            </summary>
+            <typeparam name="T">The type of the feature.</typeparam>
+            <returns>A feature of the specified type, if available; otherwise, null.</returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.IFeatureSet.RemoveFeature``1">
+            <summary>
+            Removes a feature of the specified type.
+            </summary>
+            <typeparam name="T">The type of the feature.</typeparam>
+        </member>
+        <member name="T:Kentico.Web.Mvc.HtmlHelperExtensions">
+            <summary>
+            Provides methods to render HTML fragments.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.HtmlHelperExtensions.Kentico(System.Web.Mvc.HtmlHelper)">
+            <summary>
+            Returns an object that provides methods to render HTML fragments.
+            </summary>
+            <param name="target">An instance of the <see cref="T:System.Web.Mvc.HtmlHelper"/> class.</param>
+            <returns>An object that provides methods to render HTML fragments.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.ExtensionPoint`1">
+            <summary>
+            Represents a point for extension methods.
+            </summary>
+            <typeparam name="T">The type of the class that is a target of extension methods.</typeparam>
+        </member>
+        <member name="P:Kentico.Web.Mvc.ExtensionPoint`1.Target">
+            <summary>
+            Instance of class that is a target of extension methods.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.HtmlHelperResolveUrlsMethods">
+            <summary>
+            Provides methods to resolve relative URLs in HTML fragments.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.HtmlHelperResolveUrlsMethods.ResolveUrls(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper},System.String)">
+            <summary>
+            Resolves relative URLs in the HTML fragment so that they can be used by the browser.
+            </summary>
+            <param name="instance">The object that provides methods to render HTML fragments.</param>
+            <param name="html">An HTML fragment with potential relative URLs.</param>
+            <returns>An HTML fragment where relative URLs are replaced with URLs that can be used by the browser.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="instance"/> is null.</exception>
+        </member>
+        <member name="T:Kentico.Web.Mvc.RouteHandlerWrapper`1">
+            <summary>
+            Enable classes implementing <see cref="T:System.Web.IHttpHandler"/> interface to be used as <see cref="T:System.Web.Routing.IRouteHandler"/>.
+            </summary>
+            <typeparam name="THttpHandler">Class implementing <see cref="T:System.Web.IHttpHandler"/> interface.</typeparam>
+        </member>
+        <member name="M:Kentico.Web.Mvc.RouteHandlerWrapper`1.GetHttpHandler(System.Web.Routing.RequestContext)">
+            <summary>
+            Retrieves an instance of class implementing <see cref="T:System.Web.IHttpHandler"/> interface,
+            based on the type specified in the constructor.
+            </summary>
+            <param name="requestContext">An object that encapsulates information about the request.</param>
+            <returns>Returns class that can process a request.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.IScriptSection">
+            <summary>
+            Describes section capable of rendering html elements.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.IScriptSection.RegisterHtmlElement(System.String,System.Func{System.Object,System.Web.WebPages.HelperResult})">
+            <summary>
+            Adds a new HTML element to render with given <paramref name="key"/>.
+            </summary>
+            <param name="key">Element identifier.</param>
+            <param name="code">Element HTML code.</param>
+            <remarks>
+            The method ensures that only single HTML element with the same key is registered and rendered afterwards.
+            The elements are rendered and executed in order they are registered.
+            </remarks>
+        </member>
+        <member name="T:Kentico.Web.Mvc.ScriptManagerExtensions">
+            <summary>
+            Provides methods for working with scripts in partial views.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ScriptManagerExtensions.BeginScriptSection(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper})">
+            <summary>
+            Starts a new section that ensures the registered elements are rendered and executed in order they are defined.
+            </summary>
+            <param name="htmlHelper">HtmlHelper extension point.</param>
+            <remarks>To register some element, use method <see cref="M:Kentico.Web.Mvc.IScriptSection.RegisterHtmlElement(System.String,System.Func{System.Object,System.Web.WebPages.HelperResult})"/></remarks>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ScriptManagerExtensions.RegisterScriptManager(Kentico.Web.Mvc.ExtensionPoint{System.Web.Mvc.HtmlHelper})">
+            <summary>
+            Renders necessary javascript that allows using <see cref="T:Kentico.Web.Mvc.IScriptSection"/> in views.
+            </summary>
+            <param name="htmlHelper">HtmlHelper extension point.</param>
+        </member>
+        <member name="T:Kentico.Web.Mvc.ScriptSection">
+            <summary>
+            A class that ensures that registered elements are rendered and executed in order they are defined.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.ScriptSection.ScriptSectionItem">
+            <summary>
+            Represents a single item that is used inside the <see cref="T:Kentico.Web.Mvc.ScriptSection.ScriptSectionQueue"/>.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.ScriptSection.ScriptSectionQueue">
+            <summary>
+            Represents a queue of elements that have to be rendered within the <see cref="T:Kentico.Web.Mvc.ScriptSection"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ScriptSection.#ctor(System.IO.TextWriter)">
+            <summary>
+            Creates a new instance of <see cref="T:Kentico.Web.Mvc.ScriptSection"/>.
+            </summary>
+            <param name="writer">A text writer that is used to render the section.</param>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ScriptSection.RegisterHtmlElement(System.String,System.Func{System.Object,System.Web.WebPages.HelperResult})">
+            <summary>
+            Adds a new HTML element to render with given <paramref name="key"/>.
+            </summary>
+            <param name="key">Element identifier.</param>
+            <param name="code">Element HTML code.</param>
+            <remarks>
+            The method ensures that only single HTML element with the same key is registered and rendered afterwards.
+            The elements are rendered and executed in order they are registered.
+            </remarks>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ScriptSection.Dispose">
+            <summary>
+            Renders the items in queue.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.ScriptSection.RenderSection">
+            <summary>
+            Renders the items in queue.
+            </summary>
+        </member>
+        <member name="T:Kentico.Web.Mvc.UrlHelperExtensions">
+            <summary>
+            Provides methods to build URLs to Kentico content.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.UrlHelperExtensions.Kentico(System.Web.Mvc.UrlHelper)">
+            <summary>
+            Returns an object that provides methods to build URLs to Kentico content.
+            </summary>
+            <param name="target">An instance of the <see cref="T:System.Web.Mvc.UrlHelper"/> class.</param>
+            <returns>An object that provides methods to build URLs to Kentico content.</returns>
+        </member>
+        <member name="T:Kentico.Web.Mvc.IVirtualContextUrlProcessor">
+            <summary>
+            Defines methods for processing data from <see cref="T:CMS.Helpers.VirtualContext"/> URL.
+            </summary>
+            <seealso cref="T:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister"/>
+        </member>
+        <member name="M:Kentico.Web.Mvc.IVirtualContextUrlProcessor.ValidateAndInitializeVirtualContext(System.Web.HttpContextBase,System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Validates values obtained from URL and on success saves them into <see cref="T:CMS.Helpers.VirtualContext"/>.
+            Method is invoked after parsing URL containing <see cref="T:CMS.Helpers.VirtualContext"/> and collection containing values parsed from the URL is passed to this method.
+            </summary>
+            <param name="context">
+            Context in which the request is being handled. Can serve for redirecting the request after unsuccessful validation.
+            </param>
+            <param name="relativeFilePath">Relative path of the request, stripped off the part containing <see cref="T:CMS.Helpers.VirtualContext"/> data.</param>
+            <param name="valueCollection">Collection containing values parsed from the Url address.</param>
+            <returns>
+            Returns true if processor validated and on success saved the data from <see cref="T:CMS.Helpers.VirtualContext"/> URL, otherwise false.
+            In case processor handled the data from <see cref="T:CMS.Helpers.VirtualContext"/> URL, other processors registered in <see cref="T:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister"/>
+            will not have their <see cref="M:Kentico.Web.Mvc.IVirtualContextUrlProcessor.ValidateAndInitializeVirtualContext(System.Web.HttpContextBase,System.String,System.Collections.Specialized.NameValueCollection)"/> method invoked. 
+            </returns>
+        </member>
+        <member name="M:Kentico.Web.Mvc.IVirtualContextUrlProcessor.PostVirtualContextInitialization(System.Web.HttpContextBase)">
+            <summary>
+            Method is invoked after initializing <see cref="T:CMS.Helpers.VirtualContext"/> via <see cref="M:Kentico.Web.Mvc.IVirtualContextUrlProcessor.ValidateAndInitializeVirtualContext(System.Web.HttpContextBase,System.String,System.Collections.Specialized.NameValueCollection)"/>.
+            </summary>
+            <remarks>
+            Method is invoked even if different <see cref="T:Kentico.Web.Mvc.IVirtualContextUrlProcessor"/> handled the <see cref="T:CMS.Helpers.VirtualContext"/> URL via <see cref="M:Kentico.Web.Mvc.IVirtualContextUrlProcessor.ValidateAndInitializeVirtualContext(System.Web.HttpContextBase,System.String,System.Collections.Specialized.NameValueCollection)"/>.
+            Method is not invoked if <see cref="M:Kentico.Web.Mvc.IVirtualContextUrlProcessor.ValidateAndInitializeVirtualContext(System.Web.HttpContextBase,System.String,System.Collections.Specialized.NameValueCollection)"/> redirected the request or threw an exception.
+            </remarks>
+            <param name="context">Context in which the request is being handled.</param>
+        </member>
+        <member name="T:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister">
+            <summary>
+            Contains instances of <see cref="T:Kentico.Web.Mvc.IVirtualContextUrlProcessor"/>s used for handling <see cref="T:CMS.Helpers.VirtualContext"/> URLs
+            </summary>
+        </member>
+        <member name="F:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister.processors">
+            <summary>
+            List of processors added via <see cref="M:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister.Add(Kentico.Web.Mvc.IVirtualContextUrlProcessor)"/>.
+            </summary>
+        </member>
+        <member name="P:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister.Instance">
+            <summary>
+            Returns instance of the <see cref="T:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister"/>.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister"/>. 
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister.Initialize">
+            <summary>
+            Registers virtual context processing to the request pipeline.
+            </summary>
+        </member>
+        <member name="M:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister.Add(Kentico.Web.Mvc.IVirtualContextUrlProcessor)">
+            <summary>
+            Adds a processor for processing <see cref="T:CMS.Helpers.VirtualContext"/> URL.
+            </summary>
+            <param name="virtualContextProcessor">Processor to process data parsed from the <see cref="T:CMS.Helpers.VirtualContext"/> URL.</param>
+            <seealso cref="M:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister.Initialize"/>
+        </member>
+        <member name="M:Kentico.Web.Mvc.VirtualContextUrlProcessorsRegister.ProcessVirtualContextRequest(System.Web.HttpContextBase)">
+            <summary>
+            Processes every request to handle URLs containing <see cref="T:CMS.Helpers.VirtualContext"/>.
+            </summary>
+        </member>
+    </members>
+</doc>

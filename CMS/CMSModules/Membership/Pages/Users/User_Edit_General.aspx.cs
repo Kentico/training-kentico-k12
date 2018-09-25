@@ -414,7 +414,7 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_General : CMSUs
                     if (CurrentUserChangedUserName())
                     {
                         // Ensure that current user is not logged out if he changes his user name
-                        if (RequestHelper.IsFormsAuthentication())
+                        if (AuthenticationMode.IsFormsAuthentication())
                         {
                             FormsAuthentication.SetAuthCookie(ui.UserName, false);
 
@@ -727,6 +727,14 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_General : CMSUs
     /// </summary>
     protected void btnResetLogonAttempts_Click(object sender, EventArgs e)
     {
+        if (!CheckGlobalAdminEdit(ui))
+        {
+            plcTable.Visible = false;
+            ShowError(GetString("Administration-User_List.ErrorGlobalAdmin"));
+
+            return;
+        }
+
         // Check "modify" permission
         if (!CurrentUser.IsAuthorizedPerResource("CMS.Users", "Modify"))
         {
@@ -758,6 +766,14 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_General : CMSUs
     /// </summary>
     protected void btnExtendValidity_Click(object sender, EventArgs e)
     {
+        if (!CheckGlobalAdminEdit(ui))
+        {
+            plcTable.Visible = false;
+            ShowError(GetString("Administration-User_List.ErrorGlobalAdmin"));
+
+            return;
+        }
+
         // Check "modify" permission
         if (!CurrentUser.IsAuthorizedPerResource("CMS.Users", "Modify"))
         {
@@ -795,6 +811,14 @@ public partial class CMSModules_Membership_Pages_Users_User_Edit_General : CMSUs
     /// </summary>
     protected void btnResetToken_Click(object sender, EventArgs e)
     {
+        if (!CheckGlobalAdminEdit(ui))
+        {
+            plcTable.Visible = false;
+            ShowError(GetString("Administration-User_List.ErrorGlobalAdmin"));
+
+            return;
+        }
+
         // Check "modify" permission
         if (!CurrentUser.IsAuthorizedPerResource("CMS.Users", "Modify"))
         {

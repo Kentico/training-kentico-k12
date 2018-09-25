@@ -828,7 +828,7 @@ public partial class CMSAdminControls_ImageEditor_ImageEditor : CMSUserControl
         {
             // Add requirement for latest version of files for current document
             string newparams = "latestfordocid=" + documentId;
-            newparams += "&hash=" + ValidationHelper.GetHashString("d" + documentId);
+            newparams += "&hash=" + ValidationHelper.GetHashString("d" + documentId, new HashSettings(""));
 
             url += "&" + newparams;
         }

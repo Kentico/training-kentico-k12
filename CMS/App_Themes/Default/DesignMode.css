@@ -311,13 +311,11 @@ body.cms-bootstrap,
 }
 .cms-bootstrap .PortalContextMenu .ItemDisabled {
   cursor: not-allowed !important;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png) !important;
-  background-repeat: repeat !important;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px) !important;
 }
 .cms-bootstrap .PortalContextMenu .ItemDisabled:hover {
   background-color: inherit !important;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png) !important;
-  background-repeat: repeat !important;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px) !important;
 }
 .cms-bootstrap .PortalContextMenu.CPMenu {
   display: none;
@@ -1674,29 +1672,6 @@ fieldset .PageContent {
 .MassAction {
   clear: both;
   padding-top: 15px;
-}
-.MessagingDialog textarea {
-  width: 325px;
-  height: 130px;
-}
-.MessagingDialog .SendMessage {
-  padding: 20px 12px 15px;
-}
-.MessagingDialog .SubjectField {
-  width: 325px;
-}
-.MyMessages .SubjectField {
-  width: 98%;
-}
-.SubjectField {
-  width: 280px;
-}
-.MessagingBox .FieldCaption {
-  font-weight: bold;
-  padding-right: 5px;
-}
-.MessagingBox .Field {
-  width: 100%;
 }
 .SelectorImageButton {
   cursor: pointer;

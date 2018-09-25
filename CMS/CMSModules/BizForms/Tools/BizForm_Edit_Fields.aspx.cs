@@ -70,8 +70,6 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_Fields : CMSBizFormP
         // Update form to log synchronization
         if (FormInfo != null)
         {
-            // Enforce Form property reload next time the data are needed
-            FormInfo.ResetFormInfo();
             BizFormInfoProvider.SetBizFormInfo(FormInfo);
 
             // State of unigrids may contain where/order by clauses no longer valid after definition update

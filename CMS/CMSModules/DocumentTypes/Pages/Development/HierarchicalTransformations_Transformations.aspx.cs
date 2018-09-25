@@ -69,6 +69,7 @@ public partial class CMSModules_DocumentTypes_Pages_Development_HierarchicalTran
             RedirectToUIElementAccessDenied("CMS.Design", "Design.WebPartProperties;WebPartProperties.General;WebPartProperties.EditTransformations");
         }
 
+        ucTransf.DialogMode = editOnlyCode;
         UserInfo ui = MembershipContext.AuthenticatedUser;
         ucNewTransf.IsSiteManager = !editOnlyCode && ui.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin);
         PageTitle.Visible = true;

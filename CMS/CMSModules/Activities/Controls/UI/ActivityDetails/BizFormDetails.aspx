@@ -3,5 +3,6 @@
      Codebehind="BizFormDetails.aspx.cs" %>
 
 <asp:Content ID="cntBody" runat="server" ContentPlaceHolderID="plcContent">
-    <cms:BizForm ID="bizRecord" runat="server" IsLiveSite="false" DefaultFormLayout="Divs" />
+    <cms:BizForm ID="bizRecord" runat="server" IsLiveSite="false" DefaultFormLayout="Divs" Visible="false" />
+    <iframe ID="mvcFrame" runat="server" style="width:100%;height:100%;" frameborder="0" Visible="false"></iframe>
 </asp:Content>

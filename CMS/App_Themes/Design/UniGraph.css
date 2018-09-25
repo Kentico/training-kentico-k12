@@ -4,20 +4,17 @@
 }
 .action-disabled {
   cursor: not-allowed;
-  background-color: #a3a2a2;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/BtnDisabledBg.png);
-  background-repeat: repeat;
   color: #696663;
+  background-color: #a3a2a2;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
 }
 .dropdown-disabled {
   cursor: not-allowed;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png);
-  background-repeat: repeat;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
 }
 .dropdown-disabled:hover {
   background-color: inherit;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png);
-  background-repeat: repeat;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
 }
 .ActionSearch {
   height: 25px;

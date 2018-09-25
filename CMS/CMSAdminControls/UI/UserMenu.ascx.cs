@@ -88,7 +88,7 @@ public partial class CMSAdminControls_UI_UserMenu : CMSUserControl
     /// </summary>
     private bool EnsureSignOut()
     {
-        if (RequestHelper.IsWindowsAuthentication())
+        if (AuthenticationMode.IsWindowsAuthentication())
         {
             // Hide sign out link
             lnkSignOut.Visible = false;
@@ -188,7 +188,7 @@ public partial class CMSAdminControls_UI_UserMenu : CMSUserControl
 
 
     /// <summary>
-    /// Returns <see cref="ObjectQuery"/> cointaing site user IDs.
+    /// Returns <see cref="ObjectQuery"/> containing site user IDs.
     /// </summary>
     private ObjectQuery<UserSiteInfo> GetSiteUserIDs()
     {
@@ -218,10 +218,15 @@ public partial class CMSAdminControls_UI_UserMenu : CMSUserControl
             lnkUICultures.OnClientClick = ucUICultures.GetSelectionDialogScript();
 
             string cultureName = ValidationHelper.GetString(ucUICultures.Value, String.Empty);
-            if (cultureName != string.Empty)
+            if (!String.IsNullOrEmpty(cultureName))
             {
-                MembershipContext.AuthenticatedUser.PreferredUICultureCode = cultureName;
-                UserInfoProvider.SetUserInfo(MembershipContext.AuthenticatedUser);
+                var user = UserInfoProvider.GetUserInfo(MembershipContext.AuthenticatedUser.UserID);
+                user.PreferredUICultureCode = cultureName;
+
+                UserInfoProvider.SetUserInfo(user);
+
+                // Enforce reload of authenticated user instance
+                MembershipContext.AuthenticatedUser = null;
 
                 // Set selected UI culture and refresh all pages
                 CultureHelper.SetPreferredUICultureCode(cultureName);
@@ -249,7 +254,7 @@ public partial class CMSAdminControls_UI_UserMenu : CMSUserControl
     {
         AuthenticationHelper.CancelImpersonation();
 
-        if (RequestHelper.IsFormsAuthentication())
+        if (AuthenticationMode.IsFormsAuthentication())
         {
             PortalScriptHelper.RegisterAdminRedirectScript(Page);
         }

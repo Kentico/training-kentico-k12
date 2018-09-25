@@ -13,13 +13,13 @@
     //]]>
     </script>
     <cms:CMSPanel ID="pnlContentWrap" runat="server" ShortID="p">
-        <cms:UniGrid ID="gridTemplates" runat="server" OrderBy="DisplayName" Columns="ObjectID, DisplayName, PageTemplateIsReusable"
-            IsLiveSite="false" ObjectType="cms.pagetemplatelist" ShowObjectMenu="false">
-            <GridActions Parameters="ObjectID">
+        <cms:UniGrid ID="gridTemplates" runat="server" OrderBy="PageTemplateDisplayName" Columns="PageTemplateID, PageTemplateDisplayName, PageTemplateIsReusable"
+            IsLiveSite="false" ObjectType="cms.pagetemplate" ShowObjectMenu="false">
+            <GridActions Parameters="PageTemplateID">
                 <ug:Action Name="edit" Caption="$General.Edit$" FontIconClass="icon-edit" FontIconStyle="Allow" OnClick="EditPageTemplate({0}); return false;" />
             </GridActions>
             <GridColumns>
-                <ug:Column Source="DisplayName" Caption="$general.displayname$" Wrap="false" Localize="true">
+                <ug:Column Source="PageTemplateDisplayName" Caption="$general.displayname$" Wrap="false" Localize="true">
                     <Filter Type="text" />
                 </ug:Column>
                 <ug:Column CssClass="filling-column" />

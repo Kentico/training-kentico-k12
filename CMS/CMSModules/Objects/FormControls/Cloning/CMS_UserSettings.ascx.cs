@@ -40,18 +40,6 @@ public partial class CMSModules_Objects_FormControls_Cloning_CMS_UserSettings : 
 
 
     /// <summary>
-    /// Excluded binding types.
-    /// </summary>
-    public override string ExcludedBindingTypes
-    {
-        get
-        {
-            return PredefinedObjectType.IGNORELIST + ";" + PredefinedObjectType.CONTACTLIST;
-        }
-    }
-
-
-    /// <summary>
     /// Excluded other binding types.
     /// </summary>
     public override string ExcludedOtherBindingTypes

@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections;
 
+using CMS.Helpers;
 using CMS.UIControls;
 
 
 public partial class CMSModules_Categories_CMSPages_LiveCategorySelection : CMSLiveModalPage
 {
-    #region "Page events"
-
     protected override void OnInit(EventArgs e)
     {
         base.OnInit(e);
@@ -23,8 +23,12 @@ public partial class CMSModules_Categories_CMSPages_LiveCategorySelection : CMSL
     /// </summary>
     protected void Page_Load(object sender, EventArgs e)
     {
+        string identifier = QueryHelper.GetString("params", null);
+        Hashtable parameters = (Hashtable)WindowHelper.GetItem(identifier);
 
+        if (!QueryHelper.ValidateHash("hash", "selectedvalue") || parameters == null)
+        {
+            URLHelper.Redirect(AdministrationUrlHelper.GetErrorPageUrl("dialogs.badhashtitle", "dialogs.badhashtext", true));
+        }
     }
-
-    #endregion
 }

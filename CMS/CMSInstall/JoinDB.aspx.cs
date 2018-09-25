@@ -259,7 +259,7 @@ public partial class CMSInstall_JoinDB : GlobalAdminPage
             {
                 EnableTasks();
                 TakeSitesOnline();
-                WebFarmHelper.CreateTask(SystemTaskType.RestartApplication, "RestartApplication");
+                WebFarmHelper.CreateTask(new RestartApplicationWebFarmTask());
                 ScriptHelper.RegisterStartupScript(this, typeof(string), "Close dialog", ScriptHelper.GetScript("RefreshParent(); CloseDialog();"));
             }
         }

@@ -2,10 +2,12 @@
 
 using CMS.Base.Web.UI;
 using CMS.DataEngine;
+using CMS.FormEngine;
 using CMS.Helpers;
 using CMS.Membership;
 using CMS.OnlineForms;
 using CMS.OnlineForms.Web.UI;
+using CMS.SiteProvider;
 using CMS.UIControls;
 
 // Edited object
@@ -16,7 +18,7 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_General : CMSBizForm
 {
     #region "Variables"
 
-    protected BizFormInfo bfi = null;
+    protected BizFormInfo bfi;
 
     #endregion
 
@@ -30,8 +32,16 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_General : CMSBizForm
 
         if ((!RequestHelper.IsPostBack()) && (bfi != null))
         {
+            // Display a warning message when a form with Web Forms development model is used on an MVC website
+            if (SiteContext.CurrentSite.SiteIsContentOnly && bfi.FormDevelopmentModel == (int)FormDevelopmentModelEnum.WebForms)
+            {
+                ShowWarning(GetString("bizform_edit.webformformonmvc.warning"));
+            }
+
             LoadData();
         }
+
+        SetResourceStrings();
     }
 
     #endregion
@@ -83,6 +93,23 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_General : CMSBizForm
                     radContinue.Checked = true;
                 }
             }
+        }
+
+        if (bfi.FormDevelopmentModel == (int)FormDevelopmentModelEnum.Mvc)
+        {
+            radContinue.Visible = false;
+        }
+    }
+
+
+    /// <summary>
+    /// Sets resource strings accordingly to development model
+    /// </summary>
+    protected void SetResourceStrings()
+    {
+        if (bfi.FormDevelopmentModel == (int)FormDevelopmentModelEnum.Mvc)
+        {
+            radClear.ResourceString = "BizFormGeneral.ReloadForm";
         }
     }
 

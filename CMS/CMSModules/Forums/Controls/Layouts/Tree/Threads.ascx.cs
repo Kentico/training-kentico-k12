@@ -237,25 +237,6 @@ public partial class CMSModules_Forums_Controls_Layouts_Tree_Threads : ForumView
                 #endregion
 
 
-                #region "Extended actions"
-
-                if (EnableMessaging && (fpi.PostUserID > 0))
-                {
-                    GenerateActionScripts = true;
-
-                    ltlActions.Text = "<div class=\"PostExtendedActions\">";
-
-                    if (EnableMessaging)
-                    {
-                        ltlActions.Text += "<a class=\"SendMessage\" onclick=\"PrivateMessage(" + fpi.PostUserID + "); return false;\" title=\"" + GetString("sendmessage.sendmessage") + "\"  href=\"#\"><span>" + GetString("sendmessage.sendmessage") + "</span></a>";
-                    }
-
-                    ltlActions.Text += "</div>";
-                }
-
-                #endregion
-
-
                 // Hide separators
                 if ((ltlReply.Text == "") || (ltlReply.Text != "" && ltlQuote.Text == ""))
                 {

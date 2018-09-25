@@ -1,5 +1,6 @@
 ﻿using System;
 
+using CMS.Base.Web.UI;
 using CMS.Helpers;
 using CMS.OnlineForms;
 using CMS.OnlineForms.Web.UI;
@@ -8,7 +9,7 @@ using CMS.UIControls;
 
 [EditedObject(BizFormInfo.OBJECT_TYPE, "formId")]
 [Security(Resource = "CMS.Form", Permission = "ReadForm")]
-[UIElement("CMS.Form", "Forms.FormBuldier")]
+[UIElement("CMS.Form", "Forms.FormBuilderMVC")]
 public partial class CMSModules_BizForms_Tools_BizForm_Edit_FormBuilderMVC : CMSBizFormPage
 {
     private const string FORMBUILDER_ROUTE_TEMPLATE = "/Kentico.FormBuilder/Index/{0}";
@@ -24,7 +25,9 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_FormBuilderMVC : CMS
             ShowError(ResHelper.GetString("bizform.formBuilderMVC.presentationURLMissing"));
             return;
         }
-        
+
+        ScriptHelper.RegisterModule(this, "CMS.Builder/FormBuilder/Messaging",  new { frameId = formBuilderFrame.ClientID });
+
         var path = string.Format(FORMBUILDER_ROUTE_TEMPLATE, EditedForm.FormID);
         formBuilderFrame.Src = URLHelper.AddParameterToUrl(presentationUrl.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName), BUILDER_MODE_QUERY_STRING_NAME, FORM_BUILDER_MODE);
     }

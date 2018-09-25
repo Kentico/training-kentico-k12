@@ -1,6 +1,6 @@
 ﻿using System;
+
 using CMS.Base.Web.UI;
-using CMS.Helpers;
 using CMS.Membership;
 using CMS.Membership.Web.UI;
 using CMS.SiteProvider;
@@ -25,7 +25,7 @@ public partial class CMSMessages_AccessDenied : AccessDeniedPage
         // Display SignOut button
         if (AuthenticationHelper.IsAuthenticated())
         {
-            if (!RequestHelper.IsWindowsAuthentication())
+            if (!AuthenticationMode.IsWindowsAuthentication())
             {
                 btnSignOut.Visible = true;
             }

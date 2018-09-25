@@ -122,7 +122,13 @@ public partial class CMSModules_BizForms_Controls_BizFormEditData : CMSAdminEdit
         }
         ScriptHelper.RegisterClientScriptBlock(Page, typeof(string), "Edit", ScriptHelper.GetScript(
             "function EditRecord(formId, recordId) { " +
-            "  document.location.replace('" + ResolveUrl("~/CMSModules/BizForms/Tools/BizForm_Edit_EditRecord.aspx") + "?formID=' + formId + '&formRecordID=' + recordId); } "));
+            "  document.location.replace('" + ResolveUrl($"~/CMSModules/BizForms/Tools/{GetPageFile()}") + "?formID=' + formId + '&formRecordID=' + recordId); } "));
+
+        // Display a warning message when a form with Web Forms development model is used on an MVC website
+        if (SiteContext.CurrentSite.SiteIsContentOnly && bfi.FormDevelopmentModel == (int)FormDevelopmentModelEnum.WebForms)
+        {
+            ShowWarning(GetString("bizform_edit.webformformonmvc.warning"));
+        }
 
         // Initialize unigrid
         gridData.OnExternalDataBound += gridData_OnExternalDataBound;
@@ -158,7 +164,7 @@ public partial class CMSModules_BizForms_Controls_BizFormEditData : CMSAdminEdit
             AddHeaderAction(new HeaderAction
             {
                 Text = GetString("bizform_edit_data.newrecord"),
-                RedirectUrl = ResolveUrl("~/CMSModules/BizForms/Tools/BizForm_Edit_EditRecord.aspx?formid=" + formId)
+                RedirectUrl = ResolveUrl($"~/CMSModules/BizForms/Tools/{GetPageFile()}?formid={formId}")
             });
         }
 
@@ -171,6 +177,13 @@ public partial class CMSModules_BizForms_Controls_BizFormEditData : CMSAdminEdit
                 ButtonStyle = ButtonStyle.Default,
             });
         }
+    }
+
+
+    private string GetPageFile()
+    {
+        return bfi.FormDevelopmentModel == (int)FormDevelopmentModelEnum.WebForms ? "BizForm_Edit_EditRecord.aspx" :
+            "BizForm_Edit_EditRecordMVC.aspx";
     }
 
 
@@ -346,7 +359,7 @@ public partial class CMSModules_BizForms_Controls_BizFormEditData : CMSAdminEdit
     /// </summary>
     private List<string> GetExistingColumns()
     {
-        return FormInfo?.GetColumnNames(false);
+        return FormInfo?.GetColumnNames(false, i => i.System);
     }
 
 
@@ -356,7 +369,7 @@ public partial class CMSModules_BizForms_Controls_BizFormEditData : CMSAdminEdit
     /// <param name="columns">Selected columns</param>
     private List<string> GetSelectedColumns(string columns)
     {
-        return columns.Split(new [] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+        return columns.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries).ToList();
     }
 
 

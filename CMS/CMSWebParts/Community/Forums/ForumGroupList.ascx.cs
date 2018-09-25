@@ -2,7 +2,6 @@
 using System.Data;
 using System.Web.UI;
 
-using CMS.Base.Web.UI;
 using CMS.Community;
 using CMS.DataEngine;
 using CMS.Forums;
@@ -24,7 +23,7 @@ public partial class CMSWebParts_Community_Forums_ForumGroupList : CMSAbstractWe
     #region "Public properties"
 
     /// <summary>
-    /// Gets or sets the roles split by semicilon, which roles can report abuse, requires  security access state authorize roles.
+    /// Gets or sets the roles split by semicolon, which roles can report abuse, requires  security access state authorize roles.
     /// </summary>
     public string AbuseReportRoles
     {
@@ -92,24 +91,7 @@ public partial class CMSWebParts_Community_Forums_ForumGroupList : CMSAbstractWe
 
 
     /// <summary>
-    /// Gets or sets the value that indicates whether private messaging is enabled.
-    /// </summary>
-    public bool EnableMessaging
-    {
-        get
-        {
-            return ValidationHelper.GetBoolean(GetValue("EnableMessaging"), ForumDivider1.EnableMessaging);
-        }
-        set
-        {
-            SetValue("EnableMessaging", value);
-            ForumDivider1.EnableMessaging = value;
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets the value that indicates whether usernam should be link to the user profile page.
+    /// Gets or sets the value that indicates whether username should be link to the user profile page.
     /// </summary>
     public bool RedirectToUserProfile
     {
@@ -412,7 +394,7 @@ public partial class CMSWebParts_Community_Forums_ForumGroupList : CMSAbstractWe
 
 
     /// <summary>
-    /// Gets or sets the value that indicates whether  public user should be redirected 
+    /// Gets or sets the value that indicates whether public user should be redirected 
     /// to the logon page if hasn't permissions to required action
     /// </summary>
     public bool RedirectUnauthorized
@@ -692,8 +674,7 @@ public partial class CMSWebParts_Community_Forums_ForumGroupList : CMSAbstractWe
             ForumDivider1.RedirectToUserProfile = RedirectToUserProfile;
             ForumDivider1.BaseURL = BaseURL;
             ForumDivider1.UnsubscriptionURL = UnsubscriptionURL;
-            ForumDivider1.EnableMessaging = EnableMessaging;
-
+            
             // Behaviour
             ForumDivider1.EnableSubscription = EnableSubscription;
             ForumDivider1.EnableOnSiteManagement = OnSiteManagement;

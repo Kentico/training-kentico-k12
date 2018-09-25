@@ -178,7 +178,7 @@ public partial class CMSModules_Membership_Controls_RegistrationApproval : CMSUs
         }
 
         // Validate hash
-        if (!QueryHelper.ValidateHash("hash", "aliaspath", new HashSettings()))
+        if (!QueryHelper.ValidateHash("hash", "aliaspath", new HashSettings("")))
         {
             URLHelper.Redirect(AdministrationUrlHelper.GetErrorPageUrl("dialogs.badhashtitle", "dialogs.badhashtext"));
         }

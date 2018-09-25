@@ -23,7 +23,7 @@ public partial class CMSModules_EmailTemplates_Pages_New : CMSEmailTemplatesPage
         if (isDialog)
         {
             // Check hash
-            var settings = new HashSettings
+            var settings = new HashSettings("")
             {
                 Redirect = false
             };

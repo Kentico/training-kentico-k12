@@ -29,6 +29,7 @@ public partial class CMSModules_Polls_Tools_Polls_Answer_Edit : CMSPollsPage
             // Modifying existing answer
             PollAnswerInfo pollAnswerObj = PollAnswerInfoProvider.GetPollAnswerInfo(answerId);
             EditedObject = pollAnswerObj;
+
             if (pollAnswerObj != null)
             {
                 currentPollAnswer = GetString("Polls_Answer_Edit.AnswerLabel") + " " + pollAnswerObj.AnswerOrder.ToString();
@@ -41,6 +42,10 @@ public partial class CMSModules_Polls_Tools_Polls_Answer_Edit : CMSPollsPage
             EditedObject = PollInfoProvider.GetPollInfo(pollId);
         }
 
+        var poll = EditedObject as PollInfo ?? PollInfoProvider.GetPollInfo(pollId);
+
+        CheckPollsReadPermission(poll.PollSiteID);
+
         // Create breadcrumbs
         CreateBreadCrumbs(pollId, currentPollAnswer);
 
@@ -49,7 +54,7 @@ public partial class CMSModules_Polls_Tools_Polls_Answer_Edit : CMSPollsPage
             Text = GetString("Polls_Answer_List.NewItemCaption"),
             RedirectUrl = ResolveUrl("Polls_Answer_Edit.aspx?pollId=" + pollId),
         };
-        
+
         CurrentMaster.HeaderActions.AddAction(add);
 
         AnswerEdit.OnSaved += AnswerEdit_OnSaved;

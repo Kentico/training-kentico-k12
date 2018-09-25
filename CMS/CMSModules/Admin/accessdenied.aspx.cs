@@ -1,7 +1,6 @@
 ﻿using System;
 
 using CMS.Base.Web.UI;
-using CMS.Helpers;
 using CMS.Membership;
 using CMS.Membership.Web.UI;
 using CMS.SiteProvider;
@@ -37,7 +36,7 @@ public partial class CMSModules_Admin_accessdenied : AccessDeniedPage
             lnkGoBack.Text = GetString("CMSDesk.GoBack");
 
             // Hide for windows authentication
-            if (RequestHelper.IsWindowsAuthentication())
+            if (AuthenticationMode.IsWindowsAuthentication())
             {
                 btnSignOut.Visible = false;
             }

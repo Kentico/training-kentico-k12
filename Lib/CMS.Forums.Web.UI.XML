@@ -434,11 +434,6 @@
             Gets or sets the value that indicates whether avatars should be displayed.
             </summary>
         </member>
-        <member name="P:CMS.Forums.Web.UI.ForumViewer.EnableMessaging">
-            <summary>
-            Gets or sets the value that indicates whether private messaging is enabled.
-            </summary>
-        </member>
         <member name="P:CMS.Forums.Web.UI.ForumViewer.UseFriendlyURL">
             <summary>
             Gets or sets the value that indicates whether forums should generate friendly URLs.
@@ -818,12 +813,6 @@
             Ensures post back event.
             </summary>
             <param name="eventArgument">Action argument</param>
-        </member>
-        <member name="M:CMS.Forums.Web.UI.ForumViewer.OnPreRender(System.EventArgs)">
-            <summary>
-            OnPreRender override.
-            </summary>
-            <param name="e">EventArgs</param>
         </member>
         <member name="T:CMS.Forums.Web.UI.ForumMethods">
             <summary>

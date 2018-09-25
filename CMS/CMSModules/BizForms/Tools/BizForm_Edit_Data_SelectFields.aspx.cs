@@ -107,7 +107,7 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_Data_SelectFields : 
                     // Get columns names
                     fi = FormHelper.GetFormInfo(dci.ClassName, false);
 
-                    columnNames = fi.GetColumnNames(false);
+                    columnNames = fi.GetColumnNames(false, i => i.System);
                 }
 
                 // Get report fields

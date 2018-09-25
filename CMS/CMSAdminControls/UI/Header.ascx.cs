@@ -325,7 +325,8 @@ function CheckChanges() {
             // Check if single sign-on is turned on
             if (SettingsKeyInfoProvider.GetBoolValue("CMSAutomaticallySignInUser"))
             {
-                url = AuthenticationHelper.GetUserAuthenticationUrl(MembershipContext.AuthenticatedUser, url);
+                var user = UserInfoProvider.GetUserInfo(MembershipContext.AuthenticatedUser.UserID);
+                url = AuthenticationHelper.GetUserAuthenticationUrl(user, url);
             }
 
             PortalScriptHelper.RegisterAdminRedirectScript(Page, url);

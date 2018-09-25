@@ -75,7 +75,8 @@ public partial class CMSModules_AdminControls_Controls_Class_ClassThumbnailSelec
 
         string imageUrl = MetaFileURLProvider.GetMetaFileUrl(imageGuid, string.Empty);
         imageUrl = URLHelper.UpdateParameterInUrl(imageUrl, "maxsidesize", "256");
-        
+        imageUrl = URLHelper.ResolveUrl(imageUrl);
+
         imgPreview.Src = imageUrl;
         imgPreview.Alt = GetString("general.objectimage");
     }

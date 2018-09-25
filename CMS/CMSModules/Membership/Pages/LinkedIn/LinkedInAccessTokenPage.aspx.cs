@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 
-using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.ExternalAuthentication;
 using CMS.Helpers;
@@ -15,13 +14,6 @@ public partial class CMSModules_Membership_Pages_LinkedIn_LinkedInAccessTokenPag
         PageTitle.TitleText = GetString("socialnetworking.linkedin.accesstoken");
         PageTitle.ShowFullScreenButton = false;
         PageTitle.ShowCloseButton = false;
-
-        // Check Social networking DLL and settings
-        if (!SystemContext.IsFullTrustLevel)
-        {
-            lblStatus.Text = GetString("socialnetworking.fulltrustrequired");
-            return;
-        }
 
         var data = LinkedInProvider.GetLinkedInData();
         if (data.SettingsMissing)

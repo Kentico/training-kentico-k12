@@ -29,7 +29,6 @@ public partial class CMSWebParts_Membership_Profile_MyAccount : CMSAbstractWebPa
     protected const string passwordTab = "password";
     protected const string subscriptionsTab = "subscriptions";
     protected const string notificationsTab = "notifications";
-    protected const string messagesTab = "messages";
     protected const string membershipsTab = "memberships";
     protected const string categoriesTab = "categories";
 
@@ -43,7 +42,6 @@ public partial class CMSWebParts_Membership_Profile_MyAccount : CMSAbstractWebPa
     private CMSAdminControl ucMyDetails = null;
     private CMSAdminControl ucMyOrders = null;
     private CMSAdminControl ucMyAddresses = null;
-    private CMSAdminControl ucMyMessages = null;
     private CMSAdminControl ucMyAllSubscriptions = null;
     private CMSAdminControl ucMyMemberships = null;
     private CMSAdminControl ucMyCategories = null;
@@ -257,22 +255,6 @@ public partial class CMSWebParts_Membership_Profile_MyAccount : CMSAbstractWebPa
         set
         {
             SetValue("DisplayMyNotifications", value);
-        }
-    }
-
-
-    /// <summary>
-    /// Gets or sets the value that indicates whether 'messages' is displayed.
-    /// </summary>
-    public bool DisplayMyMessages
-    {
-        get
-        {
-            return ValidationHelper.GetBoolean(GetValue("DisplayMyMessages"), true);
-        }
-        set
-        {
-            SetValue("DisplayMyMessages", value);
         }
     }
 
@@ -558,7 +540,7 @@ public partial class CMSWebParts_Membership_Profile_MyAccount : CMSAbstractWebPa
 
                 // Handle 'Notifications' tab displaying
                 bool showNotificationsTab = (DisplayMyNotifications && LicenseHelper.IsFeatureAvailableInUI(FeatureEnum.Notifications, ModuleName.NOTIFICATIONS));
-                bool isWindowsAuthentication = RequestHelper.IsWindowsAuthentication();
+                bool isWindowsAuthentication = AuthenticationMode.IsWindowsAuthentication();
 
                 string tabName;
 
@@ -725,31 +707,6 @@ public partial class CMSWebParts_Membership_Profile_MyAccount : CMSAbstractWebPa
                     }
                 }
 
-                if ((ucMyMessages == null) && DisplayMyMessages && ModuleManager.IsModuleLoaded(ModuleName.MESSAGING))
-                {
-                    // Try to load the control dynamically (if available)
-                    ucMyMessages = Page.LoadUserControl("~/CMSModules/Messaging/Controls/MyMessages.ascx") as CMSAdminControl;
-                    if (ucMyMessages != null)
-                    {
-                        ucMyMessages.ID = "ucMyMessages";
-                        plcOther.Controls.Add(ucMyMessages);
-
-                        // Set new tab
-                        tabName = messagesTab;
-                        activeTabs.Add(tabName);
-                        tabMenu.TabItems.Add(new TabItem()
-                        {
-                            Text = GetString("MyAccount.MyMessages"),
-                            RedirectUrl = URLHelper.AddParameterToUrl(absoluteUri, ParameterName, messagesTab)
-                        });
-
-                        if (selectedPage == string.Empty)
-                        {
-                            selectedPage = tabName;
-                        }
-                    }
-                }
-
                 if ((ucMyAllSubscriptions == null) && DisplayMySubscriptions)
                 {
                     // Try to load the control dynamically (if available)
@@ -896,12 +853,6 @@ public partial class CMSWebParts_Membership_Profile_MyAccount : CMSAbstractWebPa
                     ucMyNotifications.StopProcessing = true;
                 }
 
-                if (ucMyMessages != null)
-                {
-                    ucMyMessages.Visible = false;
-                    ucMyMessages.StopProcessing = true;
-                }
-
                 if (ucMyMemberships != null)
                 {
                     ucMyMemberships.Visible = false;
@@ -998,15 +949,6 @@ public partial class CMSWebParts_Membership_Profile_MyAccount : CMSAbstractWebPa
                             ucMyNotifications.StopProcessing = false;
                             ucMyNotifications.SetValue("UserId", currentUser.UserID);
                             ucMyNotifications.SetValue("UnigridImageDirectory", UnigridImageDirectory);
-                        }
-                        break;
-
-                    // My messages tab
-                    case messagesTab:
-                        if (ucMyMessages != null)
-                        {
-                            ucMyMessages.Visible = true;
-                            ucMyMessages.StopProcessing = false;
                         }
                         break;
 

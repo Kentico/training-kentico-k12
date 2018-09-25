@@ -566,14 +566,11 @@ public partial class CMSFormControls_CountrySelector : FormEngineUserControl
     {
         base.OnInit(e);
 
-        if (!HasDependingFields)
-        {
-            // Make country selector async postback trigger for state selector update panel
-            pnlUpdate.Triggers.Add(new AsyncPostBackTrigger { ControlID = "uniSelectorCountry:drpSingleSelect", EventName = "SelectedIndexChanged" });
-        }
-        else if (!ControlsHelper.IsInUpdatePanel(this))
+        if (HasDependingFields && !ControlsHelper.IsInUpdatePanel(this))
         {
             // Make state selector full postback trigger if not in update panel (e.g. web parts's update panel)
+            // and remove async postback trigger of country selector
+            pnlUpdate.Triggers.Clear();
             pnlUpdate.Triggers.Add(new PostBackTrigger { ControlID = "uniSelectorState:drpSingleSelect" });
         }
     }

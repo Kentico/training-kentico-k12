@@ -294,31 +294,22 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInLogon : CMSAbstract
     {
         if (!StopProcessing)
         {
-            if (SystemContext.IsFullTrustLevel)
+            if (!LicenseHelper.CheckFeature(RequestContext.CurrentDomain, FeatureEnum.LinkedIn))
             {
-                if (!LicenseHelper.CheckFeature(RequestContext.CurrentDomain, FeatureEnum.LinkedIn))
-                {
-                    Visible = DisplayMessage(String.Format(GetString("licenselimitation.featurenotavailable"), FeatureEnum.LinkedIn));
-                    return;
-                }
-
-                // Check if LinkedIn module is enabled
-                if (!LinkedInHelper.LinkedInIsAvailable(SiteContext.CurrentSiteName))
-                {
-                    Visible = DisplayMessage();
-                    return;
-                }
-
-                DisplayButtons();
-                linkedInHelper = new LinkedInHelper();
-                CheckStatus();
+                Visible = DisplayMessage(String.Format(GetString("licenselimitation.featurenotavailable"), FeatureEnum.LinkedIn));
+                return;
             }
-            // Error label is displayed in Design mode when LinkedIn library is not loaded
-            else
+
+            // Check if LinkedIn module is enabled
+            if (!LinkedInHelper.LinkedInIsAvailable(SiteContext.CurrentSiteName))
             {
-                lblError.ResourceString = "socialnetworking.fulltrustrequired";
-                lblError.Visible = true;
+                Visible = DisplayMessage();
+                return;
             }
+
+            DisplayButtons();
+            linkedInHelper = new LinkedInHelper();
+            CheckStatus();
         }
         else
         {

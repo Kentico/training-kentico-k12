@@ -307,6 +307,18 @@ public partial class CMSModules_ImportExport_Controls_ImportSiteDetails : CMSUse
                 Settings.SiteDescription = si.Description;
                 Settings.SiteIsContentOnly = si.SiteIsContentOnly;
                 Settings.SitePresentationUrl = si.SitePresentationURL;
+
+                var packageSiteTable = ImportProvider.GetObjectsData(Settings, SiteInfo.OBJECT_TYPE, true);
+                if (!DataHelper.DataSourceIsEmpty(packageSiteTable))
+                {
+                    var packageSite = new SiteInfo(packageSiteTable.Rows[0]);
+
+                    // Do not import site if target site is incompatible with the site in package
+                    if (packageSite.SiteIsContentOnly != Settings.SiteIsContentOnly)
+                    {
+                        Settings.SetSettings(ImportExportHelper.SETTINGS_UPDATE_SITE_DEFINITION, false);
+                    }
+                }
             }
 
             return true;

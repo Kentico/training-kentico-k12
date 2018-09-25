@@ -313,7 +313,7 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
         pnlUpdateMenu.Update();
 
         // Display info on listing more content
-        if (!IsCopyMoveLinkDialog && IsFullListingMode && (TreeNodeObj != null))
+        if (IsFullListingMode && (TreeNodeObj != null))
         {
             DisplayFullListingInfo();
         }
@@ -330,7 +330,7 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
     /// </summary>
     private void DisplayFullListingInfo()
     {
-        string closeLink = String.Format("<span class=\"ListingClose\" style=\"cursor: pointer;\" onclick=\"SetAction('closelisting', ''); RaiseHiddenPostBack(); return false;\">{0}</span>", GetString("general.close"));
+        string closeLink = String.Format("<span class=\"ListingClose\" style=\"cursor: pointer;\" onclick=\"SetAction('closelisting', ''); RaiseHiddenPostBack(); return false;\">{0}</span>", TextHelper.FirstLetterToUpper(GetString("general.clickhere")));
         string docNamePath = String.Format("<span class=\"ListingPath\">{0}</span>", HTMLHelper.HTMLEncode(TreeNodeObj.DocumentNamePath));
 
         string listingMsg = string.Format(GetString("dialogs.content.listingInfo"), docNamePath, closeLink);

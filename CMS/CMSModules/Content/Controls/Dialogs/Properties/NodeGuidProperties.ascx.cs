@@ -80,7 +80,7 @@ public partial class CMSModules_Content_Controls_Dialogs_Properties_NodeGuidProp
             {
                 // Add requirement for latest version of files for current document
                 string newparams = "latestforhistoryid=" + HistoryID;
-                newparams += "&hash=" + ValidationHelper.GetHashString("h" + HistoryID);
+                newparams += "&hash=" + ValidationHelper.GetHashString("h" + HistoryID, new HashSettings(""));
 
                 url += "&" + newparams;
             }

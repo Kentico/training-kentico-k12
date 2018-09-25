@@ -157,6 +157,7 @@
 @action-disabled-bg:             @color-gray-100;
 @action-disabled-bg-stripe:      @color-gray-130;
 @action-disabled-color:          @color-gray-90;
+@dropdown-disabled-bg-stripe:    fade(@action-disabled-bg-stripe, 25);
 
 // Tables
 // -------------------------
@@ -685,7 +686,7 @@
 @dashboard-color:           @color-gray-50;
 @tile-height:               @base-unit * 9.75;
 @tile-width:                @base-unit * 9.75;
-@tile-bg:                   @color-white;
+@tile-bg:                   fade(@color-white, 85%);
 @tile-hover-bg:             @color-blue-130;
 @tile-red:                  @color-red-70;
 @tile-blue:                 @color-blue-100;

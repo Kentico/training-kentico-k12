@@ -270,15 +270,6 @@ public partial class CMSWebParts_Membership_OpenID_OpenIDUserRequiredData : CMSA
         {
             plcError.Visible = false;
 
-            // Check renamed DLL library
-            if (!SystemContext.IsFullTrustLevel)
-            {
-                // Error label is displayed when OpenID library is not enabled
-                lblError.Text = ResHelper.GetString("socialnetworking.fulltrustrequired");
-                plcError.Visible = true;
-                plcContent.Visible = false;
-            }
-
             // Check if OpenID module is enabled
             if (!SettingsKeyInfoProvider.GetBoolValue(SiteContext.CurrentSiteName + ".CMSEnableOpenID") && !plcError.Visible)
             {

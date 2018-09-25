@@ -1,0 +1,400 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CMS.Personas.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="T:CMS.Personas.Web.UI.Internal.ContactPersonaController">
+            <summary>
+            Provides endpoint for retrieving the data required for the contacts persona.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.Internal.ContactPersonaController.#ctor">
+            <summary>
+            Instantiates new instance of <see cref="T:CMS.Personas.Web.UI.Internal.ContactPersonaController"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.Internal.ContactPersonaController.Get(System.Int32)">
+            <summary>
+            Gets instance of <see cref="T:CMS.Personas.Web.UI.ContactPersonaViewModel"/> for the given <paramref name="contactID"/>. 
+            </summary>
+            <param name="contactID">ID of contact the <see cref="T:CMS.Personas.Web.UI.ContactPersonaViewModel"/> is obtained for.</param>
+            <returns>Instance of <see cref="T:CMS.Personas.Web.UI.ContactPersonaViewModel"/> for the given <paramref name="contactID"/>.</returns>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.Internal.ContactPersonaDemographicsController">
+            <summary>
+            Provides endpoint for retrieving persona-based demographic statistics of all <see cref="T:CMS.ContactManagement.ContactInfo"/>s.
+            </summary>
+            <exclude />
+        </member>
+        <member name="M:CMS.Personas.Web.UI.Internal.ContactPersonaDemographicsController.#ctor">
+            <summary>
+            Instantiates new instance of <see cref="T:CMS.Personas.Web.UI.Internal.ContactPersonaDemographicsController"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.Internal.ContactPersonaDemographicsController.GetGroupedByPersona(System.String)">
+            <summary>
+            Returns collection of personas associated with a number of contacts belonging to the persona. 
+            </summary>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.Internal.ContactsGroupedByPersonaViewModel">
+            <summary>
+            Represents view model for number of contacts in persona
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.Internal.ContactsGroupedByPersonaViewModel.PersonaName">
+            <summary>
+            Name of a persona the contacts belong to.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.Internal.ContactsGroupedByPersonaViewModel.NumberOfContacts">
+            <summary>
+            Number of contacts in a persona.
+            </summary>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.Internal.PersonaReportConfigurationViewModel">
+            <summary>
+            Represents view model containing the <see cref="T:CMS.Personas.PersonaInfo"/> configuration data suitable for the persona report.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.Internal.PersonaReportConfigurationViewModel.PersonaID">
+            <summary>
+            Gets or sets value representing <see cref="P:CMS.Personas.PersonaInfo.PersonaID"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.Internal.PersonaReportConfigurationViewModel.PersonaName">
+            <summary>
+            Gets or sets value representing <see cref="P:CMS.Personas.PersonaInfo.PersonaName"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.Internal.PersonaReportConfigurationViewModel.PersonaImage">
+            <summary>
+            Gets or sets string containing the image tag with source directing to the image of <see cref="T:CMS.Personas.PersonaInfo"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.Internal.PersonaReportExtender">
+            <summary>
+            Personas report extender
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.Internal.PersonaReportExtender.OnInit">
+            <summary>
+            Initializes the page.
+            </summary>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.Internal.PersonaContactHistoryController">
+            <summary>
+            Provides endpoint for retrieving the data required for the persona/contact distribution over time chart.
+            </summary>
+            <exclude />
+        </member>
+        <member name="M:CMS.Personas.Web.UI.Internal.PersonaContactHistoryController.#ctor">
+            <summary>
+            Instantiates new instance of <see cref="T:CMS.Personas.Web.UI.Internal.PersonaContactHistoryController"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.Internal.PersonaContactHistoryController.Get">
+            <summary>
+            Get collection containing the persona/contact distribution over time view model.
+            </summary>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.Internal.PersonaContactHistoryViewModel">
+            <summary>
+            <see cref="T:CMS.Personas.PersonaContactHistoryInfo"/> view model.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.Internal.PersonaContactHistoryViewModel.Date">
+            <summary>
+            Reference to <see cref="P:CMS.Personas.PersonaContactHistoryInfo.PersonaContactHistoryDate"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.Internal.PersonaContactHistoryViewModel.PersonaID">
+            <summary>
+            Reference to <see cref="P:CMS.Personas.PersonaContactHistoryInfo.PersonaContactHistoryPersonaID"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.Internal.PersonaContactHistoryViewModel.Contacts">
+            <summary>
+            Reference to <see cref="P:CMS.Personas.PersonaContactHistoryInfo.PersonaContactHistoryContacts"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.ContactPersonaViewModel">
+            <summary>
+            View model for contacts persona.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.ContactPersonaViewModel.Name">
+            <summary>
+            Persona name
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.ContactPersonaViewModel.Description">
+            <summary>
+            Persona description
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.ContactPersonaViewModel.ImageUrl">
+            <summary>
+            Persona image url
+            </summary>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.PersonaPicturesInGrid">
+            <summary>
+            Control which renders table containing pictures of personas passed in constructor. Each table row contains 5 pictures.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonaPicturesInGrid.#ctor(System.Collections.Generic.List{CMS.Personas.PersonaInfo})">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="personas">Personas whose pictures will be rendered</param>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonaPicturesInGrid.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders HTML table containing persona pictures or nothing if there is no persona.
+            </summary>
+            <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter"/> object that receives 
+            the server control content. </param>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.PersonasSelectableButton">
+            <summary>
+            Nice looking dropdown with personas.
+            </summary>
+        </member>
+        <member name="F:CMS.Personas.Web.UI.PersonasSelectableButton.mPersonas">
+            <summary>
+            Personas in this dropdown for further use.
+            </summary>
+        </member>
+        <member name="P:CMS.Personas.Web.UI.PersonasSelectableButton.SelectedPersona">
+            <summary>
+            Currently selected persona. Becomes available on the PreLoad phase.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasSelectableButton.SetPersonas(System.Collections.Generic.List{CMS.Personas.PersonaInfo})">
+            <summary>
+            Initializes control with personas. Specified personas will be displayed in the dropdown.
+            </summary>
+            <param name="personas">Personas to display</param>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasSelectableButton.OnInit(System.EventArgs)">
+            <summary>
+            Init event handler.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasSelectableButton.InitOpeningButtonControls(CMS.Base.Web.UI.CMSButtonAction)">
+            <summary>
+            Adds required attributes to the button.
+            </summary>
+            <param name="firstAction">Action</param>
+            <returns>Opening button</returns>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasSelectableButton.CreateListItemHyperLink(CMS.Base.Web.UI.CMSButtonAction)">
+            <summary>
+            Adds required attributes to the hyperlink.
+            </summary>
+            <param name="action">Action</param>
+            <returns>Action hyperlink</returns>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasSelectableButton.CreateButtonForOneAction(CMS.Base.Web.UI.CMSButtonAction)">
+            <summary>
+            Adds required attributes to the button.
+            </summary>
+            <param name="onlyAction">Action</param>
+            <returns>Opening button</returns>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasSelectableButton.SetControlImage(System.Web.UI.WebControls.WebControl,System.String,System.String)">
+            <summary>
+            Tries to get url of the persona picture with the specified name (<paramref name="actionName"/>). 
+            If image exists, sets specified css class to the control and adds picture as a background-image.
+            </summary>
+            <param name="control">Control to add attributes to</param>
+            <param name="actionName">Persona code name</param>
+            <param name="cssClass">Css class to add if picture exists</param>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasSelectableButton.GetPersonaPictureUrl(System.String)">
+            <summary>
+            Gets url of the picture of the persona specified by its name.
+            </summary>
+            <param name="personaName">Name of the persona</param>
+            <returns>Url of th persona picture</returns>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.PreviewModePersonasSelector">
+            <summary>
+            Displays selector of site's personas and saves the selected one to the <see cref="T:CMS.Personas.IPreviewPersonaStorage"/>. 
+            This control is used on the page preview mode.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PreviewModePersonasSelector.OnInit(System.EventArgs)">
+            <summary>
+            Init event handler.
+            </summary>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.ContentEditMenuPersonaSelectorExtender">
+            <summary>
+            Adds a persona selector to the edit menu of the Content module.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.ContentEditMenuPersonaSelectorExtender.#ctor">
+            <summary>
+            Initializes a new instance of the ContentEditMenuPersonaSelectorExtender class.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.ContentEditMenuPersonaSelectorExtender.Initialize(CMS.Base.Web.UI.IExtensibleEditMenu)">
+            <summary>
+            Adds a persona selector to the edit menu of the Content module.
+            </summary>
+            <param name="menu">The menu to add the persona selector to.</param>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.DocumentListMassActionsExtender">
+            <summary>
+            Extender of the mass actions on the document listing page. Adds to persona related actions: 
+            mass tagging and mass untagging.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.DocumentListMassActionsExtender.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.DocumentListMassActionsExtender.Initialize(CMS.UIControls.IExtensibleMassActions)">
+            <summary>
+            Adds two mass actions to the MassAction control.
+            </summary>
+            <param name="instance">The MassActions control to add persona related actions to</param>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.DocumentListMassActionsExtender.BuildDialogUrl(CMS.Personas.MultipleDocumentsActionTypeEnum,CMS.UIControls.MassActionScopeEnum,System.Collections.Generic.List{System.Int32},CMS.DocumentEngine.Web.UI.DocumentListMassActionsParameters)">
+            <summary>
+            Creates URL of the dialog which allows user to choose which personas should be assigned to or 
+            removed from documents. Stores additional parameters to the
+            session (via WindowHelper) as well.
+            </summary>
+            <param name="massActionType">Tag/Untag documents</param>
+            <param name="massActionScope">All documents according to filter values or only selected ones</param>
+            <param name="selectedNodeIDs">Specifies NodeIDs which should be tagged/untagged if only selected 
+            documents are chosen in <paramref name="massActionScope"/> parameter</param>
+            <param name="additionalParameters">Additional parameters allowing to filter documents when 'All 
+            document' scope is selected</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="additionalParameters"/> is null</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="massActionScope"/> is set to 'selected documents' 
+            and <paramref name="selectedNodeIDs"/> is null or empty</exception>
+            <returns>URL of the dialog which should be opened to finish action</returns>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.DocumentListUniGridExtender">
+            <summary>
+            Extender of the UniGrid on the document listing page. This extender adds another column 
+            to the UniGrid which displays pictures of the personas assigned to the document.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.DocumentListUniGridExtender.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.DocumentListUniGridExtender.Initialize(CMS.UIControls.IExtensibleUniGrid)">
+            <summary>
+            Allows the extender to attach a behavior to the specified instance.
+            </summary>
+            <param name="instance">The instance to attach a behavior to.</param>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.DocumentListUniGridExtender.RenderPersonaPictures(System.Int32,System.Collections.Generic.Dictionary{System.Int32,System.Collections.Generic.List{System.Int32}})">
+            <summary>
+            Creates control which displays images of personas assigned to the document specified by <paramref name="nodeID"/>.
+            </summary>
+            <param name="nodeID">NodeID of document whose personas should be displayed</param>
+            <param name="nodePersonas">Mapping of NodeIDs to the list of persona IDs which are assigned to the Node</param>
+            <returns>Control which displays persona images or empty string if document does not have any persona</returns>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.PersonaContactsListExtender">
+            <summary>
+            Persona related contacts list UniGrid extender.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonaContactsListExtender.OnInit">
+            <summary>
+            OnInit event.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonaContactsListExtender.RegisterScripts">
+            <summary>
+            Registers scripts for displaying modal dialog containing Contact details and postback logic.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonaContactsListExtender.UpdateGridWithObjectQuery">
+            <summary>
+            Updates UniGrid to display the same contacts as the ones in the given ObjectQuery (filters out contacts not related to current persona).
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonaContactsListExtender.GetCurrentPersonaInfo">
+            <summary>
+            Obtains current PersonaInfo object.
+            </summary>
+            <returns>Current PersonaInfo object</returns>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.PersonasUniGridExtender">
+            <summary>
+            Extends Personas Unigrid with additional abilities.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasUniGridExtender.OnInit">
+            <summary>
+            Initializes extender
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasUniGridExtender.SetPersonaImageAndDisplayName(System.Object,System.String,System.Object)">
+            <summary>
+            Gets content for row with persona image and display name.
+            </summary>
+            <returns>Modified content of given row</returns>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.PersonasUniSelectorExtender">
+            <summary>
+            Extends Personas Unigrid with additional abilities.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasUniSelectorExtender.OnInit">
+            <summary>
+            Initializes extender
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonasUniSelectorExtender.SetPersonaImageAndDisplayName(System.Object,System.String,System.Object,System.Object)">
+            <summary>
+            Gets content for row with persona image and display name.
+            </summary>
+            <returns>Modified content of given row</returns>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.IPersonaViewModelService">
+            <summary>
+            Provides contacts persona view model.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.IPersonaViewModelService.GetPersonaViewModel(System.Int32)">
+            <summary>
+            Provides contacts persona view model.
+            </summary>
+            <param name="contactId">Contact ID.</param>
+            <returns>View model of given contact persona.</returns>
+        </member>
+        <member name="T:CMS.Personas.Web.UI.PersonaViewModelService">
+            <summary>
+            Provides contacts persona view model.
+            </summary>
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonaViewModelService.#ctor(CMS.Personas.IPersonaService,CMS.Personas.IPersonaPictureUrlCreator,CMS.Core.ILocalizationService)">
+            <summary>
+            Initializes new instance of <see cref="T:CMS.Personas.Web.UI.PersonaViewModelService"/>.
+            </summary>
+            <param name="personaService">Service used to obtain persona data.</param>
+            <param name="personaPictureUrlCreator">Service used to create persona image URL.</param>
+            <param name="localizationService">Service used to localize resource strings.</param>
+            
+        </member>
+        <member name="M:CMS.Personas.Web.UI.PersonaViewModelService.GetPersonaViewModel(System.Int32)">
+            <summary>
+            Provides contacts persona view model.
+            </summary>
+            <param name="contactId">Contact ID.</param>
+            <returns>View model of given contact persona.</returns>
+        </member>
+    </members>
+</doc>

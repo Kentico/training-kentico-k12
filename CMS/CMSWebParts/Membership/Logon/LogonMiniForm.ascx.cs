@@ -503,7 +503,7 @@ function UpdateLabel_", ClientID, @"(content, context) {
         UserInfo ui = UserInfoProvider.GetUserInfoForSitePrefix(userName, SiteContext.CurrentSite);
 
         // Check whether safe user name is required and if so get safe username
-        if (RequestHelper.IsMixedAuthentication() && UserInfoProvider.UseSafeUserName)
+        if (AuthenticationMode.IsMixedAuthentication() && UserInfoProvider.UseSafeUserName)
         {
             // User stored with safe name
             userName = ValidationHelper.GetSafeUserName(loginElem.UserName, SiteContext.CurrentSiteName);

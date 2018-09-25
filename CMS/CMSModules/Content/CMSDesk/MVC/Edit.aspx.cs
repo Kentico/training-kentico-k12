@@ -9,6 +9,9 @@ using CMS.UIControls;
 
 public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
 {
+    private bool dataPropagated;
+
+
     /// <summary>
     /// Identifies the instance of editing.
     /// </summary>
@@ -80,12 +83,12 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
 
     private string GetActionScript(object sender, GetActionScriptEventArgs e)
     {
-        if (!IsSavePerformingAction(e.ActionName))
+        if (IsSavePerformingAction(e.ActionName) && DocumentManager.AllowSave)
         {
-            return e.OriginalScript;
+            return $"window.CMS && window.CMS.PageBuilder && window.CMS.PageBuilder.save({ScriptHelper.GetString(e.OriginalScript)}); return false;";
         }
 
-        return $"window.CMS && window.CMS.PageBuilder && window.CMS.PageBuilder.save({ScriptHelper.GetString(e.OriginalScript)}); return false;";
+        return e.OriginalScript;
     }
 
 
@@ -110,13 +113,10 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
     {
         base.OnPreRender(e);
 
-        string url;
-        if (TryGetUrl(out url))
+        if (TryGetUrl(out string url))
         {
             RegisterMessagingScript(url);
         }
-
-        pageview.Attributes.Add("src", url);
     }
 
 
@@ -125,11 +125,14 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
         var uri = new Uri(url);
         var targetOrigin = uri.GetLeftPart(UriPartial.Authority);
 
-        ScriptHelper.RegisterModule(this, "CMS.PageBuilder/Messaging", new
+        ScriptHelper.RegisterModule(this, "CMS.Builder/PageBuilder/Messaging", new
         {
             frameId = pageview.ClientID,
+            frameUrl = url,
             guid = InstanceGUID,
-            origin = targetOrigin
+            origin = targetOrigin,
+            documentGuid = Node.DocumentGUID,
+            isPostBack = RequestHelper.IsPostBack(),
         });
     }
 
@@ -146,6 +149,11 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
         if (DocumentManager.AllowSave)
         {
             url = PageBuilderHelper.AddEditModeParameter(url);
+        }
+
+        if (dataPropagated)
+        {
+            url = PageBuilderHelper.AddClearPageCacheParameter(url);
         }
 
         return true;
@@ -176,5 +184,6 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
         }
 
         new TempPageBuilderWidgetsPropagator(e.Node).Propagate(InstanceGUID);
+        dataPropagated = true;
     }
 }

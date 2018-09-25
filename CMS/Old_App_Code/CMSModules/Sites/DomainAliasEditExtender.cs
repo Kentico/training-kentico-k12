@@ -142,17 +142,6 @@ public class DomainAliasEditExtender : ControlExtender<UIForm>
             return;
         }
 
-        if (!Control.IsInsertMode)
-        {
-            // Stop the site before saving the domain alias
-            if (siteInfo.Status == SiteStatusEnum.Running)
-            {
-                SiteInfoProvider.StopSite(siteInfo.SiteName);
-                siteInfo.Status = SiteStatusEnum.Stopped;
-                runAfterSave = true;
-            }
-        }
-
         // Remove protocol from the domain alias
         string newDomainName = ValidationHelper.GetString(Control.Data["SiteDomainAliasName"], String.Empty);
         newDomainName = URLHelper.RemoveProtocol(newDomainName);
@@ -176,6 +165,15 @@ public class DomainAliasEditExtender : ControlExtender<UIForm>
             {
                 Control.StopProcessing = true;
                 Control.ShowError(ResHelper.GetString("Site_Edit.AliasExists"));
+                return;
+            }
+
+            // Stop the site before saving the domain alias
+            if (siteInfo.Status == SiteStatusEnum.Running)
+            {
+                SiteInfoProvider.StopSite(siteInfo.SiteName);
+                siteInfo.Status = SiteStatusEnum.Stopped;
+                runAfterSave = true;
             }
         }
     }

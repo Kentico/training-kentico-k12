@@ -287,6 +287,10 @@ public partial class CMSModules_ImportExport_Pages_RestoreObject : CMSModalPage
             {
                 ImportSettings.SiteId = exportObj.ObjectSiteID;
                 ImportSettings.ExistingSite = true;
+                ImportSettings.SiteIsContentOnly = ImportSettings.SiteInfo.SiteIsContentOnly;
+
+                // Do not update site definition when restoring a single object
+                ImportSettings.SetSettings(ImportExportHelper.SETTINGS_UPDATE_SITE_DEFINITION, false);
             }
 
             // Set the filename

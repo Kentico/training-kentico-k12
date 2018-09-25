@@ -105,7 +105,7 @@ public partial class CMSModules_DeviceProfiles_Controls_DeviceView : CMSAdminCon
             ViewPage = URLHelper.UpdateParameterInUrl(ViewPage, DeviceProfileInfoProvider.DEVICENAME_QUERY_PARAM, deviceName);
 
             String query = URLHelper.GetQuery(ViewPage);
-            string hash = ValidationHelper.GetHashString(query, new HashSettings { HashSalt = RequestContext.UserName });
+            string hash = ValidationHelper.GetHashString(query, new HashSettings(RequestContext.UserName));
             ViewPage += String.Format("&clickjackinghash={0}", hash);
         }
 

@@ -17,20 +17,17 @@
 }
 .cms-bootstrap .action-disabled {
   cursor: not-allowed;
-  background-color: #a3a2a2;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/BtnDisabledBg.png);
-  background-repeat: repeat;
   color: #696663;
+  background-color: #a3a2a2;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
 }
 .cms-bootstrap .dropdown-disabled {
   cursor: not-allowed;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png);
-  background-repeat: repeat;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
 }
 .cms-bootstrap .dropdown-disabled:hover {
   background-color: inherit;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png);
-  background-repeat: repeat;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
 }
 .cms-bootstrap html {
   font-family: sans-serif;
@@ -249,7 +246,7 @@ body.cms-bootstrap,
   content: "\e6d8";
 }
 .cms-bootstrap .icon-brand-mstranslator:before {
-  content: "\e909";
+  content: "\e90c";
 }
 .cms-bootstrap .icon-brand-google:before {
   content: "\e6c8";
@@ -261,31 +258,31 @@ body.cms-bootstrap,
   content: "\e631";
 }
 .cms-bootstrap .icon-arrow-curved-left:before {
-  content: "\e906";
-}
-.cms-bootstrap .icon-arrow-curved-right:before {
-  content: "\e907";
-}
-.cms-bootstrap .icon-two-rectangles-stacked:before {
   content: "\e908";
 }
+.cms-bootstrap .icon-arrow-curved-right:before {
+  content: "\e909";
+}
+.cms-bootstrap .icon-two-rectangles-stacked:before {
+  content: "\e90b";
+}
 .cms-bootstrap .icon-rb-check:before {
-  content: "\e905";
+  content: "\e907";
 }
 .cms-bootstrap .icon-octothorpe:before {
-  content: "\e902";
-}
-.cms-bootstrap .icon-paragraph:before {
-  content: "\e903";
-}
-.cms-bootstrap .icon-paragraph-short:before {
   content: "\e904";
 }
+.cms-bootstrap .icon-paragraph:before {
+  content: "\e905";
+}
+.cms-bootstrap .icon-paragraph-short:before {
+  content: "\e906";
+}
 .cms-bootstrap .icon-brand-instagram:before {
-  content: "\e901";
+  content: "\e903";
 }
 .cms-bootstrap .icon-cb-check:before {
-  content: "\e900";
+  content: "\e902";
 }
 .cms-bootstrap .icon-arrow-leave-square:before {
   content: "\e800";
@@ -1677,7 +1674,7 @@ body.cms-bootstrap,
   content: "\e6c8";
 }
 .cms-bootstrap .icon-microsofttranslator:before {
-  content: "\e909";
+  content: "\e90c";
 }
 .cms-bootstrap .icon-external-link:before {
   content: "\e6d8";
@@ -1819,9 +1816,6 @@ body.cms-bootstrap,
 }
 .cms-bootstrap .icon-w-newsletter-subscription:before {
   content: "\e675";
-}
-.cms-bootstrap .icon-w-messaging-info-panel:before {
-  content: "\e64f";
 }
 .cms-bootstrap .icon-w-newsletter-unsubscription:before {
   content: "\e60d";
@@ -3322,6 +3316,75 @@ body.cms-bootstrap,
 }
 .cms-bootstrap .icon-me-exception:before {
   content: "\e693";
+}
+.cms-bootstrap .icon-personalisation-variants:before {
+  content: "\e901";
+}
+.cms-bootstrap .icon-personalisation:before {
+  content: "\e900";
+}
+.cms-bootstrap .icon-android:before {
+  content: "\f17b";
+}
+.cms-bootstrap .icon-apple:before {
+  content: "\f179";
+}
+.cms-bootstrap .icon-cancel:before {
+  content: "\e804";
+}
+.cms-bootstrap .icon-chrome:before {
+  content: "\f268";
+}
+.cms-bootstrap .icon-circle-empty:before {
+  content: "\f10c";
+}
+.cms-bootstrap .icon-desktop:before {
+  content: "\f108";
+}
+.cms-bootstrap .icon-down-dir:before {
+  content: "\e805";
+}
+.cms-bootstrap .icon-edge:before {
+  content: "\f282";
+}
+.cms-bootstrap .icon-filter-1:before {
+  content: "\f0b0";
+}
+.cms-bootstrap .icon-firefox:before {
+  content: "\f269";
+}
+.cms-bootstrap .icon-internet-explorer:before {
+  content: "\f26b";
+}
+.cms-bootstrap .icon-linux:before {
+  content: "\f17c";
+}
+.cms-bootstrap .icon-mobile:before {
+  content: "\f10b";
+}
+.cms-bootstrap .icon-opera:before {
+  content: "\f26a";
+}
+.cms-bootstrap .icon-paragraph-center:before {
+  content: "\e90a";
+}
+.cms-bootstrap .icon-safari:before {
+  content: "\f267";
+}
+.cms-bootstrap .icon-windows:before {
+  content: "\f17a";
+}
+.cms-bootstrap .icon-add-module:before {
+  content: "\e90e";
+}
+.cms-bootstrap .icon-convert:before {
+  content: "\e90d";
+}
+.cms-bootstrap .icon-recaptcha:before {
+  content: "\e910";
+}
+.cms-bootstrap .icon-scheme-path-circles-flipped:before {
+  content: "\e90f";
 }
 .cms-bootstrap .icon-crosshair {
   position: relative;
@@ -6612,10 +6675,9 @@ textarea.cms-bootstrap .input-lg {
 .cms-bootstrap .btn[disabled]:not(.btn-icon),
 .cms-bootstrap .btn:disabled:not(.btn-icon) {
   cursor: not-allowed;
-  background-color: #a3a2a2;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/BtnDisabledBg.png);
-  background-repeat: repeat;
   color: #696663;
+  background-color: #a3a2a2;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
   text-shadow: none;
   box-shadow: none;
 }
@@ -7040,13 +7102,11 @@ textarea.cms-bootstrap .input-lg {
 }
 .cms-bootstrap .dropdown-menu .disabled a {
   cursor: not-allowed;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png);
-  background-repeat: repeat;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
 }
 .cms-bootstrap .dropdown-menu .disabled a:hover {
   background-color: inherit;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/disabled_context.png);
-  background-repeat: repeat;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
 }
 .cms-bootstrap .open > .dropdown-menu {
   display: block;
@@ -7275,7 +7335,7 @@ textarea.cms-bootstrap .input-lg {
   vertical-align: text-bottom;
 }
 .cms-bootstrap .header-site-selector {
-  margin-right: 4px;
+  margin-right: 8px;
 }
 .cms-bootstrap .header-site-selector .site-selector {
   display: none;
@@ -8727,6 +8787,12 @@ textarea.cms-bootstrap .input-lg {
   vertical-align: baseline;
   line-height: 14px;
 }
+.cms-bootstrap .cms-navbar .icon-kentico {
+  background-color: #F05A22;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .cms-bootstrap .breadcrumb {
   padding: 12px 16px;
   margin-bottom: 0;
@@ -8753,6 +8819,10 @@ textarea.cms-bootstrap .input-lg {
   padding: 0;
   color: #ffffff;
   background: #262524;
+  font-size: 0;
+}
+.cms-bootstrap .breadcrumb.cms-nav-breadcrumb > li {
+  font-size: 14px;
 }
 .cms-bootstrap .breadcrumb.cms-nav-breadcrumb > li:before {
   color: #a3a2a2;
@@ -8765,13 +8835,6 @@ textarea.cms-bootstrap .input-lg {
 }
 .cms-bootstrap .breadcrumb.cms-nav-breadcrumb a {
   color: #ffffff;
-}
-.cms-bootstrap .breadcrumb.cms-nav-breadcrumb .icon-kentico {
-  vertical-align: middle;
-  padding-right: 10px;
-  text-decoration: none;
-  color: #a3a2a2;
-  display: inline-block;
 }
 .cms-bootstrap .breadcrumb.cms-nav-breadcrumb > li.ico-after:after {
   font-family: "Core-icons";
@@ -9646,6 +9709,7 @@ button.cms-bootstrap .close {
 .cms-bootstrap .dashboard {
   padding: 96px 16px 32px 192px;
   background: #e5e5e5 url(../../CMSPages/GetResource.ashx?image=background.png) no-repeat center bottom fixed;
+  background-size: cover;
   min-height: 100%;
   width: 100%;
   float: left;
@@ -9674,8 +9738,8 @@ button.cms-bootstrap .close {
   box-shadow: 0 0 10px 2px #888888;
 }
 .cms-bootstrap .dashboard .drag-placeholder .welcome-tile {
-  background-color: #1175ae;
-  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #262524;
   padding: 32px;
   text-align: left;
   width: 420px;
@@ -9686,7 +9750,7 @@ button.cms-bootstrap .close {
   overflow: hidden;
 }
 .cms-bootstrap .dashboard .drag-placeholder .welcome-tile h2 {
-  color: #ffffff;
+  color: #262524;
   width: 420px;
   height: 40px;
   overflow: hidden;
@@ -9698,7 +9762,7 @@ button.cms-bootstrap .close {
   overflow: hidden;
 }
 .cms-bootstrap .dashboard .drag-placeholder .welcome-tile a {
-  color: #ffffff;
+  color: #262524;
   white-space: nowrap;
 }
 .cms-bootstrap .dashboard .drag-placeholder .welcome-tile a .icon-modal-close {
@@ -9757,11 +9821,13 @@ button.cms-bootstrap .close {
   width: 100%;
   overflow: hidden;
   position: absolute;
-  background-color: white;
 }
 .cms-bootstrap .dashboard .tile-mask:hover,
 .cms-bootstrap .dashboard .tile-background:hover {
   cursor: move;
+}
+.cms-bootstrap .dashboard .tile-background {
+  background-color: rgba(255, 255, 255, 0.85);
 }
 .cms-bootstrap .dashboard .tile-header-panel {
   z-index: 1000;
@@ -9831,7 +9897,7 @@ button.cms-bootstrap .close {
 .cms-bootstrap .dashboard .editable-mode .tile-header-panel.ng-hide-add,
 .cms-bootstrap .dashboard .editable-mode .tile-header-panel.ng-hide-remove {
   transition: all 125ms ease-out;
-  display: block!important;
+  display: block !important;
 }
 .cms-bootstrap .dashboard .editable-mode .tile-header-panel.ng-hide-remove,
 .cms-bootstrap .dashboard .editable-mode.shrinked .tile-shrink-add {
@@ -9850,8 +9916,8 @@ button.cms-bootstrap .close {
   box-shadow: 0 0 10px 2px #888888;
 }
 .cms-bootstrap .dashboard .tile .welcome-tile {
-  background-color: #1175ae;
-  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #262524;
   padding: 32px;
   text-align: left;
   width: 420px;
@@ -9862,7 +9928,7 @@ button.cms-bootstrap .close {
   overflow: hidden;
 }
 .cms-bootstrap .dashboard .tile .welcome-tile h2 {
-  color: #ffffff;
+  color: #262524;
   width: 420px;
   height: 40px;
   overflow: hidden;
@@ -9874,7 +9940,7 @@ button.cms-bootstrap .close {
   overflow: hidden;
 }
 .cms-bootstrap .dashboard .tile .welcome-tile a {
-  color: #ffffff;
+  color: #262524;
   white-space: nowrap;
 }
 .cms-bootstrap .dashboard .tile .welcome-tile a .icon-modal-close {
@@ -9983,7 +10049,6 @@ button.cms-bootstrap .close {
   height: 100%;
   width: 156px;
   float: left;
-  background-color: #ffffff;
 }
 .cms-bootstrap .dashboard .tile-live h3 {
   line-height: 20px;
@@ -10037,7 +10102,6 @@ button.cms-bootstrap .close {
   height: 100%;
   width: 156px;
   float: left;
-  background-color: #ffffff;
 }
 .cms-bootstrap .dashboard .tile-single-object h3 {
   line-height: 20px;
@@ -10226,9 +10290,11 @@ button.cms-bootstrap .close {
 .cms-bootstrap .logon-page {
   height: 100%;
   width: 100%;
-  background: #1175ae;
-  padding: 0 16px;
+  min-height: 576px;
   box-sizing: border-box;
+  background: #e5e5e5 no-repeat center bottom fixed;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.68)), url(../../CMSPages/GetResource.ashx?image=background.png);
+  background-size: cover;
 }
 .cms-bootstrap .logon-page .logo {
   margin: 0 auto 0;
@@ -10335,11 +10401,6 @@ button.cms-bootstrap .close {
 .cms-bootstrap .logon-page .language-selector {
   margin: 32px auto 0;
   width: 192px;
-}
-@media screen and (min-height: 850px) {
-  .cms-bootstrap .logon-page {
-    background: #1175ae url(../../CMSPages/GetResource.ashx?image=logon-background.png) no-repeat center bottom fixed;
-  }
 }
 .cms-bootstrap .tag {
   border-radius: 3px;
@@ -11679,10 +11740,9 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .SupportChatWindow .ChatRoomWindow .ChatDialogBody .ChatDialogFooterButtons .SubmitButton[disabled]:not(.btn-icon),
 .cms-bootstrap .SupportChatWindow .ChatRoomWindow .ChatDialogBody .ChatDialogFooterButtons .SubmitButton:disabled:not(.btn-icon) {
   cursor: not-allowed;
-  background-color: #a3a2a2;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/BtnDisabledBg.png);
-  background-repeat: repeat;
   color: #696663;
+  background-color: #a3a2a2;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
   text-shadow: none;
   box-shadow: none;
 }
@@ -11861,10 +11921,9 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .SupportChatWindow .ChatRoomWindow .ChatTop .SubmitButton:disabled:not(.btn-icon),
 .cms-bootstrap .SupportChatWindow .ChatRoomWindow .ChatWebpartContainerMessageSend .ChatSendAreaButton .SubmitButton:disabled:not(.btn-icon) {
   cursor: not-allowed;
-  background-color: #a3a2a2;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/BtnDisabledBg.png);
-  background-repeat: repeat;
   color: #696663;
+  background-color: #a3a2a2;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
   text-shadow: none;
   box-shadow: none;
 }
@@ -17468,10 +17527,9 @@ td.cms-bootstrap .visible-print {
 }
 .cms-bootstrap .class-thumbnail-selector-content.disabled a {
   cursor: not-allowed;
-  background-color: #a3a2a2;
-  background-image: url(../../CMSPages/GetResource.ashx?image=General/BtnDisabledBg.png);
-  background-repeat: repeat;
   color: #696663;
+  background-color: #a3a2a2;
+  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
 }
 .cms-bootstrap .autocomplete {
   display: inline;

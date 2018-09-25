@@ -375,7 +375,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
             {
                 url = $"~/CMSModules/MediaLibrary/CMSPages{authenticatedHandlerPath}/MultiFileUploader.ashx";
             }
-            else if(PostForumID > 0)    
+            else if (PostForumID > 0)    
             {
                 url = "~/CMSModules/Forums/CMSPages/MultiFileUploader.ashx";
             }
@@ -895,7 +895,8 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
     /// Returns arguments string with security hash.
     /// </summary>
     /// <param name="args">Arguments array</param>
-    private static string GetArgumentsString(string[] args)
+    /// <param name="purpose">A unique string identifying the purpose of the hash string.</param>
+    private static string GetArgumentsString(string[] args, string purpose)
     {
         string arguments = null;
 
@@ -906,7 +907,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
 
         if (!String.IsNullOrEmpty(arguments))
         {
-            arguments = String.Format("{0}{1}Hash{1}{2}", arguments, PARAMETER_SEPARATOR, ValidationHelper.GetHashString(arguments, new HashSettings()));
+            arguments = String.Format("{0}{1}Hash{1}{2}", arguments, PARAMETER_SEPARATOR, ValidationHelper.GetHashString(arguments, new HashSettings(purpose)));
         }
 
         return HttpUtility.UrlEncode(arguments);
@@ -943,7 +944,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
         }
 
 
-        return "AdditionalParameters=" + GetArgumentsString(args);
+        return "AdditionalParameters=" + GetArgumentsString(args, UploaderHelper.ADDIOTIONAL_PARAMETERS_HASHING_PURPOSE);
     }
 
 
@@ -965,7 +966,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
                            "IsMediaThumbnail", IsMediaThumbnail.ToString(),
                            "MediaFileName", MediaFileName
                        };
-            return "MediaLibraryArgs=" + GetArgumentsString(args);
+            return "MediaLibraryArgs=" + GetArgumentsString(args, UploaderHelper.MEDIA_LIBRARY_ARGS_HASHING_PURPOSE);
         }
 
         if ((NodeID > 0) && (SourceType == MediaSourceEnum.Content))
@@ -978,7 +979,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
                 "IncludeExtension", IncludeExtension.ToString(),
                 "NodeGroupID", NodeGroupID.ToString()
             };
-            return "FileArgs=" + GetArgumentsString(args);
+            return "FileArgs=" + GetArgumentsString(args, UploaderHelper.FILE_ARGS_HASHING_PURPOSE);
         }
 
         if (ObjectID > 0)
@@ -992,7 +993,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
                 "ObjectType", ObjectType,
                 "Category", Category
             };
-            return "MetaFileArgs=" + GetArgumentsString(args);
+            return "MetaFileArgs=" + GetArgumentsString(args, UploaderHelper.META_FILE_ARGS_HASHING_PURPOSE);
         }
 
         if (PostForumID > 0)
@@ -1003,7 +1004,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
                 "PostForumID", PostForumID.ToString(),
                 "PostID", PostID.ToString()
             };
-            return "ForumArgs=" + GetArgumentsString(args);
+            return "ForumArgs=" + GetArgumentsString(args, UploaderHelper.FORUM_ARGS_HASHING_PURPOSE);
         }
                 
         if ((DocumentID > 0) || (FormGUID != Guid.Empty))
@@ -1021,7 +1022,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
                 "IsFieldAttachment", mIsFiledAttachment.ToString(),
                 "FullRefresh", FullRefresh.ToString()
             };
-            return "AttachmentArgs=" + GetArgumentsString(args);
+            return "AttachmentArgs=" + GetArgumentsString(args, UploaderHelper.ATTACHEMENT_ARGS_HASHING_PURPOSE);
         }
         return String.Empty;
     }
@@ -1053,7 +1054,7 @@ public partial class CMSAdminControls_MultiFileUploader_MultiFileUploader : CMSU
         if (!string.IsNullOrEmpty(filter))
         {
             // Append hash to list of allowed extensions
-            string hash = ValidationHelper.GetHashString(filter, new HashSettings());
+            string hash = ValidationHelper.GetHashString(filter, new HashSettings(UploaderHelper.ALLOWED_EXTENSIONS_HASHING_PURPOSE));
             filter = String.Format("{0}{1}Hash{1}{2}", filter, PARAMETER_SEPARATOR, hash);
         }
 

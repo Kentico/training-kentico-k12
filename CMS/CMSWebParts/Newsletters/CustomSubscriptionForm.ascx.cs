@@ -647,8 +647,8 @@ public partial class CMSWebParts_Newsletters_CustomSubscriptionForm : CMSAbstrac
         {
             try
             {
-                // Check if subscriber is not already subscribed
-                if (!mSubscriptionService.IsSubscribed(contact, newsletter))
+                // Check if subscriber is not marketable
+                if (!mSubscriptionService.IsMarketable(contact, newsletter))
                 {
                     toReturn = true;
 

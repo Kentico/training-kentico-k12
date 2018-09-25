@@ -25,6 +25,7 @@ public partial class CMSModules_Ecommerce_FormControls_SKUSectionSelection : CMS
     private string mWhereCondition;
     private string mCallbackValues;
     private string mReturnColumnName;
+    private string mSecurityPurpose;
     private int mCreatedNodes;
 
     #endregion
@@ -93,12 +94,12 @@ public partial class CMSModules_Ecommerce_FormControls_SKUSectionSelection : CMS
             defaultNode.Text = defaultNode.Text.Replace("##NODECODENAME##", HTMLHelper.HTMLEncode(treeNode.NodeName));
             defaultNode.Text = defaultNode.Text.Replace("##PARENTID##", treeNode.NodeParentID.ToString());
 
-            string onclick = $"ProcessItem(this,'{ValidationHelper.GetHashString(treeNode.NodeID.ToString(), new HashSettings { HashSalt = ClientID })}',false,true);";
+            string onclick = $"ProcessItem(this,'{ValidationHelper.GetHashString(treeNode.NodeID.ToString(), new HashSettings(mSecurityPurpose))}',false,true);";
             bool catHasCheckedChildren = ValidationHelper.GetInteger(itemData["ChildChecked"], 0) > 0;
 
             string value = mReturnColumnName == "NodeGUID" ? treeNode.NodeGUID.ToString() : treeNode.NodeID.ToString();
 
-            // Prepare checbox when in multiple selection mode
+            // Prepare checkbox when in multiple selection mode
             string checkBox = $"<span class=\"checkbox tree-checkbox\"><input id=\"chk{treeNode.NodeID}\" data-value=\"{value}\" type=\"checkbox\" onclick=\"{onclick}\" class=\"chckbox\" ";
             if (catHasCheckedChildren || (hidItem.Value.IndexOf(mValuesSeparator + value + mValuesSeparator, StringComparison.Ordinal) >= 0))
             {
@@ -186,6 +187,7 @@ public partial class CMSModules_Ecommerce_FormControls_SKUSectionSelection : CMS
             mValuesSeparator = ValidationHelper.GetString(parameters["ValuesSeparator"], ";");
             mWhereCondition = ValidationHelper.GetString(parameters["WhereCondition"], null);
             mReturnColumnName = ValidationHelper.GetString(parameters["ReturnColumnName"], "NodeID");
+            mSecurityPurpose = ValidationHelper.GetString(parameters["SecurityPurpose"], String.Empty);
 
             // Pre-select unigrid values passed from parent window
             if (!RequestHelper.IsPostBack())
@@ -194,7 +196,7 @@ public partial class CMSModules_Ecommerce_FormControls_SKUSectionSelection : CMS
                 if (!String.IsNullOrEmpty(values))
                 {
                     hidItem.Value = values;
-                    hidHash.Value = ValidationHelper.GetHashString(hidItem.Value, new HashSettings { HashSalt = ClientID });
+                    hidHash.Value = ValidationHelper.GetHashString(hidItem.Value, new HashSettings(mSecurityPurpose));
                     parameters["Values"] = null;
                 }
             }
@@ -463,10 +465,9 @@ function US_Submit(){{ SelectItemsReload(encodeURIComponent(ItemsElem().value).r
                 // Check hash of the selected item
                 string[] checkValues = values[1].Split('#');
 
-                var settings = new HashSettings
+                var settings = new HashSettings(mSecurityPurpose)
                 {
-                    Redirect = false,
-                    HashSalt = ClientID
+                    Redirect = false
                 };
 
                 isValid = (checkValues.Length == 2) && ValidationHelper.ValidateHash(checkValues[0].Trim(';'), checkValues[1], settings);
@@ -475,7 +476,7 @@ function US_Submit(){{ SelectItemsReload(encodeURIComponent(ItemsElem().value).r
             if (isValid)
             {
                 // Get new hash for currently selected items
-                result = ValidationHelper.GetHashString(values[0], new HashSettings { HashSalt = ClientID });
+                result = ValidationHelper.GetHashString(values[0], new HashSettings(mSecurityPurpose));
             }
         }
 

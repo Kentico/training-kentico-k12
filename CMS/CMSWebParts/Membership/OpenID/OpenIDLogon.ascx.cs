@@ -425,56 +425,46 @@ public partial class CMSWebParts_Membership_OpenID_OpenIDLogon : CMSAbstractWebP
         if (StopProcessing)
         {
             Visible = false;
+
+            return;
+        }
+        
+        // Check if OpenID module is enabled
+        if (SettingsKeyInfoProvider.GetBoolValue(SiteContext.CurrentSiteName + ".CMSEnableOpenID"))
+        {
+            ltlScript.Text = ScriptHelper.GetScriptTag(PROVIDERS_LOCATION + "OpenIDSelector.js");
+            lblError.Text = GetString("openid.invalidid");
+
+            SetProviders();
+            DisplayButtons();
+
+            openIDhelper = new CMSOpenIDHelper();
+            CheckStatus();
         }
         else
         {
-            if (SystemContext.IsFullTrustLevel)
+            // Error label is displayed in Design mode when OpenID is disabled
+            if (PortalContext.IsDesignMode(PortalContext.ViewMode))
             {
-                // Check if OpenID module is enabled
-                if (SettingsKeyInfoProvider.GetBoolValue(SiteContext.CurrentSiteName + ".CMSEnableOpenID"))
+                StringBuilder parameter = new StringBuilder();
+                parameter.Append(UIElementInfoProvider.GetApplicationNavigationString("cms", "Settings") + " -> ");
+                parameter.Append(GetString("settingscategory.cmsmembership") + " -> ");
+                parameter.Append(GetString("settingscategory.cmsmembershipauthentication") + " -> ");
+                parameter.Append(GetString("settingscategory.cmsopenid"));
+                if (MembershipContext.AuthenticatedUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin))
                 {
-                    ltlScript.Text = ScriptHelper.GetScriptTag(PROVIDERS_LOCATION + "OpenIDSelector.js");
-                    lblError.Text = GetString("openid.invalidid");
-
-                    SetProviders();
-                    DisplayButtons();
-
-                    openIDhelper = new CMSOpenIDHelper();
-                    CheckStatus();
+                    // Make it link for Admin
+                    parameter.Insert(0, "<a href=\"" + URLHelper.GetAbsoluteUrl(ApplicationUrlHelper.GetApplicationUrl("cms", "settings")) + "\" target=\"_top\">");
+                    parameter.Append("</a>");
                 }
-                else
-                {
-                    // Error label is displayed in Design mode when OpenID is disabled
-                    if (PortalContext.IsDesignMode(PortalContext.ViewMode))
-                    {
-                        StringBuilder parameter = new StringBuilder();
-                        parameter.Append(UIElementInfoProvider.GetApplicationNavigationString("cms", "Settings") + " -> ");
-                        parameter.Append(GetString("settingscategory.cmsmembership") + " -> ");
-                        parameter.Append(GetString("settingscategory.cmsmembershipauthentication") + " -> ");
-                        parameter.Append(GetString("settingscategory.cmsopenid"));
-                        if (MembershipContext.AuthenticatedUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin))
-                        {
-                            // Make it link for Admin
-                            parameter.Insert(0, "<a href=\"" + URLHelper.GetAbsoluteUrl(ApplicationUrlHelper.GetApplicationUrl("cms", "settings")) + "\" target=\"_top\">");
-                            parameter.Append("</a>");
-                        }
 
-                        lblError.Text = String.Format(GetString("mem.openid.disabled"), parameter);
-                        lblError.Visible = true;
-                        txtInput.Visible = false;
-                    }
-                    else
-                    {
-                        Visible = false;
-                    }
-                }
-            }
-            // Error label is displayed in Design mode when OpenID library is not enabled
-            else
-            {
-                lblError.Text = ResHelper.GetString("socialnetworking.fulltrustrequired");
+                lblError.Text = String.Format(GetString("mem.openid.disabled"), parameter);
                 lblError.Visible = true;
                 txtInput.Visible = false;
+            }
+            else
+            {
+                Visible = false;
             }
         }
     }

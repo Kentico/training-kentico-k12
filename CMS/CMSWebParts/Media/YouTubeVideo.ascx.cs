@@ -204,7 +204,7 @@ public partial class CMSWebParts_Media_YouTubeVideo : CMSAbstractWebPart
         }
         else
         {
-            string videoUrl = VideoURL;
+            string videoUrl = VideoURL.Trim();
 
             if (!ValidationHelper.IsURL(videoUrl))
             {
