@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MedioClinic
+namespace MedioClinic.Utils
 {
     /// <summary>
     /// Creates an object that implements the <see cref="IHttpHandler"/> interface and passes the request context to it.

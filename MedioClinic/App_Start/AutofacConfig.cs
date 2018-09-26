@@ -7,6 +7,7 @@ using Business.Repository;
 using Business.Services;
 using Business.Services.Context;
 using MedioClinic.Config;
+using MedioClinic.Utils;
 
 namespace MedioClinic
 {

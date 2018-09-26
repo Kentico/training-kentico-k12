@@ -2,7 +2,7 @@
 using Kentico.Content.Web.Mvc;
 using Kentico.Web.Mvc;
 
-namespace MedioClinic
+namespace MedioClinic.Utils
 {
     public class SiteContextService : ISiteContextService
     {
