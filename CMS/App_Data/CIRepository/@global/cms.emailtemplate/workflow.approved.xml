@@ -7,7 +7,7 @@
 <![CDATA[
 This is an automatic notification sent by Kentico CMS. The following page was approved. 
 
-Page: [url={%DocumentEditUrl%}]{%documentname%}[/url] {% ifEmpty(DocumentPreviewUrl, "", "([url=" + DocumentPreviewUrl + "]preview[/url])")|(identity)GlobalAdministrator|(hash)07b62513b29b4f6cd4759988b6d17409db512b92509991b689adc242495e9ccb%}
+Page: [url={%DocumentEditUrl%}]{%documentname%}[/url] {% ifEmpty(DocumentPreviewUrl, "", "([url=" + DocumentPreviewUrl + "]preview[/url])")|(identity)GlobalAdministrator|(hash)a0d97514170168f5e9b223118c0c41c8f2c0f03c5c97e6d15d9e3f3998bef7e5%}
 Approved by: {%approvedby%} 
 Approved when: {%approvedwhen%} 
 Original step: {%originalstepname%} 

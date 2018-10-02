@@ -50,7 +50,7 @@
       <field allowempty="true" column="GroupID" columntype="integer" extra="true" guid="fd5effa3-95c6-4bdf-bd14-afee8525a37c" publicfield="false" resolvedefaultvalue="False" order="9">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[{% CommunityContext.CurrentGroup.GroupID |(identity)GlobalAdministrator|(hash)8d71e53a7dbab86de213d4b0ab4d6f7929042cfbd09d0e2111f573ff2e111462%}]]>
+            <![CDATA[{% CommunityContext.CurrentGroup.GroupID |(identity)GlobalAdministrator|(hash)b8939aba9cdf5c38078cecf26426a5f4c32cafd0b5848594c768d68d879b7e37%}]]>
           </defaultvalue>
         </properties>
       </field>

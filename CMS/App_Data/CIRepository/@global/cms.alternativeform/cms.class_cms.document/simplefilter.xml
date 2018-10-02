@@ -139,7 +139,7 @@
           <fieldcaption>{$pages.filter.Persona$}</fieldcaption>
           <fielddescription>Filter by personas assigned to a document.</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%IsModuleLoaded("CMS.Personas") && LicenseHelper.CheckFeature(FeatureEnum.Personas)|(identity)GlobalAdministrator|(hash)f027a54ef3f90d350bc7062363439b0dba961f888f0162a4c76ac2fe4b7f4d02%}]]>
+            <![CDATA[{%IsModuleLoaded("CMS.Personas") && LicenseHelper.CheckFeature(FeatureEnum.Personas)|(identity)GlobalAdministrator|(hash)d6af3c3bcafa8b4833e7364bc2626d4773600bf3c81516a919c20edabb516cff%}]]>
           </visiblemacro>
         </properties>
         <settings>

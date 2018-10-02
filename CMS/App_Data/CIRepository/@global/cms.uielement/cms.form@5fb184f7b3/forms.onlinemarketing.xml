@@ -41,7 +41,7 @@
   <ElementVisibilityCondition>
 <![CDATA[
 {%LicenseHelper.CheckFeature(FeatureEnum.FullContactManagement) && System.IsModuleLoaded("CMS.OnlineMarketing") && 
-CurrentUser.IsAuthorizedPerResource("CMS.ContactManagement","Modify")|(identity)GlobalAdministrator|(hash)d6ca48b72051df15bd46d6491deb0f2426c9f0ae29565e96aaaad1c6c8604cf5%}
+CurrentUser.IsAuthorizedPerResource("CMS.ContactManagement","Modify")|(identity)GlobalAdministrator|(hash)8264f0405a37a444719d21f53abfea0af918aa0d2d4ee3268fb117d6a43ae055%}
 ]]>
   </ElementVisibilityCondition>
 </cms.uielement>

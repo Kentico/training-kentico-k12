@@ -7,7 +7,7 @@
   <ClassDefaultObjectType />
   <ClassDisplayName>Page template</ClassDisplayName>
   <ClassEditingPageUrl>
-    <![CDATA[{% UIContext.GetElementDialogUrl("cms.design", "PageTemplate.EditPageTemplate", EditedObject.ID, "aliaspath=/") |(identity)GlobalAdministrator|(hash)111ed5cbaef55e960857636622e273c59181b2f23a7a6c6519f30746b4081b45%}]]>
+    <![CDATA[{% UIContext.GetElementDialogUrl("cms.design", "PageTemplate.EditPageTemplate", EditedObject.ID, "aliaspath=/") |(identity)GlobalAdministrator|(hash)bc6cfb84b0f46a633a640d9943b6e0ead2f44f7dfe311ad2afbae7bec1309005%}]]>
   </ClassEditingPageUrl>
   <ClassFormDefinition>
     <form version="2">
@@ -89,7 +89,7 @@
           <visiblemacro ismacro="true">
 <![CDATA[
 {%PageTemplateType.Value == "portal"
-  && PageTemplateIsReusable.Value == true|(identity)GlobalAdministrator|(hash)2a95998936bca01f798b3b5e52b397023162bb2794ac0a84d31c38852f92d02e%}
+  && PageTemplateIsReusable.Value == true|(identity)GlobalAdministrator|(hash)bc98f0eb61213c3edb6e28f2e05638b288d1a9b98be137473bf59d984194d80a%}
 ]]>
           </visiblemacro>
         </properties>
@@ -113,7 +113,7 @@
 portal;{$Administration-PageTemplate_General.PortalPage$}
 aspx;{$Administration-PageTemplate_General.AspxPage$}
 aspxportal;{$PageTemplate.CombinedPage$}
-dashboard;{$PageTemplate.DashBoard$};{%ToInt(QueryString.Dialog) != 1|(identity)GlobalAdministrator|(hash)f2c227e9add95e00a02967eee706fbbd12d5f972293e7ff67e74e7a1f2680741%}
+dashboard;{$PageTemplate.DashBoard$};{%ToInt(QueryString.Dialog) != 1|(identity)GlobalAdministrator|(hash)dff08565b7871c42b43c81d01ea34d1a2f0d696d460793649f93e2bf0db7cfec%}
 ui;{$PageTemplate.UI$}
 ]]>
           </Options>
@@ -127,7 +127,7 @@ ui;{$PageTemplate.UI$}
             <![CDATA[{$administration-pagetemplate_general.showasmastertemplate$}]]>
           </fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%PageTemplateType.Value == "portal"|(identity)GlobalAdministrator|(hash)4fc6f82d869bbf5cae14e5fc57c23e47a840955184d537055a02f38949ffaf8b%}]]>
+            <![CDATA[{%PageTemplateType.Value == "portal"|(identity)GlobalAdministrator|(hash)53f6ecdbb274acf91638c8d3ec2da6ebe3443ff117d97923c5d7f40654680336%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -139,7 +139,7 @@ ui;{$PageTemplate.UI$}
           <defaultvalue>false</defaultvalue>
           <fieldcaption>Is layout</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%PageTemplateType.Value == "ui"|(identity)GlobalAdministrator|(hash)2a0dc980a84615a4ac6edbdf02985fb63edb687fd60c51e1d39caef0f03d6d7f%}]]>
+            <![CDATA[{%PageTemplateType.Value == "ui"|(identity)GlobalAdministrator|(hash)ef94d64a674104f792427771112c717e5b75c59eeb693889ff414a521a40ca83%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -154,7 +154,7 @@ ui;{$PageTemplate.UI$}
           <visiblemacro ismacro="true">
 <![CDATA[
 {%PageTemplateShowAsMasterTemplate.Value == false
-  && PageTemplateType.Value == "portal"|(identity)GlobalAdministrator|(hash)1cc4ddbd9b54e511edea37f4cf5615bd4877cf9c4b05c3820528df2d39026a3c%}
+  && PageTemplateType.Value == "portal"|(identity)GlobalAdministrator|(hash)ca828725b87aa6197d5bd742fda2ef3ddb8699832c3cdceb0ea26a13a84a5c50%}
 ]]>
           </visiblemacro>
         </properties>
@@ -169,7 +169,7 @@ ui;{$PageTemplate.UI$}
           <visiblemacro ismacro="true">
 <![CDATA[
 {%PageTemplateType.Value == "aspxportal" ||
-PageTemplateType.Value == "aspx"|(identity)GlobalAdministrator|(hash)1313491dec7770cc41e65090444ee6b0aacc37ed5bf83206ba8637f30dca6269%}
+PageTemplateType.Value == "aspx"|(identity)GlobalAdministrator|(hash)ef56e7aba56d1b4a7f746dc7d66f2ff263874a418ae2d8126d18dfa1e7a43860%}
 ]]>
           </visiblemacro>
         </properties>

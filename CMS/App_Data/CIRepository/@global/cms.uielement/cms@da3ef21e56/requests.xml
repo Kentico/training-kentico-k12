@@ -38,6 +38,6 @@
   <ElementTargetURL>~/CMSModules/System/Debug/Log.aspx?name=requests</ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%Debug.IsDebugEnabled("requests")|(identity)GlobalAdministrator|(hash)4f38c58dbe79dad607728e55b0d3368c3c3d869d16b06d60dd5755ebcedf0bf5%}]]>
+    <![CDATA[{%Debug.IsDebugEnabled("requests")|(identity)GlobalAdministrator|(hash)4ccdb6d81a23662eb4113f13bef036981c816d4b3e5440c7c337209ec2d4dc9e%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

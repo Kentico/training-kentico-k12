@@ -75,7 +75,7 @@
       <field allowempty="true" column="WordAction" columntype="integer" dependsonanotherfield="true" guid="362cfe9c-423a-40f0-8918-2529c1bc7d02" hasdependingfields="true" publicfield="false" system="true" visibility="none" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%WordActionUseDefaultSettings.Value == false|(identity)GlobalAdministrator|(hash)aee22f3ccde4323b69e232f3808e8ff1a19f4e6fe5e48977fcca96d9d12c32dd%}]]>
+            <![CDATA[{%WordActionUseDefaultSettings.Value == false|(identity)GlobalAdministrator|(hash)4610366bcf4509fc1e451d51668ccef2a0303ec4a35eb4e52df628355ed80114%}]]>
           </enabledmacro>
           <fieldcaption>{$BadWords_Edit.WordActionLabel$}</fieldcaption>
         </properties>
@@ -94,7 +94,7 @@
           <defaultvalue>True</defaultvalue>
           <fieldcaption>Use default word replacement</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%WordAction.Value == 2|(identity)GlobalAdministrator|(hash)b2676084ed99f466ccecc2d9ed690c6ee13373b13478037cdefccb143a53c1aa%}]]>
+            <![CDATA[{%WordAction.Value == 2|(identity)GlobalAdministrator|(hash)148efc519b5ee660c52ac9b2663cd5d862b3efd9d7ce9bac0cc23bc6aa790e84%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -104,11 +104,11 @@
       <field allowempty="true" column="WordReplacement" columnsize="200" columntype="text" dependsonanotherfield="true" guid="43afe0be-68dd-4e9d-8b52-196416a9743f" publicfield="false" system="true" visibility="none" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%WordReplacementUseDefaultSettings.Value == false|(identity)GlobalAdministrator|(hash)acdcf9aa54cb2fbeb3454b9deed1e1752afc7688cb054d86b17fb1e061eb21ef%}]]>
+            <![CDATA[{%WordReplacementUseDefaultSettings.Value == false|(identity)GlobalAdministrator|(hash)98a7b5fff1d79849d74f08832371971db22739039ad4a53a2e75a14ae24254ab%}]]>
           </enabledmacro>
           <fieldcaption>{$BadWords_Edit.WordReplacementLabel$}</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%WordAction.Value == 2|(identity)GlobalAdministrator|(hash)b2676084ed99f466ccecc2d9ed690c6ee13373b13478037cdefccb143a53c1aa%}]]>
+            <![CDATA[{%WordAction.Value == 2|(identity)GlobalAdministrator|(hash)148efc519b5ee660c52ac9b2663cd5d862b3efd9d7ce9bac0cc23bc6aa790e84%}]]>
           </visiblemacro>
         </properties>
         <settings>

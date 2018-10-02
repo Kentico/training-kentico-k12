@@ -36,13 +36,13 @@
   </ElementResourceID>
   <ElementSize>1</ElementSize>
   <ElementTargetURL>
-    <![CDATA[~/CMSModules/Chat/Pages/Tools/ChatRoom/New.aspx?siteID={%CurrentSite.SiteID|(identity)GlobalAdministrator|(hash)510678d27498ae5fc108f65edc1d7b971f75cb78ee1845f3abcf9bc9c9fb8da9%}]]>
+    <![CDATA[~/CMSModules/Chat/Pages/Tools/ChatRoom/New.aspx?siteID={%CurrentSite.SiteID|(identity)GlobalAdministrator|(hash)d5d3f568224fa3c45106fe3b3f8a8be7ae57c11ba5beb0d3f38b7a27e23fca17%}]]>
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
 <![CDATA[
 {%CurrentUser.IsAuthorizedPerResource("CMS.Chat","GlobalModify")
-  || CurrentUser.IsAuthorizedPerResource("CMS.Chat","Modify")|(identity)GlobalAdministrator|(hash)e008b35b8c34e1ba10ee8581af3de0672a4daf98bac941271fba50bbfea4938f%}
+  || CurrentUser.IsAuthorizedPerResource("CMS.Chat","Modify")|(identity)GlobalAdministrator|(hash)62284dde07c4fc36062f886c16c09c76a220fd30cf4235b3348a50d47b815a79%}
 ]]>
   </ElementVisibilityCondition>
 </cms.uielement>

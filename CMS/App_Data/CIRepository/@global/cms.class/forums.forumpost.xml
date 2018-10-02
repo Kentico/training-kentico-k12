@@ -72,7 +72,7 @@
       <field allowempty="true" column="PostSiteID" columntype="integer" guid="fd22555c-c55e-49b1-b95a-bc4ac1eef773" publicfield="false" system="true">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[{% ParentObject.SiteID |(identity)GlobalAdministrator|(hash)3feffef7e161ea068392f9cb2e5996c5a981b7a54965893d8e83c04be6df18e9%}]]>
+            <![CDATA[{% ParentObject.SiteID |(identity)GlobalAdministrator|(hash)d5ed1a9010f8ada682e45ed7a738284d85092be4b771ec2b0517747d16ea79c7%}]]>
           </defaultvalue>
         </properties>
       </field>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.uielement>
   <ElementAccessCondition>
-    <![CDATA[{%!UIContext.IsDialog && CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin)|(identity)GlobalAdministrator|(hash)82cbdd3cd6cae6f59492dafd32174d815ab738fc57892a66b5f0f45e69f1c687%}]]>
+    <![CDATA[{%!UIContext.IsDialog && CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin)|(identity)GlobalAdministrator|(hash)266084b8f5c09ca107eb7b57215452ea560bc2fce9b5e96233bcfd597805b610%}]]>
   </ElementAccessCondition>
   <ElementCaption>{$general.sites$}</ElementCaption>
   <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
@@ -51,6 +51,6 @@
   <ElementSize>0</ElementSize>
   <ElementType>PageTemplate</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%!UIContext.IsDialog && CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin)|(identity)GlobalAdministrator|(hash)82cbdd3cd6cae6f59492dafd32174d815ab738fc57892a66b5f0f45e69f1c687%}]]>
+    <![CDATA[{%!UIContext.IsDialog && CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin)|(identity)GlobalAdministrator|(hash)266084b8f5c09ca107eb7b57215452ea560bc2fce9b5e96233bcfd597805b610%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

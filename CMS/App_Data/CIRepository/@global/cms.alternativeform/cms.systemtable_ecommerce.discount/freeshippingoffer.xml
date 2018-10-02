@@ -43,7 +43,7 @@
 {%
 	siteID = DiscountSiteID == 0 ? CMSContext.CurrentSiteID : DiscountSiteID;
 	HTMLEncode(GetMainSiteCurrency(siteID).CurrencyCode);
-|(identity)GlobalAdministrator|(hash)5c79093ebf045b3861472a2e8b131e9a279c371e0d59a1a9cd942f0e26a3b51c%}
+|(identity)GlobalAdministrator|(hash)5b64fca872ccc4f1e2a6f550d59d90df1cab0abfd920e4cedc43629f1ed33410%}
 </span>
 ]]>
           </contentafter>
@@ -82,7 +82,7 @@
           <contentafter>
 <![CDATA[
 <span ID="CouponsInfoLabel" class="form-control-text" style="display : none;" >
-{% GetResourceString("com.discount.couponsredirect")|(identity)GlobalAdministrator|(hash)0f0fa2201557b4212e6d636748e883219ec88af1ea65ee020bede678e8761ea4%}
+{% GetResourceString("com.discount.couponsredirect")|(identity)GlobalAdministrator|(hash)21f5d43e5614d7ad019fb1a4e96868d397477000996ba6f49001839d6208bdb3%}
 </span>
 </div>
  
@@ -103,7 +103,7 @@
         </settings>
         <properties>
           <visiblemacro ismacro="true">
-            <![CDATA[{%DiscountCustomerRestriction.Value == "SelectedRoles"|(identity)GlobalAdministrator|(hash)34d195d934647ff9a7206da694d84fe44129976fcfab0ef52a994d63e7ce7c0e%}]]>
+            <![CDATA[{%DiscountCustomerRestriction.Value == "SelectedRoles"|(identity)GlobalAdministrator|(hash)af5361be54ae66c8fff5f1d88c11790d697fa69208826f45f01de32469730ad3%}]]>
           </visiblemacro>
           <enabledmacro />
         </properties>

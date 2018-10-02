@@ -34,7 +34,7 @@
       <extenderclassname>PermissionsListControlExtender</extenderclassname>
       <displaybreadcrumbs>False</displaybreadcrumbs>
       <wherecondition>
-        <![CDATA[ResourceID = {% UIContext.EditedObjectParent.ID |(identity)GlobalAdministrator|(hash)e38b3a5b0d32be436e8e837c45c2464f26e56b76063a2014bd5d2661f4e35a74%}]]>
+        <![CDATA[ResourceID = {% UIContext.EditedObjectParent.ID |(identity)GlobalAdministrator|(hash)84823432f42660370850a0c447efe6dbad9c43aa842fd689ce60bceea14450d0%}]]>
       </wherecondition>
     </data>
   </ElementProperties>

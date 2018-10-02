@@ -45,7 +45,7 @@
           <ObjectTypeList>ObjectTypes.MainObjectTypes</ObjectTypeList>
           <SortItems>True</SortItems>
           <TextFormat>
-            <![CDATA[{% GetObjectTypeName(Text) + FormatNotEmpty(Value, " ({0})") |(identity)GlobalAdministrator|(hash)41eb120f1689681b96ac0753099c2b84ebcf87b00a1ec96f40d13aff03090b28%}]]>
+            <![CDATA[{% GetObjectTypeName(Text) + FormatNotEmpty(Value, " ({0})") |(identity)GlobalAdministrator|(hash)2d896ead2574acda3724ce02df9662d7569609a41ad27d5e2c46fd80840025bb%}]]>
           </TextFormat>
         </settings>
       </field>

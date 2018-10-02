@@ -32,6 +32,6 @@
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%Settings.CMSRegistrationAdministratorApproval|(identity)GlobalAdministrator|(hash)68a7f09febbc139128b8e8b0609acda21e5c51fa5361cc66d5c1f36701da851d%}]]>
+    <![CDATA[{%Settings.CMSRegistrationAdministratorApproval|(identity)GlobalAdministrator|(hash)7f02f7274ef7634b8c707a278ad1e781d44ac6c343faf055fc7fdec69fdc53a7%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

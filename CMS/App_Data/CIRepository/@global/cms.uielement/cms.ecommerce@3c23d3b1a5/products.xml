@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.uielement>
   <ElementAccessCondition>
-    <![CDATA[{%((CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","ReadProducts")) || (CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceRead"))) && (CurrentUser.IsAuthorizedPerContent())|(identity)GlobalAdministrator|(hash)84f2bdad630b24da3c3c32efb38ac98c88358d8be8930cdd7f7a7240fc1495c6%}]]>
+    <![CDATA[{%((CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","ReadProducts")) || (CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceRead"))) && (CurrentUser.IsAuthorizedPerContent())|(identity)GlobalAdministrator|(hash)18f97ec4c447f1bc92c948fbcd3298d73b1e5358f589ef30510ae7904224d1ca%}]]>
   </ElementAccessCondition>
   <ElementCaption>{$com.ui.products$}</ElementCaption>
   <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>

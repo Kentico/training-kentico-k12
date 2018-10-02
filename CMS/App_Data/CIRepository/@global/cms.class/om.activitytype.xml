@@ -35,7 +35,7 @@
           <fieldcaption>{$general.codename$}</fieldcaption>
           <fielddescription>{$om.activitytype.name.description$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%ActivityTypeIsCustom.Value == true|(identity)GlobalAdministrator|(hash)b5eeb9fd1c8d01bafa23db75cf52a5713cba6dbcb39367a941c5879d9d7d12b7%}]]>
+            <![CDATA[{%ActivityTypeIsCustom.Value == true|(identity)GlobalAdministrator|(hash)8560f560625e05239d2a960098ab74024e7cb529c04df95dd89f9eece7b08bfd%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -69,7 +69,7 @@
             <![CDATA[{$om.activitytype.manualcreationallowed.description$}]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%ActivityTypeIsCustom.Value || SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)1fd69a20f91889005cb36391a2be625cd8060d1668dddb5d3b8bbc347afc91b6%}]]>
+            <![CDATA[{%ActivityTypeIsCustom.Value || SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)1fea40421e883cde6016a81706d99c53e00d565695046862bd4d70618f416d21%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -82,7 +82,7 @@
           <fieldcaption>{$general.enabled$}</fieldcaption>
           <fielddescription>{$om.activitytype.enabled.description$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%ActivityTypeIsCustom.Value || SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)1fd69a20f91889005cb36391a2be625cd8060d1668dddb5d3b8bbc347afc91b6%}]]>
+            <![CDATA[{%ActivityTypeIsCustom.Value || SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)1fea40421e883cde6016a81706d99c53e00d565695046862bd4d70618f416d21%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -97,7 +97,7 @@
             <![CDATA[{$om.activitytype.ishiddenincontentonly.description$}]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)ba6174858905630f3624431bc0cee9dfa38ff6b76a076b8d08ebe3d0184ebcd3%}]]>
+            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)74db4b4532d0ad962922043c4b5a2f44887ec3eb2f460a62c589b6c0b35cc615%}]]>
           </visiblemacro>
         </properties>
         <settings>

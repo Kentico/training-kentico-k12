@@ -33,7 +33,7 @@
       <checkmodifypermission>True</checkmodifypermission>
       <resourceprefix>cms_searchindex.select</resourceprefix>
       <listprefacetext>
-        <![CDATA[{% String.FormatString(GetResourceString("site_edit_siteobjects.objectsavailable"), GetResourceString("objecttasks.cms_searchindex").ToLower()) |(identity)GlobalAdministrator|(hash)7e0fbf2bc2e20d5d13c04257f40ebffb5762db6355702c04cb705b2626c74d64%}]]>
+        <![CDATA[{% String.FormatString(GetResourceString("site_edit_siteobjects.objectsavailable"), GetResourceString("objecttasks.cms_searchindex").ToLower()) |(identity)GlobalAdministrator|(hash)5fc3236e208460345f6247c37dbe24d9f75ca85f5cb4bae41341c137f16fd9f4%}]]>
       </listprefacetext>
       <displaybreadcrumbs>False</displaybreadcrumbs>
       <wherecondition>IndexSiteID = {% UIContext.ObjectID @%}</wherecondition>

@@ -92,11 +92,11 @@
         <properties>
           <defaultvalue>false</defaultvalue>
           <enabledmacro ismacro="true">
-            <![CDATA[{%!CultureIsUICulture || (CultureCode != LocalizationContext.PreferredUICultureCode)|(identity)GlobalAdministrator|(hash)47d1a3694a446a7ad1f7d2fe5e2824f3642913440125d6a8202ed55a059e107a%}]]>
+            <![CDATA[{%!CultureIsUICulture || (CultureCode != LocalizationContext.PreferredUICultureCode)|(identity)GlobalAdministrator|(hash)f3b9f255de13ac69d2022162ea7b164144a619cb4fd9e46c6be8d2df0e77eb41%}]]>
           </enabledmacro>
           <fieldcaption>{$culture.cultureisuiculture$}</fieldcaption>
           <fielddescription ismacro="true">
-            <![CDATA[{% if (Form.Data.CultureIsUICulture && (CultureCode == LocalizationContext.PreferredUICultureCode)){ GetResourceString("culture.cannotdisableuiculture") } |(identity)GlobalAdministrator|(hash)41ad5a98b6a2d1d2bb09112ef5f46d01e1cd4a2f69a52ada85332c2417f073ed%}]]>
+            <![CDATA[{% if (Form.Data.CultureIsUICulture && (CultureCode == LocalizationContext.PreferredUICultureCode)){ GetResourceString("culture.cannotdisableuiculture") } |(identity)GlobalAdministrator|(hash)1014a885fce79607cfeb67ec867b8f5f80a476c3352844c30efecc25041c5391%}]]>
           </fielddescription>
         </properties>
         <settings>

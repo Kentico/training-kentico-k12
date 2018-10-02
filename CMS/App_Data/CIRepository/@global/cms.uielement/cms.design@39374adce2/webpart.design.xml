@@ -38,6 +38,6 @@
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%return EditedObject.IsLayout && EditedObject.WebPartSkipInsertProperties  && (EditedObject.WebPartParentID > 0)|(identity)GlobalAdministrator|(hash)d727211ab3249433536ee2da467b24cbb3f6c4bd30dc1732fa79c09f0ea42096%}]]>
+    <![CDATA[{%return EditedObject.IsLayout && EditedObject.WebPartSkipInsertProperties  && (EditedObject.WebPartParentID > 0)|(identity)GlobalAdministrator|(hash)6c8776afd309dea9d5f98e3f987cf8c460512cf54b5368555adf72ae76110b1e%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

@@ -38,7 +38,7 @@
   </ElementResourceID>
   <ElementSize>0</ElementSize>
   <ElementTargetURL>
-    <![CDATA[~/CMSModules/BannedIP/Tools/BannedIP_List.aspx?siteid={% if (!CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin)) { return CurrentSite.SiteID } |(identity)GlobalAdministrator|(hash)e1c380c8f3e5e9556bfd0a3244d2e150055da6146b94a7d904bad460c0388987%}]]>
+    <![CDATA[~/CMSModules/BannedIP/Tools/BannedIP_List.aspx?siteid={% if (!CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin)) { return CurrentSite.SiteID } |(identity)GlobalAdministrator|(hash)6effdf2ebdfd4a9c483a52aea40891cceb7004e89f5a150d70bd16baab580afc%}]]>
   </ElementTargetURL>
   <ElementType>Url</ElementType>
 </cms.uielement>

@@ -7,7 +7,7 @@
   <ClassDefaultObjectType />
   <ClassDisplayName>Transformation</ClassDisplayName>
   <ClassEditingPageUrl>
-    <![CDATA[{% UIContext.GetElementDialogUrl("cms.documentengine", "EditTransformation", EditedObject.ID, "") |(identity)GlobalAdministrator|(hash)cb3bafd09bb8b90d7b629f60549536be0f77bfc8a56cb055f378df418b67d228%}]]>
+    <![CDATA[{% UIContext.GetElementDialogUrl("cms.documentengine", "EditTransformation", EditedObject.ID, "") |(identity)GlobalAdministrator|(hash)685532b85ce92b4cf25ea31ad084209908498eb8809e0dc0735c912ccfcee628%}]]>
   </ClassEditingPageUrl>
   <ClassFormDefinition>
     <form version="2">

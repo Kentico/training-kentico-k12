@@ -314,7 +314,7 @@ Specifies what kind of users can create or edit pages using this control:
 
 - All users (any user who comes to the web site)
 
-- Authenticated users (only users authenticated with a user name and password; you can use this option in combination with the NodeOwner = {%CMSContext.CurrentUser.UserID|(identity)GlobalAdministrator|(hash)a075afb1005c76285c9f9ac78fd579f533b8e67e74a8a07d863aadd40b978023%} value in the WHERE condition  property for the web part to display only pages created by the current user (and therefore allow editing of these pages only to them))
+- Authenticated users (only users authenticated with a user name and password; you can use this option in combination with the NodeOwner = {%CMSContext.CurrentUser.UserID|(identity)GlobalAdministrator|(hash)d7da48dd60cafd0c6f63e104f4f553161f26e0b20ea058defee2d7def3e45c30%} value in the WHERE condition  property for the web part to display only pages created by the current user (and therefore allow editing of these pages only to them))
 
 - Page owners (only owners of the parent page under which the contributions are inserted can create new pages and existing pages can be edited by their owners)
 ]]>

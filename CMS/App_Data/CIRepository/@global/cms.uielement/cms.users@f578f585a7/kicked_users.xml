@@ -30,10 +30,10 @@
   </ElementResourceID>
   <ElementSize>0</ElementSize>
   <ElementTargetURL>
-    <![CDATA[~/CMSModules/Membership/Pages/Users/General/User_Kicked.aspx?siteid={%CurrentSite.SiteID|(identity)GlobalAdministrator|(hash)510678d27498ae5fc108f65edc1d7b971f75cb78ee1845f3abcf9bc9c9fb8da9%}]]>
+    <![CDATA[~/CMSModules/Membership/Pages/Users/General/User_Kicked.aspx?siteid={%CurrentSite.SiteID|(identity)GlobalAdministrator|(hash)d5d3f568224fa3c45106fe3b3f8a8be7ae57c11ba5beb0d3f38b7a27e23fca17%}]]>
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%Settings.CMSSessionUseDBRepository|(identity)GlobalAdministrator|(hash)c2ee52baa0c725daf74b490573a0c7695e568c412afda25bd28413dea16375b4%}]]>
+    <![CDATA[{%Settings.CMSSessionUseDBRepository|(identity)GlobalAdministrator|(hash)2b72828797da5382fdcfa3b469c3e55d0224970227f9d4cde981d387c4074e9b%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

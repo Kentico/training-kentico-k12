@@ -361,7 +361,7 @@
       <field allowempty="true" column="ShowEditButton" columntype="boolean" guid="95305369-6197-4040-82da-7b1d052fe0be" publicfield="false" resolvedefaultvalue="True" visible="true">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[{%ShowEditDeleteButtons.Value|(identity)GlobalAdministrator|(hash)5cfc710d2cfe4307894d7fd05c206e8a6ebfcb7ad47daa7c9c59ee8b45d88774%}]]>
+            <![CDATA[{%ShowEditDeleteButtons.Value|(identity)GlobalAdministrator|(hash)d613b6fcfaa6844b779901a58e978e53c9820ce7e0bd359f9d48d4b79d89f393%}]]>
           </defaultvalue>
           <fieldcaption>{$editmode.showeditbutton$}</fieldcaption>
           <fielddescription>{$editmode.showeditbutton.description$}</fielddescription>
@@ -373,7 +373,7 @@
       <field allowempty="true" column="ShowDeleteButton" columntype="boolean" guid="9a3ad8e4-aa50-4f89-af52-6b6960041d82" publicfield="false" resolvedefaultvalue="True" visible="true">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[{%ShowEditDeleteButtons.Value|(identity)GlobalAdministrator|(hash)5cfc710d2cfe4307894d7fd05c206e8a6ebfcb7ad47daa7c9c59ee8b45d88774%}]]>
+            <![CDATA[{%ShowEditDeleteButtons.Value|(identity)GlobalAdministrator|(hash)d613b6fcfaa6844b779901a58e978e53c9820ce7e0bd359f9d48d4b79d89f393%}]]>
           </defaultvalue>
           <fieldcaption>{$editmode.showdeletebutton$}</fieldcaption>
           <fielddescription>{$editmode.showdeletebutton.description$}</fielddescription>

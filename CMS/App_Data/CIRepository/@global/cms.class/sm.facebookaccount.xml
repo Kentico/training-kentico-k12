@@ -97,7 +97,7 @@
         <settings>
           <controlname>smfacebookpageid</controlname>
           <FacebookApplicationId ismacro="true">
-            <![CDATA[{%Fields["FacebookAccountFacebookApplicationID"]|(identity)GlobalAdministrator|(hash)bc52840c2c3ec0bf27b9f4c32d28f779b0f692a463dea39fc927fa7659e5a0b4%}]]>
+            <![CDATA[{%Fields["FacebookAccountFacebookApplicationID"]|(identity)GlobalAdministrator|(hash)e0cd7f6dcc301c6ade942eaab25cd708e80d5fabaaeb94c6e6c3980530c92ebe%}]]>
           </FacebookApplicationId>
         </settings>
       </field>

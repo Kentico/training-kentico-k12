@@ -6,8 +6,8 @@
   <TableName>Crawlers</TableName>
   <TableQuery>
 <![CDATA[
-SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
-SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)9b6cfede91cef6d45e1faeebc8678ce2fccd9a7cf6cb996da81079332f4e0630%}');
+SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)9b6cfede91cef6d45e1faeebc8678ce2fccd9a7cf6cb996da81079332f4e0630%}');
 SELECT TOP 100
 StatisticsObjectName  AS '{$reports_searchcrawler.name_header$}',
  SUM(HitsCount) AS '{$reports_searchcrawler.hits_detail_header$}',

@@ -5,15 +5,15 @@
   <TableName>SearchKeywords</TableName>
   <TableQuery>
 <![CDATA[
-SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
-SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
+SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)9b6cfede91cef6d45e1faeebc8678ce2fccd9a7cf6cb996da81079332f4e0630%}');
+SET @ToDate ={%DatabaseSchema%}.Func_Analytics_EndDateTrim(@ToDate,'{%if (Interval == null) { "Year" } else { Interval }|(identity)GlobalAdministrator|(hash)9b6cfede91cef6d45e1faeebc8678ce2fccd9a7cf6cb996da81079332f4e0630%}');
 SELECT TOP 100
 StatisticsObjectName  AS '{$reports_searchkeyword.name_header$}',
  SUM(HitsCount) AS '{$reports_searchkeyword.hits_header$}',
  CAST(CAST(100*CAST(SUM(HitsCount) AS float)/NULLIF((
   SELECT SUM(HitsCount)
   FROM Analytics_Statistics
-  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%} ON Analytics_Statistics.StatisticsID = {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%}.HitsStatisticsID
+  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)ba0e0fbc928309cd72cfd4258baea570c3029cb4bb88082ab6913bed8195217f%} ON Analytics_Statistics.StatisticsID = {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)ba0e0fbc928309cd72cfd4258baea570c3029cb4bb88082ab6913bed8195217f%}.HitsStatisticsID
   WHERE (StatisticsSiteID=@CMSContextCurrentSiteID)
   AND (StatisticsCode='searchkeyword')
   AND (HitsStartTime >= @FromDate)
@@ -21,7 +21,7 @@ StatisticsObjectName  AS '{$reports_searchkeyword.name_header$}',
   AND (StatisticsObjectCulture= @CultureCode)
   AND (HitsEndTime <= @ToDate)), 0) AS decimal(3)) AS VARCHAR)+'%' AS '{$reports_searchkeyword.percent_header$}'
   FROM Analytics_Statistics
-  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%} ON Analytics_Statistics.StatisticsID = {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%}.HitsStatisticsID
+  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)ba0e0fbc928309cd72cfd4258baea570c3029cb4bb88082ab6913bed8195217f%} ON Analytics_Statistics.StatisticsID = {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)ba0e0fbc928309cd72cfd4258baea570c3029cb4bb88082ab6913bed8195217f%}.HitsStatisticsID
   WHERE (StatisticsSiteID = @CMSContextCurrentSiteID)
   AND (StatisticsCode='searchkeyword')
   AND (HitsStartTime >= @FromDate) AND (HitsEndTime <= @ToDate) AND (StatisticsObjectID = @NodeID)

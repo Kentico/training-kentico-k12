@@ -40,7 +40,7 @@
         </settings>
         <rules>
           <rule>
-            <![CDATA[{%Rule("Value.Matches(\"^([^:*?<>{}\\\\\\\"\\\"|]*)+$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^([^:*?&lt;&gt;{}\\\\\\&quot;\\&quot;|]*)+$</t><v>^([^:*?&lt;&gt;{}\\\\\\&quot;\\&quot;|]*)+$</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)12154db12c3cd7051b015e0ab2f8ce8757f1cb535eda31d81ea811faa3c7ed60%}]]>
+            <![CDATA[{%Rule("Value.Matches(\"^([^:*?<>{}\\\\\\\"\\\"|]*)+$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^([^:*?&lt;&gt;{}\\\\\\&quot;\\&quot;|]*)+$</t><v>^([^:*?&lt;&gt;{}\\\\\\&quot;\\&quot;|]*)+$</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)25396e4ab6c9c26a9e827f80f8f6e8d11fa95daf12d181827b5a7fa620875057%}]]>
           </rule>
         </rules>
       </field>

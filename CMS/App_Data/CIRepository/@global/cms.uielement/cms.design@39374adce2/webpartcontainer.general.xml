@@ -36,7 +36,7 @@
   </ElementResourceID>
   <ElementSize>0</ElementSize>
   <ElementTargetURL>
-    <![CDATA[~/CMSModules/PortalEngine/UI/WebContainers/Container_Edit_General.aspx?containerID={%EditedObject.ID|(identity)GlobalAdministrator|(hash)4249f27f285166754b0eb8b20bcebc13c26f02f329b44d1f5abc457c2aa7dd8e%}]]>
+    <![CDATA[~/CMSModules/PortalEngine/UI/WebContainers/Container_Edit_General.aspx?containerID={%EditedObject.ID|(identity)GlobalAdministrator|(hash)c623bdea843f0fdb423313e84cb30836177e6f84f1971f244edfb82754fd581d%}]]>
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition />

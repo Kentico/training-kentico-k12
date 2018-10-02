@@ -26,7 +26,7 @@
       <field column="Path" visible="" guid="781264e4-3b56-4431-bcc4-5deda3019da4">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)47520cadb9da8dec9af9bbbd955c021ad09d5ce84def3d4421c18ebc16499bee%}/Blogs/%]]>
+            <![CDATA[{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)2c55b32dafbc09d60ab8220d421777a2aa77052899f9ac51f53cf9b47f05e59b%}/Blogs/%]]>
           </defaultvalue>
         </properties>
       </field>
@@ -107,7 +107,7 @@
       <field column="CacheDependencies" visible="" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[nodes|{%ToLower(CurrentSite.SiteName)|(identity)GlobalAdministrator|(hash)64bc87c0ad567a6b03546e09c95869d82cbcc0a61409f03238aec44c5fc84edd%}|cms.blogpost|all]]>
+            <![CDATA[nodes|{%ToLower(CurrentSite.SiteName)|(identity)GlobalAdministrator|(hash)08c3cbe462b3ae2c1e2fe64d95506a983dc4d908878e84c2936157578bd5d9b2%}|cms.blogpost|all]]>
           </defaultvalue>
         </properties>
       </field>
@@ -138,7 +138,7 @@
           <defaultvalue ismacro="true">
 <![CDATA[
 </div>
-<a href="~{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)47520cadb9da8dec9af9bbbd955c021ad09d5ce84def3d4421c18ebc16499bee%}/Blogs/Blog-posts.aspx">View all posts</a>
+<a href="~{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)2c55b32dafbc09d60ab8220d421777a2aa77052899f9ac51f53cf9b47f05e59b%}/Blogs/Blog-posts.aspx">View all posts</a>
 ]]>
           </defaultvalue>
         </properties>
@@ -188,7 +188,7 @@
             <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
           </fielddescription>
           <defaultvalue>
-            <![CDATA[~{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)47520cadb9da8dec9af9bbbd955c021ad09d5ce84def3d4421c18ebc16499bee%}/RSS/BlogPosts.aspx]]>
+            <![CDATA[~{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)2c55b32dafbc09d60ab8220d421777a2aa77052899f9ac51f53cf9b47f05e59b%}/RSS/BlogPosts.aspx]]>
           </defaultvalue>
           <fieldcaption>Container custom content</fieldcaption>
         </properties>

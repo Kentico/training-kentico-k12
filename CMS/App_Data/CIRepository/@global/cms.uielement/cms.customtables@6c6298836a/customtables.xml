@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.uielement>
   <ElementAccessCondition>
-    <![CDATA[{%CurrentUser.IsAuthorizedPerCustomTablesData()|(identity)GlobalAdministrator|(hash)7867c97673c81bbf37f432c030f9a69fd9bb3717fd100070b161fa18956ec5e3%}]]>
+    <![CDATA[{%CurrentUser.IsAuthorizedPerCustomTablesData()|(identity)GlobalAdministrator|(hash)37bab45a524082107bc07c7908cd2f8886b10ac3ff8a88c42e37919dd5ed7cba%}]]>
   </ElementAccessCondition>
   <ElementCaption>{$tools.ui.customtables$}</ElementCaption>
   <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>

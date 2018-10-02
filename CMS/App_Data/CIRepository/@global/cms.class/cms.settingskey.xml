@@ -108,7 +108,7 @@ string;String
           <defaultvalue>false</defaultvalue>
           <fieldcaption>{$settings.keyishidden$}</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%QueryString.treeroot != "customsettings"|(identity)GlobalAdministrator|(hash)0c0f5a1e5de5d0661b90e4086feb59b29a33f1177674f90364fb1df09e9eac08%}]]>
+            <![CDATA[{%QueryString.treeroot != "customsettings"|(identity)GlobalAdministrator|(hash)910a499cc761d458d9aa8de84f57d9be6477120e7874428d045f3776e070613b%}]]>
           </visiblemacro>
         </properties>
         <settings>

@@ -50,7 +50,7 @@
           <defaultvalue>false</defaultvalue>
           <fieldcaption>{$Administration-Module_New.ModuleHasFiles$}</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)ba6174858905630f3624431bc0cee9dfa38ff6b76a076b8d08ebe3d0184ebcd3%}]]>
+            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)74db4b4532d0ad962922043c4b5a2f44887ec3eb2f460a62c589b6c0b35cc615%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -60,7 +60,7 @@
       <field allowempty="true" column="ResourceVersion" columnsize="200" columntype="text" guid="fe952147-e48d-487c-bee5-2eb152d7fdf5" publicfield="false" system="true" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%UIContext.EditedObject.ResourceIsInDevelopment|(identity)GlobalAdministrator|(hash)87fc321e879844e612177230d4866d7908f3cc8db716f78bf3fc25195be38b11%}]]>
+            <![CDATA[{%UIContext.EditedObject.ResourceIsInDevelopment|(identity)GlobalAdministrator|(hash)42dfe6932af2f3c7ec542a93160692e3af0b7ef35ca203af0c1af6a76a84039a%}]]>
           </enabledmacro>
           <explanationtext>
             <![CDATA[{$Administration-Module_New.ModuleVersion.Explanation$}]]>
@@ -73,7 +73,7 @@
             <![CDATA[{$Administration-Module_New.ModuleVersion.FormatValidationError$}]]>
           </validationerrormessage>
           <visiblemacro ismacro="true">
-            <![CDATA[{%!UIContext.EditedObject.ResourceName.Equals("cms.customsystemmodule", true)|(identity)GlobalAdministrator|(hash)0dff2c1e4bc4eda7709eb0258a7a260bd121697d98ae8dcc72d718e4efa013d5%}]]>
+            <![CDATA[{%!UIContext.EditedObject.ResourceName.Equals("cms.customsystemmodule", true)|(identity)GlobalAdministrator|(hash)6f5d967772266e5fc9b41da068c1bf04a3c5a95c13b6d71056c1aa83e44f051f%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -87,21 +87,21 @@
         </settings>
         <rules>
           <rule>
-            <![CDATA[{%Rule("Value.Matches(\"^\\\\d+(\\\\.\\\\d+){2}$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^\\d+(\\.\\d+){2}$</t><v>^\\d+(\\.\\d+){2}$</v><r>0</r><d></d><vt>text</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)24d5bb21a13c0e1e0fe951d424a49cfc822724ca56c3f7580e68cd2c51bb4708%}]]>
+            <![CDATA[{%Rule("Value.Matches(\"^\\\\d+(\\\\.\\\\d+){2}$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^\\d+(\\.\\d+){2}$</t><v>^\\d+(\\.\\d+){2}$</v><r>0</r><d></d><vt>text</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)24d15bef8dfd64a51635bae01a32f7029d192b4ba004063544f411dec9d58afe%}]]>
           </rule>
         </rules>
       </field>
       <field allowempty="true" column="ResourceAuthor" columnsize="200" columntype="text" guid="24b711ac-4c5d-4f7a-9d47-c6dba033d7f2" publicfield="false" system="true" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%UIContext.EditedObject.ResourceIsInDevelopment|(identity)GlobalAdministrator|(hash)87fc321e879844e612177230d4866d7908f3cc8db716f78bf3fc25195be38b11%}]]>
+            <![CDATA[{%UIContext.EditedObject.ResourceIsInDevelopment|(identity)GlobalAdministrator|(hash)42dfe6932af2f3c7ec542a93160692e3af0b7ef35ca203af0c1af6a76a84039a%}]]>
           </enabledmacro>
           <fieldcaption>{$Administration-Module_New.ModuleAuthor$}</fieldcaption>
           <fielddescription>
             <![CDATA[{$Administration-Module_New.ModuleAuthor.Description$}]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%!UIContext.EditedObject.ResourceName.Equals("cms.customsystemmodule", true)|(identity)GlobalAdministrator|(hash)0dff2c1e4bc4eda7709eb0258a7a260bd121697d98ae8dcc72d718e4efa013d5%}]]>
+            <![CDATA[{%!UIContext.EditedObject.ResourceName.Equals("cms.customsystemmodule", true)|(identity)GlobalAdministrator|(hash)6f5d967772266e5fc9b41da068c1bf04a3c5a95c13b6d71056c1aa83e44f051f%}]]>
           </visiblemacro>
         </properties>
         <settings>

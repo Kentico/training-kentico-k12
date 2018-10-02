@@ -9,9 +9,9 @@
 <![CDATA[
 /* Returns the number of products meeting the conditions from the filter */
 DECLARE @GlobalProducts bit;
-SET @GlobalProducts = {%Settings.CMSStoreAllowGlobalProducts?1:0|(identity)GlobalAdministrator|(hash)7d1fcaafa5e010dfe35e6710119dfd05a7f91e0f0c0e5747ad041e133f480458%};
+SET @GlobalProducts = {%Settings.CMSStoreAllowGlobalProducts?1:0|(identity)GlobalAdministrator|(hash)65601d2d18d84ad259a17056c5b0e7d2b2aedd4d6e8bd16b82d05f25c6566233%};
 DECLARE @GlobalOptions bit;
-SET @GlobalOptions = {%Settings.CMSStoreAllowGlobalProductOptions?1:0|(identity)GlobalAdministrator|(hash)e4c20cf972c8e171c5b66b28b772db58173b61ef64f49118a71d5f094c56ce18%};
+SET @GlobalOptions = {%Settings.CMSStoreAllowGlobalProductOptions?1:0|(identity)GlobalAdministrator|(hash)422750e124984712bcf3d9803540bb0d8c2712052074e6c3243e8865a5e5b6ce%};
 
 SELECT
    CAST(COUNT(product.SKUID) AS DECIMAL(38,0)) 

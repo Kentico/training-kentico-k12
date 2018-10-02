@@ -57,7 +57,7 @@ icon-w-media-gallery-folder-tree
         </settings>
         <rules>
           <rule>
-            <![CDATA[{%Rule("Value.Matches(\"^([^:*?<>\\\\\\\"\\\"|]*)+$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^([^:*?&lt;&gt;\\\\\\&quot;\\&quot;|]*)+$</t><v>^([^:*?&lt;&gt;\\\\\\&quot;\\&quot;|]*)+$</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)22e804862f0a9b141130f319be76ad913eac9e2eff9c5e0ef16d48f3b4a8a3cc%}]]>
+            <![CDATA[{%Rule("Value.Matches(\"^([^:*?<>\\\\\\\"\\\"|]*)+$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^([^:*?&lt;&gt;\\\\\\&quot;\\&quot;|]*)+$</t><v>^([^:*?&lt;&gt;\\\\\\&quot;\\&quot;|]*)+$</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)e50edda8539255ae5e37f0036f03cb53df7209ea2fb68f770842ca61864d22c5%}]]>
           </rule>
         </rules>
       </field>

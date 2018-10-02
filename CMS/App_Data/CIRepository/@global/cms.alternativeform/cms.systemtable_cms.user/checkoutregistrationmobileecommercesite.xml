@@ -22,7 +22,7 @@
         </properties>
         <rules>
           <rule>
-            <![CDATA[{%Rule("(Value.Length <= 100)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MaxLength\" ><p n=\"maxlength\"><t>100</t><v>100</v><r>0</r><d></d><vt>integer</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)124ab8d8537f2f57b7cc6a3484a6c7b10aeb229ef6162e7c14680e56d033085c%}]]>
+            <![CDATA[{%Rule("(Value.Length <= 100)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MaxLength\" ><p n=\"maxlength\"><t>100</t><v>100</v><r>0</r><d></d><vt>integer</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)b5cc213433d34eec6fadc1b673b959e1edf88be4507e6f1334606c82dec3839d%}]]>
           </rule>
         </rules>
       </field>
@@ -67,7 +67,7 @@
         </settings>
         <rules>
           <rule errormsg="Passwords do not match.">
-            <![CDATA[{%Rule("(Value == Fields[\"UserPassword\"].Value|(casesensitive)true)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"GeneralCondition\" ><p n=\"condition\"><t>Value == Fields[&quot;UserPassword&quot;].Value|(casesensitive)true</t><v>Value == Fields[&quot;UserPassword&quot;].Value|(casesensitive)true</v><r>0</r><d></d><vt>longtext</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)7a30c9dec1c768ff5354a03a8802a70ff8204d87811e3aa3da3bb15df25815df%}]]>
+            <![CDATA[{%Rule("(Value == Fields[\"UserPassword\"].Value|(casesensitive)true)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"GeneralCondition\" ><p n=\"condition\"><t>Value == Fields[&quot;UserPassword&quot;].Value|(casesensitive)true</t><v>Value == Fields[&quot;UserPassword&quot;].Value|(casesensitive)true</v><r>0</r><d></d><vt>longtext</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)d9b097f7509a3dbfc1527972842c73864b9480c20e9459e29e58a1204c716f59%}]]>
           </rule>
         </rules>
       </field>

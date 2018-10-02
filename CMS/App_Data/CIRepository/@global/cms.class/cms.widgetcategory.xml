@@ -30,7 +30,7 @@
         <properties>
           <fieldcaption>{$reportcategory_edit.categorycodenamelabel$}</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%WidgetCategoryName.Value != "/"|(identity)GlobalAdministrator|(hash)dde102953d7808f9b2d7654179e282f300280b415b662859ec8b102285270775%}]]>
+            <![CDATA[{%WidgetCategoryName.Value != "/"|(identity)GlobalAdministrator|(hash)4cf428c961dd37e2fa9ba69d000460991cea774cce954daf4f3a13849f13377a%}]]>
           </visiblemacro>
         </properties>
         <settings>

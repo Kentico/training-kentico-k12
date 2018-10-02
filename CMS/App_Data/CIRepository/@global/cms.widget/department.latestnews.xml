@@ -57,7 +57,7 @@
       <field column="Path" visible="" guid="781264e4-3b56-4431-bcc4-5deda3019da4">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)47520cadb9da8dec9af9bbbd955c021ad09d5ce84def3d4421c18ebc16499bee%}/News/%]]>
+            <![CDATA[{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)2c55b32dafbc09d60ab8220d421777a2aa77052899f9ac51f53cf9b47f05e59b%}/News/%]]>
           </defaultvalue>
         </properties>
       </field>
@@ -156,7 +156,7 @@
           <defaultvalue ismacro="true">
 <![CDATA[
 </div>
-<a href="~{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)47520cadb9da8dec9af9bbbd955c021ad09d5ce84def3d4421c18ebc16499bee%}/News.aspx">View all news</a>
+<a href="~{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)2c55b32dafbc09d60ab8220d421777a2aa77052899f9ac51f53cf9b47f05e59b%}/News.aspx">View all news</a>
 ]]>
           </defaultvalue>
         </properties>
@@ -206,7 +206,7 @@
             <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
           </fielddescription>
           <defaultvalue ismacro="true">
-            <![CDATA[~{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)47520cadb9da8dec9af9bbbd955c021ad09d5ce84def3d4421c18ebc16499bee%}/RSS/News.aspx]]>
+            <![CDATA[~{%cmscontext.currentdepartment.nodealiaspath|(identity)GlobalAdministrator|(hash)2c55b32dafbc09d60ab8220d421777a2aa77052899f9ac51f53cf9b47f05e59b%}/RSS/News.aspx]]>
           </defaultvalue>
           <fieldcaption>Container custom content</fieldcaption>
         </properties>

@@ -41,7 +41,7 @@
 <![CDATA[
 {%name = EditedObject.PageTemplateType;
 reusable = EditedObject.PageTemplateIsReusable;
-return (reusable && (name != "dashboard") && (name != "UI") && !UIContext.IsDialog && CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin))|(identity)GlobalAdministrator|(hash)9040a24a2241057c1dbae8cc1d434d7f7fc52007e3e97894d09a92b8570330de%}
+return (reusable && (name != "dashboard") && (name != "UI") && !UIContext.IsDialog && CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin))|(identity)GlobalAdministrator|(hash)409d741154c06f487ee1a0189c3c03cfbb2a7651e6562218ced2d75b76f3abd3%}
 ]]>
   </ElementVisibilityCondition>
 </cms.uielement>

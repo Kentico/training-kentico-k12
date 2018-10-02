@@ -65,7 +65,7 @@ Company
           <fieldcaption>{$com.companyname$}</fieldcaption>
           <fielddescription>{$com.customer.companyname.description$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%AccountType.Value == "Company"|(identity)GlobalAdministrator|(hash)8e7429a97f58161f8aa03e9baf4842976ca96324a7422059f05a968afa4bb753%}]]>
+            <![CDATA[{%AccountType.Value == "Company"|(identity)GlobalAdministrator|(hash)5f26aac2d900f13f9160cea60ad202aa609eb2c9feeb5c6afb4f357d39c9c3d5%}]]>
           </visiblemacro>
         </properties>
       </field>
@@ -81,7 +81,7 @@ Company
           <fieldcaption>{$com.customer.organizationid$}</fieldcaption>
           <fielddescription>{$com.customer.organizationid.description$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%AccountType.Value == "Company"|(identity)GlobalAdministrator|(hash)8e7429a97f58161f8aa03e9baf4842976ca96324a7422059f05a968afa4bb753%}]]>
+            <![CDATA[{%AccountType.Value == "Company"|(identity)GlobalAdministrator|(hash)5f26aac2d900f13f9160cea60ad202aa609eb2c9feeb5c6afb4f357d39c9c3d5%}]]>
           </visiblemacro>
         </properties>
       </field>
@@ -111,7 +111,7 @@ Company
           <fieldcaption>{$com.customer.taxregistrationid$}</fieldcaption>
           <fielddescription>{$com.customer.taxregistrationid.description$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%AccountType.Value == "Company"|(identity)GlobalAdministrator|(hash)8e7429a97f58161f8aa03e9baf4842976ca96324a7422059f05a968afa4bb753%}]]>
+            <![CDATA[{%AccountType.Value == "Company"|(identity)GlobalAdministrator|(hash)5f26aac2d900f13f9160cea60ad202aa609eb2c9feeb5c6afb4f357d39c9c3d5%}]]>
           </visiblemacro>
         </properties>
       </field>
@@ -160,7 +160,7 @@ Company
         </properties>
         <rules>
           <rule>
-            <![CDATA[{%Rule("(Value.Length <= 100)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MaxLength\" ><p n=\"maxlength\"><t>100</t><v>100</v><r>0</r><d></d><vt>integer</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)124ab8d8537f2f57b7cc6a3484a6c7b10aeb229ef6162e7c14680e56d033085c%}]]>
+            <![CDATA[{%Rule("(Value.Length <= 100)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MaxLength\" ><p n=\"maxlength\"><t>100</t><v>100</v><r>0</r><d></d><vt>integer</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)b5cc213433d34eec6fadc1b673b959e1edf88be4507e6f1334606c82dec3839d%}]]>
           </rule>
         </rules>
       </field>

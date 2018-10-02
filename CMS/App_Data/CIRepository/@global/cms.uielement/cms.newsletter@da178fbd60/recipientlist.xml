@@ -37,7 +37,7 @@
       </GridName>
       <OpenInDialog>False</OpenInDialog>
       <Text>
-        <![CDATA[{% FormatString(GetResourceString("emailmarketing.ui.recipientsheader"), EditedObject.GetMarketableRecipientsCount()) |(identity)GlobalAdministrator|(hash)4fda30b931743a7fe7633fd2fa1bc2d981f9849cb7791103f54d378f06bdc9ae%}]]>
+        <![CDATA[{% FormatString(GetResourceString("emailmarketing.ui.recipientsheader"), EditedObject.GetMarketableRecipientsCount()) |(identity)GlobalAdministrator|(hash)c23c1107ba75154065196633067706005935e70a7c031c3c28312cb43141f584%}]]>
       </Text>
       <ZeroRowsText>{$ newsletter.issue.norecipients $}</ZeroRowsText>
     </Data>

@@ -30,7 +30,7 @@
     <data>
       <displaytitleintabs>False</displaytitleintabs>
       <titletext ismacro="True">
-        <![CDATA[{% EditedObject.StepWorkflow.IsAutomation ? GetResourceString("ma.process.steps") : GetResourceString("workflowstep.properties") |(identity)GlobalAdministrator|(hash)d0009972de4d9b9b0694e5562fc35e05b1e8ba851b33f40410eab4a3da741c1e%}]]>
+        <![CDATA[{% EditedObject.StepWorkflow.IsAutomation ? GetResourceString("ma.process.steps") : GetResourceString("workflowstep.properties") |(identity)GlobalAdministrator|(hash)9ae9d580b45e93a45bc94124b6144ec2590c14ee00325ba0868a29cafecc4ddf%}]]>
       </titletext>
       <objecttype>cms.workflowstep</objecttype>
       <includejquery>False</includejquery>

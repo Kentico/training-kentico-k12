@@ -8,8 +8,8 @@
   <EmailTemplateName>Groups.MemberAcceptedInvitation</EmailTemplateName>
   <EmailTemplatePlainText>
 <![CDATA[
-{%Sender.FullName|(identity)GlobalAdministrator|(hash)313c94c21c982e74f2447ff44e9095ac96467714cd0003ff0d24392314699bc9%}({%TrimSitePrefix(Sender.UserName)|(identity)GlobalAdministrator|(hash)5356423cda553595f74179a709e019cd20fdfcfa52950c74dae0c400644694e8%}) has accepted your invitation to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}'.
-When: {%GroupMember.MemberJoined|(identity)GlobalAdministrator|(hash)ae05de039d9925414eef9dc941ad001c70728bedc5bb594423d4e4fa6bea76e2%}
+{%Sender.FullName|(identity)GlobalAdministrator|(hash)e651c868e8b9a4d1bb913bea5edb7dd7a1a7138ceef6cf9fdf115af02a5d0948%}({%TrimSitePrefix(Sender.UserName)|(identity)GlobalAdministrator|(hash)fc61b1b4e4ea3f0bdad88992e6bebc1b0952c78e4cb7d188980f0e1d6992da72%}) has accepted your invitation to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}'.
+When: {%GroupMember.MemberJoined|(identity)GlobalAdministrator|(hash)af8f1b74922371e737fa16112eaa7185661475bb2297d4d26996c2bd8eb4b2a9%}
 
 
 Best Regards,
@@ -19,7 +19,7 @@ The Community Team
 ]]>
   </EmailTemplatePlainText>
   <EmailTemplateSubject>
-    <![CDATA[Invitation to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}' was accepted]]>
+    <![CDATA[Invitation to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}' was accepted]]>
   </EmailTemplateSubject>
   <EmailTemplateText>
 <![CDATA[
@@ -27,8 +27,8 @@ The Community Team
 	<head>
 	</head>
 	<body>
-		<p>{%Sender.FullName|(identity)GlobalAdministrator|(hash)313c94c21c982e74f2447ff44e9095ac96467714cd0003ff0d24392314699bc9%}({%TrimSitePrefix(Sender.UserName)|(identity)GlobalAdministrator|(hash)5356423cda553595f74179a709e019cd20fdfcfa52950c74dae0c400644694e8%}) has accepted your invitation to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}'.<br />
-		When: {%GroupMember.MemberJoined|(identity)GlobalAdministrator|(hash)ae05de039d9925414eef9dc941ad001c70728bedc5bb594423d4e4fa6bea76e2%}</p>
+		<p>{%Sender.FullName|(identity)GlobalAdministrator|(hash)e651c868e8b9a4d1bb913bea5edb7dd7a1a7138ceef6cf9fdf115af02a5d0948%}({%TrimSitePrefix(Sender.UserName)|(identity)GlobalAdministrator|(hash)fc61b1b4e4ea3f0bdad88992e6bebc1b0952c78e4cb7d188980f0e1d6992da72%}) has accepted your invitation to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}'.<br />
+		When: {%GroupMember.MemberJoined|(identity)GlobalAdministrator|(hash)af8f1b74922371e737fa16112eaa7185661475bb2297d4d26996c2bd8eb4b2a9%}</p>
 		<br />
 		<br />
 		Best Regards,<br />

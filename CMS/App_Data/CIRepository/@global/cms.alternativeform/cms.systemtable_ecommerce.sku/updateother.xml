@@ -124,21 +124,21 @@
       <field column="SKUSellOnlyAvailable">
         <properties>
           <visiblemacro ismacro="true">
-            <![CDATA[{%Fields.skutrackinventory.Value != "Disabled"|(identity)GlobalAdministrator|(hash)270e5a2261278bd8d59eb6921ccd4b44f692f848b59de4e3615be0dddba05756%}]]>
+            <![CDATA[{%Fields.skutrackinventory.Value != "Disabled"|(identity)GlobalAdministrator|(hash)c93a0eb865a0cc1dbe73c283b1fe23a46fc8dafd870bcccbeb4fb0597fab4cbb%}]]>
           </visiblemacro>
         </properties>
       </field>
       <field column="SKUAvailableItems">
         <properties>
           <visiblemacro>
-            <![CDATA[{%SKUTrackInventory.Value == "ByProduct"|(identity)GlobalAdministrator|(hash)e62b5a071adedbabdfd187e9567dc23122ccf2d62067168d5b373284dfe87365%}]]>
+            <![CDATA[{%SKUTrackInventory.Value == "ByProduct"|(identity)GlobalAdministrator|(hash)67fb788d13886c6a1af2adfb941fc4ce4c4722a70c53220c983f56accc628a87%}]]>
           </visiblemacro>
         </properties>
       </field>
       <field column="SKUAvailableInDays">
         <properties>
           <visiblemacro ismacro="true">
-            <![CDATA[{%Fields.skutrackinventory.Value != "Disabled"|(identity)GlobalAdministrator|(hash)270e5a2261278bd8d59eb6921ccd4b44f692f848b59de4e3615be0dddba05756%}]]>
+            <![CDATA[{%Fields.skutrackinventory.Value != "Disabled"|(identity)GlobalAdministrator|(hash)c93a0eb865a0cc1dbe73c283b1fe23a46fc8dafd870bcccbeb4fb0597fab4cbb%}]]>
           </visiblemacro>
         </properties>
       </field>

@@ -16,7 +16,7 @@
       <field column="Site" columnsize="200" columntype="text" guid="32ab6762-e2a4-4750-b61a-7d91ff18f677" hasdependingfields="true" publicfield="false" visible="true">
         <properties>
           <defaultvalue>
-            <![CDATA[{% SiteContext.CurrentSiteName |(identity)GlobalAdministrator|(hash)ca30a9b691cbefa4f9d36dba6e2666cf52e5583f6a73a6676c58aae93f5fc210%}]]>
+            <![CDATA[{% SiteContext.CurrentSiteName |(identity)GlobalAdministrator|(hash)b26d8296b6307a52eb7fa40478256e93cec2bb87ebc1a987901f27d8c54bfd01%}]]>
           </defaultvalue>
           <fieldcaption>{$general.site$}</fieldcaption>
           <fielddescription>{$siteselect.selectitem$}</fielddescription>
@@ -71,7 +71,7 @@
           <MaxDisplayedItems>25</MaxDisplayedItems>
           <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
           <ObjectSiteName ismacro="true">
-            <![CDATA[{% Site.Value |(identity)GlobalAdministrator|(hash)45cdc24527c464631dd7834c955ff78d045f51a649d5b8da2cd30c9a8d0daa7f%}]]>
+            <![CDATA[{% Site.Value |(identity)GlobalAdministrator|(hash)842aae003777b91ffef083763d66a4621bfe5617cc567f72380ef885c36675c4%}]]>
           </ObjectSiteName>
           <ObjectType>newsletter.newsletter</ObjectType>
           <RemoveMultipleCommas>False</RemoveMultipleCommas>
@@ -107,7 +107,7 @@
           <MaxDisplayedItems>25</MaxDisplayedItems>
           <MaxDisplayedTotalItems>50</MaxDisplayedTotalItems>
           <ObjectSiteName ismacro="true">
-            <![CDATA[{% Site.Value |(identity)GlobalAdministrator|(hash)45cdc24527c464631dd7834c955ff78d045f51a649d5b8da2cd30c9a8d0daa7f%}]]>
+            <![CDATA[{% Site.Value |(identity)GlobalAdministrator|(hash)842aae003777b91ffef083763d66a4621bfe5617cc567f72380ef885c36675c4%}]]>
           </ObjectSiteName>
           <ObjectType>newsletter.issue</ObjectType>
           <RemoveMultipleCommas>False</RemoveMultipleCommas>
@@ -124,7 +124,7 @@ COALESCE(IssueIsABTest, 0) = 0 AND
 IssueNewsletterID IN 
 (
     Select NewsletterID FROM Newsletter_Newsletter 
-    WHERE NewsletterGUID =  N'{% Newsletter.Value|(handlesqlinjection) |(identity)GlobalAdministrator|(hash)c3e5b7d28c382e5f3a69652fbd686a367a1353e1a1a252b70215d240d1cc91ff%}'
+    WHERE NewsletterGUID =  N'{% Newsletter.Value|(handlesqlinjection) |(identity)GlobalAdministrator|(hash)79adce3e69da8537e479c5a7a51b061c6da69b3eaa0e02756771c4c322be68e3%}'
 )
 ]]>
           </WhereCondition>

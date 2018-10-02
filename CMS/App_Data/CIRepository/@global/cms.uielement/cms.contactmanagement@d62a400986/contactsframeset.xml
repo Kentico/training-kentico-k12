@@ -39,7 +39,7 @@
       <DescriptionLink>contacts</DescriptionLink>
       <DisplayBreadcrumbs>False</DisplayBreadcrumbs>
       <displaysiteselector>
-        <![CDATA[{% CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin) |(identity)GlobalAdministrator|(hash)9e7b45f3000608d9577cee9870d0315d3604ebae0e1f882b7e6789de189df639%}]]>
+        <![CDATA[{% CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin) |(identity)GlobalAdministrator|(hash)334d55ada521d68efd93cd8771556d089428767629f5a0ff28078e36cccb3271%}]]>
       </displaysiteselector>
       <DisplayTitleInTabs>True</DisplayTitleInTabs>
       <includejquery>False</includejquery>

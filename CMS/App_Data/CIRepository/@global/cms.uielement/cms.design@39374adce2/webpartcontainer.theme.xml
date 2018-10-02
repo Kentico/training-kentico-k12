@@ -43,6 +43,6 @@
   <ElementTargetURL />
   <ElementType>PageTemplate</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%!UIContext.IsDialog && !UIContext.EditedObject.UsesExternalStorage|(identity)GlobalAdministrator|(hash)5bac1d121bfe702946a300872d021429f23aa85f5c24f8441367b9ef0602ed6d%}]]>
+    <![CDATA[{%!UIContext.IsDialog && !UIContext.EditedObject.UsesExternalStorage|(identity)GlobalAdministrator|(hash)6a9504515aed4fe992e21bbf733bbfe2ce5a1562c17b21a4ce3ac23c7664d300%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

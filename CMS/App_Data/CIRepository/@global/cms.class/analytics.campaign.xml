@@ -106,7 +106,7 @@
           <SelectionMode>2</SelectionMode>
           <ValuesSeparator>;</ValuesSeparator>
           <WhereCondition ismacro="true">
-            <![CDATA[ConversionSiteID = {% CurrentSite.ID |(identity)GlobalAdministrator|(hash)97d9d488b573297ea70915e2f00ffc33afee186ba2d04cab5fd13e3b5fdee509%}]]>
+            <![CDATA[ConversionSiteID = {% CurrentSite.ID |(identity)GlobalAdministrator|(hash)a1b820d0206289d02b8f6b70aeb2c27febbfca5e04cc6000ada62512cb88d828%}]]>
           </WhereCondition>
         </settings>
       </field>

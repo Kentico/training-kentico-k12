@@ -52,7 +52,7 @@ See the&nbsp;<a href="~/CMSPages/GetDocLink.ashx?link=web_analytics" target="_bl
         </settings>
         <rules>
           <rule>
-            <![CDATA[{%Rule("Value.Matches(\"^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$</t><v>^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)a4c065c575620c7b07f4220b71ff24d19f4c9d43b9192710051a1a1a2f701414%}]]>
+            <![CDATA[{%Rule("Value.Matches(\"^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$</t><v>^(?:[A-Za-z0-9_-]+)(?:\\.[A-Za-z0-9_-]+)*$</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)deb54594fe66cfb2d966683b8af3bc43a7658a514845028226bf8a2e5f173522%}]]>
           </rule>
         </rules>
       </field>
@@ -60,7 +60,7 @@ See the&nbsp;<a href="~/CMSPages/GetDocLink.ashx?link=web_analytics" target="_bl
         <properties>
           <fieldcaption>Statistics object name</fieldcaption>
           <fielddescription>
-            <![CDATA[Specifies the name of a related object that will be logged along with the hit for the statistic. Usually, a macro expression must be entered to dynamically get the appropriate value. For example, entering {%cmscontext.currentuser.username|(identity)GlobalAdministrator|(hash)ac6eecccd105eccc3bd63ccf2bf0684ea24895f9c349b8ab04c1fb85257bacf1%} would cause the web part to log the name of the user that viewed the page.]]>
+            <![CDATA[Specifies the name of a related object that will be logged along with the hit for the statistic. Usually, a macro expression must be entered to dynamically get the appropriate value. For example, entering {%cmscontext.currentuser.username|(identity)GlobalAdministrator|(hash)625cf52e42ab93feb9dc224b679e297327c5b171bbb4dc4e412e3b5a9f37c277%} would cause the web part to log the name of the user that viewed the page.]]>
           </fielddescription>
         </properties>
         <settings>

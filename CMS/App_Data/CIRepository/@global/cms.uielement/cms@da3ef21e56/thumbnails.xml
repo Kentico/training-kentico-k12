@@ -30,11 +30,11 @@
     <data>
       <category_name_custom>False</category_name_custom>
       <metafilegroupname>
-        <![CDATA[{% ObjectAttachments.Thumbnail |(identity)GlobalAdministrator|(hash)f5e222fca37e504276eadf44d5af0c3944f0a3b5a5bcf6387a76238615660c3e%}]]>
+        <![CDATA[{% ObjectAttachments.Thumbnail |(identity)GlobalAdministrator|(hash)08f190a8a0956fc189da42485f5e0a72d72ea893a05a0620e9ff07e8d64b77e3%}]]>
       </metafilegroupname>
       <includejquery>False</includejquery>
       <metafileobjectid>
-        <![CDATA[{% UIContext.EditedObject.ID |(identity)GlobalAdministrator|(hash)e38ac51f8bebb180ee9a99037fa0753e88a5de5906386d573da5d4a41fcb3f8e%}]]>
+        <![CDATA[{% UIContext.EditedObject.ID |(identity)GlobalAdministrator|(hash)01816c29f0da83773a24d849661ad5288305871598c0320314856d17d259e856%}]]>
       </metafileobjectid>
       <metafileobjecttype>cms.class</metafileobjecttype>
       <pagecontentcssclass>PageContent</pagecontentcssclass>
@@ -53,6 +53,6 @@
   <ElementSize>0</ElementSize>
   <ElementType>PageTemplate</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%System.GetObject("cms.resource",Convert.ToInt(QueryString.parentObjectId, 0)).ResourceName == "CMS.Personas"|(identity)GlobalAdministrator|(hash)b5069af670c10cc4a29c4aeafd513257f00e7275424b22478f227668b84b5717%}]]>
+    <![CDATA[{%System.GetObject("cms.resource",Convert.ToInt(QueryString.parentObjectId, 0)).ResourceName == "CMS.Personas"|(identity)GlobalAdministrator|(hash)336ade3d9f5ecb34203e37b7c3e202c7a351874ca30d4efddc9215262f1240c1%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

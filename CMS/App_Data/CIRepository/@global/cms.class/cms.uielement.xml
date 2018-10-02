@@ -79,7 +79,7 @@
         <properties>
           <fieldcaption>{$resource.ui.fromversion$}</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)ba6174858905630f3624431bc0cee9dfa38ff6b76a076b8d08ebe3d0184ebcd3%}]]>
+            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)74db4b4532d0ad962922043c4b5a2f44887ec3eb2f460a62c589b6c0b35cc615%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -154,7 +154,7 @@ Indicates whether element's icon is represented by image or by CSS font class.
             <![CDATA[Sets the path to the image used to represent the element in the user interface. You can enter either a full relative path (~/App_Themes/Default/Images/CMSModules/list.png) or a short path inside the 'Images' folder in 'App_Themes/Default/Images' (CMSModules/list.png).]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%ElementIconType.Value == 0|(identity)GlobalAdministrator|(hash)a5defe29ec77c4ecc369751d78217941f9af2692256a424560acf6659de2c32f%}]]>
+            <![CDATA[{%ElementIconType.Value == 0|(identity)GlobalAdministrator|(hash)2be75c08e93104e2c5897ee707317e4cf475a3a8b5dee4357912c4776151a365%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -170,7 +170,7 @@ Indicates whether element's icon is represented by image or by CSS font class.
         </settings>
         <rules>
           <rule errormsg="Invalid image path.">
-            <![CDATA[{%Rule("Value.Matches(\"^[^<>\\\\\\\"|]*$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^[^&lt;&gt;\\&quot;|]*$</t><v>^[^&lt;&gt;\\&quot;|]*$</v><r>0</r><d></d><vt>text</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)7f1798be9f24cc3c74706bf25c2240efa5db8f0d83dd9721aa4e74a2c6d0a61e%}]]>
+            <![CDATA[{%Rule("Value.Matches(\"^[^<>\\\\\\\"|]*$\")", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"RegExp\" ><p n=\"regexp\"><t>^[^&lt;&gt;\\&quot;|]*$</t><v>^[^&lt;&gt;\\&quot;|]*$</v><r>0</r><d></d><vt>text</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)ae28d00320a833b8781f210965e98caeb3e50c717747d4bc6e9bc75fa8e9e13c%}]]>
           </rule>
         </rules>
       </field>
@@ -181,7 +181,7 @@ Indicates whether element's icon is represented by image or by CSS font class.
             <![CDATA[Sets the icon's class used to represent the element in the user interface. ]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%ElementIconType.Value == 1|(identity)GlobalAdministrator|(hash)f5b1e16af13d876a013b8e1176d4fe2138094794bcd5d25eba5d1ada1f0d0fe8%}]]>
+            <![CDATA[{%ElementIconType.Value == 1|(identity)GlobalAdministrator|(hash)fcac40ad645c0ee694533eb7dc97d72f85ff0b26a355ab8f47a06ba3692384bf%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -201,7 +201,7 @@ Indicates whether element's icon is represented by image or by CSS font class.
             <![CDATA[Sets the size of the UI element icon in ribbon-like menus.]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%ElementIconType.Value == 0|(identity)GlobalAdministrator|(hash)a5defe29ec77c4ecc369751d78217941f9af2692256a424560acf6659de2c32f%}]]>
+            <![CDATA[{%ElementIconType.Value == 0|(identity)GlobalAdministrator|(hash)2be75c08e93104e2c5897ee707317e4cf475a3a8b5dee4357912c4776151a365%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -263,7 +263,7 @@ PageTemplate;Page template
             <![CDATA[Selects the UI template that provides the content for elements of the Page template type. You can configure the template on the 'Properties' tab.]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%ElementType.Value == "PageTemplate"|(identity)GlobalAdministrator|(hash)21a37b213c628ea2386800c5d65d2a01a7aaafa5ec09aaa61346a8531b3a6a08%}]]>
+            <![CDATA[{%ElementType.Value == "PageTemplate"|(identity)GlobalAdministrator|(hash)e0266ed87fde015768b0e7f9c403ef6484faa35808f790899a27928dddb50f5f%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -282,7 +282,7 @@ PageTemplate;Page template
             <![CDATA[Specifies the path to the file that provides the content for UI elements of the 'URL' or 'User control' type (~/CMSModules/Content/CMSDesk/Default.aspx). For JavaScript type elements, enter the JavaScript action.]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%ElementType.Value != "PageTemplate"|(identity)GlobalAdministrator|(hash)50047aa142de89d30531130d54ceea43b65958caa8bd4428df28f37b9d1c3fb2%}]]>
+            <![CDATA[{%ElementType.Value != "PageTemplate"|(identity)GlobalAdministrator|(hash)afd371aa360511a9cc50ff4b4912d8e3233c16e618f7ad38eac5fa7d2b4a6547%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -411,7 +411,7 @@ PageTemplate;Page template
             <![CDATA[The UI element is only visible in the user interface if the licensing requirements of the selected feature are fulfilled.]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%SystemContext.DevelopmentMode;|(identity)GlobalAdministrator|(hash)79f8ecbd585a40f931cdd1944ff706c443a7ff5ad98e73380b9fc807812979f2%}]]>
+            <![CDATA[{%SystemContext.DevelopmentMode;|(identity)GlobalAdministrator|(hash)c42ded1ffb95a4674454ab35f312919e67876bc8784c2745ab5cd8d5ad571a17%}]]>
           </visiblemacro>
         </properties>
         <settings>

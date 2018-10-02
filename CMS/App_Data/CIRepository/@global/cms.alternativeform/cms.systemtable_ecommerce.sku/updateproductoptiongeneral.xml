@@ -58,7 +58,7 @@
           <SelectionMode>1</SelectionMode>
           <SpecialFields>
 <![CDATA[
--1;{$general.automatic$};{%EditedObject.SKUID == 0|(identity)GlobalAdministrator|(hash)61e7959592d05d603121a94bd6df1531d1451a5c42a55ca53ab10e0e1d0e294f%}
+-1;{$general.automatic$};{%EditedObject.SKUID == 0|(identity)GlobalAdministrator|(hash)db0889c37972389f640163c4eb29065e2f7e711fe2f43c21b8f73b41b5e29174%}
 0;{$general.empty$}
 ]]>
           </SpecialFields>

@@ -65,7 +65,7 @@
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
-  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsMenuItemType>True</ClassIsMenuItemType>
   <ClassName>Training.ContactSection</ClassName>
   <ClassNodeNameSource>Title</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>

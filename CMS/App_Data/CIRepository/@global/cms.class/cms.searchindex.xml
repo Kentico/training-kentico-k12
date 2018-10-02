@@ -126,7 +126,7 @@
           <fieldcaption>{$srch.index.stopwords$}</fieldcaption>
           <fielddescription>{$srch.index.stopwords.description$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%IndexAnalyzerType.ToString() == "standard" || IndexAnalyzerType.ToString() == "stop" || IndexAnalyzerType.ToString() == "stopwithstemming"|(identity)GlobalAdministrator|(hash)825e1ba1171e2da5e0330f6be12417affad9cb26729dcf2690ac645154493a9b%}]]>
+            <![CDATA[{%IndexAnalyzerType.ToString() == "standard" || IndexAnalyzerType.ToString() == "stop" || IndexAnalyzerType.ToString() == "stopwithstemming"|(identity)GlobalAdministrator|(hash)7d297d8710064da35287273f0102a520ea6153ce9e4a7d2a89b2d239112386c6%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -138,7 +138,7 @@
           <fieldcaption>{$srch.index.customanalyzerassembly$}</fieldcaption>
           <fielddescription>{$srch.index.customanalyzerassembly.description$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%IndexAnalyzerType.ToString() == "custom"|(identity)GlobalAdministrator|(hash)a980849d2eadbb3f4891446483688699c95a1c4077817232ba80c07515d0668a%}]]>
+            <![CDATA[{%IndexAnalyzerType.ToString() == "custom"|(identity)GlobalAdministrator|(hash)1b0377fa3ec3a2e170f1d16a3dda4b2cdef14705a4869e590f84125543be817e%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -193,7 +193,7 @@
         <properties>
           <defaultvalue>true</defaultvalue>
           <visiblemacro ismacro="true">
-            <![CDATA[{%FormMode == FormModeEnum.Insert|(identity)GlobalAdministrator|(hash)902b5a081a32725909d52fe780ea4880f83da78804be4e39f2f7e0fb447a8f85%}]]>
+            <![CDATA[{%FormMode == FormModeEnum.Insert|(identity)GlobalAdministrator|(hash)246216463d623ed66a39b9b42b694a56f1d7f144d40f6f89836e442e4a60b3ac%}]]>
           </visiblemacro>
         </properties>
         <settings>

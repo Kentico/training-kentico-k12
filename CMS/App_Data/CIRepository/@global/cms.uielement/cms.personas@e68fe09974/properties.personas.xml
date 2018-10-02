@@ -40,7 +40,7 @@
       <ObjectType>cms.node</ObjectType>
       <ResourcePrefix>personas.ui.docproperties</ResourcePrefix>
       <WhereCondition>
-        <![CDATA[NodeID={%UIContext.EditedObject["NodeID"]|(identity)GlobalAdministrator|(hash)73efe870c2b8ca15c15e6fd54fc9a6223cd683732581b015064497245d807352%}]]>
+        <![CDATA[NodeID={%UIContext.EditedObject["NodeID"]|(identity)GlobalAdministrator|(hash)ae886e360ce651e1b89fb472992a69aeb3fd57a886a4afae75b9297a28a0be9f%}]]>
       </WhereCondition>
     </Data>
   </ElementProperties>

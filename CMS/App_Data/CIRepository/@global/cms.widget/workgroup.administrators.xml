@@ -26,7 +26,7 @@
       <field column="GroupName" visible="" guid="1d32a28a-570e-4a5e-a5be-ee64a2a7b18f" allowempty="true" visibility="none">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)344e781683b4070ac1e23041a4c89def6fa69f2898c66d22e08d6cd950dbd9b7%}]]>
+            <![CDATA[{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)6b28c586f4d02e552266c5a76dd3658e08c3b99883f5e1e5fc2ecd2f3f12b6a5%}]]>
           </defaultvalue>
         </properties>
       </field>
@@ -60,7 +60,7 @@
       <field column="WhereCondition" visible="" guid="864a9e07-60f2-40a3-9f76-7e4e9cb9d7f6" visibility="none">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[MemberUserID IN (SELECT UserID FROM CMS_UserRole WHERE RoleID IN (SELECT RoleID FROM CMS_Role WHERE RoleGroupID = '{%if (CommunityContext.CurrentGroup.GroupID == null) { "0" } else { CommunityContext.CurrentGroup.GroupID }|(identity)GlobalAdministrator|(hash)8e5c5c560ec13608027314c134f8be3c16a1d074d9603991486726fc6300053e%}' AND RoleIsGroupAdministrator = 1))]]>
+            <![CDATA[MemberUserID IN (SELECT UserID FROM CMS_UserRole WHERE RoleID IN (SELECT RoleID FROM CMS_Role WHERE RoleGroupID = '{%if (CommunityContext.CurrentGroup.GroupID == null) { "0" } else { CommunityContext.CurrentGroup.GroupID }|(identity)GlobalAdministrator|(hash)4d84e721f34ad468bdafbfce00ab9eb7f8d0f636492ada1cfa9f9f73203ebcd8%}' AND RoleIsGroupAdministrator = 1))]]>
           </defaultvalue>
         </properties>
       </field>

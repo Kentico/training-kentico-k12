@@ -8,9 +8,9 @@
   <EmailTemplateName>Groups.Invitation</EmailTemplateName>
   <EmailTemplatePlainText>
 <![CDATA[
-User {%InvitedBy%} invites you to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}'.
+User {%InvitedBy%} invites you to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}'.
 
-With comment "{%Invitation.InvitationComment|(identity)GlobalAdministrator|(hash)39cec43b82694956ae91116c50edf51a7d8faf145e5c59b9973a33afccb3aae5%}"
+With comment "{%Invitation.InvitationComment|(identity)GlobalAdministrator|(hash)1b57972d55d44f8f4fc7aa285de51ea4ecd8844dc67ce2d08065faf3bdc972b1%}"
 
 Use the URL below to join the group:
 
@@ -23,7 +23,7 @@ The Community Team
 ]]>
   </EmailTemplatePlainText>
   <EmailTemplateSubject>
-    <![CDATA[Invitation to group "{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}"]]>
+    <![CDATA[Invitation to group "{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}"]]>
   </EmailTemplateSubject>
   <EmailTemplateText>
 <![CDATA[
@@ -31,8 +31,8 @@ The Community Team
 	<head>
 	</head>
 	<body>
-		<p>User {%InvitedBy%} invites you to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}'.<br />
-		With comment "{%Invitation.InvitationComment|(identity)GlobalAdministrator|(hash)39cec43b82694956ae91116c50edf51a7d8faf145e5c59b9973a33afccb3aae5%}"<br /><br />
+		<p>User {%InvitedBy%} invites you to group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}'.<br />
+		With comment "{%Invitation.InvitationComment|(identity)GlobalAdministrator|(hash)1b57972d55d44f8f4fc7aa285de51ea4ecd8844dc67ce2d08065faf3bdc972b1%}"<br /><br />
 		Follow the link below to join the group:<br /><br />
 		<a href="{%ACCEPTIONURL%}">{%ACCEPTIONURL%}</a>
 		</p>

@@ -40,7 +40,7 @@
           <visiblemacro ismacro="true">
 <![CDATA[
 {%CategoryName.Value != "/" && CategoryName.Value != "AdHoc" 
-  && CategoryName.Value != "AdhocUI"|(identity)GlobalAdministrator|(hash)db5118a73415fd57be5d29a6954adc1dfdf2bbfd57bfcdd9daaeb5fb83d1aea3%}
+  && CategoryName.Value != "AdhocUI"|(identity)GlobalAdministrator|(hash)dffd0b4f13ae1e0a5be1770268eaf11dd2fa073212d98839aac99365d4b73cd1%}
 ]]>
           </visiblemacro>
         </properties>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.uielement>
   <ElementAccessCondition>
-    <![CDATA[{%CurrentUser.IsAuthorizedPerGroup(EditedObjectParent.GroupGroupID, "Manage", CurrentSiteID)|(identity)GlobalAdministrator|(hash)94b0d7a28935b706c0232d16b951556a5ff46b91ec70c2d65f35cb9ed119aa60%}]]>
+    <![CDATA[{%CurrentUser.IsAuthorizedPerGroup(EditedObjectParent.GroupGroupID, "Manage", CurrentSiteID)|(identity)GlobalAdministrator|(hash)08fb072b833d5eac5ad2d9ec79c1c109672f618680d4fd4857a878afcf4870f3%}]]>
   </ElementAccessCondition>
   <ElementCaption>{$forum_list.headercaption$}</ElementCaption>
   <ElementCheckModuleReadPermission>False</ElementCheckModuleReadPermission>

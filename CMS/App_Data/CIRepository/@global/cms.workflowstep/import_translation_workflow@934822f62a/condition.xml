@@ -15,7 +15,7 @@
             <![CDATA[If translation is ready, the page will be translated.]]>
           </Tooltip>
           <Condition>
-            <![CDATA[{%Document.IsTranslationReady()|(identity)GlobalAdministrator|(hash)0ffd4d2ddcd64c3093bb6ed5b098e555288a12266f88e41a09857c2bcd250fca%}]]>
+            <![CDATA[{%Document.IsTranslationReady()|(identity)GlobalAdministrator|(hash)75fc6dfbfea214284ae704e5d746396f24016d9b6ba7d901a8852cdc53085032%}]]>
           </Condition>
           <Type>1</Type>
           <StepRolesSecurity>0</StepRolesSecurity>

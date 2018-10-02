@@ -29,7 +29,7 @@
   </ElementResourceID>
   <ElementSize>0</ElementSize>
   <ElementTargetURL>
-    <![CDATA[~/CMSModules/Membership/Pages/Users/General/User_Online.aspx?guest=1&isonlinemarketing=1&siteid={%SiteContext.CurrentSiteID|(identity)GlobalAdministrator|(hash)f5641ef389d704e507dabbd8fd8b19dac995a98b745f22b25a20417dcddabc8f%}]]>
+    <![CDATA[~/CMSModules/Membership/Pages/Users/General/User_Online.aspx?guest=1&isonlinemarketing=1&siteid={%SiteContext.CurrentSiteID|(identity)GlobalAdministrator|(hash)28f09c8766428a281c2f61aa37ee85c449d2588d4ed5b36241dbe905f8132153%}]]>
   </ElementTargetURL>
   <ElementType>Url</ElementType>
 </cms.uielement>

@@ -7,7 +7,7 @@
   <TableQuery>
 <![CDATA[
 DECLARE @GlobalProducts bit;
-SET @GlobalProducts = {%Settings.CMSStoreAllowGlobalProducts?1:0|(identity)GlobalAdministrator|(hash)7d1fcaafa5e010dfe35e6710119dfd05a7f91e0f0c0e5747ad041e133f480458%};
+SET @GlobalProducts = {%Settings.CMSStoreAllowGlobalProducts?1:0|(identity)GlobalAdministrator|(hash)65601d2d18d84ad259a17056c5b0e7d2b2aedd4d6e8bd16b82d05f25c6566233%};
 /* Selects products meeting the conditions from filter and 
    the count of their occurences in the wishlist. */
 SELECT TOP (@Limit) 

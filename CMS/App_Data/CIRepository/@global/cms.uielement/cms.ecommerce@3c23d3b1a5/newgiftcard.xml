@@ -34,7 +34,7 @@
       <DisplayBreadcrumbs>True</DisplayBreadcrumbs>
       <ObjectType>ecommerce.giftcard</ObjectType>
       <RedirectURL>
-        <![CDATA[{% UIContext.GetElementUrl("CMS.Ecommerce", "EditGiftCard", false, EditedObject.ID, "tabname=GiftCardCouponCodes&saved=1") |(identity)GlobalAdministrator|(hash)ebe4636f6719fc1ffc95cdbca7f79f20ba073eeed5d0f05ddd0ae7330f858d29%}]]>
+        <![CDATA[{% UIContext.GetElementUrl("CMS.Ecommerce", "EditGiftCard", false, EditedObject.ID, "tabname=GiftCardCouponCodes&saved=1") |(identity)GlobalAdministrator|(hash)f9aa97fff76f5a135dd021c981cea426ef510742ba7330c4e7f3da9d7c874ecd%}]]>
       </RedirectURL>
     </Data>
   </ElementProperties>

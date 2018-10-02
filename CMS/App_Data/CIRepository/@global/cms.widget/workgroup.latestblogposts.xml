@@ -26,7 +26,7 @@
       <field column="Path" visible="" guid="781264e4-3b56-4431-bcc4-5deda3019da4">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[/Workgroups/{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)344e781683b4070ac1e23041a4c89def6fa69f2898c66d22e08d6cd950dbd9b7%}/Blogs/%]]>
+            <![CDATA[/Workgroups/{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)6b28c586f4d02e552266c5a76dd3658e08c3b99883f5e1e5fc2ecd2f3f12b6a5%}/Blogs/%]]>
           </defaultvalue>
         </properties>
       </field>
@@ -107,7 +107,7 @@
       <field column="CacheDependencies" visible="" guid="e538e91e-dbdd-4d10-aec8-51acfc3760d3">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[nodes|{%ToLower(CurrentSite.SiteName)|(identity)GlobalAdministrator|(hash)64bc87c0ad567a6b03546e09c95869d82cbcc0a61409f03238aec44c5fc84edd%}|cms.blogpost|all]]>
+            <![CDATA[nodes|{%ToLower(CurrentSite.SiteName)|(identity)GlobalAdministrator|(hash)08c3cbe462b3ae2c1e2fe64d95506a983dc4d908878e84c2936157578bd5d9b2%}|cms.blogpost|all]]>
           </defaultvalue>
         </properties>
       </field>
@@ -138,7 +138,7 @@
           <defaultvalue ismacro="true">
 <![CDATA[
 </div>
-<a href="~/Workgroups/{%communitycontext.currentgroup.groupname|(identity)GlobalAdministrator|(hash)344e781683b4070ac1e23041a4c89def6fa69f2898c66d22e08d6cd950dbd9b7%}/Blogs/Blog-posts.aspx">View all posts</a>
+<a href="~/Workgroups/{%communitycontext.currentgroup.groupname|(identity)GlobalAdministrator|(hash)6b28c586f4d02e552266c5a76dd3658e08c3b99883f5e1e5fc2ecd2f3f12b6a5%}/Blogs/Blog-posts.aspx">View all posts</a>
 ]]>
           </defaultvalue>
         </properties>
@@ -188,7 +188,7 @@
             <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
           </fielddescription>
           <defaultvalue>
-            <![CDATA[~/Workgroups/{%communitycontext.currentgroup.groupname|(identity)GlobalAdministrator|(hash)344e781683b4070ac1e23041a4c89def6fa69f2898c66d22e08d6cd950dbd9b7%}/RSS/BlogPosts.aspx]]>
+            <![CDATA[~/Workgroups/{%communitycontext.currentgroup.groupname|(identity)GlobalAdministrator|(hash)6b28c586f4d02e552266c5a76dd3658e08c3b99883f5e1e5fc2ecd2f3f12b6a5%}/RSS/BlogPosts.aspx]]>
           </defaultvalue>
           <fieldcaption>Container custom content</fieldcaption>
         </properties>

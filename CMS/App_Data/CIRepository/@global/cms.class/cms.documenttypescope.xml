@@ -65,7 +65,7 @@
           <fieldcaption>{$scope.allowabvariant$}</fieldcaption>
           <fielddescription>{$scope.allowabvariant.description$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%IsModuleLoaded("CMS.OnlineMarketing") && LicenseHelper.CheckFeature(FeatureEnum.ABTesting) && GlobalObjects.Resources["CMS.ABTest"].SiteBindings.Exists(SiteID == QueryString["siteid"])|(identity)GlobalAdministrator|(hash)ae5acb1de8f1456b87ead458b751e976d8e7cfdfc38f2f56e9dd8c5284dbc44a%}]]>
+            <![CDATA[{%IsModuleLoaded("CMS.OnlineMarketing") && LicenseHelper.CheckFeature(FeatureEnum.ABTesting) && GlobalObjects.Resources["CMS.ABTest"].SiteBindings.Exists(SiteID == QueryString["siteid"])|(identity)GlobalAdministrator|(hash)e9bca6088b4f4911f2451c80f790daeea9b47b55b9e2a793256889408e3f69ab%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -98,7 +98,7 @@
           <controlname>selectsinglepath</controlname>
           <SinglePathMode>True</SinglePathMode>
           <SiteID>
-            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)6312040e1cfc5334d9d1881649ef6b920973fa49d22cc68a08cb800c7127d128%}]]>
           </SiteID>
         </settings>
       </field>
@@ -114,7 +114,7 @@
           <controlname>selectsinglepath</controlname>
           <SinglePathMode>True</SinglePathMode>
           <SiteID>
-            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)6312040e1cfc5334d9d1881649ef6b920973fa49d22cc68a08cb800c7127d128%}]]>
           </SiteID>
         </settings>
       </field>
@@ -130,14 +130,14 @@
           <controlname>selectsinglepath</controlname>
           <SinglePathMode>True</SinglePathMode>
           <SiteID>
-            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)7734220b43593ef939bd61a6806fede1434efb92c9bb3c64925e724817ccd754%}]]>
+            <![CDATA[{% Form.ObjectSiteID|(identity)GlobalAdministrator|(hash)6312040e1cfc5334d9d1881649ef6b920973fa49d22cc68a08cb800c7127d128%}]]>
           </SiteID>
         </settings>
       </field>
       <field allowempty="true" column="ScopeClasses" columntype="longtext" dummy="mainform" guid="bf936219-a861-4ddd-ae62-438599d6a120" publicfield="false" system="true" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%!ScopeAllowAllTypes.Value|(identity)GlobalAdministrator|(hash)c269cf5bb033431204f14702a9da8d927ac4769c275cdee387974021b880582d%}]]>
+            <![CDATA[{%!ScopeAllowAllTypes.Value|(identity)GlobalAdministrator|(hash)cdf7270338da735c5a1c4f732925cbdc8e143c5ded8a71c7107ef369f23ae7b6%}]]>
           </enabledmacro>
           <fieldcaption>{$development.doctypes$}</fieldcaption>
         </properties>

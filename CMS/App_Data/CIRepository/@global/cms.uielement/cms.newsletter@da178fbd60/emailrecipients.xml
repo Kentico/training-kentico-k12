@@ -42,6 +42,6 @@
   <ElementSize>0</ElementSize>
   <ElementType>PageTemplate</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%EditedObjectParent.NewsletterType == "1"|(identity)GlobalAdministrator|(hash)ffd97a706ec998dc8e878a9d89396c2389e310cce0ba1c2e045455afb1d101b1%}]]>
+    <![CDATA[{%EditedObjectParent.NewsletterType == "1"|(identity)GlobalAdministrator|(hash)d5092be1e5d6194d432242be61aeb5ddcca9d3e403a17e2aa2477bee898c84e1%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

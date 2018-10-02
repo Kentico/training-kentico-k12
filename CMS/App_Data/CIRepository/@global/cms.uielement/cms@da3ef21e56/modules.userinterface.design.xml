@@ -40,6 +40,6 @@
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%EditedObject.ElementType == "PageTemplate"|(identity)GlobalAdministrator|(hash)2e5426ea5b2a07c1f628b92cab9d86339d19ea3fb81fcce196734d7bd7c66b39%}]]>
+    <![CDATA[{%EditedObject.ElementType == "PageTemplate"|(identity)GlobalAdministrator|(hash)fdf4b3b6b3f383bb5964c4dffb35e7e3fcf9abdc0bac28eafd1fd7cb839529a2%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

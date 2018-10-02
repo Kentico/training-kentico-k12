@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.uielement>
   <ElementAccessCondition>
-    <![CDATA[{%CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin)|(identity)GlobalAdministrator|(hash)621bb129641fb70f0ff2208d322d158c7ab5ecfc2fb87c22d382413e603ec8a4%}]]>
+    <![CDATA[{%CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin)|(identity)GlobalAdministrator|(hash)77abe82d20403856b2f5e9d585668b1dfe6b50890a960020f3a0e47507eea21b%}]]>
   </ElementAccessCondition>
   <ElementCaption>{$emailqueue.send.title$}</ElementCaption>
   <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
@@ -41,6 +41,6 @@
   <ElementTargetURL>~/CMSModules/EmailQueue/SendEmail.aspx</ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin)|(identity)GlobalAdministrator|(hash)621bb129641fb70f0ff2208d322d158c7ab5ecfc2fb87c22d382413e603ec8a4%}]]>
+    <![CDATA[{%CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin)|(identity)GlobalAdministrator|(hash)77abe82d20403856b2f5e9d585668b1dfe6b50890a960020f3a0e47507eea21b%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

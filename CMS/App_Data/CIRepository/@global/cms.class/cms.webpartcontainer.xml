@@ -7,7 +7,7 @@
   <ClassDefaultObjectType />
   <ClassDisplayName>Web part container</ClassDisplayName>
   <ClassEditingPageUrl>
-    <![CDATA[{% UIContext.GetElementDialogUrl("cms.design", "EditWebPartContainer", EditedObject.ID, "") |(identity)GlobalAdministrator|(hash)3387c3a1393b60de7fb166680b936755da6848b40c9e55c1fff0d262922009ed%}]]>
+    <![CDATA[{% UIContext.GetElementDialogUrl("cms.design", "EditWebPartContainer", EditedObject.ID, "") |(identity)GlobalAdministrator|(hash)70b89706524ee10c3be479c23ead1fe3366ecd8bb4d64a60eb99c75b32916852%}]]>
   </ClassEditingPageUrl>
   <ClassFormDefinition>
     <form version="2">

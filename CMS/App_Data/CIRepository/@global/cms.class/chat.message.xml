@@ -19,7 +19,7 @@
       <field column="ChatMessageText" columntype="longtext" guid="31e66ad4-980f-444d-95dd-83517889e062" publicfield="false" system="true" visibility="none" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%EditedObject.ChatMessageSystemMessageType == 0 || EditedObject.ChatMessageSystemMessageType == 10|(identity)GlobalAdministrator|(hash)01df98b9dcba46aafa84e699a68f5fee5fdd3b41fe9c44f09a5a37a3626a7cb2%}]]>
+            <![CDATA[{%EditedObject.ChatMessageSystemMessageType == 0 || EditedObject.ChatMessageSystemMessageType == 10|(identity)GlobalAdministrator|(hash)4f45a5e4d58e45cd03e2f204558b28fbb49a6ff07a2f29c17382174298fe2622%}]]>
           </enabledmacro>
           <fieldcaption>Message</fieldcaption>
         </properties>

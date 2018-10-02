@@ -126,7 +126,7 @@
         <properties>
           <fieldcaption>{$general.module$}</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)ba6174858905630f3624431bc0cee9dfa38ff6b76a076b8d08ebe3d0184ebcd3%}]]>
+            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)74db4b4532d0ad962922043c4b5a2f44887ec3eb2f460a62c589b6c0b35cc615%}]]>
           </visiblemacro>
         </properties>
       </field>
@@ -151,7 +151,7 @@
   
 }
 return GetResourceString("developmentformcontrolcreation");
-|(identity)GlobalAdministrator|(hash)03a06cf136f8d70f2cbad8ca6ec65eb3b4bc103a1de7df971bb4cd5acf7c4822%}
+|(identity)GlobalAdministrator|(hash)4f207566bddcf5c1731f6852722e8cfdbdfcbe54e95dd40f636840bc80dad34d%}
 ]]>
           </caption>
           <visible>True</visible>
@@ -168,7 +168,7 @@ return 2;
 }
 
 return; 0;
-|(identity)GlobalAdministrator|(hash)46984ec34dd29c6f78ff8baeccb211c04cc5e323faeb6e154ef3e265752fb121%}
+|(identity)GlobalAdministrator|(hash)e102d453b4214b78bc56015e9e96347ba8e7e0881648c0264d2a29655c36fc21%}
 ]]>
           </defaultvalue>
           <visiblemacro ismacro="true">
@@ -218,7 +218,7 @@ if (UserControlParentID > 0)
 }
 
  return "CMS.FormEngine.Web.UI.FormEngineUserControl, CMS.FormEngine.Web.UI";
-|(identity)GlobalAdministrator|(hash)7f0dc50d9ac1f1ff810a14360601715ea164659b5507717672d4dbab61a659b0%}
+|(identity)GlobalAdministrator|(hash)4b24c1714d52b8e74abe1f5c496a6164a0b59b190fa6478875e10ca248df5754%}
 ]]>
           </BaseClassName>
         </settings>
@@ -230,7 +230,7 @@ if (UserControlParentID <= 0)
 {
 return GetResourceString("developmentformcontrolclass");
 }
-|(identity)GlobalAdministrator|(hash)abec2506f44f6a4282bb0203873e0a89493de58410e77cfa5b262ef7c942e5c8%}
+|(identity)GlobalAdministrator|(hash)595e8da6b7dee2aba57a466b82f8edd17bd683685fdb57397a3ce0ed4d77c881%}
 ]]>
           </fieldcaption>
           <visiblemacro ismacro="true">
@@ -251,14 +251,14 @@ return GetResourceString("developmentformcontrolclass");
         <settings>
           <controlname>MultipleChoiceControl</controlname>
           <Macro>
-            <![CDATA[{%System.GetFieldGroups()|(identity)GlobalAdministrator|(hash)824d1d2be585759ff4e64c04038b37a5c997f167d0549d7d8a10ae8da19743ac%}]]>
+            <![CDATA[{%System.GetFieldGroups()|(identity)GlobalAdministrator|(hash)2cd584fc5feb26ebd9dc6f2306c033843e5c1acb34de7b3b36525d0d3374011c%}]]>
           </Macro>
           <RepeatDirection>vertical</RepeatDirection>
           <RepeatLayout>Flow</RepeatLayout>
           <Separator>|</Separator>
           <SortItems>False</SortItems>
           <TextFormat>
-            <![CDATA[{% GetResourceString("TemplateDesigner.FieldTypes." + Text) |(identity)GlobalAdministrator|(hash)5c10356965aef4534b223d4b217fef23aa4b94cda30e3860f0b89d93c09cd494%}]]>
+            <![CDATA[{% GetResourceString("TemplateDesigner.FieldTypes." + Text) |(identity)GlobalAdministrator|(hash)fb949cdc0ac31f837e82942ce0664be095cfff15ed6bc3d4339fd2f331a3e154%}]]>
           </TextFormat>
         </settings>
       </field>
@@ -339,11 +339,11 @@ form;{$Development_FormUserControl_Edit.lblForBizForms$}
           <DisplayActualValueAsItem>False</DisplayActualValueAsItem>
           <EditText>False</EditText>
           <Macro>
-            <![CDATA[{%GetFieldTypes("cms.formclass")|(identity)GlobalAdministrator|(hash)3db4ee4b5768828cc0cc8accaba1334ec3373af04c4767db573c52f60c5d4b89%}]]>
+            <![CDATA[{%GetFieldTypes("cms.formclass")|(identity)GlobalAdministrator|(hash)25d79d3f1d2ac80996052c96eeb09776841eda8353d196ddbcb4b547170f6f6d%}]]>
           </Macro>
           <SortItems>False</SortItems>
           <TextFormat>
-            <![CDATA[{% GetResourceString("TemplateDesigner.FieldTypes." + Text) |(identity)GlobalAdministrator|(hash)5c10356965aef4534b223d4b217fef23aa4b94cda30e3860f0b89d93c09cd494%}]]>
+            <![CDATA[{% GetResourceString("TemplateDesigner.FieldTypes." + Text) |(identity)GlobalAdministrator|(hash)fb949cdc0ac31f837e82942ce0664be095cfff15ed6bc3d4339fd2f331a3e154%}]]>
           </TextFormat>
         </settings>
         <properties>
@@ -353,7 +353,7 @@ form;{$Development_FormUserControl_Edit.lblForBizForms$}
           </contentbefore>
           <defaultvalue>Text</defaultvalue>
           <enabledmacro ismacro="true">
-            <![CDATA[{%UserControlShowIn.Value.Contains("form")|(identity)GlobalAdministrator|(hash)95dfb3aab6d62e38465b3a3ba943d0197d49e8124c9514af0cd8301ba47197d3%}]]>
+            <![CDATA[{%UserControlShowIn.Value.Contains("form")|(identity)GlobalAdministrator|(hash)50d6b8eaca8f060b35bb292e841f34ac09d3f6fdc5a926ee8685453b6e7c41c1%}]]>
           </enabledmacro>
           <fieldcaption>{$development_formusercontrol_edit.lbldatatype$}</fieldcaption>
           <fieldcssclass>selector-subitem</fieldcssclass>
@@ -375,7 +375,7 @@ form;{$Development_FormUserControl_Edit.lblForBizForms$}
           </contentbefore>
           <defaultvalue>0</defaultvalue>
           <enabledmacro ismacro="true">
-            <![CDATA[{%UserControlShowIn.Value.Contains("form")|(identity)GlobalAdministrator|(hash)95dfb3aab6d62e38465b3a3ba943d0197d49e8124c9514af0cd8301ba47197d3%}]]>
+            <![CDATA[{%UserControlShowIn.Value.Contains("form")|(identity)GlobalAdministrator|(hash)50d6b8eaca8f060b35bb292e841f34ac09d3f6fdc5a926ee8685453b6e7c41c1%}]]>
           </enabledmacro>
           <fieldcaption>{$development_formusercontrol_edit.lblcolumnsize$}</fieldcaption>
           <fieldcssclass>selector-subitem</fieldcssclass>

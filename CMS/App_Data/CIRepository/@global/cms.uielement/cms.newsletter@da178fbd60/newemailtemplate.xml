@@ -32,7 +32,7 @@
       <DefaultFormLayout>Divs</DefaultFormLayout>
       <DisplayBreadcrumbs>True</DisplayBreadcrumbs>
       <RedirectURL ismacro="True">
-        <![CDATA[{% UIContext.GetElementUrl("CMS.Newsletter", "TemplateProperties", false, EditedObject.ID, "&tabname=MarketingEmailTemplate.Editor") |(identity)GlobalAdministrator|(hash)8d64aef4aed2026c4fbc533db271ffa863442ea73b1988831ddf1a8d3520b2e6%}]]>
+        <![CDATA[{% UIContext.GetElementUrl("CMS.Newsletter", "TemplateProperties", false, EditedObject.ID, "&tabname=MarketingEmailTemplate.Editor") |(identity)GlobalAdministrator|(hash)6fca7b852aec0074b057c124611aa0e3789e0a4212caf119f0ff46b99332df5c%}]]>
       </RedirectURL>
     </Data>
   </ElementProperties>

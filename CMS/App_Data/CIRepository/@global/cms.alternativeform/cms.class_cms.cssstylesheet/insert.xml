@@ -16,7 +16,7 @@
         <properties>
           <defaultvalue>true</defaultvalue>
           <enabledmacro ismacro="true">
-            <![CDATA[{%CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin) || CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin)|(identity)GlobalAdministrator|(hash)38d0be758e1076da6b138e3a933e72f4ee0c22593926f86236326a3b6d48bbde%}]]>
+            <![CDATA[{%CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin) || CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin)|(identity)GlobalAdministrator|(hash)a11a4eb6e11de344ece50b989d14827eabf978982d7c11dfedad5dcba1b77d60%}]]>
           </enabledmacro>
         </properties>
         <settings>
@@ -33,7 +33,7 @@
         </settings>
         <properties>
           <visiblemacro ismacro="true">
-            <![CDATA[{%(EditedObject.StylesheetDynamicLanguage == "plaincss") || (EditedObject.StylesheetDynamicLanguage == "") || (StylesheetCodePreview.Value == "preview")|(identity)GlobalAdministrator|(hash)3d1dcb48671de29f6971a7a15c287fcdf84fb6a2097e7b300e512183bc16dad0%}]]>
+            <![CDATA[{%(EditedObject.StylesheetDynamicLanguage == "plaincss") || (EditedObject.StylesheetDynamicLanguage == "") || (StylesheetCodePreview.Value == "preview")|(identity)GlobalAdministrator|(hash)6d15af962d449ead3c2e9d6193c090fca3d04ce027fba655e1390db95154b820%}]]>
           </visiblemacro>
         </properties>
       </field>

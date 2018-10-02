@@ -35,7 +35,7 @@
       <displaytitle>false</displaytitle>
       <objectparameterid>forumid</objectparameterid>
       <displaybreadcrumbs ismacro="True">
-        <![CDATA[{% ToBool(QueryString.showbreadcrumbs, true) |(identity)GlobalAdministrator|(hash)fe065a3fe04bc5c6f17c99286d5b1781da17ce67aed03e21f3de6be534bd8d26%}]]>
+        <![CDATA[{% ToBool(QueryString.showbreadcrumbs, true) |(identity)GlobalAdministrator|(hash)22b118246aaff872c06287a37c14c11b72011978e0ace8cf69dee8fd4562c033%}]]>
       </displaybreadcrumbs>
     </data>
   </ElementProperties>

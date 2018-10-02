@@ -28,7 +28,7 @@
       <field column="OutputFormat" guid="2387d647-17a8-4bf9-9cb2-06599d1c83e6" visible="" ismacro="true">
         <properties>
           <defaultvalue>
-            <![CDATA[{%CommunityContext.GetGroupAccessText(Value)|(identity)GlobalAdministrator|(hash)1e0e931e812aa11afbfd00d05961ceb20897157f7b0b35768797a2cba1e20fc4%}]]>
+            <![CDATA[{%CommunityContext.GetGroupAccessText(Value)|(identity)GlobalAdministrator|(hash)08e19357c6132b25a880e3932ac6f467515e6fa6c251b735d21395f194d6eac1%}]]>
           </defaultvalue>
           <fieldcaption />
           <fielddescription />

@@ -65,7 +65,7 @@
 <![CDATA[
 ##GLOBAL_AND_SITE_RECORD##;{%ShowSiteAndGlobal%}
 ##GLOBAL_RECORD##
-{%CurrentSite.SiteID|(identity)GlobalAdministrator|(hash)510678d27498ae5fc108f65edc1d7b971f75cb78ee1845f3abcf9bc9c9fb8da9%};{%CurrentSite.SiteDisplayName|(identity)GlobalAdministrator|(hash)782204533acf9ece62370703287e7fcef84eeccfea3c40676118c17029407148%}
+{%CurrentSite.SiteID|(identity)GlobalAdministrator|(hash)d5d3f568224fa3c45106fe3b3f8a8be7ae57c11ba5beb0d3f38b7a27e23fca17%};{%CurrentSite.SiteDisplayName|(identity)GlobalAdministrator|(hash)8a432312cb3bd8f4c5982f95c9953421073167e1b9fabe56c3ee8d74ea04756e%}
 ]]>
           </defaultvalue>
           <fieldcaption />

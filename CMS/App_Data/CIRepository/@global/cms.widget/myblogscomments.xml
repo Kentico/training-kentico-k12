@@ -55,7 +55,7 @@
       <field column="WhereCondition" visible="" guid="6774feb8-1758-43ac-8f8e-f1f8628ebb9c" visibility="none" reftype="Required">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[CommentPostDocumentID IN (SELECT DocumentID FROM View_CMS_Tree_Joined WHERE ClassName = 'CMS.BlogPost' AND NodeOwner={%CurrentUser.UserID|(identity)GlobalAdministrator|(hash)9348fdf7a44f8a9d3996e4839d3b3acef9c2d6a791a6a5c3e572fd2e330f128f%})]]>
+            <![CDATA[CommentPostDocumentID IN (SELECT DocumentID FROM View_CMS_Tree_Joined WHERE ClassName = 'CMS.BlogPost' AND NodeOwner={%CurrentUser.UserID|(identity)GlobalAdministrator|(hash)2c26efab9a84fbe250a77784e8b858703d70fb3ea2b2f377b04b9ef2728922c1%})]]>
           </defaultvalue>
         </properties>
       </field>

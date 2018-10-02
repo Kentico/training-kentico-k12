@@ -8,7 +8,7 @@
   <EmailTemplateName>Groups.WaitingForApproval</EmailTemplateName>
   <EmailTemplatePlainText>
 <![CDATA[
-Group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}' is waiting for your approval.
+Group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}' is waiting for your approval.
 
 Best Regards,
 
@@ -16,7 +16,7 @@ The Community Team
 ]]>
   </EmailTemplatePlainText>
   <EmailTemplateSubject>
-    <![CDATA[Group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}' is waiting for approval]]>
+    <![CDATA[Group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}' is waiting for approval]]>
   </EmailTemplateSubject>
   <EmailTemplateText>
 <![CDATA[
@@ -24,7 +24,7 @@ The Community Team
   <head>
   </head>
   <body>    
-    Group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)060c14d2b92550d8a2e830ff18a25093aea6eeac407e2f951b6766311b627900%}' is waiting for your approval.
+    Group '{%Group.GroupDisplayName|(identity)GlobalAdministrator|(hash)6434e1fcdf48b97209111cca86e3ef0a1bdc8fb4d6a93b5fceb4a28a55355c71%}' is waiting for your approval.
     <br />
     Best Regards,<br />
     <br />

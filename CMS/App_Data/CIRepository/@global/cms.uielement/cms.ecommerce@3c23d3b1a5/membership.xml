@@ -36,10 +36,10 @@
   </ElementResourceID>
   <ElementSize>0</ElementSize>
   <ElementTargetURL>
-    <![CDATA[~/CMSModules/Membership/Pages/Users/User_Edit_Membership.aspx?userid={% EditedObject.CustomerUserID|(identity)GlobalAdministrator|(hash)231ef4ac9c140dbf3569e09cbdb520d0373153bd3686ae4aaf021bd8851367f8%}]]>
+    <![CDATA[~/CMSModules/Membership/Pages/Users/User_Edit_Membership.aspx?userid={% EditedObject.CustomerUserID|(identity)GlobalAdministrator|(hash)93945405f3824f3d7ecf88d20527c61cc2fb3719b8f571dc9d5f6f6a42dfde47%}]]>
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%(CurrentUser.IsAuthorizedPerResource("CMS.Users","Read")) && EditedObject.CustomerIsRegistered|(identity)GlobalAdministrator|(hash)8ce1dfa2888bebcbc74a91015eb405c91bcb8ce7114d1a58f86017427b39563e%}]]>
+    <![CDATA[{%(CurrentUser.IsAuthorizedPerResource("CMS.Users","Read")) && EditedObject.CustomerIsRegistered|(identity)GlobalAdministrator|(hash)2831303bde414135a77447a5cd8756b1ae27b066e7f5eb2b392b04549e12e1d0%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

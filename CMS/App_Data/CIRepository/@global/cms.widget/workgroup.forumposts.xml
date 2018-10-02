@@ -26,7 +26,7 @@
       <field column="GroupName" visible="" guid="e9e06de7-2f70-4b9a-add7-1f5be2f8b4f1">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)344e781683b4070ac1e23041a4c89def6fa69f2898c66d22e08d6cd950dbd9b7%}]]>
+            <![CDATA[{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)6b28c586f4d02e552266c5a76dd3658e08c3b99883f5e1e5fc2ecd2f3f12b6a5%}]]>
           </defaultvalue>
         </properties>
       </field>
@@ -138,7 +138,7 @@
             <![CDATA[{$documentation.widgetproperties.containercustomcontent$}]]>
           </fielddescription>
           <defaultvalue>
-            <![CDATA[~/Workgroups/{%communitycontext.currentgroup.groupname|(identity)GlobalAdministrator|(hash)344e781683b4070ac1e23041a4c89def6fa69f2898c66d22e08d6cd950dbd9b7%}/RSS/ForumPosts.aspx]]>
+            <![CDATA[~/Workgroups/{%communitycontext.currentgroup.groupname|(identity)GlobalAdministrator|(hash)6b28c586f4d02e552266c5a76dd3658e08c3b99883f5e1e5fc2ecd2f3f12b6a5%}/RSS/ForumPosts.aspx]]>
           </defaultvalue>
           <fieldcaption>Container custom content</fieldcaption>
         </properties>

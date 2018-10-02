@@ -39,7 +39,7 @@
       <editindialog>False</editindialog>
       <displaybreadcrumbs>False</displaybreadcrumbs>
       <wherecondition>
-        <![CDATA[GroupSiteID = {% CMSContext.CurrentSiteID |(identity)GlobalAdministrator|(hash)4cffbc986dff7117aa1356218d00999d18a2f53f44e25f44867edda58d3a1415%} ]]>
+        <![CDATA[GroupSiteID = {% CMSContext.CurrentSiteID |(identity)GlobalAdministrator|(hash)fd46ff67d2c175226a56e85838da2f691b61b1f2d7e78c13dfb042142c418a24%} ]]>
       </wherecondition>
       <displaytitle>false</displaytitle>
     </data>

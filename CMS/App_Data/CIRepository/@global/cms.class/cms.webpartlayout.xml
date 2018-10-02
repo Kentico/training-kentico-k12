@@ -7,7 +7,7 @@
   <ClassDefaultObjectType />
   <ClassDisplayName>Web part layout</ClassDisplayName>
   <ClassEditingPageUrl>
-    <![CDATA[{% UIContext.GetElementDialogUrl("cms.design", "Edit.WebPartLayout", EditedObject.ID, "editonlycode=1&webpartid=" + EditedObject.ParentID + "&parentobjectid=" + EditedObject.ParentID) |(identity)GlobalAdministrator|(hash)f3f8ba21fa9eaf38aee9bbb7f1fcb1a58648cfee10a687dae8257a3f6c54db1a%}]]>
+    <![CDATA[{% UIContext.GetElementDialogUrl("cms.design", "Edit.WebPartLayout", EditedObject.ID, "editonlycode=1&webpartid=" + EditedObject.ParentID + "&parentobjectid=" + EditedObject.ParentID) |(identity)GlobalAdministrator|(hash)fb96ae399e6b6ac546a0878f96970efebfb22e05410fb8a8fe6869d13a61da47%}]]>
   </ClassEditingPageUrl>
   <ClassFormDefinition>
     <form version="2">

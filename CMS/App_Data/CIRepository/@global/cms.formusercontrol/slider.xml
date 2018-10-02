@@ -71,7 +71,7 @@
         </settings>
         <rules>
           <rule errormsg="Maximum value has to be greater than minimum value.">
-            <![CDATA[{%Rule("(Value > Fields[\"b5f77407-f607-4162-b9da-f6078977befd\"].Value)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"CompareToField\" ><p n=\"field\"><t>Minimal slider value</t><v>b5f77407-f607-4162-b9da-f6078977befd</v><r>0</r><d></d><vt>text</vt><tv>0</tv></p><p n=\"operator\"><t>Is greater than</t><v>&gt;</v><r>0</r><d></d><vt>text</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)dec04d337f810fcaac0b6720eabab2255b1dfae226bd61b053f138d77726d502%}]]>
+            <![CDATA[{%Rule("(Value > Fields[\"b5f77407-f607-4162-b9da-f6078977befd\"].Value)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"CompareToField\" ><p n=\"field\"><t>Minimal slider value</t><v>b5f77407-f607-4162-b9da-f6078977befd</v><r>0</r><d></d><vt>text</vt><tv>0</tv></p><p n=\"operator\"><t>Is greater than</t><v>&gt;</v><r>0</r><d></d><vt>text</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)8a57a03e1bed4f0915bdfb377559df4b82c3459fea78134e608ffac48650763a%}]]>
           </rule>
         </rules>
       </field>

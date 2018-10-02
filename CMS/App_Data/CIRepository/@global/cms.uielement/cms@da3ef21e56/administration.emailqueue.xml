@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cms.uielement>
   <ElementAccessCondition>
-    <![CDATA[{%CurrentUser.IsAuthorizedPerResource("CMS.EmailEngine", "ReadCMSEmailQueue")|(identity)GlobalAdministrator|(hash)862c4bdbb97fef93736a5d73ef751f001cc9e71b33cf66ac9dfd2ad7d45a00af%}]]>
+    <![CDATA[{%CurrentUser.IsAuthorizedPerResource("CMS.EmailEngine", "ReadCMSEmailQueue")|(identity)GlobalAdministrator|(hash)e5277f6337d9f442273fc5083cc29be03ab619c80c0994b4d84f027c2651c950%}]]>
   </ElementAccessCondition>
   <ElementCaption>{$Administration-LeftMenu.EmailQueue$}</ElementCaption>
   <ElementCheckModuleReadPermission>True</ElementCheckModuleReadPermission>
@@ -39,7 +39,7 @@
       <includejquery>False</includejquery>
       <displaybreadcrumbs>False</displaybreadcrumbs>
       <displaysiteselector>
-        <![CDATA[{% CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin) |(identity)GlobalAdministrator|(hash)9e7b45f3000608d9577cee9870d0315d3604ebae0e1f882b7e6789de189df639%}]]>
+        <![CDATA[{% CurrentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.GlobalAdmin) |(identity)GlobalAdministrator|(hash)334d55ada521d68efd93cd8771556d089428767629f5a0ff28078e36cccb3271%}]]>
       </displaysiteselector>
       <allowempty>False</allowempty>
       <allowsubtabs>False</allowsubtabs>
@@ -56,6 +56,6 @@
   <ElementSize>0</ElementSize>
   <ElementType>PageTemplate</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%CurrentUser.IsAuthorizedPerResource("CMS.EmailEngine", "ReadCMSEmailQueue")|(identity)GlobalAdministrator|(hash)862c4bdbb97fef93736a5d73ef751f001cc9e71b33cf66ac9dfd2ad7d45a00af%}]]>
+    <![CDATA[{%CurrentUser.IsAuthorizedPerResource("CMS.EmailEngine", "ReadCMSEmailQueue")|(identity)GlobalAdministrator|(hash)e5277f6337d9f442273fc5083cc29be03ab619c80c0994b4d84f027c2651c950%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

@@ -35,7 +35,7 @@
   </ElementResourceID>
   <ElementSize>0</ElementSize>
   <ElementTargetURL>
-    <![CDATA[~/CMSModules/Messaging/MyMessages/MyMessages_IgnoreList.aspx?userid={?MembershipContext.AuthenticatedUser.UserID|(identity)GlobalAdministrator|(hash)aa356e4920ef928cbbf9aec07b5d3654c973b020f02c3bc25226d0eb414fb74a?}]]>
+    <![CDATA[~/CMSModules/Messaging/MyMessages/MyMessages_IgnoreList.aspx?userid={?MembershipContext.AuthenticatedUser.UserID|(identity)GlobalAdministrator|(hash)cfb5fa08e97abb0b6747f2ac28aabcad0e2e9785c6636c7cc5ea1d607f80683e?}]]>
   </ElementTargetURL>
   <ElementType>Url</ElementType>
 </cms.uielement>

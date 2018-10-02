@@ -78,7 +78,7 @@
           <Options>
 <![CDATA[
 false; {$com.discount.by$} %
-true; {$com.discount.by$} {% (GetMainSiteCurrency((DiscountSiteID == 0)? CMSContext.CurrentSiteID : DiscountSiteID).CurrencyCode)|(encode)|(resolver)listitem |(identity)GlobalAdministrator|(hash)9de22fcc055a93ef4c75f991190bd128d79baf24196da806ec238d9e21f54edf%}
+true; {$com.discount.by$} {% (GetMainSiteCurrency((DiscountSiteID == 0)? CMSContext.CurrentSiteID : DiscountSiteID).CurrencyCode)|(encode)|(resolver)listitem |(identity)GlobalAdministrator|(hash)167a7f647a9ebc75867795e186af57a718a5b47703e9e1a2d388a400684a230c%}
 ]]>
           </Options>
           <RepeatDirection>horizontal</RepeatDirection>
@@ -101,7 +101,7 @@ true; {$com.discount.by$} {% (GetMainSiteCurrency((DiscountSiteID == 0)? CMSCont
 	{ 
 		"%" 
 	}
-|(identity)GlobalAdministrator|(hash)0ec7a78db6ef1ddfec24f4282b4c0c91424a9dc69894981630b237cfc25cfc06%}
+|(identity)GlobalAdministrator|(hash)17b0e8bcc8758246b927c8048595a0cf6a4c1292703957c24fb408e81c44785f%}
 </span>
 ]]>
           </contentafter>
@@ -122,7 +122,7 @@ true; {$com.discount.by$} {% (GetMainSiteCurrency((DiscountSiteID == 0)? CMSCont
         </settings>
         <rules>
           <rule errormsg="{$basicform.valuebetween0and100$}">
-            <![CDATA[{%Rule("(DiscountIsFlat.Value? true: (Value<=100 && Value >= 0))", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"GeneralCondition\" ><p n=\"condition\"><t>DiscountIsFlat.Value? true: (Value&lt;=100 &amp;&amp; Value &gt;= 0)</t><v>DiscountIsFlat.Value? true: (Value&lt;=100 &amp;&amp; Value &gt;= 0)</v><r>0</r><d></d><vt>longtext</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)45fc95230b4e0765e5665053f118e9232c806fc5f0aa767210d13eee61afdf98%}]]>
+            <![CDATA[{%Rule("(DiscountIsFlat.Value? true: (Value<=100 && Value >= 0))", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"GeneralCondition\" ><p n=\"condition\"><t>DiscountIsFlat.Value? true: (Value&lt;=100 &amp;&amp; Value &gt;= 0)</t><v>DiscountIsFlat.Value? true: (Value&lt;=100 &amp;&amp; Value &gt;= 0)</v><r>0</r><d></d><vt>longtext</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)3cfe2054f49894eefa5dbe49581d51547ecbce8ffb3f85de5154377cafd5a46c%}]]>
           </rule>
           <rule>
             <![CDATA[{%Rule("Value >= 0", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MinValue\" ><p n=\"minvalue\"><t>0</t><v>0</v><r>false</r><d></d><vt>integer</vt></p></r></rules>")%}]]>
@@ -132,7 +132,7 @@ true; {$com.discount.by$} {% (GetMainSiteCurrency((DiscountSiteID == 0)? CMSCont
       <field allowempty="true" column="DiscountOrderAmount" columnprecision="9" columnsize="18" columntype="decimal" guid="f4913082-74bf-4706-ad60-11f741e8585f" publicfield="false" system="true">
         <properties>
           <contentafter>
-            <![CDATA[{%GetMainSiteCurrency((DiscountSiteID == 0)? CMSContext.CurrentSiteID : DiscountSiteID).CurrencyCode |(identity)GlobalAdministrator|(hash)172cc3fd8cd9575a918a953d69050fda7f7ee74c5214c43ce606afa051fedb7d%}]]>
+            <![CDATA[{%GetMainSiteCurrency((DiscountSiteID == 0)? CMSContext.CurrentSiteID : DiscountSiteID).CurrencyCode |(identity)GlobalAdministrator|(hash)8a660d7201965041ee6539b58a496411159297d145737e76758df0755f0b5545%}]]>
           </contentafter>
           <fieldcaption>{$com.discount.discountorderamount$}</fieldcaption>
           <inputcontrolstyle>width:70px;</inputcontrolstyle>
@@ -210,7 +210,7 @@ true; {$com.discount.by$} {% (GetMainSiteCurrency((DiscountSiteID == 0)? CMSCont
           <contentafter>
 <![CDATA[
 <div ID="CouponsInfoLabel" class="explanation-text" style="display:none;" >
-{% GetResourceString("com.discount.couponsredirect")|(identity)GlobalAdministrator|(hash)0f0fa2201557b4212e6d636748e883219ec88af1ea65ee020bede678e8761ea4%}
+{% GetResourceString("com.discount.couponsredirect")|(identity)GlobalAdministrator|(hash)21f5d43e5614d7ad019fb1a4e96868d397477000996ba6f49001839d6208bdb3%}
 </div>
 </div>
 ]]>
@@ -260,7 +260,7 @@ true; {$com.discount.by$} {% (GetMainSiteCurrency((DiscountSiteID == 0)? CMSCont
         </settings>
         <rules>
           <rule>
-            <![CDATA[{%Rule("Value > Fields[\"f3ce6ac9-9eba-4bf0-8f5a-25fa29cbf2f9\"].Value", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"CompareToField\" ><p n=\"field\"><t>Valid from</t><v>f3ce6ac9-9eba-4bf0-8f5a-25fa29cbf2f9</v><r>false</r><d></d><vt>text</vt></p><p n=\"operator\"><t>is greater than</t><v>&gt;</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)f2f9160b593d8200bab9be976816d23278f6395c43a7a4c69099e063cc33e3bb%}]]>
+            <![CDATA[{%Rule("Value > Fields[\"f3ce6ac9-9eba-4bf0-8f5a-25fa29cbf2f9\"].Value", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"CompareToField\" ><p n=\"field\"><t>Valid from</t><v>f3ce6ac9-9eba-4bf0-8f5a-25fa29cbf2f9</v><r>false</r><d></d><vt>text</vt></p><p n=\"operator\"><t>is greater than</t><v>&gt;</v><r>false</r><d></d><vt>text</vt></p></r></rules>")|(identity)GlobalAdministrator|(hash)f758aa043f1773c256a8ce517bb1906b730ba980088a3aa1eeeef8a44a361074%}]]>
           </rule>
         </rules>
       </field>
@@ -288,7 +288,7 @@ true; {$com.discount.by$} {% (GetMainSiteCurrency((DiscountSiteID == 0)? CMSCont
       <field allowempty="true" column="DiscountRoles" columnsize="400" columntype="text" dependsonanotherfield="true" guid="4e86869a-5ae4-4516-9475-ff74cb1c8b58" publicfield="false" system="true" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%DiscountCustomerRestriction.Value == "SelectedRoles"|(identity)GlobalAdministrator|(hash)34d195d934647ff9a7206da694d84fe44129976fcfab0ef52a994d63e7ce7c0e%}]]>
+            <![CDATA[{%DiscountCustomerRestriction.Value == "SelectedRoles"|(identity)GlobalAdministrator|(hash)af5361be54ae66c8fff5f1d88c11790d697fa69208826f45f01de32469730ad3%}]]>
           </enabledmacro>
           <fielddescription>{$com.discount.rolesdesc$}</fielddescription>
         </properties>

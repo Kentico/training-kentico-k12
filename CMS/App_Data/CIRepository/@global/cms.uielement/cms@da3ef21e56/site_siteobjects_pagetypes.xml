@@ -32,7 +32,7 @@
       <DialogWhereCondition>ClassResourceID IS NULL</DialogWhereCondition>
       <DisplayBreadcrumbs>False</DisplayBreadcrumbs>
       <ListPrefaceText ismacro="True">
-        <![CDATA[{% String.FormatString(GetResourceString("site_edit_siteobjects.objectsavailable"), GetResourceString("objecttasks.cms_documenttype").ToLower()) |(identity)GlobalAdministrator|(hash)a617ea73b016061cdca469e9ec6187a4586b96d6831141f93b54d9feb12de27e%}]]>
+        <![CDATA[{% String.FormatString(GetResourceString("site_edit_siteobjects.objectsavailable"), GetResourceString("objecttasks.cms_documenttype").ToLower()) |(identity)GlobalAdministrator|(hash)dddffb1e5d55341c6add7ece7ffa00da7fd4c6f05638a3d4a3d93e679eaa0e62%}]]>
       </ListPrefaceText>
       <ResourcePrefix>cms_documenttype.select</ResourcePrefix>
       <TargetObjectType>cms.documenttype</TargetObjectType>

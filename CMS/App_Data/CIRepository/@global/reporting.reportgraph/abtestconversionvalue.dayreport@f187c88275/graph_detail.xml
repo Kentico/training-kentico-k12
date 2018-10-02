@@ -50,7 +50,7 @@ FROM {%DatabaseSchema%}.Func_Analytics_EnsureDates (@FromDate,@ToDate,'Day') AS 
       <displaylegend>True</displaylegend>
       <exportenabled>True</exportenabled>
       <itemvalueformat>
-        <![CDATA[{%Format(ToDouble(pval, "0.0"), "{0:0.0}")|(identity)GlobalAdministrator|(hash)45eb9c87ea5c77b5dcf1815d712e0e51ec276bbb8ebcb19bac81b03ea63f2df0%}% ({%yval%})]]>
+        <![CDATA[{%Format(ToDouble(pval, "0.0"), "{0:0.0}")|(identity)GlobalAdministrator|(hash)c9cf1253184721f99981803363d53df2f63c8b17d8cfb3c40a2ceeec3637762e%}% ({%yval%})]]>
       </itemvalueformat>
       <legendinside>False</legendinside>
       <legendposition>Right</legendposition>

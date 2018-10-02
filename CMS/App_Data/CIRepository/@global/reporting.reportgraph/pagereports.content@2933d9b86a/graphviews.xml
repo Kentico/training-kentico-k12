@@ -7,14 +7,14 @@
   <GraphName>graphViews</GraphName>
   <GraphQuery>
 <![CDATA[
- SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}');
+ SET @FromDate ={%DatabaseSchema%}.Func_Analytics_DateTrim(@FromDate,'{%if (Interval == null) { "year" } else { Interval }|(identity)GlobalAdministrator|(hash)9b6cfede91cef6d45e1faeebc8678ce2fccd9a7cf6cb996da81079332f4e0630%}');
  
- SELECT {%if (Columns == null) { "Date" } else { Columns }|(identity)GlobalAdministrator|(hash)5209a005af01281fac8a03c121ba9d0b601d999ee646d5b552865fe5268136d7%} AS StartTime ,T1.Hits FROM
-  {%DatabaseSchema%}.Func_Analytics_EnsureDates (@FromDate,@ToDate,'{%if (Interval == null) { "year" } else { Interval }|(identity)GlobalAdministrator|(hash)0a78edabfdeb38e7ff7a6358a4fe932d7b689c515dc375077c82300a3aac8de6%}') AS Dates   
+ SELECT {%if (Columns == null) { "Date" } else { Columns }|(identity)GlobalAdministrator|(hash)e6d46c1f4dfbca973c007eb8146fa3a473651dc44b611b2ffc591be56c5c68cb%} AS StartTime ,T1.Hits FROM
+  {%DatabaseSchema%}.Func_Analytics_EnsureDates (@FromDate,@ToDate,'{%if (Interval == null) { "year" } else { Interval }|(identity)GlobalAdministrator|(hash)9b6cfede91cef6d45e1faeebc8678ce2fccd9a7cf6cb996da81079332f4e0630%}') AS Dates   
   LEFT JOIN
   (SELECT HitsStartTime AS StartTime,SUM(HitsCount) AS hits
   FROM Analytics_Statistics
-  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%} ON {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)02805ddfdba51d20068c9697a82124cc5dcd37172973166a9be84a7af194e4d6%}.HitsStatisticsID = Analytics_Statistics.StatisticsID
+  INNER JOIN {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)ba0e0fbc928309cd72cfd4258baea570c3029cb4bb88082ab6913bed8195217f%} ON {%if (AnalyticsTable == null) { "Analytics_YearHits" } else { AnalyticsTable }|(identity)GlobalAdministrator|(hash)ba0e0fbc928309cd72cfd4258baea570c3029cb4bb88082ab6913bed8195217f%}.HitsStatisticsID = Analytics_Statistics.StatisticsID
   WHERE (StatisticsSiteID = @CMSContextCurrentSiteID) AND
   (StatisticsCode = 'pageviews') AND StatisticsObjectID = @NodeID AND StatisticsObjectCulture = @CultureCode
   GROUP BY HitsStartTime) AS T1

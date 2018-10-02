@@ -38,7 +38,7 @@
       <field column="BoardDisplayName" guid="36412937-88d5-4e78-8626-422065f2b282" visibility="none" visible="">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[Group {%CommunityContext.CurrentGroup.GroupDisplayName|(encode)true|(identity)GlobalAdministrator|(hash)77a244c70a927198ef76f188453c95ec35031b4658555a6d36fa7be36ca89828%} board]]>
+            <![CDATA[Group {%CommunityContext.CurrentGroup.GroupDisplayName|(encode)true|(identity)GlobalAdministrator|(hash)7930a0486552607e3b5c231873821a732494b3f7283906aed2ce39947a0ca7f1%} board]]>
           </defaultvalue>
         </properties>
       </field>
@@ -69,7 +69,7 @@
       <field column="BoardBaseUrl" guid="a1ea73ce-2309-49dc-a58a-ae92a982692d" visible="">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[~/Groups/{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)344e781683b4070ac1e23041a4c89def6fa69f2898c66d22e08d6cd950dbd9b7%}.aspx]]>
+            <![CDATA[~/Groups/{%CommunityContext.CurrentGroup.GroupName|(identity)GlobalAdministrator|(hash)6b28c586f4d02e552266c5a76dd3658e08c3b99883f5e1e5fc2ecd2f3f12b6a5%}.aspx]]>
           </defaultvalue>
         </properties>
       </field>

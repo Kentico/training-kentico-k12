@@ -78,7 +78,7 @@
         <properties>
           <fieldcaption>{$general.module$}</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)ba6174858905630f3624431bc0cee9dfa38ff6b76a076b8d08ebe3d0184ebcd3%}]]>
+            <![CDATA[{%SystemContext.DevelopmentMode|(identity)GlobalAdministrator|(hash)74db4b4532d0ad962922043c4b5a2f44887ec3eb2f460a62c589b6c0b35cc615%}]]>
           </visiblemacro>
         </properties>
         <settings>

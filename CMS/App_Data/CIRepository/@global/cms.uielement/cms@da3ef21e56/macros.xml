@@ -38,6 +38,6 @@
   <ElementTargetURL>~/CMSModules/System/Debug/Log.aspx?name=macros</ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%Debug.IsDebugEnabled("macros")|(identity)GlobalAdministrator|(hash)656a9bcd8cacb0560b7738c8f76d54342c7725dcea927c643a3c5f0b60d556c7%}]]>
+    <![CDATA[{%Debug.IsDebugEnabled("macros")|(identity)GlobalAdministrator|(hash)e70a3f2fed714435ffe1657eca6b6d6f37ddb621998107a17879f6da4f60d0d0%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

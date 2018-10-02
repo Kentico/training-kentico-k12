@@ -64,6 +64,6 @@ onCloseDialog = function() {
   <ElementSize>0</ElementSize>
   <ElementType>PageTemplate</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%Settings.CMSDeviceProfilesEnable && (EditedObject.PageTemplateType == "portal")|(identity)GlobalAdministrator|(hash)92829995cebc2392665c04714bc250c051d7bf91938962da52c414d435d31fd7%}]]>
+    <![CDATA[{%Settings.CMSDeviceProfilesEnable && (EditedObject.PageTemplateType == "portal")|(identity)GlobalAdministrator|(hash)82454e75a4b43bb345dc967e666e75fc1aaa5858dc8fdeee5499c979d03d5279%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

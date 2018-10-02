@@ -135,7 +135,7 @@
         </properties>
         <rules>
           <rule>
-            <![CDATA[{%Rule("(Value.Length <= 100)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MaxLength\" ><p n=\"maxlength\"><t>100</t><v>100</v><r>0</r><d></d><vt>integer</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)124ab8d8537f2f57b7cc6a3484a6c7b10aeb229ef6162e7c14680e56d033085c%}]]>
+            <![CDATA[{%Rule("(Value.Length <= 100)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"MaxLength\" ><p n=\"maxlength\"><t>100</t><v>100</v><r>0</r><d></d><vt>integer</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)b5cc213433d34eec6fadc1b673b959e1edf88be4507e6f1334606c82dec3839d%}]]>
           </rule>
         </rules>
       </field>
@@ -153,7 +153,7 @@
         </properties>
         <rules>
           <rule errormsg="Passwords do not match!">
-            <![CDATA[{%Rule("(Value == Fields[\"ConfirmPassword\"].Value|(casesensitive)true)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"GeneralCondition\" ><p n=\"condition\"><t>Value == Fields[&quot;ConfirmPassword&quot;].Value|(casesensitive)true</t><v>Value == Fields[&quot;ConfirmPassword&quot;].Value|(casesensitive)true</v><r>0</r><d></d><vt>longtext</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)6e4e3b14e699ac5df3f4b61b8a712ba1afdf2398874d40eed5357b3a7450cba4%}]]>
+            <![CDATA[{%Rule("(Value == Fields[\"ConfirmPassword\"].Value|(casesensitive)true)", "<rules><r pos=\"0\" par=\"\" op=\"and\" n=\"GeneralCondition\" ><p n=\"condition\"><t>Value == Fields[&quot;ConfirmPassword&quot;].Value|(casesensitive)true</t><v>Value == Fields[&quot;ConfirmPassword&quot;].Value|(casesensitive)true</v><r>0</r><d></d><vt>longtext</vt><tv>0</tv></p></r></rules>")|(identity)GlobalAdministrator|(hash)ffebe40881de1e4fb112c47e820d000ee49834d7dcdf043fae0588dffc575bd2%}]]>
           </rule>
         </rules>
       </field>

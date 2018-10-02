@@ -574,7 +574,7 @@
           <controlcssclass>input-width-20</controlcssclass>
           <fieldcaption>{$com.sku.availableitems$}</fieldcaption>
           <visiblemacro ismacro="true">
-            <![CDATA[{%SKUTrackInventory.Value == "ByProduct"|(identity)GlobalAdministrator|(hash)e62b5a071adedbabdfd187e9567dc23122ccf2d62067168d5b373284dfe87365%}]]>
+            <![CDATA[{%SKUTrackInventory.Value == "ByProduct"|(identity)GlobalAdministrator|(hash)67fb788d13886c6a1af2adfb941fc4ce4c4722a70c53220c983f56accc628a87%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -596,7 +596,7 @@
             <![CDATA[Indicates at which quantity you/your on-line store administrators should reorder the product.]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%SKUTrackInventory.Value == "ByProduct"|(identity)GlobalAdministrator|(hash)e62b5a071adedbabdfd187e9567dc23122ccf2d62067168d5b373284dfe87365%}]]>
+            <![CDATA[{%SKUTrackInventory.Value == "ByProduct"|(identity)GlobalAdministrator|(hash)67fb788d13886c6a1af2adfb941fc4ce4c4722a70c53220c983f56accc628a87%}]]>
           </visiblemacro>
         </properties>
         <settings>

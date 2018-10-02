@@ -23,7 +23,7 @@
         <settings>
           <controlname>LabelControl</controlname>
           <OutputFormat>
-            <![CDATA[{% GetResourceString("smartsearch.indextype." + IndexType.ToString()); |(identity)GlobalAdministrator|(hash)0a9d5159f10bb24059476da80c326ed4ea394175b2de596b9909e6e1467dd57d%}]]>
+            <![CDATA[{% GetResourceString("smartsearch.indextype." + IndexType.ToString()); |(identity)GlobalAdministrator|(hash)a8ac9e0b8630dad88fe2cc4404cbd48f7949f91467cea1a3933470c94963f8bb%}]]>
           </OutputFormat>
           <ResolveMacros>True</ResolveMacros>
         </settings>

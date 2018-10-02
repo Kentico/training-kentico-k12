@@ -36,7 +36,7 @@
   </ElementResourceID>
   <ElementSize>0</ElementSize>
   <ElementTargetURL>
-    <![CDATA[{%EditedObject.ClassListPageURL == "" ? "~/CMSModules/CustomTables/Tools/CustomTable_Data_List.aspx?sm=1" : EditedObject.ClassListPageURL + "?sm=1" |(identity)GlobalAdministrator|(hash)65a3b8e34d551700fc043aea895a89660f30b696a1fd19a494b752188b1baf9b%}]]>
+    <![CDATA[{%EditedObject.ClassListPageURL == "" ? "~/CMSModules/CustomTables/Tools/CustomTable_Data_List.aspx?sm=1" : EditedObject.ClassListPageURL + "?sm=1" |(identity)GlobalAdministrator|(hash)a3855a87e80c88f2aab3229b339488fd5f12678d05a6b79e349f7b70c9e71c62%}]]>
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition />

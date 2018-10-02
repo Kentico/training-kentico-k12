@@ -9,7 +9,7 @@
   <GraphQuery>
 <![CDATA[
 DECLARE @globalCurrency bit;
-SET @globalCurrency = {%Settings.CMSStoreUseGlobalCurrencies?1:0|(identity)GlobalAdministrator|(hash)f57f4c1b460becf0a8004368dc2f195bbed69a77af248deda9330736ff88d5e6%};
+SET @globalCurrency = {%Settings.CMSStoreUseGlobalCurrencies?1:0|(identity)GlobalAdministrator|(hash)09e849b65ddee24f1532692f50e24b12960810e982842a94a1e52c76e994ec76%};
 
 
 /* Selects the number of orders in the given currency. */

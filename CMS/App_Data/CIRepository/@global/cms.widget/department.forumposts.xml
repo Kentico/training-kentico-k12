@@ -26,7 +26,7 @@
       <field column="ForumGroups" visible="" guid="e9e06de7-2f70-4b9a-add7-1f5be2f8b4f1" reftype="Required">
         <properties>
           <defaultvalue ismacro="true">
-            <![CDATA[Department_{%cmscontext.currentdepartment.nodeguid|(identity)GlobalAdministrator|(hash)0338011084d5e5c06ed18c319ff66f93d28f01eed196f052d7d46f7c3ab27bbe%}]]>
+            <![CDATA[Department_{%cmscontext.currentdepartment.nodeguid|(identity)GlobalAdministrator|(hash)a965898eca1cc0c14b961ed51416aadfc197c2e022e67aaf38995456e21989a1%}]]>
           </defaultvalue>
         </properties>
       </field>

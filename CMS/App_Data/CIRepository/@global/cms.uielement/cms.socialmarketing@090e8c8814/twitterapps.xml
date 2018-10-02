@@ -29,7 +29,7 @@
   <ElementProperties>
     <data>
       <wherecondition>
-        <![CDATA[TwitterApplicationSiteID = {%SiteContext.CurrentSiteID|(identity)GlobalAdministrator|(hash)f5641ef389d704e507dabbd8fd8b19dac995a98b745f22b25a20417dcddabc8f%}]]>
+        <![CDATA[TwitterApplicationSiteID = {%SiteContext.CurrentSiteID|(identity)GlobalAdministrator|(hash)28f09c8766428a281c2f61aa37ee85c449d2588d4ed5b36241dbe905f8132153%}]]>
       </wherecondition>
       <displaybreadcrumbs>False</displaybreadcrumbs>
       <objecttype>sm.twitterapplication</objecttype>

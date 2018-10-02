@@ -32,11 +32,11 @@
       <field column="CouponCodeUseLimit" order="3">
         <properties>
           <contentafter ismacro="true">
-            <![CDATA[<span class="form-control-text">{% GetResourceString("com.couponcode.times") |(identity)GlobalAdministrator|(hash)08b1b90ca2df76da8ce08e6ce81354422126cb2290a1d92f75ae78bce3b8b3b7%}</span>]]>
+            <![CDATA[<span class="form-control-text">{% GetResourceString("com.couponcode.times") |(identity)GlobalAdministrator|(hash)8948260d5cea5488dad360c30a83b57a08f66487893bf38f87f9bf46fc33efa2%}</span>]]>
           </contentafter>
           <validationerrormessage ismacro="true">
 <![CDATA[
-{% FormatString(GetResourceString("com.discount.codeupdatelimiterror"), CouponCodeUseCount) |(identity)GlobalAdministrator|(hash)71d929f4c9e8bd2c2a6d9abb08504c6a3f8933ade1fba19f0f5d31135e62e19c%}
+{% FormatString(GetResourceString("com.discount.codeupdatelimiterror"), CouponCodeUseCount) |(identity)GlobalAdministrator|(hash)a668f62fea5a829f823485e27b8e6f08ee684a8823c94d09fbb3e71ca3bea574%}
 
 
 ]]>

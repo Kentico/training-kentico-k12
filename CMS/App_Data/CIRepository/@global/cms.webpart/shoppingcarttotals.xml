@@ -56,7 +56,7 @@ OtherPaymentsTotal;{$checkout.otherpaymentstotal$}
             <![CDATA[Select transformation to display MultiBuy and Order discount summary]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%TotalToDisplay.Value == "OrderDiscountSummary"|(identity)GlobalAdministrator|(hash)61c829721cd98e3fdeb259d5a7ab33cec69ce13b95d7cf5a6e9ccc194a78ab7e%}]]>
+            <![CDATA[{%TotalToDisplay.Value == "OrderDiscountSummary"|(identity)GlobalAdministrator|(hash)e7c430f9bcf569a3936f19631a26c95fcbcc387d0192ff5877e8bb6b77cf5d6b%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -70,7 +70,7 @@ OtherPaymentsTotal;{$checkout.otherpaymentstotal$}
             <![CDATA[For example {0:00.0000} or {0:(#).##} etc. If not specified the default value for the currency string from 'Store configuration -> Currencies -> edit -> Currency formatting string' is used.]]>
           </fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%TotalToDisplay.Value != "MultiBuyDiscounts"|(identity)GlobalAdministrator|(hash)041e588aca43d6267c40749f2e27b84dbd2314bc143c172320222222faf92baf%}]]>
+            <![CDATA[{%TotalToDisplay.Value != "MultiBuyDiscounts"|(identity)GlobalAdministrator|(hash)ad3f0a0a125ad600e9da1d880cab5503259c71c3e7173301ff549c9050e3d114%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -87,7 +87,7 @@ OtherPaymentsTotal;{$checkout.otherpaymentstotal$}
           <fieldcaption>Label</fieldcaption>
           <fielddescription>Label text for this total.</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%TotalToDisplay.Value != "MultiBuyDiscounts"|(identity)GlobalAdministrator|(hash)041e588aca43d6267c40749f2e27b84dbd2314bc143c172320222222faf92baf%}]]>
+            <![CDATA[{%TotalToDisplay.Value != "MultiBuyDiscounts"|(identity)GlobalAdministrator|(hash)ad3f0a0a125ad600e9da1d880cab5503259c71c3e7173301ff549c9050e3d114%}]]>
           </visiblemacro>
         </properties>
         <settings>

@@ -6,7 +6,7 @@
   <ClassCustomizedColumns />
   <ClassDisplayName>Email template</ClassDisplayName>
   <ClassEditingPageUrl>
-    <![CDATA[~/CMSModules/EmailTemplates/Pages/Frameset.aspx?templateid={%EditedObject.ID|(identity)GlobalAdministrator|(hash)4249f27f285166754b0eb8b20bcebc13c26f02f329b44d1f5abc457c2aa7dd8e%}&tabmode=1&editonlycode=1]]>
+    <![CDATA[~/CMSModules/EmailTemplates/Pages/Frameset.aspx?templateid={%EditedObject.ID|(identity)GlobalAdministrator|(hash)c623bdea843f0fdb423313e84cb30836177e6f84f1971f244edfb82754fd581d%}&tabmode=1&editonlycode=1]]>
   </ClassEditingPageUrl>
   <ClassFormDefinition>
     <form version="2">
@@ -21,7 +21,7 @@
       <field column="EmailTemplateDisplayName" columnsize="200" columntype="text" guid="4c80ea4a-4e2f-4f4e-b524-9ec6acb2290b" publicfield="false" system="true" translatefield="true" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%QueryString["editonlycode"] != "1" || FormMode == FormModeEnum.Insert|(identity)GlobalAdministrator|(hash)ada3d97cb054256de2e1f57d3a703c8c099992319e863b1f2471a2c0afde4979%}]]>
+            <![CDATA[{%QueryString["editonlycode"] != "1" || FormMode == FormModeEnum.Insert|(identity)GlobalAdministrator|(hash)d54734c7ed4075c51e06b07198fc0183899fb1d4db46775d4db7491b4c454b30%}]]>
           </enabledmacro>
           <fieldcaption>{$general.displayname$}</fieldcaption>
           <validationerrormessage>{$EmailTemplate_Edit.FillDisplayNameField$}</validationerrormessage>
@@ -38,7 +38,7 @@
       <field column="EmailTemplateName" columnsize="200" columntype="text" guid="db77f0cf-12cf-43e6-be0a-28c1c97fb026" publicfield="false" spellcheck="false" system="true" visible="true">
         <properties>
           <enabledmacro ismacro="true">
-            <![CDATA[{%QueryString["editonlycode"] != "1" || FormMode == FormModeEnum.Insert|(identity)GlobalAdministrator|(hash)ada3d97cb054256de2e1f57d3a703c8c099992319e863b1f2471a2c0afde4979%}]]>
+            <![CDATA[{%QueryString["editonlycode"] != "1" || FormMode == FormModeEnum.Insert|(identity)GlobalAdministrator|(hash)d54734c7ed4075c51e06b07198fc0183899fb1d4db46775d4db7491b4c454b30%}]]>
           </enabledmacro>
           <fieldcaption>{$general.codename$}</fieldcaption>
           <validationerrormessage>{$EmailTemplate_Edit.FillCodeNameField$}</validationerrormessage>
@@ -60,7 +60,7 @@
         <properties>
           <defaultvalue ismacro="true">{?templatetype?}</defaultvalue>
           <enabledmacro ismacro="true">
-            <![CDATA[{%QueryString["editonlycode"] != "1"|(identity)GlobalAdministrator|(hash)e8a69018ccb88159d8a99f6df534e082b5c7ff2488b59e5af7098dd829fa636c%}]]>
+            <![CDATA[{%QueryString["editonlycode"] != "1"|(identity)GlobalAdministrator|(hash)09dd1309c846980b4d6a7d5f0c12f726d07679e2d0ac42b0047213ab25e55184%}]]>
           </enabledmacro>
           <fieldcaption>{$emailtemplate_edit.emailtype$}</fieldcaption>
         </properties>

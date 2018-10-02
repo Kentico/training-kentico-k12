@@ -51,7 +51,7 @@
         <properties>
           <fieldcaption>Max side size</fieldcaption>
           <defaultvalue>
-            <![CDATA[{%GetUserAvatarImage(Value,UserID.Value,GetResourceString("general.avatar"), MaxSideSize)|(identity)GlobalAdministrator|(hash)fd3a2df83cfae8f0f4d40c1dd80db7e9bce19b2702b019140710d4a85560c33a%}]]>
+            <![CDATA[{%GetUserAvatarImage(Value,UserID.Value,GetResourceString("general.avatar"), MaxSideSize)|(identity)GlobalAdministrator|(hash)728924e06ab6675130cee83cc7f8fb35e8e522a9c4ab4855e3036e0eeea459e9%}]]>
           </defaultvalue>
           <fielddescription />
         </properties>

@@ -31,7 +31,7 @@
       <tabextender>App_Code</tabextender>
       <category_name_javascript>False</category_name_javascript>
       <openindialog>
-        <![CDATA[{% !UIContext.IsDialog |(identity)GlobalAdministrator|(hash)37faa0cc6897a55b876130ebb58366e3b8f616ebbd317a1231b14453b57c1deb%}]]>
+        <![CDATA[{% !UIContext.IsDialog |(identity)GlobalAdministrator|(hash)532dba80b412376f6bb1a6a0d29a9dd01d650c70520897cb4f9d46229f99c35d%}]]>
       </openindialog>
       <rememberselectedtab>False</rememberselectedtab>
       <extenderclassname>PageTemplateDeviceProfileTabExtender</extenderclassname>

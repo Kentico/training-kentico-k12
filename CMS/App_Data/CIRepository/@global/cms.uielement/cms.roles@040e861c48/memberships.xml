@@ -34,7 +34,7 @@
       <listprefacetext>{$role.assignedtomembership$}</listprefacetext>
       <displaybreadcrumbs>False</displaybreadcrumbs>
       <dialogwherecondition>
-        <![CDATA[{% if (UIContext.SiteID == "-4") { "MembershipSiteID IS NULL" } else { return "MembershipSiteID =" + UIContext.SiteID } |(identity)GlobalAdministrator|(hash)8260d5305ab1049f1c6f746cf76ce565de9e3336c583d3eeab88b4f59a8aa7ee%}]]>
+        <![CDATA[{% if (UIContext.SiteID == "-4") { "MembershipSiteID IS NULL" } else { return "MembershipSiteID =" + UIContext.SiteID } |(identity)GlobalAdministrator|(hash)dd1c7da0853e3df59fc8875eed9da1cb99ea87b6a8675140a2a3ac4ac93aa252%}]]>
       </dialogwherecondition>
       <wherecondition>RoleID = {% UIContext.ObjectID @%}</wherecondition>
       <includejquery>False</includejquery>
@@ -53,7 +53,7 @@
   <ElementVisibilityCondition>
 <![CDATA[
 {%name = EditedObject.ToBaseInfo().CodeName;
-return !(name == "_everyone_" || name == "_authenticated_" || name == "_notauthenticated_");|(identity)GlobalAdministrator|(hash)63aeb5df475e5c1ba118a497fa091aab104393d08bc3eee6464e4f83686e2804%}
+return !(name == "_everyone_" || name == "_authenticated_" || name == "_notauthenticated_");|(identity)GlobalAdministrator|(hash)a6653fe1e058d1f14385abd54e39df7e587ef3cc42bcbe89c5999f8e21f515e0%}
 ]]>
   </ElementVisibilityCondition>
 </cms.uielement>

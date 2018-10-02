@@ -3,7 +3,7 @@
   <ElementAccessCondition>
 <![CDATA[
 {%CurrentUser.IsAuthorizedPerResource("CMS.Chat","GlobalModify")
-  || CurrentUser.IsAuthorizedPerResource("CMS.Chat","Modify")|(identity)GlobalAdministrator|(hash)e008b35b8c34e1ba10ee8581af3de0672a4daf98bac941271fba50bbfea4938f%}
+  || CurrentUser.IsAuthorizedPerResource("CMS.Chat","Modify")|(identity)GlobalAdministrator|(hash)62284dde07c4fc36062f886c16c09c76a220fd30cf4235b3348a50d47b815a79%}
 ]]>
   </ElementAccessCondition>
   <ElementCaption>{$chat.chatuser.new$}</ElementCaption>

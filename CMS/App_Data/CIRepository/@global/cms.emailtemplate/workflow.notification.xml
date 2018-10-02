@@ -7,9 +7,9 @@
 <![CDATA[
 This is an automatic notification sent by Kentico CMS. The following page status has changed. 
 
-Page: [url={%DocumentEditUrl%}]{%documentname%}[/url] {% ifEmpty(DocumentPreviewUrl, "", "([url=" + DocumentPreviewUrl + "]preview[/url])")|(identity)GlobalAdministrator|(hash)07b62513b29b4f6cd4759988b6d17409db512b92509991b689adc242495e9ccb%}
+Page: [url={%DocumentEditUrl%}]{%documentname%}[/url] {% ifEmpty(DocumentPreviewUrl, "", "([url=" + DocumentPreviewUrl + "]preview[/url])")|(identity)GlobalAdministrator|(hash)a0d97514170168f5e9b223118c0c41c8f2c0f03c5c97e6d15d9e3f3998bef7e5%}
 Action: {%DocumentActionName%} 
-Modified by: {%User.Email|(identity)GlobalAdministrator|(hash)8f49c0bc06ada4b464bcbd9fe2202f89542f355ace993a782d45a8334d8de327%} 
+Modified by: {%User.Email|(identity)GlobalAdministrator|(hash)092997a680921fc48a41cb78a82b633f96608c0be89d113871daf93ffbd5db59%} 
 Modified when: {%approvedwhen%} 
 Original step: {%originalstepname%} 
 Current step: {%currentstepname%} 
@@ -35,7 +35,7 @@ Comment:
     <br />
     <strong>Action:</strong> {%DocumentActionName%}
     <br />
-    <strong>Modified by:</strong> {%User.Email|(identity)GlobalAdministrator|(hash)8f49c0bc06ada4b464bcbd9fe2202f89542f355ace993a782d45a8334d8de327%}
+    <strong>Modified by:</strong> {%User.Email|(identity)GlobalAdministrator|(hash)092997a680921fc48a41cb78a82b633f96608c0be89d113871daf93ffbd5db59%}
     <br />
     <strong>Modified when:</strong> {%approvedwhen%}
     <br />

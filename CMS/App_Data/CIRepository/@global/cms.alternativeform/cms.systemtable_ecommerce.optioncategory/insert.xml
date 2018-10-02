@@ -19,7 +19,7 @@
           <RepeatLayout />
           <Options ismacro="">
 <![CDATA[
-{%SiteContext.CurrentSiteID |(identity)GlobalAdministrator|(hash)f580cb64169d9af6fc0f17e27864291ca3151960e6c7c415805e49641c431d43%};{$com.onthissiteonly$}
+{%SiteContext.CurrentSiteID |(identity)GlobalAdministrator|(hash)1d523be478278b7690a9a96230c303192358d755a687413598ff008fa3ef5ba6%};{$com.onthissiteonly$}
 ;{$com.globally$}
 ]]>
           </Options>
@@ -28,7 +28,7 @@
         </settings>
         <properties>
           <visiblemacro ismacro="">
-            <![CDATA[{%!IsProductGlobal(EditedObject, QueryString["productid"]) && Settings.CMSStoreAllowGlobalProductOptions && CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceGlobalModify") && (CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","ModifyProducts") || CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceModify"))|(identity)GlobalAdministrator|(hash)fc2f878d6a402d1ced190111ea727f51439f29b43b60bbdc7f92fd463369e379%}]]>
+            <![CDATA[{%!IsProductGlobal(EditedObject, QueryString["productid"]) && Settings.CMSStoreAllowGlobalProductOptions && CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceGlobalModify") && (CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","ModifyProducts") || CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceModify"))|(identity)GlobalAdministrator|(hash)08df7e7214cd433aa9f46ee76a199017549f575e43f7e579a0c7f5e75123a02f%}]]>
           </visiblemacro>
           <fieldcaption>{$com.available$}</fieldcaption>
           <defaultvalue ismacro="true">
@@ -37,7 +37,7 @@
         || !CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceGlobalModify")
         || CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","ModifyProducts")
         || CurrentUser.IsAuthorizedPerResource("CMS.Ecommerce","EcommerceModify")
-        ) && !IsProductGlobal(EditedObject, QueryString["productid"])) { SiteContext.CurrentSiteID } |(identity)GlobalAdministrator|(hash)061d1b140a8de3572bbead9dc0f002e005c35768c111d107da479386620e11a3%}
+        ) && !IsProductGlobal(EditedObject, QueryString["productid"])) { SiteContext.CurrentSiteID } |(identity)GlobalAdministrator|(hash)f5b7e7e87b86d984d4e1e0893584ca6bb2079f3bd961f0943f8c65d8ae241d29%}
 ]]>
           </defaultvalue>
         </properties>

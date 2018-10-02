@@ -39,6 +39,6 @@
   </ElementTargetURL>
   <ElementType>Url</ElementType>
   <ElementVisibilityCondition>
-    <![CDATA[{%EditedObjectParent.NewsletterSource != "D"|(identity)GlobalAdministrator|(hash)de573eab36ce79a2dc6a182394fbc1c9bcb81cc22523859a2cccdd83114c8774%}]]>
+    <![CDATA[{%EditedObjectParent.NewsletterSource != "D"|(identity)GlobalAdministrator|(hash)df74609d5ffcda6ad37765c9a534be7741d8e760c83c23bde34e26309912e00d%}]]>
   </ElementVisibilityCondition>
 </cms.uielement>

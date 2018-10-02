@@ -29,7 +29,7 @@
         </settings>
         <properties>
           <defaultvalue>
-            <![CDATA[{%GetResourceString("general.assigntosite")|(recursive)true|(identity)GlobalAdministrator|(hash)a215982e9c8eeac4877efeeb4b9943599deef9a87796f150a897ffe05b27c024%}]]>
+            <![CDATA[{%GetResourceString("general.assigntosite")|(recursive)true|(identity)GlobalAdministrator|(hash)ebb4e02da9662d69bbca82def196412398d2676e39ac0120fa3b1fd0ecd176b7%}]]>
           </defaultvalue>
           <fielddescription />
           <fieldcaption />
@@ -43,7 +43,7 @@
         </settings>
         <properties>
           <defaultvalue>
-            <![CDATA[{% UIContext.EditedObject.TypeInfo.SiteBinding |(identity)GlobalAdministrator|(hash)71db45c85292c4d0777641ada80334b154b8aee2d32eca0d33f4a319098b5b0e%}]]>
+            <![CDATA[{% UIContext.EditedObject.TypeInfo.SiteBinding |(identity)GlobalAdministrator|(hash)318d90e04524ea10587b12f61633b09984b105159bcc95a79389790c8f7d50bf%}]]>
           </defaultvalue>
           <fielddescription />
           <fieldcaption />
@@ -60,7 +60,7 @@
         </settings>
         <properties>
           <defaultvalue>
-            <![CDATA[{? if (siteid != null) {siteid} else {CurrentSite.SiteID}|(identity)GlobalAdministrator|(hash)8d0f04acd31f17cf541287146c610d5b81291cbfce629e1a6a22177c3b697928?}]]>
+            <![CDATA[{? if (siteid != null) {siteid} else {CurrentSite.SiteID}|(identity)GlobalAdministrator|(hash)fd6e03f21fd8663c3fea1594a77bb42275e48bca34fcceec854b655a71e50d77?}]]>
           </defaultvalue>
           <fieldcaption />
         </properties>

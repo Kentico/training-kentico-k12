@@ -8,7 +8,7 @@
 <![CDATA[
 /* @GlobalCredit - the value of CMSStoreUseGlobalCredit setting key */
 DECLARE @GlobalCredit bit;
-SET @GlobalCredit = {%Settings.CMSStoreUseGlobalCredit?1:0|(identity)GlobalAdministrator|(hash)4fd53c47ea3669d15541cc927942126a8a16526dd288fec83cb7982d1a8182ef%};
+SET @GlobalCredit = {%Settings.CMSStoreUseGlobalCredit?1:0|(identity)GlobalAdministrator|(hash)57e5932a9a904e605f64b59c694939afd4554aa8de3625b40a0715db14899538%};
 
 /* Selects customer first name, last name, company, email and available customer credit 
    in site or global main currency depending on the CMSStoreUseGlobalCredit setting key

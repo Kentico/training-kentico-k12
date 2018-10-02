@@ -9,7 +9,7 @@
   <GraphQuery>
 <![CDATA[
 DECLARE @GlobalManufacturers bit;
-SET @GlobalManufacturers = {%Settings.CMSStoreAllowGlobalManufacturers?1:0|(identity)GlobalAdministrator|(hash)25369e001f34f2fe650ea29701eb88c86c01756f42fe3bb6b473dfb475075756%};
+SET @GlobalManufacturers = {%Settings.CMSStoreAllowGlobalManufacturers?1:0|(identity)GlobalAdministrator|(hash)7d8d8cf2ed9b2bf66d7457a3baeddb5d24f862be02fe5c3763157bcc96c7940b%};
 SELECT
    Manufacturers.ManufacturerDisplayName AS '{$manufacturerselector.itemname$}', 
    CAST(ISNULL(ROUND(SUM(OrderItemTotalPriceInMainCurrency),1),0) AS DECIMAL(38,1)) AS '{$com.sales.volumeofsales$}'

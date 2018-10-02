@@ -641,7 +641,7 @@ False;No
           <collapsedbydefault>true</collapsedbydefault>
           <collapsible>true</collapsible>
           <visible ismacro="true">
-            <![CDATA[{% IsModuleLoaded("CMS.WebAnalytics") || IsModuleLoaded("CMS.ContactManagement") |(identity)GlobalAdministrator|(hash)343f42430e5f6a2e27a22264143e90c1868feced867858cacb89a061215395f8%}]]>
+            <![CDATA[{% IsModuleLoaded("CMS.WebAnalytics") || IsModuleLoaded("CMS.ContactManagement") |(identity)GlobalAdministrator|(hash)b16337098687e2ec6363b7fc84c4ac9f0c277cb1a238b79158be3469532e9a1b%}]]>
           </visible>
         </properties>
       </category>
@@ -651,7 +651,7 @@ False;No
           <fieldcaption>{$smartsearch.predictivelogsearchactivity$}</fieldcaption>
           <fielddescription>{$smartsearch.predictivelogsearchactivitydesc$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%IsModuleLoaded("CMS.ContactManagement")|(identity)GlobalAdministrator|(hash)42853fe95ff84f3250192e461c230d9c80db66069fadbb19e9f781ddbd759027%}]]>
+            <![CDATA[{%IsModuleLoaded("CMS.ContactManagement")|(identity)GlobalAdministrator|(hash)c6c54165561acf5259993b7af95876c463cbf584cbc053c7267e1f9848b02248%}]]>
           </visiblemacro>
         </properties>
         <settings>
@@ -664,7 +664,7 @@ False;No
           <fieldcaption>{$smartsearch.trackwebanalyticskeywords$}</fieldcaption>
           <fielddescription>{$smartsearch.trackwebanalyticskeywordsdesc$}</fielddescription>
           <visiblemacro ismacro="true">
-            <![CDATA[{%IsModuleLoaded("CMS.WebAnalytics")|(identity)GlobalAdministrator|(hash)c2218368c5e900357af3a031b2bab1542cb664e0597cd1a1ab203f88feeeafbf%}]]>
+            <![CDATA[{%IsModuleLoaded("CMS.WebAnalytics")|(identity)GlobalAdministrator|(hash)835e4cfeaaf5f633c80c61aeb0453dc94af51a7c5f34487d070967ad3d3e0eed%}]]>
           </visiblemacro>
         </properties>
         <settings>

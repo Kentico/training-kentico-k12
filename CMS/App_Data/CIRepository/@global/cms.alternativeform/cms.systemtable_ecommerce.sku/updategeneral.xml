@@ -48,13 +48,13 @@
           <SelectionMode>1</SelectionMode>
           <SpecialFields>
 <![CDATA[
--1;{$general.automatic$};{%EditedObject.SKUID == 0|(identity)GlobalAdministrator|(hash)61e7959592d05d603121a94bd6df1531d1451a5c42a55ca53ab10e0e1d0e294f%}
+-1;{$general.automatic$};{%EditedObject.SKUID == 0|(identity)GlobalAdministrator|(hash)db0889c37972389f640163c4eb29065e2f7e711fe2f43c21b8f73b41b5e29174%}
 0;{$general.empty$}
 ]]>
           </SpecialFields>
           <ValuesSeparator>;</ValuesSeparator>
           <WhereCondition ismacro="true">
-            <![CDATA[{%GetTaxClassSelectorWhereCondition(EditedObject.SKU ?? EditedObject)|(identity)GlobalAdministrator|(hash)1b8d89c88a0cd150c3c4d0d721ed0cfd8eda4981ab9bd1bd564b6c40b01a4b00%}]]>
+            <![CDATA[{%GetTaxClassSelectorWhereCondition(EditedObject.SKU ?? EditedObject)|(identity)GlobalAdministrator|(hash)171dfa5df4e5b61059dbffb618cc901879a43ab5e6bb9ad86364a4cf37076401%}]]>
           </WhereCondition>
         </settings>
         <properties>
