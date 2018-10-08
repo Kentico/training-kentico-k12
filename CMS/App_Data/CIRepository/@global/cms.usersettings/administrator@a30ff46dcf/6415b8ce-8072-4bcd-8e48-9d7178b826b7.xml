@@ -2,7 +2,14 @@
 <cms.usersettings>
   <UserAccountLockReason>0</UserAccountLockReason>
   <UserActivationDate>2018-09-25 11:57:28Z</UserActivationDate>
-  <UserDialogsConfiguration />
+  <UserDialogsConfiguration>
+    <Data>
+      <content.path>/home</content.path>
+      <content.sitename>MedioClinic</content.sitename>
+      <content.viewmode>list</content.viewmode>
+      <selectedtab>content</selectedtab>
+    </Data>
+  </UserDialogsConfiguration>
   <UserFacebookID />
   <UserInvalidLogOnAttempts>0</UserInvalidLogOnAttempts>
   <UserLogActivities>False</UserLogActivities>

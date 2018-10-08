@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <documentfields.training.doctor>
   <Bio>
-    <![CDATA[Dr. Doe graduated with a <strong>Doctor of Dental Surgery</strong> <strong>degree </strong>from the <strong>University of Colorado Health Sciences Center School of Dentistry</strong>. Every year he spends a considerable amount of time learning new techniques and improving his skills. He has made a commitment to his patients to always provide them with the highest quality dental care. He is a member of the <strong>American Dental Association and Arizona Dental Association</strong>.]]>
+    <![CDATA[Dr. Doe graduated with a <strong>Doctor of Dental Surgery</strong> <strong>degree </strong>from the <strong>University of Colorado Health Sciences Center School of Dentistry</strong>. Every year he spends a considerable amount of time learning new techniques and improving his skills. He has <a href="http://localhost:64222/en-US/Home">made a commitment</a> to his patients to always provide them with the highest quality dental care. He is a member of the <strong>American Dental Association and Arizona Dental Association</strong>.]]>
   </Bio>
   <Degree>DDS</Degree>
   <EmergencyShift>1</EmergencyShift>

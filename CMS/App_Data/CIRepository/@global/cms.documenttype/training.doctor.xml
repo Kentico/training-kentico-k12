@@ -125,7 +125,7 @@
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
-  <ClassIsMenuItemType>False</ClassIsMenuItemType>
+  <ClassIsMenuItemType>True</ClassIsMenuItemType>
   <ClassName>Training.Doctor</ClassName>
   <ClassNodeAliasSource>DoctorLastName</ClassNodeAliasSource>
   <ClassNodeNameSource>LastName</ClassNodeNameSource>
@@ -140,6 +140,9 @@
   <ClassSearchTitleColumn>DocumentName</ClassSearchTitleColumn>
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Training_Doctor</ClassTableName>
+  <ClassURLPattern>
+    <![CDATA[/{% DocumentCulture %}/Doctors/Detail/{%NodeID%}/{%NodeAlias%}]]>
+  </ClassURLPattern>
   <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
   <ClassUsesVersioning>False</ClassUsesVersioning>
 </cms.documenttype>

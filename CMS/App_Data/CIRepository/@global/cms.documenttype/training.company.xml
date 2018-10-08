@@ -112,7 +112,7 @@
   <ClassIsCustomTable>False</ClassIsCustomTable>
   <ClassIsDocumentType>True</ClassIsDocumentType>
   <ClassIsForm>False</ClassIsForm>
-  <ClassIsMenuItemType>True</ClassIsMenuItemType>
+  <ClassIsMenuItemType>False</ClassIsMenuItemType>
   <ClassName>Training.Company</ClassName>
   <ClassNodeNameSource>CompanyName</ClassNodeNameSource>
   <ClassSearchContentColumn>DocumentContent</ClassSearchContentColumn>

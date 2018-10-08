@@ -55,14 +55,6 @@
           <Trim>False</Trim>
         </settings>
       </field>
-      <field column="ReferencedPage" columntype="guid" guid="1d985d0e-9223-490f-955b-0bc7689db61d" publicfield="false" visible="true">
-        <properties>
-          <fieldcaption>Referenced page</fieldcaption>
-        </properties>
-        <settings>
-          <controlname>selectdocument</controlname>
-        </settings>
-      </field>
     </form>
   </ClassFormDefinition>
   <ClassGUID>298e76cf-02c4-4464-b8e7-cd0c77a33e9e</ClassGUID>
@@ -81,7 +73,6 @@
   <ClassSearchEnabled>True</ClassSearchEnabled>
   <ClassSearchSettings>
     <search>
-      <item azurecontent="False" azureretrievable="False" azuresearchable="False" content="False" id="080b84ff-55be-4686-8415-796d329e4c3e" name="ReferencedPage" searchable="False" tokenized="False" />
       <item azurecontent="True" azureretrievable="False" azuresearchable="True" content="True" id="988ea183-5e01-4ce9-abf9-d680bd8018f5" name="Caption" searchable="False" tokenized="True" />
       <item azurecontent="False" azureretrievable="True" azuresearchable="False" content="False" id="e9800e14-e762-4410-9e1c-302d0c0cafad" name="MenuContainerItemID" searchable="True" tokenized="False" />
     </search>
