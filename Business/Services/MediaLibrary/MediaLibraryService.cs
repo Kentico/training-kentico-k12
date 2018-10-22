@@ -9,10 +9,10 @@ namespace Business.Services.MediaLibrary
     {
         public IEnumerable<MediaLibraryFileDto> GetMediaLibraryFiles(string folder, string sitename, params string[] extensions)
         {
-            // Gets an instance of the 'SampleMediaLibrary' media library for the current site
+            // Gets an instance of the media library for the current site
             var mediaLibrary = MediaLibraryInfoProvider.GetMediaLibraryInfo(folder, sitename);
 
-            // Gets a collection of media files with the .jpg extension from the media library
+            // Gets a collection of media files and their extensions from the media library
             return MediaFileInfoProvider.GetMediaFiles()
                 .WhereEquals("FileLibraryID", mediaLibrary.LibraryID)
                 .WhereIn("FileExtension", extensions)

@@ -6,7 +6,8 @@ namespace Business.Services.MediaLibrary
     public interface IMediaLibraryService : IService
     {
         /// <summary>
-        /// Wrapper around Kentico's Media library. Used to fetch files from given folder.
+        /// Wrapper around Kentico API for retrieving media stored in media libraries. 
+        /// Fetches files from the given folder.
         /// </summary>
         /// <param name="folder">Codename of the folder</param>
         /// <param name="sitename">Sitename</param>

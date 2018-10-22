@@ -308,6 +308,10 @@ span.kn-badge.closed {
     color: #fff;
 }
 
+.kn-bold {
+    font-weight: bold;
+}
+
 .kn-doctor-profile {
     padding: 30px 0px;
 }

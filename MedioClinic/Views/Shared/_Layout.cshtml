@@ -49,8 +49,8 @@
                 {
                     if (ViewContext.RouteData.Values["controller"]?.ToString().Equals(menuItem.Controller, StringComparison.OrdinalIgnoreCase) ?? false)
                     {
-                        <li>
-                            <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
+                        <li class="kn-bold">
+                           <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
                         </li>
                     }
                     else

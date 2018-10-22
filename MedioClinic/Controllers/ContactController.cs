@@ -1,5 +1,4 @@
-﻿
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Business.DI;
 using Business.Repository.Contact;
 using Business.Repository.Map;
