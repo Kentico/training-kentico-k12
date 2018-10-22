@@ -1,6 +1,6 @@
 ﻿namespace Business.Dto.MediaLibrary
 {
-    public class MediaLibraryFileDto
+    public class MediaLibraryFileDto : IDto
     {
         public string Title { get; set; }
         public string DirectUrl { get; set; }

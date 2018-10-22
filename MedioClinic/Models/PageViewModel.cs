@@ -11,7 +11,7 @@ namespace MedioClinic.Models
     /// <summary>
     /// Base class 
     /// </summary>
-    public class PageViewModel  : IViewModel
+    public class PageViewModel : IViewModel
     {
         public IEnumerable<MenuItemDto> MenuItems { get; set; }
         public PageMetadataDto Metadata { get; set; }

@@ -26,18 +26,19 @@
                         position: {
                             /* Defines map marker location using location values stored in Kentico */
                             lat: @location.Latitude.ToString(CultureInfo.InvariantCulture),
-                            lng: @location.Longitude.ToString(CultureInfo.InvariantCulture) },
-                    map: map
-            });
+                            lng: @location.Longitude.ToString(CultureInfo.InvariantCulture)
+                        },
+                        map: map
+                    });
 
-            marker.setMap(map);
+                    marker.setMap(map);
 
-            var devwindow = new google.maps.InfoWindow({
-                 /* Passes the value of the Tooltip property into the map's InfoWindow overlay */
-                content: "@location.Tooltip"
-             });
+                    /* Passes the value of the Tooltip property into the map's InfoWindow overlay */
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: "@location.Tooltip"
+                    });
 
-              devwindow.open(map, marker);
+                    infoWindow.open(map, marker);
                 </text>
             }
         }
