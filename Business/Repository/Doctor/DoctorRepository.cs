@@ -19,6 +19,7 @@ namespace Business.Repository.Doctor
         private Func<CMS.DocumentEngine.Types.Training.Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
         {
             NodeAlias = doctor.NodeAlias,
+            NodeGuid = doctor.NodeGUID,
             NodeId = doctor.NodeID,
             Bio = doctor.Bio,
             Degree = doctor.Degree,
@@ -41,9 +42,9 @@ namespace Business.Repository.Doctor
                 .Select(DoctorDtoSelect);
         }
 
-        public DoctorDto GetDoctor(int nodeId)
+        public DoctorDto GetDoctor(Guid nodeGuid)
         {
-            return DocumentQueryService.GetDocument<CMS.DocumentEngine.Types.Training.Doctor>(nodeId)
+            return DocumentQueryService.GetDocument<CMS.DocumentEngine.Types.Training.Doctor>(nodeGuid)
                 .AddColumns(_doctorColumns)
                 .Select(DoctorDtoSelect)
                 .FirstOrDefault();

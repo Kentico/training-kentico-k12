@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using Business.DI;
 using Business.Repository.Doctor;
 using MedioClinic.Models.Doctors;
@@ -38,10 +39,10 @@ namespace MedioClinic.Controllers
             return View(model);
         }
 
-        [Route("Detail/{nodeId}/{nodeAlias}")]
-        public ActionResult Detail(int nodeId, string nodeAlias)
+        [Route("Detail/{nodeGuid}/{nodeAlias}")]
+        public ActionResult Detail(Guid nodeGuid, string nodeAlias)
         {
-            var doctor = DoctorRepository.GetDoctor(nodeId);
+            var doctor = DoctorRepository.GetDoctor(nodeGuid);
 
             if (doctor == null)
             {

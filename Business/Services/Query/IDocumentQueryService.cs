@@ -1,4 +1,5 @@
-﻿using CMS.DocumentEngine;
+﻿using System;
+using CMS.DocumentEngine;
 
 namespace Business.Services.Query
 {
@@ -9,9 +10,9 @@ namespace Business.Services.Query
         /// This query filters data based on active culture and handles preview mode.
         /// </summary>
         /// <typeparam name="TDocument">Type of the generated page</typeparam>
-        /// <param name="nodeId">NodeId of the page</param>
+        /// <param name="nodeGuid">NodeGuid of the page</param>
         /// <returns>DocumentQuery to a document identified by its nodeId</returns>
-        DocumentQuery<TDocument> GetDocument<TDocument>(int nodeId) where TDocument : TreeNode, new();
+        DocumentQuery<TDocument> GetDocument<TDocument>(Guid nodeGuid) where TDocument : TreeNode, new();
 
         /// <summary>
         /// Wrapper around Kentico's DocumentQuery. 

@@ -32,9 +32,9 @@ namespace MedioClinic
             // Maps route to doctor detail
             var route = routes.MapRoute(
                 name: "DoctorWithAlias",
-                url: "{culture}/Doctors/Detail/{nodeId}/{nodeAlias}",
-                defaults: new { action = "Detail", controller = "Doctors", culture = defaultCulture.Name, nodeId = 0, nodeAlias = "" },
-                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), nodeId = new IntRouteConstraint(), nodeAlias = new OptionalRouteConstraint(new AlphaRouteConstraint()) }
+                url: "{culture}/Doctors/Detail/{nodeGuid}/{nodeAlias}",
+                defaults: new { action = "Detail", controller = "Doctors", culture = defaultCulture.Name, nodeGuid = string.Empty, nodeAlias = "" },
+                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), nodeGuid = new GuidRouteConstraint(), nodeAlias = new OptionalRouteConstraint(new AlphaRouteConstraint()) }
             );
 
             // A route value determines the culture of the current thread

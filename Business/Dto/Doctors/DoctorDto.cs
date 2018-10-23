@@ -5,6 +5,7 @@ namespace Business.Dto.Doctors
     public class DoctorDto
     {
         public int NodeId { get; set; }
+        public Guid NodeGuid { get; set; }
         public string NodeAlias { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

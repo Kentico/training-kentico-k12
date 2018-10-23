@@ -1,4 +1,5 @@
-﻿using CMS.DocumentEngine;
+﻿using System;
+using CMS.DocumentEngine;
 using Business.Services.Context;
 
 namespace Business.Services.Query
@@ -12,11 +13,11 @@ namespace Business.Services.Query
             SiteContext = siteContext;
         }
 
-        public DocumentQuery<TDocument> GetDocument<TDocument>(int nodeId) where TDocument : TreeNode, new()
+        public DocumentQuery<TDocument> GetDocument<TDocument>(Guid nodeGuid) where TDocument : TreeNode, new()
         {
             return GetDocuments<TDocument>()
                 .TopN(1)
-                .WhereEquals("NodeId", nodeId);
+                .WhereEquals("NodeGUID", nodeGuid);
 
         }
 
