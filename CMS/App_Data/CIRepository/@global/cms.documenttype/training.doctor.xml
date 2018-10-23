@@ -141,7 +141,7 @@
   <ClassShowAsSystemTable>False</ClassShowAsSystemTable>
   <ClassTableName>Training_Doctor</ClassTableName>
   <ClassURLPattern>
-    <![CDATA[/{% DocumentCulture %}/Doctors/Detail/{%NodeID%}/{%NodeAlias%}]]>
+    <![CDATA[/{% DocumentCulture %}/Doctors/Detail/{%NodeGUID%}/{%NodeAlias%}]]>
   </ClassURLPattern>
   <ClassUsePublishFromTo>True</ClassUsePublishFromTo>
   <ClassUsesVersioning>False</ClassUsesVersioning>
