@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
+using System.Web.UI;
 using Business.DI;
 using Business.Repository.Doctor;
+using CMS.Helpers;
 using MedioClinic.Models.Doctors;
 
 namespace MedioClinic.Controllers
@@ -39,6 +41,7 @@ namespace MedioClinic.Controllers
             return View(model);
         }
 
+        [OutputCache(Duration = 3600, VaryByParam = "nodeGuid", Location = OutputCacheLocation.Server)]
         [Route("Detail/{nodeGuid}/{nodeAlias}")]
         public ActionResult Detail(Guid nodeGuid, string nodeAlias)
         {
@@ -48,6 +51,10 @@ namespace MedioClinic.Controllers
             {
                 return HttpNotFound();
             }
+
+            // Sets cache dependency on single page based on NodeGuid
+            // This example makes the system clear the cache when given doctor is deleted or edited in Kentico
+            Dependencies.CacheDependencyService.GetAndSetPageDependency(nodeGuid);
 
             var model = GetPageViewModel(new DoctorDetailViewModel()
             {

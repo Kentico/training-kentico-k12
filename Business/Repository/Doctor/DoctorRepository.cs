@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Kentico.Content.Web.Mvc;
 using Business.Dto.Doctors;
+using Business.Services.Context;
 using Business.Services.Query;
 
 namespace Business.Repository.Doctor
@@ -30,8 +31,11 @@ namespace Business.Repository.Doctor
             Specialty = doctor.Specialty
         };
 
-        public DoctorRepository(IDocumentQueryService documentQueryService) : base(documentQueryService)
+        ISiteContextService SiteContextService { get; }
+
+        public DoctorRepository(IDocumentQueryService documentQueryService, ISiteContextService siteContextService) : base(documentQueryService)
         {
+            SiteContextService = siteContextService;
         }
 
         public IEnumerable<DoctorDto> GetDoctors()

@@ -576,6 +576,8 @@
     <Compile Include="Repository\Culture\ICultureRepository.cs" />
     <Compile Include="Repository\Home\HomeSectionRepository.cs" />
     <Compile Include="Repository\Home\IHomeSectionRepository.cs" />
+    <Compile Include="Services\Cache\CacheDependencyService.cs" />
+    <Compile Include="Services\Cache\ICacheDependencyService.cs" />
     <Compile Include="Services\Context\ISiteContextService.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Services\IService.cs" />

@@ -2,6 +2,7 @@
 using Business.Repository.Culture;
 using Business.Repository.Menu;
 using Business.Repository.Social;
+using Business.Services.Cache;
 using Business.Services.Context;
 
 namespace Business.DI
@@ -13,5 +14,6 @@ namespace Business.DI
         ICultureRepository CultureRepository { get; }
         ISiteContextService SiteContextService { get; }
         ISocialLinkRepository SocialLinkRepository { get; }
+        ICacheDependencyService CacheDependencyService { get; }
     }
 }
