@@ -729,7 +729,6 @@
     <Compile Include="Models\Doctors\DoctorsViewModel.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\IViewModel.cs" />
-    <Compile Include="Models\NotFound\NotFoundViewModel.cs" />
     <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
