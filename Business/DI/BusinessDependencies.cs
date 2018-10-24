@@ -14,7 +14,7 @@ namespace Business.DI
         public ICultureRepository CultureRepository { get; }
         public ISiteContextService SiteContextService { get; }
         public ISocialLinkRepository SocialLinkRepository { get; }
-        public ICacheDependencyService CacheDependencyService { get; }
+        public ICacheService CacheService { get; }
 
         public BusinessDependencies(
             IMenuRepository menuRepository,
@@ -22,7 +22,7 @@ namespace Business.DI
             ICultureRepository cultureRepository,
             ISiteContextService siteContextService,
             ISocialLinkRepository socialLinkRepository,
-            ICacheDependencyService cacheDependencyService
+            ICacheService cacheDependencyService
             )
         {
             MenuRepository = menuRepository;
@@ -30,7 +30,7 @@ namespace Business.DI
             CultureRepository = cultureRepository;
             SiteContextService = siteContextService;
             SocialLinkRepository = socialLinkRepository;
-            CacheDependencyService = cacheDependencyService;
+            CacheService = cacheDependencyService;
         }
     }
 }

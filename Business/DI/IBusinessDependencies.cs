@@ -14,6 +14,6 @@ namespace Business.DI
         ICultureRepository CultureRepository { get; }
         ISiteContextService SiteContextService { get; }
         ISocialLinkRepository SocialLinkRepository { get; }
-        ICacheDependencyService CacheDependencyService { get; }
+        ICacheService CacheService { get; }
     }
 }

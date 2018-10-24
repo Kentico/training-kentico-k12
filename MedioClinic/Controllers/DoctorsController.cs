@@ -2,8 +2,10 @@
 using System.Web.Mvc;
 using System.Web.UI;
 using Business.DI;
+using Business.Dto.Doctors;
 using Business.Repository.Doctor;
-using CMS.Helpers;
+using Business.Services.Cache;
+using CMS.DocumentEngine.Types.Training;
 using MedioClinic.Models.Doctors;
 
 namespace MedioClinic.Controllers
@@ -25,7 +27,12 @@ namespace MedioClinic.Controllers
 
         public ActionResult Index()
         {
-            var doctorSection = DoctorSectionRepository.GetDoctorSection();
+            var doctorSection = Dependencies.CacheService.Cache(
+                () => DoctorSectionRepository.GetDoctorSection(), // function to get data
+                60, // how many minutes data should be cached
+                $"{nameof(DoctorsController)}|{nameof(Index)}|{nameof(DoctorSectionDto)}", // cached data identifier
+                Dependencies.CacheService.GetNodesCacheDependencyKey(Doctor.CLASS_NAME, CacheDependencyType.All) // cache dependencies
+                );
 
             if (doctorSection == null)
             {
@@ -54,7 +61,7 @@ namespace MedioClinic.Controllers
 
             // Sets cache dependency on single page based on NodeGuid
             // This example makes the system clear the cache when given doctor is deleted or edited in Kentico
-            Dependencies.CacheDependencyService.GetAndSetPageDependency(nodeGuid);
+            Dependencies.CacheService.SetOutputCacheDependency(nodeGuid);
 
             var model = GetPageViewModel(new DoctorDetailViewModel()
             {
