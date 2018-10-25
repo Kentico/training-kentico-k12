@@ -13,6 +13,8 @@ namespace Business.Repository.Doctor
 
         private readonly string[] _doctorColumns = 
         {
+            // Defines database columns for retrieving data
+            // NodeGuid is retrieved automatically
             "NodeID", "NodeAlias", "Bio", "Degree", "EmergencyShift", "FirstName",
             "LastName", "Image", "Specialty", "DocumentID"
         };

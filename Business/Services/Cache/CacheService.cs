@@ -34,7 +34,7 @@ namespace Business.Services.Cache
 
         public TData Cache<TData>(Func<TData> dataLoadMethod, int cacheForMinutes, string cacheName, string cacheDependencyKey) 
         {
-            var cacheSettings = new CacheSettings(60, cacheName, SiteContextService.SiteName, SiteContextService.CurrentSiteCulture)
+            var cacheSettings = new CacheSettings(cacheForMinutes, cacheName, SiteContextService.SiteName, SiteContextService.CurrentSiteCulture)
             {
                 GetCacheDependency = () => CacheHelper.GetCacheDependency(cacheDependencyKey.ToLowerInvariant())
             };
