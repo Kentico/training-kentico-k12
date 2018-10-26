@@ -28,7 +28,10 @@ namespace Business.Services.Cache
         {
             var dependencyCacheKey = GetNodeCacheDependencyKey(nodeGuid);
 
+            // Ensures that the dummy key cache item exists
             CacheHelper.EnsureDummyKey(dependencyCacheKey);
+
+            // Sets cache dependency to clear the cache when there is any change to node with given GUID in Kentico
             HttpContext.Current.Response.AddCacheItemDependency(dependencyCacheKey);
         }
 
