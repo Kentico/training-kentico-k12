@@ -34,7 +34,7 @@ namespace MedioClinic
                 name: "DoctorWithAlias",
                 url: "{culture}/Doctors/Detail/{nodeGuid}/{nodeAlias}",
                 defaults: new { action = "Detail", controller = "Doctors", culture = defaultCulture.Name, nodeGuid = string.Empty, nodeAlias = "" },
-                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), nodeGuid = new GuidRouteConstraint(), nodeAlias = new OptionalRouteConstraint(new AlphaRouteConstraint()) }
+                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), nodeGuid = new GuidRouteConstraint(), nodeAlias = new OptionalRouteConstraint() }
             );
 
             // A route value determines the culture of the current thread
