@@ -9,16 +9,23 @@ namespace Business.Services.Cache
     {
         public ISiteContextService SiteContextService { get; }
 
+        // Injects a service which holds the site name and current culture code name
         public CacheService(ISiteContextService siteContextService)
         {
             SiteContextService = siteContextService;
         }
 
+        // Returns a dummy cache key for pages ("nodes") in the content tree
+        // "nodes|<site name>|<generated class name>|< type of cached data >"
+        // which is touched when pages are modified
         public string GetNodesCacheDependencyKey(string className, CacheDependencyType dependencyType)
         {
             return $"nodes|{SiteContextService.SiteName}|{className}|{dependencyType}".ToLowerInvariant();
         }
 
+        // Returns a dummy cache key for a page ("node") in the content tree identified by its "NodeGuid"
+        // "nodeguid|<site name>| <given node in the content tree>"
+        // which is touched when the page is modified
         public string GetNodeCacheDependencyKey(Guid nodeGuid)
         {
             return $"nodeguid|{SiteContextService.SiteName}|{nodeGuid}".ToLowerInvariant();
