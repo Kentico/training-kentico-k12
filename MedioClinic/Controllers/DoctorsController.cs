@@ -28,7 +28,7 @@ namespace MedioClinic.Controllers
         public ActionResult Index()
         {
             var doctorSection = Dependencies.CacheService.Cache(
-                () => DoctorSectionRepository.GetDoctorSection(), // Gets data for the DoctorSection if there is cached data (invalidated or expired)
+                () => DoctorSectionRepository.GetDoctorSection(), // Gets data for the DoctorSection if there isn't any cached data (data was invalidated or cache expired)
                 60, // Sets caching of data to 60 minutes
                 $"{nameof(DoctorsController)}|{nameof(Index)}|{nameof(DoctorSectionDto)}", // cached data identifier
                 Dependencies.CacheService.GetNodesCacheDependencyKey(Doctor.CLASS_NAME, CacheDependencyType.All) // cache dependencies
@@ -59,7 +59,7 @@ namespace MedioClinic.Controllers
                 return HttpNotFound();
             }
 
-            // Sets cache dependency on single page based on NodeGuid
+            // Sets cache dependency on single page based on NodeGUID
             // System clears the cache when given doctor is deleted or edited in Kentico
             Dependencies.CacheService.SetOutputCacheDependency(nodeGuid);
 

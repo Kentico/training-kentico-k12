@@ -14,7 +14,7 @@ namespace MedioClinic
                 .IncludeDirectory("~/Content/Css/Master", "*.css", true)
             );
 
-            // Enables minification
+            // Enables bundling and minification of bundle references
             BundleTable.EnableOptimizations = true;
         }
     }
