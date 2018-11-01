@@ -14,16 +14,14 @@ namespace MedioClinic.Utils
     {
 
         /// <summary>
-        /// Name of the param used to identify culture (see RouteConfig.cs for details)
+        /// Name of the parameter used to identify the requested culture (see RouteConfig.cs for details)
         /// </summary>
         public const string CultureUrlParam = "culture";
 
         /// <summary>
-        /// Returns the HTTP handler by using the specified HTTP context. 
-        /// <see cref="Thread.CurrentCulture"/> and <see cref="Thread.CurrentUICulture"/> of the current thread are set to the culture specified by the 'culture' URL parameter.
+        /// Returns the HTTP handler using the specified request context. 
+        /// Sets the <see cref="Thread.CurrentCulture"/> and <see cref="Thread.CurrentUICulture"/> of the current thread to the culture specified by the 'culture' URL parameter.
         /// </summary>
-        /// <param name="requestContext">Request context.</param>
-        /// <returns>HTTP handler.</returns>
         protected override IHttpHandler GetHttpHandler(RequestContext requestContext)
         {
             try
@@ -32,16 +30,16 @@ namespace MedioClinic.Utils
                 // Gets the requested culture from the route
                 var cultureName = requestContext.RouteData.Values[CultureUrlParam].ToString();
 
-                // Creates new CultureInfo object with the culture as parameter
+                // Creates a new CultureInfo object for the requested culture
                 var culture = new CultureInfo(cultureName);
 
-                // Sets culture for the thread
+                // Sets the culture for the thread
                 Thread.CurrentThread.CurrentUICulture = culture;
                 Thread.CurrentThread.CurrentCulture = culture;
             }
             catch
             {
-                // Returns 404 when culture prefix is invalid
+                // Returns a 404 response if the culture prefix is invalid
                 requestContext.HttpContext.Response.StatusCode = 404;
             }
 
