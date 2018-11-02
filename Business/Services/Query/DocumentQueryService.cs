@@ -25,17 +25,17 @@ namespace Business.Services.Query
         {
             var query = DocumentHelper.GetDocuments<TDocument>();
 
-            // Load latest version of documents as preview mode is enabled
+            // Loads the latest version of documents as preview mode is enabled
             if (SiteContext.IsPreviewEnabled)
             {
                 query = query
-                    .AddColumns("NodeSiteID") // required for preview mode in Admin UI
-                    .OnSite(SiteContext.SiteName) // there could be more sites with matching documents
+                    .AddColumns("NodeSiteID") // Required for preview mode in Admin UI
+                    .OnSite(SiteContext.SiteName) // There could be more sites with matching documents
                     .LatestVersion()
                     .Culture(SiteContext.PreviewCulture);
             } else {
                 query = query
-                    .OnSite(SiteContext.SiteName) // there could be more sites with matching documents
+                    .OnSite(SiteContext.SiteName) // There could be more sites with matching documents
                     .Published()
                     .PublishedVersion()
                     .Culture(SiteContext.CurrentSiteCulture);
