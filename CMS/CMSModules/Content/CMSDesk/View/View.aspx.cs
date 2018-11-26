@@ -10,7 +10,9 @@ using CMS.UIControls;
 
 public partial class CMSModules_Content_CMSDesk_View_View : CMSContentPage
 {
-    #region "Properties"
+    #region "Variables & Properties"
+
+    private string viewPage;
 
     /// <summary>
     /// Overridden messages placeholder for correct positioning
@@ -67,7 +69,8 @@ public partial class CMSModules_Content_CMSDesk_View_View : CMSContentPage
         editMenu.UseSmallIcons = true;
         editMenu.IsLiveSite = false;
 
-        ucView.ViewPage = DocumentUIHelper.GetViewPageUrl();
+        viewPage = DocumentUIHelper.GetViewPageUrl();
+        ucView.ViewPage = string.Empty;
         ucView.RotateDevice = ValidationHelper.GetBoolean(CookieHelper.GetValue(CookieName.CurrentDeviceProfileRotate), false);
 
         const string deviceRotateScript = @"
@@ -86,10 +89,33 @@ $cmsj(document).ready(function () {
         var extensionTarget = editMenu as IExtensibleEditMenu;
         extensionTarget.InitializeExtenders("Content");
 
-        if (Node != null && Node.NodeIsContentOnly)
+        if (Node?.NodeIsContentOnly == true)
         {
             // Preview link is not valid after going through workflow because DocumentWorkflowCycleGUID has changed
-            DocumentManager.OnAfterAction += (obj, args) => { ucView.ViewPage = Node.GetPreviewLink(MembershipContext.AuthenticatedUser.UserName); };
+            DocumentManager.OnAfterAction += (obj, args) => viewPage = Node.GetPreviewLink(MembershipContext.AuthenticatedUser.UserName, embededInAdministration: true);
+        }
+    }
+
+
+    /// <summary>
+    /// Handles the PreRender event of the Page control.
+    /// </summary>
+    protected void Page_PreRender(object sender, EventArgs e)
+    {
+        if (Node?.NodeIsContentOnly == true)
+        {
+            ucView.ViewPage = "about:blank";
+
+            // Modify frame 'src' attribute and add administration domain into it
+            ScriptHelper.RegisterModule(this, "CMS.Builder/FrameSrcAttributeModifier", new
+            {
+                frameId = ucView.FrameID,
+                frameSrc = viewPage,
+            });
+        }
+        else
+        {
+            ucView.ViewPage = viewPage;
         }
     }
 

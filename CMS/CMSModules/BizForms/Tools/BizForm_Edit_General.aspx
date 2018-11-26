@@ -72,7 +72,7 @@
                 <cms:LocalizableTextBox ID="txtButtonText" runat="server" MaxLength="200" />
             </div>
         </div>
-        <div class="form-group">
+        <asp:Panel ID="pnlSubmitButtonImage" runat="server" CssClass="form-group">
             <div class="editing-form-label-cell">
                 <cms:LocalizedLabel CssClass="control-label" ID="lblSubmitButtonImage" runat="server" EnableViewState="False"
                     ResourceString="BizFormGeneral.lblSubmitButtonImage" AssociatedControlID="txtSubmitButtonImage" />
@@ -80,7 +80,7 @@
             <div class="editing-form-value-cell">
                 <cms:CMSTextBox ID="txtSubmitButtonImage" runat="server" MaxLength="200" />
             </div>
-        </div>
+        </asp:Panel>
         <div class="form-group">
             <div class="editing-form-value-cell editing-form-value-cell-offset">
                 <cms:FormSubmitButton ID="btnOk" runat="server" OnClick="btnOk_Click"

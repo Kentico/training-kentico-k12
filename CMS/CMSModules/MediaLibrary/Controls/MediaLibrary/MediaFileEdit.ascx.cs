@@ -261,8 +261,8 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
         {
             plcPreview.Visible = true;
 
-            string fileName = FileInfo.FileName + "." + FileInfo.FileExtension.TrimStart('.');
-            string url = MediaFileInfoProvider.GetMediaFileUrl(FileInfo.FileGUID, fileName);
+            string fileName = AttachmentHelper.GetFullFileName(FileInfo.FileName, FileInfo.FileExtension);
+            string url = MediaFileURLProvider.GetMediaFileUrl(FileInfo.FileGUID, fileName);
             url = URLHelper.UpdateParameterInUrl(url, "preview", "1");
             lblPreviewPermaLink.Text = GetFileLinkHtml(UrlResolver.ResolveUrl(url));
 
@@ -422,10 +422,12 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
             }
             else
             {
-                string url = MediaFileInfoProvider.GetMediaFileUrl(LibrarySiteInfo.SiteName, LibraryInfo.LibraryFolder, FileInfo.FilePath);
+                string url = MediaFileURLProvider.GetMediaFileUrl(LibrarySiteInfo.SiteName, LibraryInfo.LibraryFolder, FileInfo.FilePath);
                 ltrDirPathValue.Text = GetFileLinkHtml(ResolveUrl(url));
             }
-            ltrPermaLinkValue.Text = GetFileLinkHtml(ResolveUrl(MediaFileInfoProvider.GetMediaFileUrl(FileInfo.FileGUID, FileInfo.FileName)));
+
+            var permanentUrl = MediaFileURLProvider.GetMediaFileUrl(FileInfo.FileGUID, AttachmentHelper.GetFullFileName(FileInfo.FileName, FileInfo.FileExtension));
+            ltrPermaLinkValue.Text = GetFileLinkHtml(ResolveUrl(permanentUrl));
             if (ImageHelper.IsImage(FileInfo.FileExtension))
             {
                 // Ensure max side size 200
@@ -434,7 +436,7 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
                 imagePreview.Height = maxsize[1];
 
                 // If is Image show image properties
-                imagePreview.URL = URLHelper.AddParameterToUrl(MediaFileInfoProvider.GetMediaFileUrl(FileInfo.FileGUID, SiteContext.CurrentSiteName), "maxsidesize", "200");
+                imagePreview.URL = URLHelper.AddParameterToUrl(permanentUrl, "maxsidesize", "200");
                 imagePreview.URL = URLHelper.AddParameterToUrl(imagePreview.URL, "chset", Guid.NewGuid().ToString());
                 plcImagePreview.Visible = true;
                 plcMediaPreview.Visible = false;
@@ -452,7 +454,7 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
                 mediaPreview.Type = FileInfo.FileExtension;
 
                 // If is Image show image properties
-                mediaPreview.Url = MediaFileInfoProvider.GetMediaFileUrl(FileInfo.FileGUID, FileInfo.FileName);
+                mediaPreview.Url = permanentUrl;
                 plcMediaPreview.Visible = true;
                 plcImagePreview.Visible = false;
 
@@ -882,7 +884,7 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileEdit
                 previewFolder = Path.EnsureSlashes(Path.GetDirectoryName(previewFolder), true);
                 string prevFileName = Path.GetFileName(files[0]);
 
-                prevUrl = MediaFileInfoProvider.GetMediaFileUrl(SiteContext.CurrentSiteName, LibraryInfo.LibraryFolder, previewFolder + '/' + prevFileName);
+                prevUrl = MediaFileURLProvider.GetMediaFileUrl(SiteContext.CurrentSiteName, LibraryInfo.LibraryFolder, previewFolder + '/' + prevFileName);
                 prevUrl = UrlResolver.ResolveUrl(prevUrl);
             }
         }

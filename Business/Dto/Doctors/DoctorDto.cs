@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CMS.DocumentEngine;
+using System;
 
 namespace Business.Dto.Doctors
 {
@@ -10,7 +11,7 @@ namespace Business.Dto.Doctors
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Degree { get; set; }
-        public string ImagePath { get; set; }
+        public DocumentAttachment Photo { get; set; }
         public string Specialty { get; set; }
         public string Bio { get; set; }
         public int EmergencyShift { get; set; }

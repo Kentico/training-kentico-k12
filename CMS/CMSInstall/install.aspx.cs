@@ -1696,8 +1696,16 @@ function Finished(sender) {{
 
             SqlInstallationHelper.AfterDataGet += OnAfterGetDefaultData;
 
-            var info = Info;
-            bool success = SqlInstallationHelper.InstallDatabase(info.ConnectionString, info.ScriptsFullPath, ResHelper.GetFileString("Installer.LogErrorCreateDBObjects"), ResHelper.GetFileString("Installer.LogErrorDefaultData"), this.Log);
+            var settings = new DatabaseInstallationSettings
+            {
+                ConnectionString = Info.ConnectionString,
+                ScriptsFolder = Info.ScriptsFullPath,
+                ApplyHotfix = true,
+                DatabaseObjectInstallationErrorMessage = ResHelper.GetFileString("Installer.LogErrorCreateDBObjects"),
+                DataInstallationErrorMessage = ResHelper.GetFileString("Installer.LogErrorDefaultData"),
+                Logger = Log
+            };
+            bool success = SqlInstallationHelper.InstallDatabase(settings);
 
             SqlInstallationHelper.AfterDataGet -= OnAfterGetDefaultData;
 

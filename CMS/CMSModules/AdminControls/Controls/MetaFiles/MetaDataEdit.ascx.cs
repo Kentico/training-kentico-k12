@@ -25,7 +25,6 @@ public partial class CMSModules_AdminControls_Controls_MetaFiles_MetaDataEdit : 
     private bool mCheckPermissions = true;
     private TreeProvider mTreeProvider;
     private VersionManager mVersionManager;
-    private TreeNode mNode;
     private bool nodeIsParent;
     private string mSiteName;
     private bool mEnabled = true;
@@ -267,30 +266,8 @@ public partial class CMSModules_AdminControls_Controls_MetaFiles_MetaDataEdit : 
     /// </summary>
     private TreeNode Node
     {
-        get
-        {
-            if (mNode == null)
-            {
-                var info = InfoObject as IAttachment;
-                if (info != null)
-                {
-                    if (info.AttachmentDocumentID > 0)
-                    {
-                        mNode = DocumentHelper.GetDocument(info.AttachmentDocumentID, TreeProvider);
-                        nodeIsParent = false;
-                    }
-                    else
-                    {
-                        // Get parent node ID in case attachment is edited for document not created yet
-                        int parentNodeId = QueryHelper.GetInteger("parentId", 0);
-                        mNode = TreeProvider.SelectSingleNode(parentNodeId);
-                        nodeIsParent = true;
-                    }
-                }
-            }
-
-            return mNode;
-        }
+        get;
+        set;
     }
 
 
@@ -513,6 +490,8 @@ public partial class CMSModules_AdminControls_Controls_MetaFiles_MetaDataEdit : 
 
         if (attachment != null)
         {
+            InitializeNode();
+
             // Check permissions
             if (CheckPermissions)
             {
@@ -736,10 +715,10 @@ public partial class CMSModules_AdminControls_Controls_MetaFiles_MetaDataEdit : 
 
                     attachment.AllowPartialUpdate = true;
 
-                    DocumentHelper.UpdateAttachment(Node, attachment);
-
                     if (!nodeIsParent && (Node != null))
                     {
+                        DocumentHelper.UpdateAttachment(Node, attachment);
+
                         // Check in the document
                         if (autoCheck)
                         {
@@ -751,6 +730,10 @@ public partial class CMSModules_AdminControls_Controls_MetaFiles_MetaDataEdit : 
                                 }
                             }
                         }
+                    }
+                    else if (nodeIsParent)
+                    {
+                        attachment.Update();
                     }
 
                     saved = true;
@@ -888,6 +871,35 @@ public partial class CMSModules_AdminControls_Controls_MetaFiles_MetaDataEdit : 
         }
 
         return nameIsUnique;
+    }
+
+
+    /// <summary>
+    /// Initializes document. If attachment is temporary, initalizes parent node.
+    /// </summary>
+    private void InitializeNode()
+    {
+        if (Node != null)
+        {
+            return;
+        }
+
+        var info = InfoObject as IAttachment;
+        if (info != null)
+        {
+            if (info.AttachmentDocumentID > 0)
+            {
+                Node = DocumentHelper.GetDocument(info.AttachmentDocumentID, TreeProvider);
+                nodeIsParent = false;
+            }
+            else
+            {
+                // Get parent node ID in case attachment is edited for document not created yet
+                int parentNodeId = QueryHelper.GetInteger("parentId", 0);
+                Node = TreeProvider.SelectSingleNode(parentNodeId);
+                nodeIsParent = true;
+            }
+        }
     }
 
     #endregion

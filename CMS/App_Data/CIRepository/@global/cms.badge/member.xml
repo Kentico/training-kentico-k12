@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<cms.badge>
-  <BadgeDisplayName>Member</BadgeDisplayName>
-  <BadgeGUID>2988a647-9f0e-4c4e-b740-5576021683f8</BadgeGUID>
-  <BadgeImageURL>/Objects/CMS_Badge/Default/member.gif</BadgeImageURL>
-  <BadgeIsAutomatic>True</BadgeIsAutomatic>
-  <BadgeName>Member</BadgeName>
-  <BadgeTopLimit>10</BadgeTopLimit>
-</cms.badge>

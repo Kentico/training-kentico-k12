@@ -252,7 +252,7 @@ public partial class CMSModules_Membership_Controls_Roles_RoleUsers : CMSAdminEd
         {
             if (userInfo.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin))
             {
-                result = String.Format(GetString("Administration-User.NotAllowedToModifySpecific"), userInfo.FullName + " (" + userInfo.UserName + ")");
+                result = String.Format(GetString("Administration-User.NotAllowedToModifySpecific"), $"{HTMLHelper.HTMLEncode(userInfo.FullName)} ({userInfo.UserName})");
             }
         }
         return result;

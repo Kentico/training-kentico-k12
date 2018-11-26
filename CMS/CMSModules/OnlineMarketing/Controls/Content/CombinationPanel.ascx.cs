@@ -108,7 +108,7 @@ public partial class CMSModules_OnlineMarketing_Controls_Content_CombinationPane
         }
 
         // Set the OnChange attribute => Save the variant slider configuration into a cookie and raise a postback
-        combinationSelector.DropDownSelect.Attributes.Add("onchange", "SaveCombinationPanelSelection(); " + Page.ClientScript.GetPostBackEventReference(this, "combinationchanged") + "; return false;");
+        combinationSelector.UniSelector.OnBeforeClientChanged = "SaveCombinationPanelSelection(); " + Page.ClientScript.GetPostBackEventReference(this, "combinationchanged") + ";";
 
 
         MVTCombinationInfo ci = null;

@@ -13,7 +13,7 @@ using CMS.WebAnalytics;
 public partial class CMSModules_SocialMarketing_Pages_FacebookPostDetailDialog : CMSModalPage
 {
     #region "Private variables"
-    
+
     private FacebookPostInfo mPost;
 
     #endregion
@@ -106,21 +106,21 @@ public partial class CMSModules_SocialMarketing_Pages_FacebookPostDetailDialog :
 
 
     /// <summary>
-    /// Gets post's content with HTML tags. New lines and URLs are repleced by HTML tags.
+    /// Gets post's content with HTML tags. New lines and URLs are replaced by HTML tags.
     /// </summary>
     /// <param name="postText">Plain post text.</param>
     /// <returns>Post text with HTML tags.</returns>
     private string GetPostTextHTML(string postText)
     {
         string result = HTMLHelper.HTMLEncodeLineBreaks(HTMLHelper.HTMLEncode(postText));
-        
+
         URLParser urlParser = new URLParser();
         result = urlParser.Replace(result, match =>
         {
             string href = String.IsNullOrEmpty(match.Protocol) ? URLHelper.AddHTTPToUrl(match.URL) : match.URL;
             return String.Format("<a href=\"{0}\" target=\"_blank\">{1}</a>", href, match.URL);
         });
-        
+
         return result;
     }
 

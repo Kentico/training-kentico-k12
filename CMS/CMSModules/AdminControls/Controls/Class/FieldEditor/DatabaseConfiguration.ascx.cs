@@ -851,12 +851,11 @@ public partial class CMSModules_AdminControls_Controls_Class_FieldEditor_Databas
     public string Validate(FormFieldInfo originalFieldInfo)
     {
         var fieldType = AttributeType;
-        
+        int attributeSize = ValidationHelper.GetInteger(AttributeSize, 0);
+
         var dataType = DataTypeManager.GetDataType(TypeEnum.Field, fieldType);
         if (dataType != null)
         {
-            int attributeSize = ValidationHelper.GetInteger(AttributeSize, 0);
-
             if (dataType.VariableSize)
             {
                 // Attribute size is invalid -> error
@@ -935,7 +934,8 @@ public partial class CMSModules_AdminControls_Controls_Class_FieldEditor_Databas
             // Validate input value
             DataTypeIntegrity checkType = new DataTypeIntegrity(defaultValue, AttributeType)
             {
-                DecimalPrecision = ValidationHelper.GetInteger(AttributeSize, 0),
+                TextLength = attributeSize,
+                DecimalPrecision = attributeSize,
                 DecimalScale = ValidationHelper.GetInteger(AttributePrecision, 0)
             };
 

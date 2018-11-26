@@ -755,29 +755,13 @@ function RefreshGrid()
             return;
         }
 
-        // Get actual filter where condition
-        string filterWhere = gridDocuments.FilterForm.GetWhereCondition();
-
-        // Filter selected document type only
-        if ((ClassID > 0) && !RequestHelper.IsCallback())
-        {
-            CurrentWhereCondition = SqlHelper.AddWhereCondition(filterWhere, "NodeClassID = " + ClassID);
-        }
-        else
-        {
-            CurrentWhereCondition = filterWhere;
-        }
-
         if (!dataLoaded)
         {
-            if ((gridDocuments.FilterForm.FieldControls != null) && (gridDocuments.FilterForm.FieldControls.Count > 0))
-            {
-                // Set actual where condition from basic filter if exists
-                gridDocuments.WhereClause = filterWhere;
-            }
-
             gridDocuments.ReloadData();
         }
+
+        string order = null;
+        CurrentWhereCondition = GetCompleteWhereCondition(gridDocuments.WhereClause, ref order).ToString(true);
 
         // Hide column with languages if only one culture is assigned to the site
         if (DataHelper.DataSourceIsEmpty(SiteCultures) || (SiteCultures.Tables[0].Rows.Count <= 1))
@@ -864,9 +848,7 @@ function RefreshGrid()
 
         if (!checkPermissions || (MembershipContext.AuthenticatedUser.IsAuthorizedPerDocument(Node, NodePermissionsEnum.Read) == AuthorizationResultEnum.Allowed))
         {
-            var completeCondition = new WhereCondition(GetLevelWhereCondition(ShowAllLevels, ref currentOrder))
-                .And(WhereCondition)
-                .And(new WhereCondition(completeWhere) { WhereIsComplex = true });
+            var completeCondition = GetCompleteWhereCondition(completeWhere, ref currentOrder);
 
             // Merge document and grid specific columns
             columns = SqlHelper.MergeColumns(DocumentColumnLists.SELECTNODES_REQUIRED_COLUMNS, columns);
@@ -897,7 +879,7 @@ function RefreshGrid()
 
             DataSet ds = query.Result;
             totalRecords = query.TotalRecords;
-                
+
             ds = FilterPagesByPermissions(ds, checkPermissions, ShowAllLevels);
             return ds;
         }
@@ -907,6 +889,14 @@ function RefreshGrid()
         // Hide mass actions when no data
         ctrlMassActions.Visible = false;
         return null;
+    }
+
+
+    private WhereCondition GetCompleteWhereCondition(string completeWhere, ref string currentOrder)
+    {
+        return new WhereCondition(GetLevelWhereCondition(ShowAllLevels, ref currentOrder))
+            .And(WhereCondition)
+            .And(new WhereCondition(completeWhere) { WhereIsComplex = true });
     }
 
 
@@ -1307,7 +1297,7 @@ function RefreshGrid()
 
                 if (!string.IsNullOrEmpty(CopyMoveLinkStartingPath))
                 {
-                    Config.ContentStartingPath = Server.UrlEncode(CopyMoveLinkStartingPath);
+                    Config.ContentStartingPath = CopyMoveLinkStartingPath;
                 }
 
                 return CMSDialogHelper.GetDialogUrl(Config, false, false, null, false);

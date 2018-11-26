@@ -11,8 +11,8 @@
         }
     }
 
-    function fbOpenModalDialog(sessionDataKey) {
-        modalDialog('<%=URLHelper.GetAbsoluteUrl("~/CMSModules/SocialMarketing/Pages/FacebookPageAccessTokenDialog.aspx") %>?dataKey=' + sessionDataKey, 'FacebookAccessToken', 1030, 560, null, null, null, true);
+    function fbOpenModalDialog() {
+        modalDialog('<%=URLHelper.GetAbsoluteUrl("~/CMSModules/SocialMarketing/Pages/FacebookPageAccessTokenDialog.aspx") %>', 'FacebookAccessToken', 1030, 560, null, null, null, true);
     }
 
     function fbSetAccessToken(parameters) {

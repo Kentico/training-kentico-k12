@@ -706,13 +706,14 @@
             </summary>
             <param name="page">Page for which the preview link should be generated.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.PreviewLinkGenerator.Generate(System.String,System.Boolean,System.Boolean)">
+        <member name="M:CMS.DocumentEngine.PreviewLinkGenerator.Generate(System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Generates preview link for specified page and user.
             </summary>
             <param name="userName">User name.</param>
             <param name="ensureQueryHash">Indicates if query string hash should be added. For content-only nodes, hash is added always.</param>
             <param name="readonlyMode">Indicates if readonly mode should be enabled to disallow modify actions and POST requests.</param>
+            <param name="embededInAdministration">Indicates if page is embedded in administration inside an iframe.</param>
         </member>
         <member name="T:CMS.DocumentEngine.PageBuilder.PageBuilderHelper">
             <summary>
@@ -7604,7 +7605,7 @@
             i.e. documents located in subtree of the path.
             </remarks>
         </member>
-        <member name="M:CMS.DocumentEngine.DocumentSearchFieldsProvider.DivideNodeAliasPathIntoNodeAliasPathPrefies(System.Object,CMS.Search.Azure.CreateDocumentEventArgs)">
+        <member name="M:CMS.DocumentEngine.DocumentSearchFieldsProvider.DivideNodeAliasPathIntoNodeAliasPathPrefixes(System.Object,CMS.Search.Azure.CreateDocumentEventArgs)">
             <summary>
             Divides NodeAliasPath into NodeAliasPathPrefixes and adds the value into field for Azure index.
             </summary>
@@ -10048,9 +10049,9 @@
             </summary>
             <param name="node">Node to check</param>
         </member>
-        <member name="M:CMS.DocumentEngine.DocumentHelper.DeletePageTemplate(CMS.DocumentEngine.TreeProvider,System.Int32)">
+        <member name="M:CMS.DocumentEngine.DocumentHelper.DeleteAdhocPageTemplate(CMS.DocumentEngine.TreeProvider,System.Int32)">
             <summary>
-            Deletes the document page template.
+            Deletes ad-hoc page template used by the document.
             </summary>
             <param name="tree">Tree provider</param>
             <param name="templateId">Template ID</param>
@@ -13299,8 +13300,8 @@
             <summary>
             Returns presentation URL for the specified node. This is the absolute URL where live presentation of given node can be found.
             </summary>
-            <param name="node">Tree node to return presentation url for.</param>
-            <param name="preferredDomainName">A preferred domain name that should be used as the host part of the URL.</param>
+            <param name="node">Tree node to return presentation URL for.</param>
+            <param name="preferredDomainName">A preferred domain name that should be used as the host part of the URL. Preferred domain must be assigned to the site as a domain alias otherwise site main domain is used.</param>
         </member>
         <member name="M:CMS.DocumentEngine.DocumentURLProvider.GetPermanentDocUrlInternal(System.Guid,System.String,System.String,System.String,System.String)">
             <summary>
@@ -14919,12 +14920,14 @@
             Gets the unique string key for the object.
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.TreeNode.GetPreviewLink(System.String,System.Boolean)">
+        <member name="M:CMS.DocumentEngine.TreeNode.GetPreviewLink(System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Returns document preview link.
             </summary>
             <param name="userName">User name</param>
             <param name="ensureQueryHash">Indicates if query string hash should be added. For content-only nodes, hash is added always.</param>
+            <param name="readonlyMode">Indicates if preview link should be in read only mode.</param>
+            <param name="embededInAdministration">Indicates if page is embedded in administration inside an iframe.</param>
         </member>
         <member name="M:CMS.DocumentEngine.TreeNode.GetDocumentName">
             <summary>
@@ -18280,12 +18283,11 @@
             Due to the fact that ObjectQuery doesn't support loading binary data, we have to ensure that manually.
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.DocumentSynchronizationHelper.RegisterDocumentPageTemplate(CMS.DataEngine.TranslationHelper,System.String,System.Data.DataSet,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
+        <member name="M:CMS.DocumentEngine.DocumentSynchronizationHelper.RegisterDocumentPageTemplate(CMS.DataEngine.TranslationHelper,System.Data.DataSet,System.Boolean,System.Boolean,System.Boolean,System.Int32)">
             <summary>
             Includes document page template into the logged data
             </summary>
             <param name="th">Translation helper</param>
-            <param name="originalSiteName">Original site name</param>
             <param name="ds">DataSet with the result</param>
             <param name="translationsNotPresent">Flag whether translations are already present or not</param>
             <param name="includeBindingData">Flag indicating whether binding data should be included</param>

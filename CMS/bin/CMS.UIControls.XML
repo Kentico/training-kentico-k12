@@ -11651,9 +11651,9 @@
             <summary>
             Constructor
             </summary>
-            <param name="c">Control to render</param>
-            <param name="dr">DataRow with the target data</param>
-            <param name="colName">Target column name</param>
+            <param name="control">Control to render</param>
+            <param name="dataRow">DataRow with the target data</param>
+            <param name="columnName">Target column name</param>
         </member>
         <member name="T:CMS.UIControls.ExtendedBoundField">
             <summary>
@@ -13814,7 +13814,7 @@
             </summary>
             <param name="drv">Data row with the source data</param>
             <param name="columnName">Column name</param>
-            <param name="resultDR">DataRow with the result</param>
+            <param name="dataRow">DataRow with the result</param>
         </member>
         <member name="M:CMS.UIControls.UniGridExportHelper.GetExportedData(System.Data.DataSet,System.Boolean)">
             <summary>
@@ -15690,10 +15690,11 @@
             Returns true if the OnSelectionChanged event is bound.
             </summary>
         </member>
-        <member name="M:CMS.UIControls.UniSelector.RaiseSelectionChanged">
+        <member name="M:CMS.UIControls.UniSelector.RaiseSelectionChanged(System.Boolean)">
             <summary>
             Raises the OnSelectionChanged event.
             </summary>
+            <param name="registerChangedScript">Indicates whether JavaScript code, which marks this control as changed, should be rendered.</param>
         </member>
         <member name="M:CMS.UIControls.UniSelector.RaiseOnItemsSelected">
             <summary>
@@ -17480,7 +17481,7 @@
         </member>
         <member name="M:CMS.UIControls.DocumentUIHelper.IsIconUsed(CMS.DocumentEngine.IconType,System.String)">
             <summary>
-            Returns true if icon type is enabled 
+            Returns true if icon type is enabled
             </summary>
             <param name="type">Icon type</param>
             <param name="siteName">Site name</param>
@@ -18670,7 +18671,7 @@
             <summary>
             Evaluates the item data, encodes it to be used in javascript code and encapsulates it with "'".
             </summary>
-            <param name="columnName">Column name</param>        
+            <param name="columnName">Column name</param>
         </member>
         <member name="M:CMS.UIControls.AbstractCMSPage.EvalText(System.String,System.String)">
             <summary>
@@ -18820,6 +18821,11 @@
             <summary>
             Loads application description and help topics with respect to current UI context.
             Does nothing when context help not enabled or not on standard page.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.AbstractCMSPage.FilterVisibleHelpTopics(CMS.DataEngine.IInfoObjectCollection{CMS.DataEngine.BaseInfo})">
+            <summary>
+            Filters collection of <paramref name="helpTopics"/> by <see cref="M:CMS.FormEngine.Web.UI.UIContextHelper.CheckHelpTopicVisiblityCondition(CMS.Modules.HelpTopicInfo)"/> predicate.
             </summary>
         </member>
         <member name="M:CMS.UIControls.AbstractCMSPage.RegisterContextHelpScript(System.String,System.String,System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo},System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo})">

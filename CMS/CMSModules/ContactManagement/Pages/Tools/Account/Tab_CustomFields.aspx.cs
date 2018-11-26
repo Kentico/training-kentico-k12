@@ -33,7 +33,7 @@ public partial class CMSModules_ContactManagement_Pages_Tools_Account_Tab_Custom
             formCustomFields.Info = ai;
             formCustomFields.HideSystemFields = true;
             formCustomFields.AlternativeFormFullName = ai.TypeInfo.ObjectClassName;
-            formCustomFields.OnBeforeSave += formCustomFields_OnBeforeSave;
+            formCustomFields.OnCheckPermissions += formCustomFields_OnCheckPermissions;
             formCustomFields.OnAfterSave += formCustomFields_OnAfterSave;
         }
         else
@@ -56,16 +56,14 @@ public partial class CMSModules_ContactManagement_Pages_Tools_Account_Tab_Custom
     }
 
 
-    protected void formCustomFields_OnBeforeSave(object sender, EventArgs e)
+    protected void formCustomFields_OnCheckPermissions(object sender, EventArgs e)
     {
-        // Check modify permissions
         AuthorizationHelper.AuthorizedModifyContact(true);
     }
 
 
     protected void formCustomFields_OnAfterSave(object sender, EventArgs e)
     {
-        // Display 'changes saved' information
         ShowChangesSaved();
     }
 }

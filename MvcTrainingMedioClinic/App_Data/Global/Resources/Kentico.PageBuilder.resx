@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="kentico.pagebuilder.areas.bannedsectionmessage" xml:space="preserve">
+    <value>Some widgets are not allowed here!</value>
+  </data>
+  <data name="kentico.pagebuilder.areas.bannedwidgetmessage" xml:space="preserve">
+    <value>This widget is not allowed here!</value>
+  </data>
+  <data name="kentico.pagebuilder.notinitialized" xml:space="preserve">
+    <value>The Page builder is initialized with missing page identifier.</value>
+  </data>
+  <data name="kentico.pagebuilder.section.addTooltip" xml:space="preserve">
+    <value>Add section</value>
+  </data>
+  <data name="kentico.pagebuilder.section.deleteTooltip" xml:space="preserve">
+    <value>Delete section</value>
+  </data>
+  <data name="kentico.pagebuilder.section.dragTooltip" xml:space="preserve">
+    <value>Move section</value>
+  </data>
+  <data name="kentico.pagebuilder.section.headerTitle" xml:space="preserve">
+    <value>Sections</value>
+  </data>
+  <data name="kentico.pagebuilder.section.missingmetadata" xml:space="preserve">
+    <value>Sections with the following identifiers are not registered in the system: {0}. Saving the page will result in lost data.</value>
+  </data>
+  <data name="kentico.pagebuilder.section.remove.confirmation" xml:space="preserve">
+    <value>Are you sure you want to remove the section?</value>
+  </data>
+  <data name="kentico.pagebuilder.section.typelist.title" xml:space="preserve">
+    <value>Change section type</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.addTooltip" xml:space="preserve">
+    <value>Add widget</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.deleteTooltip" xml:space="preserve">
+    <value>Delete widget</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.dragTooltip" xml:space="preserve">
+    <value>Move widget</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.headerTitle" xml:space="preserve">
+    <value>Widgets</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.missingmetadata" xml:space="preserve">
+    <value>Widgets with the following identifiers are not registered in the system: {0}. Saving the page will result in lost data.</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.personalizeTooltip" xml:space="preserve">
+    <value>Personalize</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.remove.confirmation" xml:space="preserve">
+    <value>Are you sure you want to remove the selected widget?</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.variantlist.header" xml:space="preserve">
+    <value>Display variant</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.conditiontypepopup.header" xml:space="preserve">
+    <value>Condition types</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.conditiontypepopup.conditiontypeheader" xml:space="preserve">
+    <value>Personalize content based on:</value>
+  </data>
+  <data name="kentico.pagebuilder.widgetlist.nowidgets" xml:space="preserve">
+    <value>No widgets found.</value>
+  </data>
+  <data name="kentico.pagebuilder.section.missingNonemptyZone" xml:space="preserve">
+    <value>Some widgets cannot be displayed, because sections with the following identifiers do not contain enough widget zones: {0}. Saving the page will result in lost widget data.</value>
+  </data>
+  <data name="kentico.pagebuilder.conditiontype.missingmetadata" xml:space="preserve">
+    <value>Condition types with the following identifiers are not registered in the system: {0}. Saving the page will result in lost data.</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.original" xml:space="preserve">
+    <value>Original</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.delete" xml:space="preserve">
+    <value>Delete variant</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.delete.confirmation" xml:space="preserve">
+    <value>Are you sure you want to remove the variant?</value>
+  </data>
+  <data name="kentico.pagebuilder.section.withoutZones" xml:space="preserve">
+    <value>Sections with the following section identifiers do not contain any widget zones: {0}. Sections without widget zones are not supported.</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.add" xml:space="preserve">
+    <value>Add variant</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.addTooltip" xml:space="preserve">
+    <value>Add new personalization variant</value>
+  </data>
+  <data name="kentico.pagebuilder.conditiontype.missingConfigForm" xml:space="preserve">
+    <value>Partial view of the condition type configuration must contain a form.</value>
+  </data>
+  <data name="kentico.pagebuilder.conditiontype.wrongFormPostResponse" xml:space="preserve">
+    <value>Invalid format of response of the configuration form POST message. Expected is one of: application/json OR text/html.</value>
+  </data>
+  <data name="kentico.pagebuilder.areas.excessAreas" xml:space="preserve">
+    <value>Areas with the following identifiers are missing from page markup: {0}. Saving the page will result in lost data.</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.propertiesButtonTooltip" xml:space="preserve">
+    <value>Configure widget</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.edit" xml:space="preserve">
+    <value>Edit variant</value>
+  </data>
+  <data name="kentico.pagebuilder.widget.conditiontypepopup.variantheader" xml:space="preserve">
+    <value>Display one of the variants:</value>
+  </data>
+  <data name="kentico.pagebuilder.widgetproperties.header" xml:space="preserve">
+    <value>{0} properties</value>
+  </data>
+  <data name="kentico.pagebuilder.modalDialog.close.confirmation" xml:space="preserve">
+    <value>Are you sure you want to close the dialog?
+
+You have unsaved changes.
+
+Press OK to continue or Cancel to stay on the current page.</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.applyTooltip" xml:space="preserve">
+    <value>Apply variant changes</value>
+  </data>
+  <data name="kentico.pagebuilder.widgetproperties.apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="kentico.pagebuilder.widgetproperties.applytooltip" xml:space="preserve">
+    <value>Apply properties</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.name" xml:space="preserve">
+    <value>Variant name</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.name.required" xml:space="preserve">
+    <value>Please provide variant name.</value>
+  </data>
+  <data name="kentico.pagebuilder.widgetproperties.cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="kentico.pagebuilder.conditiontype.missingVariantName" xml:space="preserve">
+    <value>Variant name wasn't found in form POST data.</value>
+  </data>
+  <data name="kentico.pagebuilder.widgetproperties.validationsummary" xml:space="preserve">
+    <value>Validation error: Check the form for more details.</value>
+  </data>
+  <data name="kentico.pagebuilder.variant.drag.tooltip" xml:space="preserve">
+    <value>Change priority</value>
+  </data>
+  <data name="kentico.pagebuilder.defaultsection.name" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="kentico.pagebuilder.defaultsection.description" xml:space="preserve">
+    <value>Page builder built-in section.</value>
+  </data>
+</root>

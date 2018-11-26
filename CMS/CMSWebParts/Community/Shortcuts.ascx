@@ -65,4 +65,3 @@
         <cms:LocalizedLinkButton ID="btnSignOut" OnClick="btnSignOut_Click" runat="server" />
     </asp:Panel>
 </asp:Panel>
-<asp:HiddenField ID="hdnSelectedId" runat="server" />

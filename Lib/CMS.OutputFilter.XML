@@ -465,21 +465,6 @@
             Substitution pattern used for searching output cache substitutions.
             </summary>
         </member>
-        <member name="P:CMS.OutputFilter.ResponseOutputFilter.UseOutputFilterCache">
-            <summary>
-            Returns true if full client cache is enabled (no revalidation requests).
-            </summary>
-        </member>
-        <member name="P:CMS.OutputFilter.ResponseOutputFilter.TrackCacheDependencies">
-            <summary>
-            Returns true if the cache dependencies for the output cache are tracked.
-            </summary>
-        </member>
-        <member name="P:CMS.OutputFilter.ResponseOutputFilter.CacheItems">
-            <summary>
-            List of the cache key items.
-            </summary>
-        </member>
         <member name="P:CMS.OutputFilter.ResponseOutputFilter.DefaultFilterCapacity">
             <summary>
             Default capacity for the output filter.
@@ -592,30 +577,30 @@
             </summary>
         </member>
         <member name="P:CMS.OutputFilter.ResponseOutputFilter.CanRead">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:CMS.OutputFilter.ResponseOutputFilter.CanSeek">
              <summary></summary>
         </member>
         <member name="P:CMS.OutputFilter.ResponseOutputFilter.CanWrite">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:CMS.OutputFilter.ResponseOutputFilter.Length">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:CMS.OutputFilter.ResponseOutputFilter.Position">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="M:CMS.OutputFilter.ResponseOutputFilter.#ctor(System.IO.Stream)">
-            <summary>		
+            <summary>
             Constructor.
             </summary>
             <param name="inputStream">Stream of rendered HTML code</param>
@@ -644,27 +629,6 @@
             <summary>
             Reads from the response stream.
             </summary>
-        </member>
-        <member name="M:CMS.OutputFilter.ResponseOutputFilter.GetOutputCacheKey(CMS.PortalEngine.ViewModeOnDemand,CMS.SiteProvider.SiteNameOnDemand)">
-            <summary>
-            Gets the output cache key for the request.
-            </summary>
-            <param name="viewMode">View mode</param>
-            <param name="siteName">Site name</param>
-        </member>
-        <member name="M:CMS.OutputFilter.ResponseOutputFilter.SaveOutputToCache(CMS.OutputFilter.OutputData)">
-            <summary>
-            Saves the output data to the cache.
-            </summary>
-            <param name="outputData">Output to save</param>
-        </member>
-        <member name="M:CMS.OutputFilter.ResponseOutputFilter.SendOutputFromCache(CMS.PortalEngine.ViewModeOnDemand,CMS.SiteProvider.SiteNameOnDemand,CMS.OutputFilter.CachedOutput@)">
-            <summary>
-            Sends the page output from the output cache.
-            </summary>
-            <param name="viewMode">View mode</param>
-            <param name="siteName">Site name</param>
-            <param name="output">Return cached output</param>
         </member>
         <member name="M:CMS.OutputFilter.ResponseOutputFilter.Write(System.Byte[],System.Int32,System.Int32)">
             <summary>
@@ -812,6 +776,12 @@
             <param name="siteName">Site name</param>
             <param name="output">Returning output</param>
         </member>
+        <member name="M:CMS.OutputFilter.OutputHelper.ClearCacheItems(System.Boolean)">
+            <summary>
+            Clears <see cref="P:CMS.OutputFilter.OutputHelper.CacheItems"/> and optionally logs a web farm task to propagate the change.
+            </summary>
+            <param name="logTask">A value indicating whether to log a web farm task.</param>
+        </member>
         <member name="M:CMS.OutputFilter.OutputHelper.AddPersistent``1(System.String,``0,CMS.Helpers.CMSCacheDependency,System.Int32,System.DateTime,System.DateTime,System.String)">
             <summary>
             Saves the persistent item to the file
@@ -912,7 +882,7 @@
             Sets the expiration time either to the interval specified in page settings or to the value set in <see cref="P:CMS.OutputFilter.CachedOutput.Expiration"/> depending on which is closer to the current time.
             </summary>
             <param name="data">Data to set expiration for.</param>
-            <param name="now">Current date time.</param> 
+            <param name="now">Current date time.</param>
         </member>
         <member name="M:CMS.OutputFilter.OutputHelper.TryGetFromCacheInternal(System.String,System.String,CMS.OutputFilter.CachedOutput@)">
             <summary>
@@ -1171,6 +1141,16 @@
         <member name="M:CMS.OutputFilter.OutputModuleMetadata.#ctor">
             <summary>
             Default constructor
+            </summary>
+        </member>
+        <member name="T:CMS.OutputFilter.ClearCacheItemsWebFarmTask">
+            <summary>
+            Web farm task used to clear <see cref="P:CMS.OutputFilter.OutputHelper.CacheItems"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OutputFilter.ClearCacheItemsWebFarmTask.ExecuteTask">
+            <summary>
+            Clears <see cref="P:CMS.OutputFilter.OutputHelper.CacheItems"/>.
             </summary>
         </member>
     </members>

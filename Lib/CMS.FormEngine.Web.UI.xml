@@ -1281,7 +1281,7 @@
         </member>
         <member name="M:CMS.FormEngine.Web.UI.Html5InputFormControl.AddWellKnownAttributes">
             <summary>
-            Adds the most commonly used attributes with their values to HTML5 input. 
+            Adds the most commonly used attributes with their values to HTML5 input.
             </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.Html5InputFormControl.AddAttribute(System.String,System.String)">
@@ -2920,13 +2920,12 @@
             Clears content changed flag
             </summary>
         </member>
-        <member name="M:CMS.FormEngine.Web.UI.CMSDocumentManager.RegisterComponentEvent(System.String,System.Action{System.Int32},System.Boolean)">
+        <member name="M:CMS.FormEngine.Web.UI.CMSDocumentManager.RegisterComponentEvent(System.String,System.Action{System.Int32})">
             <summary>
             Registers component event.
             </summary>
             <param name="eventType">Component event type.</param>
             <param name="action">Document action delegate.</param>
-            <param name="clearContentChanged">Indicates if content changed flag is always cleared after action.</param>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.CMSDocumentManager.RegisterScripts">
             <summary>
@@ -3323,80 +3322,6 @@
             Returns true if the control has value, if false, the value from the control should not be used within the form to update the data
             </summary>
         </member>
-        <member name="T:CMS.FormEngine.Web.UI.DataTypeIntegrity">
-            <summary>
-            Provides check if given value matches field's data type.
-            </summary>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.DataTypeIntegrity.DecimalPrecision">
-            <summary>
-            Defines the maximum number of digits which are allowed for decimal value.
-            </summary>
-            <remarks>The precision must be a value from 1 through the maximum precision of 38.</remarks>
-        </member>
-        <member name="P:CMS.FormEngine.Web.UI.DataTypeIntegrity.DecimalScale">
-            <summary>
-            Defines the maximum number of decimal places which are allowed for decimal value.
-            </summary>
-            <remarks>Scale must be a value from 0 through <see cref="P:CMS.FormEngine.Web.UI.DataTypeIntegrity.DecimalPrecision"/>. Scale can be specified only if <see cref="P:CMS.FormEngine.Web.UI.DataTypeIntegrity.DecimalPrecision"/> is specified.</remarks>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.#ctor(System.Object,CMS.FormEngine.FormFieldInfo,System.Globalization.CultureInfo)">
-            <summary>
-            Constructor.
-            </summary>
-            <param name="value">Control's value</param>
-            <param name="ffi">Field info</param>
-            <param name="culture">Allows to specify culture that will be used for culture dependent data types, e.g. double, date-time. Current culture is used if not set.</param>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.#ctor(System.Object,System.String,System.Globalization.CultureInfo)">
-            <summary>
-            Constructor.
-            </summary>
-            <param name="value">Control's value</param>
-            <param name="dataType">Field data type</param>
-            <param name="culture">Allows to specify culture that will be used for culture dependent data types, e.g. double, date-time. Current culture is used if not set.</param>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateDataType">
-            <summary>
-            Checks if value matches field's data type.
-            </summary>
-            <returns>Error message if the value doesn't match field's data type; otherwise null.</returns>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetIntErrorMessage">
-            <summary>
-            Gets error message for integer type.
-            </summary>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetLongErrorMessage">
-            <summary>
-            Gets error message for long integer type.
-            </summary>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetNotNumberErrorMessage">
-            <summary>
-            Gets error message for double type.
-            </summary>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.FurtherValidateDecimal">
-            <summary>
-            Further validates value for decimal type.
-            </summary>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetDateTimeErrorMessage">
-            <summary>
-            Gets error message for DateTime type.
-            </summary>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.ValidateTimeSpan">
-            <summary>
-            Validates value for TimeSpan type. Value must be less than 24hours to be accepted by Time DB data type.
-            </summary>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.DataTypeIntegrity.GetGuidErrorMessage">
-            <summary>
-            Gets error message for GUID type.
-            </summary>
-        </member>
         <member name="P:CMS.FormEngine.Web.UI.FormControlValidation.ContextResolver">
             <summary>
             Macro resolver
@@ -3457,11 +3382,6 @@
         <member name="M:CMS.FormEngine.Web.UI.FormControlValidation.CheckFormControlValidity">
             <summary>
             Validate FormEngineUserControl.
-            </summary>
-        </member>
-        <member name="M:CMS.FormEngine.Web.UI.FormControlValidation.ValidateTextFieldLength">
-            <summary>
-            Checks if text field's content is not longer than maximum field size (FormFieldInfo.Size may be database related).
             </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.FormControlValidation.CheckDataTypeIntegrity">
@@ -4329,7 +4249,7 @@
         </member>
         <member name="P:CMS.FormEngine.Web.UI.BasicForm.CheckFieldEmptiness">
             <summary>
-            Indicates that field should be checked on emptiness in validation step by BasicForm. Default TRUE. 
+            Indicates that field should be checked on emptiness in validation step by BasicForm. Default TRUE.
             It is preferable to set to FALSE for controls with complex input such as filter form.
             </summary>
         </member>
@@ -4341,7 +4261,7 @@
         <member name="P:CMS.FormEngine.Web.UI.BasicForm.FieldGroupHeadingLevel">
             <summary>
             Heading level for the field group caption.
-            </summary>        
+            </summary>
         </member>
         <member name="P:CMS.FormEngine.Web.UI.BasicForm.FieldGroupHeadingIsAnchor">
             <summary>
@@ -4604,7 +4524,7 @@
             </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.BasicForm.AfterSaveActionsInternal(System.String,System.Boolean)">
-            <summary> 
+            <summary>
             Performs additional actions after save (redirecting or displaying info message).
             </summary>
             <param name="redirectUrlAfterSave">If specified, user is redirected to this URL after data is successfully saved</param>
@@ -4675,7 +4595,7 @@
             </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.BasicForm.SaveData(System.String,System.Boolean)">
-            <summary> 
+            <summary>
             Saves data and optionally redirects user to specified URL.
             </summary>
             <param name="redirectUrlAfterSave">If specified, user is redirected to this URL after data is successfully saved</param>
@@ -4710,7 +4630,7 @@
             <summary>
             Checks if the given field is evaluated as visible.
             </summary>
-            <param name="fieldName">Form field name</param>       
+            <param name="fieldName">Form field name</param>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.BasicForm.IsAnyFieldVisible">
             <summary>
@@ -8083,7 +8003,7 @@
             <summary>
             Manages common properties of element's URL
             </summary>
-            <param name="url">Element's URL</param> 
+            <param name="url">Element's URL</param>
             <param name="context">Context to use</param>
             <param name="elem">Target UI element</param>
         </member>
@@ -8108,7 +8028,7 @@
         </member>
         <member name="M:CMS.FormEngine.Web.UI.UIContextHelper.GetUIContext(System.Web.UI.Control)">
             <summary>
-            Returns control's UI context. If no parent control contains own UI context, use main page's (stored in request stock helper).        
+            Returns control's UI context. If no parent control contains own UI context, use main page's (stored in request stock helper).
             </summary>
             <param name="ctrl">Control to start with</param>
         </member>
@@ -8140,7 +8060,7 @@
         </member>
         <member name="M:CMS.FormEngine.Web.UI.UIContextHelper.CheckElementAvailabilityInUI(CMS.Modules.UIElementInfo)">
             <summary>
-            Checks the UI element availability. This check includes evaluation of the element's macro 
+            Checks the UI element availability. This check includes evaluation of the element's macro
             condition, license check of the element's feature and check if the element's resource (module)
             is available.
             </summary>
@@ -8148,9 +8068,23 @@
         </member>
         <member name="M:CMS.FormEngine.Web.UI.UIContextHelper.CheckElementVisibilityCondition(CMS.Modules.UIElementInfo)">
             <summary>
-            Checks visibility condition for the given UI element
+            Checks visibility condition of the UI element given.
             </summary>
-            <param name="ui">UI element</param>
+            <param name="ui">UI element whose visibility condition to evaluate.</param>
+            <returns>Returns true if UI element's visibility condition evaluates to true or no condition is specified, false otherwise.</returns>
+        </member>
+        <member name="M:CMS.FormEngine.Web.UI.UIContextHelper.CheckHelpTopicVisiblityCondition(CMS.Modules.HelpTopicInfo)">
+            <summary>
+            Checks visibility condition of the <paramref name="helpTopic"/> given.
+            </summary>
+            <param name="helpTopic">Help topic whose visibility condition to evaluate.</param>
+            <returns>Returns true if help topic's visibility condition evaluates to true or no condition is specified, false otherwise.</returns>
+        </member>
+        <member name="M:CMS.FormEngine.Web.UI.UIContextHelper.CheckVisibilityCondition(System.String)">
+            <summary>
+            Evaluates <paramref name="visibilityCondition"/> and returns a value indicating whether the condition was met. Returns true
+            if no visibility condition is specified.
+            </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.UIContextHelper.ElementIsLayout(CMS.Modules.UIElementInfo,System.Boolean)">
             <summary>

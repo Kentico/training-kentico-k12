@@ -266,7 +266,7 @@
         </member>
         <member name="T:CMS.WebAnalytics.ActivityUrlHashService">
             <summary>
-            Computes hash for an activity URL using CRC
+            Provides hash computation for activity URLs using CRC.
             </summary>
         </member>
         <member name="M:CMS.WebAnalytics.ActivityUrlHashService.#ctor(CMS.WebAnalytics.IActivityUrlPreprocessor)">
@@ -277,11 +277,12 @@
         </member>
         <member name="M:CMS.WebAnalytics.ActivityUrlHashService.GetActivityUrlHash(System.String)">
             <summary>
-            Computes hash for the activity URL using CRC. 
+            Computes a hash for the specified activity URL using CRC.
             URL is first processed by <see cref="T:CMS.WebAnalytics.IActivityUrlPreprocessor"/> specified in the constructor.
             </summary>
-            <param name="activityUrl"></param>
-            <returns></returns>
+            <param name="activityUrl">Activity URL to compute hash for.</param>
+            <returns>Hash corresponding to <paramref name="activityUrl"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="activityUrl"/> is null.</exception>
         </member>
         <member name="T:CMS.WebAnalytics.ActivityUrlPreprocessor">
             <summary>
@@ -297,15 +298,16 @@
         </member>
         <member name="T:CMS.WebAnalytics.Internal.IActivityUrlHashService">
             <summary>
-            Computes hash for an activity URL
+            Provides hash computation for activity URLs.
             </summary>
         </member>
         <member name="M:CMS.WebAnalytics.Internal.IActivityUrlHashService.GetActivityUrlHash(System.String)">
             <summary>
-            Computes has for the activity URL
+            Computes a hash for the specified activity URL.
             </summary>
-            <param name="activityUrl">Activity URL</param>
-            <returns>Computed hash</returns>
+            <param name="activityUrl">Activity URL to compute hash for.</param>
+            <returns>Hash corresponding to <paramref name="activityUrl"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="activityUrl"/> is null.</exception>
         </member>
         <member name="T:CMS.WebAnalytics.Internal.AbstractAssetModelStrategy">
             <summary>

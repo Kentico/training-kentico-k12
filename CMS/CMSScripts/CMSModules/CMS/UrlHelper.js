@@ -4,7 +4,7 @@
  */
 
 cmsdefine(['Underscore'], function (_) {
-    
+
         /**
          * Gets value of query parameter from given query string.
          *
@@ -25,7 +25,7 @@ cmsdefine(['Underscore'], function (_) {
          * @return {NaN}                  NaN if the parameter exists and it is not a number
          * @return {Null}                 Null if the parameter does not exist
          */
-        getValueAsInt = function(queryString, parameterName) {
+        getValueAsInt = function (queryString, parameterName) {
             return parseInt(getParams(queryString)[parameterName], 10);
         },
 
@@ -38,10 +38,10 @@ cmsdefine(['Underscore'], function (_) {
          * @param {string} defaultValue - Default value if parameter does not exist
          * @return {string} Value of query parameter, if exist, default value otherwise
          */
-        getString = function(queryString, name, defaultValue) {
+        getString = function (queryString, name, defaultValue) {
             return getValue(queryString, name) || defaultValue;
         },
-        
+
 
         /**
          * Sets value of query parameter for given query string. If parameter already exists, it is rewritten. If value is set to be null or undefined, parameter is removed.
@@ -51,7 +51,7 @@ cmsdefine(['Underscore'], function (_) {
          * @param {string} value - Value to be set
          * @return {string} Updated query string
          */
-        setValue = function(queryString, name, value) {
+        setValue = function (queryString, name, value) {
             var params = getParams(queryString);
             if (!value) {
                 return removeParameter(queryString, name);
@@ -76,7 +76,7 @@ cmsdefine(['Underscore'], function (_) {
             var result = {},
                 regularExpression = /([^&=]+)=([^&]*)/g,
                 temp;
-            
+
             while (temp = regularExpression.exec(queryString)) {
                 result[decodeURIComponent(temp[1])] = decodeURIComponent(temp[2]);
             }
@@ -92,11 +92,11 @@ cmsdefine(['Underscore'], function (_) {
          * @param {Array} paramsToRemove - Array containing parameter names which should be removed
          * @return {string} update query string without removed parameters
          */
-        removeParameters = function(queryString, paramsToRemove) {
+        removeParameters = function (queryString, paramsToRemove) {
             var params = getParams(queryString);
             return buildQueryString(_.omit(params, paramsToRemove));
         },
-        
+
 
         /**
          * Removes given parameter from given query string.
@@ -105,7 +105,7 @@ cmsdefine(['Underscore'], function (_) {
          * @param {string} paramToRemove - Name of parameter to be removed
          * @return {string} update query string without removed parameter
          */
-        removeParameter = function(queryString, paramToRemove) {
+        removeParameter = function (queryString, paramToRemove) {
             return removeParameters(queryString, [paramToRemove]);
         },
 
@@ -118,13 +118,13 @@ cmsdefine(['Underscore'], function (_) {
          */
         buildQueryString = function (params) {
             var completedParams = [];
-            
+
             for (var key in params) {
                 if (params.hasOwnProperty(key)) {
                     completedParams.push(key + '=' + params[key]);
                 }
             }
-            
+
             if (completedParams.length) {
                 return '?' + completedParams.join('&');
             }
@@ -152,6 +152,45 @@ cmsdefine(['Underscore'], function (_) {
 
 
         /**
+         * Returns hostname with a scheme followed by (if a port was specified) a ':' and the port of the URL.
+         *
+         * @param {string} url - URL, query string is optional
+         * @return {string} Hostname with a scheme and a port (if was specified)
+        */
+        getHostWithScheme = function (url) {
+            if (window.URL.prototype) {
+                var urlObj = new URL(url);
+                return urlObj.protocol + "//" + urlObj.host;
+            }
+
+            // IE11 compatibility
+            return url.split('/').slice(0, 3).join('/');
+        },
+
+
+        /**
+         * Adds query parameter for given URL.
+         * In case query parameter already exists it overwrites it.
+         *
+         * @param {string} url - URL, query string is optional
+         * @param {string} parameterName - Name of query parameter
+         * @param {string} parameterValue - Value to be set
+         * @return {string} Updated URL
+         */
+        addParameterToUrl = function (url, parameterName, parameterValue) {
+            if (window.URL.prototype) {
+                var urlObj = new URL(url);
+                urlObj.searchParams.set(parameterName, parameterValue);
+
+                return urlObj.toString();
+            }
+
+            // IE11 compatibility
+            return removeQueryString(url) + setValue(getQueryString(url), parameterName, parameterValue);
+        },
+
+
+        /**
         * Removes query string from given URL.
         *
         * @param {string} url - URL, query string is optional
@@ -166,19 +205,21 @@ cmsdefine(['Underscore'], function (_) {
 
             return url.slice(0, questionMarkPosition);
         };
-    
+
 
     // Expose UrlHelper API
     return {
         getParameter: getValue,
         getParameterAsInt: getValueAsInt,
         getParameterString: getString,
+        getHostWithScheme: getHostWithScheme,
         setParameter: setValue,
         removeParameters: removeParameters,
         removeParameter: removeParameter,
         getParameters: getParams,
         buildQueryString: buildQueryString,
         getQueryString: getQueryString,
-        removeQueryString: removeQueryString
+        removeQueryString: removeQueryString,
+        addParameterToUrl: addParameterToUrl
     };
 });

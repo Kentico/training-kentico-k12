@@ -32,7 +32,12 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_EditRecordMVC : CMSB
             path += $"/{recordId}";
         }
 
-        formBuilderFrame.Src = presentationUrl.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName);
+        // Modify frame 'src' attribute and add administration domain into it
+        ScriptHelper.RegisterModule(this, "CMS.Builder/FrameSrcAttributeModifier", new
+        {
+            frameId = formBuilderFrame.ClientID,
+            frameSrc = presentationUrl.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName),
+        });
     }
 
 

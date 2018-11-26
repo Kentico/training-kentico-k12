@@ -99,7 +99,7 @@ public partial class CMSModules_Ecommerce_Controls_ShoppingCart_ShoppingCartPrev
         gridData.Columns[2].Visible = false;
         gridData.Columns[3].Visible = false;
 
-        // Disable default button in the order preview to 
+        // Disable default button in the order preview to
         // force approval of the order by mouse click
         if (ShoppingCartControl.ShoppingCartContainer != null)
         {
@@ -197,10 +197,10 @@ public partial class CMSModules_Ecommerce_Controls_ShoppingCart_ShoppingCartPrev
 
     /// <summary>
     /// Validates shopping cart content.
-    /// </summary>    
+    /// </summary>
     public override bool IsValid()
     {
-        // Force loading current values         
+        // Force loading current values
         ShoppingCart.Evaluate();
 
         // Validate inventory
@@ -215,14 +215,6 @@ public partial class CMSModules_Ecommerce_Controls_ShoppingCart_ShoppingCartPrev
                 .Union(shippingAndPaymentValidator.Errors)
                 .Select(e => HTMLHelper.HTMLEncode(e.GetMessage()))
                 .Join("<br />");
-
-            return false;
-        }
-
-        // Check if cart contains at least one product
-        if (ShoppingCart.IsEmpty)
-        {
-            lblError.Text = GetString("com.checkout.cartisempty");
 
             return false;
         }
@@ -270,7 +262,7 @@ public partial class CMSModules_Ecommerce_Controls_ShoppingCart_ShoppingCartPrev
             // Track order items conversions
             ECommerceHelper.TrackOrderItemsConversions(ShoppingCart);
 
-            // Track order conversion        
+            // Track order conversion
             string name = ShoppingCartControl.OrderTrackConversionName;
             ECommerceHelper.TrackOrderConversion(ShoppingCart, name);
         }

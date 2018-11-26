@@ -131,6 +131,18 @@
             <param name="path">Full disk path of the file including file name</param>
             <param name="startingPath">Starting path where folders can be checked and created</param>
         </member>
+        <member name="T:CMS.WinServiceEngine.DiscretionaryAclHelper">
+            <summary>
+            Contains method to set DACL permissions for a service.
+            </summary>
+        </member>
+        <member name="M:CMS.WinServiceEngine.DiscretionaryAclHelper.SetServicePermissions(System.String,System.String)">
+            <summary>
+            Sets DALC permissions for given <parameter name="serviceName"/> running under specified <paramref name="accountName"/>.
+            </summary>
+            <param name="serviceName">Service for which DACL permissions should be set.</param>
+            <param name="accountName">Name of an account for which DACL permissions should be set.</param>
+        </member>
         <member name="T:CMS.WinServiceEngine.ApplicationSettings">
             <summary>
             Provides application settings from arbitrary configuration file.
@@ -524,15 +536,33 @@
             </summary>
             <param name="serviceName">Service name (If no service name given, service file watcher folder is returned.)</param>
         </member>
+        <member name="M:CMS.WinServiceEngine.WinServiceHelper.RestartService(System.String,System.Boolean)">
+            <summary>
+            Restarts given windows service(s).
+            </summary>
+            <param name="serviceDefinitionName">Service definition name (If no service name given, all services are restarted.)</param>
+            <param name="logTask">Indicates whether web farm task should be logged.</param>
+            <seealso cref="F:CMS.WinServiceEngine.WinServiceHelper.HM_SERVICE_BASENAME"/>
+            <seealso cref="F:CMS.WinServiceEngine.WinServiceHelper.SCHEDULER_SERVICE_BASENAME"/>
+        </member>
         <member name="M:CMS.WinServiceEngine.WinServiceHelper.RestartService(System.String)">
             <summary>
-            Restarts given windows service(s)
+            Restarts given windows service(s).
             </summary>
             <param name="serviceName">Service name (If no service name given, all services are restarted.)</param>
         </member>
+        <member name="M:CMS.WinServiceEngine.WinServiceHelper.DeleteServiceFile(System.String,System.Boolean)">
+            <summary>
+            Deletes service restart file.
+            </summary>
+            <param name="serviceDefinitionName">Service definition name (If no service name given, all services are restarted.)</param>
+            <param name="logTask">Indicates whether web farm task should be logged.</param>
+            <seealso cref="F:CMS.WinServiceEngine.WinServiceHelper.HM_SERVICE_BASENAME"/>
+            <seealso cref="F:CMS.WinServiceEngine.WinServiceHelper.SCHEDULER_SERVICE_BASENAME"/>
+        </member>
         <member name="M:CMS.WinServiceEngine.WinServiceHelper.DeleteServiceFile(System.String)">
             <summary>
-            Deletes service restart file
+            Deletes service restart file.
             </summary>
             <param name="serviceName">Service name (If no service name given, all services are restarted.)</param>
         </member>
@@ -613,6 +643,48 @@
         <member name="M:CMS.WinServiceEngine.WinServiceItem.GetServiceDisplayName">
             <summary>
             Gets service display name.
+            </summary>
+        </member>
+        <member name="T:CMS.WinServiceEngine.DeleteServiceWebFarmTask">
+            <summary>
+            Web farm task for deleting external service.
+            </summary>
+        </member>
+        <member name="P:CMS.WinServiceEngine.DeleteServiceWebFarmTask.ServiceDefinitionName">
+            <summary>
+            Name of the service definition to be deleted.
+            </summary>
+        </member>
+        <member name="M:CMS.WinServiceEngine.DeleteServiceWebFarmTask.ExecuteTask">
+            <summary>
+            Deletes service restart file.
+            </summary>
+            <remarks>If no <see cref="P:CMS.WinServiceEngine.DeleteServiceWebFarmTask.ServiceDefinitionName"/> given, all services are deleted.</remarks>
+        </member>
+        <member name="T:CMS.WinServiceEngine.RestartServiceWebFarmTask">
+            <summary>
+            Web farm task for restarting external service.
+            </summary>
+        </member>
+        <member name="P:CMS.WinServiceEngine.RestartServiceWebFarmTask.ServiceDefinitionName">
+            <summary>
+            Name of the service definition to be restarted.
+            </summary>
+        </member>
+        <member name="M:CMS.WinServiceEngine.RestartServiceWebFarmTask.ExecuteTask">
+            <summary>
+            Restarts given windows service(s).
+            </summary>
+            <remarks>If no <see cref="P:CMS.WinServiceEngine.RestartServiceWebFarmTask.ServiceDefinitionName"/> given, all services are restarted.</remarks>
+        </member>
+        <member name="T:CMS.WinServiceEngine.WinServiceSynchronization">
+            <summary>
+            Synchronization helper class for the windows service module.
+            </summary>
+        </member>
+        <member name="M:CMS.WinServiceEngine.WinServiceSynchronization.Init">
+            <summary>
+            Initializes the tasks for windows service synchronization.
             </summary>
         </member>
     </members>

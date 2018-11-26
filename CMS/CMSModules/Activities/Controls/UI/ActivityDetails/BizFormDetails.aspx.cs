@@ -1,5 +1,6 @@
 ﻿using System;
 
+using CMS.Base.Web.UI;
 using CMS.Core;
 using CMS.FormEngine;
 using CMS.Helpers;
@@ -40,9 +41,14 @@ public partial class CMSModules_Activities_Controls_UI_ActivityDetails_BizFormDe
                 var path = string.Format(FORM_ITEM_PREVIEW_ROUTE_TEMPLATE, bfi.FormID, recId);
                 
                 string url = (bfi.Site as SiteInfo).SitePresentationURL;
-
-                mvcFrame.Src = url.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName);
                 mvcFrame.Visible = true;
+
+                // Modify frame 'src' attribute and add administration domain into it
+                ScriptHelper.RegisterModule(this, "CMS.Builder/FrameSrcAttributeModifier", new
+                {
+                    frameId = mvcFrame.ClientID,
+                    frameSrc = url.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName)
+                });
             }
             else
             {

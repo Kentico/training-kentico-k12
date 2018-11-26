@@ -4,7 +4,7 @@ using CMS.Base.Web.UI;
 using CMS.FormEngine.Web.UI;
 using CMS.Helpers;
 
-
+[Obsolete("Use custom implementation instead.")]
 public partial class CMSModules_Membership_FormControls_Passwords_EncryptedPassword : FormEngineUserControl
 {
     #region "Constants"

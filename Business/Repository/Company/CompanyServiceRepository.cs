@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Kentico.Content.Web.Mvc;
 using Business.Dto.Company;
 using Business.Services.Query;
 
@@ -22,7 +21,7 @@ namespace Business.Repository.Company
                 {
                     Header = m.Header,
                     Text = m.Text,
-                    IconPath = m.Fields.Icon.GetPath("")
+                    Icon = m.Fields.Icon
                 });
         }
     }

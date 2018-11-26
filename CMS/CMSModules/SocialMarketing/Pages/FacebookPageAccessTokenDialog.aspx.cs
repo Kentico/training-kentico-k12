@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Globalization;
 using System.Net;
-using System.Text;
 using System.Web;
 
 using CMS.Base.Web.UI;
@@ -26,22 +25,16 @@ public partial class CMSModules_SocialMarketing_Pages_FacebookPageAccessTokenDia
         PageTitle.ShowFullScreenButton = false;
         PageTitle.ShowCloseButton = false;
 
-        // Load data from session
-        var sessionKey = QueryHelper.GetString("dataKey", "");
-        if (String.IsNullOrEmpty(sessionKey))
-        {
-            ShowError(GetString("dialogs.badhashtext"));
-            return;
-        }
+        // Load data from session     
+        var parameters = WindowHelper.GetItem(FacebookHelper.PAGE_ACCESS_TOKEN_SESSION_KEY) as Hashtable;
 
-        var parameters = WindowHelper.GetItem(sessionKey) as Hashtable;
         if (parameters == null)
         {
             ShowError(GetString("dialogs.badhashtext"));
             return;
         }
 
-        string redirectUrl = String.Format("{0}?dataKey={1}&redirected=1", URLHelper.GetAbsoluteUrl("~/CMSModules/SocialMarketing/Pages/FacebookPageAccessTokenDialog.aspx"), sessionKey);
+        string redirectUrl = URLHelper.GetAbsoluteUrl("~/CMSModules/SocialMarketing/Pages/FacebookPageAccessTokenDialog.aspx?redirected=1");
         redirectUrl = HttpContext.Current.Server.UrlEncode(redirectUrl);
         
         string code = QueryHelper.GetString("code", String.Empty);

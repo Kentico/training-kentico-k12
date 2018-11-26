@@ -276,6 +276,11 @@ public partial class CMSAdminControls_UI_Macros_MacroRuleDesigner : FormEngineUs
                             add = false;
                             break;
                         }
+                        else if (!IsRuleApplicableForSite(req))
+                        {
+                            add = false;
+                            break;
+                        }
                     }
                 }
             }
@@ -290,6 +295,13 @@ public partial class CMSAdminControls_UI_Macros_MacroRuleDesigner : FormEngineUs
                 RulesTooltips[ruleId] = ResHelper.LocalizeString(ValidationHelper.GetString(dr["MacroRuleDescription"], ""));
             }
         }
+    }
+
+
+    private static bool IsRuleApplicableForSite(string req)
+    {
+        // Macro rules can be configured to be applicable only for non-content-only sites
+        return !req.Equals("ActivityMacroOnlyForNonContentOnlySites", StringComparison.OrdinalIgnoreCase) || !SiteContext.CurrentSite.SiteIsContentOnly;
     }
 
 
@@ -629,7 +641,7 @@ $cmsj(document).ready(InitDesignerAreaSize);
             plusOne = (plusOne < 0 ? 1 : 0);
 
             var targetPath = (parts[1] == pnlCondtion.ClientID) ? "" : parts[1];
-            
+
             RuleTree.MoveNode(sourcePath, targetPath, ValidationHelper.GetInteger(parts[2], 0) + plusOne);
 
             // Clear selection
@@ -668,7 +680,7 @@ $cmsj(document).ready(InitDesignerAreaSize);
                     {
                         var dataType = ctrl.FieldInfo.DataType;
                         var useNullInsteadOfDefaultValue = UseNullInsteadOfDefaultValue(dataType);
-                        
+
                         object convertedValue = DataTypeManager.ConvertToSystemType(TypeEnum.Field, dataType, ctrl.Value, null, useNullInsteadOfDefaultValue);
 
                         // Convert values to EN culture
@@ -827,7 +839,7 @@ $cmsj(document).ready(InitDesignerAreaSize);
     {
         if (!string.IsNullOrEmpty(idPath))
         {
-            string[] parts = idPath.Split(new [] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] parts = idPath.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
 
             MacroRuleTree srcGroup = RuleTree;
             foreach (string posStr in parts)
@@ -853,7 +865,7 @@ $cmsj(document).ready(InitDesignerAreaSize);
         List<MacroRuleTree> selected = new List<MacroRuleTree>();
         if (!string.IsNullOrEmpty(hdnSelected.Value))
         {
-            string[] ids = hdnSelected.Value.Split(new [] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] ids = hdnSelected.Value.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             // We need to sort the items, so as the items upper go sooner than items more down
             Array.Sort(ids);

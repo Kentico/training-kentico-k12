@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="kentico.formbuilder.missingmetadata" xml:space="preserve">
+    <value>{0} with the following identifiers are not registered in the system: {1}. Submitting the form will result in lost data.</value>
+  </data>
+  <data name="kentico.formbuilder.notinitialized" xml:space="preserve">
+    <value>The Form builder is initialized with a missing form identifier.</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.propertiestab.name" xml:space="preserve">
+    <value>Properties</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.addvalidationrule" xml:space="preserve">
+    <value>Add validation rule</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.confirmationmessage.removevalidationrule" xml:space="preserve">
+    <value>Are you sure you want to remove the selected rule?</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.name" xml:space="preserve">
+    <value>Validation</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.removerule" xml:space="preserve">
+    <value>Remove rule</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.rules" xml:space="preserve">
+    <value>Rules:</value>
+  </data>
+  <data name="kentico.formbuilder.widget.headerTitle" xml:space="preserve">
+    <value>Form components</value>
+  </data>
+  <data name="kentico.formbuilder.widget.remove.confirmation" xml:space="preserve">
+    <value>Are you sure you want to remove the selected form component?</value>
+  </data>
+  <data name="kentico.formbuilder.section.remove.confirmation" xml:space="preserve">
+    <value>Are you sure you want to remove the section?</value>
+  </data>
+  <data name="kentico.formbuilder.section.typelist.title" xml:space="preserve">
+    <value>Change section type</value>
+  </data>
+  <data name="kentico.formbuilder.section.headerTitle" xml:space="preserve">
+    <value>Sections</value>
+  </data>
+  <data name="kentico.formbuilder.section.addTooltip" xml:space="preserve">
+    <value>Add section</value>
+  </data>
+  <data name="kentico.formbuilder.section.dragTooltip" xml:space="preserve">
+    <value>Move section</value>
+  </data>
+  <data name="kentico.formbuilder.section.deleteTooltip" xml:space="preserve">
+    <value>Delete section</value>
+  </data>
+  <data name="kentico.formbuilder.widget.addTooltip" xml:space="preserve">
+    <value>Add form component</value>
+  </data>
+  <data name="kentico.formbuilder.widget.dragTooltip" xml:space="preserve">
+    <value>Move form component</value>
+  </data>
+  <data name="kentico.formbuilder.widget.deleteTooltip" xml:space="preserve">
+    <value>Delete form component</value>
+  </data>
+  <data name="kentico.formbuilder.widgetlist.nowidgets" xml:space="preserve">
+    <value>No form components found.</value>
+  </data>
+  <data name="kentico.formbuilder.component.textinput.name" xml:space="preserve">
+    <value>Text input</value>
+  </data>
+  <data name="kentico.formbuilder.component.textinput.description" xml:space="preserve">
+    <value>Provides a textbox input field.</value>
+  </data>
+  <data name="kentico.formbuilder.component.textarea.name" xml:space="preserve">
+    <value>Text area</value>
+  </data>
+  <data name="kentico.formbuilder.component.textarea.description" xml:space="preserve">
+    <value>Provides a field that allows users to enter text into an area with an adjustable size.</value>
+  </data>
+  <data name="kentico.formbuilder.component.intinput.name" xml:space="preserve">
+    <value>Numeric input</value>
+  </data>
+  <data name="kentico.formbuilder.component.intinput.description" xml:space="preserve">
+    <value>Provides a textbox input field for entering whole numbers.</value>
+  </data>
+  <data name="kentico.formbuilder.component.comparetofieldselector.nofieldsavailable" xml:space="preserve">
+    <value>No compatible form fields</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.name" xml:space="preserve">
+    <value>Compare to another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.description" xml:space="preserve">
+    <value>Compares the selected field with another existing field in the form.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.email.name" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.email.description" xml:space="preserve">
+    <value>Checks whether the email entered in the field is in standard email format.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.maximumlength.name" xml:space="preserve">
+    <value>Maximum length</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.maximumlength.description" xml:space="preserve">
+    <value>Checks whether the text entered in the field is shorter than or equal to the specified number of characters.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.minimumlength.name" xml:space="preserve">
+    <value>Minimum length</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.minimumlength.description" xml:space="preserve">
+    <value>Checks whether the text entered in the field is longer than or equal to the specified number of characters.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.maximumvalue.name" xml:space="preserve">
+    <value>Maximum value</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.maximumvalue.description" xml:space="preserve">
+    <value>Checks whether the number entered in the field is less than or equal to the specified number.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.minimumvalue.name" xml:space="preserve">
+    <value>Minimum value</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.minimumvalue.description" xml:space="preserve">
+    <value>Checks whether the number entered in the field is greater than or equal to the specified number.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.regularexpression.name" xml:space="preserve">
+    <value>Regular expression</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.regularexpression.description" xml:space="preserve">
+    <value>Checks whether there is a match for the specified regular expression within the text typed into the field.</value>
+  </data>
+  <data name="kentico.formbuilder.submit.error" xml:space="preserve">
+    <value>Submission has failed. Please try again later.</value>
+  </data>
+  <data name="kentico.formbuilder.error" xml:space="preserve">
+    <value>The selected form '{0}' is in an invalid state. See the event log for more information.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.email.title" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.maximumlength.title" xml:space="preserve">
+    <value>Maximum length is {0}</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.minimumlength.title" xml:space="preserve">
+    <value>Minimum length is {0}</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.maximumvalue.title" xml:space="preserve">
+    <value>Maximum value is {0}</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.minimumvalue.title" xml:space="preserve">
+    <value>Minimum value is {0}</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.regularexpression.title" xml:space="preserve">
+    <value>Matches regular expression '{0}'</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.uszipcode.title" xml:space="preserve">
+    <value>Is U.S. ZIP code</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.contains.title" xml:space="preserve">
+    <value>Value contains text of another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.endswith.title" xml:space="preserve">
+    <value>Value ends with text of another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.equal.title" xml:space="preserve">
+    <value>Value is equal to another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.notequal.title" xml:space="preserve">
+    <value>Value is not equal to another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.startswith.title" xml:space="preserve">
+    <value>Value starts with text of another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.lessthan.title" xml:space="preserve">
+    <value>Value is less than another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.lessthanorequal.title" xml:space="preserve">
+    <value>Value is less than or equal to another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.greaterthan.title" xml:space="preserve">
+    <value>Value is greater than another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.greaterthanorequal.title" xml:space="preserve">
+    <value>Value is greater than or equal to another field</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.maximumlength.maximumlength.label" xml:space="preserve">
+    <value>Maximum length</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.minimumlength.minimumlength.label" xml:space="preserve">
+    <value>Minimum length</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.maximumvalue.maximumvalue.label" xml:space="preserve">
+    <value>Maximum value</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.minimumvalue.minimumvalue.label" xml:space="preserve">
+    <value>Minimum value</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.regularexpression.regularexpression.label" xml:space="preserve">
+    <value>Regular expression</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.comparisontype.label" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.comparetofield.dependeefieldname.label" xml:space="preserve">
+    <value>Field</value>
+  </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.startswith" xml:space="preserve">
+    <value>Starts with</value>
+  </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.endswith" xml:space="preserve">
+    <value>Ends with</value>
+  </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.contains" xml:space="preserve">
+    <value>Contains</value>
+  </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.equal" xml:space="preserve">
+    <value>Equals</value>
+  </data>
+  <data name="kentico.formbuilder.stringfieldcomparisontypes.notequal" xml:space="preserve">
+    <value>Does not equal</value>
+  </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.lessthan" xml:space="preserve">
+    <value>Is less than</value>
+  </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.lessthanorequal" xml:space="preserve">
+    <value>Is less than or equal</value>
+  </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.greaterthan" xml:space="preserve">
+    <value>Is greater than</value>
+  </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.greaterthanorequal" xml:space="preserve">
+    <value>Is greater than or equal</value>
+  </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.equal" xml:space="preserve">
+    <value>Equals</value>
+  </data>
+  <data name="kentico.formbuilder.numericfieldcomparisontypes.notequal" xml:space="preserve">
+    <value>Does not equal</value>
+  </data>
+  <data name="kentico.formbuilder.error.componentloading" xml:space="preserve">
+    <value>The form component could not be loaded. This form will be hidden on the live site until the issue is resolved.</value>
+  </data>
+  <data name="kentico.formbuilder.error.invalidcomponentconfiguration" xml:space="preserve">
+    <value>The form component is in an invalid state and cannot be loaded.</value>
+  </data>
+  <data name="kentico.formbuilder.seeeventlog" xml:space="preserve">
+    <value>See the event log for more information.</value>
+  </data>
+  <data name="kentico.formbuilder.formitempreview.title" xml:space="preserve">
+    <value>Form item preview</value>
+  </data>
+  <data name="kentico.formbuilder.formnotfound" xml:space="preserve">
+    <value>Form with ID '{0}' was not found.</value>
+  </data>
+  <data name="kentico.formbuilder.formrecordnotfound" xml:space="preserve">
+    <value>Form record with ID '{0}' and form ID '{1}' was not found.</value>
+  </data>
+  <data name="kentico.formbuilder.mvc.nofieldselected" xml:space="preserve">
+    <value>&lt;strong&gt;Composing forms&lt;/strong&gt;&lt;br/&gt;Click on the blue plus (&lt;i aria-hidden="true" class="icon-plus"&gt;&lt;/i&gt;) button in the designer window to add new form fields. Move individual fields by dragging the handle (&lt;i aria-hidden="true" class="icon-dots-vertical"&gt;&lt;/i&gt;) or header displayed when hovering over a field. Existing fields can be removed by clicking the delete (&lt;i aria-hidden="true" class="icon-bin"&gt;&lt;/i&gt;) icon.&lt;br /&gt;&lt;br /&gt;Use the gray buttons on the left and right edges of the designer window to add or adjust sections, which define the form's overall layout.</value>
+  </data>
+  <data name="kentico.formbuilder.validation.smartfield.errorrequired" xml:space="preserve">
+    <value>A required field cannot be marked as a smart field.</value>
+  </data>
+  <data name="kentico.formbuilder.validation.smartfield.featurenotavailable" xml:space="preserve">
+    <value>Smart fields feature is not available in the Kentico edition you are using.</value>
+  </data>
+  <data name="kentico.formbuilder.component.name.invalidformat" xml:space="preserve">
+    <value>Field name '{0}' is not a valid code name.</value>
+  </data>
+  <data name="kentico.formbuilder.component.name.notunique" xml:space="preserve">
+    <value>Field name '{0}' is not unique in the form.</value>
+  </data>
+  <data name="kentico.formbuilder.fieldname.label" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="kentico.formbuilder.widget.description" xml:space="preserve">
+    <value>Displays a selected form.</value>
+  </data>
+  <data name="kentico.formbuilder.widget.formdeleted" xml:space="preserve">
+    <value>The previously selected form was deleted, please select another one.</value>
+  </data>
+  <data name="kentico.formbuilder.widget.name" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="kentico.formbuilder.widget.noforms" xml:space="preserve">
+    <value>This site does not have any forms.</value>
+  </data>
+  <data name="kentico.formbuilder.fieldname.tooltip" xml:space="preserve">
+    <value>The field's unique identifier within the form. Note that changing the field name may lead to broken form functionality (if the original name is used within macro expressions or the website's code).</value>
+  </data>
+  <data name="kentico.formbuilder.component.name.description" xml:space="preserve">
+    <value>Input for a component name.</value>
+  </data>
+  <data name="kentico.formbuilder.component.name.name" xml:space="preserve">
+    <value>Component name</value>
+  </data>
+  <data name="kentico.formbuilder.component.name.toolong" xml:space="preserve">
+    <value>Field name is too long. The maximum length is {0} characters.</value>
+  </data>
+  <data name="kentico.formbuilder.component.checkbox.description" xml:space="preserve">
+    <value>Provides a checkbox field that saves a boolean value (true for a selected checkbox, false for a cleared checkbox).</value>
+  </data>
+  <data name="kentico.formbuilder.component.checkbox.name" xml:space="preserve">
+    <value>Checkbox</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.name" xml:space="preserve">
+    <value>reCAPTCHA</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.description" xml:space="preserve">
+    <value>Provides a robust CAPTCHA service based on reCAPTCHA, which requires the user to click a checkbox indicating the user is not a robot. This will either pass the user immediately (with No CAPTCHA) or challenge them to validate whether or not they are human.</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.theme.light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.theme.dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.type.image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.type.audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.layout" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.layout.normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.layout.compact" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="kentico.formbuilder.component.checkbox.properties.text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="kentico.formbuilder.widget.selectform" xml:space="preserve">
+    <value>Select a form:</value>
+  </data>
+  <data name="kentico.formbuilder.required.label" xml:space="preserve">
+    <value>Required</value>
+  </data>
+  <data name="kentico.formbuilder.smartfield.label" xml:space="preserve">
+    <value>Smart field</value>
+  </data>
+  <data name="kentico.formbuilder.smartfield.tooltip" xml:space="preserve">
+    <value>Smart fields allow you to collect data over multiple form submissions, which helps keep your forms short and easy to complete. They are not displayed in the form initially, but instead progressively replace fields for which the user has already submitted a value. The total number of displayed fields is determined by the number of non-smart fields in the form. Important: Smart fields only appear for visitors who are tracked as contacts and view the form again after a previous submission.</value>
+  </data>
+  <data name="kentico.formbuilder.component.emailinput.name" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="kentico.formbuilder.component.usphone.name" xml:space="preserve">
+    <value>U.S. phone number</value>
+  </data>
+  <data name="kentico.formbuilder.component.emailinput.description" xml:space="preserve">
+    <value>Provides a field for entering one or more email addresses.</value>
+  </data>
+  <data name="kentico.formbuilder.component.usphone.description" xml:space="preserve">
+    <value>Provides a field for entering a phone number in U.S. format.</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.tab.always" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.tab.condition" xml:space="preserve">
+    <value>Condition</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.tab.never" xml:space="preserve">
+    <value>Never</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.noavailableconditions" xml:space="preserve">
+    <value>There are no available visibility conditions for the current field. This depends on the field type and its position in the form.</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.currentvisibilitycondition.isnotvalid" xml:space="preserve">
+    <value>The current field will always be hidden, because the selected visibility condition is invalid.</value>
+  </data>
+  <data name="kentico.formbuilder.placeholder.label" xml:space="preserve">
+    <value>Placeholder</value>
+  </data>
+  <data name="kentico.formbuilder.component.selector.properties.options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="kentico.formbuilder.component.dropdown.properties.optionlabel" xml:space="preserve">
+    <value>First option text</value>
+  </data>
+  <data name="kentico.formbuilder.component.dropdown.description" xml:space="preserve">
+    <value>Provides a drop-down selector offering multiple options. Only one option can be selected.</value>
+  </data>
+  <data name="kentico.formbuilder.component.dropdown.name" xml:space="preserve">
+    <value>Drop-down list</value>
+  </data>
+  <data name="kentico.formbuilder.component.radiobuttons.description" xml:space="preserve">
+    <value>Provides a selector offering multiple options in the form of radio buttons. Only one option can be selected.</value>
+  </data>
+  <data name="kentico.formbuilder.component.radiobuttons.name" xml:space="preserve">
+    <value>Radio buttons</value>
+  </data>
+  <data name="kentico.formbuilder.component.selector.validation.selectedvaluenotpresent" xml:space="preserve">
+    <value>The selected value is not present in the list of options.</value>
+  </data>
+  <data name="kentico.formbuilder.component.selector.properties.options.tooltip" xml:space="preserve">
+    <value>To specify the list of options: 
+a) Type one value per line. In this case, the value saved into the field is the same as the option's displayed text. For example:
+Option1
+Option2
+b) Type value and text pairs in format value;text (each on a new line). The value is saved into the field and the text is displayed in the list of options. For example:
+usa;United States
+cz;Czech Republic</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentagreement.description" xml:space="preserve">
+    <value>Provides a checkbox field that allows users to give agreements with a pre-selected consent. Displays the selected consent's short text next to the checkbox.</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentagreement.name" xml:space="preserve">
+    <value>Consent agreement</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentagreement.properties.consenttext" xml:space="preserve">
+    <value>Consent</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentselector.description" xml:space="preserve">
+    <value>Provides a drop-down list selector of consents (defined in the Data protection application).</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentselector.name" xml:space="preserve">
+    <value>Consent selector</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentselector.optionlabel" xml:space="preserve">
+    <value>(select consent)</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentselector.invalidconsentselected" xml:space="preserve">
+    <value>Please select an existing consent.</value>
+  </data>
+  <data name="kentico.formbuilder.error.property" xml:space="preserve">
+    <value>Property '{0}' is in an invalid state.</value>
+  </data>
+  <data name="kentico.formbuilder.boolfieldvaluetypes.isfalse" xml:space="preserve">
+    <value>Is false</value>
+  </data>
+  <data name="kentico.formbuilder.boolfieldvaluetypes.istrue" xml:space="preserve">
+    <value>Is true</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentagreement.properties.consentnotavailable" xml:space="preserve">
+    <value>No consent has been selected or the consent is no longer available. Please select one in the field's Properties panel.</value>
+  </data>
+  <data name="kentico.formbuilder.section.default.description" xml:space="preserve">
+    <value>A single column of form fields.</value>
+  </data>
+  <data name="kentico.formbuilder.section.default.name" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.selectedcondition.label" xml:space="preserve">
+    <value>{0} is visible if:</value>
+  </data>
+  <data name="kentico.formbuilder.component.dropdown.properties.optionlabel.tooltip" xml:space="preserve">
+    <value>Adds an item to the start of the list of options, with the entered text and an empty value. For example: (please select)</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.validationtab.novalidationrules" xml:space="preserve">
+    <value>No validation rules are available for this component.</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.alertheader" xml:space="preserve">
+    <value>Conditional visibility</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.selectedcondition.placeholder" xml:space="preserve">
+    <value>(select field or custom condition)</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilitytab.name" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="kentico.formbuilder.error.propertiespanel" xml:space="preserve">
+    <value>An error has occurred when configuring the form component. This may be caused by incorrectly initialized editing components. See the event log for more information.</value>
+  </data>
+  <data name="kentico.formbuilder.error.view" xml:space="preserve">
+    <value>Error rendering view for '{0}' component.</value>
+  </data>
+  <data name="kentico.formbuilder.warning.formslimit" xml:space="preserve">
+    <value>You have exceeded the maximum number of forms allowed by your license edition. Any changes won't be saved.</value>
+  </data>
+  <data name="kentico.formbuilder.component.invalidcomponent.name" xml:space="preserve">
+    <value>Invalid component</value>
+  </data>
+  <data name="kentico.formbuilder.error.sectionrender" xml:space="preserve">
+    <value>An error has occurred when rendering one or more form sections. See the event log for more information.</value>
+  </data>
+  <data name="kentico.formbuilder.error.sectionconfig" xml:space="preserve">
+    <value>A form section is unavailable due to a misconfiguration. Its Form components have been moved to a default section. Saving the form in this state will result in a loss of the existing layout. See the event log for more information.</value>
+  </data>
+  <data name="kentico.formbuilder.section.missingNonemptyZone" xml:space="preserve">
+    <value>Some components cannot be displayed, because sections with the following identifiers do not contain enough component zones.</value>
+  </data>
+  <data name="kentico.formbuilder.section.withoutZones" xml:space="preserve">
+    <value>Sections with the following section identifiers do not contain any component zones. Sections without component zones are not supported.</value>
+  </data>
+</root>

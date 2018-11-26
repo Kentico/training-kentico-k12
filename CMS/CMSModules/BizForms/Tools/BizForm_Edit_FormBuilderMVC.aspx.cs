@@ -26,9 +26,21 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_FormBuilderMVC : CMS
             return;
         }
 
-        ScriptHelper.RegisterModule(this, "CMS.Builder/FormBuilder/Messaging",  new { frameId = formBuilderFrame.ClientID });
-
+        var uri = new Uri(presentationUrl);
+        var targetOrigin = uri.GetLeftPart(UriPartial.Authority);
         var path = string.Format(FORMBUILDER_ROUTE_TEMPLATE, EditedForm.FormID);
-        formBuilderFrame.Src = URLHelper.AddParameterToUrl(presentationUrl.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName), BUILDER_MODE_QUERY_STRING_NAME, FORM_BUILDER_MODE);
+
+        ScriptHelper.RegisterModule(this, "CMS.Builder/FormBuilder/Messaging", new
+        {
+            frameId = formBuilderFrame.ClientID,
+            origin = targetOrigin
+        });
+
+        // Modify frame 'src' attribute and add administration domain into it
+        ScriptHelper.RegisterModule(this, "CMS.Builder/FrameSrcAttributeModifier", new
+        {
+            frameId = formBuilderFrame.ClientID,
+            frameSrc = URLHelper.AddParameterToUrl(presentationUrl.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName), BUILDER_MODE_QUERY_STRING_NAME, FORM_BUILDER_MODE),
+        });
     }
 }

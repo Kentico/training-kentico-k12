@@ -26,6 +26,19 @@ public partial class CMSModules_SmartSearch_Controls_Edit_ClassFields : CMSAdmin
     private SearchSettings mSearchSettings;
     private bool mDisplaySetAutomatically = true;
 
+    private static readonly Dictionary<string, Dictionary<string, HashSet<string>>> mRequiredFields = new Dictionary<string, Dictionary<string, HashSet<string>>>(StringComparer.OrdinalIgnoreCase)
+    {
+        {
+            PredefinedObjectType.DOCUMENT, new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase)
+            {
+                { "DocumentId", new HashSet<string>(StringComparer.OrdinalIgnoreCase) { AzureSearchFieldFlags.RETRIEVABLE, AzureSearchFieldFlags.FILTERABLE, SearchSettings.SEARCHABLE } },
+                { "NodeID", new HashSet<string>(StringComparer.OrdinalIgnoreCase) { AzureSearchFieldFlags.RETRIEVABLE, AzureSearchFieldFlags.FILTERABLE, SearchSettings.SEARCHABLE } },
+                { "NodeLinkedNodeID", new HashSet<string>(StringComparer.OrdinalIgnoreCase) { AzureSearchFieldFlags.RETRIEVABLE, AzureSearchFieldFlags.FILTERABLE, SearchSettings.SEARCHABLE } },
+                { "NodeAliasPath", new HashSet<string>(StringComparer.OrdinalIgnoreCase) { AzureSearchFieldFlags.RETRIEVABLE, AzureSearchFieldFlags.FILTERABLE, SearchSettings.SEARCHABLE } },
+            }
+        }
+    };
+
     #endregion
 
 
@@ -216,7 +229,7 @@ public partial class CMSModules_SmartSearch_Controls_Edit_ClassFields : CMSAdmin
         table.CssClass = "table table-hover";
         table.CellPadding = -1;
         table.CellSpacing = -1;
-        
+
         // Create table header
         TableHeaderRow topHeader = new TableHeaderRow();
         TableHeaderRow header = new TableHeaderRow();
@@ -367,7 +380,7 @@ public partial class CMSModules_SmartSearch_Controls_Edit_ClassFields : CMSAdmin
             string fieldname = txt != null ? txt.Text : String.Empty;
 
             bool fieldChanged;
-            
+
             var flags = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
 
             flags.Add(SearchSettings.CONTENT, content);
@@ -416,10 +429,13 @@ public partial class CMSModules_SmartSearch_Controls_Edit_ClassFields : CMSAdmin
     /// </summary>
     private TableCell CreateTableCell(string searchField, ColumnDefinition column, bool value, string toolTipResourceString)
     {
+        var isRequiredField = IsFieldConfigurationRequired(mDci.ClassName, column.ColumnName, searchField);
+
         var tc = new TableCell();
         var chk = new CMSCheckBox();
         chk.ID = column.ColumnName + searchField;
-        chk.Checked = value;
+        chk.Enabled = !isRequiredField;
+        chk.Checked = isRequiredField || value;
         chk.ToolTipResourceString = toolTipResourceString;
         tc.Controls.Add(chk);
 
@@ -441,6 +457,23 @@ public partial class CMSModules_SmartSearch_Controls_Edit_ClassFields : CMSAdmin
             thc.AddCssClass("subheader");
         }
         tableHeaderRow.Cells.Add(thc);
+    }
+
+
+    /// <summary>
+    /// Returns true, when the field and it's configuration is always required by the search infrastructure.
+    /// </summary>
+    private static bool IsFieldConfigurationRequired(string className, string fieldName, string searchFieldFlag)
+    {
+        if (mRequiredFields.TryGetValue(className, out Dictionary<string, HashSet<string>> fieldsAndFlags))
+        {
+            if (fieldsAndFlags.TryGetValue(fieldName, out HashSet<string> flags))
+            {
+                return flags.Contains(searchFieldFlag);
+            }
+        }
+
+        return false;
     }
 
     #endregion

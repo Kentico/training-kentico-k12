@@ -7,13 +7,10 @@ using Business.Services.Query;
 
 namespace Business.Repository.Menu
 {
-    public class MenuRepository : IMenuRepository
+    public class MenuRepository : BaseRepository, IMenuRepository
     {
-        private IDocumentQueryService DocumentQueryService { get; }
-
-        public MenuRepository(IDocumentQueryService documentQueryService)
+        public MenuRepository(IDocumentQueryService documentQueryService) : base(documentQueryService)
         {
-            DocumentQueryService = documentQueryService;
         }
 
         public IEnumerable<MenuItemDto> GetMenuItems()

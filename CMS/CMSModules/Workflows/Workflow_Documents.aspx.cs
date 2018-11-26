@@ -531,7 +531,7 @@ public partial class CMSModules_Workflows_Workflow_Documents : CMSWorkflowPage
         {
             AddLog(string.Format(GetString("content.publishedalready"), pathCulture));
         }
-        else if ((currentStep == null) || !currentStep.StepIsPublished)
+        else if (currentStep == null || !currentStep.StepIsPublished)
         {
             AddError(string.Format(GetString("content.PublishWasApproved"), pathCulture));
             return true;

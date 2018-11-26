@@ -1702,13 +1702,6 @@
             <param name="context">Evaluation context with child resolver</param>
             <param name="parameters">Method parameters</param>
         </member>
-        <member name="M:CMS.Ecommerce.Web.UI.EcommerceMethods.GetEproductUrl(CMS.MacroEngine.EvaluationContext,System.Object[])">
-            <summary>
-            Returns e-product download URL.
-            </summary>
-            <param name="context">Evaluation context with child resolver</param>
-            <param name="parameters">Method parameters</param>
-        </member>
         <member name="M:CMS.Ecommerce.Web.UI.EcommerceMethods.GetProductUrlByGUID(CMS.MacroEngine.EvaluationContext,System.Object[])">
             <summary>
             Returns user friendly URL of the specified SKU and site name.
@@ -2598,13 +2591,6 @@
             Gets UI page URL for URL configuration object.
             </summary>
             <param name="settings">URL configuration object</param>
-        </member>
-        <member name="M:CMS.Ecommerce.Web.UI.ProductUIHelper.GetProductDialogConfig(System.String,System.String)">
-            <summary>
-            Creates DialogConfiguration object for specified product document action.
-            </summary>
-            <param name="action">Action to create configuration for.</param>
-            <param name="culture">Culture code</param>
         </member>
         <member name="M:CMS.Ecommerce.Web.UI.ProductUIHelper.EnsureProductBreadcrumbs(CMS.UIControls.Breadcrumbs,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>

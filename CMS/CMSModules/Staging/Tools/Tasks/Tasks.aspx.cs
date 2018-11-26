@@ -10,7 +10,6 @@ using CMS.Base.Web.UI.ActionsConfig;
 using CMS.DataEngine;
 using CMS.DocumentEngine;
 using CMS.Helpers;
-using CMS.PortalEngine;
 using CMS.SiteProvider;
 using CMS.Synchronization;
 using CMS.Synchronization.Web.UI;
@@ -267,7 +266,7 @@ function SelectDocNode(serverId, nodeId) {
         {
             case "tasktitle":
                 DataRowView dr = (DataRowView)parameter;
-                return GetDocumentLink(dr["TaskDocumentID"], HTMLHelper.HTMLEncode(TextHelper.LimitLength(dr["TaskTitle"].ToString(), 100)), dr["TaskType"]);
+                return HTMLHelper.HTMLEncode(TextHelper.LimitLength(dr["TaskTitle"].ToString(), 100));
         }
 
         return base.OnExternalDataBound(sender, sourceName, parameter);
@@ -289,41 +288,6 @@ function SelectDocNode(serverId, nodeId) {
         pnlUpdate.Update();
 
         ScriptHelper.RegisterStartupScript(this, typeof(string), "changeServer", ScriptHelper.GetScript("ChangeServer(" + SelectedServerID + ");"));
-    }
-    
-    #endregion
-
-
-    #region "Grid helper methods"
-
-    /// <summary>
-    /// Returns link for document view.
-    /// </summary>
-    /// <param name="documentId">Document ID</param>
-    /// <param name="taskTitle">Task title</param>
-    /// <param name="taskType">Type of the task</param>
-    protected string GetDocumentLink(object documentId, object taskTitle, object taskType)
-    {
-        string title = ValidationHelper.GetString(taskTitle, string.Empty);
-        string type = ValidationHelper.GetString(taskType, string.Empty).ToLowerCSafe();
-        int docId = ValidationHelper.GetInteger(documentId, 0);
-
-        if ((type != "deletedoc") && (type != "deleteallculutres"))
-        {
-            string viewMode = Convert.ToString((int)ViewModeEnum.LiveSite);
-
-            // For publish tasks display document in preview mode
-            if ((type == "publishdoc") || (type == "archivedoc"))
-            {
-                viewMode = Convert.ToString((int)ViewModeEnum.Preview);
-            }
-
-            // Get document url
-            string docUrl = ResolveUrl(TreePathUtils.GetDocumentUrl(docId));
-            docUrl = URLHelper.AddParameterToUrl(docUrl, "viewmode", viewMode);
-            return "<a target=\"_blank\" href=\"" + docUrl + "\">" + HTMLHelper.HTMLEncode(title) + "</a>";
-        }
-        return title;
     }
 
     #endregion
@@ -360,7 +324,7 @@ function SelectDocNode(serverId, nodeId) {
         // Run asynchronous action
         RunAsync(SynchronizeAll);
     }
-    
+
 
     protected void btnSyncSelected_Click(object sender, EventArgs e)
     {
@@ -368,7 +332,7 @@ function SelectDocNode(serverId, nodeId) {
         if (list.Count > 0)
         {
             ctlAsyncLog.TitleText = GetString("Synchronization.Title");
-            
+
             // Run asynchronous action
             RunAsync(p => SynchronizeSelected(list));
         }
@@ -400,7 +364,7 @@ function SelectDocNode(serverId, nodeId) {
 
 
     #region "Async methods"
-    
+
     /// <summary>
     /// Prepares staging update tasks for documents by given event code and run all tasks
     /// update, delete, create etc. on given subtree.
@@ -557,7 +521,7 @@ function SelectDocNode(serverId, nodeId) {
 
         RunAction("Deletion", "DELETESELECTEDDOCS", () => DeleteTasks(list));
     }
-    
+
 
     /// <summary>
     /// Deletes all tasks.

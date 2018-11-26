@@ -192,7 +192,12 @@ public partial class CMSModules_Translations_Controls_UI_TranslationSubmission_L
                 break;
 
             case "delete":
-                err = TranslationServiceHelper.CancelSubmission(submissionInfo);
+                var serviceInfo = TranslationServiceInfoProvider.GetTranslationServiceInfo(submissionInfo.SubmissionServiceID);
+                if (serviceInfo.TranslationServiceSupportsCancel)
+                {
+                    err = TranslationServiceHelper.CancelSubmission(submissionInfo);
+                }
+                
                 if (String.IsNullOrEmpty(err))
                 {
                     submissionInfo.Delete();

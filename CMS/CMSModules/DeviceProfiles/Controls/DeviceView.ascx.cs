@@ -45,6 +45,15 @@ public partial class CMSModules_DeviceProfiles_Controls_DeviceView : CMSAdminCon
 
 
     /// <summary>
+    /// ID of the device's iframe.
+    /// </summary>
+    public string FrameID
+    {
+        get;
+    } = "pageview";
+
+
+    /// <summary>
     /// Returns encoded URL of page
     /// </summary>
     protected String ViewPageSource

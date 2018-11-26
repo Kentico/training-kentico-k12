@@ -148,6 +148,17 @@
             Prevents an external application (e.g. MVC) with registered CMSApplication module from running without license.
             </remarks>
         </member>
+        <member name="T:CMS.LicenseProvider.ClearLicenseLimitationCacheWebFarmTask">
+            <summary>
+            Web farm task used to clear basic license limitation tables.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="M:CMS.LicenseProvider.ClearLicenseLimitationCacheWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.LicenseProvider.LicenseHelper.ClearLicenseLimitation(System.Boolean)"/> method.
+            </summary>
+        </member>
         <member name="T:CMS.LicenseProvider.CanDisableLicenseCheckAttribute">
             <summary>
             Marks the method or class as one which can disable the license check
@@ -453,7 +464,7 @@
             If not, it throws and exception.
             </summary>
         </member>
-        <member name="M:CMS.LicenseProvider.LicenseHelper.ClearLicenseLimitation">
+        <member name="M:CMS.LicenseProvider.LicenseHelper.ClearLicenseLimitation(System.Boolean)">
             <summary>
             Clear license limitations tables.
             </summary>
@@ -580,7 +591,7 @@
             Trial key length.
             </summary>
         </member>
-        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.validProductCodes">
+        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.ValidProductCodes">
             <summary>
             Valid product codes for current version.
             </summary>
@@ -600,17 +611,17 @@
             Defines when the all licenses within the system will expire (used for time limited builds).
             </summary>
         </member>
-        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.oVersion">
+        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.mVersion">
             <summary>
             License version
             </summary>
         </member>
-        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.iValidationResult">
+        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.mValidationResult">
             <summary>
             Validation result
             </summary>
         </member>
-        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.cEditionValue">
+        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.mEditionValue">
             <summary>
             Edition type value
             </summary>
@@ -623,11 +634,6 @@
         <member name="F:CMS.LicenseProvider.LicenseKeyInfo.mLicenseServers">
             <summary>
             License servers
-            </summary>
-        </member>
-        <member name="F:CMS.LicenseProvider.LicenseKeyInfo.F0">
-            <summary>
-            Contains license custom modules - currently disabled functionality.
             </summary>
         </member>
         <member name="F:CMS.LicenseProvider.LicenseKeyInfo.mOwner">
@@ -721,11 +727,6 @@
             Updates the object using appropriate provider.
             </summary>
         </member>
-        <member name="M:CMS.LicenseProvider.LicenseKeyInfo.LoadCustoModules(System.String)">
-            <summary>
-            Load custom modules.
-            </summary>
-        </member>
         <member name="M:CMS.LicenseProvider.LicenseKeyInfo.ProductCode">
             <summary>
             Creates product code of license key info.
@@ -761,6 +762,13 @@
             <summary>
             Computes trial key using SHA1 hash.
             </summary>
+        </member>
+        <member name="M:CMS.LicenseProvider.LicenseKeyInfo.VerifyRSA(System.String,System.String)">
+            <summary>
+            Verifies RSA signed license key.
+            </summary>
+            <param name="inputText">License key</param>
+            <param name="publicKey">RSA public key</param>
         </member>
         <member name="T:CMS.LicenseProvider.LicenseKeyInfoProvider">
             <summary>
@@ -925,16 +933,6 @@
         <member name="M:CMS.LicenseProvider.LicenseKeyInfoProvider.RemoveFromStaticCollection(System.String)">
             <summary>
             Removes domain from cached collection of licencese
-            </summary>
-        </member>
-        <member name="M:CMS.LicenseProvider.LicenseKeyInfoProvider.GetModules">
-            <summary>
-            Returns modules hashtable.
-            </summary>
-        </member>
-        <member name="M:CMS.LicenseProvider.LicenseKeyInfoProvider.GetServerVariables">
-            <summary>
-            Init custom modules.
             </summary>
         </member>
         <member name="M:CMS.LicenseProvider.LicenseKeyInfoProvider.IsLicenseExistForDomain(CMS.LicenseProvider.LicenseKeyInfo)">

@@ -4,6 +4,16 @@
         <name>CMS.HealthMonitoring</name>
     </assembly>
     <members>
+        <member name="T:CMS.HealthMonitoring.ClearHealthMonitoringEnabledStatusWebFarmTask">
+            <summary>
+            Web farm task used to clear enabled status of health monitoring.
+            </summary>
+        </member>
+        <member name="M:CMS.HealthMonitoring.ClearHealthMonitoringEnabledStatusWebFarmTask.ExecuteTask">
+            <summary>
+            Clears the enabled status of the health monitoring so it can reload.
+            </summary>
+        </member>
         <member name="T:CMS.HealthMonitoring.CategoryType">
             <summary>
             Category type.
@@ -368,10 +378,11 @@
             Indicates if web application can log to the counters.
             </summary>
         </member>
-        <member name="M:CMS.HealthMonitoring.HealthMonitoringHelper.Clear">
+        <member name="M:CMS.HealthMonitoring.HealthMonitoringHelper.Clear(System.Boolean)">
             <summary>
             Clears the enabled status of the health monitoring so it can reload
             </summary>
+            <param name="logTask">Indicates whether web farm task should be logged.</param>
         </member>
         <member name="M:CMS.HealthMonitoring.HealthMonitoringHelper.GetCategoryName(System.String,CMS.HealthMonitoring.CategoryType)">
             <summary>
@@ -771,7 +782,7 @@
         <member name="M:CMS.HealthMonitoring.HealthMonitoringModule.OnInit">
             <summary>
             Initializes the module
-            </summary>    
+            </summary>
         </member>
         <member name="T:CMS.HealthMonitoring.HealthMonitoringModuleMetadata">
             <summary>
@@ -846,6 +857,16 @@
         <member name="M:CMS.HealthMonitoring.PerformanceCounterTimer.Execute">
             <summary>
             Logs to the counters.
+            </summary>
+        </member>
+        <member name="T:CMS.HealthMonitoring.HealthMonitoringSynchronization">
+            <summary>
+            Synchronization helper class for the health monitoring module.
+            </summary>
+        </member>
+        <member name="M:CMS.HealthMonitoring.HealthMonitoringSynchronization.Init">
+            <summary>
+            Initializes the tasks for clearing enabled status of health monitoring synchronization.
             </summary>
         </member>
     </members>

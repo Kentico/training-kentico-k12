@@ -79,7 +79,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row" runat="server" ID="divPassword">
                                     <div class="logon-label">
                                         <cms:LocalizedLabel ID="lblPassword" runat="server" AssociatedControlID="Password" CssClass="control-label" />
                                     </div>
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
 
-                                <asp:PlaceHolder runat="server" ID="plcRemeberMe">
+                                <asp:PlaceHolder runat="server" ID="plcRememberMe">
                                     <div class="row">
                                         <div class="logon-text logon-text-offset">
                                             <cms:LocalizedCheckBox ID="chkRememberMe" ResourceString="LogonForm.RememberMe" runat="server" />

@@ -24,30 +24,46 @@ public partial class CMSModules_Groups_Tools_Forums_Posts_ForumPost_View : CMSGr
                 "function BackToListing() { location.href = '" + ResolveUrl("~/CMSModules/Groups/Tools/Forums/Posts/ForumPost_Listing.aspx?postid=" + ScriptHelper.GetString(postView.ListingPost, false)) + "'; }\n"));
         }
 
-        postView.OnCheckPermissions += postView_OnCheckPermissions;
+        postView.OnCheckPermissions += CheckGroupPermissions;
 
         InitializeMasterPage();
     }
 
 
-    protected void postView_OnCheckPermissions(string permissionType, CMSAdminControl sender)
+    protected void CheckGroupPermissions(string permissionType, CMSAdminControl sender)
     {
         int groupId = 0;
-        ForumPostInfo fpi = ForumPostInfoProvider.GetForumPostInfo(postView.PostID);
-        if (fpi != null)
+
+        if (postView.PostID == 0)
         {
-            ForumInfo fi = ForumInfoProvider.GetForumInfo(fpi.PostForumID);
-            if (fi != null)
+            groupId = GetGroupIdFromForum(postView.ForumID);
+        }
+        else
+        {
+            var post = ForumPostInfoProvider.GetForumPostInfo(postView.PostID);
+            if (post != null)
             {
-                ForumGroupInfo fgi = ForumGroupInfoProvider.GetForumGroupInfo(fi.ForumGroupID);
-                if (fgi != null)
-                {
-                    groupId = fgi.GroupGroupID;
-                }
+                groupId = GetGroupIdFromForum(post.PostForumID);
+            }
+        }        
+
+        CheckGroupPermissions(groupId, CMSAdminControl.PERMISSION_MANAGE);
+    }
+
+
+    private int GetGroupIdFromForum(int forumId)
+    {
+        var forum = ForumInfoProvider.GetForumInfo(forumId);
+        if (forum != null)
+        {
+            var forumGroup = ForumGroupInfoProvider.GetForumGroupInfo(forum.ForumGroupID);
+            if (forumGroup != null)
+            {
+                return forumGroup.GroupGroupID;
             }
         }
 
-        CheckGroupPermissions(groupId, CMSAdminControl.PERMISSION_MANAGE);
+        return 0;
     }
 
 

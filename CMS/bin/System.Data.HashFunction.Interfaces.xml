@@ -9,14 +9,35 @@
             Common interface to non-cryptographic hash functions.
             </summary>
         </member>
+        <member name="P:System.Data.HashFunction.IHashFunction.HashSizeInBits">
+            <summary>
+            Size of produced hash, in bits.
+            </summary>
+            <value>
+            The size of the hash, in bits.
+            </value>
+        </member>
         <member name="M:System.Data.HashFunction.IHashFunction.ComputeHash(System.Byte[])">
             <summary>
             Computes hash value for given byte array.
             </summary>
             <param name="data">Array of data to hash.</param>
             <returns>
-            Hash value of the data as byte array.
+            Hash value of the data.
             </returns>
+            <exception cref="T:System.ArgumentNullException">;<paramref name="data"/></exception>
+        </member>
+        <member name="M:System.Data.HashFunction.IHashFunction.ComputeHash(System.Byte[],System.Threading.CancellationToken)">
+            <summary>
+            Computes hash value for given byte array.
+            </summary>
+            <param name="data">Array of data to hash.</param>
+            <param name="cancellationToken">A cancellation token to observe while calculating the hash value.</param>
+            <returns>
+            Hash value of the data.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">;<paramref name="data"/></exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The <paramref name="cancellationToken"/> was canceled.</exception>
         </member>
         <member name="M:System.Data.HashFunction.IHashFunction.ComputeHash(System.IO.Stream)">
             <summary>
@@ -24,16 +45,25 @@
             </summary>
             <param name="data">Stream of data to hash.</param>
             <returns>
-            Hash value of data as byte array.
+            Hash value of the data.
             </returns>
+            <exception cref="T:System.ArgumentNullException">;<paramref name="data"/></exception>
+            <exception cref="T:System.ArgumentException">Stream must be readable.;<paramref name="data"/></exception>
+            <exception cref="T:System.ArgumentException">Stream must be seekable for this type of hash function.;<paramref name="data"/></exception>
         </member>
-        <member name="P:System.Data.HashFunction.IHashFunction.HashSize">
+        <member name="M:System.Data.HashFunction.IHashFunction.ComputeHash(System.IO.Stream,System.Threading.CancellationToken)">
             <summary>
-            Size of produced hash, in bits.
+            Computes hash value for given stream.
             </summary>
-            <value>
-            The size of the hash, in bits.
-            </value>
+            <param name="data">Stream of data to hash.</param>
+            <param name="cancellationToken">A cancellation token to observe while calculating the hash value.</param>
+            <returns>
+            Hash value of the data.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">;<paramref name="data"/></exception>
+            <exception cref="T:System.ArgumentException">Stream must be readable.;<paramref name="data"/></exception>
+            <exception cref="T:System.ArgumentException">Stream must be seekable for this type of hash function.;<paramref name="data"/></exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The <paramref name="cancellationToken"/> was canceled.</exception>
         </member>
         <member name="T:System.Data.HashFunction.IHashFunctionAsync">
             <summary>
@@ -46,11 +76,80 @@
             </summary>
             <param name="data">Stream of data to hash.</param>
             <returns>
-            Hash value of data as byte array.
+            Hash value of the data.
             </returns>
             <remarks>
             All stream IO is done via ReadAsync.
             </remarks>
+            <exception cref="T:System.ArgumentNullException">;<paramref name="data"/></exception>
+            <exception cref="T:System.ArgumentException">Stream must be readable.;<paramref name="data"/></exception>
+            <exception cref="T:System.ArgumentException">Stream must be seekable for this type of hash function.;<paramref name="data"/></exception>
+        </member>
+        <member name="M:System.Data.HashFunction.IHashFunctionAsync.ComputeHashAsync(System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Computes hash value for given stream asynchronously.
+            </summary>
+            <param name="data">Stream of data to hash.</param>
+            <param name="cancellationToken">A cancellation token to observe while calculating the hash value.</param>
+            <returns>
+            Hash value of the data.
+            </returns>
+            <remarks>
+            All stream IO is done via ReadAsync.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">;<paramref name="data"/></exception>
+            <exception cref="T:System.ArgumentException">Stream must be readable.;<paramref name="data"/></exception>
+            <exception cref="T:System.ArgumentException">Stream must be seekable for this type of hash function.;<paramref name="data"/></exception>
+            <exception cref="T:System.Threading.Tasks.TaskCanceledException">The <paramref name="cancellationToken"/> was canceled.</exception>
+        </member>
+        <member name="T:System.Data.HashFunction.IHashValue">
+            <summary>
+            Common interface to represent a hash value. 
+            </summary>
+        </member>
+        <member name="P:System.Data.HashFunction.IHashValue.BitLength">
+            <summary>
+            Gets the length of the hash value in bits.
+            </summary>
+            <value>
+            The length of the hash value bit.
+            </value>
+        </member>
+        <member name="P:System.Data.HashFunction.IHashValue.Hash">
+            <summary>
+            Gets resulting byte array.
+            </summary>
+            <value>
+            The hash value.
+            </value>
+            <remarks>
+            Implementations should coerce the input hash value to be <see cref="P:System.Data.HashFunction.IHashValue.BitLength"/> size in bits.
+            </remarks>
+        </member>
+        <member name="M:System.Data.HashFunction.IHashValue.AsBitArray">
+            <summary>
+            Converts the hash value to a bit array.
+            </summary>
+            <returns>A <see cref="T:System.Collections.BitArray"/> instance to represent this hash value.</returns>
+        </member>
+        <member name="M:System.Data.HashFunction.IHashValue.AsHexString">
+            <summary>
+            Converts the hash value to a hexadecimal string.
+            </summary>
+            <returns>A hex string representing this hash value.</returns>
+        </member>
+        <member name="M:System.Data.HashFunction.IHashValue.AsHexString(System.Boolean)">
+            <summary>
+            Converts the hash value to a hexadecimal string.
+            </summary>
+            <param name="uppercase"><c>true</c> if the result should use uppercase hex values; otherwise <c>false</c>.</param>
+            <returns>A hex string representing this hash value.</returns>
+        </member>
+        <member name="M:System.Data.HashFunction.IHashValue.AsBase64String">
+            <summary>
+            Converts the hash value to a the base64 string.
+            </summary>
+            <returns>A base64 string representing this hash value.</returns>
         </member>
     </members>
 </doc>

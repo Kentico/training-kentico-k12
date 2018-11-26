@@ -2964,6 +2964,11 @@
             Version guid prefix used in control path
             </summary>
         </member>
+        <member name="P:CMS.IO.VirtualPathHelper.VirtualPathProviderAllowedByDefault">
+            <summary>
+            Indicates whether virtual path provider should be used when virtual paths are registered on application start and CMSUseVirtualPathProvider application key is not defined. Default is true.
+            </summary>
+        </member>
         <member name="P:CMS.IO.VirtualPathHelper.UsingVirtualPathProvider">
             <summary>
             Indicates whether system is using virtual path provider.

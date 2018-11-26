@@ -119,7 +119,7 @@
         </member>
         <member name="T:CMS.EmailEngine.EmailHandlers">
             <summary>
-            Event handlers for e-mail module 
+            Event handlers for e-mail module
             </summary>
         </member>
         <member name="M:CMS.EmailEngine.EmailHandlers.Init">
@@ -127,9 +127,9 @@
             Initializes the event handlers
             </summary>
         </member>
-        <member name="M:CMS.EmailEngine.EmailHandlers.CancelEmailSending(System.Object,CMS.DataEngine.SettingsKeyChangedEventArgs)">
+        <member name="M:CMS.EmailEngine.EmailHandlers.FlushSmtpServers(System.Object,CMS.DataEngine.SettingsKeyChangedEventArgs)">
             <summary>
-            Cancels sending of emails if related settings key changed
+            Flushes SMTP server lookup table if related settings key changed.
             </summary>
         </member>
         <member name="T:CMS.EmailEngine.EmailModuleMetadata">
@@ -1056,12 +1056,12 @@
         <member name="M:CMS.EmailEngine.EmailHelper.Queue.SendAllFailed(System.Int32)">
             <summary>
             Sends all e-mails whose delivery failed for given <paramref name="siteId"/>.
-            </summary>            
+            </summary>
         </member>
         <member name="M:CMS.EmailEngine.EmailHelper.Queue.SendAllFailed">
             <summary>
             Sends all e-mails whose delivery failed.
-            </summary>            
+            </summary>
         </member>
         <member name="M:CMS.EmailEngine.EmailHelper.Queue.SendAll(System.Int32)">
             <summary>
@@ -1071,12 +1071,12 @@
         <member name="M:CMS.EmailEngine.EmailHelper.Queue.SendAll">
             <summary>
             Sends all e-mails waiting in the queue.
-            </summary>            
+            </summary>
         </member>
         <member name="M:CMS.EmailEngine.EmailHelper.Queue.SendScheduledAndFailed(System.DateTime)">
             <summary>
             Sends all e-mails waiting in the queue. Also sends all failed emails, which are newer than <see cref="T:System.DateTime"/>.
-            </summary>            
+            </summary>
         </member>
         <member name="M:CMS.EmailEngine.EmailHelper.Queue.SendScheduled">
             <summary>
@@ -1084,10 +1084,11 @@
             </summary>
             <returns>An information message that describes the problem during sending if there was one</returns>
         </member>
-        <member name="M:CMS.EmailEngine.EmailHelper.Queue.CancelSending">
+        <member name="M:CMS.EmailEngine.EmailHelper.Queue.CancelSending(System.Boolean)">
             <summary>
-            Cancel currently running mailout.
+            Cancels currently running mailout and optionally logs a web farm task propagating the cancellation.
             </summary>
+            <param name="logTask">A value indicating whether to log a web farm task.</param>
         </member>
         <member name="T:CMS.EmailEngine.EmailHelper.Settings">
             <summary>
@@ -1332,7 +1333,7 @@
         <member name="M:CMS.EmailEngine.EmailHelper.DebugEmail(System.Net.Mail.MailMessage)">
             <summary>
             Logs e-mails and simulates failures if enabled.
-            </summary>        
+            </summary>
             <param name="message">E-mail message to process</param>
             <returns>true, if debugging was performed</returns>
         </member>
@@ -1373,7 +1374,7 @@
             <summary>
             Gets the encoding for e-mail message. If encoding is not specified explicitly, then either default or UTF-8 is used.
             </summary>
-            <param name="siteName">Site name</param>        
+            <param name="siteName">Site name</param>
             <returns>E-mail message encoding</returns>
         </member>
         <member name="M:CMS.EmailEngine.EmailHelper.Fill(System.Net.Mail.MailAddressCollection,System.String)">
@@ -2717,6 +2718,20 @@
             <param name="siteId">Site ID</param>
             <returns>Iterator with site-specific SMTP server IDs</returns>
         </member>
+        <member name="M:CMS.EmailEngine.SMTPServerInfoProvider.FlushSMTPServerLookupTable">
+            <summary>
+            Flushes the <see cref="T:CMS.EmailEngine.SMTPServerLookupTable"/> singleton instance
+            and logs the corresponding web farm task.
+            </summary>
+        </member>
+        <member name="M:CMS.EmailEngine.SMTPServerInfoProvider.ProcessWebFarmTaskInternal(System.String,System.String,System.Byte[])">
+            <summary>
+            Runs the processing of specific web farm task for current provider.
+            </summary>
+            <param name="actionName">Action name</param>
+            <param name="data">Custom task data</param>
+            <param name="binary">Binary data</param>
+        </member>
         <member name="T:CMS.EmailEngine.SMTPServerLookupTable">
             <summary>
             Represents a two-dimensional jagged lookup table to retrieve server IDs in a round robin fashion.
@@ -2753,7 +2768,7 @@
         </member>
         <member name="M:CMS.EmailEngine.SMTPServerLookupTable.Next(System.String,CMS.EmailEngine.SMTPServerTokenData@)">
             <summary>
-            Returns a next available SMTP server for a given site using a simple round robin.        
+            Returns a next available SMTP server for a given site using a simple round robin.
             </summary>
             <param name="siteName">Site name</param>
             <param name="smtpServer">If an SMTP server is available, this will contain the reference to the server</param>
@@ -2961,6 +2976,16 @@
         <member name="F:CMS.EmailEngine.SMTPServerStatusEnum.Busy">
             <summary>
             The server is processing an outstanding message and should not be used to send new messages.
+            </summary>
+        </member>
+        <member name="T:CMS.EmailEngine.CancelEmailQueueSendingWebFarmTask">
+            <summary>
+            Web farm task used to cancel email queue sending.
+            </summary>
+        </member>
+        <member name="M:CMS.EmailEngine.CancelEmailQueueSendingWebFarmTask.ExecuteTask">
+            <summary>
+            Cancels email queue sending.
             </summary>
         </member>
     </members>

@@ -98,6 +98,7 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_General : CMSBizForm
         if (bfi.FormDevelopmentModel == (int)FormDevelopmentModelEnum.Mvc)
         {
             radContinue.Visible = false;
+            pnlSubmitButtonImage.Visible = false;
         }
     }
 

@@ -50,10 +50,17 @@ public partial class CMSModules_BannerManagement_Tools_Category_Category_Edit_Ba
     {
         switch (actionName)
         {
-            // Deleteing of the category was fired
             case "delete":
                 int bannerId = ValidationHelper.GetInteger(actionArgument, -1);
-                BannerInfoProvider.DeleteBannerInfo(bannerId);                      
+                var banner =  BannerInfoProvider.GetBannerInfo(bannerId);
+                if (banner == null)
+                {
+                    return;
+                }
+
+                CheckModifyPermission(banner.BannerSiteID);
+
+                BannerInfoProvider.DeleteBannerInfo(banner);
                 break;
         }
     }

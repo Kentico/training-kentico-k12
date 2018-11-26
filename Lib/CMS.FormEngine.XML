@@ -750,6 +750,91 @@
             Validate reCAPTCHA response
             </summary>
         </member>
+        <member name="T:CMS.FormEngine.DataTypeIntegrity">
+            <summary>
+            Provides check if given value matches field's data type.
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.DataTypeIntegrity.DecimalPrecision">
+            <summary>
+            Defines the maximum number of digits which are allowed for decimal value.
+            </summary>
+            <remarks>The precision must be a value from 1 through the maximum precision of 38.</remarks>
+        </member>
+        <member name="P:CMS.FormEngine.DataTypeIntegrity.DecimalScale">
+            <summary>
+            Defines the maximum number of decimal places which are allowed for decimal value.
+            </summary>
+            <remarks>Scale must be a value from 0 through <see cref="P:CMS.FormEngine.DataTypeIntegrity.DecimalPrecision"/>. Scale can be specified only if <see cref="P:CMS.FormEngine.DataTypeIntegrity.DecimalPrecision"/> is specified.</remarks>
+        </member>
+        <member name="P:CMS.FormEngine.DataTypeIntegrity.TextLength">
+            <summary>
+            Defines maximal length of string value.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.#ctor(System.Object,CMS.FormEngine.FormFieldInfo,System.Globalization.CultureInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="value">Control's value</param>
+            <param name="ffi">Field info</param>
+            <param name="culture">Allows to specify culture that will be used for culture dependent data types, e.g. double, date-time. Current culture is used if not set.</param>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.#ctor(System.Object,System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="value">Control's value</param>
+            <param name="dataType">Field data type</param>
+            <param name="culture">Allows to specify culture that will be used for culture dependent data types, e.g. double, date-time. Current culture is used if not set.</param>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.ValidateDataType">
+            <summary>
+            Checks if value matches field's data type.
+            </summary>
+            <returns>Error message if the value doesn't match field's data type; otherwise null.</returns>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetIntErrorMessage">
+            <summary>
+            Gets error message for integer type.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetLongErrorMessage">
+            <summary>
+            Gets error message for long integer type.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetNotNumberErrorMessage">
+            <summary>
+            Gets error message for double type.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.FurtherValidateTextLength">
+            <summary>
+            Checks if length of text is not exceeded.
+            </summary>
+            <returns>Error message if text length is exceeded, otherwise null.</returns>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.FurtherValidateDecimal">
+            <summary>
+            Further validates value for decimal type.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetDateTimeErrorMessage">
+            <summary>
+            Gets error message for DateTime type.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.ValidateTimeSpan">
+            <summary>
+            Validates value for TimeSpan type. Value must be less than 24hours to be accepted by Time DB data type.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetGuidErrorMessage">
+            <summary>
+            Gets error message for GUID type.
+            </summary>
+        </member>
         <member name="T:CMS.FormEngine.CombineWithFormSettings">
             <summary>
             Settings for combining form fields.

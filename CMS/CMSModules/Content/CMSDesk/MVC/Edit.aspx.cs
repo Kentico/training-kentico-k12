@@ -10,6 +10,7 @@ using CMS.UIControls;
 public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
 {
     private bool dataPropagated;
+    private string actionName;
 
 
     /// <summary>
@@ -115,7 +116,12 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
 
         if (TryGetUrl(out string url))
         {
+            pageview.Src = "about:blank";
             RegisterMessagingScript(url);
+        }
+        else
+        {
+            pageview.Attributes.Add("src", url);
         }
     }
 
@@ -132,7 +138,8 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
             guid = InstanceGUID,
             origin = targetOrigin,
             documentGuid = Node.DocumentGUID,
-            isPostBack = RequestHelper.IsPostBack(),
+            // Delete dislpayed variants in session storage on full page refresh or for undo checkout action (variant can be removed)
+            deleteDisplayedVariants = !RequestHelper.IsPostBack() || string.Equals(actionName, DocumentComponentEvents.UNDO_CHECKOUT, StringComparison.OrdinalIgnoreCase)
         });
     }
 
@@ -162,6 +169,7 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
 
     private void DocumentManager_OnAfterAction(object sender, DocumentManagerEventArgs e)
     {
+        actionName = e.ActionName;
         if (!IsSavePerformingAction(e.ActionName))
         {
             return;

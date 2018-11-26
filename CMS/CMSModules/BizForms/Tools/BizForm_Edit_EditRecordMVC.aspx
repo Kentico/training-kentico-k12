@@ -7,7 +7,7 @@
 <asp:Content ID="cntBody" runat="server" ContentPlaceHolderID="plcContent">
     <cms:UILayout ID="mvcLayout" runat="server">
         <Panes>
-            <cms:UILayoutPane ID="formBuilderFrame" runat="server" Direction="Center" RenderAs="Iframe" AppendSrc="true" Src="#" />
+            <cms:UILayoutPane ID="formBuilderFrame" runat="server" Direction="Center" RenderAs="Iframe" AppendSrc="true" Src="about:blank" />
         </Panes>
     </cms:UILayout>
 </asp:Content>

@@ -536,7 +536,7 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
         // Resets values of counters
         try
         {
-            WinServiceHelper.RestartService(null);
+            WinServiceHelper.RestartService(null, true);
 
             // Log event
             EventLogProvider.LogEvent(EventType.INFORMATION, "System", "RESTARTWINSERVICES", GetString("Administration-System.WinServicesRestarted"));

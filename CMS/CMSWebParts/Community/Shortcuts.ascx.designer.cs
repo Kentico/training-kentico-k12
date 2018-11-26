@@ -237,69 +237,6 @@ public partial class CMSWebParts_Community_Shortcuts {
     protected global::CMS.Base.Web.UI.LocalizedHyperlink lnkCreateNewBlog;
     
     /// <summary>
-    /// pnlMessageLinks control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel pnlMessageLinks;
-    
-    /// <summary>
-    /// pnlSendMessage control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel pnlSendMessage;
-    
-    /// <summary>
-    /// lnkSendMessage control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::CMS.Base.Web.UI.LocalizedHyperlink lnkSendMessage;
-    
-    /// <summary>
-    /// pnlAddToContactList control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel pnlAddToContactList;
-    
-    /// <summary>
-    /// lnkAddToContactList control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::CMS.Base.Web.UI.LocalizedHyperlink lnkAddToContactList;
-    
-    /// <summary>
-    /// pnlAddToIgnoreList control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel pnlAddToIgnoreList;
-    
-    /// <summary>
-    /// lnkAddToIgnoreList control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::CMS.Base.Web.UI.LocalizedHyperlink lnkAddToIgnoreList;
-    
-    /// <summary>
     /// pnlSignInOut control.
     /// </summary>
     /// <remarks>
@@ -343,13 +280,4 @@ public partial class CMSWebParts_Community_Shortcuts {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::CMS.Base.Web.UI.LocalizedLinkButton btnSignOut;
-    
-    /// <summary>
-    /// hdnSelectedId control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.HiddenField hdnSelectedId;
 }

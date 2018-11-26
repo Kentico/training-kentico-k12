@@ -393,15 +393,15 @@ public partial class CMSModules_MediaLibrary_FormControls_MediaLibrarySelector :
     /// </summary>
     public void ReloadData(bool forceReload)
     {
-        string where = GetWhereConditionInternal();
-
         uniSelector.IsLiveSite = IsLiveSite;
         uniSelector.ReturnColumnName = (UseLibraryNameForSelection ? "LibraryName" : "LibraryID");
-        uniSelector.WhereCondition = where;
+        uniSelector.WhereCondition = GetCompleteWhereCondition();
         uniSelector.OnSelectionChanged += uniSelector_OnSelectionChanged;
         uniSelector.DropDownSingleSelect.AutoPostBack = UseAutoPostBack;
 
-        bool noLibrary = DataHelper.DataSourceIsEmpty(MediaLibraryInfoProvider.GetMediaLibraries(where, null, 1, "LibraryID"));
+        bool noLibrary = MediaLibraryInfoProvider.GetMediaLibraries()
+            .Where(GetGroupsWhereCondition())
+            .Count == 0;
 
         // Empty value '(none)' is allowed when it is allowed from outside (property 'AllowEmpty') or no libraries was found and flag 'NoneWhenEmpty' is set
         uniSelector.AllowEmpty |= (noLibrary && NoneWhenEmpty);
@@ -432,11 +432,27 @@ public partial class CMSModules_MediaLibrary_FormControls_MediaLibrarySelector :
 
 
     /// <summary>
-    /// Builds complete where condition to filter libraries for site and group
+    /// Builds where condition to filter libraries for group
     /// </summary>
-    private string GetWhereConditionInternal()
+    private string GetGroupsWhereCondition()
     {
         string where = "LibraryGroupID " + ((GroupID > 0) ? "=" + GroupID : "IS NULL");
+
+        if (Where != "")
+        {
+            where = SqlHelper.AddWhereCondition(where, Where);
+        }
+
+        return where;
+    }
+
+
+    /// <summary>
+    /// Builds complete where condition to filter libraries for site and group
+    /// </summary>
+    private string GetCompleteWhereCondition()
+    {
+        string where = GetGroupsWhereCondition();
 
         if (SiteID > 0)
         {
@@ -449,11 +465,6 @@ public partial class CMSModules_MediaLibrary_FormControls_MediaLibrarySelector :
         else
         {
             where = SqlHelper.AddWhereCondition(where, SqlHelper.NO_DATA_WHERE);
-        }
-
-        if (Where != "")
-        {
-            where = SqlHelper.AddWhereCondition(where, Where);
         }
 
         return where;

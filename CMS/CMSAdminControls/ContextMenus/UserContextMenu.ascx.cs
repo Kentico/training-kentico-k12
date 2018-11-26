@@ -18,8 +18,6 @@ public partial class CMSAdminControls_ContextMenus_UserContextMenu : CMSContextM
     #region "Variables"
 
     private CurrentUserInfo currentUser = null;
-    protected bool isInIgnoreList = false;
-    protected bool isInContactList = false;
     protected int requestedUserId = 0;
 
     #endregion

@@ -895,7 +895,7 @@ function US_GetNewItemId_", ctrlSiteSelectStyleSheet.ValueElementID, @"(newStyle
             lnkPreviewURL.Visible = true;
             lblNoPreviewGuid.Visible = false;
             bool isFile = CMSString.Equals(Node.NodeClassName, SystemDocumentTypes.File, true);
-            lnkPreviewURL.Attributes.Add("href", Node.GetPreviewLink(CurrentUser.UserName, isFile));
+            lnkPreviewURL.Attributes.Add("href", Node.GetPreviewLink(CurrentUser.UserName, isFile, embededInAdministration: false));
         }
         else
         {

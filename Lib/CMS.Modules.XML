@@ -3175,6 +3175,11 @@
             Help topic link
             </summary>
         </member>
+        <member name="P:CMS.Modules.HelpTopicInfo.HelpTopicVisibilityCondition">
+            <summary>
+            Sets a macro condition that must be fulfilled for the help topic to be visible in the system's user interface..
+            </summary>
+        </member>
         <member name="P:CMS.Modules.HelpTopicInfo.HelpTopicOrder">
             <summary>
             Help topic order.

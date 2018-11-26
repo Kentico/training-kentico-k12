@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Kentico.Content.Web.Mvc;
 using Business.Dto.Doctors;
 using Business.Services.Context;
 using Business.Services.Query;
@@ -16,7 +15,7 @@ namespace Business.Repository.Doctor
             // Defines database columns for retrieving data
             // NodeGuid is retrieved automatically
             "NodeID", "NodeAlias", "Bio", "Degree", "EmergencyShift", "FirstName",
-            "LastName", "Image", "Specialty", "DocumentID"
+            "LastName", "Photo", "Specialty", "DocumentID"
         };
 
         private Func<CMS.DocumentEngine.Types.Training.Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
@@ -29,7 +28,7 @@ namespace Business.Repository.Doctor
             EmergencyShift = doctor.EmergencyShift,
             FirstName = doctor.FirstName,
             LastName = doctor.LastName,
-            ImagePath = doctor.Fields.Image.GetPath(),
+            Photo = doctor.Fields.Photo,
             Specialty = doctor.Specialty
         };
 

@@ -647,11 +647,7 @@ public partial class CMSInstall_SeparateDB : GlobalAdminPage
             SettingsKeyInfoProvider.SetGlobalValue("CMSSchedulerTasksEnabled", true);
 
             // Restart win service
-            WinServiceItem def = WinServiceHelper.GetServiceDefinition(WinServiceHelper.HM_SERVICE_BASENAME);
-            if (def != null)
-            {
-                WinServiceHelper.RestartService(def.GetServiceName());
-            }
+            WinServiceHelper.RestartService(WinServiceHelper.HM_SERVICE_BASENAME, false);
         }
         PersistentStorageHelper.RemoveValue("CMSSchedulerTasksEnabled");
     }

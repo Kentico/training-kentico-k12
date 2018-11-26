@@ -9,11 +9,6 @@
             Contains method connected with user authentication
             </summary>
         </member>
-        <member name="F:CMS.Membership.AuthenticationHelper.PASSWORD_EXPIRATION_WARNING">
-            <summary>
-            Setting value for displaying warning message to user with expired password
-            </summary>
-        </member>
         <member name="F:CMS.Membership.AuthenticationHelper.PASSWORD_EXPIRATION_LOCK">
             <summary>
             Setting value for locking user account to user with expired password
@@ -111,11 +106,11 @@
             </summary>
             <remarks>Do not call this method before <see cref="E:System.Web.HttpApplication.AuthenticateRequest" /> event is executed because result won't be valid</remarks>
         </member>
-        <member name="M:CMS.Membership.AuthenticationHelper.SignOutPublicUser(CMS.Membership.UserInfo)">
+        <member name="M:CMS.Membership.AuthenticationHelper.SignOutPublicUser(CMS.Membership.UserInfo@)">
             <summary>
             Sign out public user.
             </summary>
-            <param name="ui">User info</param>
+            <param name="user">User info</param>
         </member>
         <member name="M:CMS.Membership.AuthenticationHelper.SignOut(System.String)">
             <summary>
@@ -2312,6 +2307,11 @@
         <member name="T:CMS.Membership.EventLogDataHandler">
             <summary>
             Handler user related data in event log.
+            </summary>
+        </member>
+        <member name="P:CMS.Membership.EventLogDataHandler.SkipOriginalUserName">
+            <summary>
+            Indicates whether original user name should be added to event.
             </summary>
         </member>
         <member name="T:CMS.Membership.AvatarExport">
@@ -5255,7 +5255,7 @@
         </member>
         <member name="P:CMS.Membership.UserSettingsInfo.UserCustomData">
             <summary>
-            User custom data.
+            User custom data storage.
             </summary>
         </member>
         <member name="P:CMS.Membership.UserSettingsInfo.UserRegistrationInfo">
@@ -7157,7 +7157,7 @@
             </summary>
             <param name="userName">UserName</param>
         </member>
-        <member name="M:CMS.Membership.UserInfoProvider.ClearLicenseValues">
+        <member name="M:CMS.Membership.UserInfoProvider.ClearLicenseValues(System.Boolean)">
             <summary>
             Clear license values.
             </summary>
@@ -7617,6 +7617,14 @@
             Deletes the object to the database.
             </summary>
             <param name="info">Object to delete</param>
+        </member>
+        <member name="M:CMS.Membership.UserInfoProvider.ProcessWebFarmTaskInternal(System.String,System.String,System.Byte[])">
+            <summary>
+            Runs the processing of specific web farm task for current provider
+            </summary>
+            <param name="actionName">Action name</param>
+            <param name="data">Custom task data</param>
+            <param name="binary">Binary data</param>
         </member>
         <member name="M:CMS.Membership.UserInfoProvider.GetUserInfoForSitePrefixInternal(System.String,CMS.SiteProvider.SiteInfo)">
             <summary>

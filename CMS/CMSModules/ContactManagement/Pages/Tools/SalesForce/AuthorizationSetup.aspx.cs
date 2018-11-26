@@ -285,7 +285,9 @@ public partial class CMSModules_ContactManagement_Pages_Tools_SalesForce_Authori
     private void StoreParameters()
     {
         Hashtable parameters = WindowHelper.GetItem(ParametersId) as Hashtable;
+#pragma warning disable 618
         parameters["Credentials"] = EncryptionHelper.EncryptData(OrganizationCredentials.Serialize(Credentials));
+#pragma warning restore 618
         WindowHelper.Add(ParametersId, parameters);
     }
 
@@ -342,7 +344,9 @@ public partial class CMSModules_ContactManagement_Pages_Tools_SalesForce_Authori
     private void CloseDialog(string message)
     {
         string text = HTMLHelper.HTMLEncode(message);
+#pragma warning disable 618
         CredentialsHiddenField.Value = EncryptionHelper.EncryptData(OrganizationCredentials.Serialize(Credentials));
+#pragma warning restore 618
         MessageHiddenField.Value = text;
         MessageLabel.InnerHtml = text;
         MessageLabel.Visible = true;

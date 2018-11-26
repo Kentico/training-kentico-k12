@@ -86,7 +86,7 @@ public partial class CMSModules_SocialMarketing_FormControls_FacebookPageAccessT
                 var expiration = FacebookAccount.FacebookPageAccessToken.Expiration;
                 hdnTokenExpiration.Value = expiration.HasValue ? expiration.Value.ToString("g", CultureInfo.InvariantCulture) : String.Empty;
                 hdnTokenAppId.Value = FacebookAccount.FacebookAccountFacebookApplicationID.ToString();
-                hdnTokenPageId.Value = FacebookAccount.FacebookPageIdentity.PageId;
+                hdnTokenPageId.Value = FacebookAccount.FacebookAccountPageID;
             }
             ValidateToken();
         }
@@ -115,12 +115,11 @@ public partial class CMSModules_SocialMarketing_FormControls_FacebookPageAccessT
             string pageId = Form.GetFieldValue("FacebookAccountPageID").ToString();
             if (String.IsNullOrEmpty(pageId))
             {
-                ShowError(GetString("sm.facebook.account.msg.pageurlnotset"));
+                ShowError(GetString("sm.facebook.account.msg.pageidnotset"));
                 return;
             }
 
             // Store data in session
-            string sessionKey = Guid.NewGuid().ToString();
             Hashtable parameters = new Hashtable
             {
                     {"AppId", appInfo.FacebookApplicationConsumerKey},
@@ -133,10 +132,10 @@ public partial class CMSModules_SocialMarketing_FormControls_FacebookPageAccessT
                     {"TokenAppIdCntId", hdnTokenAppId.ClientID},
                     {"TokenAppInfoId", appInfo.FacebookApplicationID.ToString()}
                 };
-            WindowHelper.Add(sessionKey, parameters);
+            WindowHelper.Add(FacebookHelper.PAGE_ACCESS_TOKEN_SESSION_KEY, parameters);
 
             // Open client dialog script
-            string openDialogScript = String.Format("fbOpenModalDialog('{0}');", sessionKey);
+            string openDialogScript = "fbOpenModalDialog();";
             ScriptHelper.RegisterStartupScript(this, GetType(), "FBAccessTokenOpenModal" + ClientID, openDialogScript, true);
         }
     }

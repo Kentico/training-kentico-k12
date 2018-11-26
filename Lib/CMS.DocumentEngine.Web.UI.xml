@@ -4542,6 +4542,11 @@
             Returns the editable region content.
             </summary>
         </member>
+        <member name="M:CMS.DocumentEngine.Web.UI.CMSEditableRegion.GetOnSiteTagConfiguration">
+            <summary>
+            Creates configuration for on-site editting.
+            </summary>
+        </member>
         <member name="M:CMS.DocumentEngine.Web.UI.CMSEditableRegion.ApplySettings">
             <summary>
             Creates child controls.
@@ -5725,34 +5730,6 @@
             (Page object; Partial image path starting from ~/App_Themes/(Skin_Folder)/Images/; Indicates if URL should be returned for live site) OR
             (Page object; Partial image path starting from ~/App_Themes/(Skin_Folder)/Images/; Indicates if URL should be returned for live site; Indicates if URL should be resolved)
             </param>
-        </member>
-        <member name="M:CMS.DocumentEngine.Web.UI.TransformationMethods.GetCurrentDateTimeString(CMS.MacroEngine.EvaluationContext,System.Object[])">
-            <summary>
-            Returns date time string according to user or current site time zone.
-            </summary>
-            <param name="context">Evaluation context with child resolver</param>
-            <param name="parameters">Method parameters</param>
-        </member>
-        <member name="M:CMS.DocumentEngine.Web.UI.TransformationMethods.GetUserDateTime(CMS.MacroEngine.EvaluationContext,System.Object[])">
-            <summary>
-            Returns current user date time DateTime according to user time zone.
-            </summary>
-            <param name="context">Evaluation context with child resolver</param>
-            <param name="parameters">Method parameters</param>
-        </member>
-        <member name="M:CMS.DocumentEngine.Web.UI.TransformationMethods.GetSiteDateTime(CMS.MacroEngine.EvaluationContext,System.Object[])">
-            <summary>
-            Returns site date time according to site time zone.
-            </summary>
-            <param name="context">Evaluation context with child resolver</param>
-            <param name="parameters">Method parameters</param>
-        </member>
-        <member name="M:CMS.DocumentEngine.Web.UI.TransformationMethods.GetCustomDateTime(CMS.MacroEngine.EvaluationContext,System.Object[])">
-            <summary>
-            Returns date time with dependence on selected time zone.
-            </summary>
-            <param name="context">Evaluation context with child resolver</param>
-            <param name="parameters">Method parameters</param>
         </member>
         <member name="M:CMS.DocumentEngine.Web.UI.TransformationMethods.GetDateTime(CMS.MacroEngine.EvaluationContext,System.Object[])">
             <summary>

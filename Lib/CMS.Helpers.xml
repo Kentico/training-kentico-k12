@@ -422,19 +422,18 @@
             Cache item priority.
             </summary>
         </member>
-        <member name="F:CMS.Helpers.CacheHelper.mProgressiveCaching">
-            <summary>
-            If true, progressive caching is enabled, meaning that two threads accessing the same code share the result of an internal operation
-            </summary>
-        </member>
         <member name="P:CMS.Helpers.CacheHelper.CacheAccessor">
             <summary>
             Resolved instance of <see cref="T:CMS.Helpers.Caching.Abstractions.ICacheAccessor"/> service.
             </summary>
+            <remarks>
+            Property setter should be used for testing purposes only.
+            </remarks>
         </member>
         <member name="P:CMS.Helpers.CacheHelper.ProgressiveCaching">
             <summary>
-            If true, progressive caching is enabled, meaning that two threads accessing the same code share the result of an internal operation
+            If true, progressive caching is enabled, meaning that two threads accessing the same code share the result of an internal operation.
+            True by default.
             </summary>
         </member>
         <member name="P:CMS.Helpers.CacheHelper.MultiplePrefixesUsed">
@@ -510,7 +509,7 @@
         <member name="P:CMS.Helpers.CacheHelper.PhysicalFilesCacheMinutes">
             <summary>
             Gets the expiration time in minutes that should be set for the physical files in the client cache.
-            </summary>        
+            </summary>
         </member>
         <member name="P:CMS.Helpers.CacheHelper.ClientCacheRequested">
             <summary>
@@ -855,8 +854,8 @@
         </member>
         <member name="M:CMS.Helpers.CacheHelper.GetCacheDependencies(System.Object,System.String)">
             <summary>
-            Processes the dependencies string. Returns default dependencies if the source is null or empty. 
-            If source is NO_CACHE_DEPENDENCY constant, then method also returns this constant. 
+            Processes the dependencies string. Returns default dependencies if the source is null or empty.
+            If source is NO_CACHE_DEPENDENCY constant, then method also returns this constant.
             When source is specified and contains DEFAULT_CACHE_DEPENDENCIES constant, then this constant
             indicates that default dependencies should be appended to the source. The DEFAULT_CACHE_DEPENDENCIES also remains
             in the string so other processes can insert their default dependencies.
@@ -5359,9 +5358,24 @@
             Name of the parameter which indicates that data in the <see cref="T:CMS.Helpers.VirtualContext"/> URL belong to Form builder.
             </summary>
         </member>
+        <member name="F:CMS.Helpers.VirtualContext.PARAM_FORM_BUILDER_EXPIRATION">
+            <summary>
+            Name of the parameter which indicates form builder preview link expiration.
+            </summary>
+        </member>
+        <member name="F:CMS.Helpers.VirtualContext.PARAM_EMBEDED_IN_ADMINISTRATION">
+            <summary>
+            Name of the parameter which indicates if page is embedded in administration inside an iframe.
+            </summary>
+        </member>
         <member name="F:CMS.Helpers.VirtualContext.PARAM_HASH">
             <summary>
             Name of the hash parameter
+            </summary>
+        </member>
+        <member name="F:CMS.Helpers.VirtualContext.ADMINISTRATION_DOMAIN_PARAMETER">
+            <summary>
+            Query string parameter that holds administration domain
             </summary>
         </member>
         <member name="F:CMS.Helpers.VirtualContext.mVirtualContextPrefix">
@@ -5372,6 +5386,11 @@
         <member name="F:CMS.Helpers.VirtualContext.mVirtualContextSeparator">
             <summary>
             Default URL separator for the prefix and original URL for pages with virtual context. Default value is "-"
+            </summary>
+        </member>
+        <member name="F:CMS.Helpers.VirtualContext.FormBuilderLinkExpiration">
+            <summary>
+            Represents period for which the form builder preview link is valid.
             </summary>
         </member>
         <member name="P:CMS.Helpers.VirtualContext.VirtualContextPrefix">
@@ -5392,11 +5411,6 @@
         <member name="P:CMS.Helpers.VirtualContext.IsInitialized">
             <summary>
             Returns true if some virtual context properties have been initialized
-            </summary>
-        </member>
-        <member name="P:CMS.Helpers.VirtualContext.IsUserInitialized">
-            <summary>
-            Returns true if user virtual context properties have been initialized
             </summary>
         </member>
         <member name="P:CMS.Helpers.VirtualContext.IsPreviewLinkInitialized">
@@ -5481,6 +5495,7 @@
             </summary>
             <param name="path">Relative path of the document to get hash for.</param>
             <returns>URL passed via parameter <paramref name="path"/> appended with its calculated hash as a query parameter named "uh".</returns>
+            <exception cref="T:System.ArgumentNullException">Is thrown when <paramref name="path"/> is null or empty.</exception>
         </member>
         <member name="M:CMS.Helpers.VirtualContext.ValidatePathHash(System.String)">
             <summary>
@@ -5511,14 +5526,16 @@
             </summary>
             <param name="nameValueCollection">Key-value pairs to store.</param>
         </member>
-        <member name="M:CMS.Helpers.VirtualContext.GetPreviewPathFromVirtualContext(System.String,System.Boolean)">
+        <member name="M:CMS.Helpers.VirtualContext.GetPreviewPathFromVirtualContext(System.String,System.Boolean,System.String,System.Boolean)">
             <summary>
             Gets preview path based on given path and current initialized context.
             </summary>
             <param name="path">Application absolute path to be converted.</param>
             <param name="readonlyMode">Indicates if readonly mode should be enabled to disallow modify actions and POST requests.</param>
+            <param name="cultureCode">Defines a culture code for resulting preview path. If not provided, culture code from current initialized context is used.</param>
+            <param name="embededInAdministration">Indicates if page is embedded in administration inside an iframe.</param>
         </member>
-        <member name="M:CMS.Helpers.VirtualContext.GetPreviewParameters(System.String,System.String,System.Guid,System.Boolean)">
+        <member name="M:CMS.Helpers.VirtualContext.GetPreviewParameters(System.String,System.String,System.Guid,System.Boolean,System.Boolean)">
             <summary>
             Gets the collection of parameters for preview path.
             </summary>
@@ -5526,6 +5543,7 @@
             <param name="cultureCode">Context of culture for the preview.</param>
             <param name="workflowCycleGuid">Context of workflow cycle GUID.</param>
             <param name="readonlyMode">Indicates if readonly mode should be enabled to disallow modify actions and POST requests.</param>
+            <param name="embededInAdministration">Indicates if page is embedded in administration inside an iframe.</param>
         </member>
         <member name="M:CMS.Helpers.VirtualContext.GetFormBuilderPath(System.String,System.String)">
             <summary>
@@ -5536,6 +5554,23 @@
             User under whom the request for returned path is processed.
             If parameter is not set then user name stored in <see cref="T:CMS.Helpers.VirtualContext"/> is used.
             </param>
+        </member>
+        <member name="M:CMS.Helpers.VirtualContext.AddAdministrationDomain(System.String)">
+            <summary>
+            Searches for <see cref="F:CMS.Helpers.VirtualContext.ADMINISTRATION_DOMAIN_PARAMETER"/> parameter in current HTTP request query string
+            and adds it into the path (if the parameter was found).
+            </summary>
+            <param name="path">Application path.</param>
+            <returns>Application path with administration domain (when applicable).</returns>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+            <exclude />
+        </member>
+        <member name="M:CMS.Helpers.VirtualContext.GetFormBuilderLinkExpiration(System.DateTime)">
+            <summary>
+            Returns given <paramref name="dateTime"/> represented in UTC time as number of ticks.
+            </summary>
         </member>
         <member name="T:CMS.Helpers.AbstractStockHelper`1">
             <summary>
@@ -6941,13 +6976,6 @@
             Indicates whether Kentico version is displayed only if valid key is provided.
             </summary>
         </member>
-        <member name="M:CMS.Helpers.EncryptionHelper.VerifyRSA(System.String,System.String)">
-            <summary>
-            Verifies RSA signed license key.
-            </summary>
-            <param name="inputText">License key</param>
-            <param name="publicKey">RSA public key</param>
-        </member>
         <member name="M:CMS.Helpers.EncryptionHelper.VerifyVersionRSA(System.String)">
             <summary>
             Verifies RSA signed key which is used for getting Kentico version.
@@ -7351,6 +7379,19 @@
             </summary>
             <param name="mimetype">Mime type</param>
             <param name="extension">Extension</param>
+        </member>
+        <member name="M:CMS.Helpers.MimeTypeHelper.GetSafeMimeType(System.String,System.String)">
+            <summary>
+            Returns a MIME type for the given <paramref name="fileName"/>.
+            If the <paramref name="fileName"/> indicates an image, returns a common MIME type related to file's extension; otherwise the given <paramref name="contentType"/> is returned.
+            </summary>
+            <param name="fileName">File name</param>
+            <param name="contentType">File content type</param>
+            <returns>MIME type</returns>
+            <remarks>
+            Use the method to check uploaded image files to prevent XSS attacks when the file seems to be an image (according to an extension) but actually it contains HTML code
+            including script. This method prevents a potential attacker from forging the request content type when being uploaded to the server. 
+            </remarks>
         </member>
         <member name="T:CMS.Helpers.IReadOnlyFlag">
             <summary>
@@ -9116,26 +9157,6 @@
         <member name="F:CMS.Helpers.ExcludedSystemEnum.AppThemes">
             <summary>
             App_Themes folder
-            </summary>
-        </member>
-        <member name="T:CMS.Helpers.IEArchitectureEnum">
-            <summary>
-            Internet Explorer architecture enum.
-            </summary>
-        </member>
-        <member name="F:CMS.Helpers.IEArchitectureEnum.Unknown">
-            <summary>
-            Unknow browser.
-            </summary>
-        </member>
-        <member name="F:CMS.Helpers.IEArchitectureEnum.IEx86">
-            <summary>
-            Internet Explorer 32-bit.
-            </summary>
-        </member>
-        <member name="F:CMS.Helpers.IEArchitectureEnum.IEx64">
-            <summary>
-            Internet Explorer 64-bit.
             </summary>
         </member>
         <member name="T:CMS.Helpers.SplitModeEnum">

@@ -668,6 +668,11 @@
             </summary>
             <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter"/> object that receives the control content.</param>
         </member>
+        <member name="M:CMS.PortalEngine.Web.UI.CMSAbstractEditableControl.GetOnSiteTagConfiguration">
+            <summary>
+            Creates tag configuration for on-site editting.
+            </summary>
+        </member>
         <member name="M:CMS.PortalEngine.Web.UI.CMSAbstractEditableControl.RequestEditViewMode(CMS.PortalEngine.ViewModeEnum,System.String)">
             <summary>
             Requests the view mode for the editable control
@@ -1327,6 +1332,16 @@
             Returns true if the component has any variants
             </summary>
         </member>
+        <member name="T:CMS.PortalEngine.Web.UI.ClearPartialCacheItemsWebFarmTask">
+            <summary>
+            Web farm task used to clear cached partial cache items.
+            </summary>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.ClearPartialCacheItemsWebFarmTask.ExecuteTask">
+            <summary>
+            Clears cached partial cache items.
+            </summary>
+        </member>
         <member name="T:CMS.PortalEngine.Web.UI.CMSPortalEngineWebUIModule">
             <summary>
             Represents the Portal engine web UI module.
@@ -1872,6 +1887,33 @@
             <param name="markup">Markup content</param>
             <param name="code">Code behind content</param>
             <param name="designer">Designer content</param>
+        </member>
+        <member name="T:CMS.PortalEngine.Web.UI.PartialCacheItemsProvider">
+            <summary>
+            Class providing methods for web part partial cache items management.
+            </summary>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.PartialCacheItemsProvider.GetEnabledCacheItems">
+            <summary>
+            List of the cache key items for partial caching separated by semicolon.
+            Default value is "username;sitename;lang".
+            </summary>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.PartialCacheItemsProvider.ClearEnabledCacheItemsCache(System.Boolean)">
+            <summary>
+            Clears cached Enabled cache items and optionally logs a web farm task to propagate the change.
+            </summary>
+            <param name="logTask">A value indicating whether to log a web farm task.</param>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.PartialCacheItemsProvider.GetCacheItemNames">
+            <summary>
+            Gets the available cache item names with a boolean value indicating whether the cache item name is enabled or not.
+            </summary>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.PartialCacheItemsProvider.GetAvailableCacheItemNames">
+            <summary>
+            Gets a collection of cache item names supported by the system with an indication whether they are enabled by default.
+            </summary>
         </member>
         <member name="T:CMS.PortalEngine.Web.UI.WebPartActionManager">
             <summary>
@@ -6252,32 +6294,6 @@
         <member name="F:CMS.PortalEngine.Web.UI.WidgetStateEnum.Maximize">
             <summary>
             Maximize
-            </summary>
-        </member>
-        <member name="T:CMS.PortalEngine.PartialCacheItemsProvider">
-            <summary>
-            Class providing methods for web part partial cache items management.
-            </summary>
-        </member>
-        <member name="M:CMS.PortalEngine.PartialCacheItemsProvider.GetEnabledCacheItems">
-            <summary>
-            List of the cache key items for partial caching separated by semicolon.
-            Default value is "username;sitename;lang".
-            </summary>
-        </member>
-        <member name="M:CMS.PortalEngine.PartialCacheItemsProvider.ClearEnabledCacheItemsCache">
-            <summary>
-            Clears cached Enabled cache items.
-            </summary>
-        </member>
-        <member name="M:CMS.PortalEngine.PartialCacheItemsProvider.GetCacheItemNames">
-            <summary>
-            Gets the available cache item names with a boolean value indicating whether the cache item name is enabled or not.
-            </summary>
-        </member>
-        <member name="M:CMS.PortalEngine.PartialCacheItemsProvider.GetAvailableCacheItemNames">
-            <summary>
-            Gets a collection of cache item names supported by the system with an indication whether they are enabled by default.
             </summary>
         </member>
         <member name="T:IExtendableHeaderPanel">

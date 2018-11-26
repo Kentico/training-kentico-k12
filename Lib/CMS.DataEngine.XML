@@ -1120,6 +1120,41 @@
             Included columns are omitted.
             </summary>
         </member>
+        <member name="T:CMS.DataEngine.DatabaseInstallationSettings">
+            <summary>
+            Container for configuration data required for database installation.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DatabaseInstallationSettings.ConnectionString">
+            <summary>
+            Gets or sets the connection string to the database.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DatabaseInstallationSettings.ScriptsFolder">
+            <summary>
+            Gets or sets the folder with the database scripts.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DatabaseInstallationSettings.DatabaseObjectInstallationErrorMessage">
+            <summary>
+            Gets or sets the error message used when creation of DB objects fails.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DatabaseInstallationSettings.DataInstallationErrorMessage">
+            <summary>
+            Gets or sets the error message used when data creation fails.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DatabaseInstallationSettings.Logger">
+            <summary>
+            Gets or sets the logger used during database installation.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DatabaseInstallationSettings.ApplyHotfix">
+            <summary>
+            Gets or sets the information determining hotfix application during database installation.
+            </summary>
+        </member>
         <member name="T:CMS.DataEngine.TransactionScopeFactory">
             <summary>
             Factory for <see cref="T:CMS.DataEngine.ITransactionScope"/>.
@@ -4245,13 +4280,13 @@
         </member>
         <member name="M:CMS.DataEngine.ObjectTypeSequenceAnalyzer.#ctor(CMS.DataEngine.IObjectTypeFilter)">
             <summary>
-            Constructor
+            Creates an instance of <see cref="T:CMS.DataEngine.ObjectTypeSequenceAnalyzer"/> class.
             </summary>
             <param name="filter">Filtering logic for the output collection.</param>
         </member>
         <member name="M:CMS.DataEngine.ObjectTypeSequenceAnalyzer.#ctor(CMS.DataEngine.IObjectTypeFilter,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            Constructor
+            Creates an instance of <see cref="T:CMS.DataEngine.ObjectTypeSequenceAnalyzer"/> class.
             </summary>
             <param name="filter">Filtering logic for the output collection.</param>
             <param name="types">Object types to be ordered.</param>
@@ -11550,13 +11585,6 @@
             <param name="type">Type of the message</param>
             <param name="logToEventLog">Log to event log</param>
         </member>
-        <member name="T:CMS.DataEngine.SqlInstallationHelper.LogMessage">
-            <summary>
-            Delegate of event fired when message logging is required.
-            </summary>
-            <param name="message">Text of the message</param>
-            <param name="type">Type of the message</param>
-        </member>
         <member name="E:CMS.DataEngine.SqlInstallationHelper.AfterDataGet">
             <summary>
             Fired after data getting is finished.
@@ -11634,7 +11662,7 @@
             </summary>
             <param name="connectionString">Connection string</param>
         </member>
-        <member name="M:CMS.DataEngine.SqlInstallationHelper.ChangeDefaultSchema(CMS.DataEngine.IDataConnection,System.String,CMS.DataEngine.SqlInstallationHelper.LogMessage)">
+        <member name="M:CMS.DataEngine.SqlInstallationHelper.ChangeDefaultSchema(CMS.DataEngine.IDataConnection,System.String,System.Action{System.String,CMS.DataEngine.MessageTypeEnum})">
             <summary>
             Changes the database schema to the given schema
             </summary>
@@ -11683,15 +11711,12 @@
             Returns unique database name.
             </summary>
         </member>
-        <member name="M:CMS.DataEngine.SqlInstallationHelper.InstallDatabase(System.String,System.String,System.String,System.String,CMS.DataEngine.SqlInstallationHelper.LogMessage)">
+        <member name="M:CMS.DataEngine.SqlInstallationHelper.InstallDatabase(CMS.DataEngine.DatabaseInstallationSettings)">
             <summary>
             Performs the database installation.
             </summary>
-            <param name="connectionString">Connection string to the database</param>
-            <param name="scriptsFolder">Folder with the database scripts</param>
-            <param name="dbObjectsErrMessage">Error message when creation of DB objects fails</param>
-            <param name="defaultDataErrMessage">Error message when creation data fails</param>
-            <param name="log">Method for logging messages</param>
+            <param name="installationSettings">Settings for installation</param>
+            <returns>True when installation was successful, false otherwise.</returns>
         </member>
         <member name="M:CMS.DataEngine.SqlInstallationHelper.EnsureDefaultSchema(CMS.DataEngine.IDataConnection)">
             <summary>
@@ -11707,7 +11732,7 @@
             <param name="connection">Connection to database</param>
             <param name="tableName">Name of the table to check</param>
         </member>
-        <member name="M:CMS.DataEngine.SqlInstallationHelper.EnsureDefaultSchema(CMS.DataEngine.SqlInstallationHelper.LogMessage,CMS.DataEngine.IDataConnection,System.Boolean@)">
+        <member name="M:CMS.DataEngine.SqlInstallationHelper.EnsureDefaultSchema(System.Action{System.String,CMS.DataEngine.MessageTypeEnum},CMS.DataEngine.IDataConnection,System.Boolean@)">
             <summary>
             Ensures the database schema for the current user. If the user does not have the schema set, sets the schema to dbo.
             </summary>
@@ -11742,15 +11767,14 @@
             <param name="conn">Connection</param>
             <param name="dbSchema">DB schema</param>
         </member>
-        <member name="M:CMS.DataEngine.SqlInstallationHelper.ProceedSQLScripts(System.String,CMS.DataEngine.IDataConnection,System.String,CMS.DataEngine.SqlInstallationHelper.LogMessage,System.String,System.String)">
+        <member name="M:CMS.DataEngine.SqlInstallationHelper.ProceedSQLScripts(System.String,CMS.DataEngine.IDataConnection,System.String,CMS.DataEngine.DatabaseInstallationSettings,System.String)">
             <summary>
             Runs the SQL scripts listed in the given file.
             </summary>
             <param name="fileName">FileName with the scripts to run</param>
             <param name="conn">SQL connection</param>
-            <param name="scriptsFolder">Folder with the SQL scripts</param>
-            <param name="log">Method for logging messages</param>
             <param name="dbSchema">Name of the schema (all "dbo." and "[dbo]." occurrences are replaced by this schema)</param>
+            <param name="installationSettings">Settings for installation</param>
             <param name="defaultErrorMessage">Default error message</param>
         </member>
         <member name="M:CMS.DataEngine.SqlInstallationHelper.IncrementCounter(System.String)">
@@ -11771,14 +11795,12 @@
             </summary>
             <param name="connection">Connection to database.</param>
         </member>
-        <member name="M:CMS.DataEngine.SqlInstallationHelper.ImportDefaultData(CMS.DataEngine.IDataConnection,System.String,CMS.DataEngine.SqlInstallationHelper.LogMessage,System.String)">
+        <member name="M:CMS.DataEngine.SqlInstallationHelper.ImportDefaultData(CMS.DataEngine.IDataConnection,CMS.DataEngine.DatabaseInstallationSettings)">
             <summary>
             Import default data to database.
             </summary>
             <param name="connection">Connection to database.</param>
-            <param name="dataFolder">Folder containing default data serialized in XML.</param>
-            <param name="log">Method for logging messages</param>
-            <param name="defaultErrorMessage">Default error message</param>
+            <param name="installationSettings">Settings for installation</param>
         </member>
         <member name="M:CMS.DataEngine.SqlInstallationHelper.InitSettingsKeyTimestamp(System.Data.DataSet,System.String)">
             <summary>
@@ -11787,15 +11809,13 @@
             <param name="data">Data</param>
             <param name="tableName">Table name</param>
         </member>
-        <member name="M:CMS.DataEngine.SqlInstallationHelper.ApplyHotfix(CMS.DataEngine.IDataConnection,System.String,System.String,CMS.DataEngine.SqlInstallationHelper.LogMessage,System.String)">
+        <member name="M:CMS.DataEngine.SqlInstallationHelper.ApplyHotfix(CMS.DataEngine.IDataConnection,System.String,CMS.DataEngine.DatabaseInstallationSettings)">
             <summary>
             Import default data to database.
             </summary>
             <param name="connection">Connection to database.</param>
-            <param name="scriptsFolder">Folder containing default data serialized in XML.</param>
             <param name="dbSchema">Name of the schema (all "dbo." and "[dbo]." occurrences are replaced by this schema)</param>
-            <param name="log">Method for logging messages</param>
-            <param name="defaultErrorMessage">Default error message</param>
+            <param name="installationSettings">Settings for installation</param>
         </member>
         <member name="T:CMS.DataEngine.InfoHelper">
             <summary>
@@ -14940,13 +14960,14 @@
             <param name="objectType">Object type</param>
             <param name="category">Meta files category</param>
         </member>
-        <member name="M:CMS.DataEngine.MetaFileInfoProvider.UpdateMetaFiles(CMS.DataEngine.BaseInfo,System.Data.DataTable,System.Int32,CMS.DataEngine.LoadDataEventHandler,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:CMS.DataEngine.MetaFileInfoProvider.UpdateMetaFiles(CMS.DataEngine.BaseInfo,System.Data.DataTable,System.Int32,CMS.DataEngine.TranslationHelper,CMS.DataEngine.LoadDataEventHandler,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Updates the object meta files from the given DataTable. Returns true if some metafiles were updated.
             </summary>
             <param name="infoObj">Info object for which the metafiles update</param>
             <param name="filesDt">Table of the new files (with binaries)</param>
             <param name="filesObjectId">Object ID in the new files table</param>
+            <param name="th">If provided, <see cref="F:CMS.DataEngine.ColumnsTranslationEvents.TranslateColumns"/> events are raised with given <see cref="T:CMS.DataEngine.TranslationHelper"/>.</param>
             <param name="onLoadData">Load data event handler</param>
             <param name="logSynchronization">Indicates if staging tasks should be logged</param>
             <param name="parentIsNew">If true, the parent object is a new object, therefore is no need to update or delete existing (there are none)</param>
@@ -32162,7 +32183,17 @@
             <param name="parameters">Translation record values</param>
             <param name="info">Additional record info</param>
             <remarks>
-            If there already was a record already registered for the given object type <paramref name="id"/> and it differs from the current <paramref name="parameters"/>,
+            If there was already a record registered for the given object with <paramref name="id"/> and the <paramref name="parameters"/> are different,
+            the old record is replaced with the new values.
+            </remarks>
+        </member>
+        <member name="M:CMS.DataEngine.TranslationHelper.RegisterRecord(CMS.DataEngine.BaseInfo)">
+            <summary>
+            Registers the record for object ID within given translation table.
+            </summary>
+            <param name="infoObject">Object instance for which the object ID will be registered.</param>
+            <remarks>
+            If there was already a record registered for the given object and the parameters are different,
             the old record is replaced with the new values.
             </remarks>
         </member>
@@ -32175,8 +32206,8 @@
             <param name="info">Additional record info</param>
             <param name="additionalFields">Dictionary containing additional record fields and their values</param>
             <remarks>
-            If there already was a record already registered for the given object type <paramref name="id"/> and it differs from the currently registered,
-            it is replaced with the new <paramref name="parameters"/>.
+            If there was already a record registered for the given object with <paramref name="id"/> and the <paramref name="parameters"/> are different,
+            the old record is replaced with the new values.
             </remarks>
         </member>
         <member name="M:CMS.DataEngine.TranslationHelper.DeleteRecord(System.Data.DataRow)">
@@ -32841,12 +32872,12 @@
         </member>
         <member name="P:CMS.DataEngine.ObjectTypeInfo.SearchContentColumn">
             <summary>
-            Column which stores cached content extracted for this Info object to be used in search indexing. Used by the method EnsureSearchContent.
+            The name of the class field (column) that stores cached content extracted for this Info object to be used in search indexing.
             </summary>
         </member>
         <member name="P:CMS.DataEngine.ObjectTypeInfo.CustomizedColumnsColumn">
             <summary>
-            Column name which contains customized columns.
+            The name of the class field (column) that contains customized columns.
             </summary>
         </member>
         <member name="P:CMS.DataEngine.ObjectTypeInfo.IsCustomColumn">

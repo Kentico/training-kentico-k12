@@ -540,6 +540,26 @@
             Macro rules list extender
             </summary>
         </member>
+        <member name="T:CMS.Reporting.Web.UI.ReportingModule">
+            <summary>
+            Represents the Reporting module.
+            </summary>
+        </member>
+        <member name="F:CMS.Reporting.Web.UI.ReportingModule.MODULE_NAME">
+            <summary>
+            Identifier of <see cref="T:CMS.Reporting.Web.UI.ReportingModule"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Reporting.Web.UI.ReportingModule.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:CMS.Reporting.Web.UI.ReportingModule"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.Reporting.Web.UI.ReportingModule.OnInit">
+            <summary>
+            Initializes the module.
+            </summary>
+        </member>
         <member name="T:CMS.Reporting.Web.UI.CMSReportingModalPage">
             <summary>
             Base page for the CMS Reporting modal pages to apply global settings to the pages.

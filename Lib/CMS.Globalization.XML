@@ -419,6 +419,44 @@
             Loads states to hashtables.
             </summary>
         </member>
+        <member name="T:CMS.Globalization.GlobalizationMethods">
+            <summary>
+            Globalization macro methods.
+            </summary>
+        </member>
+        <member name="M:CMS.Globalization.GlobalizationMethods.GetCurrentDateTimeString(CMS.MacroEngine.EvaluationContext,System.Object[])">
+            <summary>
+            Returns date time string according to user or current site time zone.
+            </summary>
+            <param name="context">Evaluation context with child resolver</param>
+            <param name="parameters">Method parameters</param>
+        </member>
+        <member name="M:CMS.Globalization.GlobalizationMethods.GetUserDateTime(CMS.MacroEngine.EvaluationContext,System.Object[])">
+            <summary>
+            Returns current user date time DateTime according to user time zone.
+            </summary>
+            <param name="context">Evaluation context with child resolver</param>
+            <param name="parameters">Method parameters</param>
+        </member>
+        <member name="M:CMS.Globalization.GlobalizationMethods.GetSiteDateTime(CMS.MacroEngine.EvaluationContext,System.Object[])">
+            <summary>
+            Returns site date time according to site time zone.
+            </summary>
+            <param name="context">Evaluation context with child resolver</param>
+            <param name="parameters">Method parameters</param>
+        </member>
+        <member name="M:CMS.Globalization.GlobalizationMethods.GetCustomDateTime(CMS.MacroEngine.EvaluationContext,System.Object[])">
+            <summary>
+            Returns date time with dependence on selected time zone.
+            </summary>
+            <param name="context">Evaluation context with child resolver</param>
+            <param name="parameters">Method parameters</param>
+        </member>
+        <member name="T:CMS.Globalization.GlobalizationNamespace">
+            <summary>
+            Macro namespace for globalization macro methods.
+            </summary>
+        </member>
         <member name="T:CMS.Globalization.GlobalizationModuleMetadata">
             <summary>
             Represents the Globalization module metadata.

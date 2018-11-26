@@ -603,9 +603,9 @@ function SetParentAction(argument) {
         string mediaFileUrl;
         bool resize = (maxSideSize > 0);
 
-        fileName = UsePermanentUrls ? AttachmentHelper.GetFullFileName(fileName, fileExtension) : fileName;
+        fileName = AttachmentHelper.GetFullFileName(fileName, fileExtension);
 
-        bool generateAbsoluteURL = (Config != null) && (Config.UseFullURL);
+        bool generateAbsoluteURL = Config?.UseFullURL ?? false;
         generateAbsoluteURL = ValidationHelper.GetBoolean(SettingsHelper.AppSettings["CMSUseMediaFileAbsoluteURLs"], generateAbsoluteURL);
         bool isDifferentSite = false;
 

@@ -1817,6 +1817,9 @@ body.cms-bootstrap,
 .cms-bootstrap .icon-w-newsletter-subscription:before {
   content: "\e675";
 }
+.cms-bootstrap .icon-w-messaging-info-panel:before {
+  content: "\e64f";
+}
 .cms-bootstrap .icon-w-newsletter-unsubscription:before {
   content: "\e60d";
 }
@@ -10350,7 +10353,8 @@ button.cms-bootstrap .close {
 .cms-bootstrap .logon-page .center-box .logon-box .logon-inputs .row .logon-text .login-btn {
   float: right;
   margin-top: 8px;
-  width: 128px;
+  min-width: 128px;
+  width: auto;
 }
 .cms-bootstrap .logon-page .center-box .logon-box .logon-inputs .row .logon-text-offset {
   margin-left: 33.33333333%;
