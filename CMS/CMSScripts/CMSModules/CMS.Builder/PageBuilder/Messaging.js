@@ -2,8 +2,11 @@
     'CMS.Builder/MessageService',
     'CMS.Builder/PageBuilder/DragAndDropService',
     'CMS.Builder/PageBuilder/ModalDialogService',
-    'CMS.Builder/MessageTypes'
-], function (msgService, dndService, modalService, messageTypes) {
+    'CMS.Builder/MessageTypes',
+    'CMS/UrlHelper',
+    'CMS/CurrentUrlHelper',
+    'CMS.Builder/Constants'
+], function (msgService, dndService, modalService, messageTypes, urlHelper, currentUrlHelper, constants) {
 
     var Module = function (serverData) {
         var frameLoaded = false;
@@ -13,7 +16,7 @@
         var instanceGuid = serverData.guid;
         var targetOrigin = serverData.origin;
         var documentGuid = serverData.documentGuid;
-        var isPostBack = serverData.isPostBack;
+        var deleteDisplayedVariants = serverData.deleteDisplayedVariants;
         var originalScript;
 
         var DISPLAYED_WIDGET_VARIANTS_SESSION_STORAGE_KEY = 'Kentico.DisplayedWidgetVariants|' + documentGuid;
@@ -79,8 +82,7 @@
         var deleteDisplayedWidgetVariants = function () {
             var displayedWidgetVariants = sessionStorage.getItem(DISPLAYED_WIDGET_VARIANTS_SESSION_STORAGE_KEY);
 
-            // Delete data in session storage on full page refresh
-            if (!isPostBack && displayedWidgetVariants) {
+            if (deleteDisplayedVariants && displayedWidgetVariants) {
                 sessionStorage.removeItem(DISPLAYED_WIDGET_VARIANTS_SESSION_STORAGE_KEY);
             }
         };
@@ -132,7 +134,13 @@
         };
 
         var loadFrame = function () {
-            frame.setAttribute("src", frameUrl);
+            frame.setAttribute("src",
+                urlHelper.addParameterToUrl(
+                    frameUrl,
+                    constants.ADMINISTRATION_DOMAIN_PARAMETER_NAME,
+                    urlHelper.getHostWithScheme(currentUrlHelper.getCurrentUrl()))
+            );
+
             if (window.parent.Loader) {
                 window.parent.Loader.show();
             }

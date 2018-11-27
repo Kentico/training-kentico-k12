@@ -2,6 +2,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Mvc.Routing.Constraints;
 using System.Web.Routing;
+
 using Kentico.Web.Mvc;
 using MedioClinic.Config;
 using MedioClinic.Utils;

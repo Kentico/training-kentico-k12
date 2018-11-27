@@ -137,11 +137,11 @@ public partial class CMSModules_SocialMarketing_FormControls_AvailableUrlShorten
 
     private void InitializeDropDownList()
     {
-        UrlShortenerDropDownList.Items.Add(CreateDropDownListItem(URLShortenerTypeEnum.None));
         foreach (URLShortenerTypeEnum shortener in URLShortenerHelper.GetAvailableURLShorteners(SiteID))
         {
             UrlShortenerDropDownList.Items.Add(CreateDropDownListItem(shortener));
         }
+
         if (SocialNetworkName != SocialNetworkTypeEnum.None)
         {
             URLShortenerTypeEnum defaultShortener = URLShortenerHelper.GetDefaultURLShortenerForSocialNetwork(SocialNetworkName, SiteID);

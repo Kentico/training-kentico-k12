@@ -1069,12 +1069,13 @@
             <param name="nodeAliasPath">Node alias path</param>
             <param name="nodeGuid">Node GUID</param>
         </member>
-        <member name="M:CMS.Synchronization.SyncManager.UpdateRelationships(CMS.DocumentEngine.TreeNode,System.Data.DataTable)">
+        <member name="M:CMS.Synchronization.SyncManager.UpdateRelationships(CMS.DocumentEngine.TreeNode,System.Data.DataTable,CMS.DataEngine.TranslationHelper)">
             <summary>
             Updates the relationships.
             </summary>
             <param name="node">Document node</param>
             <param name="relationshipsTable">Relationships table</param>
+            <param name="th">Translation helper</param>
         </member>
         <member name="M:CMS.Synchronization.SyncManager.UpdateCategories(CMS.DocumentEngine.TreeNode,System.Data.DataTable,CMS.DataEngine.TranslationHelper)">
             <summary>

@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Business.DI;
+using Business.DependencyInjection;
 using Business.Repository.Company;
 using Business.Repository.Home;
 using MedioClinic.Models.Home;

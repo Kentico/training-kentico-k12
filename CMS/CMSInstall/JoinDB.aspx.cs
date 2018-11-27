@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Principal;
 using System.Text;
+using System.Web.Security;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 
@@ -26,6 +27,8 @@ public partial class CMSInstall_JoinDB : GlobalAdminPage
     /// Short link to help topic page.
     /// </summary>
     private const string HELP_TOPIC_LINK = "cm_database_rejoining";
+
+    private const string PURPOSE = "ConnectionStringProtection";
 
     #endregion
 
@@ -76,7 +79,7 @@ public partial class CMSInstall_JoinDB : GlobalAdminPage
             string returnUrl = QueryHelper.GetString("returnurl", String.Empty);
 
             // Ensure that URL is valid
-            if (string.IsNullOrEmpty(returnUrl) || returnUrl.StartsWithCSafe("~") || returnUrl.StartsWithCSafe("/") || QueryHelper.ValidateHash("hash"))
+            if (string.IsNullOrEmpty(returnUrl) || returnUrl.StartsWith("~", StringComparison.Ordinal) || returnUrl.StartsWith("/", StringComparison.Ordinal) || QueryHelper.ValidateHash("hash"))
             {
                 return returnUrl;
             }
@@ -176,7 +179,7 @@ public partial class CMSInstall_JoinDB : GlobalAdminPage
 
         if (String.IsNullOrEmpty(hdnConnString.Value) && SqlInstallationHelper.DatabaseIsSeparated())
         {
-            hdnConnString.Value = EncryptionHelper.EncryptData(DatabaseSeparationHelper.ConnStringSeparate);
+            hdnConnString.Value = ProtectConnectionString();
         }
     }
 
@@ -245,7 +248,7 @@ public partial class CMSInstall_JoinDB : GlobalAdminPage
 
                 separationHelper.InstallScriptsFolder = SqlInstallationHelper.GetSQLInstallPathToObjects();
                 separationHelper.ScriptsFolder = Server.MapPath("~/App_Data/DBSeparation");
-                separationHelper.InstallationConnStringSeparate = EncryptionHelper.DecryptData(hdnConnString.Value);
+                separationHelper.InstallationConnStringSeparate = UnprotectConnectionString();
                 error = separationHelper.DeleteSourceTables(separationFinished.DeleteOldDB, false);
             }
 
@@ -496,7 +499,7 @@ public partial class CMSInstall_JoinDB : GlobalAdminPage
     /// Returns text for azure containing tables which need to be manually copied.
     /// </summary>
     private string GetManualCopyText()
-   { 
+    {
         SeparatedTables tables = new SeparatedTables(Server.MapPath("~/App_Data/DBSeparation"));
         return GetString("separationDB.manualcopy") + tables.GetTableNames("<br />");
     }
@@ -527,11 +530,7 @@ public partial class CMSInstall_JoinDB : GlobalAdminPage
             SettingsKeyInfoProvider.SetGlobalValue("CMSSchedulerTasksEnabled", true);
 
             // Restart win service
-            WinServiceItem def = WinServiceHelper.GetServiceDefinition(WinServiceHelper.HM_SERVICE_BASENAME);
-            if (def != null)
-            {
-                WinServiceHelper.RestartService(def.GetServiceName());
-            }
+            WinServiceHelper.RestartService(WinServiceHelper.HM_SERVICE_BASENAME, false);
         }
         PersistentStorageHelper.RemoveValue("CMSSchedulerTasksEnabled");
     }
@@ -595,6 +594,20 @@ function RefreshParent() {
 }");
         // Register script
         ScriptHelper.RegisterClientScriptBlock(this, typeof(string), "WOpenerRefresh", ScriptHelper.GetScript(script.ToString()));
+    }
+
+
+    private static string ProtectConnectionString()
+    {
+        var protectedConnectionString = MachineKey.Protect(Encoding.UTF8.GetBytes(DatabaseSeparationHelper.ConnStringSeparate), PURPOSE);
+        return Convert.ToBase64String(protectedConnectionString);
+    }
+
+
+    private string UnprotectConnectionString()
+    {
+        var connectionString = MachineKey.Unprotect(Convert.FromBase64String(hdnConnString.Value), PURPOSE);
+        return Encoding.UTF8.GetString(connectionString);
     }
 
     #endregion

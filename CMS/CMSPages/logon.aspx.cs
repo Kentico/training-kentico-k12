@@ -169,10 +169,10 @@ public partial class CMSPages_logon : CMSPage, ICallbackEventHandler
             }
         }
 
-        PlaceHolder plcRemeberMe = (PlaceHolder)Login1.FindControl("plcRemeberMe");
-        if ((MFAuthenticationHelper.IsMultiFactorAuthEnabled) && (plcRemeberMe != null))
+        PlaceHolder plcRememberMe = (PlaceHolder)Login1.FindControl("plcRememberMe");
+        if ((MFAuthenticationHelper.IsMultiFactorAuthEnabled) && (plcRememberMe != null))
         {
-            plcRemeberMe.Visible = false;
+            plcRememberMe.Visible = false;
         }
 
 
@@ -589,11 +589,23 @@ function UpdateLabel_", ClientID, @"(content, context) {
         {
             plcPasscodeBox.Visible = false;
         }
-
+        
         var plcLoginInputs = Login1.FindControl("plcLoginInputs");
         if (plcLoginInputs != null)
         {
             plcLoginInputs.Visible = true;
+        }
+
+        var divPassword = Login1.FindControl("divPassword");
+        if (divPassword != null)
+        {
+            divPassword.Visible = false;
+        }
+
+        var plcRememberMe = Login1.FindControl("plcRememberMe");
+        if (plcRememberMe != null)
+        {
+            plcRememberMe.Visible = false;
         }
 
         var plcTokenInfo = Login1.FindControl("plcTokenInfo");
@@ -607,24 +619,6 @@ function UpdateLabel_", ClientID, @"(content, context) {
         {
             btnItem.ResourceString = "LogonForm.SendRequest";
             btnItem.CommandName = string.Empty;
-        }
-
-        TextBox txtPassword = (TextBox)Login1.FindControl("Password");
-        if (txtPassword != null)
-        {
-            txtPassword.Visible = false;
-        }
-
-        LocalizedLabel lblItem = (LocalizedLabel)Login1.FindControl("lblPassword");
-        if (lblItem != null)
-        {
-            lblItem.Visible = false;
-        }
-
-        CMSCheckBox chkRemeber = (CMSCheckBox)Login1.FindControl("chkRememberMe");
-        if (chkRemeber != null)
-        {
-            chkRemeber.Visible = false;
         }
 
         MainTextResString = "logonform.lnkpasswordretrieval";

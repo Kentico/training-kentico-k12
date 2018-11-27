@@ -1419,8 +1419,9 @@ public partial class CMSModules_Ecommerce_Controls_ProductOptions_ShoppingCartIt
     private void EnsureUnavailableVariantMessage()
     {
         // Info message is not disabled and product has some variants and selected one exists;
-        lblUnavailableVariantInfo.Visible = (UnavailableVariantInfoEnabled && (SelectedVariant == null) && (Variants.Count != 0)) ||
-            (UnavailableVariantInfoEnabled && !SelectedVariant.Variant.SKUEnabled);
+        lblUnavailableVariantInfo.Visible = UnavailableVariantInfoEnabled &&
+                                            ((SelectedVariant == null && Variants.Count != 0) ||
+                                             (SelectedVariant != null && !SelectedVariant.Variant.SKUEnabled));
     }
 
 

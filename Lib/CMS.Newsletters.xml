@@ -464,10 +464,11 @@
             </summary>
             <param name="newsletter">Newsletter</param>
         </member>
-        <member name="M:CMS.Newsletters.INewsletterLicenseCheckerService.ClearLicNewsletter">
+        <member name="M:CMS.Newsletters.INewsletterLicenseCheckerService.ClearLicNewsletter(System.Boolean)">
             <summary>
             Clear license newsletter hashtable.
             </summary>
+            <param name="logTasks">If true, web farm tasks are logged</param>
         </member>
         <member name="M:CMS.Newsletters.INewsletterLicenseCheckerService.IsABTestingAvailable">
             <summary>
@@ -495,6 +496,18 @@
             <param name="feature">Feature to check</param>
             <param name="action">Action</param>
             <param name="siteCheck">If true limitations are not applied under URLs in Site manager, CMS Desk, CMSModules and CMSPages/Logon</param>
+        </member>
+        <member name="T:CMS.Newsletters.IssueActivitiesRetriever">
+            <summary>
+            Encapsulates methods to retrieve data of activities made on newsletter issues.
+            </summary>
+        </member>
+        <member name="M:CMS.Newsletters.IssueActivitiesRetriever.GetActivitiesQuery(System.Guid,System.String)">
+            <summary>
+            Returns activities of given <paramref name="activityType"/> which contacts have made on a specified <see cref="T:CMS.Newsletters.IssueInfo"/>.
+            </summary>
+            <param name="issueGuid">Issue GUID.</param>
+            <param name="activityType">Activity type.</param>
         </member>
         <member name="T:CMS.Newsletters.RecipientMethods">
             <summary>
@@ -594,10 +607,11 @@
             </summary>
             <param name="newsletter">Newsletter</param>
         </member>
-        <member name="M:CMS.Newsletters.NewsletterLicenseCheckerService.ClearLicNewsletter">
+        <member name="M:CMS.Newsletters.NewsletterLicenseCheckerService.ClearLicNewsletter(System.Boolean)">
             <summary>
             Clear license newsletter hashtable.
             </summary>
+            <param name="logTasks">If true, web farm tasks are logged</param>
         </member>
         <member name="M:CMS.Newsletters.NewsletterLicenseCheckerService.IsTrackingAvailable">
             <summary>
@@ -1710,6 +1724,27 @@
             </summary>
             <param name="message">Email message to modify.</param>
         </member>
+        <member name="T:CMS.Newsletters.NewsletterSendingStatusModifier">
+            <summary>
+            Encapsulates methods intended to reset issue/newsletter queue item status.
+            </summary>
+        </member>
+        <member name="M:CMS.Newsletters.NewsletterSendingStatusModifier.ResetAllEmailsInQueueForIssue(System.Int32)">
+            <summary>
+            Resets email sending status for all emails in queue for specified issue.
+            </summary>
+            <param name="issueId">Issue id</param>
+        </member>
+        <member name="M:CMS.Newsletters.NewsletterSendingStatusModifier.ResetFailedEmailsInQueue">
+            <summary>
+            Resets email sending status for all old not send emails in queue.
+            </summary>
+        </member>
+        <member name="M:CMS.Newsletters.NewsletterSendingStatusModifier.ResendFailedVariantIssues">
+            <summary>
+            Schedules mailout tasks for old not send variants.
+            </summary>
+        </member>
         <member name="T:CMS.Newsletters.ISenderRetriever">
             <summary>
             Interface for retrieving sender email and name.
@@ -1990,12 +2025,12 @@
         </member>
         <member name="M:CMS.Newsletters.ContactNewsletterMacroMethods.InteractedWithNewsletterIssue(System.Object,System.Guid,System.Boolean,System.Int32)">
             <summary>
-            Returns true if the contact clicked link in the specified newsletter issue.
+            Returns true if the contact opened or clicked link in the specified newsletter issue or its variant.
             </summary>
-            <param name="contact">Contact that should be checked</param>
-            <param name="issueGuid">Newsletter issue GUID</param>
+            <param name="contact">Contact that should be checked.</param>
+            <param name="issueGuid">Newsletter issue GUID.</param>
             <param name="click">Indicates whether contact should have clicked the newsletter issue or just open it.</param>
-            <param name="lastXDays">Constraint for last X days (if zero or negative value is given, no constraint is applied)</param>
+            <param name="lastXDays">Constraint for last X days (if zero or negative value is given, no constraint is applied).</param>
         </member>
         <member name="M:CMS.Newsletters.ContactNewsletterMacroMethods.SubscribedToNewsletter(System.Object,System.Guid,System.Int32)">
             <summary>
@@ -2176,9 +2211,9 @@
             Clears e-mail sending status of all newsletters
             </summary>
         </member>
-        <member name="M:CMS.Newsletters.NewsletterHandlers.CancelEmailSending(System.Object,CMS.DataEngine.SettingsKeyChangedEventArgs)">
+        <member name="M:CMS.Newsletters.NewsletterHandlers.EmailsEnabledSettingChanged(System.Object,CMS.DataEngine.SettingsKeyChangedEventArgs)">
             <summary>
-            Cancels sending of emails if related settings key changed
+            Notifies email sender that a setting affecting whether email sending is enabled has changed.
             </summary>
         </member>
         <member name="M:CMS.Newsletters.NewsletterHandlers.ChangeUTMInCampaignEmail(System.Object,CMS.Base.CMSEventArgs{CMS.WebAnalytics.CampaignUTMChangedData})">
@@ -2193,11 +2228,11 @@
         </member>
         <member name="M:CMS.Newsletters.NewsletterHandlers.UpdateIssueUTMCampaignCode(CMS.Newsletters.IssueInfo,System.String)">
             <summary>
-            Updates <see cref="P:CMS.Newsletters.IssueInfo.IssueUTMCampaign"/> field of given <paramref name="issue"/> with <paramref name="campaignUTMCode"/>. 
+            Updates <see cref="P:CMS.Newsletters.IssueInfo.IssueUTMCampaign"/> field of given <paramref name="issue"/> with <paramref name="campaignUTMCode"/>.
             If <paramref name="issue"/> is AB test parent, sets the <paramref name="campaignUTMCode"/> to its variants as well.
             </summary>
             <remarks>
-            Besides <see cref="P:CMS.Newsletters.IssueInfo.IssueUTMCampaign"/> sets <see cref="P:CMS.Newsletters.IssueInfo.IssueUseUTM"/> to <c>true</c> as well, 
+            Besides <see cref="P:CMS.Newsletters.IssueInfo.IssueUTMCampaign"/> sets <see cref="P:CMS.Newsletters.IssueInfo.IssueUseUTM"/> to <c>true</c> as well,
             since this field should be always set to <c>true</c> once the <see cref="P:CMS.Newsletters.IssueInfo.IssueUTMCampaign"/> is filled.
             </remarks>
             <param name="issue"><see cref="T:CMS.Newsletters.IssueInfo"/> to be updated</param>
@@ -4313,10 +4348,11 @@
             </summary>
             <param name="newsletter">Newsletter</param>
         </member>
-        <member name="M:CMS.Newsletters.NewsletterHelper.ClearLicNewsletter">
+        <member name="M:CMS.Newsletters.NewsletterHelper.ClearLicNewsletter(System.Boolean)">
             <summary>
             Clear license newsletter hashtable.
             </summary>
+            <param name="logTasks">If true, web farm tasks are logged</param>
         </member>
         <member name="M:CMS.Newsletters.NewsletterHelper.IsTrackingAvailable">
             <summary>
@@ -6484,12 +6520,11 @@
             Gets page encoding regular expression.
             </summary>
         </member>
-        <member name="M:CMS.Newsletters.EmailQueueManager.SendAllEmails(System.Boolean,System.Boolean,System.Int32)">
+        <member name="M:CMS.Newsletters.EmailQueueManager.SendAllEmails(System.Boolean,System.Int32)">
             <summary>
             Tries to send all e-mails from the newsletter queue.
             </summary>
             <param name="sendFailed">Indicates if failed emails should be sent.</param>
-            <param name="sendNew">Indicates if new emails should be sent.</param>
             <param name="issueId">Context of an issue for which the emails should be sent. If not provided, context is gathered from the first item in the queue.</param>
         </member>
         <member name="M:CMS.Newsletters.EmailQueueManager.SendEmail(CMS.Newsletters.EmailQueueItemInfo,CMS.Newsletters.EmailParts,System.String)">
@@ -6511,35 +6546,32 @@
             Clears the sending status for the corrupted e-mails.
             </summary>
         </member>
-        <member name="M:CMS.Newsletters.EmailQueueManager.FetchEmailsToSend(System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32)">
+        <member name="M:CMS.Newsletters.EmailQueueManager.FetchEmailsToSend(System.Boolean,System.Int32,System.Int32,System.Int32)">
             <summary>
             Fetches the e-mails which should be sent from database and marks them as being sent.
             If enabled all e-mails with status 'sending' which have EmailID smaller then or equal to 'firstEmailId' will be deleted.
             </summary>
             <param name="fetchFailed">If true, failed e-mails are fetched</param>
-            <param name="fetchNew">If true, new e-mails are fetched</param>
             <param name="firstEmailId">First e-mail ID (all e-mails should have the same or larger ID)</param>
             <param name="issueId">If set, only e-mails of specified issue will be fetched</param>
             <param name="topN">Number of e-mails to fetch</param>
         </member>
-        <member name="M:CMS.Newsletters.EmailQueueManager.FetchVariantEmailsToSend(System.Boolean,System.Boolean,System.Guid,System.Int32,System.Int32)">
+        <member name="M:CMS.Newsletters.EmailQueueManager.FetchVariantEmailsToSend(System.Boolean,System.Guid,System.Int32,System.Int32)">
             <summary>
             Fetches the variant e-mails which should be sent from database and marks them as being sent.
             If enabled all e-mails with status 'sending' which have EmailGUID smaller then or equal to 'firstEmailGuid' will be deleted.
             </summary>
             <param name="fetchFailed">If true, failed e-mails are fetched</param>
-            <param name="fetchNew">If true, new e-mails are fetched</param>
             <param name="firstEmailGuid">First e-mail GUID (all e-mails should have the same or larger GUID)</param>
             <param name="issueId">If set, only e-mails of specified issue will be fetched</param>
             <param name="topN">Number of e-mails to fetch</param>
         </member>
-        <member name="M:CMS.Newsletters.EmailQueueManager.FetchEmailsToSendInternal(System.Boolean,System.Boolean,System.Int32,System.Guid,System.Int32,System.Int32)">
+        <member name="M:CMS.Newsletters.EmailQueueManager.FetchEmailsToSendInternal(System.Boolean,System.Int32,System.Guid,System.Int32,System.Int32)">
             <summary>
             Fetches the e-mails which should be sent from database and marks them as being sent.
             If enabled all e-mails with status 'sending' which have EmailID smaller then or equal to 'firstEmailId' will be deleted.
             </summary>
             <param name="fetchFailed">If true, failed e-mails are fetched</param>
-            <param name="fetchNew">If true, new e-mails are fetched</param>
             <param name="firstEmailId">First e-mail ID (all e-mails should have the same or larger ID)</param>
             <param name="firstEmailGuid">First e-mail GUID (all e-mails should have the same or larger GUID)</param>
             <param name="issueId">If set, only e-mails of specified issue will be fetched</param>
@@ -8290,16 +8322,11 @@
         <member name="T:CMS.Newsletters.ThreadEmailSender">
             <summary>
             Async e-mail sender. Gets e-mails from newsletter queue, prepares them and sends them to e-mail queue.
-            </summary>    
+            </summary>
         </member>
         <member name="F:CMS.Newsletters.ThreadEmailSender.mSendFailed">
             <summary>
             Resend failed e-mails.
-            </summary>
-        </member>
-        <member name="F:CMS.Newsletters.ThreadEmailSender.mSendNew">
-            <summary>
-            Send new e-mails.
             </summary>
         </member>
         <member name="F:CMS.Newsletters.ThreadEmailSender.mIssueID">
@@ -8317,9 +8344,9 @@
             Windows identity.
             </summary>
         </member>
-        <member name="F:CMS.Newsletters.ThreadEmailSender.mAllowSending">
+        <member name="F:CMS.Newsletters.ThreadEmailSender.mEmailsEnabledSettingChanged">
             <summary>
-            Used to cancel the sending if set to 'false'.
+            Used to signal that one of the settings affecting enabled state of email sending has changed.
             </summary>
         </member>
         <member name="F:CMS.Newsletters.ThreadEmailSender.threadLock">
@@ -8337,20 +8364,24 @@
             Send failed e-mails?
             </summary>
         </member>
-        <member name="P:CMS.Newsletters.ThreadEmailSender.SendNew">
-            <summary>
-            Send new e-mails?
-            </summary>
-        </member>
         <member name="P:CMS.Newsletters.ThreadEmailSender.IssueID">
             <summary>
             IssueID, optional; only specific issue is send-out if it is set.
             </summary>
         </member>
-        <member name="M:CMS.Newsletters.ThreadEmailSender.CancelSending">
+        <member name="M:CMS.Newsletters.ThreadEmailSender.NotifyEmailsEnabledSettingChanged(System.Boolean)">
             <summary>
-            Stops current sending process.
+            <para>
+            Notifies the sending process that one of the settings affecting whether email sending is allowed has changed.
+            As a result the sending process re-evaluates whether emails can still be sent with respect to currently processed newsletter's site.
+            The email sending process is driven by 'CMSEmailsEnabled' and 'CMSGenerateNewsletters' settings.
+            </para>
+            <para>
+            A web farm task propagating the notification is optionally logged.
+            </para>
             </summary>
+            <seealso cref="M:CMS.EmailEngine.EmailHelper.Settings.EmailsEnabled(System.String)"/>
+            <seealso cref="M:CMS.Newsletters.NewsletterHelper.GenerateEmailsEnabled(System.String)"/>
         </member>
         <member name="M:CMS.Newsletters.ThreadEmailSender.RunAsync(System.Security.Principal.WindowsIdentity)">
             <summary>
@@ -8363,11 +8394,15 @@
             Sends all e-mails one by one in one thread.
             </summary>
         </member>
-        <member name="M:CMS.Newsletters.ThreadEmailSender.GetIssueIDToSend(System.Boolean,System.Boolean)">
+        <member name="M:CMS.Newsletters.ThreadEmailSender.EmailsEnabled(System.String)">
+            <summary>
+            Checks if newsletter sending is enabled even if e-mail sending is disabled.
+            </summary>
+        </member>
+        <member name="M:CMS.Newsletters.ThreadEmailSender.GetIssueIDToSend(System.Boolean)">
             <summary>
             Returns IssueID of the top item in newsletter queue which is not A/B test or 0.
             </summary>
-            <param name="getNew">Indicates if new issues can be used</param>
             <param name="getFailed">Indicates if failed issues can be used</param>
         </member>
         <member name="M:CMS.Newsletters.ThreadEmailSender.GetMailsToSend(CMS.Newsletters.IssueInfo)">
@@ -8694,6 +8729,27 @@
             <param name="email">Email to unsubscribe</param>
             <param name="newsletterID">Specifies newsletter that email is unsubscribed from. Null means that contact is unsubscribed from all newsletters.</param>
             <param name="issueID">ID of issue that visitor used for unsubscription. Use only when issue ID is known.</param>
+        </member>
+        <member name="T:CMS.Newsletters.ClearLicenseLimitationCacheWebFarmTask">
+            <summary>
+            Web farm task used to clear newsletter license limitation tables.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="M:CMS.Newsletters.ClearLicenseLimitationCacheWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.Newsletters.INewsletterLicenseCheckerService.ClearLicNewsletter(System.Boolean)"/> method.
+            </summary>
+        </member>
+        <member name="T:CMS.Newsletters.EmailsEnabledSettingChangedWebFarmTask">
+            <summary>
+            Web farm task used to notify that one of the settings affecting whether email sending is allowed has changed.
+            </summary>
+        </member>
+        <member name="M:CMS.Newsletters.EmailsEnabledSettingChangedWebFarmTask.ExecuteTask">
+            <summary>
+            Notifies that one of the settings affecting whether email sending is allowed has changed.
+            </summary>
         </member>
     </members>
 </doc>

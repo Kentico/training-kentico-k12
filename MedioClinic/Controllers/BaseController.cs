@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Business.DI;
+using Business.DependencyInjection;
 using Business.Dto.Company;
 using Business.Dto.Menu;
 using Business.Dto.Page;

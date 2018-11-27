@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Web.Mvc;
 using System.Web.UI;
-using Business.DI;
+using Business.DependencyInjection;
 using Business.Dto.Doctors;
 using Business.Repository.Doctor;
 using Business.Services.Cache;
-using CMS.DocumentEngine.Types.Training;
+using CMS.DocumentEngine.Types.MedioClinic;
 using MedioClinic.Models.Doctors;
 
 namespace MedioClinic.Controllers

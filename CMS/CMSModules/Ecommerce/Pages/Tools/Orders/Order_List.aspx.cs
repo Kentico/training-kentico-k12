@@ -9,10 +9,21 @@ using CMS.UIControls;
 
 
 [Title("Order_New.Orders")]
-[UIElement(ModuleName.ECOMMERCE, "Orders")]
 public partial class CMSModules_Ecommerce_Pages_Tools_Orders_Order_List : CMSEcommercePage
 {
     #region "Page Events"
+
+    protected override void OnPreInit(EventArgs e)
+    {
+        var customerId = QueryHelper.GetInteger("customerId", 0);
+        var elementName = customerId == 0 ? "Orders" : "Customers.Orders";
+
+        var uiElement = new UIElementAttribute(ModuleName.ECOMMERCE, elementName);
+        uiElement.Check(this);
+
+        base.OnPreInit(e);
+    }
+
 
     protected void Page_Load(object sender, EventArgs e)
     {       

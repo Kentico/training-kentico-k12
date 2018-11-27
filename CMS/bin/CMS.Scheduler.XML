@@ -4,6 +4,16 @@
         <name>CMS.Scheduler</name>
     </assembly>
     <members>
+        <member name="T:CMS.Scheduler.ClearSchedulingEnabledStatusWebFarmTask">
+            <summary>
+            Web farm task used to clear enabled status of scheduler.
+            </summary>
+        </member>
+        <member name="M:CMS.Scheduler.ClearSchedulingEnabledStatusWebFarmTask.ExecuteTask">
+            <summary>
+            Clears the enabled status of the scheduler so it can reload.
+            </summary>
+        </member>
         <member name="T:CMS.Scheduler.ImportSpecialActions">
             <summary>
             Handles special actions during the import process.
@@ -129,6 +139,16 @@
             Gets whether this handler can be reused for other request; always returns <c>false</c>.
             </summary>
             <value>Always <c>false</c></value>
+        </member>
+        <member name="T:CMS.Scheduler.SchedulingSynchronization">
+            <summary>
+            Synchronization helper class for the scheduler module.
+            </summary>
+        </member>
+        <member name="M:CMS.Scheduler.SchedulingSynchronization.Init">
+            <summary>
+            Initializes the tasks for clearing enabled status of scheduling synchronization.
+            </summary>
         </member>
         <member name="T:CMS.Scheduler.ITask">
             <summary>
@@ -493,10 +513,11 @@
             Gets windows service interval (in seconds).
             </summary>
         </member>
-        <member name="M:CMS.Scheduler.SchedulingHelper.Clear">
+        <member name="M:CMS.Scheduler.SchedulingHelper.Clear(System.Boolean)">
             <summary>
             Clears the enabled status of the scheduler so it can reload
             </summary>
+            <param name="logTask">Indicates whether web farm task should be logged.</param>
         </member>
         <member name="M:CMS.Scheduler.SchedulingHelper.IsExternalTaskTooLate(CMS.Scheduler.TaskInfo,System.Int32,System.Nullable{System.DateTime})">
             <summary>
@@ -540,7 +561,7 @@
             Decodes interval string from database.
             </summary>
             <param name="interval">Interval string from database</param>
-            <returns>TaksInterval object</returns>
+            <returns>TaskInterval object</returns>
         </member>
         <member name="M:CMS.Scheduler.SchedulingHelper.LogTask(CMS.Scheduler.TaskInfo)">
             <summary>
@@ -673,6 +694,12 @@
             </summary>
             <param name="taskInterval">Information about task repetition</param>
         </member>
+        <member name="M:CMS.Scheduler.SchedulingHelper.IsWeekPeriodWithSpecificDays(CMS.Scheduler.TaskInterval)">
+            <summary>
+            Tests if given task interval describes a day period started every 7th day repeated in specific days.
+            </summary>
+            <param name="taskInterval">Information about task repetition</param>
+        </member>
         <member name="M:CMS.Scheduler.SchedulingHelper.IsBeforeAllowedTimeEnd(System.TimeSpan,CMS.Scheduler.TaskInterval)">
             <summary>
             Tests if given date and time's time of day is lower than the upper allowed time threshold.
@@ -794,7 +821,7 @@
             <param name="weekNumber">Week number in a month</param>
             <exception cref="T:System.ArgumentOutOfRangeException">When week is not in interval 1..5</exception>
         </member>
-        <member name="M:CMS.Scheduler.SchedulingHelper.MoveToSpeficicDayOfWeekInFuture(System.DateTime,CMS.Scheduler.TaskInterval,System.DateTime)">
+        <member name="M:CMS.Scheduler.SchedulingHelper.MoveToSpecificDayOfWeekInFuture(System.DateTime,CMS.Scheduler.TaskInterval,System.DateTime)">
             <summary>
             Moves current date and time forward based on given task interval and base time and further on to the nearest specific day of week.
             </summary>

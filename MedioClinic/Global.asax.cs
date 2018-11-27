@@ -1,32 +1,24 @@
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Kentico.Content.Web.Mvc;
+
 using Kentico.Web.Mvc;
 
 namespace MedioClinic
 {
-    public class MvcApplication : HttpApplication
+    public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            // Enables and configures selected Kentico ASP.NET MVC integration features
+            ApplicationConfig.RegisterFeatures(ApplicationBuilder.Current);
 
-            // Gets the ApplicationBuilder instance
-            // Allows you to enable and configure selected Kentico MVC integration features
-            ApplicationBuilder builder = ApplicationBuilder.Current;
-
-            // Enables the preview feature
-            builder.UsePreview();
-
-            // MVC routes
+            // Registers routes including system routes for enabled features
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            // DI
+            // Dependency injection
             AutofacConfig.ConfigureContainer();
 
-            // Bundles
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
 

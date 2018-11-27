@@ -598,7 +598,7 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileUplo
                     {
                         fileExt = FileInfo.FileExtension;
                         fileName = FileInfo.FileName;
-                        fileUrl = MediaFileInfoProvider.GetMediaFileAbsoluteUrl(FileInfo.FileGUID, FileInfo.FileName);
+                        fileUrl = MediaFileURLProvider.GetMediaFileAbsoluteUrl(FileInfo.FileGUID, AttachmentHelper.GetFullFileName(FileInfo.FileName, FileInfo.FileExtension));
                     }
                     fileUrl = URLHelper.UpdateParameterInUrl(fileUrl, "chset", Guid.NewGuid().ToString());
 

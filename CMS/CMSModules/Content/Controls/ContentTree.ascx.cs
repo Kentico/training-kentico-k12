@@ -684,7 +684,15 @@ function MoveNodeAsync(nodeId, targetNodeId, position, copy, link) {
 
                     System.Web.UI.WebControls.TreeNode newNode = CreateNode(sourceNode, 0, true);
 
-                    parentNode.ChildNodes.Add(newNode);
+                    // If MaxTreeNodes threshold reached, sourceNode must be placed before "Click here..." node
+                    if (parentNode.ChildNodes.Count >= MaxTreeNodes)
+                    {
+                        parentNode.ChildNodes.AddAt(parentNode.ChildNodes.Count - 1, newNode);
+                    }
+                    else
+                    {
+                        parentNode.ChildNodes.Add(newNode);
+                    }
                 }
             }
             else

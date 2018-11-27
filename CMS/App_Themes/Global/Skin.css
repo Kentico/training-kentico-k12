@@ -1709,6 +1709,9 @@
 .ContentBody .icon-w-newsletter-subscription:before {
   content: "\e675";
 }
+.ContentBody .icon-w-messaging-info-panel:before {
+  content: "\e64f";
+}
 .ContentBody .icon-w-newsletter-unsubscription:before {
   content: "\e60d";
 }

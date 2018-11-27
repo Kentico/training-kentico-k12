@@ -591,6 +591,14 @@
             Returns last item order for specified custom table.
             </summary>
         </member>
+        <member name="M:CMS.CustomTables.CustomTableItemProvider.ProcessWebFarmTaskInternal(System.String,System.String,System.Byte[])">
+            <summary>
+            Runs the processing of specific web farm task for current provider
+            </summary>
+            <param name="actionName">Action name</param>
+            <param name="data">Custom task data</param>
+            <param name="binary">Binary data</param>
+        </member>
         <member name="M:CMS.CustomTables.CustomTableItemProvider.LicenseVersionCheck(System.String,CMS.DataEngine.ObjectActionEnum)">
             <summary>
             License version checker.

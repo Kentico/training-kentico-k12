@@ -412,10 +412,11 @@
             </summary>
             <param name="langCode">Code of the culture</param>
         </member>
-        <member name="M:CMS.TranslationServices.AbstractHumanTranslationService.ClearHashtables">
+        <member name="M:CMS.TranslationServices.AbstractHumanTranslationService.ClearHashtables(System.Boolean)">
             <summary>
-            Clears the hashtables of cached services.
+            Clears the hashtables of cached services and optionally logs a web farm task to propagate the change.
             </summary>
+            <param name="logTask">A value indicating whether to log a web farm task.</param>
         </member>
         <member name="M:CMS.TranslationServices.AbstractHumanTranslationService.GetTranslationService(CMS.TranslationServices.TranslationServiceInfo,System.String)">
             <summary>
@@ -509,7 +510,7 @@
         </member>
         <member name="P:CMS.TranslationServices.MicrosoftTranslatorService.MSTranslatorTextAPISubscriptionKey">
             <summary>
-            Subscription key from Translator Text API azure cognitive service <see href="http://docs.microsofttranslator.com/text-translate.html"/>.
+            Subscription key from Translator Text API azure cognitive service <see href="https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-text-how-to-signup"/>.
             </summary>
         </member>
         <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.Translate(System.String,System.String,System.String)">
@@ -701,10 +702,11 @@
             <param name="text">Text to speech</param>
             <param name="lang">Language in which the speech should be generated (if null or empty, automatic detection is used)</param>
         </member>
-        <member name="M:CMS.TranslationServices.AbstractMachineTranslationService.ClearHashtables">
+        <member name="M:CMS.TranslationServices.AbstractMachineTranslationService.ClearHashtables(System.Boolean)">
             <summary>
-            Clears the hashtables of cached services.
+            Clears the hashtables of cached services and optionally logs a web farm task to propagate the change.
             </summary>
+            <param name="logTask">A value indicating whether to log a web farm task.</param>
         </member>
         <member name="M:CMS.TranslationServices.AbstractMachineTranslationService.GetTranslationService(CMS.TranslationServices.TranslationServiceInfo,System.String)">
             <summary>
@@ -2159,6 +2161,26 @@
             <param name="updateExpression">Update expression, e.g. "Value = Value * 2"</param>
             <param name="where">Where condition</param>
             <param name="parameters">Parameters</param>
+        </member>
+        <member name="T:CMS.TranslationServices.ClearHumanTranslationServiceHashtablesWebFarmTask">
+            <summary>
+            Web farm task used to clear human translation service hashtable.
+            </summary>
+        </member>
+        <member name="M:CMS.TranslationServices.ClearHumanTranslationServiceHashtablesWebFarmTask.ExecuteTask">
+            <summary>
+            Clears human translation service hashtable.
+            </summary>
+        </member>
+        <member name="T:CMS.TranslationServices.ClearMachineTranslationServiceHashtablesWebFarmTask">
+            <summary>
+            Web farm task used to clear machine translation service hashtable.
+            </summary>
+        </member>
+        <member name="M:CMS.TranslationServices.ClearMachineTranslationServiceHashtablesWebFarmTask.ExecuteTask">
+            <summary>
+            Clears machine translation service hashtable.
+            </summary>
         </member>
         <member name="T:CMS.TranslationServices.ImportTranslationAction">
             <summary>

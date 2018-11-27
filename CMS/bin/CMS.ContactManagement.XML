@@ -5840,11 +5840,6 @@
             <param name="ruleParameter">Item name</param>
             <param name="ruleType">Item type - attribute or activity</param>
         </member>
-        <member name="M:CMS.ContactManagement.RuleInfoProvider.RefreshScore(System.Int32)">
-            <summary>
-            Sets score to status where recalculation might be needed.
-            </summary>
-        </member>
         <member name="T:CMS.ContactManagement.RuleActivityItem">
             <summary>
             Represents activity rule definition.

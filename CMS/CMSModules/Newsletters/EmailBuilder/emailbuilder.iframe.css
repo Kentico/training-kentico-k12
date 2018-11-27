@@ -1605,6 +1605,9 @@
 .cms-zone .icon-w-newsletter-subscription:before {
   content: "\e675";
 }
+.cms-zone .icon-w-messaging-info-panel:before {
+  content: "\e64f";
+}
 .cms-zone .icon-w-newsletter-unsubscription:before {
   content: "\e60d";
 }

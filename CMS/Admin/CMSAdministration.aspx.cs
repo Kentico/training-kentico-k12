@@ -178,7 +178,7 @@ public partial class Admin_CMSAdministration : CMSDeskPage
             var node = treeProvider.SelectSingleNode(nodeId, culture, false, false);
             if (node != null)
             {
-                liveSiteUrl = DocumentURLProvider.GetPresentationUrl(node, RequestContext.URL.Host);
+                liveSiteUrl = DocumentURLProvider.GetPresentationUrl(node, RequestContext.FullDomain);
             }
         }
 

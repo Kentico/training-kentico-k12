@@ -33,7 +33,7 @@
                 @foreach (var service in Model.Data.CompanyServices)
                 {<div class="col s12 m4">
                         <div class="icon-block">
-                            <img class="kn-icons kn-center" src="@Url.KenticoImageUrl(service.IconPath)" />
+                            <img class="kn-icons kn-center" src="@Url.KenticoImageUrl(service.Icon.GetPath())" />
                             <h4 class="center">@service.Header</h4>
                             <p class="light center">
                                 @service.Text

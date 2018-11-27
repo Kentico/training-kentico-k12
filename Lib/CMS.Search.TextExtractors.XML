@@ -13,8 +13,8 @@
             <summary>
             Extracts content from given data.
             </summary>
-            <param name="data">Data to extract text from</param>
-            <param name="context">Extraction context (ISeachDocument, Culture, etc.)</param>
+            <param name="data">Data to extract text from.</param>
+            <param name="context">Extraction context.</param>
         </member>
         <member name="M:CMS.Search.TextExtractors.PdfSearchTextExtractor.SafelyExtractContent(CMS.Core.BinaryData)">
             <summary>
@@ -36,8 +36,8 @@
             <summary>
             Extracts content from given data.
             </summary>
-            <param name="data">Data to extract text from</param>
-            <param name="context">Extraction context (ISeachDocument, Culture, etc.)</param>
+            <param name="data">Data to extract text from.</param>
+            <param name="context">Extraction context.</param>
         </member>
         <member name="M:CMS.Search.TextExtractors.PptxSearchTextExtractor.ExtractNotes(DocumentFormat.OpenXml.Packaging.PresentationPart)">
             <summary>
@@ -60,8 +60,8 @@
             <summary>
             Extracts content from given data.
             </summary>
-            <param name="data">Data to extract text from</param>
-            <param name="context">Extraction context (ISeachDocument, Culture, etc.)</param>
+            <param name="data">Data to extract text from.</param>
+            <param name="context">Extraction context.</param>
         </member>
         <member name="M:CMS.Search.TextExtractors.DocxSearchTextExtractor.ExtractComments(DocumentFormat.OpenXml.Packaging.MainDocumentPart)">
             <summary>
@@ -78,8 +78,8 @@
             <summary>
             Extracts content from given data.
             </summary>
-            <param name="data">Data to extract text from</param>
-            <param name="context">Extraction context (ISeachDocument, Culture, etc.)</param>
+            <param name="data">Data to extract text from.</param>
+            <param name="context">Extraction context.</param>
         </member>
         <member name="T:CMS.Search.TextExtractors.SearchTextExtractorsModule">
             <summary>
@@ -120,8 +120,8 @@
             <summary>
             Extracts content from given data.
             </summary>
-            <param name="data">Data to extract text from</param>
-            <param name="context">Extraction context (ISeachDocument, Culture, etc.)</param>
+            <param name="data">Data to extract text from.</param>
+            <param name="context">Extraction context.</param>
         </member>
         <member name="M:CMS.Search.TextExtractors.StreamExtensions.ReadToEnd(System.IO.Stream,System.Text.Encoding)">
             <summary>
@@ -137,8 +137,8 @@
             <summary>
             Extracts content from given data.
             </summary>
-            <param name="data">Data to extract text from</param>
-            <param name="context">Extraction context (ISeachDocument, Culture, etc.)</param>
+            <param name="data">Data to extract text from.</param>
+            <param name="context">Extraction context.</param>
         </member>
         <member name="M:CMS.Search.TextExtractors.XlsxSearchTextExtractor.ExtractContent(System.IO.Stream)">
             <summary>
@@ -164,8 +164,8 @@
             <summary>
             Extracts content from given data.
             </summary>
-            <param name="data">Data to extract text from</param>
-            <param name="context">Extraction context (ISeachDocument, Culture, etc.)</param>
+            <param name="data">Data to extract text from.</param>
+            <param name="context">Extraction context.</param>
         </member>
     </members>
 </doc>

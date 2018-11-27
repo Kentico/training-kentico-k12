@@ -1,9 +1,11 @@
-﻿namespace Business.Dto.Social
+﻿using CMS.DocumentEngine;
+
+namespace Business.Dto.Social
 {
     public class SocialLinkDto
     {
         public string Title { get; set; }
         public string Url { get; set; }
-        public string IconPath { get; set; }
+        public DocumentAttachment Icon { get; set; }
     }
 }

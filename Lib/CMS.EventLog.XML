@@ -1430,6 +1430,27 @@
             </summary>
             <param name="logTasks">If true, web farm tasks are logged</param>
         </member>
+        <member name="M:CMS.EventLog.EventLogProvider.ToggleDefaultEventLogListenerRegistration(System.Boolean)">
+            <summary>
+            Registers or unregisters the default event log listener based on <paramref name="isRegistered"/> flag
+            and logs the corresponding web farm task.
+            </summary>
+            <param name="isRegistered">Pass true to register the default event log listener, false to unregister it.</param>
+        </member>
+        <member name="M:CMS.EventLog.EventLogProvider.ToggleDefaultEventLogListenerRegistrationCore(System.Boolean)">
+            <summary>
+            Registers or unregisters the default event log listener based on <paramref name="isRegistered"/> flag.
+            </summary>
+            <param name="isRegistered">Pass true to register the default event log listener, false to unregister it.</param>
+        </member>
+        <member name="M:CMS.EventLog.EventLogProvider.ProcessWebFarmTaskInternal(System.String,System.String,System.Byte[])">
+            <summary>
+            Runs the processing of specific web farm task for current provider
+            </summary>
+            <param name="actionName">Action name</param>
+            <param name="data">Custom task data</param>
+            <param name="binary">Binary data</param>
+        </member>
         <member name="M:CMS.EventLog.EventLogProvider.CheckLogAvailability(System.String)">
             <summary>
             Checks if logging mode is enabled.

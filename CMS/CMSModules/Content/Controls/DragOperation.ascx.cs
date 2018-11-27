@@ -15,6 +15,7 @@ public partial class CMSModules_Content_Controls_DragOperation : ContentActionsC
 
     protected int nodeId = 0;
     protected int targetNodeId = 0;
+    protected string culture;
     private string canceledString;
 
     protected string action = null;
@@ -127,6 +128,7 @@ public partial class CMSModules_Content_Controls_DragOperation : ContentActionsC
         nodeId = QueryHelper.GetInteger("nodeid", 0);
         targetNodeId = QueryHelper.GetInteger("targetnodeid", 0);
         action = QueryHelper.GetString("action", "");
+        culture = QueryHelper.GetString("culture", TreeProvider.ALL_CULTURES);
 
         if (!RequestHelper.IsCallback())
         {
@@ -135,7 +137,7 @@ public partial class CMSModules_Content_Controls_DragOperation : ContentActionsC
 
             // Get the node
             node = TreeProvider.SelectSingleNode(nodeId);
-            targetNode = TreeProvider.SelectSingleNode(targetNodeId, TreeProvider.ALL_CULTURES);
+            targetNode = TreeProvider.SelectSingleNode(targetNodeId, culture);
 
             // Set visibility of panels
             pnlContent.Visible = true;

@@ -5,7 +5,13 @@
 
     var Module = function (serverData) {
         var frame = document.getElementById(serverData.frameId);
-        var receiveMessage = function (event) {
+        var targetOrigin = serverData.origin;
+
+        var receiveMessage = function (event) {            
+            if (event.origin !== targetOrigin) {
+                return;
+            }
+
             switch (event.data.msg) {
                 case messageTypes.MESSAGING_ERROR:
                     msgService.showError(event.data.data, true);
@@ -19,6 +25,9 @@
 
                 case messageTypes.MESSAGING_WARNING:
                     msgService.showWarning(event.data.data);
+                    break;
+                case messageTypes.CONFIGURATION_CHANGED:
+                    window.top.CancelScreenLockCountdown && window.top.CancelScreenLockCountdown();
                     break;
             }
         };

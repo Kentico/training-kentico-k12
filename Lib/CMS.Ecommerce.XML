@@ -4030,9 +4030,59 @@
             Class providing payment using PayPal payment gateway.
             </summary>
         </member>
+        <member name="T:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor">
+            <summary>
+            Internal class capable of extracting tax.
+            </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor.#ctor(CMS.Ecommerce.ShoppingCartInfo)">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor"/>.
+            </summary>
+            <param name="cart">Shopping cart object</param>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor.ExtractSubTotal(System.Decimal)">
+            <summary>
+            Extracts tax from given <paramref name="subtotal"/> value.
+            </summary>
+            <returns>Value without extracted tax.</returns>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor.ExtractShipping(System.Decimal)">
+            <summary>
+            Extracts tax from given <paramref name="shipping"/> value.
+            </summary>
+            <returns>Value without extracted tax.</returns>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor.ExtractOrderDiscount(System.Decimal)">
+            <summary>
+            Extracts tax from given <paramref name="orderDiscount"/> value.
+            </summary>
+            <returns>Value without extracted tax.</returns>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor.ExtractItemPrice(System.Decimal,CMS.Ecommerce.ShoppingCartItemInfo)">
+            <summary>
+            Extracts tax from given product <paramref name="price"/> value and shopping <paramref name="cartItem"/>.
+            </summary>
+            <returns>Value without extracted tax.</returns>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor.GetTaxCalculationService">
+            <summary>
+            Returns implementation of <see cref="T:CMS.Ecommerce.ITaxCalculationService"/> for further tax calculation.
+            </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.TaxExtractor.GetTaxCalculationRequest">
+            <summary>
+            Returns instance of <see cref="T:CMS.Ecommerce.TaxCalculationRequest"/> needed for further tax calculation.
+            </summary>
+        </member>
         <member name="P:CMS.Ecommerce.CMSPayPalProvider.PayPalPaymentResult">
             <summary>
             Gets strongly typed payment result.
+            </summary>
+        </member>
+        <member name="P:CMS.Ecommerce.CMSPayPalProvider.Culture">
+            <summary>
+            Gets PayPal gateway compatible culture.
             </summary>
         </member>
         <member name="M:CMS.Ecommerce.CMSPayPalProvider.CreatePaymentResultInfo">
@@ -4174,10 +4224,31 @@
             </summary>
             <param name="paymentIntent">Payment intention, for more information see https://developer.paypal.com/docs/integration/direct/express-checkout/integration-jsv4/advanced-payments-api/create-express-checkout-payments/?mark=intent.</param>
         </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.ValidatePayment(PayPal.Api.Payment)">
+            <summary>
+            Validates given <paramref name="payment"/> before the gateway request is performed.
+            </summary>
+            <remarks>
+            Method ensures that payment object fulfills all validations performed on gateway side.
+            </remarks>
+            <see cref="T:PayPal.Api.Payment"/>
+        </member>
         <member name="M:CMS.Ecommerce.CMSPayPalProvider.GetTransactionAmount">
             <summary>
-            Returns <see cref="T:PayPal.Api.Amount"/> object providing money amount informations required by gateway.
+            Returns <see cref="T:PayPal.Api.Amount"/> object providing money amount information required by gateway.
             </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.GetTransactionAmountSubtotal">
+            <summary>
+            Returns subtotal value required by the gateway.
+            </summary>
+            <seealso cref="T:PayPal.Api.Amount"/>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.GetTransactionAmountShipping">
+            <summary>
+            Returns shipping value required by the gateway.
+            </summary>
+            <seealso cref="T:PayPal.Api.Amount"/>
         </member>
         <member name="M:CMS.Ecommerce.CMSPayPalProvider.GetPaymentItems">
             <summary>
@@ -4202,6 +4273,11 @@
         <member name="M:CMS.Ecommerce.CMSPayPalProvider.GetProductItems(CMS.Ecommerce.ShoppingCartItemInfo)">
             <summary>
             Returns item created from given <paramref name="cartItem"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.CMSPayPalProvider.GetItemPrice(CMS.Ecommerce.ShoppingCartItemInfo)">
+            <summary>
+            Returns unit price of one item required by the gateway.
             </summary>
         </member>
         <member name="M:CMS.Ecommerce.CMSPayPalProvider.GetPayerInfo">
@@ -4731,6 +4807,23 @@
             <summary>
             Returns the instance of the <see cref="T:CMS.Ecommerce.ProductDiscountsFilter"/> used for catalog discount filtering.
             </summary>
+        </member>
+        <member name="T:CMS.Ecommerce.EcommerceNamespace">
+            <summary>
+            Macro namespace for ecommerce macro methods.
+            </summary>
+        </member>
+        <member name="T:CMS.Ecommerce.EProductMethods">
+            <summary>
+            Macro methods for e-products.
+            </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.EProductMethods.GetEproductUrl(CMS.MacroEngine.EvaluationContext,System.Object[])">
+            <summary>
+            Returns e-product download URL.
+            </summary>
+            <param name="context">Evaluation context with child resolver</param>
+            <param name="parameters">Method parameters</param>
         </member>
         <member name="T:CMS.Ecommerce.CustomerMethods">
             <summary>
@@ -6892,9 +6985,19 @@
             Summary of tax classes and their values.
             </summary>
         </member>
+        <member name="P:CMS.Ecommerce.TaxCalculationResult.ItemsTax">
+            <summary>
+            Gets or sets calculated tax for items.
+            </summary>
+        </member>
+        <member name="P:CMS.Ecommerce.TaxCalculationResult.ShippingTax">
+            <summary>
+            Gets or sets calculated tax for shipping.
+            </summary>
+        </member>
         <member name="P:CMS.Ecommerce.TaxCalculationResult.TotalTax">
             <summary>
-            Total calculated tax.
+            Gets total calculated tax.
             </summary>
         </member>
         <member name="T:CMS.Ecommerce.DefaultTaxCalculationServiceFactory">
@@ -11299,6 +11402,16 @@
             </summary>
         </member>
         <member name="M:CMS.Ecommerce.SKUImport.Init">
+            <summary>
+            Initializes export handlers
+            </summary>
+        </member>
+        <member name="T:CMS.Ecommerce.SKUExport">
+            <summary>
+            Handles special actions during the SKU export process.
+            </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.SKUExport.Init">
             <summary>
             Initializes export handlers
             </summary>
@@ -17928,14 +18041,14 @@
             <summary>
             Returns payment option with specified ID.
             </summary>
-            <param name="optionId">Payment option ID</param>        
+            <param name="optionId">Payment option ID</param>
         </member>
         <member name="M:CMS.Ecommerce.PaymentOptionInfoProvider.GetPaymentOptionInfo(System.String,System.String)">
             <summary>
             Returns payment option with specified name.
             </summary>
-            <param name="optionName">Payment option name</param>                
-            <param name="siteName">Site name</param>                
+            <param name="optionName">Payment option name</param>
+            <param name="siteName">Site name</param>
         </member>
         <member name="M:CMS.Ecommerce.PaymentOptionInfoProvider.SetPaymentOptionInfo(CMS.Ecommerce.PaymentOptionInfo)">
             <summary>
@@ -17981,14 +18094,14 @@
             </summary>
             <param name="cart">Shopping cart in which payment option should be used.</param>
             <param name="paymentOption">Payment option to check if it is applicable.</param>
-            <returns>Returns true by default.</returns>
+            <returns>True if payment option exists, is enabled and is allowed.</returns>
         </member>
         <member name="M:CMS.Ecommerce.PaymentOptionInfoProvider.GetPaymentOptionInfoInternal(System.String,System.String)">
             <summary>
             Returns payment option with specified name.
             </summary>
-            <param name="optionName">Payment option name</param>                
-            <param name="siteName">Site name</param>         
+            <param name="optionName">Payment option name</param>
+            <param name="siteName">Site name</param>
         </member>
         <member name="M:CMS.Ecommerce.PaymentOptionInfoProvider.GetPaymentOptionsInternal(System.Int32,System.Boolean)">
             <summary>
@@ -18016,7 +18129,7 @@
             </summary>
             <param name="cart">Shopping cart in which payment option should be used.</param>
             <param name="paymentOption">Payment option to check if it is applicable.</param>
-            <returns>True if payment option exists and is enabled.</returns>
+            <returns>True if payment option exists, is enabled and is allowed.</returns>
         </member>
         <member name="T:CMS.Ecommerce.PaymentResultInfo">
             <summary>
@@ -22121,8 +22234,8 @@
             Also removes all children and bundle items from the cart, logs the activity and evaluates the cart.
             </summary>
             <param name="itemId">ID of the item to be removed.</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="itemId"/> specifies a product which is not in the cart.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
+            <remarks>This method does nothing when item with the specified <paramref name="itemId"/> is not in the cart.</remarks>
         </member>
         <member name="M:CMS.Ecommerce.IShoppingService.RemoveItemFromCart(CMS.Ecommerce.ShoppingCartItemInfo)">
             <summary>
@@ -22131,8 +22244,8 @@
             </summary>
             <param name="shoppingCartItemInfo">Item to be removed.</param>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="shoppingCartItemInfo"/> is null.</exception>
-            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="shoppingCartItemInfo"/> specifies a product which is not in the cart.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
+            <remarks>This method does nothing when the specified <paramref name="shoppingCartItemInfo"/> is not in the cart.</remarks>
         </member>
         <member name="M:CMS.Ecommerce.IShoppingService.UpdateItemQuantity(System.Int32,System.Int32)">
             <summary>
@@ -22141,9 +22254,8 @@
             </summary>
             <param name="itemId">ID of the shopping cart item.</param>
             <param name="quantity">New number of the product units.</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="itemId"/> specifies a product which is not in the cart.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
-            <remarks>This method does nothing when <paramref name="quantity"/> less than zero.</remarks>
+            <remarks>This method does nothing when <paramref name="quantity"/> less than zero or item with the specified <paramref name="itemId"/> is not in the cart.</remarks>
         </member>
         <member name="M:CMS.Ecommerce.IShoppingService.UpdateItemQuantity(CMS.Ecommerce.ShoppingCartItemInfo,System.Int32)">
             <summary>
@@ -22153,9 +22265,8 @@
             <param name ="shoppingCartItemInfo">Item the quantity of which is to be changed.</param>
             <param name="quantity">New number of the product units.</param>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="shoppingCartItemInfo"/> is null.</exception>
-            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="shoppingCartItemInfo"/> specifies a product which is not in the cart.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
-            <remarks>This method does nothing when <paramref name="quantity"/> less than zero.</remarks>
+            <remarks>This method does nothing when <paramref name="quantity"/> less than zero or the specified <paramref name="shoppingCartItemInfo"/> is not in the cart.</remarks>
         </member>
         <member name="M:CMS.Ecommerce.IShoppingService.RemoveAllItemsFromCart">
             <summary>
@@ -22339,18 +22450,18 @@
             Also removes all children and bundle items from the cart, logs the activity and evaluates the cart.
             </summary>
             <param name="itemId">ID of the item to be removed.</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="itemId"/> specifies a product which is not in the cart.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
+            <remarks>This method does nothing when item with the specified <paramref name="itemId"/> is not in the cart.</remarks>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingService.RemoveItemFromCart(CMS.Ecommerce.ShoppingCartItemInfo)">
             <summary>
             Removes item specified by <paramref name="shoppingCartItemInfo"/> from the current shopping cart.
             Also removes all children and bundle items from the cart, logs the activity and evaluates the cart.
             </summary>
-            <param name="shoppingCartItemInfo">Item to be removed.</param>
+            <param name="shoppingCartItemInfo">Item to be removed.</param>     
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="shoppingCartItemInfo"/> is null.</exception>
-            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="shoppingCartItemInfo"/> specifies a product which is not in the cart.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
+            <remarks>This method does nothing when the specified <paramref name="shoppingCartItemInfo"/> is not in the cart.</remarks>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingService.UpdateItemQuantity(System.Int32,System.Int32)">
             <summary>
@@ -22359,9 +22470,8 @@
             </summary>
             <param name="itemId">ID of the shopping cart item.</param>
             <param name="quantity">New number of the product units.</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="itemId"/> specifies a product which is not in the cart.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
-            <remarks>This method does nothing when <paramref name="quantity"/> less than zero.</remarks>
+            <remarks>This method does nothing when <paramref name="quantity"/> less than zero or item with the specified <paramref name="itemId"/> is not in the cart.</remarks>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingService.UpdateItemQuantity(CMS.Ecommerce.ShoppingCartItemInfo,System.Int32)">
             <summary>
@@ -22371,9 +22481,8 @@
             <param name ="shoppingCartItemInfo">Item the quantity of which is to be changed.</param>
             <param name="quantity">New number of the product units.</param>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="shoppingCartItemInfo"/> is null.</exception>
-            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="shoppingCartItemInfo"/> specifies a product which is not in the cart.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
-            <remarks>This method does nothing when <paramref name="quantity"/> less than zero.</remarks>
+            <remarks>This method does nothing when <paramref name="quantity"/> less than zero or the specified <paramref name="shoppingCartItemInfo"/> is not in the cart.</remarks>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingService.RemoveAllItemsFromCart">
             <summary>
@@ -22713,7 +22822,7 @@
             <summary>
             Represents a validation error resulting from shipping option belonging to a different site.
             </summary>
-            <seealso cref="T:CMS.Ecommerce.ShippingAndPaymentValidator"/>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionValidator"/>
         </member>
         <member name="P:CMS.Ecommerce.ShippingOptionFromDifferentSiteValidationError.MessageKey">
             <summary>
@@ -22729,7 +22838,7 @@
             <summary>
             Represents a validation error resulting from shipping option being disabled.
             </summary>
-            <seealso cref="T:CMS.Ecommerce.ShippingAndPaymentValidator"/>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionValidator"/>
         </member>
         <member name="P:CMS.Ecommerce.ShippingOptionDisabledValidationError.MessageKey">
             <summary>
@@ -22737,6 +22846,22 @@
             </summary>
         </member>
         <member name="P:CMS.Ecommerce.ShippingOptionDisabledValidationError.MessageParameters">
+            <summary>
+            Returns an empty array.
+            </summary>
+        </member>
+        <member name="T:CMS.Ecommerce.ShoppingCartEmptyValidationError">
+            <summary>
+            Represents a validation error resulting from shopping cart being empty.
+            </summary>
+            <seealso cref="T:CMS.Ecommerce.ShoppingCartValidator"/>
+        </member>
+        <member name="P:CMS.Ecommerce.ShoppingCartEmptyValidationError.MessageKey">
+            <summary>
+            Gets a key which can be used to retrieve a localized error message.
+            </summary>
+        </member>
+        <member name="P:CMS.Ecommerce.ShoppingCartEmptyValidationError.MessageParameters">
             <summary>
             Returns an empty array.
             </summary>
@@ -22904,27 +23029,11 @@
             Initializes a new instance of the <see cref="T:CMS.Ecommerce.PaymentNotAuthorizedValidationError"/> class.
             </summary>
         </member>
-        <member name="T:CMS.Ecommerce.PaymentNotApplicableWithoutShippingValidationError">
-            <summary>
-            Represents a validation error resulting from payment not being applicable when no shipping is set.
-            </summary>
-            <seealso cref="T:CMS.Ecommerce.ShippingAndPaymentValidator"/>
-        </member>
-        <member name="P:CMS.Ecommerce.PaymentNotApplicableWithoutShippingValidationError.MessageKey">
-            <summary>
-            Gets a key which can be used to retrieve a localized error message.
-            </summary>
-        </member>
-        <member name="P:CMS.Ecommerce.PaymentNotApplicableWithoutShippingValidationError.MessageParameters">
-            <summary>
-            Returns an empty array.
-            </summary>
-        </member>
         <member name="T:CMS.Ecommerce.PaymentOptionNotApplicableValidationError">
             <summary>
             Represents a validation error resulting from payment option not being applicable.
             </summary>
-            <seealso cref="T:CMS.Ecommerce.ShippingAndPaymentValidator"/>
+            <seealso cref="T:CMS.Ecommerce.PaymentOptionValidator"/>
         </member>
         <member name="P:CMS.Ecommerce.PaymentOptionNotApplicableValidationError.MessageKey">
             <summary>
@@ -22956,7 +23065,7 @@
             <summary>
             Represents a validation error resulting from shipping option not being applicable.
             </summary>
-            <seealso cref="T:CMS.Ecommerce.ShippingAndPaymentValidator"/>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionValidator"/>
         </member>
         <member name="P:CMS.Ecommerce.ShippingOptionNotApplicableValidationError.MessageKey">
             <summary>
@@ -23231,7 +23340,7 @@
         <member name="M:CMS.Ecommerce.CreateOrderValidator.Validate">
             <summary>
             Validates shopping cart before creating order.
-            Validation includes: all required properties must be set, user must not be disabled,
+            Validation includes: all required properties must be set, cart must contain at least one item, user must not be disabled,
             shipping and payment options, cart addresses and user must not be banned if site requires
             registration.
             </summary>
@@ -23303,14 +23412,19 @@
         </member>
         <member name="M:CMS.Ecommerce.PaymentOptionValidator.Validate">
             <summary>
-            Validates whether a payment option is associated with the shopping cart.
+            Validates whether a payment option can be associated with the shopping cart.
             </summary>
             <returns>Returns true if validation passed, otherwise returns false.</returns>
         </member>
         <member name="M:CMS.Ecommerce.PaymentOptionValidator.ValidatePaymentOption">
             <summary>
-            Validates whether a payment option is assigned to the same site as the shopping cart or payment option is a global object.
+            Validates that  payment option is:
+            not null,
+            assigned to the same site as the shopping cart or payment option is a global object,
+            applicable to the shopping cart.
             </summary>
+            <seealso cref="T:CMS.Ecommerce.PaymentOptionNotSetValidationError"/>
+            <seealso cref="T:CMS.Ecommerce.PaymentOptionNotApplicableValidationError"/>
             <seealso cref="T:CMS.Ecommerce.PaymentOptionFromDifferentSiteValidationError"/>
         </member>
         <member name="T:CMS.Ecommerce.ShippingAndPaymentValidator">
@@ -23343,21 +23457,31 @@
         </member>
         <member name="M:CMS.Ecommerce.ShippingAndPaymentValidator.Validate">
             <summary>
-            Validate shipping and payment options associated with shopping cart.
+            Validates shipping and payment options associated with shopping cart.
             </summary>
             <returns>Returns true if validation passed, otherwise returns false.</returns>
         </member>
         <member name="M:CMS.Ecommerce.ShippingAndPaymentValidator.ValidatePaymentAndShipping">
             <summary>
-            Validates that: shipping and payment options are applicable, shipping option is neither disabled 
-            nor from different site and that it is present when required.
+            Validates shipping and payment options associated with shopping cart.
             </summary>
-            <seealso cref="T:CMS.Ecommerce.ShippingOptionNotApplicableValidationError"/>
+        </member>
+        <member name="M:CMS.Ecommerce.ShippingAndPaymentValidator.ValidatePaymentOption">
+            <summary>
+            Validates payment option associated with shopping cart.
+            </summary>
+            <seealso cref="T:CMS.Ecommerce.PaymentOptionNotSetValidationError"/>
             <seealso cref="T:CMS.Ecommerce.PaymentOptionNotApplicableValidationError"/>
-            <seealso cref="T:CMS.Ecommerce.PaymentNotApplicableWithoutShippingValidationError"/>
-            <seealso cref="T:CMS.Ecommerce.ShippingOptionDisabledValidationError"/>
-            <seealso cref="T:CMS.Ecommerce.ShippingOptionFromDifferentSiteValidationError"/>
             <seealso cref="T:CMS.Ecommerce.PaymentOptionFromDifferentSiteValidationError"/>
+        </member>
+        <member name="M:CMS.Ecommerce.ShippingAndPaymentValidator.ValidateShippingOption">
+            <summary>
+            Validates shipping option associated with shopping cart.
+            </summary>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionNotSetValidationError"/>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionDisabledValidationError"/>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionNotApplicableValidationError"/>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionFromDifferentSiteValidationError"/>
         </member>
         <member name="T:CMS.Ecommerce.ShippingOptionValidator">
             <summary>
@@ -23378,7 +23502,7 @@
         </member>
         <member name="P:CMS.Ecommerce.ShippingOptionValidator.ShippingOptionInfo">
             <summary>
-            Gets payment option this validator was initialized for.
+            Gets shipping option this validator was initialized for.
             </summary>
         </member>
         <member name="P:CMS.Ecommerce.ShippingOptionValidator.Cart">
@@ -23395,14 +23519,21 @@
         </member>
         <member name="M:CMS.Ecommerce.ShippingOptionValidator.Validate">
             <summary>
-            Validates whether a shipping option is associated with the shopping cart.
+            Validates whether a shipping option can be associated with the shopping cart.
             </summary>
             <returns>Returns true if validation passed, otherwise returns false.</returns>
         </member>
         <member name="M:CMS.Ecommerce.ShippingOptionValidator.ValidateShippingOption">
             <summary>
-            Validates whether a shipping option is assigned to the same site as the shopping cart.
+            Validates that shipping option is:
+            not null,
+            enabled,
+            applicable to <see cref="P:CMS.Ecommerce.ShippingOptionValidator.Cart"/>,
+            assigned to the same site as the <see cref="P:CMS.Ecommerce.ShippingOptionValidator.Cart"/>.
             </summary>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionNotSetValidationError"/>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionDisabledValidationError"/>
+            <seealso cref="T:CMS.Ecommerce.ShippingOptionNotApplicableValidationError"/>
             <seealso cref="T:CMS.Ecommerce.ShippingOptionFromDifferentSiteValidationError"/>
         </member>
         <member name="T:CMS.Ecommerce.ShoppingCartItemValidator">

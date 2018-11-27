@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<badwords.word>
-  <WordExpression>fag</WordExpression>
-  <WordGUID>8a8b53ac-b261-46f6-961b-e81a50a57f4a</WordGUID>
-  <WordIsGlobal>True</WordIsGlobal>
-  <WordIsRegularExpression>False</WordIsRegularExpression>
-  <WordMatchWholeWord>True</WordMatchWholeWord>
-</badwords.word>

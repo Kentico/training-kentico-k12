@@ -984,6 +984,29 @@
             If true, progress log is cleared before loading.  Default value is false.
             </summary>
         </member>
+        <member name="T:CMS.CMSImportExport.ImportChildObjectTypeFilter">
+            <summary>
+            Filter child object types according to the import/export configuration in each object type info.
+            </summary>
+        </member>
+        <member name="M:CMS.CMSImportExport.ImportChildObjectTypeFilter.IsIncludedType(System.String)">
+            <summary>
+            Returns true if the given object type is included in import.
+            </summary>
+            <param name="objectType">Object type name</param>
+        </member>
+        <member name="M:CMS.CMSImportExport.ImportChildObjectTypeFilter.IsChildIncludedToParent(CMS.DataEngine.ObjectTypeInfo)">
+            <summary>
+            Indicates whether given type info is a child processed together with its parent, hence should be ignored in the output.
+            </summary>
+            <param name="childTypeInfo">Child type info</param>
+        </member>
+        <member name="M:CMS.CMSImportExport.ImportChildObjectTypeFilter.IsBindingIncludedToParent(CMS.DataEngine.ObjectTypeInfo)">
+            <summary>
+            Indicates whether given type info is a binding processed together with its parent, hence should be ignored in the output.
+            </summary>
+            <param name="bindingTypeInfo">Binding type info</param>
+        </member>
         <member name="T:CMS.CMSImportExport.ImportObjectTypeFilter">
             <summary>
             Filter excluding object types according to the import/export configuration in each object type info.
@@ -4816,11 +4839,6 @@
             Holds macro resolver.
             </summary>
         </member>
-        <member name="F:CMS.ImportExport.DataExportHelper.mUseTemplate">
-            <summary>
-            Indicates whether to use template during Excel export.
-            </summary>
-        </member>
         <member name="F:CMS.ImportExport.DataExportHelper.mUseSharedStringStorage">
             <summary>
             Indicates whether to use shared string table during Excel export.
@@ -4844,16 +4862,6 @@
         <member name="F:CMS.ImportExport.DataExportHelper.DEFAULT_COLUMN_NAME">
             <summary>
             Name of element representing column used when there is no other name available.
-            </summary>
-        </member>
-        <member name="F:CMS.ImportExport.DataExportHelper.mCSVDelimiter">
-            <summary>
-            Delimiter for CSV format.
-            </summary>
-        </member>
-        <member name="F:CMS.ImportExport.DataExportHelper.mGenerateHeader">
-            <summary>
-            Whether to generate header for exported tables.
             </summary>
         </member>
         <member name="F:CMS.ImportExport.DataExportHelper.mDataExportTemplatePath">
@@ -5285,7 +5293,7 @@
             </summary>
             <param name="drv">Data row with the source data</param>
             <param name="columnName">Column name</param>
-            <param name="resultDR">DataRow with the result</param>
+            <param name="dataRow">DataRow with the result</param>
         </member>
         <member name="M:CMS.ImportExport.DataExportHelper.GetFileName(CMS.ImportExport.DataExportFormatEnum)">
             <summary>

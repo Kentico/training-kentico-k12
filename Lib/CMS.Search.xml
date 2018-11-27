@@ -114,6 +114,11 @@
             Initializes import handlers
             </summary>
         </member>
+        <member name="M:CMS.Search.ImportSpecialActions.RemoveObsoleteSearchSettings(System.Object,CMS.CMSImportExport.ImportEventArgs)">
+            <summary>
+            Makes sure that search settings are consistent with object definition.
+            </summary>
+        </member>
         <member name="T:CMS.Search.SearchModuleMetadata">
             <summary>
             Represents the Search module metadata.
@@ -727,13 +732,12 @@
         </member>
         <member name="T:CMS.Search.ExtractionContext">
             <summary>
-            Extraction context passed to the extract method.
+            Extraction context passed to the extract method. Can be used to transform DateTimes and numbers to correct string representations.
             </summary>
         </member>
         <member name="P:CMS.Search.ExtractionContext.Culture">
             <summary>
             Culture of the document the extracted file belongs to. This information can be used to transform DateTimes and numbers to correct string representations.
-            If null, EN culture is used.
             </summary>
         </member>
         <member name="T:CMS.Search.ISearchTextExtractor">
@@ -745,8 +749,8 @@
             <summary>
             Extracts content from given data.
             </summary>
-            <param name="data">Data to extract text from</param>
-            <param name="context">Extraction context (ISeachDocument, Culture, etc.)</param>
+            <param name="data">Data to extract text from.</param>
+            <param name="context">Extraction context.</param>
         </member>
         <member name="T:CMS.Search.SearchTextExtractorManager">
             <summary>
@@ -3653,9 +3657,11 @@
         </member>
         <member name="P:CMS.Search.SearchHelper.SearchPath">
             <summary>
-            Search path.
             File system location where Smart Search stores the indexes.
             </summary>
+            <remarks>
+            Path is relative to <see cref="P:CMS.Base.SystemContext.WebApplicationPhysicalPath"/>. 
+            </remarks>
         </member>
         <member name="P:CMS.Search.SearchHelper.IndexesInSharedStorage">
             <summary>
@@ -3999,11 +4005,18 @@
         </member>
         <member name="M:CMS.Search.SearchHelper.GetBinaryDataSearchContent(CMS.DataEngine.BaseInfo,CMS.Search.ExtractionContext,System.Boolean@)">
             <summary>
-            Extracts the search information from the info. Returns null by default. Should be overridden by specific info.
+            Extracts content from binary data of the given <paramref name="info"/>. 
             </summary>
-            <param name="info">Object to extract search content from</param>
-            <param name="context">Extraction context passed to the extractor in case the value is not cached</param>
-            <param name="cachedValueUsed">Indicates whether the cached value was used or the extractor has to be called</param>
+            <param name="info">Object to extract search content from.</param>
+            <param name="context">Extraction context passed to the extractor.</param>
+            <param name="cachedValueUsed">Indicates whether the cached value was used.</param>
+            <remarks>
+            Search content value is obtained from the field defined by <see cref="P:CMS.DataEngine.ObjectTypeInfo.SearchContentColumn"/> of the given <paramref name="info"/>.
+            If no content is in this field, the method extracts search content from binary data 
+            provided by <see cref="M:CMS.DataEngine.BaseInfo.GetBinaryData"/>"/> method of the <paramref name="info"/>.
+            The method can return <c>null</c> value in case file type of binary data (recognized based on <see cref="P:CMS.DataEngine.ObjectTypeInfo.ExtensionColumn"/>) 
+            is not allowed for indexing on the site. 
+            </remarks>
         </member>
         <member name="M:CMS.Search.SearchHelper.IsSearchAllowedExtension(System.String,System.Int32)">
             <summary>

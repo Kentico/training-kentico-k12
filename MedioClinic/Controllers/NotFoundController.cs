@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Business.DI;
+using Business.DependencyInjection;
 
 namespace MedioClinic.Controllers
 {

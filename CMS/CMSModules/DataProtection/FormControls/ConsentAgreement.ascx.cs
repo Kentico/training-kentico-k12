@@ -10,7 +10,21 @@ using CMS.Helpers;
 
 public partial class CMSModules_DataProtection_FormControls_ConsentAgreement : FormEngineUserControl
 {
-    private string SelectedConsent => FieldInfo?.Settings["Consent"] as string;
+    private ConsentInfo mSelectedConsent;
+
+
+    private ConsentInfo SelectedConsent
+    {
+        get
+        {
+            if (mSelectedConsent != null)
+            {
+                return mSelectedConsent;
+            }
+
+            return mSelectedConsent = ConsentInfoProvider.GetConsentInfo(FieldInfo?.Settings["Consent"] as string);
+        }
+    }
 
 
     public override object Value
@@ -64,21 +78,23 @@ public partial class CMSModules_DataProtection_FormControls_ConsentAgreement : F
             return;
         }
 
-        var service = Service.Resolve<IFormConsentAgreementService>();
-        var consent = ConsentInfoProvider.GetConsentInfo(SelectedConsent);
-        var contact = ContactManagementContext.GetCurrentContact();
-        ConsentAgreementInfo agreement;
-
-        if (chkConsent.Checked)
+        if (SelectedConsent != null && IsLiveSite)
         {
-            agreement = service.Agree(contact, consent, info);
-        }
-        else
-        {
-            agreement = service.Revoke(contact, consent, info);
-        }
+            var service = Service.Resolve<IFormConsentAgreementService>();
+            var contact = ContactManagementContext.GetCurrentContact();
+            ConsentAgreementInfo agreement;
 
-        StoreAgreementGuidInData(info, agreement);
+            if (chkConsent.Checked)
+            {
+                agreement = service.Agree(contact, SelectedConsent, info);
+            }
+            else
+            {
+                agreement = service.Revoke(contact, SelectedConsent, info);
+            }
+
+            StoreAgreementGuidInData(info, agreement);
+        }
     }
 
 
@@ -99,6 +115,7 @@ public partial class CMSModules_DataProtection_FormControls_ConsentAgreement : F
     {
         base.OnPreRender(e);
 
+        Enabled = SelectedConsent != null && IsLiveSite;
         chkConsent.Text = GetConsentText();
 
         if (Value == null)
@@ -123,10 +140,14 @@ public partial class CMSModules_DataProtection_FormControls_ConsentAgreement : F
 
     private string GetConsentText()
     {
-        var consent = ConsentInfoProvider.GetConsentInfo(SelectedConsent);
+        if (SelectedConsent == null)
+        {
+            return ResHelper.GetString("dataprotection.consentagreement.consentnotavailable");
+        }
+
         var currentCulture = LocalizationContext.CurrentCulture.CultureCode;
 
-        return consent != null ? consent.GetConsentText(currentCulture).ShortText : string.Empty;
+        return SelectedConsent.GetConsentText(currentCulture).ShortText;
     }
 
 

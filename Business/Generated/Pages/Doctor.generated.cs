@@ -16,12 +16,12 @@ using CMS;
 using CMS.Base;
 using CMS.Helpers;
 using CMS.DataEngine;
-using CMS.DocumentEngine.Types.Training;
+using CMS.DocumentEngine.Types.MedioClinic;
 using CMS.DocumentEngine;
 
 [assembly: RegisterDocumentType(Doctor.CLASS_NAME, typeof(Doctor))]
 
-namespace CMS.DocumentEngine.Types.Training
+namespace CMS.DocumentEngine.Types.MedioClinic
 {
 	/// <summary>
 	/// Represents a content item of type Doctor.
@@ -33,7 +33,7 @@ namespace CMS.DocumentEngine.Types.Training
 		/// <summary>
 		/// The name of the data class.
 		/// </summary>
-		public const string CLASS_NAME = "Training.Doctor";
+		public const string CLASS_NAME = "MedioClinic.Doctor";
 
 
 		/// <summary>
@@ -98,7 +98,7 @@ namespace CMS.DocumentEngine.Types.Training
 
 
 		/// <summary>
-		/// Doctor degree.
+		/// Degree.
 		/// </summary>
 		[DatabaseField]
 		public string Degree
@@ -118,15 +118,15 @@ namespace CMS.DocumentEngine.Types.Training
 		/// Photo.
 		/// </summary>
 		[DatabaseField]
-		public Guid Image
+		public Guid Photo
 		{
 			get
 			{
-				return ValidationHelper.GetGuid(GetValue("Image"), Guid.Empty);
+				return ValidationHelper.GetGuid(GetValue("Photo"), Guid.Empty);
 			}
 			set
 			{
-				SetValue("Image", value);
+				SetValue("Photo", value);
 			}
 		}
 
@@ -266,7 +266,7 @@ namespace CMS.DocumentEngine.Types.Training
 
 
 			/// <summary>
-			/// Doctor degree.
+			/// Degree.
 			/// </summary>
 			public string Degree
 			{
@@ -284,11 +284,11 @@ namespace CMS.DocumentEngine.Types.Training
 			/// <summary>
 			/// Photo.
 			/// </summary>
-			public DocumentAttachment Image
+			public DocumentAttachment Photo
 			{
 				get
 				{
-					return mInstance.GetFieldDocumentAttachment("Image");
+					return mInstance.GetFieldDocumentAttachment("Photo");
 				}
 			}
 

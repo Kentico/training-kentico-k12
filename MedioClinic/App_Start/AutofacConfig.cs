@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
-using Business.DI;
+using Business.DependencyInjection;
 using Business.Repository;
 using Business.Services;
 using Business.Services.Context;

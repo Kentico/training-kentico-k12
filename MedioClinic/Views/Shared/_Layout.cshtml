@@ -118,7 +118,7 @@
                         @foreach (var socialLink in Model.SocialLinks)
                         {
                             <a href="@socialLink.Url" title="@socialLink.Title">
-                                <img alt="@socialLink.Title" src="@Url.KenticoImageUrl(socialLink.IconPath)">
+                                <img alt="@socialLink.Title" src="@Url.KenticoImageUrl(socialLink.Icon.GetPath())">
                             </a>
                         }
                     </div>

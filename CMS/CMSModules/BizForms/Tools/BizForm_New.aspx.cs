@@ -103,12 +103,6 @@ public partial class CMSModules_BizForms_Tools_BizForm_New : CMSBizFormPage
         {
             var bizFormObj = BizFormHelper.Create(formDisplayName, formName, tableName, SiteContext.CurrentSite);
 
-            if (bizFormObj.FormDevelopmentModel == (int)FormDevelopmentModelEnum.Mvc)
-            {
-                bizFormObj.FormClearAfterSave = true;
-                bizFormObj.Generalized.SetObject();
-            }
-
             // Redirect to Form builder tab
             string url = UIContextHelper.GetElementUrl("CMS.Form", "Forms.Properties", false, bizFormObj.FormID);
             url = URLHelper.AddParameterToUrl(url, "tabname", bizFormObj.FormDevelopmentModel == (int)FormDevelopmentModelEnum.WebForms ? "Forms.FormBuilder" : "Forms.FormBuilderMVC");

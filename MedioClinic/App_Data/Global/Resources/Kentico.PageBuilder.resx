@@ -262,4 +262,13 @@ Press OK to continue or Cancel to stay on the current page.</value>
   <data name="kentico.pagebuilder.widgetproperties.validationsummary" xml:space="preserve">
     <value>Validation error: Check the form for more details.</value>
   </data>
+  <data name="kentico.pagebuilder.variant.drag.tooltip" xml:space="preserve">
+    <value>Change priority</value>
+  </data>
+  <data name="kentico.pagebuilder.defaultsection.name" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="kentico.pagebuilder.defaultsection.description" xml:space="preserve">
+    <value>Page builder built-in section.</value>
+  </data>
 </root>

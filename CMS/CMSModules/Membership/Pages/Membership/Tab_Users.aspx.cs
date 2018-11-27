@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
+using System.Text;
 
 using CMS.Base;
 using CMS.Base.Web.UI;
-
-using System.Linq;
-using System.Text;
-using System.Web.UI;
-
 using CMS.Helpers;
 using CMS.Membership;
 using CMS.UIControls;
@@ -47,7 +44,7 @@ public partial class CMSModules_Membership_Pages_Membership_Tab_Users : CMSMembe
         usUsers.DynamicColumnName = false;
         usUsers.SelectItemPageUrl = "~/CMSModules/Membership/Pages/Users/User_Edit_Add_Item_Dialog.aspx";
         usUsers.AdditionalUrlParameters = "&UseSendNotification=1";
-        usUsers.WhereCondition = (mi.MembershipSiteID > 0) ? "UserID IN (SELECT UserID FROM CMS_UserSite WHERE SiteID=" + mi.MembershipSiteID + ")" : String.Empty;
+        usUsers.WhereCondition = (mi.MembershipSiteID > 0) ? $"UserID IN (SELECT UserID FROM CMS_UserSite WHERE SiteID={mi.MembershipSiteID})" : String.Empty;
         usUsers.ListingWhereCondition = "MembershipID =" + membershipID;
         usUsers.ReturnColumnName = "UserID";
         usUsers.DialogWindowHeight = 790;
@@ -89,7 +86,7 @@ public partial class CMSModules_Membership_Pages_Membership_Tab_Users : CMSMembe
                     mui.ValidTo = dt;
                     MembershipUserInfoProvider.SetMembershipUserInfo(mui);
 
-                    // Invalidate changes                        
+                    // Invalidate changes
                     UserInfoProvider.InvalidateUser(mui.UserID);
 
                     ShowChangesSaved();
@@ -124,11 +121,11 @@ public partial class CMSModules_Membership_Pages_Membership_Tab_Users : CMSMembe
 
                 if (!ucCalendar.UseCustomCalendar)
                 {
-                    onClick = "$cmsj('#" + hdnDate.ClientID + "').val('" + itemID + "');" + ucCalendar.GenerateNonCustomCalendarImageEvent();
+                    onClick = $"$cmsj('#{hdnDate.ClientID}').val('{itemID}');{ucCalendar.GenerateNonCustomCalendarImageEvent()}";
                 }
                 else
                 {
-                    onClick = "$cmsj('#" + hdnDate.ClientID + "').val('" + itemID + "'); var dt = $cmsj('#" + ucCalendar.DateTimeTextBox.ClientID + "'); dt.val('" + date + "'); dt.cmsdatepicker('setLocation','" + iconID + "'); dt.cmsdatepicker ('show');";
+                    onClick = $"$cmsj('#{hdnDate.ClientID}').val('{itemID}'); var dt = $cmsj('#{ucCalendar.DateTimeTextBox.ClientID}'); dt.val('{date}'); dt.cmsdatepicker('setLocation','{iconID}'); dt.cmsdatepicker ('show');";
                 }
 
                 var button = new CMSGridActionButton
@@ -299,7 +296,7 @@ public partial class CMSModules_Membership_Pages_Membership_Tab_Users : CMSMembe
         {
             if (userInfo.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin))
             {
-                result = String.Format(GetString("Administration-User.NotAllowedToModifySpecific"), userInfo.FullName + " (" + userInfo.UserName + ")");
+                result = String.Format(GetString("Administration-User.NotAllowedToModifySpecific"), $"{HTMLHelper.HTMLEncode(userInfo.FullName)} ({userInfo.UserName})");
             }
         }
         return result;

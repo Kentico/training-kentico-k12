@@ -244,7 +244,7 @@
     <value>Submission has failed. Please try again later.</value>
   </data>
   <data name="kentico.formbuilder.error" xml:space="preserve">
-    <value>Selected form '{0}' is in an invalid state. Check the event log for more information.</value>
+    <value>The selected form '{0}' is in an invalid state. See the event log for more information.</value>
   </data>
   <data name="kentico.formbuilder.validationrule.email.title" xml:space="preserve">
     <value>Email</value>
@@ -268,31 +268,31 @@
     <value>Is U.S. ZIP code</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.contains.title" xml:space="preserve">
-    <value>Value contains '{0}'</value>
+    <value>Value contains text of another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.endswith.title" xml:space="preserve">
-    <value>Value ends with '{0}'</value>
+    <value>Value ends with text of another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.equal.title" xml:space="preserve">
-    <value>Value is equal to '{0}'</value>
+    <value>Value is equal to another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.notequal.title" xml:space="preserve">
-    <value>Value is not equal to '{0}'</value>
+    <value>Value is not equal to another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.startswith.title" xml:space="preserve">
-    <value>Value starts with '{0}'</value>
+    <value>Value starts with text of another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.lessthan.title" xml:space="preserve">
-    <value>Value is less than '{0}'</value>
+    <value>Value is less than another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.lessthanorequal.title" xml:space="preserve">
-    <value>Value is less than or equal to '{0}'</value>
+    <value>Value is less than or equal to another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.greaterthan.title" xml:space="preserve">
-    <value>Value is greater than '{0}'</value>
+    <value>Value is greater than another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.comparetofield.greaterthanorequal.title" xml:space="preserve">
-    <value>Value is greater than or equal to '{0}'</value>
+    <value>Value is greater than or equal to another field</value>
   </data>
   <data name="kentico.formbuilder.validationrule.maximumlength.maximumlength.label" xml:space="preserve">
     <value>Maximum length</value>
@@ -349,13 +349,13 @@
     <value>Does not equal</value>
   </data>
   <data name="kentico.formbuilder.error.componentloading" xml:space="preserve">
-    <value>Could not load form component</value>
+    <value>The form component could not be loaded. This form will be hidden on the live site until the issue is resolved.</value>
   </data>
   <data name="kentico.formbuilder.error.invalidcomponentconfiguration" xml:space="preserve">
-    <value>Form component is in an invalid state and cannot be loaded.</value>
+    <value>The form component is in an invalid state and cannot be loaded.</value>
   </data>
   <data name="kentico.formbuilder.seeeventlog" xml:space="preserve">
-    <value>Please see the event log for more details.</value>
+    <value>See the event log for more information.</value>
   </data>
   <data name="kentico.formbuilder.formitempreview.title" xml:space="preserve">
     <value>Form item preview</value>
@@ -423,11 +423,29 @@
   <data name="kentico.formbuilder.component.recaptcha.properties.theme" xml:space="preserve">
     <value>Theme</value>
   </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.theme.light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.theme.dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
   <data name="kentico.formbuilder.component.recaptcha.properties.type" xml:space="preserve">
     <value>Type</value>
   </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.type.image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.type.audio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
   <data name="kentico.formbuilder.component.recaptcha.properties.layout" xml:space="preserve">
     <value>Size</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.layout.normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="kentico.formbuilder.component.recaptcha.properties.layout.compact" xml:space="preserve">
+    <value>Compact</value>
   </data>
   <data name="kentico.formbuilder.component.checkbox.properties.text" xml:space="preserve">
     <value>Text</value>
@@ -464,6 +482,12 @@
   </data>
   <data name="kentico.formbuilder.propertiespanel.visibilityconditions.tab.never" xml:space="preserve">
     <value>Never</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.noavailableconditions" xml:space="preserve">
+    <value>There are no available visibility conditions for the current field. This depends on the field type and its position in the form.</value>
+  </data>
+  <data name="kentico.formbuilder.propertiespanel.visibilityconditions.currentvisibilitycondition.isnotvalid" xml:space="preserve">
+    <value>The current field will always be hidden, because the selected visibility condition is invalid.</value>
   </data>
   <data name="kentico.formbuilder.placeholder.label" xml:space="preserve">
     <value>Placeholder</value>
@@ -514,7 +538,7 @@ cz;Czech Republic</value>
     <value>Consent selector</value>
   </data>
   <data name="kentico.formbuilder.component.consentselector.optionlabel" xml:space="preserve">
-    <value>Select consent...</value>
+    <value>(select consent)</value>
   </data>
   <data name="kentico.formbuilder.component.consentselector.invalidconsentselected" xml:space="preserve">
     <value>Please select an existing consent.</value>
@@ -528,8 +552,8 @@ cz;Czech Republic</value>
   <data name="kentico.formbuilder.boolfieldvaluetypes.istrue" xml:space="preserve">
     <value>Is true</value>
   </data>
-  <data name="kentico.formbuilder.component.consentagreement.properties.noconsentchosen" xml:space="preserve">
-    <value>No consent has been selected. Please select one in the field's Properties panel.</value>
+  <data name="kentico.formbuilder.component.consentagreement.properties.consentnotavailable" xml:space="preserve">
+    <value>No consent has been selected or the consent is no longer available. Please select one in the field's Properties panel.</value>
   </data>
   <data name="kentico.formbuilder.section.default.description" xml:space="preserve">
     <value>A single column of form fields.</value>
@@ -550,9 +574,33 @@ cz;Czech Republic</value>
     <value>Conditional visibility</value>
   </data>
   <data name="kentico.formbuilder.propertiespanel.visibilityconditions.selectedcondition.placeholder" xml:space="preserve">
-    <value>Select field or Custom condition</value>
+    <value>(select field or custom condition)</value>
   </data>
   <data name="kentico.formbuilder.propertiespanel.visibilitytab.name" xml:space="preserve">
     <value>Visibility</value>
+  </data>
+  <data name="kentico.formbuilder.error.propertiespanel" xml:space="preserve">
+    <value>An error has occurred when configuring the form component. This may be caused by incorrectly initialized editing components. See the event log for more information.</value>
+  </data>
+  <data name="kentico.formbuilder.error.view" xml:space="preserve">
+    <value>Error rendering view for '{0}' component.</value>
+  </data>
+  <data name="kentico.formbuilder.warning.formslimit" xml:space="preserve">
+    <value>You have exceeded the maximum number of forms allowed by your license edition. Any changes won't be saved.</value>
+  </data>
+  <data name="kentico.formbuilder.component.invalidcomponent.name" xml:space="preserve">
+    <value>Invalid component</value>
+  </data>
+  <data name="kentico.formbuilder.error.sectionrender" xml:space="preserve">
+    <value>An error has occurred when rendering one or more form sections. See the event log for more information.</value>
+  </data>
+  <data name="kentico.formbuilder.error.sectionconfig" xml:space="preserve">
+    <value>A form section is unavailable due to a misconfiguration. Its Form components have been moved to a default section. Saving the form in this state will result in a loss of the existing layout. See the event log for more information.</value>
+  </data>
+  <data name="kentico.formbuilder.section.missingNonemptyZone" xml:space="preserve">
+    <value>Some components cannot be displayed, because sections with the following identifiers do not contain enough component zones.</value>
+  </data>
+  <data name="kentico.formbuilder.section.withoutZones" xml:space="preserve">
+    <value>Sections with the following section identifiers do not contain any component zones. Sections without component zones are not supported.</value>
   </data>
 </root>

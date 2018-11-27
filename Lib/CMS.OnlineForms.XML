@@ -93,30 +93,6 @@
             The resulting <see cref="T:CMS.OnlineForms.BizFormInfo"/> has <see cref="P:CMS.OnlineForms.BizFormInfo.FormEmailAttachUploadedDocs"/> and <see cref="P:CMS.OnlineForms.BizFormInfo.FormLogActivity"/> enabled by default.
             </remarks>
         </member>
-        <member name="M:CMS.OnlineForms.BizFormHelper.CreateBizFormInfo(System.String,System.String,CMS.SiteProvider.SiteInfo)">
-            <summary>
-            <para>
-            Creates a new <see cref="T:CMS.OnlineForms.BizFormInfo"/> and initializes it using given display name, name and site ID.
-            Does not set the info to the database.
-            </para>
-            <para>
-            If <paramref name="formName"/> is not specified or its value equals <see cref="F:CMS.DataEngine.InfoHelper.CODENAME_AUTOMATIC"/>,
-            a new code name is created based on display name.
-            </para>
-            <para>
-            The form name is sanitized via <see cref="M:CMS.Helpers.ValidationHelper.GetIdentifier(System.Object)"/> and can be safely used as part of the resulting table name.
-            </para>
-            </summary>
-            <param name="formDisplayName">Display name of the form.</param>
-            <param name="formName">Name of the form, or null.</param>
-            <param name="siteInfo">Site of the form.</param>
-            <returns>Returns a new <see cref="T:CMS.OnlineForms.BizFormInfo"/> instance initialized with given values.</returns>
-            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="formDisplayName"/> is null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown when <paramref name="formDisplayName"/> is an empty string.</exception>
-            <remarks>
-            The resulting <see cref="T:CMS.OnlineForms.BizFormInfo"/> has <see cref="P:CMS.OnlineForms.BizFormInfo.FormEmailAttachUploadedDocs"/> and <see cref="P:CMS.OnlineForms.BizFormInfo.FormLogActivity"/> enabled by default.
-            </remarks>
-        </member>
         <member name="M:CMS.OnlineForms.BizFormHelper.GetFormTablePrefix(System.String)">
             <summary>
             Gets prefix for biz form table name. The prefix is a string in format <c>Form_[siteName]_</c>.
@@ -173,11 +149,12 @@
             The resulting <see cref="T:CMS.OnlineForms.BizFormInfo"/> has <see cref="P:CMS.OnlineForms.BizFormInfo.FormEmailAttachUploadedDocs"/> and <see cref="P:CMS.OnlineForms.BizFormInfo.FormLogActivity"/> enabled by default.
             </remarks>
         </member>
-        <member name="M:CMS.OnlineForms.BizFormHelper.CreateBizFormInfoInternal(System.String,System.String,CMS.SiteProvider.SiteInfo)">
+        <member name="M:CMS.OnlineForms.BizFormHelper.CreateBizFormInfo(System.String,System.String,CMS.SiteProvider.SiteInfo)">
             <summary>
             <para>
             Creates a new <see cref="T:CMS.OnlineForms.BizFormInfo"/> and initializes it using given display name, name and site ID.
             Does not set the info to the database.
+            The method is used by <see cref="M:CMS.OnlineForms.BizFormHelper.CreateInternal(System.String,System.String,System.String,CMS.SiteProvider.SiteInfo)"/> to supply the <see cref="T:CMS.OnlineForms.BizFormInfo"/> instance.
             </para>
             <para>
             If <paramref name="formName"/> is not specified or its value equals <see cref="F:CMS.DataEngine.InfoHelper.CODENAME_AUTOMATIC"/>,
@@ -548,7 +525,7 @@
         </member>
         <member name="M:CMS.OnlineForms.BizFormInfoProvider.ClearBizHash">
             <summary>
-            Clear hashtable.
+            Clear hashtables.
             </summary>
         </member>
         <member name="M:CMS.OnlineForms.BizFormInfoProvider.DeleteBizFormInfo(CMS.OnlineForms.BizFormInfo)">
@@ -756,6 +733,14 @@
             <param name="formCodeName">Code name of the FormInfo</param>
             <returns>Primary key name of the form</returns>
             <exception cref="T:System.ArgumentException"><paramref name="formCodeName"/> is null or empty</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormInfoProvider.ProcessWebFarmTaskInternal(System.String,System.String,System.Byte[])">
+            <summary>
+            Runs the processing of specific web farm task for current provider
+            </summary>
+            <param name="actionName">Action name</param>
+            <param name="data">Custom task data</param>
+            <param name="binary">Binary data</param>
         </member>
         <member name="T:CMS.OnlineForms.BizFormException">
             <summary>

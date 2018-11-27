@@ -133,7 +133,7 @@
     <value>The A/B test does not exist.</value>
   </data>
   <data name="abtest.invalidname" xml:space="preserve">
-    <value>Please enter a valid A/B test name. The code name can contain only alphanumeric characters,spaces and some special characters (_, -, ).</value>
+    <value>Please enter a valid A/B test name. The code name can contain only alphanumeric characters, spaces and some special characters (_, -).</value>
   </data>
   <data name="abtest.livetiledescription" xml:space="preserve">
     <value>A/B tests running</value>
@@ -816,12 +816,6 @@
   <data name="administration.categorytype" xml:space="preserve">
     <value>Form layout</value>
   </data>
-  <data name="administration.cms.activities.description" xml:space="preserve">
-    <value>This section enables you to work with activities. You are able to view list of logged activities. You can also create new custom activities.</value>
-  </data>
-  <data name="administration.cms.contactmanagement.description" xml:space="preserve">
-    <value>This section enables to work with Accounts and Contacts. You are able to assign Contacts to Accounts and vice versa. You can also split&amp;merge Contacts and Accounts. You can create dynamic or static Contact groups  or manage specific statuses.</value>
-  </data>
   <data name="administration.eventlog.description" xml:space="preserve">
     <value>This section displays an event log. You can select to display the log for the whole system or for one particular site. The log can also be cleared here. Detailed information about each of the logged events can also be displayed.</value>
   </data>
@@ -1237,7 +1231,7 @@
     <value>Clear hash tables</value>
   </data>
   <data name="administration-system.counterscleared" xml:space="preserve">
-    <value>Performance counters cleared sucessfully.</value>
+    <value>Performance counters cleared successfully.</value>
   </data>
   <data name="administration-system.databaseinfo" xml:space="preserve">
     <value>Database information</value>
@@ -1612,7 +1606,7 @@
     <value>hits</value>
   </data>
   <data name="analytics.noreporting" xml:space="preserve">
-    <value>Web analytics cannot be dispalyed. The "CMS.Reporting" module is required.</value>
+    <value>Web analytics cannot be displayed. The "CMS.Reporting" module is required.</value>
   </data>
   <data name="analytics.preparinggraph" xml:space="preserve">
     <value>Preparing graph area...</value>
@@ -1759,7 +1753,7 @@
     <value>Not supported</value>
   </data>
   <data name="analytics_codename.nothavesilveright" xml:space="preserve">
-    <value>Does not have silverlight support</value>
+    <value>Does not have Silverlight support</value>
   </data>
   <data name="analytics_codename.ns" xml:space="preserve">
     <value>Not supported</value>
@@ -2057,9 +2051,6 @@
   </data>
   <data name="attach.pagesize" xml:space="preserve">
     <value>Page size:</value>
-  </data>
-  <data name="attach.quickinsert.onlyimages" xml:space="preserve">
-    <value>Only images can be uploaded. If you want to insert other media, use Insert image or media button.</value>
   </data>
   <data name="attach.resizecaption" xml:space="preserve">
     <value>Automatic image resize on upload</value>
@@ -4762,7 +4753,7 @@ Message text:
     <value>Chat errors</value>
   </data>
   <data name="chat.webparts.initiatedchat.description" xml:space="preserve">
-    <value>This web part allows visitors to respond to chat conversation initiated by you from the On-line users or On-line contacs page.</value>
+    <value>This web part allows visitors to respond to chat conversation initiated by you from the On-line users or the On-line contacts page.</value>
   </data>
   <data name="chat.webparts.leaveroom.description" xml:space="preserve">
     <value>Displays a button for leaving a chat room.</value>
@@ -4786,7 +4777,7 @@ Message text:
     <value>Displays notification status area, informing users how many notifications (e.g., room invitations) they have and allows to open the list of notifications.</value>
   </data>
   <data name="chat.webparts.notofication.enablebubble" xml:space="preserve">
-    <value>If checked, newly received notifications will appear to users in a pop-upp bubble in the top right corner of the page.</value>
+    <value>If checked, newly received notifications will appear to users in a pop-up bubble in the top right corner of the page.</value>
   </data>
   <data name="chat.webparts.notofication.enablebubblecaption" xml:space="preserve">
     <value>Enable notification highlight</value>
@@ -4953,7 +4944,7 @@ Up: New messages are prepended to the top of the message window.</value>
     <value>Notification transformation</value>
   </data>
   <data name="chat.webparts.properties.onlineusertrans" xml:space="preserve">
-    <value>Trasnformation for displaying on-line users.</value>
+    <value>Transformation for displaying on-line users.</value>
   </data>
   <data name="chat.webparts.properties.onlineusertranscaption" xml:space="preserve">
     <value>On-line user transformation</value>
@@ -5004,7 +4995,7 @@ Up: New messages are prepended to the top of the message window.</value>
     <value>Transformation for displaying chat room name in the room title.</value>
   </data>
   <data name="chat.webparts.properties.roomname.nametranscaption" xml:space="preserve">
-    <value>Chat room name tranformation</value>
+    <value>Chat room name transformation</value>
   </data>
   <data name="chat.webparts.properties.roompsw" xml:space="preserve">
     <value>This password will be used for joining the default room when default room is password protected. If no default room is defined, this field is ignored.</value>
@@ -5304,7 +5295,7 @@ The pop-up window will use default transformations specified in global settings.
 {1}</value>
   </data>
   <data name="classes.code.filessaveerror" xml:space="preserve">
-    <value>A problem occured while saving the code, please check the event log for more details.</value>
+    <value>A problem occurred while saving the code, please check the event log for more details.</value>
   </data>
   <data name="classes.code.filessavesuccess" xml:space="preserve">
     <value>The code was saved.</value>
@@ -5454,7 +5445,7 @@ The pop-up window will use default transformations specified in global settings.
     <value>Clone to site</value>
   </data>
   <data name="clonning.settings.cloneundersite.tooltip" xml:space="preserve">
-    <value>Select site under the clonned object will belong.</value>
+    <value>Select a site to which the cloned object will belong to.</value>
   </data>
   <data name="clonning.settings.contact.activity" xml:space="preserve">
     <value>Clone contact activities</value>
@@ -5811,10 +5802,10 @@ The pop-up window will use default transformations specified in global settings.
     <value>Information about the package</value>
   </data>
   <data name="cms.modules.installpackage.errorfiles" xml:space="preserve">
-    <value>An error occured while getting files for the module.</value>
+    <value>An error occurred while getting files for the module.</value>
   </data>
   <data name="cms.modules.installpackage.errorobjects" xml:space="preserve">
-    <value>An error occured while getting objects for the module.</value>
+    <value>An error occurred while getting objects for the module.</value>
   </data>
   <data name="cms.modules.installpackage.exists" xml:space="preserve">
     <value>Package '{0}' already exists. The file will be overwritten. Confirm this dialog if you wish to overwrite the file. Cancel the dialog if you wish to change the version number of the package.</value>
@@ -5823,13 +5814,13 @@ The pop-up window will use default transformations specified in global settings.
     <value>Creation of installation package failed. See event log for more details.</value>
   </data>
   <data name="cms.modules.installpackage.generalerror" xml:space="preserve">
-    <value>This module cannot have an instalation package created. For more information aout this error see the event log.</value>
+    <value>This module cannot have an installation package created. For more information about this error see the event log.</value>
   </data>
   <data name="cms.modules.installpackage.id" xml:space="preserve">
     <value>ID</value>
   </data>
   <data name="cms.modules.installpackage.resourceerror" xml:space="preserve">
-    <value>This module cannot have an installation package created. Either it is not being developed in this instance or it is the Cutsom module. See event-log for detailed information.</value>
+    <value>This module cannot have an installation package created. Either it is not being developed in this instance or it is the Custom module. See event-log for detailed information.</value>
   </data>
   <data name="cms.modules.installpackage.result" xml:space="preserve">
     <value>The installation package has been saved to file:&lt;br/&gt;{0}</value>
@@ -6492,7 +6483,7 @@ The pop-up window will use default transformations specified in global settings.
     <value>Carrier service</value>
   </data>
   <data name="com.carrirer.carrierproviderdesc" xml:space="preserve">
-    <value>Class implementing carrier provider. Only classes inheritng from ICarrierProvider can be selected</value>
+    <value>Class implementing carrier provider. Only classes inheriting from ICarrierProvider can be selected</value>
   </data>
   <data name="com.cart.meetrestrictions" xml:space="preserve">
     <value>Please update your shopping cart to meet the following restrictions:</value>
@@ -6532,9 +6523,6 @@ The pop-up window will use default transformations specified in global settings.
   </data>
   <data name="com.checkout.loginbanned" xml:space="preserve">
     <value>Your IP is banned for login and anonymous check out process is not allowed.</value>
-  </data>
-  <data name="com.checkout.paymentnoshipping" xml:space="preserve">
-    <value>The selected payment is not applicable when no shipping is required.</value>
   </data>
   <data name="com.checkout.paymentoptionnotapplicable" xml:space="preserve">
     <value>Selected payment method is not applicable.</value>
@@ -7552,13 +7540,13 @@ To create login, provide another email on the General tab.</value>
     <value>Length must be positive number.</value>
   </data>
   <data name="com.optioncategory.maxlengthisleesthanminlength" xml:space="preserve">
-    <value>Number must be a possitive number higher than text min length.</value>
+    <value>Number must be a positive number higher than text min length.</value>
   </data>
   <data name="com.optioncategory.maxtextlengthexceeded" xml:space="preserve">
     <value>Text has to be no more than {0} characters long.</value>
   </data>
   <data name="com.optioncategory.minlength" xml:space="preserve">
-    <value>Number must be a possitive number lower than text max length.</value>
+    <value>Number must be a positive number lower than text max length.</value>
   </data>
   <data name="com.optioncategory.mintextlengthconstraint" xml:space="preserve">
     <value>Text has to be at least {0} characters long.</value>
@@ -7741,7 +7729,7 @@ To create login, provide another email on the General tab.</value>
     <value>If checked, orders that change their status to this status will be automatically marked as paid.</value>
   </data>
   <data name="com.orderstatussendnotification.description" xml:space="preserve">
-    <value>If checked, nofification will be sent if some order change its status to this status.</value>
+    <value>If checked, a notification will be sent if some order changes its status to this status.</value>
   </data>
   <data name="com.orderswidget.billing" xml:space="preserve">
     <value>Billing</value>
@@ -9664,7 +9652,7 @@ You can select another payment method on the Billing tab.</value>
     <value>Archiving pages...</value>
   </data>
   <data name="content.checkedoutdocument" xml:space="preserve">
-    <value>The '{0}' page is checked out by you. Please perfom check-in or undo your changes before publishing.</value>
+    <value>The '{0}' page is checked out by you. Please perform check-in or undo your changes before publishing.</value>
   </data>
   <data name="content.compareto" xml:space="preserve">
     <value>Compare to</value>
@@ -10207,7 +10195,7 @@ You can select another payment method on the Billing tab.</value>
     <value>The page has been archived.</value>
   </data>
   <data name="contentlink.question" xml:space="preserve">
-    <value>Are you sure you want to create  link to the selected page?</value>
+    <value>Are you sure you want to create a link to the selected page?</value>
   </data>
   <data name="contentlisting.alldocuments" xml:space="preserve">
     <value>All pages</value>
@@ -11059,7 +11047,7 @@ You can select another payment method on the Billing tab.</value>
     <value>Please enter your password</value>
   </data>
   <data name="dancinggoat.passwordsnotmatch" xml:space="preserve">
-    <value>Please comfirm your password</value>
+    <value>Please confirm your password</value>
   </data>
   <data name="dancinggoat.phone" xml:space="preserve">
     <value>Phone number</value>
@@ -11462,7 +11450,7 @@ The selected object types are stored in the file system, the others only in the 
     <value>The content can't be displayed in design mode. Uncheck the 'Web part content' box and refresh the Design page.</value>
   </data>
   <data name="development.alternatingitem" xml:space="preserve">
-    <value>Altnernating item template</value>
+    <value>Alternating item template</value>
   </data>
   <data name="development.cssstylesheets" xml:space="preserve">
     <value>CSS stylesheets</value>
@@ -11519,7 +11507,7 @@ The selected object types are stored in the file system, the others only in the 
     <value>Page types</value>
   </data>
   <data name="development.doctypesdescription" xml:space="preserve">
-    <value>Allows you to manage page types. You can create new page types or define their structure. You can also specify which page  types can be used in certain sections of the site.</value>
+    <value>Allows you to manage page types. You can create new page types or define their structure. You can also specify which page types can be used in certain sections of the site.</value>
   </data>
   <data name="development.documenttypes" xml:space="preserve">
     <value>Page types:</value>
@@ -11552,7 +11540,7 @@ The selected object types are stored in the file system, the others only in the 
     <value>Item templates</value>
   </data>
   <data name="development.javascript" xml:space="preserve">
-    <value>Javascript files</value>
+    <value>JavaScript files</value>
   </data>
   <data name="development.javascriptdescription" xml:space="preserve">
     <value>Allows you to manage custom JavaScript files through the administration interface, without requiring direct access to the file system.</value>
@@ -12741,7 +12729,7 @@ The arrow indicates the direction of layout mapping. You can choose a target lay
     <value>Below you can find links to the Kentico on-line documentation.</value>
   </data>
   <data name="documentation.nopropertiesavaible" xml:space="preserve">
-    <value>No properties avaible.</value>
+    <value>No properties available.</value>
   </data>
   <data name="documentation.property.addglobalobjectsuffix" xml:space="preserve">
     <value>Indicates whether the selector adds a suffix to the names of global objects in the selection list.</value>
@@ -12774,7 +12762,7 @@ The arrow indicates the direction of layout mapping. You can choose a target lay
     <value>Indicates whether the site selector contains the '(global)' value. Only applies if the Selector type is 'Classic'.</value>
   </data>
   <data name="documentation.property.allowglobalobjectnameprefix" xml:space="preserve">
-    <value>Indicates whether the selector  adds the '.' prefix to the selection values of global objects.</value>
+    <value>Indicates whether the selector adds the '.' prefix to the selection values of global objects.</value>
   </data>
   <data name="documentation.property.alternativeform" xml:space="preserve">
     <value>Selects the alternative form for the object editing form.</value>
@@ -13002,7 +12990,7 @@ The arrow indicates the direction of layout mapping. You can choose a target lay
     <value>Indicates whether multiple commas should be removed from the names of the offered items. This can happen if the DisplayNameFormat is in format {%column1%}, {%column2%}, {column3} and column2 is empty.</value>
   </data>
   <data name="documentation.property.resourcename" xml:space="preserve">
-    <value>Sets the resource name (module code name) of the UI element whose chid elements the menu displays. Automatically uses the resource name of the current element if empty.</value>
+    <value>Sets the resource name (module code name) of the UI element whose child elements the menu displays. Automatically uses the resource name of the current element if empty.</value>
   </data>
   <data name="documentation.property.resourceprefix" xml:space="preserve">
     <value>Sets a prefix that will be used in the full names of resource strings in the selector. The default value is "General".</value>
@@ -13123,7 +13111,7 @@ Site or global: The selector offers the current site, the global option, and bot
     <value>Sets the text caption of the button.</value>
   </data>
   <data name="documentation.webpartproperties.acceleratordescription" xml:space="preserve">
-    <value>Sets the descritpion of the search accelerator for the Internet Explorer context menu.</value>
+    <value>Sets the description of the search accelerator for the Internet Explorer context menu.</value>
   </data>
   <data name="documentation.webpartproperties.acceleratorname" xml:space="preserve">
     <value>Sets the name of the search accelerator in the Internet Explorer context menu.</value>
@@ -13147,13 +13135,13 @@ Site or global: The selector offers the current site, the global option, and bot
     <value>Indicates if page settings for menu design should be applied to the navigation items displayed by the web part. These settings can be configured for individual pages in ##ui|cms.content|content## -&gt; Edit -&gt; Properties -&gt; Navigation.</value>
   </data>
   <data name="documentation.webpartproperties.attachmentgroup" xml:space="preserve">
-    <value>Allows the selection of the page field from which the attachments will be loaded. This field must use the 'Page attachments control' form control. If empty, attachments bound to the DocumentID field (managable via ##ui|cms.content|content## -&gt; Properties -&gt; Attachments) will be selected.</value>
+    <value>Allows the selection of the page field from which the attachments will be loaded. This field must use the 'Page attachments control' form control. If empty, attachments bound to the DocumentID field (manageable via ##ui|cms.content|content## -&gt; Properties -&gt; Attachments) will be selected.</value>
   </data>
   <data name="documentation.webpartproperties.attachmentimagemaxsidesize" xml:space="preserve">
     <value>Sets the maximum side size of images displayed in forum post attachments.</value>
   </data>
   <data name="documentation.webpartproperties.attachmentpath" xml:space="preserve">
-    <value>Specifies the path of the page from which attachments will be loaded. If empty, the curent page will be used automatically.</value>
+    <value>Specifies the path of the page from which attachments will be loaded. If empty, the current page will be used automatically.</value>
   </data>
   <data name="documentation.webpartproperties.backnextlocation" xml:space="preserve">
     <value>Indicates if the buttons used for navigating to the previous and next page should be displayed.</value>
@@ -13465,13 +13453,13 @@ Site or global: The selector offers the current site, the global option, and bot
     <value>Sets the height of the frame used in lightbox detail view mode.</value>
   </data>
   <data name="documentation.webpartproperties.lightboxloaddelay" xml:space="preserve">
-    <value>Sets the load delay time (in miliseconds). When using automatic resizing, this value indicates how long the lightbox will take to reach the size of the displayed element. If there are problems displaying lightbox content, try to use a higher value.</value>
+    <value>Sets the load delay time (in milliseconds). When using automatic resizing, this value indicates how long the lightbox will take to reach the size of the displayed element. If there are problems displaying lightbox content, try to use a higher value.</value>
   </data>
   <data name="documentation.webpartproperties.lightboxoverlayopacity" xml:space="preserve">
     <value>Determines the transparency of the lightbox background. Must be a decimal number between 0 and 1, where 0 is fully transparent and 1 is completely dark.</value>
   </data>
   <data name="documentation.webpartproperties.lightboxpermanentnavigation" xml:space="preserve">
-    <value>If checked, the navigations buttons will always be visible in lightbox detail view mode. Otherwise they will only be shown on mouse over.</value>
+    <value>If checked, the navigation buttons will always be visible in the lightbox detail view mode. Otherwise, they will be shown only on a mouseover.</value>
   </data>
   <data name="documentation.webpartproperties.lightboxresizespeed" xml:space="preserve">
     <value>Allows the selection of the image resizing speed. Options range from 1 (slowest) to 10 (fastest).</value>
@@ -13843,7 +13831,7 @@ Site or global: The selector offers the current site, the global option, and bot
     <value>Specifies the URL of an image that will be used for the sign in button if the Sign in text property is empty.</value>
   </data>
   <data name="documentation.webpartproperties.signoutimageurl" xml:space="preserve">
-    <value>Specifies the URL of an image that will be used for the sign out button. Default Facebook sign out image will be used if no URL is set.</value>
+    <value>Specifies the URL of an image that will be used for the sign out button. Default sign out image will be used if no URL is set.</value>
   </data>
   <data name="documentation.webpartproperties.singletransform" xml:space="preserve">
     <value>Sets the transformation applied when only a single item is displayed on a hierarchical level. Transformations are specified in format &lt;class name&gt;.&lt;transformation name&gt;.</value>
@@ -14242,7 +14230,7 @@ To view and modify the sites to which the page type is assigned, edit the '{0}' 
     <value>OnChange client script</value>
   </data>
   <data name="dropdownlist.changescriptdesc" xml:space="preserve">
-    <value>The field represents Javascript code that is executed when selected item is changed.</value>
+    <value>The field represents JavaScript code that is executed when selected item is changed.</value>
   </data>
   <data name="dropdownlist.displayvalueasitem" xml:space="preserve">
     <value>Display actual value as item</value>
@@ -14308,7 +14296,7 @@ To view and modify the sites to which the page type is assigned, edit the '{0}' 
     <value>If you change the address, the system will not recalculate shipping, tax, discounts or other order amounts.</value>
   </data>
   <data name="ecommerce.orderpreview.errorordersave" xml:space="preserve">
-    <value>An error occurred during saving the order. Please check order informations or contact administrator.</value>
+    <value>An error occurred during saving the order. Please check order information or contact administrator.</value>
   </data>
   <data name="ecommerce.orderpreview.errorsomethinghaschanged" xml:space="preserve">
     <value>Something related to the ordered items has changed. Please review your order again before continuing.</value>
@@ -14600,7 +14588,7 @@ To view and modify the sites to which the page type is assigned, edit the '{0}' 
     <value>No email feeds selected.</value>
   </data>
   <data name="emailmarketing.ui.campaignoption" xml:space="preserve">
-    <value>Email campaign &lt;span class="help-block"&gt;An email campaign allows you to target and retarget every email based on the impact of the previous communication.&lt;/span&gt;</value>
+    <value>Email campaign &lt;span class="help-block"&gt;An email campaign allows you to target and re-target every email based on the impact of the previous communication.&lt;/span&gt;</value>
   </data>
   <data name="emailmarketing.ui.groups" xml:space="preserve">
     <value>Contact group</value>
@@ -15348,7 +15336,7 @@ Do you want to continue?</value>
     <value>Contact management - full</value>
   </data>
   <data name="featureenum.globaladmininistrators" xml:space="preserve">
-    <value>Global admininistrators</value>
+    <value>Global administrators</value>
   </data>
   <data name="featureenum.groups" xml:space="preserve">
     <value>Groups</value>
@@ -15411,7 +15399,7 @@ Do you want to continue?</value>
     <value>Polls</value>
   </data>
   <data name="featureenum.salesforce" xml:space="preserve">
-    <value>SalesForce</value>
+    <value>Salesforce</value>
   </data>
   <data name="featureenum.schedulerwinservice" xml:space="preserve">
     <value>Scheduler win service</value>
@@ -15786,7 +15774,7 @@ Size chart
     <value>Size</value>
   </data>
   <data name="fontselector.strikethrought" xml:space="preserve">
-    <value>Strikethrought</value>
+    <value>Strikethrough</value>
   </data>
   <data name="fontselector.style" xml:space="preserve">
     <value>Style
@@ -15803,9 +15791,6 @@ Size chart
   </data>
   <data name="fontselector.wrongsize" xml:space="preserve">
     <value>Wrong format.</value>
-  </data>
-  <data name="form.validationmaxlength" xml:space="preserve">
-    <value>The maximum allowed length of the input text was exceeded.</value>
   </data>
   <data name="formbuilder.clonecomponent" xml:space="preserve">
     <value>Clone component</value>
@@ -17344,7 +17329,7 @@ Size chart
     <value>Not approved</value>
   </data>
   <data name="general.notassigned" xml:space="preserve">
-    <value>Object doesn´t belong to current site.</value>
+    <value>Object doesn't belong to current site.</value>
   </data>
   <data name="general.notauthorizedtopage" xml:space="preserve">
     <value>You are not authorize to see this page.</value>
@@ -17972,7 +17957,7 @@ To confirm the subscription, use the link in the email that was sent to you or v
     <value>Specified subscription doesn't exist in the system any more.</value>
   </data>
   <data name="general.unsubscription_timeexceeded" xml:space="preserve">
-    <value>Time interval for unsubscription  elapsed.</value>
+    <value>Time interval for unsubscription elapsed.</value>
   </data>
   <data name="general.unsubscription_unsuccessful" xml:space="preserve">
     <value>Unsubscription was unsuccessful due to invalid parameters.</value>
@@ -18149,7 +18134,7 @@ To confirm the subscription, use the link in the email that was sent to you or v
     <value>Owner</value>
   </data>
   <data name="generalproperties.previewlinkgenerated" xml:space="preserve">
-    <value>Link was generated sucessfully.</value>
+    <value>Link was generated successfully.</value>
   </data>
   <data name="generalproperties.previewurl" xml:space="preserve">
     <value>Preview URL:</value>
@@ -18383,7 +18368,7 @@ To confirm the subscription, use the link in the email that was sent to you or v
     <value>User ##USERNAME## has already been invited by user ##INVITEDBY##. You cannot send another invitation.</value>
   </data>
   <data name="groupinvitation.invitationunsuccessismember" xml:space="preserve">
-    <value>User ##USERNAME## is member of group ##GROUPNAME##. You cannot send invation.</value>
+    <value>User ##USERNAME## is member of group ##GROUPNAME##. You cannot send invitation.</value>
   </data>
   <data name="groupprofile.displayforums" xml:space="preserve">
     <value>Indicates if the Forums tab should be displayed. This tab may be placed on a page separately using the Group forums web part.</value>
@@ -18629,7 +18614,7 @@ To confirm the subscription, use the link in the email that was sent to you or v
     <value>(all transformations)</value>
   </data>
   <data name="hiertransf.allowforlevel" xml:space="preserve">
-    <value>Apply to sublevels</value>
+    <value>Apply to sub-levels</value>
   </data>
   <data name="hiertransf.alternatingitem" xml:space="preserve">
     <value>Alternating  item transformation</value>
@@ -18755,7 +18740,7 @@ To confirm the subscription, use the link in the email that was sent to you or v
     <value>Processing image failed.</value>
   </data>
   <data name="img.namenotunique" xml:space="preserve">
-    <value>An attachment with same name already exists in the pagecontext. Please use different name.</value>
+    <value>An attachment with the same name already exists in the page context. Please use a different name.</value>
   </data>
   <data name="img.savechanges" xml:space="preserve">
     <value>Save changes</value>
@@ -19165,7 +19150,7 @@ Please review your settings or restart the application.</value>
     <value>Please select an email</value>
   </data>
   <data name="javascript.title" xml:space="preserve">
-    <value>Javascript files</value>
+    <value>JavaScript files</value>
   </data>
   <data name="kicked.cancel" xml:space="preserve">
     <value>Kick was taken back.</value>
@@ -19555,7 +19540,7 @@ Please review your settings or restart the application.</value>
     <value>Resource string key '{0}' already exists.</value>
   </data>
   <data name="localizable.keynotexists" xml:space="preserve">
-    <value>Resource string key '{0}' doesn’t exist yet.</value>
+    <value>Resource string key '{0}' doesn't exist yet.</value>
   </data>
   <data name="localizable.localize" xml:space="preserve">
     <value>Localize</value>
@@ -19861,7 +19846,7 @@ Please review your settings or restart the application.</value>
     <value>New process</value>
   </data>
   <data name="ma.nohistoryyet" xml:space="preserve">
-    <value>This {0} doesn’t have any process history yet.</value>
+    <value>This {0} doesn't have any process history yet.</value>
   </data>
   <data name="ma.notauthorizedaction" xml:space="preserve">
     <value>You are not authorized to move the process to another step.</value>
@@ -20495,7 +20480,7 @@ The contacts that are not in the Finished step will not be processed any further
     <value>Checks whether the current visitor is using a mobile device.</value>
   </data>
   <data name="macrorule.cmscurrentdevicemaxscreensizeisinrange.description" xml:space="preserve">
-    <value>Checks that the resolution of the device used by the current visitor falls withing a specific range.</value>
+    <value>Checks that the resolution of the device used by the current visitor falls within a specific range.</value>
   </data>
   <data name="macrorule.cmscurrentdeviceprofileisoneofspecifiedprofiles.description" xml:space="preserve">
     <value>Checks if the current visitor's device matches one of the selected device profiles.</value>
@@ -20699,7 +20684,7 @@ The contacts that are not in the Finished step will not be processed any further
     <value>Evaluation timeout in the expression '{0}' with overtime {1}. Check the expression for infinite loops or increase the timeout.</value>
   </data>
   <data name="macros.evaluationerror" xml:space="preserve">
-    <value>Exception occured while evaluation of the expression '{0}': {1}</value>
+    <value>Exception occurred while evaluation of the expression '{0}': {1}</value>
   </data>
   <data name="macros.expression" xml:space="preserve">
     <value>Macro expression</value>
@@ -21536,7 +21521,7 @@ If your application does not have a custom hash salt, and the connection string 
     <value>Your user account is now active. You can sign in using your user name and password.</value>
   </data>
   <data name="membership.usercreateddisabled" xml:space="preserve">
-    <value>User was sucessfully created but needs to be enabled by the site administrator.</value>
+    <value>User was successfully created but needs to be enabled by the site administrator.</value>
   </data>
   <data name="membership.userdisabled" xml:space="preserve">
     <value>User is currently disabled and needs to be enabled by the site administrator.</value>
@@ -22306,7 +22291,7 @@ For more information, please read the &lt;a href="{1}" target="_blank"&gt;docume
     <value>Selected subscriptions</value>
   </data>
   <data name="newsletter.successful_approval" xml:space="preserve">
-    <value>Your subscription was successfuly approved.</value>
+    <value>Your subscription was successfully approved.</value>
   </data>
   <data name="newsletter.templatenewsletter" xml:space="preserve">
     <value>Email feeds</value>
@@ -22581,7 +22566,7 @@ Used when unsubscribing from a single email feed as well as all marketing emails
     <value>UTM source</value>
   </data>
   <data name="newsletterissue.utm.source.description" xml:space="preserve">
-    <value>Identifies the traffic source. For example, search engines, email campaigns or refferal sites.  Used in the 'utm_source' query parameter.</value>
+    <value>Identifies the traffic source. For example, search engines, email campaigns or referral sites.  Used in the 'utm_source' query parameter.</value>
   </data>
   <data name="newsletterissue.utm.use" xml:space="preserve">
     <value>Tag email links with UTM parameters</value>
@@ -23331,10 +23316,10 @@ Used when unsubscribing from a single email feed as well as all marketing emails
     <value>Contact statuses</value>
   </data>
   <data name="objecttasks.om_documentmvtcombination" xml:space="preserve">
-    <value>Pages mvt combinations</value>
+    <value>Pages MVT combinations</value>
   </data>
   <data name="objecttasks.om_documentmvtvariant" xml:space="preserve">
-    <value>Page mvt variants</value>
+    <value>Page MVT variants</value>
   </data>
   <data name="objecttasks.om_documentpersonalizationvariant" xml:space="preserve">
     <value>Pages personalization variants</value>
@@ -24849,7 +24834,7 @@ Used when unsubscribing from a single email feed as well as all marketing emails
     <value>Email</value>
   </data>
   <data name="om.activitydetails.newsletterreferer" xml:space="preserve">
-    <value>URL referer</value>
+    <value>URL referrer</value>
   </data>
   <data name="om.activitydetails.newstargetlink" xml:space="preserve">
     <value>Target link</value>
@@ -24879,7 +24864,7 @@ Used when unsubscribing from a single email feed as well as all marketing emails
     <value>Customer</value>
   </data>
   <data name="om.activitydetails.urlreferrer" xml:space="preserve">
-    <value>URL referer</value>
+    <value>URL referrer</value>
   </data>
   <data name="om.activitydetails.viewinvoice" xml:space="preserve">
     <value>View invoice</value>
@@ -25308,7 +25293,7 @@ Used when unsubscribing from a single email feed as well as all marketing emails
     <value>Imported: {0}</value>
   </data>
   <data name="om.contact.importcsv.importerror" xml:space="preserve">
-    <value>An error occured while importing the contacts.</value>
+    <value>An error occurred while importing the contacts.</value>
   </data>
   <data name="om.contact.importcsv.importfinished" xml:space="preserve">
     <value>Import finished.</value>
@@ -25410,7 +25395,7 @@ Used when unsubscribing from a single email feed as well as all marketing emails
     <value>The value in column '{0}' is too long. The maximum allowed length is {1} characters.</value>
   </data>
   <data name="om.contact.importcsv.unknownerror" xml:space="preserve">
-    <value>An unknown error occured during the import. Please see the Event log application for more information.</value>
+    <value>An unknown error occurred during the import. Please see the Event log application for more information.</value>
   </data>
   <data name="om.contact.importcsv.unknownerrorclientside" xml:space="preserve">
     <value>An unknown error occurred while retrieving data from the server. Please contact your administrator if you keep seeing this message.</value>
@@ -25949,10 +25934,10 @@ You can enable deleting of inactive contacts in &lt;b&gt;Settings -&gt; Online m
     <value>First activity time</value>
   </data>
   <data name="om.ip.edit" xml:space="preserve">
-    <value>Ip properties</value>
+    <value>IP properties</value>
   </data>
   <data name="om.ip.list" xml:space="preserve">
-    <value>Ips</value>
+    <value>IPs</value>
   </data>
   <data name="om.ip.new" xml:space="preserve">
     <value>New ip</value>
@@ -26239,7 +26224,7 @@ Recalculation discards the current scores and rebuilds them according to the new
 
 Activity is something that a contact can perform on the site. For example, making a purchase or submitting a form.
 
-Macros can combine multiple conditions that the contact has to fulfil.</value>
+Macros can combine multiple conditions that the contact has to fulfill.</value>
   </data>
   <data name="om.score.rulevalue" xml:space="preserve">
     <value>Rule value</value>
@@ -26960,7 +26945,7 @@ Select UserID, UserName From CMS_User</value>
     <value>Please enter a password that is at least {0} characters long and contains at least {1} special characters (other than letters and numbers).</value>
   </data>
   <data name="passwordpolicy.policynotmet" xml:space="preserve">
-    <value>Your password doesn’t meet all security requirements. Please change it to ensure the safety of your user account.</value>
+    <value>Your password doesn't meet all security requirements. Please change it to ensure the safety of your user account.</value>
   </data>
   <data name="passwordstrength.acceptable" xml:space="preserve">
     <value>Acceptable</value>
@@ -26978,7 +26963,7 @@ Select UserID, UserName From CMS_User</value>
     <value>Minimum password length is {0} characters.</value>
   </data>
   <data name="passwordstrength.hintnonalphanum" xml:space="preserve">
-    <value>Your password must contain at lest {0} special characters (other than letters and numbers).</value>
+    <value>Your password must contain at least {0} special characters (other than letters and numbers).</value>
   </data>
   <data name="passwordstrength.notacceptable" xml:space="preserve">
     <value>Not acceptable</value>
@@ -29363,7 +29348,7 @@ When he's not out taking photos, he spends most of his time on the Internet or e
     <value>Icon path</value>
   </data>
   <data name="resource.ui.javascript" xml:space="preserve">
-    <value>Javascript</value>
+    <value>JavaScript</value>
   </data>
   <data name="resource.ui.menuelem" xml:space="preserve">
     <value>Element is menu</value>
@@ -29614,7 +29599,7 @@ When he's not out taking photos, he spends most of his time on the Internet or e
   <data name="scope.macrocondition.description" xml:space="preserve">
     <value>A condition further specifying when the scope is applied.</value>
   </data>
-  <data name="scope.nodatafound" xml:space="preserve">
+  <data name="scope.general.nodatafound" xml:space="preserve">
     <value>No scopes defined for the currently selected site. Define new scopes in &lt;strong&gt;##ui|cms.documentengine|Development.DocumentTypes## -&gt; Scopes&lt;/strong&gt;.</value>
   </data>
   <data name="scope.selectitem" xml:space="preserve">
@@ -29894,7 +29879,7 @@ When he's not out taking photos, he spends most of his time on the Internet or e
     <value>Select A/B test variant name</value>
   </data>
   <data name="selectcolumns.nocustomtablesavaible" xml:space="preserve">
-    <value>No custom table avaible.</value>
+    <value>No custom table available.</value>
   </data>
   <data name="selectmvtcombination.entersearch" xml:space="preserve">
     <value>MVT combination name</value>
@@ -30273,7 +30258,7 @@ Global favicon: ~/CMSGlobalFiles/</value>
     <value>Enable code editing for site administrators</value>
   </data>
   <data name="settings.cmspolicyviolationmessage.description" xml:space="preserve">
-    <value>Specifies a custom message that will be displayed to users who attempt to enter a password  which does not fulfill the requirements of the password policy. If left empty, a default message will be shown.</value>
+    <value>Specifies a custom message that will be displayed to users who attempt to enter a password which does not fulfill the requirements of the password policy. If left empty, a default message will be shown.</value>
   </data>
   <data name="settings.cmspolicyviolationmessage.displayname" xml:space="preserve">
     <value>Policy violation message</value>
@@ -30894,7 +30879,7 @@ Global favicon: ~/CMSGlobalFiles/</value>
     <value>IO</value>
   </data>
   <data name="settingscategory.cmssystememails" xml:space="preserve">
-    <value>Default email adresses</value>
+    <value>Default email addresses</value>
   </data>
   <data name="settingscategory.cmssystemperformance" xml:space="preserve">
     <value>Performance</value>
@@ -30954,10 +30939,7 @@ Global favicon: ~/CMSGlobalFiles/</value>
     <value>URL shorteners</value>
   </data>
   <data name="settingscategory.cmsurlshortening.bitly" xml:space="preserve">
-    <value>bitly</value>
-  </data>
-  <data name="settingscategory.cmsurlshortening.googl" xml:space="preserve">
-    <value>goo.gl</value>
+    <value>Bitly</value>
   </data>
   <data name="settingscategory.cmsurlurl" xml:space="preserve">
     <value>URL format</value>
@@ -31086,7 +31068,7 @@ Global favicon: ~/CMSGlobalFiles/</value>
     <value>API key</value>
   </data>
   <data name="settingskey.bitlyapikey.description" xml:space="preserve">
-    <value>Your bitly API key. It can be found under your account's settings. You must provide this information in order to use this service.</value>
+    <value>Your Bitly API key. It can be found under your account's settings. You must provide this information in order to use this service.</value>
   </data>
   <data name="settingskey.bitlylogin" xml:space="preserve">
     <value>Login</value>
@@ -31279,7 +31261,7 @@ For example:
     <value>Indicates if site visits should be tracked. A single visit includes any number of page views or other actions performed by a specific user during one session.</value>
   </data>
   <data name="settingskey.cmsanalyticsvisitoridletime.description" xml:space="preserve">
-    <value>Determines how long (in minutes) a visitor must be inactive before the system logs their visit, browser and country on the website again. Note that browser and country logging has to be allowed seperately.</value>
+    <value>Determines how long (in minutes) a visitor must be inactive before the system logs their visit, browser and country on the website again. Note that browser and country logging has to be allowed separately.</value>
   </data>
   <data name="settingskey.cmsanalyticsvisitorssmartcheck" xml:space="preserve">
     <value>Remember visitors by IP (minutes)</value>
@@ -31500,7 +31482,7 @@ You can override this setting in the properties of a particular forum group or a
     <value>Cache files (minutes)</value>
   </data>
   <data name="settingskey.cmscacheimages.description" xml:space="preserve">
-    <value>Number of minutes for which the application caches images and other files on the server. The system always caches files for at least 1 minute to protect from brute force attacks.</value>
+    <value>Number of minutes for which the application caches images and other files on the server.</value>
   </data>
   <data name="settingskey.cmscacheminutes" xml:space="preserve">
     <value>Cache content (minutes)</value>
@@ -31538,7 +31520,7 @@ You can override this setting in the properties of a particular forum group or a
   <data name="settingskey.cmschatdaysneededtodeleterecods.description" xml:space="preserve">
     <value>Messages, rooms and chat users will be deleted after the number of days specified in this setting.
 
-Records will be deleted acording to these rules:
+Records will be deleted according to these rules:
 
 All messages written earlier than the time specified will be deleted.
 
@@ -31588,7 +31570,7 @@ All users will be deleted, who are anonymous, have not written any message and h
     <value>Display 'Support greeting' system message</value>
   </data>
   <data name="settingskey.cmschatdisplaysupportgreetingatfirstload.description" xml:space="preserve">
-    <value>Indicates if automatic greting support message will be displayed to user when he enters support chat.</value>
+    <value>Indicates if automatic greeting support message will be displayed to user when he enters support chat.</value>
   </data>
   <data name="settingskey.cmschatenablebbcode" xml:space="preserve">
     <value>Enable BBCode in messages</value>
@@ -31716,7 +31698,7 @@ If you are experiencing performance issues with chat, consider setting this numb
     <value>On-line user transformation</value>
   </data>
   <data name="settingskey.cmschatonlineusertrans.description" xml:space="preserve">
-    <value>Trasnformation for displaying on-line users.</value>
+    <value>Transformation for displaying on-line users.</value>
   </data>
   <data name="settingskey.cmschatredirecturljoin" xml:space="preserve">
     <value>Default redirection path - join room action</value>
@@ -31755,7 +31737,7 @@ If you are experiencing performance issues with chat, consider setting this numb
     <value>Transformation that will be applied to messages in a normal (not one-on-one chat) room.</value>
   </data>
   <data name="settingskey.cmschatroomnametrans" xml:space="preserve">
-    <value>Chat room name tranformation</value>
+    <value>Chat room name transformation</value>
   </data>
   <data name="settingskey.cmschatroomnametrans.description" xml:space="preserve">
     <value>Transformation for displaying chat room name in the room title.</value>
@@ -33256,7 +33238,7 @@ You need to &lt;strong&gt;configure IIS to allow custom URL extensions&lt;/stron
     <value>Assign found metro code to an appropriate contact's column. Can be selected for integer-based or text-based columns. Suffix can be applied to text-based columns.</value>
   </data>
   <data name="settingskey.cmsgeonewdb" xml:space="preserve">
-    <value>New version of geolocating database</value>
+    <value>New version of geolocation database</value>
   </data>
   <data name="settingskey.cmsgeonewdb.description" xml:space="preserve">
     <value>Geolocation data is based on MaxMind's GeoIP2 Databases - either 'GeoLite2 City' (free) or 'GeoIP2 City'. To get additional Organization/ASN data, you can also use the 'GeoLite2 ASN' database.&lt;br /&gt;&lt;br /&gt;You can download the free databases and updates from: &lt;strong&gt;&lt;a href="https://dev.maxmind.com/geoip/geoip2/geolite2/" target="_blank"&gt;https://dev.maxmind.com/geoip/geoip2/geolite2/&lt;/a&gt;&lt;/strong&gt;&lt;br /&gt;&lt;br /&gt;Place the Geolocation database files into the following location in your web project: &lt;strong&gt;~/App_Data/CMSModules/WebAnalytics/MaxMind/&lt;/strong&gt;</value>
@@ -33479,7 +33461,7 @@ You need to &lt;strong&gt;configure IIS to allow custom URL extensions&lt;/stron
     <value>Assign new users to roles</value>
   </data>
   <data name="settingskey.cmsliveidroles.description" xml:space="preserve">
-    <value>Registred Windows Live users will be assigned to these roles. Separated by (&lt;strong&gt;;&lt;/strong&gt;)</value>
+    <value>Registered Windows Live users will be assigned to these roles. Separated by (&lt;strong&gt;;&lt;/strong&gt;)</value>
   </data>
   <data name="settingskey.cmsloganalytics" xml:space="preserve">
     <value>Log web analytics to file</value>
@@ -33603,7 +33585,7 @@ Set 0 if you don't want the system to log any events.</value>
     <value>Maximum file size to cache</value>
   </data>
   <data name="settingskey.cmsmaxcachefilesize.description" xml:space="preserve">
-    <value>Specifies the maximum size of the file in kilobytes that is allowed to be cached.</value>
+    <value>Limits caching of files whose size is greater than the specified number of kilobytes. Files larger than the specified value are only cached for 1 minute.</value>
   </data>
   <data name="settingskey.cmsmaximuminvalidloginattempts" xml:space="preserve">
     <value>Maximum invalid sign-in attempts</value>
@@ -33756,7 +33738,7 @@ Optionally, the culture code can be used, e.g. "/Members/{UserName}/{CultureCode
     <value>API key</value>
   </data>
   <data name="settingskey.cmsmstranslatortextapisubscriptionkey.description" xml:space="preserve">
-    <value>To obtain the API key, you have to subscribe to the Microsoft Translator API service in the Azure portal. Visit http://docs.microsofttranslator.com/text-translate.html for more information.</value>
+    <value>To obtain the API key, you have to subscribe to the Microsoft Translator API service in the Azure portal. Visit https://docs.microsoft.com/en-us/azure/cognitive-services/translator/translator-text-how-to-signup for more information.</value>
   </data>
   <data name="settingskey.cmsmvtenabled" xml:space="preserve">
     <value>Enable multivariate testing</value>
@@ -33836,7 +33818,7 @@ Optionally, the culture code can be used, e.g. "/Members/{UserName}/{CultureCode
     <value>Assign new users to roles</value>
   </data>
   <data name="settingskey.cmsopenidroles.description" xml:space="preserve">
-    <value>Registred OpenID users will be assigned to these roles. Separated by (&lt;strong&gt;;&lt;/strong&gt;)</value>
+    <value>Registered OpenID users will be assigned to these roles. Separated by (&lt;strong&gt;;&lt;/strong&gt;)</value>
   </data>
   <data name="settingskey.cmsoptinapprovalurl" xml:space="preserve">
     <value>Double opt-in approval page URL</value>
@@ -33993,7 +33975,7 @@ It can either be a physical aspx file in the web project or a dedicated page in 
     <value>Authentication method</value>
   </data>
   <data name="settingskey.cmspop3authenticationmethod.description" xml:space="preserve">
-    <value>Specifies which one of the authenticaton methods will be used</value>
+    <value>Specifies which one of the authentication methods will be used</value>
   </data>
   <data name="settingskey.cmspop3password" xml:space="preserve">
     <value>Password</value>
@@ -34030,12 +34012,6 @@ It can either be a physical aspx file in the web project or a dedicated page in 
   </data>
   <data name="settingskey.cmsprocessdomainprefix.description" xml:space="preserve">
     <value>Determines how the &lt;strong&gt;www&lt;/strong&gt; domain prefix should be handled in the website's URLs. This setting does not apply to IP addresses and top-level domains.</value>
-  </data>
-  <data name="settingskey.cmsprogressivecaching" xml:space="preserve">
-    <value>Use progressive caching</value>
-  </data>
-  <data name="settingskey.cmsprogressivecaching.description" xml:space="preserve">
-    <value>If checked, the system optimizes access to uncached data so that concurrent threads only use a single data access operation and share the results. This leads to better performance if the website is under a heavy load, without the drawback of not having the latest data available. Applies only for components and locations where caching is supported when cache minutes are set to 0.</value>
   </data>
   <data name="settingskey.cmsrecognizebyip" xml:space="preserve">
     <value>Automatically recognize visitors by IP address</value>
@@ -34089,7 +34065,7 @@ It can either be a physical aspx file in the web project or a dedicated page in 
     <value>Registration confirmation page path</value>
   </data>
   <data name="settingskey.cmsregistrationapprovalpagepath.description" xml:space="preserve">
-    <value>Path to the page that contains the Registration email confirmation web part. The confirmation link in the registration email sent to new users leads to the specified page. &lt;strong&gt;Note&lt;/strong&gt;: Individual registration web parts may override this setting if a different path is set in their 'Email confirmaton page' property.</value>
+    <value>Path to the page that contains the Registration email confirmation web part. The confirmation link in the registration email sent to new users leads to the specified page. &lt;strong&gt;Note&lt;/strong&gt;: Individual registration web parts may override this setting if a different path is set in their 'Email confirmation page' property.</value>
   </data>
   <data name="settingskey.cmsregistrationemailconfirmation" xml:space="preserve">
     <value>Registration requires email confirmation</value>
@@ -34567,7 +34543,7 @@ Staging won't work when password is blank.</value>
     <value>Allows to set a number that will be recorded, together with the specified conversion, as the conversion value when this particular conversion is logged. The values are cumulative, i.e. when a conversion hit is logged, the specified value is added to the total sum previously recorded for this conversion. You may insert a macro expression into this field to dynamically retrieve a value from the current website context.</value>
   </data>
   <data name="settingskey.cmsstoreallowanonymouscustomers" xml:space="preserve">
-    <value>Allow ckeckout for unregistered customers</value>
+    <value>Allow checkout for unregistered customers</value>
   </data>
   <data name="settingskey.cmsstoreallowanonymouscustomers.description" xml:space="preserve">
     <value>Indicates if customers need to register on your site so that they can make the purchase.</value>
@@ -35366,12 +35342,6 @@ When turned on, the Save button automatically uploads the Strands catalog feed t
   <data name="settingskey.filesystempath" xml:space="preserve">
     <value>File system path</value>
   </data>
-  <data name="settingskey.goo.glapikey" xml:space="preserve">
-    <value>API key</value>
-  </data>
-  <data name="settingskey.goo.glapikey.description" xml:space="preserve">
-    <value>API key of goo.gl URL shortening service. It can be found in Google API console.</value>
-  </data>
   <data name="settingskey.googleplusaccesstoken" xml:space="preserve">
     <value>Access token</value>
   </data>
@@ -35787,7 +35757,7 @@ If required, include the field in selected page layouts, and click the "Save" bu
     <value>Picklist entry</value>
   </data>
   <data name="sharepoint.cache" xml:space="preserve">
-    <value>Sharepoint file caching</value>
+    <value>SharePoint file caching</value>
   </data>
   <data name="sharepoint.ccsdk.idcrl.msoidclilerror" xml:space="preserve">
     <value>The SharePoint Client Components SDK needed in order for the identity client runtime to work properly seems not to be installed (the library"msoidcliL.dll" is missing). See the &lt;a href="{0}" title="SharePoint documentation" target="_blank"&gt;documentation&lt;/a&gt; for solution instructions. See Event log for error details.</value>
@@ -35888,10 +35858,10 @@ In case your site is using HTTPS, you need to specify the protocol in the URL, e
     <value>SharePoint</value>
   </data>
   <data name="sharepoint.library.cannotmodify" xml:space="preserve">
-    <value>You are not authorized to modify sharepoint libraries. If you wish to do so, contact your administrator.</value>
+    <value>You are not authorized to modify SharePoint libraries. If you wish to do so, contact your administrator.</value>
   </data>
   <data name="sharepoint.library.classname" xml:space="preserve">
-    <value>Sharepoint library</value>
+    <value>SharePoint library</value>
   </data>
   <data name="sharepoint.library.displayname.description" xml:space="preserve">
     <value>The name of the SharePoint library used in the system's administration interface.</value>
@@ -35906,7 +35876,7 @@ In case your site is using HTTPS, you need to specify the protocol in the URL, e
     <value>Files</value>
   </data>
   <data name="sharepoint.library.getlistsconnectionerror" xml:space="preserve">
-    <value>The system cannot retrieve list names for the connection you have selected. You can verify that a connection is working by testing it in its editting form. If you're certain that the connection is configured correctly, you can specify the list name manually. Refer to the event log if you wish to investigate futher.</value>
+    <value>The system cannot retrieve list names for the connection you have selected. You can verify that a connection is working by testing it in its editing form. If you're certain that the connection is configured correctly, you can specify the list name manually. Refer to the event log if you wish to investigate further.</value>
   </data>
   <data name="sharepoint.library.lastsynchronization" xml:space="preserve">
     <value>The last library synchronization was performed on {0}.</value>
@@ -35951,7 +35921,7 @@ In case your site is using HTTPS, you need to specify the protocol in the URL, e
     <value>The SharePoint site URL could not be resolved.</value>
   </data>
   <data name="sharepoint.protocolerror" xml:space="preserve">
-    <value>A protocol error occurred. No sharepoint instance may be running on given URL or the credentials are not valid.</value>
+    <value>A protocol error occurred. No SharePoint instance may be running on the given URL or the credentials are not valid.</value>
   </data>
   <data name="sharepoint.protocolerror.notfound" xml:space="preserve">
     <value>No SharePoint instance seems to be running on given URL.</value>
@@ -36175,7 +36145,7 @@ Note: Certain fields are always retrieved.</value>
     <value>Another site is currently being deleted. Please wait until the running delete operation is finished before starting a new one.</value>
   </data>
   <data name="site_delete.applicationrestarted" xml:space="preserve">
-    <value>&lt;strong&gt;Application has been restarted and the logging of the site delete process has been terminated. Please make sure that the site is deleted. If it is not, please repeate the deletion process.&lt;/strong&gt;&lt;br /&gt;</value>
+    <value>&lt;strong&gt;Application has been restarted and the logging of the site delete process has been terminated. Please make sure that the site is deleted. If it is not, please repeat the deletion process.&lt;/strong&gt;&lt;br /&gt;</value>
   </data>
   <data name="site_delete.deletingattachments" xml:space="preserve">
     <value>Deleting site attachments folder</value>
@@ -37143,20 +37113,14 @@ Note: Certain fields are always retrieved.</value>
   <data name="sm.facebook.account.msg.connectionfail" xml:space="preserve">
     <value>Failed to connect to Facebook:</value>
   </data>
-  <data name="sm.facebook.account.msg.getpageidfail" xml:space="preserve">
-    <value>An error occurred when communicating with Facebook.</value>
-  </data>
-  <data name="sm.facebook.account.msg.invalidpageurl" xml:space="preserve">
-    <value>Please enter a valid Facebook page URL.</value>
-  </data>
   <data name="sm.facebook.account.msg.pageaccesstokenfail" xml:space="preserve">
-    <value>Failed to authorize access to the Facebook page. Please make sure that the Facebook page URL is correct and you are an administrator of that page.</value>
+    <value>Failed to authorize access to the Facebook page. Please make sure that the Facebook page ID is correct and you are an administrator of that page.</value>
   </data>
   <data name="sm.facebook.account.msg.pageidexists" xml:space="preserve">
-    <value>The Facebook page with the specified URL already exists.</value>
+    <value>The Facebook page with the specified ID already exists.</value>
   </data>
-  <data name="sm.facebook.account.msg.pageurlnotset" xml:space="preserve">
-    <value>Please enter a valid Facebook page URL first.</value>
+  <data name="sm.facebook.account.msg.pageidnotset" xml:space="preserve">
+    <value>Please enter a valid Facebook page ID first. Only numeric characters are allowed.</value>
   </data>
   <data name="sm.facebook.account.msg.tokenneverexpire" xml:space="preserve">
     <value>Access will never expire.</value>
@@ -37171,7 +37135,7 @@ Note: Certain fields are always retrieved.</value>
     <value>Facebook page access</value>
   </data>
   <data name="sm.facebook.accounts.accesstoken.description" xml:space="preserve">
-    <value>When you enter a Facebook page URL you can authorize access to the page. It allows your site to post content onto the page. The access can be authorized only by the page owner.</value>
+    <value>When you enter a Facebook page ID you can authorize access to the page. It allows your site to post content onto the page. The access can be authorized only by the page owner.</value>
   </data>
   <data name="sm.facebook.accounts.accesstokenexpiration" xml:space="preserve">
     <value>Page access expiration</value>
@@ -37201,10 +37165,13 @@ Note: Certain fields are always retrieved.</value>
     <value>New page</value>
   </data>
   <data name="sm.facebook.accounts.pageid" xml:space="preserve">
-    <value>Facebook page URL</value>
+    <value>Facebook page ID</value>
   </data>
   <data name="sm.facebook.accounts.pageid.description" xml:space="preserve">
-    <value>The URL of a Facebook page where the content will be posted.</value>
+    <value>The ID of a Facebook page where the content will be posted. You can find it on the "About" tab of your Facebook page.</value>
+  </data>
+  <data name="sm.facebook.accounts.msg.pageidnotnumericstring" xml:space="preserve">
+    <value>Please enter a valid Facebook page ID. Only numeric characters are allowed.</value>
   </data>
   <data name="sm.facebook.application.msg.consumerkeyexists" xml:space="preserve">
     <value>The Facebook app with the specified App ID already exists.</value>
@@ -37259,7 +37226,7 @@ The expression will be replaced with the actual link when publishing the post to
     <value>Facebook insights collection</value>
   </data>
   <data name="sm.facebook.isdeault.description" xml:space="preserve">
-    <value>Default facebook page is pre-selected when creating post and is used in advanced workflow autopost. If no default page is set, automatic posting in workflow will not work.</value>
+    <value>Default Facebook page is pre-selected when creating post and is used in advanced workflow autopost. If no default page is set, automatic posting in workflow will not work.</value>
   </data>
   <data name="sm.facebook.isdefault" xml:space="preserve">
     <value>Default</value>
@@ -39109,7 +39076,7 @@ The expression will be replaced with the actual link when publishing the tweet t
     <value>Validation failed text message</value>
   </data>
   <data name="smartsearch.searchtextvalidationfailedtextdesc" xml:space="preserve">
-    <value>Sets the text that is displayed when  search text validations fails. This text is displayed as tooltip.</value>
+    <value>Sets the text that is displayed when the search text validations fails. This text is displayed as a tooltip.</value>
   </data>
   <data name="smartsearch.selectedresultcss" xml:space="preserve">
     <value>Selected result CSS class</value>
@@ -39330,7 +39297,7 @@ Pickup directory from IIS: Emails are copied to the pickup directory used by a l
     <value>Facebook Access Token</value>
   </data>
   <data name="socialnetworking.facebook.apikeynotset" xml:space="preserve">
-    <value>Facebook App ID is not set for this site. This may cause javascript warnings in browser's console. You can fix it in Settings.</value>
+    <value>Facebook App ID is not set for this site. This may cause JavaScript warnings in browser's console. You can fix it in Settings.</value>
   </data>
   <data name="socialnetworking.facebook.connectionfail" xml:space="preserve">
     <value>Failed to connect to Facebook: </value>
@@ -39360,7 +39327,7 @@ Pickup directory from IIS: Emails are copied to the pickup directory used by a l
     <value>Post to Facebook</value>
   </data>
   <data name="socialnetworking.facebook.senderror" xml:space="preserve">
-    <value>Error occured while sending post to Facebook. Check Event log for more details.</value>
+    <value>Error occurred while sending post to Facebook. Check Event log for more details.</value>
   </data>
   <data name="socialnetworking.facebook.sendsuccess" xml:space="preserve">
     <value>Facebook post was successfully sent.</value>
@@ -39429,7 +39396,7 @@ Pickup directory from IIS: Emails are copied to the pickup directory used by a l
     <value>Post to Twitter</value>
   </data>
   <data name="socialnetworking.twitter.senderror" xml:space="preserve">
-    <value>Error occured while sending Tweet.</value>
+    <value>Error occurred while sending Tweet.</value>
   </data>
   <data name="socialnetworking.twitter.sendsuccess" xml:space="preserve">
     <value>Tweet was successfully posted.</value>
@@ -39852,7 +39819,7 @@ Pickup directory from IIS: Emails are copied to the pickup directory used by a l
     <value>Assign index to website</value>
   </data>
   <data name="srch.pathtoolong" xml:space="preserve">
-    <value>Managing indexes is disabled, because the path to the index location is too long. For more informations see Developer's Guide -&gt; Modules -&gt; Smart search.</value>
+    <value>Managing indexes is disabled, because the path to the index location is too long. For more information see Developer's Guide -&gt; Modules -&gt; Smart search.</value>
   </data>
   <data name="srch.results.noresults" xml:space="preserve">
     <value>No results were found.</value>
@@ -40249,7 +40216,7 @@ If you expected some results, please make sure that:
     <value>Subscription email template '{0}' was not found.</value>
   </data>
   <data name="subscription.htmlnotsupportedforplain" xml:space="preserve">
-    <value>HTML graph is not avaible for plain text emails.</value>
+    <value>HTML graph is not available for plain text emails.</value>
   </data>
   <data name="subscriptions.forums" xml:space="preserve">
     <value>Forum subscriptions</value>
@@ -40393,7 +40360,7 @@ If you expected some results, please make sure that:
     <value>Views</value>
   </data>
   <data name="sysdev.views.viewrefreshed" xml:space="preserve">
-    <value>View was sucessfully refreshed.</value>
+    <value>View was successfully refreshed.</value>
   </data>
   <data name="systbl.header.altforms" xml:space="preserve">
     <value>Alternative forms</value>
@@ -40855,7 +40822,7 @@ If you expected some results, please make sure that:
     <value>Are you sure you want to clone the page template as ad-hoc for this page?</value>
   </data>
   <data name="template.dahsboardliveused" xml:space="preserve">
-    <value>The dahsboard type cannot be used because the current page template is used on content pages.</value>
+    <value>The dashboard type cannot be used because the current page template is used on content pages.</value>
   </data>
   <data name="template.dashboardinvalidzone" xml:space="preserve">
     <value>The dashboard type cannot be used because the current page template contains not allowed widget zones.</value>
@@ -41551,7 +41518,7 @@ If you expected some results, please make sure that:
     <value>Default</value>
   </data>
   <data name="transformationtypecode.generatetooltip" xml:space="preserve">
-    <value>Generates default transformation for current transfromation type.</value>
+    <value>Generates a default transformation for the current transformation type.</value>
   </data>
   <data name="transformationtypecode.rss" xml:space="preserve">
     <value>RSS</value>
@@ -42229,7 +42196,7 @@ If you expected some results, please make sure that:
     <value>Design can't be displayed for element without selected page template.</value>
   </data>
   <data name="uielement.displaycontentnotavaible" xml:space="preserve">
-    <value>Display design content is not avaible for layout templates.</value>
+    <value>Display design content is not available for layout templates.</value>
   </data>
   <data name="uielement.elementnotfound" xml:space="preserve">
     <value>UI element '{0}' was not found.</value>
@@ -42682,9 +42649,6 @@ If you expected some results, please make sure that:
   </data>
   <data name="urlshortenertypeenum.bitly" xml:space="preserve">
     <value>Bit.ly</value>
-  </data>
-  <data name="urlshortenertypeenum.googl" xml:space="preserve">
-    <value>Goo.gl</value>
   </data>
   <data name="urlshortenertypeenum.none" xml:space="preserve">
     <value>(do not shorten links)</value>
@@ -43835,7 +43799,7 @@ Please contact your administrator, or seek help in Kentico documentation ( https
     <value>Based on</value>
   </data>
   <data name="wf.action.sendemails.basedon.desc" xml:space="preserve">
-    <value>Choose if you want to base the email on a pre-defined template or you want to write a new message frome scratch.</value>
+    <value>Choose if you want to base the email on a pre-defined template or you want to write a new message from scratch.</value>
   </data>
   <data name="wf.action.sendemails.body.desc" xml:space="preserve">
     <value>Enter the text of the message.</value>
@@ -44033,7 +43997,7 @@ Please contact your administrator, or seek help in Kentico documentation ( https
     <value>Displays a list of news articles that were most recently added to the News section of the current intranet portal department.</value>
   </data>
   <data name="widgets.emptyproperties" xml:space="preserve">
-    <value>Widget has no confguration options.</value>
+    <value>Widget has no configuration options.</value>
   </data>
   <data name="widgets.exportwidget" xml:space="preserve">
     <value>Export widget</value>
@@ -44237,7 +44201,7 @@ Please contact your administrator, or seek help in Kentico documentation ( https
     <value>Paste copied widgets at the end of the zone</value>
   </data>
   <data name="wif.error.text" xml:space="preserve">
-    <value>The WIF authentication was not succesful. For more information please contact the web administrator.</value>
+    <value>The WIF authentication was not successful. For more information please contact the web administrator.</value>
   </data>
   <data name="wif.error.title" xml:space="preserve">
     <value>WIF authentication error</value>
@@ -44535,7 +44499,7 @@ The operation also resets the workflow version history tracked on the Versions t
     <value>Apply page workflow</value>
   </data>
   <data name="workflowproperties.nohistoryyet" xml:space="preserve">
-    <value>This page doesn’t have any workflow history yet.</value>
+    <value>This page doesn't have any workflow history yet.</value>
   </data>
   <data name="workflowscope.children" xml:space="preserve">
     <value>Only child pages</value>
@@ -44970,7 +44934,7 @@ The operation also resets the workflow version history tracked on the Versions t
     <value>Create new item.</value>
   </data>
   <data name="xmleditor.deleteconfirm" xml:space="preserve">
-    <value>Are you sure you want to delete this  item?</value>
+    <value>Are you sure you want to delete this item?</value>
   </data>
   <data name="xmleditor.deleteitem" xml:space="preserve">
     <value>Delete.</value>
@@ -46007,7 +45971,7 @@ Only global administrator can assign macro signature identity.</value>
     <value>Application Code Name:</value>
   </data>
   <data name="applicationedit.changesinserted" xml:space="preserve">
-    <value>The new application was created. Now you can create another  application.</value>
+    <value>The new application was created. Now you can create another application.</value>
   </data>
   <data name="applicationedit.errorapplicationnamewithspaces" xml:space="preserve">
     <value>The application code name cannot contain spaces.</value>
@@ -49407,13 +49371,13 @@ Only global administrator can assign macro signature identity.</value>
     <value>Countries</value>
   </data>
   <data name="development.countriesdescription" xml:space="preserve">
-    <value>Allows you to manage the countries and states used throughout the system. You can add new countires and edit the names and codes of existing ones.</value>
+    <value>Allows you to manage the countries and states used throughout the system. You can add new countries and edit the names and codes of existing ones.</value>
   </data>
   <data name="development.customtables" xml:space="preserve">
     <value>Custom tables</value>
   </data>
   <data name="development.customtablesdescription" xml:space="preserve">
-    <value>Allows you to manage custom tables and their data. You can create new custom custom tables, define their structure or manage the data they contain. Custom tables are a more efficient way of storing large amounts of structured data than pages.</value>
+    <value>Allows you to manage custom tables and their data. You can create new custom tables, define their structure or manage the data they contain. Custom tables are a more efficient way of storing large amounts of structured data than pages.</value>
   </data>
   <data name="development.databaseobjects" xml:space="preserve">
     <value>Database objects</value>
@@ -49434,7 +49398,7 @@ Only global administrator can assign macro signature identity.</value>
     <value>Notifications</value>
   </data>
   <data name="development.notificationsdescription" xml:space="preserve">
-    <value>Allows you to manage notification templates and gateways. Templates define the content of notifications, and gateways determine how the system delivers notifications to users. By default, the system provides email notifications for keeping track of page changes. To allow users to subscribe to recieve notifications, add notification web parts to your pages using the Pages application.</value>
+    <value>Allows you to manage notification templates and gateways. Templates define the content of notifications, and gateways determine how the system delivers notifications to users. By default, the system provides email notifications for keeping track of page changes. To allow users to subscribe to receive notifications, add notification web parts to your pages using the Pages application.</value>
   </data>
   <data name="development.pagetemplates" xml:space="preserve">
     <value>Page templates</value>
@@ -53937,10 +53901,10 @@ Only global administrator can assign macro signature identity.</value>
     <value>Site member</value>
   </data>
   <data name="groupinvitation_edit.groupinvatedbyuseridlabel" xml:space="preserve">
-    <value>Group invated by user ID:</value>
+    <value>Group invited by user ID:</value>
   </data>
   <data name="groupinvitation_edit.groupinvateduseridlabel" xml:space="preserve">
-    <value>Group invated user ID:</value>
+    <value>Group invited user ID:</value>
   </data>
   <data name="groupinvitation_edit.groupinvitationcommentlabel" xml:space="preserve">
     <value>Group invitation comment:</value>
@@ -55677,7 +55641,7 @@ Only global administrator can assign macro signature identity.</value>
     <value>Inactive menu item</value>
   </data>
   <data name="menuproperties.javascript" xml:space="preserve">
-    <value>Javascript command:</value>
+    <value>JavaScript command:</value>
   </data>
   <data name="menuproperties.leftimage" xml:space="preserve">
     <value>Menu item left image:</value>
@@ -57003,7 +56967,7 @@ Only global administrator can assign macro signature identity.</value>
     <value>Version histories</value>
   </data>
   <data name="objecttasks.cms_webfarmserver" xml:space="preserve">
-    <value>Webfarm servers</value>
+    <value>Web farm servers</value>
   </data>
   <data name="objecttasks.cms_webpart" xml:space="preserve">
     <value>Web parts</value>
@@ -57696,7 +57660,7 @@ Only global administrator can assign macro signature identity.</value>
     <value>You need to specify product options before you can insert the product to the shopping cart:</value>
   </data>
   <data name="order_edit_additems.productoptionsrequired" xml:space="preserve">
-    <value>You need to specify product options of  the product '{0}' before you can insert it to the shopping cart.</value>
+    <value>You need to specify product options of the product '{0}' before you can insert it to the shopping cart.</value>
   </data>
   <data name="order_edit_additems.products" xml:space="preserve">
     <value>Products</value>
@@ -58227,7 +58191,7 @@ Only global administrator can assign macro signature identity.</value>
     <value>Completed</value>
   </data>
   <data name="paymentgatewayprovider.unexpectederror" xml:space="preserve">
-    <value>Unable to finish payment: Unexpected error has occured.</value>
+    <value>Unable to finish payment: Unexpected error has occurred.</value>
   </data>
   <data name="paymentgatewayprovider.connectionfailed" xml:space="preserve">
     <value>Unable to finish payment: Payment gateway connection failed.</value>
@@ -59458,7 +59422,7 @@ Some of the pages couldn't be destroyed as you do not have the 'Destroy' permiss
     <value>New report category</value>
   </data>
   <data name="reporting.graph.invaliddatagraph" xml:space="preserve">
-    <value>Invalid image data. Please check eventlog for more details.</value>
+    <value>Invalid image data. Please check event log for more details.</value>
   </data>
   <data name="reporting.reportcategoryheadercaption" xml:space="preserve">
     <value>Report category properties</value>
@@ -59878,10 +59842,10 @@ Some of the pages couldn't be destroyed as you do not have the 'Destroy' permiss
     <value>Check and continue</value>
   </data>
   <data name="requirescript.information" xml:space="preserve">
-    <value>This page requires Javascript to run properly, please enable Javascript in your browser to continue.</value>
+    <value>This page requires JavaScript to run properly, please enable JavaScript in your browser to continue.</value>
   </data>
   <data name="requirescript.title" xml:space="preserve">
-    <value>Javascript required</value>
+    <value>JavaScript required</value>
   </data>
   <data name="resourceedit.changesinserted" xml:space="preserve">
     <value>The module was created. Now you can create another module.</value>
@@ -63086,7 +63050,7 @@ Some of the pages couldn't be destroyed as you do not have the 'Destroy' permiss
     <value>Culture short name</value>
   </data>
   <data name="unigrid.cultures.actions.delete.confirmation" xml:space="preserve">
-    <value>Are you sure you want to delete the culture ?</value>
+    <value>Are you sure you want to delete the culture?</value>
   </data>
   <data name="unigrid.cultures.columns.usefirstname" xml:space="preserve">
     <value>UseFirstName Caption</value>
@@ -63254,10 +63218,10 @@ Some of the pages couldn't be destroyed as you do not have the 'Destroy' permiss
     <value>Are you sure you want to delete the group invitation?</value>
   </data>
   <data name="unigrid.groupinvitation.columns.groupinvatedbyuserid" xml:space="preserve">
-    <value>Group invated by user</value>
+    <value>Group invited by user</value>
   </data>
   <data name="unigrid.groupinvitation.columns.groupinvateduserid" xml:space="preserve">
-    <value>Group invated user ID</value>
+    <value>Group invited user ID</value>
   </data>
   <data name="unigrid.groupinvitation.columns.groupinvitationcomment" xml:space="preserve">
     <value>Group invitation comment</value>
@@ -64151,7 +64115,7 @@ Some of the pages couldn't be destroyed as you do not have the 'Destroy' permiss
     <value>Web part properties</value>
   </data>
   <data name="webpartpropertise.codenameallreadyexists" xml:space="preserve">
-    <value>Entered code name allready exists. Please enter a unique code name</value>
+    <value>Entered code name already exists. Please enter a unique code name</value>
   </data>
   <data name="webpartpropertise.default" xml:space="preserve">
     <value>(Default)</value>
@@ -64661,7 +64625,7 @@ Some of the pages couldn't be destroyed as you do not have the 'Destroy' permiss
     <value>Graphical representation</value>
   </data>
   <data name="emailbuilder.generalerror" xml:space="preserve">
-    <value>An unexpected error occured. Please reload the page and try again.</value>
+    <value>An unexpected error occurred. Please reload the page and try again.</value>
   </data>
   <data name="emailbuilder.readonlymode" xml:space="preserve">
     <value>This email is currently open in read-only mode. It is possible to edit it only in the draft status and with sufficient permissions.</value>
@@ -65495,6 +65459,9 @@ If enabled, the application represented by the UI element can only be accessed b
   <data name="dataprotection.app.deletedata.objecthasdependencies" xml:space="preserve">
     <value>Removal of object '{0}' failed. There are dependencies which need to be deleted first (showing only first {1}):</value>
   </data>
+  <data name="dataprotection.consentagreement.consentnotavailable" xml:space="preserve">
+    <value>No consent has been selected or the consent is no longer available. Please select one in the field's properties.</value>
+  </data>
   <data name="dataprotection.consents" xml:space="preserve">
     <value>Consents</value>
   </data>
@@ -65724,9 +65691,6 @@ Before sending the data to other services or data subjects, make sure it contain
   <data name="emailbuilder.abtest.trackingdisabled" xml:space="preserve">
     <value>In order to enable A/B testing functionality on this email feed, Track opened emails and Track clicked links must be enabled in the feed's configuration.</value>
   </data>
-  <data name="facebookpageidformcontrol.facebookapplicationid" xml:space="preserve">
-    <value>Id of the FacebookApplicationInfo instance for acquiring Facebook access token.</value>
-  </data>
   <data name="documentation.webpartproperties.orderbyforpages" xml:space="preserve">
     <value>Sets the value of the ORDER BY clause in the SELECT statement used to retrieve the content. You can specify only the columns common to all of the selected page types.</value>
   </data>
@@ -65763,12 +65727,6 @@ Before sending the data to other services or data subjects, make sure it contain
   <data name="bizform.formbuildermvc.presentationurlmissing" xml:space="preserve">
     <value>Current site's presentation URL is missing.</value>
   </data>
-  <data name="visibilityconditionform.noavailableconditions" xml:space="preserve">
-    <value>There are no available visibility conditions for current form component.</value>
-  </data>
-  <data name="visibilityconditionform.currentvisibilitycondition.isnotvalid" xml:space="preserve">
-    <value>Current form component will be always hidden because current visibility condition is invalid.</value>
-  </data>
   <data name="documenttype_edit_general.ismenuitem.contentonly" xml:space="preserve">
     <value>Use Page tab:</value>
   </data>
@@ -65777,5 +65735,26 @@ Before sending the data to other services or data subjects, make sure it contain
   </data>
   <data name="bizformgeneral.reloadform" xml:space="preserve">
     <value>Reload form</value>
+  </data>
+  <data name="paymentgateway.paypal.orderdiscount" xml:space="preserve">
+    <value>Order discount</value>
+  </data>
+  <data name="paymentgateway.paypal.otherpayments" xml:space="preserve">
+    <value>Other payments</value>
+  </data>
+  <data name="paymentgateway.paypal.roundingcorrection" xml:space="preserve">
+    <value>Rounding correction</value>
+  </data>
+  <data name="content.ui.pagemvc" xml:space="preserve">
+    <value>Page (MVC)</value>
+  </data>
+  <data name="site_edit.presentationurl.muststartwith" xml:space="preserve">
+    <value>Must start with http:// or https:// scheme.</value>
+  </data>
+  <data name="objecttype.com_variantoption" xml:space="preserve">
+    <value>Product variant option</value>
+  </data>
+  <data name="objecttype.com_skuallowedoption" xml:space="preserve">
+    <value>Product allowed option</value>
   </data>
 </root>

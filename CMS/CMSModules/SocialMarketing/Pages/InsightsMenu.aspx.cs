@@ -243,7 +243,7 @@ public partial class CMSModules_SocialMarketing_Pages_InsightsMenu : CMSDeskPage
         
         return new PageContext
         {
-            ExternalId = account.FacebookPageIdentity.PageId,
+            ExternalId = account.FacebookAccountPageID,
             ReportNamePrefix = "Facebook.page_",
             ReportNameFormat = "Facebook.{0}.{1}.{2}report",
             DisplayNameResourceNameFormat = "sm.ins.facebook.{0}"

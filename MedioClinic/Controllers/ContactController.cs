@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using Business.DI;
+using Business.DependencyInjection;
 using Business.Repository.Contact;
 using Business.Repository.Map;
 using Business.Services.MediaLibrary;

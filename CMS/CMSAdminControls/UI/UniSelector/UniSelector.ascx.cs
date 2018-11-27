@@ -609,9 +609,14 @@ public partial class CMSAdminControls_UI_UniSelector_UniSelector : UniSelector, 
             }
         }
 
-        if (mode == SelectionModeEnum.SingleDropDownList && UseUniSelectorAutocomplete)
+        if (mode == SelectionModeEnum.SingleDropDownList)
         {
-            RegisterAutocompleteScripts();
+            SetOnChangeClientScript();
+
+            if (UseUniSelectorAutocomplete)
+            {
+                RegisterAutocompleteScripts();
+            }
         }
 
         base.OnPreRender(e);
@@ -667,7 +672,8 @@ public partial class CMSAdminControls_UI_UniSelector_UniSelector : UniSelector, 
         // Only raise selected index changed when other than (more items...) is selected
         if (drpSingleSelect.SelectedValue != US_MORE_RECORDS.ToString())
         {
-            RaiseSelectionChanged();
+            var renderChangeScript = drpSingleSelect.AutoPostBack;
+            RaiseSelectionChanged(renderChangeScript);
         }
     }
 
@@ -1614,6 +1620,26 @@ function SetHash_{0}(selector) {{
         }
     }
 
+
+    private void SetOnChangeClientScript()
+    {
+        if (drpSingleSelect.Enabled)
+        {
+            // Build onchange script
+            string onChangeScript = string.Format("SetHash_{0}(this); if (!US_ItemChanged(this, '{0}')) return false;", UniSelectorClientID);
+            if (!string.IsNullOrEmpty(OnBeforeClientChanged))
+            {
+                onChangeScript = OnBeforeClientChanged + onChangeScript;
+            }
+            if (!string.IsNullOrEmpty(OnAfterClientChanged))
+            {
+                onChangeScript += OnAfterClientChanged;
+            }
+            // Add open modal window JavaScript event
+            drpSingleSelect.Attributes.Add("onchange", onChangeScript);
+        }
+    }
+
     #endregion
 
 
@@ -1981,22 +2007,6 @@ function SetHash_{0}(selector) {{
             else
             {
                 drpSingleSelect.Enabled = Enabled;
-            }
-
-            if (drpSingleSelect.Enabled)
-            {
-                // Build onchange script
-                string onChangeScript = string.Format("SetHash_{0}(this); if (!US_ItemChanged(this, '{0}')) return false;", UniSelectorClientID);
-                if (!string.IsNullOrEmpty(OnBeforeClientChanged))
-                {
-                    onChangeScript = OnBeforeClientChanged + onChangeScript;
-                }
-                if (!string.IsNullOrEmpty(OnAfterClientChanged))
-                {
-                    onChangeScript += OnAfterClientChanged;
-                }
-                // Add open modal window JavaScript event
-                drpSingleSelect.Attributes.Add("onchange", onChangeScript);
             }
 
             value = drpSingleSelect.SelectedValue;

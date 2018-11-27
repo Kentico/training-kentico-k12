@@ -113,7 +113,9 @@ public partial class CMSModules_System_System_Email : GlobalAdminPage
                                         {
                                             ServerName = txtServer.Text,
                                             ServerUserName = txtUserName.Text,
+#pragma warning disable 618
                                             ServerPassword = EncryptionHelper.EncryptData(txtPassword.Text),
+#pragma warning restore 618
                                             ServerUseSSL = chkSSL.Checked
                                         };
 

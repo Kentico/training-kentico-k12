@@ -1892,27 +1892,27 @@
         <member name="P:CMS.PortalEngine.LayoutInfo.LayoutDescription">
             <summary>
             The layout description.
-            </summary>        
+            </summary>
         </member>
         <member name="P:CMS.PortalEngine.LayoutInfo.LayoutCSS">
             <summary>
             Layout CSS.
-            </summary>        
+            </summary>
         </member>
         <member name="P:CMS.PortalEngine.LayoutInfo.LayoutIsConvertible">
             <summary>
             Layout is convertible.
-            </summary>        
+            </summary>
         </member>
         <member name="P:CMS.PortalEngine.LayoutInfo.LayoutZoneCount">
             <summary>
             Number of zones.
-            </summary>        
+            </summary>
         </member>
         <member name="P:CMS.PortalEngine.LayoutInfo.LayoutZoneCountAutomatic">
             <summary>
             Number of zones (counted automatically).
-            </summary>        
+            </summary>
         </member>
         <member name="P:CMS.PortalEngine.LayoutInfo.LayoutType">
             <summary>
@@ -1999,7 +1999,7 @@
         </member>
         <member name="M:CMS.PortalEngine.LayoutInfo.GetPermissionName(CMS.DataEngine.PermissionsEnum)">
             <summary>
-            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called. 
+            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called.
             </summary>
             <param name="permission">Permission to convert to string</param>
         </member>
@@ -2829,6 +2829,11 @@
             Layout CSS.
             </summary>
         </member>
+        <member name="P:CMS.PortalEngine.PageTemplateDeviceLayoutInfo.UsesExternalStorage">
+            <summary>
+            Indicates whether the theme path points at an external storage.
+            </summary>
+        </member>
         <member name="M:CMS.PortalEngine.PageTemplateDeviceLayoutInfo.DeleteObject">
             <summary>
             Deletes the object using appropriate provider.
@@ -2864,7 +2869,7 @@
         </member>
         <member name="M:CMS.PortalEngine.PageTemplateDeviceLayoutInfo.GetPermissionName(CMS.DataEngine.PermissionsEnum)">
             <summary>
-            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called. 
+            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called.
             </summary>
             <param name="permission">Permission to convert to string</param>
         </member>
@@ -2876,6 +2881,11 @@
             <param name="siteName">Name of the site</param>
             <param name="userInfo">UserInfo object</param>
             <param name="exceptionOnFailure">If true, PermissionCheckException is thrown whenever a permission check fails</param>
+        </member>
+        <member name="M:CMS.PortalEngine.PageTemplateDeviceLayoutInfo.GetThemePath">
+            <summary>
+            Gets the theme path for the object.
+            </summary>
         </member>
         <member name="T:CMS.PortalEngine.PageTemplateDeviceLayoutInfoProvider">
             <summary>
@@ -4697,7 +4707,7 @@
             </summary>
         </member>
         <member name="T:CMS.PortalEngine.PageTemplateInfo">
-            <summary> 
+            <summary>
             Page template info data container class.
             </summary>
         </member>
@@ -4774,11 +4784,6 @@
         <member name="P:CMS.PortalEngine.PageTemplateInfo.HasDesignMode">
             <summary>
             Indicates whether template has design mode
-            </summary>
-        </member>
-        <member name="P:CMS.PortalEngine.PageTemplateInfo.IsThemeFolderExternal">
-            <summary>
-            Indicates whether template uses external storage for themes
             </summary>
         </member>
         <member name="P:CMS.PortalEngine.PageTemplateInfo.ShowTemplateASPXTab">
@@ -4999,7 +5004,7 @@
         </member>
         <member name="M:CMS.PortalEngine.PageTemplateInfo.GetPermissionName(CMS.DataEngine.PermissionsEnum)">
             <summary>
-            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called. 
+            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called.
             </summary>
             <param name="permission">Permission to convert to string</param>
         </member>
@@ -6529,7 +6534,7 @@
         </member>
         <member name="M:CMS.PortalEngine.WebPartContainerInfo.GetPermissionName(CMS.DataEngine.PermissionsEnum)">
             <summary>
-            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called. 
+            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called.
             </summary>
             <param name="permission">Permission to convert to string</param>
         </member>
@@ -7504,7 +7509,7 @@
         </member>
         <member name="M:CMS.PortalEngine.WebPartLayoutInfo.GetPermissionName(CMS.DataEngine.PermissionsEnum)">
             <summary>
-            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called. 
+            Converts PermissionEnum to permission codename which will be checked when CheckPermission() is called.
             </summary>
             <param name="permission">Permission to convert to string</param>
         </member>

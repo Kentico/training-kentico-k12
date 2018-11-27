@@ -9833,6 +9833,15 @@
             </para>
             </remarks>
         </member>
+        <member name="P:CMS.Base.SystemContext.InstanceNameSuffix">
+            <summary>
+            Gets the suffix used for <see cref="M:CMS.Base.SystemContext.GenerateUniqueInstanceName"/>.
+            </summary>
+            <remarks>
+            Suffix is optional and helps distinguish applications on the same machine. 
+            Suffix is added automatically when not defined in application config and application is considered as web application but not main application.
+            </remarks>
+        </member>
         <member name="M:CMS.Base.SystemContext.GenerateUniqueInstanceName">
             <summary>
             Gets the automatic server name that is using for current instance

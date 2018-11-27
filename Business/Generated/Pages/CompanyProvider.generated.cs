@@ -17,7 +17,7 @@ using CMS.DataEngine;
 using CMS.DocumentEngine;
 using CMS.Helpers;
 
-namespace CMS.DocumentEngine.Types.Training
+namespace CMS.DocumentEngine.Types.MedioClinic
 {
 	/// <summary>
 	/// Provides methods for retrieving pages of type Company.

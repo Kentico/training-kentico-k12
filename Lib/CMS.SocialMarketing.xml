@@ -54,35 +54,6 @@
             Executes action.
             </summary>
         </member>
-        <member name="T:CMS.SocialMarketing.Internal.FacebookAccessTokenService">
-            <summary>
-            Provides method for getting Facebook access token. This service is for internal use only.
-            </summary>
-            <exclude />
-        </member>
-        <member name="M:CMS.SocialMarketing.Internal.FacebookAccessTokenService.GetAccessToken(System.String,System.String)">
-            <summary>
-            Gets Facebook access token for given <paramref name="applicationID"/> and <paramref name="applicationSecret"/>.
-            </summary>
-            <param name="applicationID">Application ID provided by the Facebook</param>
-            <param name="applicationSecret">Application secret provided by the Facebook</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="applicationID"/> is null -or- <paramref name="applicationSecret"/> is null</exception>
-            <returns>Access token authorizing </returns>
-        </member>
-        <member name="T:CMS.SocialMarketing.Internal.IFacebookAccessTokenService">
-            <summary>
-            Provides method for getting Facebook access token. This service is for internal use only.
-            </summary>
-            <exclude />
-        </member>
-        <member name="M:CMS.SocialMarketing.Internal.IFacebookAccessTokenService.GetAccessToken(System.String,System.String)">
-            <summary>
-            Gets Facebook access token for given <paramref name="applicationID"/> and <paramref name="applicationSecret"/>.
-            </summary>
-            <param name="applicationID">Application ID provided by the Facebook</param>
-            <param name="applicationSecret">Application secret provided by the Facebook</param>
-            <returns>Access token authorizing </returns>
-        </member>
         <member name="T:CMS.SocialMarketing.FacebookInsightsCollectionTask">
             <summary>
             Handles Facebook Insights analytics data collection when activated by the scheduler.
@@ -895,6 +866,11 @@
             Pass comma separated list of IDs as parameter 0.
             </summary>
         </member>
+        <member name="F:CMS.SocialMarketing.FacebookHelper.PAGE_ACCESS_TOKEN_SESSION_KEY">
+            <summary>
+            Session key for page access token.
+            </summary>
+        </member>
         <member name="F:CMS.SocialMarketing.FacebookHelper.OAUTH_ACCESS_TOKEN_URL">
             <summary>
             URL for getting access token.
@@ -925,15 +901,6 @@
             <param name="appSecret">Facebook application secret key for improving security.</param>
             <exception cref="T:Facebook.FacebookApiException">FacebookApiException is thrown when an error occurs while communicating with Facebook.</exception>
             <exception cref="T:System.Exception">Exception is thrown if the post could not be deleted.</exception>
-        </member>
-        <member name="M:CMS.SocialMarketing.FacebookHelper.TryGetFacebookPageId(System.String,CMS.SocialMarketing.FacebookApplicationInfo,System.String@)">
-            <summary>
-            Gets the Facebook page identifier associated with the specified URL and facebook application. May throw exception.
-            </summary>
-            <param name="pageUrl">The URL to get the Facebook page identifier from.</param>
-            <param name="appInfo">Facebook application associated with given <paramref name="pageUrl"/>.</param>
-            <param name="pageId">The Facebook page identifier, if the specified URL is a valid Facebook page URL; otherwise, null.</param>
-            <returns>True, if the specified URL is a valid Facebook page URL and <paramref name="appInfo"/> is correctly set; otherwise, false.</returns>
         </member>
         <member name="M:CMS.SocialMarketing.FacebookHelper.ParseOAuthAccessToken(System.String)">
             <summary>
@@ -1091,28 +1058,6 @@
             </summary>
             <param name="accessToken">Access token.</param>
             <param name="expiration">Date and time when the access token expires.</param>
-        </member>
-        <member name="T:CMS.SocialMarketing.FacebookPageIdentityData">
-            <summary>
-            Represents information about a Facebook page.
-            </summary>
-        </member>
-        <member name="F:CMS.SocialMarketing.FacebookPageIdentityData.PageUrl">
-            <summary>
-            Page URL.
-            </summary>
-        </member>
-        <member name="F:CMS.SocialMarketing.FacebookPageIdentityData.PageId">
-            <summary>
-            Page identifier.
-            </summary>
-        </member>
-        <member name="M:CMS.SocialMarketing.FacebookPageIdentityData.#ctor(System.String,System.String)">
-            <summary>
-            Initializes a new instance of the PageIdentityData structure.
-            </summary>
-            <param name="url">Page URL.</param>
-            <param name="id">Page identifier.</param>
         </member>
         <member name="T:CMS.SocialMarketing.OAuthAccessToken">
             <summary>
@@ -4151,24 +4096,9 @@
             Current information about a Facebook page access token.
             </summary>
         </member>
-        <member name="F:CMS.SocialMarketing.FacebookAccountInfo.mFacebookPageIdentity">
-            <summary>
-            Current information about a Facebook page.
-            </summary>
-        </member>
-        <member name="P:CMS.SocialMarketing.FacebookAccountInfo.FacebookPageIdentity">
-            <summary>
-            Gets or sets information about a Facebook page.
-            </summary>
-        </member>
         <member name="P:CMS.SocialMarketing.FacebookAccountInfo.FacebookPageAccessToken">
             <summary>
             Gets or sets information about a Facebook page access token.
-            </summary>
-        </member>
-        <member name="P:CMS.SocialMarketing.FacebookAccountInfo.FacebookAccountPageUrl">
-            <summary>
-            Gets or sets the Facebook account page URL.
             </summary>
         </member>
         <member name="P:CMS.SocialMarketing.FacebookAccountInfo.FacebookAccountPageID">
@@ -4628,33 +4558,7 @@
         </member>
         <member name="M:CMS.SocialMarketing.URLShortening.BitLyShortener.Shorten(System.String,CMS.DataEngine.SiteInfoIdentifier)">
             <summary>
-            Shortens the given URL via Goo.gl
-            </summary>
-            <param name="url">URL to be shortened</param>
-            <param name="site">Context to get settings for</param>
-            <returns>Shortened URL on succes, <paramref name="url"/> otherwise.</returns>
-        </member>
-        <member name="M:CMS.SocialMarketing.URLShortening.GooGlShortener.#ctor">
-            <summary>
-            Public default constructor
-            </summary>
-        </member>
-        <member name="M:CMS.SocialMarketing.URLShortening.GooGlShortener.#ctor(CMS.SocialMarketing.URLShortening.IURLShortenerHelperEnvironment)">
-            <summary>
-            Internal constructor for testing purposes
-            </summary>
-            <param name="env">Environment mock</param>
-        </member>
-        <member name="M:CMS.SocialMarketing.URLShortening.GooGlShortener.IsAvailable(CMS.DataEngine.SiteInfoIdentifier)">
-            <summary>
-            Determines whether shortener is available
-            </summary>
-            <param name="site">Site for whom availability you want to know</param>
-            <returns>True if available.</returns>
-        </member>
-        <member name="M:CMS.SocialMarketing.URLShortening.GooGlShortener.Shorten(System.String,CMS.DataEngine.SiteInfoIdentifier)">
-            <summary>
-            Shortens the given URL via Goo.gl
+            Shortens the given URL via bit.ly.
             </summary>
             <param name="url">URL to be shortened</param>
             <param name="site">Context to get settings for</param>
@@ -4941,13 +4845,12 @@
             Default constructor used to create default HelperObject.
             </summary>
         </member>
-        <member name="M:CMS.SocialMarketing.URLShortenerHelper.#ctor(CMS.SocialMarketing.URLShortening.IURLShortenerHelperEnvironment,CMS.SocialMarketing.URLShortening.IURLShortener,CMS.SocialMarketing.URLShortening.IURLShortener,CMS.SocialMarketing.URLShortening.IURLShortener)">
+        <member name="M:CMS.SocialMarketing.URLShortenerHelper.#ctor(CMS.SocialMarketing.URLShortening.IURLShortenerHelperEnvironment,CMS.SocialMarketing.URLShortening.IURLShortener,CMS.SocialMarketing.URLShortening.IURLShortener)">
             <summary>
             Constructor fopr testing purposes
             </summary>
             <param name="environment">Environment behaviour mock</param>
             <param name="bitLy">bit.ly shortener mock</param>
-            <param name="gooGl">goo.gl  shortener mock</param>
             <param name="tinyUrl">tinyurl shortener mock</param>
         </member>
         <member name="M:CMS.SocialMarketing.URLShortenerHelper.GetDefaultURLShortenerForSocialNetwork(CMS.SocialMarketing.SocialNetworkTypeEnum,CMS.DataEngine.SiteInfoIdentifier)">
@@ -4969,7 +4872,7 @@
             <param name="siteIdentifier">Determines which site's URL shortener settings are used. Provide null to use global settings.</param>
             <returns>A collection of available URL shorteners.</returns>
             <remarks>
-            The collection contains URL shorteners that either require no configuration, or where the configuration is present. 
+            The collection contains URL shorteners that either require no configuration, or where the configuration is present.
             </remarks>
         </member>
         <member name="M:CMS.SocialMarketing.URLShortenerHelper.IsURLShortenerAvailable(CMS.SocialMarketing.URLShortenerTypeEnum,CMS.DataEngine.SiteInfoIdentifier)">
@@ -5014,7 +4917,7 @@
             <param name="siteIdentifier">Determines which site's URL shortener settings are used. Provide null to use global settings.</param>
             <returns>A collection of available URL shorteners.</returns>
             <remarks>
-            The collection contains URL shorteners that either require no configuration, or where the configuration is present. 
+            The collection contains URL shorteners that either require no configuration, or where the configuration is present.
             </remarks>
         </member>
         <member name="M:CMS.SocialMarketing.URLShortenerHelper.IsURLShortenerAvailableInternal(CMS.SocialMarketing.URLShortenerTypeEnum,CMS.DataEngine.SiteInfoIdentifier)">
@@ -5080,11 +4983,6 @@
         <member name="F:CMS.SocialMarketing.URLShortenerTypeEnum.TinyURL">
             <summary>
             TinyURL.com shortener.
-            </summary>
-        </member>
-        <member name="F:CMS.SocialMarketing.URLShortenerTypeEnum.Googl">
-            <summary>
-            Goo.gl URL shortener.
             </summary>
         </member>
     </members>

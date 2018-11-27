@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<cms.badge>
-  <BadgeDisplayName>Valued member</BadgeDisplayName>
-  <BadgeGUID>e7e4c1ce-a292-483a-af6d-8594548b01a4</BadgeGUID>
-  <BadgeImageURL>/Objects/CMS_Badge/Default/valuedmember.gif</BadgeImageURL>
-  <BadgeIsAutomatic>True</BadgeIsAutomatic>
-  <BadgeName>ValuedMember</BadgeName>
-  <BadgeTopLimit>30</BadgeTopLimit>
-</cms.badge>

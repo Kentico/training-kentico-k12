@@ -154,7 +154,7 @@
     <value>The site has been created successfully.</value>
   </data>
   <data name="install.errorsetupdb" xml:space="preserve">
-    <value>An error occurred during  the database setup</value>
+    <value>An error occurred during the database setup</value>
   </data>
   <data name="install.lnkwebsite" xml:space="preserve">
     <value>Continue to the new website</value>
@@ -315,10 +315,10 @@
     <value>Check and continue</value>
   </data>
   <data name="requirescript.information" xml:space="preserve">
-    <value>This page requires Javascript to run properly, please enable Javascript in your browser to continue.</value>
+    <value>This page requires JavaScript to run properly, please enable JavaScript in your browser to continue.</value>
   </data>
   <data name="requirescript.title" xml:space="preserve">
-    <value>Javascript required</value>
+    <value>JavaScript required</value>
   </data>
   <data name="install.lnkmediumtrust" xml:space="preserve">
     <value>Continue to the Site manager</value>

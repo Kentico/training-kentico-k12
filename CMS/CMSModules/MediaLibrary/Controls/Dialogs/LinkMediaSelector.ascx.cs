@@ -582,7 +582,7 @@ public partial class CMSModules_MediaLibrary_Controls_Dialogs_LinkMediaSelector 
                 string fileUrl = argTable["url"].ToString();
 
                 string fileNameWithouExtension = fileName;
-                fileName = UsePermanentUrls ? AttachmentHelper.GetFullFileName(fileName, fileExt) : fileName;
+                fileName = AttachmentHelper.GetFullFileName(fileName, fileExt);
                 string filePermanentUrl;
 
                 if (LibrarySiteInfo.SiteID != SiteContext.CurrentSiteID)
@@ -594,12 +594,12 @@ public partial class CMSModules_MediaLibrary_Controls_Dialogs_LinkMediaSelector 
                     }
                     else
                     {
-                        filePermanentUrl = MediaFileInfoProvider.GetMediaFileAbsoluteUrl(LibrarySiteInfo.SiteName, fileGuid, fileName);
+                        filePermanentUrl = MediaFileURLProvider.GetMediaFileAbsoluteUrl(LibrarySiteInfo.SiteName, fileGuid, fileName);
                     }
                 }
                 else
                 {
-                    filePermanentUrl = Config.UseFullURL ? MediaFileInfoProvider.GetMediaFileAbsoluteUrl(LibrarySiteInfo.SiteName, fileGuid, fileName) : MediaFileInfoProvider.GetMediaFileUrl(fileGuid, fileName);
+                    filePermanentUrl = Config.UseFullURL ? MediaFileURLProvider.GetMediaFileAbsoluteUrl(LibrarySiteInfo.SiteName, fileGuid, fileName) : MediaFileURLProvider.GetMediaFileUrl(fileGuid, fileName);
                 }
 
                 if (!fileUrl.StartsWith("~", StringComparison.Ordinal))
@@ -1070,19 +1070,19 @@ public partial class CMSModules_MediaLibrary_Controls_Dialogs_LinkMediaSelector 
             {
                 bool isDifferentSite = (mediaSource.SiteID != SiteContext.CurrentSiteID);
                 string siteName = LibrarySiteInfo.SiteName;
-                string fileName = UsePermanentUrls ? AttachmentHelper.GetFullFileName(mediaSource.FileName, mediaSource.Extension) : mediaSource.FileName;
+                string fileName = AttachmentHelper.GetFullFileName(mediaSource.FileName, mediaSource.Extension);
 
                 string filePermanentUrl =
                     isDifferentSite ?
-                    MediaFileInfoProvider.GetMediaFileAbsoluteUrl(siteName, mediaSource.MediaFileGuid, fileName) :
-                    MediaFileInfoProvider.GetMediaFileUrl(mediaSource.MediaFileGuid, fileName);
+                    MediaFileURLProvider.GetMediaFileAbsoluteUrl(siteName, mediaSource.MediaFileGuid, fileName) :
+                    MediaFileURLProvider.GetMediaFileUrl(mediaSource.MediaFileGuid, fileName);
 
                 if (library != null)
                 {
                     string fileDirectUrl =
                         isDifferentSite ?
-                            MediaFileInfoProvider.GetMediaFileAbsoluteUrl(siteName, library.LibraryFolder, mediaSource.MediaFilePath) :
-                            MediaFileInfoProvider.GetMediaFileUrl(siteName, library.LibraryFolder, mediaSource.MediaFilePath);
+                            MediaFileURLProvider.GetMediaFileAbsoluteUrl(siteName, library.LibraryFolder, mediaSource.MediaFilePath) :
+                            MediaFileURLProvider.GetMediaFileUrl(siteName, library.LibraryFolder, mediaSource.MediaFilePath);
 
                     Parameters[DialogParameters.URL_PERMANENT] = UrlResolver.ResolveUrl(filePermanentUrl);
                     Parameters[DialogParameters.URL_DIRECT] = UrlResolver.ResolveUrl(fileDirectUrl);
@@ -1113,17 +1113,19 @@ public partial class CMSModules_MediaLibrary_Controls_Dialogs_LinkMediaSelector 
         string path = GetCompletePath(LastFolderPath);
 
         // Actualize configuration
-        UserInfo ui = MembershipContext.AuthenticatedUser;
+        UserInfo user = UserInfoProvider.GetUserInfo(MembershipContext.AuthenticatedUser.UserID);
+        if (user != null)
+        {
+            user.UserSettings.UserDialogsConfiguration["media.sitename"] = LibrarySiteInfo.SiteName;
+            user.UserSettings.UserDialogsConfiguration["media.libraryname"] = LibraryInfo.LibraryName;
+            user.UserSettings.UserDialogsConfiguration["media.path"] = path;
+            user.UserSettings.UserDialogsConfiguration["media.viewmode"] = CMSDialogHelper.GetDialogViewMode(menuElem.SelectedViewMode);
 
-        ui.UserSettings.UserDialogsConfiguration["media.sitename"] = LibrarySiteInfo.SiteName;
-        ui.UserSettings.UserDialogsConfiguration["media.libraryname"] = LibraryInfo.LibraryName;
-        ui.UserSettings.UserDialogsConfiguration["media.path"] = path;
-        ui.UserSettings.UserDialogsConfiguration["media.viewmode"] = CMSDialogHelper.GetDialogViewMode(menuElem.SelectedViewMode);
+            user.UserSettings.UserDialogsConfiguration["selectedtab"] = CMSDialogHelper.GetMediaSource(MediaSourceEnum.MediaLibraries);
 
-        ui.UserSettings.UserDialogsConfiguration["selectedtab"] = CMSDialogHelper.GetMediaSource(MediaSourceEnum.MediaLibraries);
-
-        // Update user info
-        UserInfoProvider.SetUserInfo(ui);
+            // Update user info
+            UserInfoProvider.SetUserInfo(user);
+        }
     }
 
 

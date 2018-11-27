@@ -712,8 +712,6 @@ public partial class CMSWebParts_Community_Shortcuts : CMSAbstractWebPart
 
                     if (DisplayGroupLinks)
                     {
-                        script += "function ReloadPage(){" + ControlsHelper.GetPostBackEventReference(this, "") + "}";
-
                         // Display Join group link if set so and user is visiting a group page
                         gmi = GetGroupMember(MembershipContext.AuthenticatedUser.UserID, currentGroup.GroupID);
                         if (gmi == null)

@@ -2478,6 +2478,14 @@
             </summary>
             <param name="info">Object to delete</param>
         </member>
+        <member name="M:CMS.Forums.ForumInfoProvider.ProcessWebFarmTaskInternal(System.String,System.String,System.Byte[])">
+            <summary>
+            Runs the processing of specific web farm task for current provider
+            </summary>
+            <param name="actionName">Action name</param>
+            <param name="data">Custom task data</param>
+            <param name="binary">Binary data</param>
+        </member>
         <member name="M:CMS.Forums.ForumInfoProvider.DeleteAttachments(CMS.Forums.ForumInfo)">
             <summary>
             Delete attachments related to the current forum

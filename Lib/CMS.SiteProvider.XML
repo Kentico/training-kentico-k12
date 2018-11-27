@@ -1043,11 +1043,6 @@
             Class to provide the Site management.
             </summary>
         </member>
-        <member name="P:CMS.SiteProvider.SiteInfoProvider.EmptySite">
-            <summary>
-            Empty site info
-            </summary>
-        </member>
         <member name="P:CMS.SiteProvider.SiteInfoProvider.RunningSites">
             <summary>
             Table of the running site infos indexed by the domain names. [domainName -> SiteInfo]
@@ -1191,24 +1186,23 @@
             </summary>
             <param name="url">Url</param>
         </member>
-        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteInfoObject(System.String,System.String)">
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteInfoFromDB(System.String,System.String)">
             <summary>
-            Returns running SiteInfo object from hashtable, if not found try to find it in database.
+            Returns running SiteInfo object from the database.
             </summary>
             <param name="domainName">Domain name</param>
             <param name="applicationPath">Application path</param>
         </member>
-        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteInfoObject(System.String)">
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteByPresentationUrl(System.String)">
             <summary>
-            Returns running SiteInfo object from hashtable, if not found try to find it in database.
+            Gets the running site by matching a presentation URL.
             </summary>
-            <param name="domainName">Site alias (domain Name)</param>
+            <param name="presentationUrl">Presentation URL without a protocol.</param>
         </member>
-        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteInfoFromDB(System.String)">
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteByDomain(System.String)">
             <summary>
-            Gets the running site info object from the database.
+            Gets the running site by matching a main domain or a domain alias.
             </summary>
-            <param name="domainName">Domain name</param>
         </member>
         <member name="M:CMS.SiteProvider.SiteInfoProvider.GetDomainForCultureInternal(System.String,System.String)">
             <summary>
@@ -1268,6 +1262,13 @@
             Returns site name from URL.
             </summary>
             <param name="url">URL of the site</param>
+        </member>
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteInfoFromDBInternal(System.String,System.String)">
+            <summary>
+            Returns running SiteInfo object from the database.
+            </summary>
+            <param name="domainName">Domain name</param>
+            <param name="applicationPath">Application path</param>
         </member>
         <member name="M:CMS.SiteProvider.SiteInfoProvider.GetDocumentTypeClassPerSiteInternal(System.Int32)">
             <summary>

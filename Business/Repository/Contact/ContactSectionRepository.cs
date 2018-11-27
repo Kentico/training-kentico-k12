@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using CMS.DocumentEngine.Types.Training;
+using CMS.DocumentEngine.Types.MedioClinic;
 using Business.Dto.Contact;
 using Business.Services.Query;
 

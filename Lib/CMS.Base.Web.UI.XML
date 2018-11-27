@@ -1789,25 +1789,20 @@
         </member>
         <member name="M:CMS.Base.Web.UI.UploaderHelper.#ctor(System.Web.HttpContext)">
             <summary>
-            Default constructor.
+            Creates a new instance of <see cref="T:CMS.Base.Web.UI.UploaderHelper"/>.
             </summary>
-            <param name="context">Current HttpContext instance</param>
+            <param name="context">HttpContext instance.</param>
+        </member>
+        <member name="M:CMS.Base.Web.UI.UploaderHelper.#ctor(System.Web.HttpContextBase)">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.Base.Web.UI.UploaderHelper"/>.
+            </summary>
+            <param name="context">HttpContextBase instance.</param>
         </member>
         <member name="M:CMS.Base.Web.UI.UploaderHelper.AddEventTargetPostbackReference">
             <summary>
             Adds postback reference to the after script if event target has been specified. This will ca.
             </summary>
-        </member>
-        <member name="M:CMS.Base.Web.UI.UploaderHelper.IsExtensionAllowed">
-            <summary>
-            Checks if file is allowed according current settings. If it is not then error message is thrown.
-            </summary>
-        </member>
-        <member name="M:CMS.Base.Web.UI.UploaderHelper.CheckNodePermissions(CMS.DocumentEngine.TreeNode)">
-            <summary>
-            Check permissions.
-            </summary>
-            <param name="node">Tree node</param>
         </member>
         <member name="M:CMS.Base.Web.UI.UploaderHelper.ProcessFile">
             <summary>
@@ -1815,36 +1810,9 @@
             </summary>
             <returns>Returns true if the uploaded data were successfully processed.</returns>
         </member>
-        <member name="M:CMS.Base.Web.UI.UploaderHelper.CopyDataFromRequestToFileStream(System.Web.HttpRequest,CMS.IO.FileStream)">
-            <summary>
-            Copies file sent from client to <paramref name="fileStream"/>.
-            It can handle if the file is sent in multipart/form-data request or
-            in body of application/octet-stream request.
-            </summary>
-            <param name="fileStream">FileStream that saves data sent from client to associated storage.</param>
-            <param name="request">Http request to read data from.</param>
-        </member>
-        <member name="M:CMS.Base.Web.UI.UploaderHelper.UseMultiPartUpload(CMS.IO.IMultiPartUploadStream,CMS.Base.Web.UI.UploaderHelper.MultiPartUploadData)">
-            <summary>
-            Uploads data in smaller parts that are served by media library uploader to external storage. 
-            </summary>
-            <param name="stream">Stream that support multipart upload.</param>
-            <param name="multipartUploadData">Data related to currently multipart uploaded file.</param>
-        </member>
-        <member name="M:CMS.Base.Web.UI.UploaderHelper.SendMultipartDataToClient(CMS.Base.Web.UI.UploaderHelper.MultiPartUploadData)">
-            <summary>
-            Sends informations about currently uploaded part of a file to client.
-            </summary>
-            <param name="multipartUploadData">Informations about currently uploaded part of a file </param>
-        </member>
         <member name="M:CMS.Base.Web.UI.UploaderHelper.CleanTempFile">
             <summary>
             Removes the temporary file.
-            </summary>
-        </member>
-        <member name="M:CMS.Base.Web.UI.UploaderHelper.AbortCurrentMultiPartUpload">
-            <summary>
-            Cleans resources on external storage that has already been uploaded.
             </summary>
         </member>
         <member name="M:CMS.Base.Web.UI.UploaderHelper.CopyFile(System.String)">
@@ -1882,6 +1850,38 @@
             </summary>
             <param name="input">Input stream with the data</param>
             <param name="output">Output FileStream where the data should be written</param>
+        </member>
+        <member name="M:CMS.Base.Web.UI.UploaderHelper.IsExtensionAllowed">
+            <summary>
+            Checks if file is allowed according current settings. If it is not then error message is thrown.
+            </summary>
+        </member>
+        <member name="M:CMS.Base.Web.UI.UploaderHelper.CopyDataFromRequestToFileStream(System.Web.HttpRequestBase,CMS.IO.FileStream)">
+            <summary>
+            Copies file sent from client to <paramref name="fileStream"/>.
+            It can handle if the file is sent in multipart/form-data request or
+            in body of application/octet-stream request.
+            </summary>
+            <param name="fileStream">FileStream that saves data sent from client to associated storage.</param>
+            <param name="request">Http request to read data from.</param>
+        </member>
+        <member name="M:CMS.Base.Web.UI.UploaderHelper.UseMultiPartUpload(CMS.IO.IMultiPartUploadStream,CMS.Base.Web.UI.UploaderHelper.MultiPartUploadData)">
+            <summary>
+            Uploads data in smaller parts that are served by media library uploader to external storage. 
+            </summary>
+            <param name="stream">Stream that support multipart upload.</param>
+            <param name="multipartUploadData">Data related to currently multipart uploaded file.</param>
+        </member>
+        <member name="M:CMS.Base.Web.UI.UploaderHelper.SendMultipartDataToClient(CMS.Base.Web.UI.UploaderHelper.MultiPartUploadData)">
+            <summary>
+            Sends informations about currently uploaded part of a file to client.
+            </summary>
+            <param name="multipartUploadData">Informations about currently uploaded part of a file </param>
+        </member>
+        <member name="M:CMS.Base.Web.UI.UploaderHelper.AbortCurrentMultiPartUpload">
+            <summary>
+            Cleans resources on external storage that has already been uploaded.
+            </summary>
         </member>
         <member name="T:CMS.Base.Web.UI.UploaderHelper.ForumArgsStruct">
             <summary>
@@ -9685,6 +9685,14 @@
             HTML code of color for this tag (e.g. #bebebe, red, #abc).
             </summary>
         </member>
+        <member name="P:CMS.Base.Web.UI.Tag.EncodeOutput">
+            <summary>
+            Gets or sets the value indicating whether control output is encoded or not.
+            </summary>
+            <remarks>
+            <c>True</c> by default.
+            </remarks>
+        </member>
         <member name="M:CMS.Base.Web.UI.Tag.#ctor">
             <summary>
             Creates a new instance of tag rendered as HTML span element.
@@ -10536,6 +10544,16 @@
         <member name="P:CMS.Base.Web.UI.IObjectEditPanel.PreviewMode">
             <summary>
             Gets or sets the value that indicates if the control is used in the preview mode.
+            </summary>
+        </member>
+        <member name="T:CMS.Base.Web.UI.IOutputEncodingControl">
+            <summary>
+            Defines control capable of encoding output during rendering.
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.IOutputEncodingControl.EncodeOutput">
+            <summary>
+            Gets or sets the value indicating whether control output is encoded or not.
             </summary>
         </member>
         <member name="T:CMS.Base.Web.UI.IShortID">

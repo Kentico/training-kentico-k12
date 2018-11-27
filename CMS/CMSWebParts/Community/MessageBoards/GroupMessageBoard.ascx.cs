@@ -582,6 +582,8 @@ public partial class CMSWebParts_Community_MessageBoards_GroupMessageBoard : CMS
             msgBoard.CacheMinutes = CacheMinutes;
             msgBoard.CacheDependencies = CacheDependencies;
 
+            msgBoard.OrderBy = "MessageInserted DESC";
+
             // Use board properties
             if (BoardObj != null)
             {

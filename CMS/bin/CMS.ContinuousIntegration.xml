@@ -3228,14 +3228,20 @@
             Removes dependent bindings as single operation for given <see cref="T:CMS.DataEngine.BaseInfo"/> object.
             </summary>
         </member>
+        <member name="M:CMS.ContinuousIntegration.Internal.ContinuousIntegrationEventHandling.RebuildConfiguration(System.Boolean)">
+            <summary>
+            Rebuilds CI configuration and optionally logs a web farm task to propagate the change.
+            </summary>
+            <param name="logTask">A value indicating whether to log a web farm task.</param>
+        </member>
         <member name="M:CMS.ContinuousIntegration.Internal.ContinuousIntegrationEventHandling.StoreBaseInfo(CMS.DataEngine.BaseInfo)">
             <summary>
-            Stores info object to CI repository if configuration allows it. 
+            Stores info object to CI repository if configuration allows it.
             </summary>
         </member>
         <member name="M:CMS.ContinuousIntegration.Internal.ContinuousIntegrationEventHandling.StoreBaseInfoObjects(CMS.DataEngine.ObjectTypeInfo,System.Collections.Generic.ICollection{CMS.DataEngine.BaseInfo},CMS.ContinuousIntegration.Internal.ContinuousIntegrationTranslationHelper)">
             <summary>
-            Stores info objects to CI repository if configuration allows it. 
+            Stores info objects to CI repository if configuration allows it.
             </summary>
             <param name="typeInfo">Type info object describing objects in <paramref name="infoObjects"/> collection.</param>
             <param name="infoObjects">Collection of info objects to store.</param>
@@ -3244,12 +3250,12 @@
         </member>
         <member name="M:CMS.ContinuousIntegration.Internal.ContinuousIntegrationEventHandling.DeleteBaseInfo(CMS.DataEngine.BaseInfo)">
             <summary>
-            Deletes info object from CI repository if configuration allows it. 
+            Deletes info object from CI repository if configuration allows it.
             </summary>
         </member>
         <member name="M:CMS.ContinuousIntegration.Internal.ContinuousIntegrationEventHandling.DeleteBaseInfoObjects(CMS.DataEngine.ObjectTypeInfo,System.Collections.Generic.IEnumerable{CMS.DataEngine.BaseInfo},CMS.ContinuousIntegration.Internal.ContinuousIntegrationTranslationHelper)">
             <summary>
-            Deletes info objects from CI repository if configuration allows it. 
+            Deletes info objects from CI repository if configuration allows it.
             </summary>
             <param name="typeInfo">Type info object describing objects in <paramref name="infoObjects"/> collection.</param>
             <param name="infoObjects">Collection of info objects to delete.</param>
@@ -3258,7 +3264,7 @@
         </member>
         <member name="M:CMS.ContinuousIntegration.Internal.ContinuousIntegrationEventHandling.DependencyChanged(CMS.DataEngine.BaseInfo)">
             <summary>
-            Returns true when passed object has changed an important column, that is used in CI translations of object references.  
+            Returns true when passed object has changed an important column, that is used in CI translations of object references.
             </summary>
         </member>
         <member name="M:CMS.ContinuousIntegration.Internal.ContinuousIntegrationEventHandling.GetDependencyColumns(CMS.DataEngine.ObjectTypeInfo)">
@@ -3278,7 +3284,7 @@
             </summary>
             <remarks>
             Method returns true also if <see cref="M:CMS.DataEngine.BaseInfo.ChangedColumns"/> returns empty collection (to ensure that the object
-            is stored in case that <see cref="M:CMS.DataEngine.BaseInfo.ChangedColumns"/> does not track changes) 
+            is stored in case that <see cref="M:CMS.DataEngine.BaseInfo.ChangedColumns"/> does not track changes)
             </remarks>
         </member>
         <member name="M:CMS.ContinuousIntegration.Internal.ContinuousIntegrationEventHandling.HasObjectFormDefinitionChanged(CMS.Base.IAdvancedDataContainer)">
@@ -5293,6 +5299,16 @@
         <member name="M:CMS.ContinuousIntegration.ContinuousIntegrationModule.OnInit">
             <summary>
             Initializes the module
+            </summary>
+        </member>
+        <member name="T:CMS.ContinuousIntegration.RebuildConfigurationWebFarmTask">
+            <summary>
+            Web farm task used to rebuild CI configuration.
+            </summary>
+        </member>
+        <member name="M:CMS.ContinuousIntegration.RebuildConfigurationWebFarmTask.ExecuteTask">
+            <summary>
+            Rebuilds CI configuration.
             </summary>
         </member>
     </members>

@@ -342,6 +342,7 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
         MessagesWriter.ShowABTestScheduleInformation(ABTest, TestStatus);
         MessagesWriter.ShowMissingVariantsTranslationsWarning(ABTest);
 
+        ScriptHelper.RegisterDialogScript(Page);
         InitializeSelectors();
         InitSmartTip();
 

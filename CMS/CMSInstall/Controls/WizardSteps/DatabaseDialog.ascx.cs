@@ -461,12 +461,7 @@ public partial class CMSInstall_Controls_WizardSteps_DatabaseDialog : CMSUserCon
             SettingsKeyInfoProvider.SetGlobalValue("CMSSchedulerTasksEnabled", false);
         }
 
-        // Restart win service
-        WinServiceItem def = WinServiceHelper.GetServiceDefinition(WinServiceHelper.HM_SERVICE_BASENAME);
-        if (def != null)
-        {
-            WinServiceHelper.RestartService(def.GetServiceName());
-        }
+        WinServiceHelper.RestartService(WinServiceHelper.HM_SERVICE_BASENAME, false);
 
         // Display stopping progress
         iconHelp.Visible = btnStopTasks.Visible = false;

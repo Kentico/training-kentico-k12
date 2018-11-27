@@ -81,7 +81,7 @@
             User list <see cref="T:CMS.UIControls.UniGrid"/> extender.
             </summary>
         </member>
-        <member name="P:CMS.Membership.Web.UI.UserListExtender.CurrentUserObj">
+        <member name="P:CMS.Membership.Web.UI.UserListExtender.AuthenticatedUser">
             <summary>
             Gets the current user info.
             </summary>
@@ -96,6 +96,16 @@
             Handles external data-bound event of <see cref="T:CMS.UIControls.UniGrid"/>.
             </summary>
         </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.PreparePasswordButton(System.Object,CMS.Base.Web.UI.CMSGridActionButton)">
+            <summary>
+            Prepares the button displaying information about user password.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.GetUserPasswordEditationUrl(CMS.Base.IUserInfo)">
+            <summary>
+            Returns url leading to password tab in user detail.
+            </summary>
+        </member>
         <member name="M:CMS.Membership.Web.UI.UserListExtender.OnAction(System.String,System.Object)">
             <summary>
             Handles the UniGrid's OnAction event.
@@ -103,11 +113,15 @@
             <param name="actionName">Name of item (button) that threw event</param>
             <param name="actionArgument">ID (value of Primary key) of corresponding data row</param>
         </member>
-        <member name="M:CMS.Membership.Web.UI.UserListExtender.HasSufficientPrivilege(CMS.Base.IUserInfo)">
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.HasSufficientPrivilege(CMS.Membership.UserInfo,CMS.DataEngine.PermissionsEnum)">
             <summary>
             Returns <c>true</c> if and only if the current user is <see cref="F:CMS.Base.UserPrivilegeLevelEnum.GlobalAdmin"/>
-            or <paramref name="user"/> to operate with is either <see cref="F:CMS.Base.UserPrivilegeLevelEnum.Editor"/> or <see cref="F:CMS.Base.UserPrivilegeLevelEnum.None"/>
-            or the <paramref name="user"/> is themselves.
+            or has given <paramref name="permission"/> to the <paramref name="user"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Membership.Web.UI.UserListExtender.IsAuthenticatedUser(CMS.Base.IUserInfo)">
+            <summary>
+            Returns <c>true</c> when given <paramref name="user"/> is equal to <see cref="P:CMS.Membership.MembershipContext.AuthenticatedUser"/>.
             </summary>
         </member>
         <member name="M:CMS.Membership.Web.UI.UserListExtender.GetUser(System.Web.UI.WebControls.GridViewRow)">

@@ -1163,14 +1163,6 @@
             <param name="width">Width</param>
             <param name="height">Height</param>
         </member>
-        <member name="M:CMS.MediaLibrary.MediaFileInfoProvider.GetMediaFileAbsoluteUrlInternal(System.String,System.String,System.String)">
-            <summary>
-            Returns absolute URL path to the media file including http://, user permissions are not checked
-            </summary>
-            <param name="siteName">Site name</param>
-            <param name="libraryFolder">Library folder name</param>
-            <param name="filePath">File path within the library folder</param>
-        </member>
         <member name="M:CMS.MediaLibrary.MediaFileInfoProvider.CheckAndEnsureFilePath(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String@)">
             <summary>
             Saves media file to disk and returns the applied file path.
@@ -1595,11 +1587,11 @@
                 <description>Media file is located in a media library stored in CDN.</description>
               </item>
               <item>
-                <term>~/getmedia/fileGUID/fileName</term>
+                <term>~/getmedia/fileGUID/fileName.extension</term>
                 <description>Media file is located in a media library which is located outside of the CMS application on the current site.</description>
               </item>
               <item>
-                <term>http://domain.com/getmedia/fileGUID/fileName</term>
+                <term>http://domain.com/getmedia/fileGUID/fileName.extension</term>
                 <description>Media file is located in a media library which is located outside of the CMS application on a different site.</description>
               </item>
             </list>
@@ -1619,43 +1611,15 @@
                 <description>Location</description>
               </listheader>
               <item>
-                <term>~/getmedia/fileGUID/fileName</term>
-                <description>Media file is located in a media library on the current site and 'Files friendly URL extension setting' is empty.</description>
+                <term>~/getmedia/fileGUID/fileName.extension</term>
+                <description>Media file is located in a media library on the current site.</description>
               </item>
               <item>
-                <term>http://domain.com/getmedia/fileGUID/fileName</term>
-                <description>Media file is located in a media library on a different site and 'Files friendly URL extension setting' is empty.</description>
+                <term>http://domain.com/getmedia/fileGUID/fileName.extension</term>
+                <description>Media file is located in a media library on a different site.</description>
               </item>
             </list>
-              <item>
-                <term>~/getmedia/fileGUID/fileName.extension</term>
-                <description>Media file is located in a media library on the current site and 'Files friendly URL extension setting' has an extension set.</description>
-              </item>
             </remarks>
-        </member>
-        <member name="M:CMS.MediaLibrary.MediaLibraryHelper.GetDirectUrl(CMS.MediaLibrary.MediaFileInfo,CMS.SiteProvider.SiteInfo)">
-            <summary>
-            Returns a direct URL for the given media file.
-            The method can return the following URL types:
-              ~/mediaLibraryFolder/filename.extension
-              ~/getazurefile.aspx?path=, ~/getmazonfile.aspx?path= ...
-              http://CDN/mediaLibraryFolder/filename.extension
-            </summary>
-        </member>
-        <member name="M:CMS.MediaLibrary.MediaLibraryHelper.GetMediaFileUrl(CMS.MediaLibrary.MediaFileInfo,System.Func{CMS.MediaLibrary.MediaFileInfo,CMS.SiteProvider.SiteInfo,System.String})">
-            <summary>
-            Returns a relative or an absolute URL for the given media file depending on the media library location.
-            Media library locations:
-             - current site -> relative URL
-             - different site / CDN -> absolute URL
-            </summary>
-            <param name="mediaFile">Media file for which the URL is generated.</param>
-            <param name="getUrlMethod">The method which generates a relative URL for the given <paramref name="mediaFile"/>.</param>
-        </member>
-        <member name="M:CMS.MediaLibrary.MediaLibraryHelper.GetAbsoluteUrl(System.String,CMS.SiteProvider.SiteInfo)">
-            <summary>
-            Returns an absolute URL for the given relative URL.
-            </summary>
         </member>
         <member name="M:CMS.MediaLibrary.MediaLibraryHelper.LogSynchronization(System.String,System.Int32,System.String,System.String,CMS.DataEngine.TaskTypeEnum,System.Boolean)">
             <summary>

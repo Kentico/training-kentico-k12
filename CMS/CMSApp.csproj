@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -43,7 +42,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -53,7 +51,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <Choose>
@@ -84,10 +81,10 @@
       <HintPath>..\packages\AWSSDK.S3.3.1.9.0\lib\net45\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Windsor.4.0.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <HintPath>..\packages\Castle.Windsor.4.1.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
@@ -116,8 +113,8 @@
     <Reference Include="Microsoft.Azure.Search, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Search.3.0.2\lib\net45\Microsoft.Azure.Search.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -230,14 +227,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data.HashFunction.Core, Version=1.8.2.2, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.HashFunction.Core.1.8.2.2\lib\net45\System.Data.HashFunction.Core.dll</HintPath>
+    <Reference Include="System.Data.HashFunction.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.Core.2.0.0\lib\net45\System.Data.HashFunction.Core.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.HashFunction.CRC, Version=1.8.2.2, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.HashFunction.CRC.1.8.2.2\lib\net45\System.Data.HashFunction.CRC.dll</HintPath>
+    <Reference Include="System.Data.HashFunction.CRC, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.CRC.2.0.0\lib\net45\System.Data.HashFunction.CRC.dll</HintPath>
     </Reference>
-    <Reference Include="System.Data.HashFunction.Interfaces, Version=1.0.0.2, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.HashFunction.Interfaces.1.0.0.2\lib\net45\System.Data.HashFunction.Interfaces.dll</HintPath>
+    <Reference Include="System.Data.HashFunction.Interfaces, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.HashFunction.Interfaces.2.0.0\lib\net45\System.Data.HashFunction.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
@@ -251,6 +248,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Rx-Core.2.2.5\lib\net45\System.Reactive.Core.dll</HintPath>
     </Reference>
@@ -263,12 +261,16 @@
     <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DataVisualization" />
@@ -1596,7 +1598,9 @@
     <Content Include="CMSPages\WebService.asmx" />
     <Content Include="CMSScripts\Bootstrap\ui-bootstrap-custom-tpls-1.3.3.js" />
     <Content Include="CMSScripts\CMSModules\AdminControls\MultipartUploader.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\Constants.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Builder\FormBuilder\Messaging.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\FrameSrcAttributeModifier.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Builder\PageBuilder\DragAndDropService.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Builder\MessageService.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Builder\MessageTypes.js" />
@@ -2229,6 +2233,7 @@
     <Content Include="CMSScripts\CMSModules\CMS\AdvancedPopupHandler.js" />
     <Content Include="CMSScripts\CMSModules\CMS\StringHelper.js" />
     <Content Include="CMSScripts\CMSModules\CMS\UITabs.js" />
+    <Content Include="CMSScripts\CMSModules\CMS\CurrentUrlHelper.js" />
     <Content Include="CMSScripts\CMSModules\CMS\UrlChecker.js" />
     <Content Include="CMSScripts\CMSModules\CMS\UserMenu.js" />
     <Content Include="CMSScripts\CMSModules\CMS\VerticalTabs.js" />
@@ -2617,7 +2622,6 @@
     <Content Include="CMSModules\SocialMarketing\FormControls\TwitterAutoPost.ascx" />
     <Content Include="CMSModules\SocialMarketing\FormControls\AvailableUrlShortenerSelector.ascx" />
     <Content Include="CMSModules\SocialMarketing\FormControls\FacebookAutoPost.ascx" />
-    <Content Include="CMSModules\SocialMarketing\FormControls\FacebookPageId.ascx" />
     <Content Include="CMSModules\SocialMarketing\FormControls\FacebookPageAccessToken.ascx" />
     <Content Include="CMSModules\SocialMarketing\FormControls\TwitterPostTextArea.ascx" />
     <Content Include="CMSModules\SocialMarketing\FormControls\TwitterPostTextArea_files\twitter-text.js" />
@@ -3892,6 +3896,8 @@
     <Content Include="CMSModules\Sites\Pages\CultureChange.aspx" />
     <Content Include="CMSModules\Sites\Pages\Site_Delete.aspx" />
     <Content Include="CMSTemplates\BlankSiteASPX\root.aspx" />
+    <Content Include="CMSTemplates\CorporateSite\HomeASPX.aspx" />
+    <Content Include="CMSTemplates\CorporateSite\HomeMixed.aspx" />
     <Content Include="CMSWebParts\AbuseReport\AbuseReport.ascx" />
     <Content Include="CMSWebParts\AbuseReport\InlineAbuseReport.ascx" />
     <Content Include="CMSWebParts\Attachments\AttachmentsDataSource.ascx" />
@@ -7741,13 +7747,6 @@
     </Compile>
     <Compile Include="CMSModules\SocialMarketing\FormControls\FacebookAutoPost.ascx.designer.cs">
       <DependentUpon>FacebookAutoPost.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\SocialMarketing\FormControls\FacebookPageId.ascx.cs">
-      <DependentUpon>FacebookPageId.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\SocialMarketing\FormControls\FacebookPageId.ascx.designer.cs">
-      <DependentUpon>FacebookPageId.ascx</DependentUpon>
     </Compile>
     <Compile Include="CMSModules\SocialMarketing\FormControls\FacebookPageAccessToken.ascx.cs">
       <DependentUpon>FacebookPageAccessToken.ascx</DependentUpon>
@@ -14518,6 +14517,27 @@
     </Compile>
     <Compile Include="CMSTemplates\BlankSiteASPX\root.aspx.designer.cs">
       <DependentUpon>root.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\HomeASPX.aspx.cs">
+      <DependentUpon>HomeASPX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\HomeASPX.aspx.designer.cs">
+      <DependentUpon>HomeASPX.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\HomeMixed.aspx.cs">
+      <DependentUpon>HomeMixed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\HomeMixed.aspx.designer.cs">
+      <DependentUpon>HomeMixed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\Root.master.cs">
+      <DependentUpon>Root.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSTemplates\CorporateSite\Root.master.designer.cs">
+      <DependentUpon>Root.master</DependentUpon>
     </Compile>
     <Compile Include="CMSWebParts\AbuseReport\AbuseReport.ascx.designer.cs">
       <DependentUpon>AbuseReport.ascx</DependentUpon>
@@ -21458,6 +21478,7 @@
     <Content Include="CMSScripts\Underscore\underscore-min.map" />
     <Content Include="CMSModules\Chat\web.config" />
     <Content Include="CMSTemplates\BlankSiteASPX\Blank.master" />
+    <Content Include="CMSTemplates\CorporateSite\Root.master" />
     <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.eot" />
     <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.ttf" />
     <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.woff" />
@@ -22116,7 +22137,6 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
 </Project>

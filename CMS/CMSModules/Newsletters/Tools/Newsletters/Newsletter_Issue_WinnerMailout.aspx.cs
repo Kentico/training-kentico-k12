@@ -2,6 +2,7 @@
 
 using CMS.Base.Web.UI;
 using CMS.Core;
+
 using CMS.Helpers;
 using CMS.Newsletters;
 using CMS.Newsletters.Web.UI;
@@ -83,6 +84,9 @@ public partial class CMSModules_Newsletters_Tools_Newsletters_Newsletter_Issue_W
 
             if ((issue != null) && (winner != null))
             {
+                var parentIssue = IssueInfoProvider.GetIssueInfo(parentIssueId);
+                NewsletterSendingStatusModifier.ResetAllEmailsInQueueForIssue(parentIssue.IssueID);
+
                 // Copy data from winner to parent
                 IssueHelper.CopyWinningVariantIssueProperties(winner, issue);
                 IssueInfoProvider.SetIssueInfo(issue);
@@ -91,7 +95,7 @@ public partial class CMSModules_Newsletters_Tools_Newsletters_Newsletter_Issue_W
                 NewsletterTasksManager.DeleteMailoutTask(issue.IssueGUID, issue.IssueSiteID);
 
                 DateTime mailoutTime = dtpMailout.SelectedDateTime;
-                Service.Resolve<IIssueScheduler>().ScheduleIssue(IssueInfoProvider.GetIssueInfo(parentIssueId), mailoutTime);
+                Service.Resolve<IIssueScheduler>().ScheduleIssue(parentIssue, mailoutTime);
             }
         }
 
@@ -103,5 +107,5 @@ public partial class CMSModules_Newsletters_Tools_Newsletters_Newsletter_Issue_W
     private void CloseDialogAndRefreshParent()
     {
         ScriptHelper.RegisterStartupScript(this, GetType(), "ClosePage", "RefreshPage(); setTimeout('CloseDialog()',200);", true);
-    }
+    }    
 }

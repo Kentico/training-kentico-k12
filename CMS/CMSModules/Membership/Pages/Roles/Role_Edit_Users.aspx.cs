@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
+using System.Text;
 
 using CMS.Base;
 using CMS.Base.Web.UI;
-
-using System.Linq;
-using System.Text;
-using System.Web.UI;
-
 using CMS.Helpers;
 using CMS.Membership;
 using CMS.UIControls;
@@ -37,7 +34,7 @@ public partial class CMSModules_Membership_Pages_Roles_Role_Edit_Users : CMSRole
             {
                 RedirectToAccessDenied("CMS.Users", "Read");
             }
-        }        
+        }
 
         usUsers.AdditionalColumns = "UserID,ValidTo";
         usUsers.GridName = "~/CMSModules/Membership/Pages/Users/UsersValidTo.xml";
@@ -49,7 +46,7 @@ public partial class CMSModules_Membership_Pages_Roles_Role_Edit_Users : CMSRole
         RoleInfo ri = RoleInfoProvider.GetRoleInfo(roleID);
         if (ri != null)
         {
-            usUsers.WhereCondition = (ri.SiteID > 0) ? "UserID IN (SELECT UserID FROM CMS_UserSite WHERE SiteID = " + ri.SiteID + ")" : String.Empty;
+            usUsers.WhereCondition = (ri.SiteID > 0) ? $"UserID IN (SELECT UserID FROM CMS_UserSite WHERE SiteID = {ri.SiteID})" : String.Empty;
             usUsers.ListingWhereCondition = "RoleID = " + ri.RoleID;
         }
 
@@ -121,11 +118,11 @@ public partial class CMSModules_Membership_Pages_Roles_Role_Edit_Users : CMSRole
 
                 if (!ucCalendar.UseCustomCalendar)
                 {
-                    onClick = "$cmsj('#" + hdnDate.ClientID + "').val('" + itemID + "');" + ucCalendar.GenerateNonCustomCalendarImageEvent();
+                    onClick = $"$cmsj('#{hdnDate.ClientID}').val('{itemID}');{ucCalendar.GenerateNonCustomCalendarImageEvent()}";
                 }
                 else
                 {
-                    onClick = "$cmsj('#" + hdnDate.ClientID + "').val('" + itemID + "'); var dt = $cmsj('#" + ucCalendar.DateTimeTextBox.ClientID + "'); dt.val('" + date + "'); dt.cmsdatepicker('setLocation','" + iconID + "'); dt.cmsdatepicker('show');";
+                    onClick = $"$cmsj('#{hdnDate.ClientID}').val('{itemID}'); var dt = $cmsj('#{ucCalendar.DateTimeTextBox.ClientID}'); dt.val('{date}'); dt.cmsdatepicker('setLocation','{iconID}'); dt.cmsdatepicker('show');";
                 }
 
                 var button = new CMSGridActionButton
@@ -162,7 +159,7 @@ public partial class CMSModules_Membership_Pages_Roles_Role_Edit_Users : CMSRole
 
     private string GetRoleUsers()
     {
-        var data = UserRoleInfoProvider.GetUserRoles().Where("RoleID = " + roleID).Columns("UserID");
+        var data = UserRoleInfoProvider.GetUserRoles().Where($"RoleID = {roleID}").Columns("UserID");
         if (data.Any())
         {
             return TextHelper.Join(";", DataHelper.GetStringValues(data.Tables[0], "UserID"));
@@ -288,7 +285,7 @@ public partial class CMSModules_Membership_Pages_Roles_Role_Edit_Users : CMSRole
         {
             if (userInfo.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin))
             {
-                result = String.Format(GetString("Administration-User.NotAllowedToModifySpecific"), userInfo.FullName + " (" + userInfo.UserName + ")");
+                result = String.Format(GetString("Administration-User.NotAllowedToModifySpecific"), $"{HTMLHelper.HTMLEncode(userInfo.FullName)} ({userInfo.UserName})");
             }
         }
         return result;

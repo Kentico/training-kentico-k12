@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<notification.template>
-  <TemplateDisplayName>New product</TemplateDisplayName>
-  <TemplateGUID>c1b8e8a9-3dbb-46d0-a727-573dbdbefff1</TemplateGUID>
-  <TemplateName>NewProduct</TemplateName>
-</notification.template>

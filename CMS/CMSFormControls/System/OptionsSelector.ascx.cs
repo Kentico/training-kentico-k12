@@ -3,6 +3,7 @@
 using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.DataEngine;
+using CMS.FormEngine;
 using CMS.FormEngine.Web.UI;
 using CMS.Helpers;
 using CMS.MacroEngine;

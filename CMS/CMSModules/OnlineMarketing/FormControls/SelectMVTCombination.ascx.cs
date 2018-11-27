@@ -303,7 +303,7 @@ function ChangeCombination() {
             ScriptHelper.RegisterStartupScript(this, typeof (string), "mvtSelectCombination", ScriptHelper.GetScript(script));
 
             // Use query string instead of postback
-            ucUniSelector.DropDownSingleSelect.Attributes.Add("onchange", "ChangeCombination()");
+            ucUniSelector.OnBeforeClientChanged = "ChangeCombination();";
         }
     }
 

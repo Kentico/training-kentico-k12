@@ -115,9 +115,11 @@ public partial class CMSModules_MediaLibrary_Controls_LiveControls_MediaFilePrev
                     
                     if (UseSecureLinks)
                     {
+                        string fileName = AttachmentHelper.GetFullFileName(mfi.FileName, mfi.FileExtension);
+
                         url = completeUrl 
-                            ? MediaFileInfoProvider.GetMediaFileAbsoluteUrl(si.SiteName, mfi.FileGUID, mfi.FileName) 
-                            : MediaFileInfoProvider.GetMediaFileUrl(mfi.FileGUID, mfi.FileName);
+                            ? MediaFileURLProvider.GetMediaFileAbsoluteUrl(si.SiteName, mfi.FileGUID, fileName) 
+                            : MediaFileURLProvider.GetMediaFileUrl(mfi.FileGUID, fileName);
                     }
                     else
                     {
@@ -125,8 +127,8 @@ public partial class CMSModules_MediaLibrary_Controls_LiveControls_MediaFilePrev
                         if (li != null)
                         {
                             url = completeUrl 
-                                ? MediaFileInfoProvider.GetMediaFileAbsoluteUrl(si.SiteName, li.LibraryFolder, mfi.FilePath) 
-                                : MediaFileInfoProvider.GetMediaFileUrl(si.SiteName, li.LibraryFolder, mfi.FilePath);
+                                ? MediaFileURLProvider.GetMediaFileAbsoluteUrl(si.SiteName, li.LibraryFolder, mfi.FilePath) 
+                                : MediaFileURLProvider.GetMediaFileUrl(si.SiteName, li.LibraryFolder, mfi.FilePath);
                         }
                     }
 
@@ -140,9 +142,11 @@ public partial class CMSModules_MediaLibrary_Controls_LiveControls_MediaFilePrev
                         // If dimensions changed use secure link
                         if ((newDims[0] != mfi.FileImageWidth) || (newDims[1] != mfi.FileImageHeight))
                         {
+                            string fileName = AttachmentHelper.GetFullFileName(mfi.FileName, mfi.FileExtension);
+
                             url = completeUrl 
-                                ? MediaFileInfoProvider.GetMediaFileAbsoluteUrl(si.SiteName, mfi.FileGUID, mfi.FileName) 
-                                : MediaFileInfoProvider.GetMediaFileUrl(mfi.FileGUID, mfi.FileName);
+                                ? MediaFileURLProvider.GetMediaFileAbsoluteUrl(si.SiteName, mfi.FileGUID, fileName) 
+                                : MediaFileURLProvider.GetMediaFileUrl(mfi.FileGUID, fileName);
 
                             url = UrlResolver.ResolveUrl(url);
                         }

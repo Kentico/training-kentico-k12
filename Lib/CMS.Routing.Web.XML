@@ -322,11 +322,6 @@
             Indicates whether resizing should be used for device
             </summary>
         </member>
-        <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mRangeRegExp">
-            <summary>
-            Regular expression to match the range in HTTP header.
-            </summary>
-        </member>
         <member name="F:CMS.Routing.Web.AdvancedGetFileHandler.mExcludedResumableExtensions">
             <summary>
             List of file extensions for which the resumable downloads are disabled.
@@ -382,31 +377,14 @@
             Gets or sets sender object that is used for writing data to the response.
             </summary>
         </member>
-        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.DataLength">
-            <summary>
-            Size of data.
-            </summary>
-        </member>
         <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.IsRangeRequest">
             <summary>
             Indicates whether it is range request.
             </summary>
         </member>
-        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AreRangesValid">
-            <summary>
-            Indicates whether ranges are valid.
-            TRUE: ranges are valid or request is not range request
-            FALSE: all other cases
-            </summary>
-        </member>
         <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.IsMultipart">
             <summary>
             Indicates whether it is multipart range request.
-            </summary>
-        </member>
-        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.Ranges">
-            <summary>
-            2D Array in format {{START_RANGE,END_RANGE},{START_RANGE, END_RANGE}}.
             </summary>
         </member>
         <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.GetFileEndRequest">
@@ -417,12 +395,6 @@
         <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AcceptRange">
             <summary>
             Indicates if resumable downloads should be supported for current file.
-            </summary>
-        </member>
-        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AcceptRanges">
-            <summary>
-            Indicates whether range requests are enabled (ex. for resumable downloads). If false, the HTTP Handler
-            ignores the Range HTTP Header and returns the entire contents.
             </summary>
         </member>
         <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.ExcludedResumableExtensions">
@@ -438,11 +410,6 @@
         <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.CurrentSite">
             <summary>
             Current site.
-            </summary>
-        </member>
-        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.CacheItemName">
-            <summary>
-            Cache item name for current request.
             </summary>
         </member>
         <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.CacheMinutes">
@@ -504,11 +471,6 @@
             <summary>
             Whether to log exception caused by communication problems (e.g. when remote host closes the connection).
             Log exceptions has to be set to TRUE.
-            </summary>
-        </member>
-        <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.RangeRegExp">
-            <summary>
-            The range from HTTP header regular expression.
             </summary>
         </member>
         <member name="P:CMS.Routing.Web.AdvancedGetFileHandler.AllowCache">

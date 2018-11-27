@@ -21,7 +21,7 @@
                     <div class="col l4 m12 s12">
                         <div class="card">
                             <div class="card-image">
-                                <img src="@Url.KenticoImageUrl(doctor.ImagePath)" alt="@doctor.FullName">
+                                <img src="@Url.KenticoImageUrl(doctor.Photo.GetPath())" alt="@doctor.FullName">
                             </div>
                             <div class="card-title kn-margin-m kn-padding-m truncate">
                                 <a href="@Url.Action("Detail", "Doctors", new { nodeGuid = doctor.NodeGuid, nodeAlias = doctor.NodeAlias })">@doctor.FullName, @doctor.Degree</a>

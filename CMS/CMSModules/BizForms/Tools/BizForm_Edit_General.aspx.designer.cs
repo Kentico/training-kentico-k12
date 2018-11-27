@@ -174,6 +174,15 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_General {
     protected global::CMSFormControls_System_LocalizableTextBox txtButtonText;
     
     /// <summary>
+    /// pnlSubmitButtonImage control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Panel pnlSubmitButtonImage;
+    
+    /// <summary>
     /// lblSubmitButtonImage control.
     /// </summary>
     /// <remarks>
