@@ -1,0 +1,50 @@
+﻿@using MedioClinic.Models.Home
+
+@model MedioClinic.Models.PageViewModel<HomeViewModel>
+    
+@if (Model.Data.HomeSection != null)
+{
+    <div class="section kn-section-top">
+        <div class="kn-header-gradient">
+            <div class="container kn-header">
+                <h1 class="col l10 m4 s12">@Model.Data.HomeSection.Title</h1>
+                <div class="row left">
+                    <h5 class="col l10 m8 s12 kn-light">
+                        @Model.Data.HomeSection.Text
+                    </h5>
+                </div>
+                <div class="row">
+                    <div class="left">
+                        <a href="@Url.Action("index", "Doctors")" class="kn-btn-doctors btn waves-effect waves-light red darken-3">@Model.Data.HomeSection.LinkText</a>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (Model.Data.CompanyServices != null)
+{
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                @foreach (var service in Model.Data.CompanyServices)
+                {<div class="col s12 m4">
+                        <div class="icon-block">
+                            <img class="kn-icons kn-center" src="@Url.KenticoImageUrl(service.Icon.GetPath())" />
+                            <h4 class="center">@service.Header</h4>
+                            <p class="light center">
+                                @service.Text
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <br>
+        <br>
+    </div>
+
+}

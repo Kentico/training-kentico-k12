@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using CMS.DocumentEngine.Types.Training;
+using CMS.DocumentEngine.Types.MedioClinic;
 using Business.Dto.Doctors;
 using Business.Services.Query;
 

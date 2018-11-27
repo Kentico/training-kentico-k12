@@ -16,12 +16,12 @@ using CMS;
 using CMS.Base;
 using CMS.Helpers;
 using CMS.DataEngine;
-using CMS.DocumentEngine.Types.Training;
+using CMS.DocumentEngine.Types.MedioClinic;
 using CMS.DocumentEngine;
 
 [assembly: RegisterDocumentType(MapLocation.CLASS_NAME, typeof(MapLocation))]
 
-namespace CMS.DocumentEngine.Types.Training
+namespace CMS.DocumentEngine.Types.MedioClinic
 {
 	/// <summary>
 	/// Represents a content item of type MapLocation.
@@ -33,7 +33,7 @@ namespace CMS.DocumentEngine.Types.Training
 		/// <summary>
 		/// The name of the data class.
 		/// </summary>
-		public const string CLASS_NAME = "Training.MapLocation";
+		public const string CLASS_NAME = "MedioClinic.MapLocation";
 
 
 		/// <summary>

@@ -18,7 +18,7 @@ namespace Business.Repository.Doctor
             "LastName", "Photo", "Specialty", "DocumentID"
         };
 
-        private Func<CMS.DocumentEngine.Types.Training.Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
+        private Func<CMS.DocumentEngine.Types.MedioClinic.Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
         {
             NodeAlias = doctor.NodeAlias,
             NodeGuid = doctor.NodeGUID,
@@ -41,7 +41,7 @@ namespace Business.Repository.Doctor
 
         public IEnumerable<DoctorDto> GetDoctors()
         {
-            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.Doctor>()
+            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.Doctor>()
                 .AddColumns(_doctorColumns)
                 .ToList()
                 .Select(DoctorDtoSelect);
@@ -49,7 +49,7 @@ namespace Business.Repository.Doctor
 
         public DoctorDto GetDoctor(Guid nodeGuid)
         {
-            return DocumentQueryService.GetDocument<CMS.DocumentEngine.Types.Training.Doctor>(nodeGuid)
+            return DocumentQueryService.GetDocument<CMS.DocumentEngine.Types.MedioClinic.Doctor>(nodeGuid)
                 .AddColumns(_doctorColumns)
                 .Select(DoctorDtoSelect)
                 .FirstOrDefault();

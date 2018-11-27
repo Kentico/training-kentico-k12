@@ -13,7 +13,7 @@ namespace Business.Repository.Map
 
         public IEnumerable<MapLocationDto> GetOfficeLocations()
         {
-            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.MapLocation>()
+            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.MapLocation>()
                 .AddColumns("Longitude", "Latitude", "Tooltip")
                 .OrderByAscending("NodeOrder")
                 .ToList()

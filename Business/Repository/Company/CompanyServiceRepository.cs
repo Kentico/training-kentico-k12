@@ -13,7 +13,7 @@ namespace Business.Repository.Company
 
         public IEnumerable<CompanyServiceDto> GetCompanyServices()
         {
-            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.CompanyService>()
+            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.CompanyService>()
                 .AddColumns("Header", "Text", "Icon", "DocumentID")
                 .OrderByAscending("NodeOrder")
                 .ToList()

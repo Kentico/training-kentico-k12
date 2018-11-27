@@ -13,7 +13,7 @@ namespace Business.Repository.Social
 
         public IEnumerable<SocialLinkDto> GetSocialLinks()
         {
-            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.Training.SocialLink>()
+            return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.SocialLink>()
                 .AddColumns("Title", "Url", "Icon", "DocumentID")
                 .OrderByAscending("NodeOrder")
                 .ToList()

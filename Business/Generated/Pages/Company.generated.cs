@@ -16,12 +16,12 @@ using CMS;
 using CMS.Base;
 using CMS.Helpers;
 using CMS.DataEngine;
-using CMS.DocumentEngine.Types.Training;
+using CMS.DocumentEngine.Types.MedioClinic;
 using CMS.DocumentEngine;
 
 [assembly: RegisterDocumentType(Company.CLASS_NAME, typeof(Company))]
 
-namespace CMS.DocumentEngine.Types.Training
+namespace CMS.DocumentEngine.Types.MedioClinic
 {
 	/// <summary>
 	/// Represents a content item of type Company.
@@ -33,7 +33,7 @@ namespace CMS.DocumentEngine.Types.Training
 		/// <summary>
 		/// The name of the data class.
 		/// </summary>
-		public const string CLASS_NAME = "Training.Company";
+		public const string CLASS_NAME = "MedioClinic.Company";
 
 
 		/// <summary>
