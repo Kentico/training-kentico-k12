@@ -3896,8 +3896,6 @@
     <Content Include="CMSModules\Sites\Pages\CultureChange.aspx" />
     <Content Include="CMSModules\Sites\Pages\Site_Delete.aspx" />
     <Content Include="CMSTemplates\BlankSiteASPX\root.aspx" />
-    <Content Include="CMSTemplates\CorporateSite\HomeASPX.aspx" />
-    <Content Include="CMSTemplates\CorporateSite\HomeMixed.aspx" />
     <Content Include="CMSWebParts\AbuseReport\AbuseReport.ascx" />
     <Content Include="CMSWebParts\AbuseReport\InlineAbuseReport.ascx" />
     <Content Include="CMSWebParts\Attachments\AttachmentsDataSource.ascx" />
@@ -14518,27 +14516,6 @@
     <Compile Include="CMSTemplates\BlankSiteASPX\root.aspx.designer.cs">
       <DependentUpon>root.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CMSTemplates\CorporateSite\HomeASPX.aspx.cs">
-      <DependentUpon>HomeASPX.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSTemplates\CorporateSite\HomeASPX.aspx.designer.cs">
-      <DependentUpon>HomeASPX.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSTemplates\CorporateSite\HomeMixed.aspx.cs">
-      <DependentUpon>HomeMixed.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSTemplates\CorporateSite\HomeMixed.aspx.designer.cs">
-      <DependentUpon>HomeMixed.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSTemplates\CorporateSite\Root.master.cs">
-      <DependentUpon>Root.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSTemplates\CorporateSite\Root.master.designer.cs">
-      <DependentUpon>Root.master</DependentUpon>
-    </Compile>
     <Compile Include="CMSWebParts\AbuseReport\AbuseReport.ascx.designer.cs">
       <DependentUpon>AbuseReport.ascx</DependentUpon>
     </Compile>
@@ -21478,7 +21455,6 @@
     <Content Include="CMSScripts\Underscore\underscore-min.map" />
     <Content Include="CMSModules\Chat\web.config" />
     <Content Include="CMSTemplates\BlankSiteASPX\Blank.master" />
-    <Content Include="CMSTemplates\CorporateSite\Root.master" />
     <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.eot" />
     <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.ttf" />
     <Content Include="EcommerceSite\media\PTSansFont\PTSansBold.woff" />
