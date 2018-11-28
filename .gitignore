@@ -320,4 +320,3 @@ CMS/PersonalSite
 ## Project specific ignores
 # Sensitive settings
 AppSettings.config
-ConnectionStrings.config
