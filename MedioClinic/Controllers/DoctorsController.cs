@@ -49,7 +49,6 @@ namespace MedioClinic.Controllers
         }
 
         [OutputCache(Duration = 3600, VaryByParam = "nodeGuid", Location = OutputCacheLocation.Server)]
-        [Route("Detail/{nodeGuid}/{nodeAlias}")]
         public ActionResult Detail(Guid nodeGuid, string nodeAlias)
         {
             var doctor = DoctorRepository.GetDoctor(nodeGuid);
