@@ -42,9 +42,9 @@ namespace Business.Services.Cache
             HttpContext.Current.Response.AddCacheItemDependency(dependencyCacheKey);
         }
 
-        public TData Cache<TData>(Func<TData> dataLoadMethod, int cacheForMinutes, string cacheName, string cacheDependencyKey) 
+        public TData Cache<TData>(Func<TData> dataLoadMethod, int cacheForMinutes, string cacheItemName, string cacheDependencyKey) 
         {
-            var cacheSettings = new CacheSettings(cacheForMinutes, cacheName, SiteContextService.SiteName, SiteContextService.CurrentSiteCulture)
+            var cacheSettings = new CacheSettings(cacheForMinutes, cacheItemName, SiteContextService.SiteName, SiteContextService.CurrentSiteCulture)
             {
                 GetCacheDependency = () => CacheHelper.GetCacheDependency(cacheDependencyKey.ToLowerInvariant())
             };
