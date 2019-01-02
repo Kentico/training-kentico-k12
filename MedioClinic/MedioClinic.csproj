@@ -847,7 +847,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50542</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Kentico_12_MedioClinic</IISUrl>
+          <IISUrl>http://localhost/Kentico12_MedioClinic</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
