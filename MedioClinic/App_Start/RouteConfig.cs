@@ -23,13 +23,6 @@ namespace MedioClinic
             // Map routes to Kentico HTTP handlers first as some Kentico URLs might be matched by the default ASP.NET MVC route resulting in displaying pages without images
             routes.Kentico().MapRoutes();
 
-            // Redirect to administration site if the path is "admin"
-            routes.MapRoute(
-                name: "Admin",
-                url: "admin",
-                defaults: new { controller = "AdminRedirect", action = "Index" }
-            );
-
             // Maps the Not found route (the route needs to be registered separately to allow cultureless url)
             routes.MapRoute(
                 "NotFound",
