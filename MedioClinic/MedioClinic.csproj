@@ -702,7 +702,7 @@
     <Content Include="Content\Images\notfound.jpg" />
     <Content Include="Content\Images\twitter.png" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\Master\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\Master\jquery-3.3.1.js" />
     <Content Include="Scripts\Master\main.js" />
     <Content Include="Scripts\Master\materialize.min.js" />
     <Content Include="Web.config">

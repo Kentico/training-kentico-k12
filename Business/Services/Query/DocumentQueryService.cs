@@ -29,9 +29,9 @@ namespace Business.Services.Query
             if (SiteContext.IsPreviewEnabled)
             {
                 query = query
-                    .AddColumns("NodeSiteID") // Required for preview mode in Admin UI
                     .OnSite(SiteContext.SiteName) // There could be more sites with matching documents
                     .LatestVersion()
+                    .Published(false)
                     .Culture(SiteContext.PreviewCulture);
             } else {
                 query = query
