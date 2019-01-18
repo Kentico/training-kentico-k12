@@ -16,7 +16,7 @@ namespace Business.Repository.Contact
         {
             return DocumentQueryService.GetDocuments<ContactSection>()
                 .TopN(1)
-                .Columns("Title", "Subtitle", "Text", "NodeSiteId")
+                .AddColumns("Title", "Subtitle", "Text")
                 .ToList()
                 .Select(m => new ContactSectionDto()
                 {
