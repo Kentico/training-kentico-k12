@@ -13,8 +13,8 @@ namespace Business.Repository.Company
         public CompanyDto GetCompany()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.Company>()
-                .AddColumns("CompanyName", "Street", "City", "Country",
-            "ZipCode", "PhoneNumber", "Email", "DocumentID")
+                .Columns("CompanyName", "Street", "City", "Country",
+            "ZipCode", "PhoneNumber", "Email", "DocumentID", "NodeSiteId")
                 .TopN(1)
                 .ToList()
                 .Select(m =>
