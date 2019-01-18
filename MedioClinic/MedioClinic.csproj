@@ -689,7 +689,13 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\SingleColumnSection\" />
+    <Folder Include="Views\SlideshowUploader\" />
+    <Folder Include="Views\SlideshowWidget\" />
+    <Folder Include="Views\TextWidget\" />
+    <Folder Include="Views\TwoColumnSection\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Css\Master\icon.css" />
     <Content Include="Content\Css\Master\materialize.min.css" />
@@ -701,6 +707,14 @@
     <Content Include="Content\Images\Logo\mcfavicon.ico" />
     <Content Include="Content\Images\notfound.jpg" />
     <Content Include="Content\Images\twitter.png" />
+    <Content Include="Content\InlineEditors\SlideshowUploaderEditor\kentico-page-builder-namespace\kentico-page-builder-namespace.js" />
+    <Content Include="Content\InlineEditors\SlideshowUploaderEditor\slideshow-uploader-editor.js" />
+    <Content Include="Content\InlineEditors\TextEditor\custom-html\custom-html.min.js" />
+    <Content Include="Content\InlineEditors\TextEditor\medium-editor\css\medium-editor.css" />
+    <Content Include="Content\InlineEditors\TextEditor\medium-editor\css\themes\default.css" />
+    <Content Include="Content\InlineEditors\TextEditor\medium-editor\js\medium-editor.js" />
+    <Content Include="Content\InlineEditors\TextEditor\text-editor.js" />
+    <Content Include="Content\InlineEditors\TextEditor\TextEditor.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\Master\jquery-3.3.1.js" />
     <Content Include="Scripts\Master\main.js" />
@@ -719,7 +733,13 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
+    <Compile Include="Controllers\Sections\SingleColumnSectionController.cs" />
+    <Compile Include="Controllers\Sections\TwoColumnSectionController.cs" />
+    <Compile Include="Controllers\SlideshowUploaderController.cs" />
+    <Compile Include="Controllers\Widgets\SlideshowWidgetController.cs" />
+    <Compile Include="Controllers\Widgets\TextWidgetController.cs" />
     <Compile Include="Extensions\LocalizationExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -729,9 +749,17 @@
     <Compile Include="Models\Doctors\DoctorDetailViewModel.cs" />
     <Compile Include="Models\Doctors\DoctorsViewModel.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
+    <Compile Include="Models\InlineEditors\InlineEditorViewModel.cs" />
+    <Compile Include="Models\InlineEditors\SlideshowUploaderEditor\SlideshowUploaderEditorViewModel.cs" />
+    <Compile Include="Models\InlineEditors\TextEditor\TextEditorViewModel.cs" />
     <Compile Include="Models\IViewModel.cs" />
     <Compile Include="Models\KenticoSizeConstraints.cs" />
+    <Compile Include="Models\LandingPage\LandingPageViewModel.cs" />
     <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Models\Widgets\SlideshowWidget\SlideshowWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\SlideshowWidget\SlideshowWidgetViewModel.cs" />
+    <Compile Include="Models\Widgets\TextWidget\TextWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\TextWidget\TextWidgetViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\MultiCultureMvcRouteHandler.cs" />
     <Compile Include="Utils\SiteContextService.cs" />
@@ -750,6 +778,13 @@
     <Content Include="Views\NotFound\index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\LandingPage\Index.cshtml" />
+    <Content Include="Views\Shared\Sections\_SingleColumnSection.cshtml" />
+    <Content Include="Views\Shared\Sections\_TwoColumnSection.cshtml" />
+    <Content Include="Views\Shared\Widgets\_TextWidget.cshtml" />
+    <Content Include="Views\Shared\InlineEditors\_TextEditor.cshtml" />
+    <Content Include="Views\Shared\Widgets\_SlideshowWidget.cshtml" />
+    <Content Include="Views\Shared\InlineEditors\_SlideshowUploaderEditor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
@@ -757,7 +792,11 @@
       <Name>Business</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_Data\Global\Resources\MedioClinic.resx">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Global\Resources\Kentico.Builder.resx">
       <SubType>Designer</SubType>

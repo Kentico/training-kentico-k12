@@ -1,0 +1,72 @@
+﻿@using MedioClinic.Models.Widgets
+@using MedioClinic.Models.InlineEditors
+@model SlideshowWidgetViewModel
+
+@{
+    //var images = Model.Images.ToList();
+    var loop = false;
+    var swiperId = "swiper-" + Guid.NewGuid().ToString().ToLower();
+}
+
+<div class="swiper-container" id="@swiperId">
+    <div class="swiper-wrapper">
+        @*@for (int i = 0; i <= images.Count; i++)
+            {
+                var styleAttribute = images[i] != null ? $"style=\"background-image: url('{Url.KenticoImageUrl(images[i].GetPath())}');\"" : string.Empty;
+
+                <div class="swiper-slide"><div class="dropzone" id="dropzone-@i" @Html.Raw(styleAttribute)>Slide @i - <a class="dz-clickable">Upload a file</a></div></div>// TODO handle duplicate IDs
+            }*@
+        @foreach (var image in Model.Images)
+        {
+            var styleAttribute = image != null ? $"style=\"background-image: url('{Url.KenticoImageUrl(image.GetPath())}');\"" : string.Empty;
+            var imageId = "i-" + image.AttachmentGUID;
+            <div class="swiper-slide"><div class="dropzone" id="@imageId" @Html.Raw(styleAttribute)>Slide @imageId - <a class="dz-clickable">Upload a file</a></div></div>
+        }
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-scrollbar"></div>
+
+    @if (Context.Kentico().PageBuilder().EditMode)
+    {
+        Html.RenderPartial("InlineEditors/_SlideshowUploaderEditor", new SlideshowUploaderEditorViewModel
+        {
+            PropertyName = nameof(SlideshowWidgetProperties.ImageIds),
+            Images = Model.Images,
+            SwiperId = swiperId
+        });
+    }
+    else
+    {
+        loop = true;
+    }
+</div>
+
+<script>
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+            initSwiper();
+        });
+    } else {
+        initSwiper();
+    }
+
+    var initSwiper = function (swiperId) {
+        var swiper = new Swiper('#@swiperId', {
+            loop: @loop.ToString().ToLower(),
+            speed: 300,
+            navigation: {
+                nextEl: '#@swiperId .swiper-button-next',
+                prevEl: '#@swiperId .swiper-button-prev'
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+
+        window.kenticoPageBuilder.addSwiper(@swiperId, swiper);
+    }
+</script>

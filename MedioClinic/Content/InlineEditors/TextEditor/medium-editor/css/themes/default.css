@@ -1,0 +1,51 @@
+.medium-toolbar-arrow-under:after {
+    border-color: #262524 transparent transparent transparent;
+    top: 50px;
+}
+
+.medium-toolbar-arrow-over:before {
+    border-color: transparent transparent #262524 transparent;
+    top: -8px;
+}
+
+.medium-editor-toolbar {
+    background-color: #262524;
+    border: 1px solid #383838;
+    border-radius: 2px;
+    opacity: 0.9;
+}
+
+.medium-editor-toolbar:hover {
+    opacity: 1.0;
+}
+
+.medium-editor-toolbar li button {
+    background-color: #262524;
+    border: 0;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    height: 50px;
+    min-width: 50px;
+    -webkit-transition: background-color .2s ease-in;
+    transition: background-color .2s ease-in;
+    box-sizing: border-box;
+}
+
+.medium-editor-toolbar li button:hover {
+    background-color: #383838;
+}
+
+.medium-editor-toolbar li .medium-editor-button-first {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+}
+
+.medium-editor-toolbar li .medium-editor-button-last {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+
+.medium-editor-toolbar li .medium-editor-button-active,
+.medium-editor-toolbar li .medium-editor-button-active:hover {
+    background-color: #000;
+}

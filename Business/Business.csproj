@@ -453,6 +453,7 @@
     <Compile Include="Dto\Doctors\DoctorSectionDto.cs" />
     <Compile Include="Dto\Home\HomeSectionDto.cs" />
     <Compile Include="Dto\IDto.cs" />
+    <Compile Include="Dto\LandingPage\LandingPageDto.cs" />
     <Compile Include="Dto\Map\MapLocationDto.cs" />
     <Compile Include="Dto\MediaLibrary\MediaLibraryFileDto.cs" />
     <Compile Include="Dto\Menu\MenuItemDto.cs" />
@@ -470,6 +471,8 @@
     <Compile Include="Generated\Pages\DoctorSectionProvider.generated.cs" />
     <Compile Include="Generated\Pages\HomeSection.generated.cs" />
     <Compile Include="Generated\Pages\HomeSectionProvider.generated.cs" />
+    <Compile Include="Generated\Pages\LandingPage.generated.cs" />
+    <Compile Include="Generated\Pages\LandingPageProvider.generated.cs" />
     <Compile Include="Generated\Pages\MapLocation.generated.cs" />
     <Compile Include="Generated\Pages\MapLocationProvider.generated.cs" />
     <Compile Include="Generated\Pages\MenuContainer.generated.cs" />
@@ -499,6 +502,8 @@
     <Compile Include="Repository\Home\HomeSectionRepository.cs" />
     <Compile Include="Repository\Home\IHomeSectionRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\LandingPage\ILandingPageRepository.cs" />
+    <Compile Include="Repository\LandingPage\LandingPageRepository.cs" />
     <Compile Include="Repository\Map\IMapRepository.cs" />
     <Compile Include="Repository\Map\MapRepository.cs" />
     <Compile Include="Repository\Menu\IMenuRepository.cs" />
@@ -522,5 +527,6 @@
   <ItemGroup>
     <Analyzer Include="..\packages\AWSSDK.S3.3.1.9.0\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

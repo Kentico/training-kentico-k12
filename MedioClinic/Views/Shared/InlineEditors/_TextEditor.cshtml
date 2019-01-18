@@ -1,0 +1,11 @@
+﻿@model MedioClinic.Models.InlineEditors.TextEditorViewModel
+
+@using (Html.Kentico().BeginInlineEditor("text-editor", Model.PropertyName,
+    new
+    {
+        @class = "text-editor",
+        data_enable_formatting = Model.EnableFormatting.ToString()
+    }))
+{
+    @Html.Raw(Model.Text)
+}
