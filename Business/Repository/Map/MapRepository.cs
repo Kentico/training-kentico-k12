@@ -14,7 +14,7 @@ namespace Business.Repository.Map
         public IEnumerable<MapLocationDto> GetOfficeLocations()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.MapLocation>()
-                .AddColumns("Longitude", "Latitude", "Tooltip")
+                .Columns("Longitude", "Latitude", "Tooltip", "NodeSiteId")
                 .OrderByAscending("NodeOrder")
                 .ToList()
                 .Select(m => new MapLocationDto()

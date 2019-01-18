@@ -15,7 +15,7 @@ namespace Business.Repository.Doctor
             // Defines database columns for retrieving data
             // NodeGuid is retrieved automatically
             "NodeID", "NodeAlias", "Bio", "Degree", "EmergencyShift", "FirstName",
-            "LastName", "Photo", "Specialty", "DocumentID"
+            "LastName", "Photo", "Specialty", "DocumentID", "NodeSiteId"
         };
 
         private Func<CMS.DocumentEngine.Types.MedioClinic.Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
@@ -42,7 +42,7 @@ namespace Business.Repository.Doctor
         public IEnumerable<DoctorDto> GetDoctors()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.Doctor>()
-                .AddColumns(_doctorColumns)
+                .Columns(_doctorColumns)
                 .ToList()
                 .Select(DoctorDtoSelect);
         }
@@ -50,7 +50,7 @@ namespace Business.Repository.Doctor
         public DoctorDto GetDoctor(Guid nodeGuid)
         {
             return DocumentQueryService.GetDocument<CMS.DocumentEngine.Types.MedioClinic.Doctor>(nodeGuid)
-                .AddColumns(_doctorColumns)
+                .Columns(_doctorColumns)
                 .Select(DoctorDtoSelect)
                 .FirstOrDefault();
         }

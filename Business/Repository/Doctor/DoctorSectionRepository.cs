@@ -16,7 +16,7 @@ namespace Business.Repository.Doctor
         public DoctorSectionDto GetDoctorSection()
         {
             return DocumentQueryService.GetDocuments<DoctorSection>()
-                .AddColumns("Title")
+                .Columns("Title", "NodeSiteId")
                 .TopN(1)
                 .ToList()
                 .Select(m => new DoctorSectionDto()
