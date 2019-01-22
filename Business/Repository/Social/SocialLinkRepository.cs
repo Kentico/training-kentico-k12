@@ -14,7 +14,7 @@ namespace Business.Repository.Social
         public IEnumerable<SocialLinkDto> GetSocialLinks()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.SocialLink>()
-                .Columns("Title", "Url", "Icon", "DocumentID", "NodeSiteId")
+                .AddColumns("Title", "Url", "Icon", "DocumentID")
                 .OrderByAscending("NodeOrder")
                 .ToList()
                 .Select(m => new SocialLinkDto()

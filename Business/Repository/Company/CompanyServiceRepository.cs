@@ -14,7 +14,7 @@ namespace Business.Repository.Company
         public IEnumerable<CompanyServiceDto> GetCompanyServices()
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.CompanyService>()
-                .Columns("Header", "Text", "Icon", "DocumentID", "NodeSiteId")
+                .AddColumns("Header", "Text", "Icon", "DocumentID")
                 .OrderByAscending("NodeOrder")
                 .ToList()
                 .Select(m => new CompanyServiceDto()

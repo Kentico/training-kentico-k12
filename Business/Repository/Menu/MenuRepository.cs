@@ -17,7 +17,7 @@ namespace Business.Repository.Menu
         {
             return DocumentQueryService.GetDocuments<MenuContainerItem>()
                 .Path("/Menu-items", PathTypeEnum.Children)
-                .Columns("Caption", "Controller", "Action", "NodeSiteId")
+                .AddColumns("Caption", "Controller", "Action")
                 .OrderByAscending("NodeOrder")
                 .Select(m => new MenuItemDto()
                 {

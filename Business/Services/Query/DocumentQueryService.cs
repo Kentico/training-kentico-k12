@@ -29,6 +29,7 @@ namespace Business.Services.Query
             if (SiteContext.IsPreviewEnabled)
             {
                 query = query
+                    .Columns("NodeSiteId")
                     .OnSite(SiteContext.SiteName) // There could be more sites with matching documents
                     .LatestVersion()
                     .Published(false)
