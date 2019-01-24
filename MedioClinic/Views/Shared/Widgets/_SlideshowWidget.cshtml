@@ -45,28 +45,13 @@
 </div>
 
 <script>
+    @{ var loopString = loop.ToString().ToLower(); }
+
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", function () {
-            initSwiper();
-        });
+                window.kenticoPageBuilder.initSwiper("@swiperId", @loopString);
+            });
     } else {
-        initSwiper();
-    }
-
-    var initSwiper = function (swiperId) {
-        var swiper = new Swiper('#@swiperId', {
-            loop: @loop.ToString().ToLower(),
-            speed: 300,
-            navigation: {
-                nextEl: '#@swiperId .swiper-button-next',
-                prevEl: '#@swiperId .swiper-button-prev'
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            }
-        });
-
-        window.kenticoPageBuilder.addSwiper(@swiperId, swiper);
+        window.kenticoPageBuilder.initSwiper("@swiperId", @loopString);
     }
 </script>

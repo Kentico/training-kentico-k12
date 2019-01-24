@@ -2,14 +2,14 @@
     window.kentico.pageBuilder.registerInlineEditor("slideshow-uploader-editor", {
         init: function (options) {
             var editor = options.editor;
-            var swiper = window.kenticoPageBuilder.getSwiper(editor.getAttribute("data-swiper-id"));
-            var plusButton = swiper.querySelector(".sweeper-plus");
-            var minusButton = swiper.parentElement.querySelector(".sweeper-minus");
+            var plusButton = editor.parentElement.querySelector(".swiper-plus");
+            var minusButton = editor.parentElement.querySelector(".swiper-minus");
 
-            var addSlide = function (swiper, index) {
-                var tempId = generateUuid();
+            var addSlide = function (index) {
+                var swiper = getCurrentSwiper();
+                var tempId = "i-" + generateUuid();
                 var markup = buildSlideMarkup(tempId);
-                swiper.addSlide(index, markup);
+                swiper.addSlide(swiper.activeIndex, markup);
 
                 var dropZone = new Dropzone(editor.parentElement.querySelector("div#" + tempId + ".dropzone"), {
                     url: editor.getAttribute("data-upload-url"),
@@ -21,7 +21,7 @@
                         var content = JSON.parse(e.xhr.response);
                         var newId = content.guid;
                         replaceId(dropZone, newId);
-                        var slideData = collectSlideData(swiper);
+                        var slideData = collectSlideData(swiper); // TODO rename slideIds ?
 
                         var event = new CustomEvent("updateProperty",
                             {
@@ -33,15 +33,20 @@
 
                         editor.dispatchEvent(event);
                     });
+            }; //.bind(this, 1);
+
+            var getCurrentSwiper = function () {
+                //return editor.parentElement.swiper; // Retrieving via the "swiper" property of the respective HTML element
+                return window.kenticoPageBuilder.getSwiper(editor.getAttribute("data-swiper-id")); // Retrieving off of the global namespace container
             };
 
             var buildSlideMarkup = function (tempId) {
-                return '<div class="swiper-slide"><div class="dropzone" id="' + tempId + '">Slide ' + tempId + ' - <a class="dz-clickable">Upload a file</a></div></div>';
+                return '<div class="swiper-slide"><div class="dropzone" id="' + tempId + '">Slide ' + tempId + ' - <a class="dz-clickable">Upload a file</a></div></div>'; // TODO escape quotes
             };
 
             var generateUuid = function () {
-                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-                    var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+                return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+                    var r = Math.random() * 16 | 0, v = c === "x" ? r : (r & 0x3 | 0x8);
 
                     return v.toString(16);
                 });
@@ -53,13 +58,7 @@
                 return htmlElement; // TODO necessary?
             };
 
-            var removeSlide = function (swiper, index) {
-                swiper.removeSlide(index);
-
-                // TODO collect guids and dispatch event
-            };
-
-            var collectSlideData = function (swiper) {
+            var collectSlideData = function (swiper) { // TODO rename collectSlideIds ?
                 var output = [];
                 //var i = 0;
 
@@ -75,8 +74,15 @@
                 return output;
             };
 
-            plusButton.onClick = addSlide(swiper, swiper.activeIndex);
-            minusButton.onClick = removeSlide(swiper, swiper.activeIndex);
+            var removeSlide = function () {
+                var swiper = getCurrentSwiper();
+                swiper.removeSlide(swiper.activeIndex);
+
+                // TODO collect guids and dispatch event
+            };
+
+            plusButton.addEventListener("click", addSlide);
+            minusButton.addEventListener("click", removeSlide);
         },
 
         destroy: function (options) {

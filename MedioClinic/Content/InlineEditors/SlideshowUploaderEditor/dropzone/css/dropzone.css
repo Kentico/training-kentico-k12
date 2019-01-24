@@ -1,0 +1,172 @@
+.image-uploader-editor .uploader-container {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.image-uploader-editor .uploader-empty-container {
+    text-align: center;
+}
+
+.image-uploader-editor .uploader-empty-container.absolute {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+    .image-uploader-editor .uploader-empty-container .uploader {
+        min-height: 200px;
+        color: #a3a2a2;
+    }
+
+        .image-uploader-editor .uploader-empty-container .uploader .dz-clickable {
+            color: #2081c3;
+        }
+
+.image-uploader-editor .uploader, .image-uploader-editor .uploader * {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.image-uploader-editor .uploader {
+    width: 100%;
+    height: 100%;
+    color: transparent;
+}
+
+.image-uploader-editor .uploader-container .uploader.dz-drag-hover,
+.image-uploader-editor .uploader-empty-container .uploader.dz-drag-hover,
+.image-uploader-editor .uploader-empty-container .uploader:hover,
+.image-uploader-editor .uploader-container .uploader:hover {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    margin: auto;
+}
+
+.image-uploader-editor .uploader-container .uploader.dz-drag-hover,
+.image-uploader-editor .uploader-empty-container .uploader.dz-drag-hover {
+    background-color: rgba(155, 155, 155, .17);
+}
+
+.image-uploader-editor .uploader-empty-container .uploader.dz-drag-hover,
+.image-uploader-editor .uploader-empty-container .uploader:hover {
+    color: #a3a2a2;
+}
+
+.image-uploader-editor .uploader .dz-clickable {
+    cursor: pointer;
+    color: transparent;
+}
+
+.image-uploader-editor .uploader.dz-drag-hover .dz-clickable,
+.image-uploader-editor .uploader:hover .dz-clickable {
+    color: #2081c3;
+}
+
+.image-uploader-editor .uploader .dz-clickable * {
+    cursor: default;
+}
+
+.image-uploader-editor .uploader .dz-clickable .dz-message, .image-uploader-editor .uploader .dz-clickable .dz-message * {
+    cursor: pointer;
+}
+
+.image-uploader-editor .uploader .dz-message {
+    position: absolute;
+    width: 230px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.image-uploader-editor .uploader .dz-message.center {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.image-uploader-editor .uploader .dz-message.top {
+    top: 2.5rem;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+}
+
+.image-uploader-editor .uploader .dz-message.bottom {
+    top: calc(100% - 1rem);
+    left: 50%;
+    -webkit-transform: translate(-50%, -100%);
+    -ms-transform: translate(-50%, -100%);
+    transform: translate(-50%, -100%);
+}
+
+.image-uploader-editor .uploader:hover .dz-message,
+.image-uploader-editor .uploader.dz-drag-hover .dz-message {
+    background-color: rgba(155, 155, 155, .75);
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    z-index: 2;
+}
+
+.image-uploader-editor .uploader-empty-container .uploader .dz-message {
+    background-color: inherit;
+}
+
+.image-uploader-editor .uploader .dz-message .icon-arrow-up-line {
+    font-size: 32px;
+}
+
+.image-uploader-editor .uploader .dz-preview {
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    width: 230px;
+    padding: 20px;
+    margin: 2em;
+    background-color: #403e3d;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.image-uploader-editor .uploader .dz-preview .dz-progress {
+    display: block;
+    height: 15px;
+}
+
+.image-uploader-editor .uploader .dz-preview .dz-progress .dz-upload {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #2ECC40;
+}
+
+.image-uploader-editor .uploader .dz-preview .dz-error-message {
+    color: #FF4136;
+    display: none;
+}
+
+.image-uploader-editor .uploader .dz-preview.dz-error .dz-error-message, .image-uploader-editor .uploader .dz-preview.dz-error .dz-error-mark {
+    display: block;
+}
+
+.image-uploader-editor .uploader .dz-preview.dz-success .dz-success-mark {
+    display: block;
+}
+
+.image-uploader-editor .uploader .dz-preview .dz-error-mark, .image-uploader-editor .uploader .dz-preview .dz-success-mark {
+    position: absolute;
+    display: none;
+    left: 30px;
+    top: 30px;
+    width: 54px;
+    height: 58px;
+    left: 50%;
+    margin-left: -27px;
+    -ms-opacity: 0.5;
+    opacity: 0.5;
+}

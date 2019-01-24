@@ -1,0 +1,22 @@
+﻿.swiper-container {
+    border: 1px dashed red;
+    height: 300px;
+    width: 400px;
+}
+
+.swiper-wrapper {
+    border: 1px dashed green;
+    /*margin-top: 40px;*/
+}
+
+.swiper-pagination {
+    border: 1px dashed lime;
+}
+
+.swiper-button-prev, .swiper-button-next {
+    border: 1px dashed orange;
+}
+
+.swiper-scrollbar {
+    border: 1px dashed magenta;
+}

@@ -17,9 +17,9 @@
 @using (Html.Kentico().BeginInlineEditor("slideshow-uploader-editor", Model.PropertyName,
     new
     {
-        @class = "slideshow-uploader-editor", // TODO Convention?
+        @class = "slideshow-uploader-editor",
         data_image_ids = SerializeGuids(Model.Images.Select(image => image.AttachmentGUID)), // TODO Necessary? We have these via markup ...
-        data_upload_url = GetActionUrl().ToString(), // TODO Convention?
+        data_upload_url = GetActionUrl().ToString(),
         data_swiper_id = Model.SwiperId
     }))
 {
