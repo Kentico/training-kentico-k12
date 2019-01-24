@@ -689,14 +689,7 @@
       <Private>True</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Widgets\Shared\" />
-    <Folder Include="Views\SingleColumnSection\" />
-    <Folder Include="Views\SlideshowUploader\" />
-    <Folder Include="Views\SlideshowWidget\" />
-    <Folder Include="Views\TextWidget\" />
-    <Folder Include="Views\TwoColumnSection\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\Css\Master\icon.css" />
     <Content Include="Content\Css\Master\materialize.min.css" />
@@ -744,7 +737,7 @@
     <Compile Include="Controllers\NotFoundController.cs" />
     <Compile Include="Controllers\Sections\SingleColumnSectionController.cs" />
     <Compile Include="Controllers\Sections\TwoColumnSectionController.cs" />
-    <Compile Include="Controllers\SlideshowUploaderController.cs" />
+    <Compile Include="Controllers\InlineEditors\SlideshowUploaderController.cs" />
     <Compile Include="Controllers\Widgets\SlideshowWidgetController.cs" />
     <Compile Include="Controllers\Widgets\TextWidgetController.cs" />
     <Compile Include="Extensions\LocalizationExtensions.cs" />

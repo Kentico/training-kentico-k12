@@ -5,11 +5,11 @@
             var plusButton = editor.parentElement.querySelector(".swiper-plus");
             var minusButton = editor.parentElement.querySelector(".swiper-minus");
 
-            var addSlide = function (index) {
+            var addSlide = function () {
                 var swiper = getCurrentSwiper();
                 var tempId = "i-" + generateUuid();
                 var markup = buildSlideMarkup(tempId);
-                swiper.addSlide(swiper.activeIndex, markup);
+                swiper.addSlide(swiper.activeIndex + 1, markup);
 
                 var dropZone = new Dropzone(editor.parentElement.querySelector("div#" + tempId + ".dropzone"), {
                     url: editor.getAttribute("data-upload-url"),
@@ -20,14 +20,18 @@
                     function (e) {
                         var content = JSON.parse(e.xhr.response);
                         var newId = content.guid;
-                        replaceId(dropZone, newId);
-                        var slideData = collectSlideData(swiper); // TODO rename slideIds ?
+                        replaceId(dropZone.element, "i-" + newId);
+                        var slideIds = collectSlideIds(swiper);
+
+                        var slideGuids = slideIds.map(function (slideId) {
+                            return slideId.slice(-36);
+                        });
 
                         var event = new CustomEvent("updateProperty",
                             {
                                 detail: {
                                     name: options.propertyName,
-                                    value: slideData
+                                    value: slideGuids
                                 }
                             });
 
@@ -54,22 +58,23 @@
 
             var replaceId = function (htmlElement, newId) {
                 htmlElement.id = newId;
-
-                return htmlElement; // TODO necessary?
             };
 
-            var collectSlideData = function (swiper) { // TODO rename collectSlideIds ?
+            var collectSlideIds = function (swiper) { // TODO rename collectSlideIds ?
                 var output = [];
                 //var i = 0;
 
-                swiper.slides.forEach(function (slide) {
-                    //var slideData = {
-                    //    index = i,
-                    //    imageGuid = 
-                    //};
-                    var childDropzone = slide.querySelector(".dropzone");
+                for (var s = 0; s <= swiper.slides.length - 1; s++) {
+                    var childDropzone = swiper.slides[s].children[0];
                     output.push(childDropzone.id);
-                });
+                }
+
+                //swiper.slides.forEach(function (slide) {
+                //    //var slideData = {
+                //    //    index = i,
+                //    //    imageGuid = 
+                //    //};
+                //});
 
                 return output;
             };

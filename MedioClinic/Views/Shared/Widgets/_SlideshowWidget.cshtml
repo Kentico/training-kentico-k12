@@ -16,11 +16,14 @@
 
                 <div class="swiper-slide"><div class="dropzone" id="dropzone-@i" @Html.Raw(styleAttribute)>Slide @i - <a class="dz-clickable">Upload a file</a></div></div>// TODO handle duplicate IDs
             }*@
-        @foreach (var image in Model.Images)
+        @if (Model.Images != null && Model.Images.Any())
         {
-            var styleAttribute = image != null ? $"style=\"background-image: url('{Url.KenticoImageUrl(image.GetPath())}');\"" : string.Empty;
-            var imageId = "i-" + image.AttachmentGUID;
-            <div class="swiper-slide"><div class="dropzone" id="@imageId" @Html.Raw(styleAttribute)>Slide @imageId - <a class="dz-clickable">Upload a file</a></div></div>
+            foreach (var image in Model.Images)
+            {
+                var styleAttribute = image != null ? $"style=\"background-image: url('{Url.KenticoImageUrl(image.GetPath())}');\"" : string.Empty;
+                var imageId = "i-" + image.AttachmentGUID;
+                <div class="swiper-slide"><div class="dropzone" id="@imageId" @Html.Raw(styleAttribute)>Slide @imageId - <a class="dz-clickable">Upload a file</a></div></div>
+            }
         }
     </div>
 

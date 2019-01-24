@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-using CMS.DocumentEngine;
+﻿using CMS.DocumentEngine;
 using Kentico.PageBuilder.Web.Mvc;
 using MedioClinic.Controllers.Widgets;
 using MedioClinic.Models.Widgets;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
 
 [assembly: RegisterWidget("MedioClinic.Widget.Slideshow", typeof(SlideshowWidgetController), "{$MedioClinic.Widget.Slideshow.Name$}", Description = "{$MedioClinic.Widget.Slideshow.Description$}", IconClass = "icon-carousel")]
 
@@ -27,7 +25,18 @@ namespace MedioClinic.Controllers.Widgets
         public ActionResult Index()
         {
             var properties = GetProperties();
-            var images = GetImages(properties);
+
+            var guids = properties?
+                .ImageIds?
+                .Select(imageId =>
+                {
+                    Guid guid;
+
+                    return Guid.TryParse(imageId, out guid) ? guid : Guid.Empty;
+                })
+                .Where(guid => guid != Guid.Empty);
+
+            var images = GetImages(guids);
 
             return PartialView("Widgets/_SlideshowWidget", new SlideshowWidgetViewModel
             {
@@ -35,12 +44,16 @@ namespace MedioClinic.Controllers.Widgets
             });
         }
 
-        private IEnumerable<DocumentAttachment> GetImages(SlideshowWidgetProperties properties)
+        private IEnumerable<DocumentAttachment> GetImages(IEnumerable<Guid> guids)
         {
             var page = GetPage();
-            return page?
-                .AllAttachments
-                .Where(attachment => properties.ImageIds.Any(guid => guid == attachment.AttachmentGUID));
+
+            return guids != null && guids.Any()
+                ? page?
+                    .AllAttachments
+                    .Where(attachment => guids.Any(guid => guid == attachment.AttachmentGUID))
+                    .ToList()
+                : new List<DocumentAttachment>();
         }
     }
 }

@@ -9,6 +9,6 @@ namespace MedioClinic.Models.Widgets
 {
     public class SlideshowWidgetProperties : IWidgetProperties
     {
-        public Guid[] ImageIds { get; set; }
+        public string[] ImageIds { get; set; }
     }
 }
