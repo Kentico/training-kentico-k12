@@ -20,3 +20,15 @@
 .swiper-scrollbar {
     border: 1px dashed magenta;
 }
+
+.dropzone {
+    height: 300px;
+    width: 400px;
+}
+
+/*Image rendering: Alternative 2*/
+.dz-preview {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}

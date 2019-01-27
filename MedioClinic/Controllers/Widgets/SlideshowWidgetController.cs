@@ -13,6 +13,9 @@ namespace MedioClinic.Controllers.Widgets
 {
     public class SlideshowWidgetController : WidgetController<SlideshowWidgetProperties>
     {
+        protected const int DefaultWidth = 400;
+        protected const int DefaultHeight = 300;
+
         public SlideshowWidgetController()
         {
         }
@@ -37,10 +40,21 @@ namespace MedioClinic.Controllers.Widgets
                 .Where(guid => guid != Guid.Empty);
 
             var images = GetImages(guids);
+            //int width, height;
+
+            if (!int.TryParse(properties.Width, out int width) || !int.TryParse(properties.Height, out int height))
+            {
+                width = DefaultWidth;
+                height = DefaultHeight;
+            }
 
             return PartialView("Widgets/_SlideshowWidget", new SlideshowWidgetViewModel
             {
-                Images = images
+                Images = images,
+                //Width = properties.Width == 0 ? DefaultWidth : properties.Width,
+                //Height = properties.Height == 0 ? DefaultHeight : properties.Height
+                Width = width,
+                Height = height
             });
         }
 
@@ -48,12 +62,18 @@ namespace MedioClinic.Controllers.Widgets
         {
             var page = GetPage();
 
-            return guids != null && guids.Any()
-                ? page?
+            if (guids != null && guids.Any())
+            {
+                var guidList = guids.ToList();
+
+                return page?
                     .AllAttachments
                     .Where(attachment => guids.Any(guid => guid == attachment.AttachmentGUID))
-                    .ToList()
-                : new List<DocumentAttachment>();
+                    .OrderBy(attachment => guidList.IndexOf(attachment.AttachmentGUID))
+                    .ToList();
+            }
+
+            return new List<DocumentAttachment>();
         }
     }
 }

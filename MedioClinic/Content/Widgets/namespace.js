@@ -1,19 +1,22 @@
 ﻿(function (kenticoPageBuilder, undefined) {
     var swipers = [];
+    kenticoPageBuilder.swiperGuidAttribute = "data-swiper-guid";
 
     kenticoPageBuilder.addSwiper = function (id, swiper) {
-        var found = false;
-        var foundPosition = -1;
+        //var found = false;
+        //var foundPosition = -1;
 
-        for (var i = 0; i <= swipers.length - 1; i++) {
-            if (swipers[i].id === id) {
-                found = true;
-                foundPosition = i;
-            }
-        }
+        //for (var i = 0; i <= swipers.length - 1; i++) {
+        //    if (swipers[i].id === id) {
+        //        found = true;
+        //        foundPosition = i;
+        //    }
+        //}
+
+        var found = kenticoPageBuilder.getSwiper(id);
 
         if (found) {
-            return swipers[foundPosition].id;
+            return found[0].id;
         } else {
             var swiperToAdd = {
                 id: id,
@@ -27,11 +30,20 @@
     };
 
     kenticoPageBuilder.getSwiper = function (id) {
-        for (var i = 0; i <= swipers.length - 1; i++) {
-            if (swipers[i].id === id) {
-                return swipers[i].swiper;
-            }
+        var found = swipers.filter(function (currentSwiper) {
+            return currentSwiper.id === id;
+        });
+
+        if (found.length > 0) {
+            return found[0];
+        } else {
+            return null;
         }
+        //for (var i = 0; i <= swipers.length - 1; i++) {
+        //    if (swipers[i].id === id) {
+        //        return swipers[i].swiper;
+        //    }
+        //}
     };
 
     kenticoPageBuilder.removeSwiper = function (id) {
@@ -57,5 +69,32 @@
         });
 
         kenticoPageBuilder.addSwiper(swiperId, swiper);
+    };
+
+    kenticoPageBuilder.getCurrentSwiper = function (editor, swiperGuidAttribute) {
+        // Retrieving via the "swiper" property of the respective HTML element
+        //return editor.parentElement.swiper;
+
+        // Retrieving off of the global namespace container
+        return kenticoPageBuilder.getSwiper(editor.getAttribute(swiperGuidAttribute)).swiper;
+    };
+
+    kenticoPageBuilder.collectDropzoneIds = function (swiper) { // TODO rename collectDropzoneIds ?
+        var output = [];
+        //var i = 0;
+
+        for (var s = 0; s <= swiper.slides.length - 1; s++) {
+            var childDropzone = swiper.slides[s].children[0];
+            output.push(childDropzone.id);
+        }
+
+        //swiper.slides.forEach(function (slide) {
+        //    //var slideData = {
+        //    //    index = i,
+        //    //    imageGuid = 
+        //    //};
+        //});
+
+        return output;
     };
 }(window.kenticoPageBuilder = window.kenticoPageBuilder || {}, undefined));

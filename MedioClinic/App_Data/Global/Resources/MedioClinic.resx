@@ -132,8 +132,14 @@
   <data name="MedioClinic.Widget.Slideshow.Description" xml:space="preserve">
     <value>Slideshow widget that displays multiple images stored as page attachments.</value>
   </data>
+  <data name="MedioClinic.Widget.Slideshow.Height" xml:space="preserve">
+    <value>Height (pixels)</value>
+  </data>
   <data name="MedioClinic.Widget.Slideshow.Name" xml:space="preserve">
     <value>Slideshow</value>
+  </data>
+  <data name="MedioClinic.Widget.Slideshow.Width" xml:space="preserve">
+    <value>Width (pixels)</value>
   </data>
   <data name="MedioClinic.Widget.Text.Description" xml:space="preserve">
     <value>Text area supporting basic formatting.</value>

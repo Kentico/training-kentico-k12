@@ -3,26 +3,20 @@
 @model SlideshowWidgetViewModel
 
 @{
-    //var images = Model.Images.ToList();
     var loop = false;
     var swiperId = "swiper-" + Guid.NewGuid().ToString().ToLower();
+    var containerStyleAttribute = $"width:{Model.Width}px; height:{Model.Height}px";
 }
 
-<div class="swiper-container" id="@swiperId">
+<div class="swiper-container" id="@swiperId" style="@containerStyleAttribute">
     <div class="swiper-wrapper">
-        @*@for (int i = 0; i <= images.Count; i++)
-            {
-                var styleAttribute = images[i] != null ? $"style=\"background-image: url('{Url.KenticoImageUrl(images[i].GetPath())}');\"" : string.Empty;
-
-                <div class="swiper-slide"><div class="dropzone" id="dropzone-@i" @Html.Raw(styleAttribute)>Slide @i - <a class="dz-clickable">Upload a file</a></div></div>// TODO handle duplicate IDs
-            }*@
         @if (Model.Images != null && Model.Images.Any())
         {
             foreach (var image in Model.Images)
             {
-                var styleAttribute = image != null ? $"style=\"background-image: url('{Url.KenticoImageUrl(image.GetPath())}');\"" : string.Empty;
+                var imageStyleAttribute = image != null ? $"style=\"background-image: url('{Url.KenticoImageUrl(image.GetPath())}');{containerStyleAttribute}\"" : string.Empty;
                 var imageId = "i-" + image.AttachmentGUID;
-                <div class="swiper-slide"><div class="dropzone" id="@imageId" @Html.Raw(styleAttribute)>Slide @imageId - <a class="dz-clickable">Upload a file</a></div></div>
+                <div class="swiper-slide"><div class="dropzone" id="@imageId" @Html.Raw(imageStyleAttribute)>Slide @imageId - <a class="dz-clickable">Upload a file</a></div></div>
             }
         }
     </div>
@@ -34,10 +28,12 @@
 
     @if (Context.Kentico().PageBuilder().EditMode)
     {
-        Html.RenderPartial("InlineEditors/_SlideshowUploaderEditor", new SlideshowUploaderEditorViewModel
+        Html.RenderPartial("InlineEditors/_SlideshowEditor", new SlideshowEditorViewModel
         {
             PropertyName = nameof(SlideshowWidgetProperties.ImageIds),
             Images = Model.Images,
+            Width = Model.Width,
+            Height = Model.Height,
             SwiperId = swiperId
         });
     }
