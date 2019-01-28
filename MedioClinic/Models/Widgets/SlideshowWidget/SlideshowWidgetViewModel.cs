@@ -12,5 +12,7 @@ namespace MedioClinic.Models.Widgets
         public IEnumerable<DocumentAttachment> Images { get; set; }
         public int Width { get; set; }
         public int Height { get; set; }
+        public int TransitionDelay { get; set; }
+        public int TransitionSpeed { get; set; }
     }
 }

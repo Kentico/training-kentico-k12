@@ -93,6 +93,21 @@
             Returns key value as string. Key is lowercased for string key type.
             </summary>
         </member>
+        <member name="M:CMS.DataEngine.MemoryCacheStorage`2.ResetCacheEntryMonitorCacheItem">
+            <summary>
+            Initialize or Re-initialize cache entry cache monitor.
+            </summary>
+        </member>
+        <member name="T:CMS.DataEngine.MemoryCacheItemPolicy">
+            <summary>
+            Helper methods and properties related to <see cref="T:System.Runtime.Caching.CacheItemPolicy"/> used for <see cref="T:CMS.DataEngine.MemoryCacheStorage`2"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DataEngine.MemoryCacheItemPolicy.GetDefaultPolicyWithClearCacheMonitor(System.Runtime.Caching.MemoryCache)">
+            <summary>
+            Returns <see cref="T:System.Runtime.Caching.CacheItemPolicy"/> with <see cref="F:System.Runtime.Caching.CacheItemPriority.Default"/> priority and cache entry cache monitor attached to <see cref="F:CMS.DataEngine.MemoryCacheItemPolicy.CLEAR_CACHE_ITEM"/> name.
+            </summary>
+        </member>
         <member name="T:CMS.DataEngine.ICacheStorage`2">
             <summary>
             Represents required cache storage members.

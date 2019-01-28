@@ -11,8 +11,8 @@
     }
 
     // Image rendering: Alternative 2 (begin)
-    /*string SerializeGuids(IEnumerable<Guid> guids) =>
-        string.Concat(guids.Select(guid => guid.ToString() + ";"));*/
+    string SerializeGuids(IEnumerable<Guid> guids) =>
+        string.Concat(guids.Select(guid => guid.ToString() + ";"));
     // Image rendering: Alternative 2 (end)
 }
 
@@ -20,17 +20,24 @@
     new
     {
         @class = "slideshow-editor",
+        data_swiper_guid = Model.SwiperId,
 
         // Image rendering: Alternative 2
-        /*data_image_guids = SerializeGuids(Model.Images.Select(image => image.AttachmentGUID)),*/
+        data_image_guids = SerializeGuids(Model.Images.Select(image => image.AttachmentGUID)),
 
         data_upload_url = GetActionUrl("Upload").ToString(),
         data_delete_url = GetActionUrl("Delete").ToString(),
         data_width = Model.Width,
         data_height = Model.Height,
-        data_swiper_guid = Model.SwiperId
+        data_droptext = Html.Localize("InlineEditors.SlideshowEditor.DropText")
     }))
 {
-    <div class="swiper-plus">+</div>
-    <div class="swiper-minus">-</div>
+    <ul class="slideshow-buttons">
+        <li>
+            <button class="swiper-plus">+</button>
+        </li>
+        <li>
+            <button class="swiper-minus">-</button>
+        </li>
+    </ul>
 }

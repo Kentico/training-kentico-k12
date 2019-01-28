@@ -1,0 +1,16 @@
+﻿.section-single-col {
+    width: auto;
+}
+
+.section-two-col {
+    width: 50%;
+    float: left;
+}
+
+.row {
+    /* TODO Handle page builder quirk with page width */
+}
+
+.row--with-cols-padding {
+    /* TODO Handle page builder quirk with page width */
+}

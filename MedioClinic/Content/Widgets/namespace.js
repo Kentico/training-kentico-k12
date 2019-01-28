@@ -54,10 +54,12 @@
         }
     };
 
-    kenticoPageBuilder.initSwiper = function (swiperId, loop) {
-        var swiper = new Swiper("#" + swiperId, {
-            loop: loop,
-            speed: 300,
+    kenticoPageBuilder.initSwiper = function (swiperId, editMode, transitionDelay, transitionSpeed) {
+        var swiperSelector = "#" + swiperId;
+
+        var configuration = {
+            loop: !editMode,
+            speed: transitionSpeed,
             navigation: {
                 nextEl: "#" + swiperId + " .swiper-button-next",
                 prevEl: "#" + swiperId + " .swiper-button-prev"
@@ -66,8 +68,16 @@
             fadeEffect: {
                 crossFade: true
             }
-        });
+        };
 
+        if (!editMode) {
+            configuration["autoplay"] = {
+                delay: transitionDelay,
+                disableOnInteraction: true
+            };
+        }
+
+        var swiper = new Swiper(swiperSelector, configuration);
         kenticoPageBuilder.addSwiper(swiperId, swiper);
     };
 

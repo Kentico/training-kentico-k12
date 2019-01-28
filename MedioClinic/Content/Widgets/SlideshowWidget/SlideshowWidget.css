@@ -1,34 +1,32 @@
 ﻿.swiper-container {
-    border: 1px dashed red;
-    height: 300px;
-    width: 400px;
+
 }
 
 .swiper-wrapper {
-    border: 1px dashed green;
-    /*margin-top: 40px;*/
+
 }
 
 .swiper-pagination {
-    border: 1px dashed lime;
+
 }
 
 .swiper-button-prev, .swiper-button-next {
-    border: 1px dashed orange;
+
 }
 
 .swiper-scrollbar {
-    border: 1px dashed magenta;
+
 }
 
-.dropzone {
-    height: 300px;
-    width: 400px;
+.slideshow-image {
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/*Image rendering: Alternative 2*/
+/*Image rendering: Alternative 2 (begin) */
 .dz-preview {
     position: absolute;
     top: 0;
     z-index: -1;
 }
+/*Image rendering: Alternative 2 (end) */

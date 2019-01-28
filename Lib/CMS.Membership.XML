@@ -2591,11 +2591,6 @@
             Membership related context methods and variables.
             </summary>
         </member>
-        <member name="F:CMS.Membership.MembershipContext.SHIFTED_INTERVAL_IN_MINUTES">
-            <summary>
-            Time interval used for creating token info.
-            </summary>
-        </member>
         <member name="F:CMS.Membership.MembershipContext.MF_AUTHENICATION_INFO">
             <summary>
             Session key used for information about partially authentication.

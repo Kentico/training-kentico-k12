@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Web;
 
 using CMS.Base.Web.UI;
 using CMS.Core;
@@ -164,7 +164,9 @@ public partial class CMSModules_DataProtection_Pages_PersonalDataManagement : CM
     private void RegisterDeleteDataScripts()
     {
         ScriptHelper.RegisterDialogScript(this);
-        var dialogUrl = ApplicationUrlHelper.GetElementDialogUrl(DataProtectionModule.MODULE_NAME, ERASURE_CONFIGURATION_DIALOG_ELEMENT_NAME, additionalQuery: "subjectIdentifiers=" + mDataSubjectIdentifiersFilter);
+
+        var dialogQuery = $"subjectIdentifiers={HttpUtility.UrlEncode(mDataSubjectIdentifiersFilter)}";
+        var dialogUrl = ApplicationUrlHelper.GetElementDialogUrl(DataProtectionModule.MODULE_NAME, ERASURE_CONFIGURATION_DIALOG_ELEMENT_NAME, additionalQuery: dialogQuery);
         var script = $@"
             function SelectDataToDelete()
             {{

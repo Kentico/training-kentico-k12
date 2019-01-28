@@ -138,6 +138,12 @@
   <data name="MedioClinic.Widget.Slideshow.Name" xml:space="preserve">
     <value>Slideshow</value>
   </data>
+  <data name="MedioClinic.Widget.Slideshow.TransitionDelay" xml:space="preserve">
+    <value>Transition delay (milliseconds)</value>
+  </data>
+  <data name="MedioClinic.Widget.Slideshow.TransitionSpeed" xml:space="preserve">
+    <value>Transition speed (milliseconds)</value>
+  </data>
   <data name="MedioClinic.Widget.Slideshow.Width" xml:space="preserve">
     <value>Width (pixels)</value>
   </data>

@@ -44,7 +44,7 @@ namespace MedioClinic.Controllers
         }
 
         // DELETE: SlideshowManagement/Delete
-        [HttpPost]
+        [HttpDelete]
         public ActionResult Delete(int pageId, [System.Web.Http.FromBody] Guid? attachmentGuid)
         {
             if (attachmentGuid != null)

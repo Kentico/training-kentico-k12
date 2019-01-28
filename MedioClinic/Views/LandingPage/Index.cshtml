@@ -2,6 +2,18 @@
 
 @section Styles {
     @Html.Kentico().PageBuilderStyles()
+    <link href="@Url.Content("~/Content/LandingPage.css")" rel="stylesheet" type="text/css" />
+    <style>
+        .section-single-col {
+            width: auto;
+        }
+
+        .section-two-col {
+            width: 50%;
+            float: left;
+        }
+    </style>
+    @* TODO Deal with the stylesheet inclusion problem *@
 }
 
 <div>

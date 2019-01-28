@@ -65757,10 +65757,4 @@ Before sending the data to other services or data subjects, make sure it contain
   <data name="objecttype.com_skuallowedoption" xml:space="preserve">
     <value>Product allowed option</value>
   </data>
-  <data name="content.ui.previewinnewtab" xml:space="preserve">
-    <value>Open in a new tab</value>
-  </data>
-  <data name="content.ui.previewoptions" xml:space="preserve">
-    <value>Show preview options</value>
-  </data>
 </root>

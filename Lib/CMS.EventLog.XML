@@ -1475,6 +1475,11 @@
             </summary>
             <param name="ex">Exception thrown upon problem with logging</param>
         </member>
+        <member name="M:CMS.EventLog.EventLogProvider.IncrementLoggedEventsCount(System.Int32)">
+            <summary>
+            Increment cached number of logged events for given <paramref name="siteId"/>.
+            </summary>
+        </member>
         <member name="T:CMS.EventLog.EventLogHandlers">
             <summary>
             Event log handlers

@@ -442,7 +442,7 @@
         </member>
         <member name="M:CMS.Search.Azure.SearchTaskEngine.GetIndexesWithSearchableObjectsForPartialRebuild(System.String,System.String,CMS.Search.Internal.SearchablesRetriever)">
             <summary>
-            Returns collection of Azure indexes with all the related <see cref="T:CMS.DataEngine.ISearchable"/> objects for given <paramref name="objectType"/> 
+            Returns collection of Azure indexes with all the related <see cref="T:CMS.DataEngine.ISearchable"/> objects for given <paramref name="objectType"/>
             and <paramref name="siteNodeIdentifier"/> (site name and node alias path) that are necessary for partial rebuild.
             </summary>
         </member>
@@ -465,8 +465,8 @@
             <param name="indexInfo">Defines <see cref="T:CMS.Search.SearchIndexInfo"/> to be created or updated in Azure Search service.</param>
             <param name="searchables">Objects whose documents in the index should be modified. Modification is defined by <paramref name="transformSearchableToIndexAction"/>.</param>
             <param name="transformSearchableToIndexAction">Defines how <paramref name="indexInfo"/> should be modified by a <see cref="T:CMS.DataEngine.ISearchable"/> object from <paramref name="searchables"/>.</param>
-            <param name="existingIndex"> 
-            Defines Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> already existing in Azure Search service. Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> has to be defined if there 
+            <param name="existingIndex">
+            Defines Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> already existing in Azure Search service. Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> has to be defined if there
             is already existing Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> otherwise <see cref="T:Microsoft.Rest.Azure.CloudException"/> may be thrown.
             Can be null or empty if Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> is created from scratch.
             </param>

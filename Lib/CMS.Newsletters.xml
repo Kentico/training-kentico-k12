@@ -5498,6 +5498,18 @@
             </summary>
             <param name="subscriberObj">Subscriber object</param>
         </member>
+        <member name="M:CMS.Newsletters.SubscriberInfoProvider.UpdateDataInternal(CMS.DataEngine.WhereCondition,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Updates the data in the database based on the given where condition.
+            </summary>
+            <param name="where">Where condition</param>
+            <param name="values">New values for the data. Dictionary of [columnName] => [value]</param>
+        </member>
+        <member name="M:CMS.Newsletters.SubscriberInfoProvider.BulkDeleteInternal(CMS.DataEngine.IWhereCondition)">
+            <summary>
+            Bulk deletes info objects based on the given condition.
+            </summary>
+        </member>
         <member name="T:CMS.Newsletters.SubscriptionHelper">
             <summary>
             Handles all work with subscriptions.
@@ -8318,6 +8330,13 @@
             </summary>
             <param name="newsletterId">Id of newsletter</param>
             <returns>DataQuery containing all IDs of subscribers with a given newsletter</returns>
+        </member>
+        <member name="M:CMS.Newsletters.SubscriberNewsletterInfoProvider.UpdateDataInternal(CMS.DataEngine.WhereCondition,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Updates the data in the database based on the given where condition.
+            </summary>
+            <param name="where">Where condition</param>
+            <param name="values">New values for the data. Dictionary of [columnName] => [value]</param>
         </member>
         <member name="T:CMS.Newsletters.ThreadEmailSender">
             <summary>

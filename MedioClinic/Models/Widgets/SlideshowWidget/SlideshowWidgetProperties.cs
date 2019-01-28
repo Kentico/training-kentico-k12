@@ -12,10 +12,16 @@ namespace MedioClinic.Models.Widgets
     {
         public string[] ImageIds { get; set; }
 
-        [EditingComponent(TextInputComponent.IDENTIFIER, Label = "{$MedioClinic.Widget.Slideshow.Width$}", Order = 1)]
-        public string Width { get; set; }
+        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$MedioClinic.Widget.Slideshow.Width$}", Order = 1)]
+        public int Width { get; set; } = 400;
 
-        [EditingComponent(TextInputComponent.IDENTIFIER, Label = "{$MedioClinic.Widget.Slideshow.Height$}", Order = 2)]
-        public string Height { get; set; }
+        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$MedioClinic.Widget.Slideshow.Height$}", Order = 2)]
+        public int Height { get; set; } = 300;
+
+        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$MedioClinic.Widget.Slideshow.TransitionDelay$}", Order = 3)]
+        public int TransitionDelay { get; set; } = 5000;
+
+        [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$MedioClinic.Widget.Slideshow.TransitionSpeed$}", Order = 4)]
+        public int TransitionSpeed { get; set; } = 300;
     }
 }

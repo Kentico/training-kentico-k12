@@ -683,11 +683,3 @@ span.kn-badge.closed {
             cursor: pointer;
             display: block;
         }
-
-.section-single-col {
-    width: auto;
-}
-
-.section-two-col {
-    width: 50%;
-}
