@@ -627,8 +627,9 @@
     <Content Include="Content\Images\Logo\mcfavicon.ico" />
     <Content Include="Content\Images\notfound.jpg" />
     <Content Include="Content\Images\twitter.png" />
-    <Content Include="Content\InlineEditors\SlideshowEditor\dropzone\css\dropzone.css" />
-    <Content Include="Content\InlineEditors\SlideshowEditor\dropzone\js\dropzone.js" />
+    <Content Include="Content\InlineEditors\ImageUploaderEditor\image-uploader-editor.js" />
+    <Content Include="Content\InlineEditors\ImageUploaderEditor\ImageUploaderEditor.css" />
+    <Content Include="Content\InlineEditors\Shared\dropzone\js\dropzone.js" />
     <Content Include="Content\Widgets\medio-clinic.js" />
     <Content Include="Content\InlineEditors\SlideshowEditor\slideshow-editor.js" />
     <Content Include="Content\InlineEditors\SlideshowEditor\SlideshowEditor.css" />
@@ -710,11 +711,15 @@
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\FormComponents\MediaLibraryUploaderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InlineEditors\ImageUploaderController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
     <Compile Include="Controllers\Sections\SingleColumnSectionController.cs" />
-    <Compile Include="Controllers\Sections\TwoColumnSectionController.cs" />
+    <Compile Include="Controllers\Sections\TwoColumnFiftyFiftySectionController.cs" />
     <Compile Include="Controllers\InlineEditors\SlideshowManagementController.cs" />
+    <Compile Include="Controllers\Sections\TwoColumnFourtySixtySectionController.cs" />
+    <Compile Include="Controllers\Sections\TwoColumnSixtyFourtySectionController.cs" />
+    <Compile Include="Controllers\Widgets\ImageWidgetController.cs" />
     <Compile Include="Controllers\Widgets\SlideshowWidgetController.cs" />
     <Compile Include="Controllers\Widgets\TextWidgetController.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
@@ -733,12 +738,15 @@
     <Compile Include="Models\FormComponents\MediaLibraryUploaderComponent.cs" />
     <Compile Include="Models\FormComponents\MediaLibraryUploaderProperties.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
+    <Compile Include="Models\InlineEditors\ImageUploaderEditor\ImageUploaderEditorViewModel.cs" />
     <Compile Include="Models\InlineEditors\InlineEditorViewModel.cs" />
     <Compile Include="Models\InlineEditors\SlideshowEditor\SlideshowEditorViewModel.cs" />
     <Compile Include="Models\InlineEditors\TextEditor\TextEditorViewModel.cs" />
     <Compile Include="Models\IViewModel.cs" />
     <Compile Include="Models\KenticoSizeConstraints.cs" />
     <Compile Include="Models\PageViewModel.cs" />
+    <Compile Include="Models\Widgets\ImageWidget\ImageWidgetProperties.cs" />
+    <Compile Include="Models\Widgets\ImageWidget\ImageWidgetViewModel.cs" />
     <Compile Include="Models\Widgets\SlideshowWidget\SlideshowWidgetProperties.cs" />
     <Compile Include="Models\Widgets\SlideshowWidget\SlideshowWidgetViewModel.cs" />
     <Compile Include="Models\Widgets\TextWidget\TextWidgetProperties.cs" />
@@ -766,13 +774,17 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\LandingPage\Index.cshtml" />
     <Content Include="Views\Shared\Sections\_SingleColumnSection.cshtml" />
-    <Content Include="Views\Shared\Sections\_TwoColumnSection.cshtml" />
+    <Content Include="Views\Shared\Sections\_TwoColumnFiftyFiftySection.cshtml" />
     <Content Include="Views\Shared\Widgets\_TextWidget.cshtml" />
     <Content Include="Views\Shared\InlineEditors\_TextEditor.cshtml" />
     <Content Include="Views\Shared\Widgets\_SlideshowWidget.cshtml" />
     <Content Include="Views\Shared\InlineEditors\_SlideshowEditor.cshtml" />
     <Content Include="Views\Shared\FormComponents\_MedioClinic.FormComponent.MediaLibraryUploader.cshtml" />
     <Content Include="Views\Shared\FormComponents\_MedioClinic.FormComponent.MediaLibrarySelection.cshtml" />
+    <Content Include="Views\Shared\Sections\_TwoColumnFourtySixtySection.cshtml" />
+    <Content Include="Views\Shared\Sections\_TwoColumnSixtyFourtySection.cshtml" />
+    <Content Include="Views\Shared\InlineEditors\_ImageUploaderEditor.cshtml" />
+    <Content Include="Views\Shared\Widgets\_ImageWidget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

@@ -15,7 +15,7 @@
                 var swiper = window.medioClinic.getCurrentSwiper(editor, medioClinic.swiperGuidAttribute);
                 var tempGuid = generateUuid();
                 var tempId = imageGuidPrefix + tempGuid;
-                var markup = buildSlideMarkup(tempId, editor.getAttribute("data-droptext"));
+                var markup = buildSlideMarkup(tempId, editor.getAttribute("data-droptext")); // TODO Use localization service instead
                 var activeIndexWhenAdded = swiper.slides.length > 0 ? swiper.activeIndex + 1 : 0;
 
                 // Image rendering: Alternative 2
@@ -28,8 +28,12 @@
                 var previewTemplate = "<div class=\"dz-preview dz-file-preview\"><img data-dz-thumbnail /></div>";
 
                 var dropzone = new Dropzone(editor.parentElement.querySelector("div#" + tempId + ".dropzone"), {
+                    acceptedFiles: ".bmp, .gif, .ico, .png, .wmf, .jpg, .jpeg, .tiff, .tif",
+                    maxFiles: 1,
                     url: editor.getAttribute("data-upload-url"),
                     clickable: editor.parentElement.querySelector("div#" + tempId + ".dropzone a.dz-clickable"),
+                    dictInvalidFileType: options.localizationService.getString(
+                        "MedioClinic.InlineEditors.SlideshowEditor.InvalidFileType"),
 
                     // Image rendering: Alternative 2 (begin)
                     previewsContainer: swiper.slides[activeIndexWhenAdded],
@@ -63,7 +67,7 @@
             var hideDropzoneLabels = function (dropzoneElement) {
                 dropzoneElement.querySelector("a.dz-clickable").style.display = "none";
                 dropzoneElement.querySelector(".dz-message").style.display = "none";
-            }
+            };
 
             // Image rendering: Alternative 1 (begin)
             /*var getGuidFromId = function (id) {

@@ -1,0 +1,31 @@
+﻿@using MedioClinic.Models.InlineEditors
+@model ImageUploaderEditorViewModel
+
+@{
+    HtmlString GetActionUrl()
+    {
+        return Url.Kentico().AuthenticateUrl(Url.Action("Upload", "ImageUploader", new
+        {
+            pageId = Context.Kentico().PageBuilder().PageIdentifier
+        }), false);
+    }
+
+    string GetContainerClass() =>
+        Model.Image != null ? "kn-image-uploader-container" : "kn-image-uploader-empty-container";
+}
+
+@using (Html.Kentico().BeginInlineEditor("image-uploader-editor", Model.PropertyName,
+    new
+    {
+        @class = "image-uploader-editor",
+        data_upload_url = GetActionUrl().ToString()
+    }))
+{
+    <div class="@GetContainerClass()">
+        <div class="uploader">
+            <div class="dz-message top">
+                @Html.Raw(Html.Localize("InlineEditor.ImageEditor.DropText"))
+            </div>
+        </div>
+    </div>
+}

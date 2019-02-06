@@ -43,6 +43,7 @@ namespace MedioClinic.Controllers.Widgets
                 Images = images,
                 Width = properties.Width,
                 Height = properties.Height,
+                EnforceDimensions = properties.EnforceDimensions,
                 TransitionDelay = properties.TransitionDelay,
                 TransitionSpeed = properties.TransitionSpeed,
                 DisplayArrowSigns = properties.DisplayArrowSigns

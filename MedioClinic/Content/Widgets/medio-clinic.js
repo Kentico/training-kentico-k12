@@ -1,6 +1,9 @@
 ﻿(function (medioClinic, undefined) {
     var swipers = [];
-    medioClinic.swiperGuidAttribute = "data-swiper-guid";
+    medioClinic.swiperGuidAttribute = "data-swiper-guid"; // TODO Must be public?
+    var onSwiperResize = function () {
+        console.info(this);
+    };
 
     medioClinic.addSwiper = function (id, swiper) {
         var found = medioClinic.getSwiper(id);
@@ -52,7 +55,8 @@
             effect: "fade",
             fadeEffect: {
                 crossFade: true
-            }
+            },
+            autoHeight: true
         };
 
         if (!editMode) {

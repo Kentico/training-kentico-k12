@@ -5,11 +5,9 @@
 @model SlideshowWidgetViewModel
 
 @{
-    var editMode = false;
+    var editMode = Context.Kentico().PageBuilder().EditMode;
     var swiperId = "swiper-" + Guid.NewGuid().ToString().ToLower();
     var swiperArtifactClass = $"{swiperId}-artifact";
-    var hideArrowSignsCss = $@"#{swiperId} .swiper-button-prev, #{swiperId} .swiper-button-next {{ display: none; }}";
-    var containerStyleAttribute = $"width:{Model.Width}px;\nheight:{Model.Height}px;";
     var containerAspectRatio = (double)Model.Width / (double)Model.Height;
 
     IImageSizeConstraint GetImageSizeConstraint(DocumentAttachment documentAttachment, int frameWidth, int frameHeight)
@@ -27,13 +25,18 @@
     }
 }
 
+@* Partial views don't support @section directives. *@
 <style>
     .@Html.Raw(swiperArtifactClass) {
-        @Html.Raw(containerStyleAttribute)
+        @if (editMode || (!editMode && Model.EnforceDimensions))
+        {
+            @Html.Raw($"width:{Model.Width}px;\nheight:{Model.Height}px;")
+        }
     }
 
-    @if (!Model.DisplayArrowSigns && !Context.Kentico().PageBuilder().EditMode)
+    @if (!editMode && !Model.DisplayArrowSigns)
     {
+        var hideArrowSignsCss = $@"#{swiperId} .swiper-button-prev, #{swiperId} .swiper-button-next {{ display: none; }}";
         @Html.Raw(hideArrowSignsCss);
     }
 </style>
@@ -42,13 +45,35 @@
     <div class="swiper-wrapper">
         @if (Model.Images != null && Model.Images.Any())
         {
+            var dimensionAttribute = string.Empty;
+
+            if (!editMode)
+            {
+                if (Model.EnforceDimensions)
+                {
+                    dimensionAttribute = $"width=\"{Model.Width}\" height=\"{Model.Height}\"";
+                }
+                else
+                {
+                    dimensionAttribute = $"class=\"responsive-img\"";
+                }
+            }
+
             foreach (var image in Model.Images)
             {
                 var sizeConstraint = GetImageSizeConstraint(image, Model.Width, Model.Height);
-                var imageStyleAttribute = image != null ? $"style=\"background-image: url('{Url.KenticoImageUrl(image.GetPath(), sizeConstraint)}');\"" : string.Empty;
+                var imageUrl = Url.KenticoImageUrl(image.GetPath(), sizeConstraint);
+                var imageStyleAttribute = image != null ? $"style=\"background-image: url('{imageUrl}');\"" : string.Empty;
                 var imageId = "i-" + image.AttachmentGUID;
                 <div class="swiper-slide">
-                    <div class="dropzone slideshow-image @Html.Raw(swiperArtifactClass)" id="@imageId" @Html.Raw(imageStyleAttribute)></div>
+                    @if (editMode)
+                    {
+                        <div class="dropzone slideshow-image @Html.Raw(swiperArtifactClass)" id="@imageId" @Html.Raw(imageStyleAttribute)></div>
+                    }
+                    else
+                    {
+                        <img src="@Html.Raw(imageUrl)" @Html.Raw(dimensionAttribute) />
+                    }
                 </div>
             }
         }
@@ -57,9 +82,8 @@
     <div class="swiper-pagination"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-    <div class="swiper-scrollbar"></div>
 
-    @if (Context.Kentico().PageBuilder().EditMode)
+    @if (editMode)
     {
         editMode = true;
 
@@ -74,6 +98,7 @@
     }
 </div>
 
+@* Partial views don't support @section directives. *@
 <script>
     @{
         var editModeLiteral = editMode.ToString().ToLower();
