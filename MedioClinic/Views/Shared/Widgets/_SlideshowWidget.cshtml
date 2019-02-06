@@ -8,6 +8,7 @@
     var editMode = false;
     var swiperId = "swiper-" + Guid.NewGuid().ToString().ToLower();
     var swiperArtifactClass = $"{swiperId}-artifact";
+    var hideArrowSignsCss = $@"#{swiperId} .swiper-button-prev, #{swiperId} .swiper-button-next {{ display: none; }}";
     var containerStyleAttribute = $"width:{Model.Width}px;\nheight:{Model.Height}px;";
     var containerAspectRatio = (double)Model.Width / (double)Model.Height;
 
@@ -29,6 +30,11 @@
 <style>
     .@Html.Raw(swiperArtifactClass) {
         @Html.Raw(containerStyleAttribute)
+    }
+
+    @if (!Model.DisplayArrowSigns && !Context.Kentico().PageBuilder().EditMode)
+    {
+        @Html.Raw(hideArrowSignsCss);
     }
 </style>
 
@@ -66,15 +72,12 @@
             SwiperId = swiperId
         });
     }
-    else
-    {
-    }
 </div>
 
 <script>
     @{
         var editModeLiteral = editMode.ToString().ToLower();
-        var initSwiperLiteral = $"window.kenticoPageBuilder.initSwiper(\"{swiperId}\", {editModeLiteral}, {Model.TransitionDelay}, {Model.TransitionSpeed});";
+        var initSwiperLiteral = $"window.medioClinic.initSwiper(\"{swiperId}\", {editModeLiteral}, {Model.TransitionDelay}, {Model.TransitionSpeed});";
     }
 
     if (document.readyState === "loading") {

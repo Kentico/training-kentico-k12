@@ -7,17 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 
-[assembly: RegisterWidget("MedioClinic.Widget.Slideshow", typeof(SlideshowWidgetController), "{$MedioClinic.Widget.Slideshow.Name$}", Description = "{$MedioClinic.Widget.Slideshow.Description$}", IconClass = "icon-carousel")]
+[assembly: RegisterWidget("MedioClinic.Widget.Slideshow", typeof(SlideshowWidgetController), "{$Widget.Slideshow.Name$}", Description = "{$Widget.Slideshow.Description$}", IconClass = "icon-carousel")]
 
 namespace MedioClinic.Controllers.Widgets
 {
     public class SlideshowWidgetController : WidgetController<SlideshowWidgetProperties>
     {
-        protected const int DefaultWidthPixels = 400;
-        protected const int DefaultHeightPixels = 300;
-        protected const int DefaultTransitionDelayMilliseconds = 5000;
-        protected const int DefaultTransitionSpeedMilliseconds = 300;
-
         public SlideshowWidgetController()
         {
         }
@@ -43,18 +38,14 @@ namespace MedioClinic.Controllers.Widgets
 
             var images = GetImages(guids);
 
-
             return PartialView("Widgets/_SlideshowWidget", new SlideshowWidgetViewModel
             {
                 Images = images,
-                //Width = properties.Width == 0 ? DefaultWidthPixels : properties.Width,
-                //Height = properties.Height == 0 ? DefaultHeightPixels : properties.Height,
-                //TransitionDelay = properties.TransitionDelay == 0 ? DefaultTransitionDelayMilliseconds : properties.TransitionDelay,
-                //TransitionSpeed = properties.TransitionSpeed == 0 ? DefaultTransitionSpeedMilliseconds : properties.TransitionSpeed
                 Width = properties.Width,
                 Height = properties.Height,
                 TransitionDelay = properties.TransitionDelay,
-                TransitionSpeed = properties.TransitionSpeed
+                TransitionSpeed = properties.TransitionSpeed,
+                DisplayArrowSigns = properties.DisplayArrowSigns
             });
         }
 

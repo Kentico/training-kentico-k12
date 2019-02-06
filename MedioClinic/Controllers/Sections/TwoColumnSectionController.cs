@@ -3,7 +3,7 @@
 using Kentico.PageBuilder.Web.Mvc;
 using MedioClinic.Controllers.Sections;
 
-[assembly: RegisterSection("MedioClinic.TwoColumnSection", typeof(TwoColumnSectionController), "{$MedioClinic.Section.TwoColumn.Name$}", Description = "{$MedioClinic.Section.TwoColumn.Description$}", IconClass = "icon-l-cols-2")]
+[assembly: RegisterSection("MedioClinic.Section.TwoColumn", typeof(TwoColumnSectionController), "{$Section.TwoColumn.Name$}", Description = "{$Section.TwoColumn.Description$}", IconClass = "icon-l-cols-2")]
 
 
 namespace MedioClinic.Controllers.Sections

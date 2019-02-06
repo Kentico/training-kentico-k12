@@ -618,6 +618,8 @@
     <Content Include="Content\Css\Master\icon.css" />
     <Content Include="Content\Css\Master\materialize.min.css" />
     <Content Include="Content\Css\Master\style.css" />
+    <Content Include="Content\FormComponents\MediaLibraryUploaderComponent\media-library-uploader-component.js" />
+    <Content Include="Content\FormComponents\MediaLibraryUploaderComponent\MediaLibraryUploaderComponent.css" />
     <Content Include="Content\Images\facebook.png" />
     <Content Include="Content\Images\Logo\favicon.png" />
     <Content Include="Content\Images\Logo\Logoic.png" />
@@ -627,8 +629,7 @@
     <Content Include="Content\Images\twitter.png" />
     <Content Include="Content\InlineEditors\SlideshowEditor\dropzone\css\dropzone.css" />
     <Content Include="Content\InlineEditors\SlideshowEditor\dropzone\js\dropzone.js" />
-    <Content Include="Content\Css\LandingPage.css" />
-    <Content Include="Content\Widgets\namespace.js" />
+    <Content Include="Content\Widgets\medio-clinic.js" />
     <Content Include="Content\InlineEditors\SlideshowEditor\slideshow-editor.js" />
     <Content Include="Content\InlineEditors\SlideshowEditor\SlideshowEditor.css" />
     <Content Include="Content\Widgets\SlideshowWidget\swiper\css\swiper.css" />
@@ -707,6 +708,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
+    <Compile Include="Controllers\FormComponents\MediaLibraryUploaderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
     <Compile Include="Controllers\NotFoundController.cs" />
@@ -715,6 +717,8 @@
     <Compile Include="Controllers\InlineEditors\SlideshowManagementController.cs" />
     <Compile Include="Controllers\Widgets\SlideshowWidgetController.cs" />
     <Compile Include="Controllers\Widgets\TextWidgetController.cs" />
+    <Compile Include="Extensions\ArrayExtensions.cs" />
+    <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\LocalizationExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="Global.asax.cs">
@@ -723,13 +727,17 @@
     <Compile Include="Models\Contact\ContactViewModel.cs" />
     <Compile Include="Models\Doctors\DoctorDetailViewModel.cs" />
     <Compile Include="Models\Doctors\DoctorsViewModel.cs" />
+    <Compile Include="Models\FormComponents\MediaLibraryImageDimensionValidationRule.cs" />
+    <Compile Include="Models\FormComponents\MediaLibrarySelectionComponent.cs" />
+    <Compile Include="Models\FormComponents\MediaLibrarySelectionProperties.cs" />
+    <Compile Include="Models\FormComponents\MediaLibraryUploaderComponent.cs" />
+    <Compile Include="Models\FormComponents\MediaLibraryUploaderProperties.cs" />
     <Compile Include="Models\Home\HomeViewModel.cs" />
     <Compile Include="Models\InlineEditors\InlineEditorViewModel.cs" />
     <Compile Include="Models\InlineEditors\SlideshowEditor\SlideshowEditorViewModel.cs" />
     <Compile Include="Models\InlineEditors\TextEditor\TextEditorViewModel.cs" />
     <Compile Include="Models\IViewModel.cs" />
     <Compile Include="Models\KenticoSizeConstraints.cs" />
-    <Compile Include="Models\LandingPage\LandingPageViewModel.cs" />
     <Compile Include="Models\PageViewModel.cs" />
     <Compile Include="Models\Widgets\SlideshowWidget\SlideshowWidgetProperties.cs" />
     <Compile Include="Models\Widgets\SlideshowWidget\SlideshowWidgetViewModel.cs" />
@@ -763,17 +771,14 @@
     <Content Include="Views\Shared\InlineEditors\_TextEditor.cshtml" />
     <Content Include="Views\Shared\Widgets\_SlideshowWidget.cshtml" />
     <Content Include="Views\Shared\InlineEditors\_SlideshowEditor.cshtml" />
+    <Content Include="Views\Shared\FormComponents\_MedioClinic.FormComponent.MediaLibraryUploader.cshtml" />
+    <Content Include="Views\Shared\FormComponents\_MedioClinic.FormComponent.MediaLibrarySelection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{af9c5150-d83e-42d2-add1-edc97e19f5ef}</Project>
       <Name>Business</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Data\Global\Resources\MedioClinic.resx">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Kentico\Scripts\builders\builder.js" />
@@ -790,6 +795,7 @@
     <Content Include="Kentico\Scripts\builders\form-builder.css" />
     <Content Include="Kentico\Scripts\forms\updatableFormHelper.js" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

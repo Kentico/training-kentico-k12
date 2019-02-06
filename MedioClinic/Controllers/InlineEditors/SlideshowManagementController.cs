@@ -108,7 +108,7 @@ namespace MedioClinic.Controllers
 
         private string EnsureUploadDirectory()
         {
-            var directoryPath = $"{Server.MapPath(@"~\")}App_Data\\Temp\\ImageUploader";
+            var directoryPath = $"{Server.MapPath(@"~\")}App_Data\\Temp\\SlideshowEditor";
 
             if (!Directory.Exists(directoryPath))
             {

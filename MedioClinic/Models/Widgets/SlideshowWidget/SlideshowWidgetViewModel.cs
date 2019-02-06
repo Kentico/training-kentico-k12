@@ -14,5 +14,6 @@ namespace MedioClinic.Models.Widgets
         public int Height { get; set; }
         public int TransitionDelay { get; set; }
         public int TransitionSpeed { get; set; }
+        public bool DisplayArrowSigns { get; set; }
     }
 }

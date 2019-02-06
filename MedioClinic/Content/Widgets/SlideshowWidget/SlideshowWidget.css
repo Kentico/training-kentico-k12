@@ -15,7 +15,7 @@
 }
 
 .swiper-scrollbar {
-
+    display: none;
 }
 
 .slideshow-image {

@@ -1,11 +1,9 @@
+document.addEventListener("DOMContentLoaded", function () {
+    var sidenavElement = document.querySelector(".sidenav");
+    M.Sidenav.init(sidenavElement);
+    var dropdownElement = document.querySelector(".dropdown-trigger");
 
-$(function () {
-    // sidenav
-    $('.sidenav').sidenav();
-
-    // languages dropdown
-    $(".dropdown-trigger").dropdown({
+    M.Dropdown.init(dropdownElement, {
         hover: false
     });
 });
-

@@ -5,7 +5,7 @@ using MedioClinic.Models.Widgets;
 
 using Kentico.PageBuilder.Web.Mvc;
 
-[assembly: RegisterWidget("MedioClinic.General.TextWidget", typeof(TextWidgetController), "{$MedioClinic.Widget.Text.Name$}", Description = "{$MedioClinic.Widget.Text.Description$}", IconClass = "icon-l-text")]
+[assembly: RegisterWidget("MedioClinic.Widget.Text", typeof(TextWidgetController), "{$Widget.Text.Name$}", Description = "{$Widget.Text.Description$}", IconClass = "icon-l-text")]
 
 namespace MedioClinic.Controllers.Widgets
 {
@@ -18,7 +18,6 @@ namespace MedioClinic.Controllers.Widgets
         {
         }
 
-
         /// <summary>
         /// Creates an instance of <see cref="TextWidgetController"/> class.
         /// </summary>
@@ -29,7 +28,6 @@ namespace MedioClinic.Controllers.Widgets
                                         ICurrentPageRetriever currentPageRetriever) : base(propertiesRetriever, currentPageRetriever)
         {
         }
-
 
         // GET: TextWidget
         public ActionResult Index()

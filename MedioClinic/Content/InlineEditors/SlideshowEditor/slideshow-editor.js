@@ -12,7 +12,7 @@
             // Image rendering: Alternative 2 (end)
 
             var addSlide = function () {
-                var swiper = window.kenticoPageBuilder.getCurrentSwiper(editor, kenticoPageBuilder.swiperGuidAttribute);
+                var swiper = window.medioClinic.getCurrentSwiper(editor, medioClinic.swiperGuidAttribute);
                 var tempGuid = generateUuid();
                 var tempId = imageGuidPrefix + tempGuid;
                 var markup = buildSlideMarkup(tempId, editor.getAttribute("data-droptext"));
@@ -47,7 +47,7 @@
                         hideDropzoneLabels(dropzone.element);
 
                         // Image rendering: Alternative 1 (begin)
-                        /*var slideIdsAfterUpload = window.kenticoPageBuilder.collectDropzoneIds(swiper);
+                        /*var slideIdsAfterUpload = window.medioClinic.collectDropzoneIds(swiper);
 
                         var imageGuids = slideIdsAfterUpload.map(function (slideId) {
                             return getGuidFromId(slideId);
@@ -108,10 +108,10 @@
             };
 
             var removeSlide = function () {
-                var swiper = window.kenticoPageBuilder.getCurrentSwiper(editor, kenticoPageBuilder.swiperGuidAttribute);
+                var swiper = window.medioClinic.getCurrentSwiper(editor, medioClinic.swiperGuidAttribute);
 
                 // Image rendering: Alternative 1 (begin)
-                /*var dropzoneIds = window.kenticoPageBuilder.collectDropzoneIds(swiper);
+                /*var dropzoneIds = window.medioClinic.collectDropzoneIds(swiper);
 
                 var imageGuids = dropzoneIds.map(function (slideId) {
                     return getGuidFromId(slideId);
@@ -146,10 +146,10 @@
         },
 
         destroy: function (options) {
-            var swiper = window.kenticoPageBuilder.getCurrentSwiper(options.editor, kenticoPageBuilder.swiperGuidAttribute);
+            var swiper = window.medioClinic.getCurrentSwiper(options.editor, medioClinic.swiperGuidAttribute);
 
             if (swiper) {
-                var dropzoneIds = window.kenticoPageBuilder.collectDropzoneIds(swiper);
+                var dropzoneIds = window.medioClinic.collectDropzoneIds(swiper);
 
                 if (dropzoneIds && Array.isArray(dropzoneIds)) {
                     dropzoneIds.forEach(function (dropzoneId) {
@@ -161,7 +161,7 @@
                     });
                 }
 
-                window.kenticoPageBuilder.removeSwiper(swiper.el.id);
+                window.medioClinic.removeSwiper(swiper.el.id);
                 swiper.destroy();
             }
         }
