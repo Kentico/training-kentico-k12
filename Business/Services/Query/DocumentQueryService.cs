@@ -29,14 +29,16 @@ namespace Business.Services.Query
             if (SiteContext.IsPreviewEnabled)
             {
                 query = query
-                    .Columns("NodeSiteId") // Set initial columns returned for optimization.  If not set, all columns are returned.
+                    .Columns("NodeSiteId", "NodeGuid") // Set initial columns returned for optimization.  If not set, all columns are returned.
                     .OnSite(SiteContext.SiteName) // There could be more sites with matching documents
                     .LatestVersion()
                     .Published(false)
                     .Culture(SiteContext.PreviewCulture);
-            } else {
+            }
+            else
+            {
                 query = query
-                    .Columns("DocumentId") // Set initial columns returned for optimization.  If not set, all columns are returned.
+                    .Columns("DocumentId", "NodeGuid") // Set initial columns returned for optimization.  If not set, all columns are returned.
                     .OnSite(SiteContext.SiteName) // There could be more sites with matching documents
                     .Published()
                     .PublishedVersion()
