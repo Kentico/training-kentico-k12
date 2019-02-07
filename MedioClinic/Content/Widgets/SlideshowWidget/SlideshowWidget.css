@@ -1,20 +1,4 @@
-﻿.swiper-container {
-
-}
-
-.swiper-wrapper {
-
-}
-
-.swiper-pagination {
-
-}
-
-.swiper-button-prev, .swiper-button-next {
-
-}
-
-.slideshow-image {
+﻿.kn-slideshow-image {
     background-position: center;
     background-repeat: no-repeat;
 }

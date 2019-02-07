@@ -4,6 +4,7 @@ using CMS.Membership;
 using CMS.SiteProvider;
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+using MedioClinic.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,29 +16,25 @@ namespace MedioClinic.Controllers
 {
     public class SlideshowManagementController : Controller
     {
-        private static readonly HashSet<string> allowedExtensions = new HashSet<string>(new[]
+        protected string TempPath => $"{Server.MapPath(@"~\")}App_Data\\Temp\\SlideshowEditor";
+
+        protected IFileManagementHelper FileManagementHelper { get; }
+
+        public SlideshowManagementController(IFileManagementHelper fileManagementHelper)
         {
-            ".bmp",
-            ".gif",
-            ".ico",
-            ".png",
-            ".wmf",
-            ".jpg",
-            ".jpeg",
-            ".tiff",
-            ".tif"
-        }, StringComparer.OrdinalIgnoreCase);
+            FileManagementHelper = fileManagementHelper ?? throw new ArgumentNullException(nameof(fileManagementHelper));
+        }
 
         // POST: SlideshowManagement/Upload
         [HttpPost]
         public JsonResult Upload(int pageId)
         {
-            var page = GetPageWithSanityChecks(pageId);
+            var page = FileManagementHelper.GetPage(pageId);
             var imageGuid = Guid.Empty;
 
             foreach (string requestFileName in Request.Files)
             {
-                imageGuid = AddUnsortedAttachment(page, requestFileName);
+                imageGuid = FileManagementHelper.AddUnsortedAttachment(page, requestFileName, Request, TempPath);
             }
 
             return Json(new { guid = imageGuid });
@@ -49,7 +46,7 @@ namespace MedioClinic.Controllers
         {
             if (attachmentGuid != null)
             {
-                var page = GetPageWithSanityChecks(pageId);
+                var page = FileManagementHelper.GetPage(pageId);
                 var attachment = DocumentHelper.GetAttachment(page, attachmentGuid.Value);
 
                 if (attachment != null)
@@ -68,76 +65,6 @@ namespace MedioClinic.Controllers
             }
 
             return new HttpStatusCodeResult(HttpStatusCode.NoContent);
-        }
-
-        private Guid AddUnsortedAttachment(TreeNode page, string requestFileName)
-        {
-            if (!(Request.Files[requestFileName] is HttpPostedFileWrapper file))
-            {
-                return Guid.Empty;
-            }
-
-            var directoryPath = EnsureUploadDirectory();
-            var imagePath = GetTempFilePath(directoryPath, file);
-            byte[] data = new byte[file.ContentLength];
-            file.InputStream.Seek(0, SeekOrigin.Begin);
-            file.InputStream.Read(data, 0, file.ContentLength);
-            CMS.IO.File.WriteAllBytes(imagePath, data);
-            var attachmentGuid = DocumentHelper.AddUnsortedAttachment(page, Guid.Empty, imagePath).AttachmentGUID;
-            CMS.IO.File.Delete(imagePath);
-
-            return attachmentGuid;
-        }
-
-        private string GetTempFilePath(string directoryPath, HttpPostedFileBase file)
-        {
-            var fileName = Path.GetFileName(file.FileName);
-
-            if (string.IsNullOrEmpty(fileName))
-            {
-                throw new InvalidOperationException("Cannot upload file without file name.");
-            }
-
-            if (!allowedExtensions.Contains(Path.GetExtension(file.FileName)))
-            {
-                throw new InvalidOperationException("Cannot upload file of this type.");
-            }
-
-            return Path.Combine(directoryPath, fileName);
-        }
-
-        private string EnsureUploadDirectory()
-        {
-            var directoryPath = $"{Server.MapPath(@"~\")}App_Data\\Temp\\SlideshowEditor";
-
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath);
-            }
-
-            return directoryPath;
-        }
-
-        private bool CheckPagePermissions(TreeNode page)
-        {
-            return page?.CheckPermissions(PermissionsEnum.Modify, SiteContext.CurrentSiteName, MembershipContext.AuthenticatedUser) ?? false;
-        }
-
-        private TreeNode GetPageWithSanityChecks(int pageId)
-        {
-            if (!HttpContext.Kentico().PageBuilder().EditMode)
-            {
-                throw new HttpException(403, "It is allowed to upload an image only when the page builder is in the edit mode.");
-            }
-
-            var page = DocumentHelper.GetDocument(pageId, null);
-
-            if (!CheckPagePermissions(page))
-            {
-                throw new HttpException(403, "You are not authorized to upload an image to the page.");
-            }
-
-            return page;
         }
     }
 }

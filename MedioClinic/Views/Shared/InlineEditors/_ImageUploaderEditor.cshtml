@@ -17,14 +17,14 @@
 @using (Html.Kentico().BeginInlineEditor("image-uploader-editor", Model.PropertyName,
     new
     {
-        @class = "image-uploader-editor",
+        @class = "kn-image-uploader-editor",
         data_upload_url = GetActionUrl().ToString()
     }))
 {
     <div class="@GetContainerClass()">
-        <div class="uploader">
+        <div class="dz-uploader">
             <div class="dz-message top">
-                @Html.Raw(Html.Localize("InlineEditor.ImageEditor.DropText"))
+                @Html.Raw(Html.Localize("InlineEditors.Dropzone.DropText"))
             </div>
         </div>
     </div>

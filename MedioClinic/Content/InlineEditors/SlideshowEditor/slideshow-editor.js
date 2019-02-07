@@ -3,8 +3,8 @@
         init: function (options) {
             var imageGuidPrefix = "i-";
             var editor = options.editor;
-            var plusButton = editor.parentElement.querySelector("ul.slideshow-buttons .swiper-plus");
-            var minusButton = editor.parentElement.querySelector("ul.slideshow-buttons .swiper-minus");
+            var plusButton = editor.parentElement.querySelector("ul.kn-slideshow-buttons .kn-swiper-plus");
+            var minusButton = editor.parentElement.querySelector("ul.kn-slideshow-buttons .kn-swiper-minus");
 
             // Image rendering: Alternative 2 (begin)
             var imageGuids = editor.getAttribute("data-image-guids").split(";");
@@ -12,10 +12,13 @@
             // Image rendering: Alternative 2 (end)
 
             var addSlide = function () {
-                var swiper = window.medioClinic.getCurrentSwiper(editor, medioClinic.swiperGuidAttribute);
+                var swiper = medioClinic
+                    .slideshowWidget
+                    .getCurrentSwiper(editor, medioClinic.slideshowWidget.swiperGuidAttribute);
                 var tempGuid = generateUuid();
                 var tempId = imageGuidPrefix + tempGuid;
-                var markup = buildSlideMarkup(tempId, editor.getAttribute("data-droptext")); // TODO Use localization service instead
+                var markup =
+                    buildSlideMarkup(tempId, options.localizationService.getString("InlineEditors.Dropzone.DropText"));
                 var activeIndexWhenAdded = swiper.slides.length > 0 ? swiper.activeIndex + 1 : 0;
 
                 // Image rendering: Alternative 2
@@ -28,7 +31,7 @@
                 var previewTemplate = "<div class=\"dz-preview dz-file-preview\"><img data-dz-thumbnail /></div>";
 
                 var dropzone = new Dropzone(editor.parentElement.querySelector("div#" + tempId + ".dropzone"), {
-                    acceptedFiles: ".bmp, .gif, .ico, .png, .wmf, .jpg, .jpeg, .tiff, .tif",
+                    acceptedFiles: medioClinic.dropzoneCommon.acceptedFiles,
                     maxFiles: 1,
                     url: editor.getAttribute("data-upload-url"),
                     clickable: editor.parentElement.querySelector("div#" + tempId + ".dropzone a.dz-clickable"),
@@ -51,7 +54,7 @@
                         hideDropzoneLabels(dropzone.element);
 
                         // Image rendering: Alternative 1 (begin)
-                        /*var slideIdsAfterUpload = window.medioClinic.collectDropzoneIds(swiper);
+                        /*var slideIdsAfterUpload = medioClinic.slideshowWidget.collectDropzoneIds(swiper);
 
                         var imageGuids = slideIdsAfterUpload.map(function (slideId) {
                             return getGuidFromId(slideId);
@@ -81,12 +84,13 @@
             };
 
             var buildSlideMarkup = function (tempId, dropText) {
-                return '<div class="swiper-slide dropzone-previews"><div class="dropzone" id="' + tempId + '"><div class="dz-message">' + dropText + '</div></div></div>'; // TODO escape quotes
+                return "<div class=\"swiper-slide dropzone-previews\"><div class=\"dropzone\" id=\""
+                    + tempId + "\"><div class=\"dz-message\">" + dropText + "</div></div></div>";
             };
 
             var generateUuid = function () {
                 return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
-                    var r = Math.random() * 16 | 0, v = c === "x" ? r : (r & 0x3 | 0x8);
+                    var r = Math.random() * 16 | 0, v = c === "x" ? r : r & 0x3 | 0x8;
 
                     return v.toString(16);
                 });
@@ -112,10 +116,12 @@
             };
 
             var removeSlide = function () {
-                var swiper = window.medioClinic.getCurrentSwiper(editor, medioClinic.swiperGuidAttribute);
+                var swiper = medioClinic
+                    .slideshowWidget
+                    .getCurrentSwiper(editor, medioClinic.slideshowWidget.swiperGuidAttribute);
 
                 // Image rendering: Alternative 1 (begin)
-                /*var dropzoneIds = window.medioClinic.collectDropzoneIds(swiper);
+                /*var dropzoneIds = medioClinic.slideshowWidget.collectDropzoneIds(swiper);
 
                 var imageGuids = dropzoneIds.map(function (slideId) {
                     return getGuidFromId(slideId);
@@ -150,10 +156,12 @@
         },
 
         destroy: function (options) {
-            var swiper = window.medioClinic.getCurrentSwiper(options.editor, medioClinic.swiperGuidAttribute);
+            var swiper = medioClinic
+                .slideshowWidget
+                .getCurrentSwiper(options.editor, medioClinic.slideshowWidget.swiperGuidAttribute);
 
             if (swiper) {
-                var dropzoneIds = window.medioClinic.collectDropzoneIds(swiper);
+                var dropzoneIds = medioClinic.slideshowWidget.collectDropzoneIds(swiper);
 
                 if (dropzoneIds && Array.isArray(dropzoneIds)) {
                     dropzoneIds.forEach(function (dropzoneId) {
@@ -165,7 +173,7 @@
                     });
                 }
 
-                window.medioClinic.removeSwiper(swiper.el.id);
+                medioClinic.slideshowWidget.removeSwiper(swiper.el.id);
                 swiper.destroy();
             }
         }

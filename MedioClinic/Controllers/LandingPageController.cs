@@ -12,17 +12,15 @@ namespace MedioClinic.Controllers
         private ILandingPageRepository LandingPageRepository { get; }
 
         public LandingPageController(
-            IBusinessDependencies dependencies,
-            ILandingPageRepository landingPageRepository
-            ) : base(dependencies)
+            IBusinessDependencies dependencies, ILandingPageRepository landingPageRepository) : base(dependencies)
         {
             LandingPageRepository = landingPageRepository;
         }
 
         // GET: LandingPage
-        public ActionResult Index(string pageAlias)
+        public ActionResult Index(string nodeAlias)
         {
-            var landingPageDto = LandingPageRepository.GetLandingPage(pageAlias);
+            var landingPageDto = LandingPageRepository.GetLandingPage(nodeAlias);
 
             if (landingPageDto == null)
             {

@@ -19,7 +19,7 @@
 @using (Html.Kentico().BeginInlineEditor("slideshow-editor", Model.PropertyName,
     new
     {
-        @class = "slideshow-editor",
+        @class = "kn-slideshow-editor",
         data_swiper_guid = Model.SwiperId,
 
         // Image rendering: Alternative 2
@@ -29,15 +29,14 @@
         data_delete_url = GetActionUrl("Delete").ToString(),
         data_width = Model.Width,
         data_height = Model.Height,
-        data_droptext = Html.Localize("InlineEditor.SlideshowEditor.DropText")
     }))
 {
-    <ul class="slideshow-buttons">
+    <ul class="kn-slideshow-buttons">
         <li>
-            <button class="swiper-plus">+</button>
+            <button class="kn-swiper-plus">+</button>
         </li>
         <li>
-            <button class="swiper-minus">-</button>
+            <button class="kn-swiper-minus">-</button>
         </li>
     </ul>
 }

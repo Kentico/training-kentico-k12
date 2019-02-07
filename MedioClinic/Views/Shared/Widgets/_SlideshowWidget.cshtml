@@ -68,7 +68,7 @@
                 <div class="swiper-slide">
                     @if (editMode)
                     {
-                        <div class="dropzone slideshow-image @Html.Raw(swiperArtifactClass)" id="@imageId" @Html.Raw(imageStyleAttribute)></div>
+                        <div class="dropzone kn-slideshow-image @Html.Raw(swiperArtifactClass)" id="@imageId" @Html.Raw(imageStyleAttribute)></div>
                     }
                     else
                     {
@@ -102,7 +102,7 @@
 <script>
     @{
         var editModeLiteral = editMode.ToString().ToLower();
-        var initSwiperLiteral = $"window.medioClinic.initSwiper(\"{swiperId}\", {editModeLiteral}, {Model.TransitionDelay}, {Model.TransitionSpeed});";
+        var initSwiperLiteral = $"medioClinic.slideshowWidget.initSwiper(\"{swiperId}\", {editModeLiteral}, {Model.TransitionDelay}, {Model.TransitionSpeed});";
     }
 
     if (document.readyState === "loading") {

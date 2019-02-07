@@ -4,15 +4,21 @@
             var editor = options.editor;
             var config = {
                 toolbar: {
-                  buttons: ["bold", "italic", "underline", "orderedlist", "unorderedlist", "h1", "h2", "h3", "customHtml"]
+                    buttons: [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "orderedlist",
+                        "unorderedlist",
+                        "h1",
+                        "h2",
+                        "h3",
+                        "customHtml"
+                    ]
                 },
                 imageDragging: false,
                 extensions: {
-                  imageDragging: {},
-                  customHtml: new CustomHtml({
-                      buttonText: "Horiz. ruler",
-                      htmlToInsert: "<hr />"
-                  })
+                  imageDragging: {}
                 }
             };
 

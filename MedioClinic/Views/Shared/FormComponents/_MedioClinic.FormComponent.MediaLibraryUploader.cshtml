@@ -95,10 +95,10 @@
     {
         string currentFilePathId = Html.IdFor(model => model.FileGuid).ToString();
         IDictionary<string, object> fileInputAttributes = ViewData.GetEditorHtmlAttributes();
-        fileInputAttributes["onchange"] = "renderFileDetails(this);";
+        fileInputAttributes["onchange"] = "medioClinic.mediaLibraryUploaderComponent.renderFileDetails(this);";
         IDictionary<string, object> hiddenInputAttributes = ViewData.GetEditorHtmlAttributes();
         IDictionary<string, object> buttonAttributes = ViewData.GetEditorHtmlAttributes();
-        buttonAttributes["onclick"] = $"uploadFile(this, \"{GetActionUrl(Model.PageId, currentFilePathId)}\");";
+        buttonAttributes["onclick"] = $"medioClinic.mediaLibraryUploaderComponent.uploadFile(this, \"{GetActionUrl(Model.PageId, currentFilePathId)}\");";
         buttonAttributes["type"] = "button";
 
         <div class="kn-media-library-uploader grey lighten-5">

@@ -42,9 +42,9 @@ namespace MedioClinic
 
             route = routes.MapRoute(
                 name: "LandingPage",
-                url: "{culture}/LandingPage/{pageAlias}",
+                url: "{culture}/LandingPage/{nodeAlias}",
                 defaults: new { culture = defaultCulture.Name, controller = "LandingPage", action = "Index" },
-                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename)/*, nodeAlias = new OptionalRouteConstraint(new AlphaRouteConstraint())*/ } // TODO: Remove?
+                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), nodeAlias = new OptionalRouteConstraint(new RegexRouteConstraint(@"[\w\d_-]*")) }
             );
 
             // A route value determines the culture of the current thread

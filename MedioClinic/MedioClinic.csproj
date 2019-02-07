@@ -610,6 +610,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="App_Data\Global\Resources\MedioClinic.resx" />
     <EmbeddedResource Include="App_Data\Global\Resources\Kentico.Builder.resx" />
     <EmbeddedResource Include="App_Data\Global\Resources\Kentico.FormBuilder.resx" />
     <EmbeddedResource Include="App_Data\Global\Resources\Kentico.PageBuilder.resx" />
@@ -629,19 +630,19 @@
     <Content Include="Content\Images\twitter.png" />
     <Content Include="Content\InlineEditors\ImageUploaderEditor\image-uploader-editor.js" />
     <Content Include="Content\InlineEditors\ImageUploaderEditor\ImageUploaderEditor.css" />
-    <Content Include="Content\InlineEditors\Shared\dropzone\js\dropzone.js" />
-    <Content Include="Content\Widgets\medio-clinic.js" />
+    <Content Include="Content\InlineEditors\Shared\dropzone-common.js" />
+    <Content Include="Content\InlineEditors\Shared\dropzone.js" />
     <Content Include="Content\InlineEditors\SlideshowEditor\slideshow-editor.js" />
     <Content Include="Content\InlineEditors\SlideshowEditor\SlideshowEditor.css" />
     <Content Include="Content\Widgets\SlideshowWidget\swiper\css\swiper.css" />
     <Content Include="Content\Widgets\SlideshowWidget\swiper\js\swiper.js" />
-    <Content Include="Content\InlineEditors\TextEditor\custom-html\custom-html.min.js" />
     <Content Include="Content\InlineEditors\TextEditor\medium-editor\css\medium-editor.css" />
     <Content Include="Content\InlineEditors\TextEditor\medium-editor\css\themes\default.css" />
     <Content Include="Content\InlineEditors\TextEditor\medium-editor\js\medium-editor.js" />
     <Content Include="Content\InlineEditors\TextEditor\text-editor.js" />
     <Content Include="Content\InlineEditors\TextEditor\TextEditor.css" />
     <Content Include="Content\Widgets\SlideshowWidget\SlideshowWidget.css" />
+    <Content Include="Content\Widgets\SlideshowWidget\slideshow-widget.js" />
     <Content Include="Global.asax" />
     <Content Include="Kentico\Content\FormComponents\USPhone\dependencyLibs\inputmask.dependencyLib.js" />
     <Content Include="Kentico\Content\FormComponents\USPhone\inputmask.js" />
@@ -752,6 +753,8 @@
     <Compile Include="Models\Widgets\TextWidget\TextWidgetProperties.cs" />
     <Compile Include="Models\Widgets\TextWidget\TextWidgetViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\FileManagementHelper.cs" />
+    <Compile Include="Utils\IFileManagementHelper.cs" />
     <Compile Include="Utils\MultiCultureMvcRouteHandler.cs" />
     <Compile Include="Utils\SiteContextService.cs" />
     <Compile Include="Utils\SiteCultureConstraint.cs" />

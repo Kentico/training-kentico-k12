@@ -11,6 +11,7 @@ using System.IO;
 using System.Web;
 using System.Web.Mvc;
 using MedioClinic.Extensions;
+using MedioClinic.Utils;
 
 namespace MedioClinic.Controllers
 {
@@ -18,54 +19,29 @@ namespace MedioClinic.Controllers
     {
         protected const int ErrorStatusCode = 422;
 
+        protected string TempPath => $"{Server.MapPath(@"~\")}App_Data\\Temp\\MediaLibraryUploader";
+
         protected ISiteContextService SiteContextService { get; }
 
-        public MediaLibraryUploaderController(ISiteContextService siteContextService)
+        protected IFileManagementHelper FileManagementHelper { get; }
+
+        public MediaLibraryUploaderController(ISiteContextService siteContextService, IFileManagementHelper fileManagementHelper)
         {
-            SiteContextService = siteContextService;
-        }
-
-        private static readonly HashSet<string> allowedExtensions = new HashSet<string>(new[]
-        {
-            ".bmp",
-            ".gif",
-            ".ico",
-            ".png",
-            ".wmf",
-            ".jpg",
-            ".jpeg",
-            ".tiff",
-            ".tif"
-        }, StringComparer.OrdinalIgnoreCase);
-
-        private TreeNode GetPageWithSanityChecks(int pageId)
-        {
-            var page = DocumentHelper.GetDocument(pageId, null);
-
-            if (!CheckPagePermissions(page))
-            {
-                throw new HttpException(403, "You are not authorized to upload an image to the page.");
-            }
-
-            return page;
-        }
-
-        private bool CheckPagePermissions(TreeNode page)
-        {
-            return page?.CheckPermissions(PermissionsEnum.Modify, SiteContext.CurrentSiteName, MembershipContext.AuthenticatedUser) ?? false;
+            SiteContextService = siteContextService ?? throw new ArgumentNullException(nameof(siteContextService));
+            FileManagementHelper = fileManagementHelper ?? throw new ArgumentNullException(nameof(fileManagementHelper));
         }
 
         // POST: MediaLibraryUploader/Upload
         [HttpPost]
         public ActionResult Upload(int pageId, string filePathId, int mediaLibraryId)
         {
-            var page = GetPageWithSanityChecks(pageId);
+            var page = FileManagementHelper.GetPage(pageId);
             var pathSegments = page.NodeAliasPath.Split('/');
 
             if ((Request.Files[0] is HttpPostedFileWrapper file))
             {
-                var directoryPath = EnsureUploadDirectory(DirectoryPath);
-                var imagePath = GetTempFilePath(directoryPath, file);
+                var directoryPath = FileManagementHelper.EnsureUploadDirectory(TempPath);
+                var imagePath = FileManagementHelper.GetTempFilePath(directoryPath, file);
 
                 try
                 {
@@ -123,37 +99,6 @@ namespace MedioClinic.Controllers
             }
 
             return new HttpStatusCodeResult(ErrorStatusCode);
-        }
-
-        string DirectoryPath => $"{Server.MapPath(@"~\")}App_Data\\Temp\\MediaLibraryUploader";
-
-        private string EnsureUploadDirectory(string directoryPath)
-        {
-            //var directoryPath = $"{Server.MapPath(@"~\")}App_Data\\Temp\\MediaLibraryUploader";
-
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath);
-            }
-
-            return directoryPath;
-        }
-
-        private string GetTempFilePath(string directoryPath, HttpPostedFileBase file)
-        {
-            var fileName = Path.GetFileName(file.FileName);
-
-            if (string.IsNullOrEmpty(fileName))
-            {
-                throw new InvalidOperationException("Cannot upload file without file name.");
-            }
-
-            if (!allowedExtensions.Contains(Path.GetExtension(file.FileName)))
-            {
-                throw new InvalidOperationException("Cannot upload file of this type.");
-            }
-
-            return Path.Combine(directoryPath, fileName);
         }
     }
 }
