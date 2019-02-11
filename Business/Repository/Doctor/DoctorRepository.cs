@@ -14,8 +14,8 @@ namespace Business.Repository.Doctor
         {
             // Defines database columns for retrieving data
             // NodeGuid is retrieved automatically
-            "NodeID", "NodeAlias", "Bio", "Degree", "EmergencyShift", "FirstName",
-            "LastName", "Photo", "Specialty", "DocumentID"
+            "NodeAlias", "Bio", "Degree", "EmergencyShift", "FirstName",
+            "LastName", "Photo", "Specialty"
         };
 
         private Func<CMS.DocumentEngine.Types.MedioClinic.Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
