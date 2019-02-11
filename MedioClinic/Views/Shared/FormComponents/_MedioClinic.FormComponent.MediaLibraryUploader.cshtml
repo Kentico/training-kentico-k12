@@ -11,6 +11,8 @@
     int RoundDoubleCalculation(Func<double> doubleCalculation) =>
         Convert.ToInt32(Math.Round(doubleCalculation(), MidpointRounding.AwayFromZero));
 
+    // Gets the current page ID, if any.
+    // Returns -1 in the Form builder tab, 0 in the Recorded data tab.
     int GetCurrentPageId()
     {
         var feature = Context.Kentico().PageBuilder();
@@ -28,6 +30,8 @@
         return pageId;
     }
 
+    // Gets the URL to the MediaLibraryUploaderController's action.
+    // Takes the filePathId and passes it to the controller to know which form element to fill with the file GUID.
     string GetActionUrl(int pageId, string filePathId)
     {
         if (pageId > 0)
@@ -56,6 +60,8 @@
 
     if (currentPageId == 0)
     {
+        // When in Recorded data tab:
+
         Guid guid;
         guid = Guid.TryParse(Model.FileGuid, out guid) ? guid : Guid.Empty;
         var mediaFileInfo = MediaFileInfoProvider.GetMediaFileInfo(guid, Model.SiteName);
@@ -93,6 +99,8 @@
     }
     else
     {
+        // When in Form builder tab and in the Form widget:
+
         string currentFilePathId = Html.IdFor(model => model.FileGuid).ToString();
         IDictionary<string, object> fileInputAttributes = ViewData.GetEditorHtmlAttributes();
         fileInputAttributes["onchange"] = "medioClinic.mediaLibraryUploaderComponent.renderFileDetails(this);";

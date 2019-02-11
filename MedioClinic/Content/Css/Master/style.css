@@ -685,6 +685,14 @@ span.kn-badge.closed {
         }
 
 /* LANDING PAGE STYLES */
+.kn-section-left {
+    padding-right: 2rem !important;
+}
+
+.kn-section-right {
+    padding-left: 2rem !important;
+}
+
 .kn-media-library-uploader {
     padding-top: 1rem;
     padding-bottom: 1rem;

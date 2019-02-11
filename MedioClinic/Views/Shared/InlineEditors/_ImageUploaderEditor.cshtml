@@ -2,6 +2,7 @@
 @model ImageUploaderEditorViewModel
 
 @{
+    // Gets the URL to the ImageUploaderController's action.
     HtmlString GetActionUrl()
     {
         return Url.Kentico().AuthenticateUrl(Url.Action("Upload", "ImageUploader", new

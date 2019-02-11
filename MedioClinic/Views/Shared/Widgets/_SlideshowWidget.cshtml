@@ -10,6 +10,7 @@
     var swiperArtifactClass = $"{swiperId}-artifact";
     var containerAspectRatio = (double)Model.Width / (double)Model.Height;
 
+    // Gets the image constraint in case "Enforce dimensions in the live site" is checked (and for the edit mode).
     IImageSizeConstraint GetImageSizeConstraint(DocumentAttachment documentAttachment, int frameWidth, int frameHeight)
     {
         var attachmentAspectRatio = (double)documentAttachment.AttachmentImageWidth / (double)documentAttachment.AttachmentImageHeight;
@@ -25,15 +26,15 @@
     }
 }
 
-@* Partial views don't support @section directives. *@
-<style>
 @{
+    // Partial views don't support @section directives.
     if (editMode || !editMode && Model.EnforceDimensions)
     {
-        @Html.Raw($".{swiperArtifactClass} {{ width:{Model.Width}px; height:{Model.Height}px; }}")
+        <style>
+            @Html.Raw($".{swiperArtifactClass} {{ width:{Model.Width}px; height:{Model.Height}px; }}")
+        </style>
     }
 }
-</style>
 
 <div class="swiper-container @Html.Raw(swiperArtifactClass)" id="@swiperId">
     <div class="swiper-wrapper">
@@ -41,6 +42,7 @@
         {
             var dimensionAttribute = string.Empty;
 
+            // Calculate whether images are responsive or with fixed dimensions.
             if (!editMode)
             {
                 if (Model.EnforceDimensions)
@@ -53,18 +55,31 @@
                 }
             }
 
+            // Loop through all images.
             foreach (var image in Model.Images)
             {
                 if (image != null)
                 {
-                    var sizeConstraint = GetImageSizeConstraint(image, Model.Width, Model.Height);
-                    var imageUrl = Url.KenticoImageUrl(image.GetPath(), sizeConstraint);
-                    var imageStyleAttribute = $"style=\"background-image: url('{imageUrl}');\"";
-                    var imageId = "i-" + image.AttachmentGUID;
+                    string imageUrl;
+
+                    if (editMode || !editMode && Model.EnforceDimensions)
+                    {
+                        // In edit mode and with "Enforce dimensions in the live site", we can leverage Kentico responsive images feature to get images resized to fixed dimensions.
+                        var sizeConstraint = GetImageSizeConstraint(image, Model.Width, Model.Height);
+                        imageUrl = Url.KenticoImageUrl(image.GetPath(), sizeConstraint);
+                    }
+                    else
+                    {
+                        // Otherwise, we can get the full sized images and let Materialize CSS resize them via browser-side code.
+                        imageUrl = Url.KenticoImageUrl(image.GetPath());
+                    }
 
                     <div class="swiper-slide">
                         @if (editMode)
                         {
+                            var imageId = "i-" + image.AttachmentGUID;
+                            var imageStyleAttribute = $"style=\"background-image: url('{imageUrl}');\"";
+
                             <div class="dropzone kn-slideshow-image @Html.Raw(swiperArtifactClass)" id="@imageId" @Html.Raw(imageStyleAttribute)></div>
                         }
                         else
@@ -103,6 +118,7 @@
         var initSwiperLiteral = $"medioClinic.slideshowWidget.initSwiper(\"{swiperId}\", {editModeLiteral}, {Model.TransitionDelay}, {Model.TransitionSpeed});";
     }
 
+    // Initialize the current Swiper object.
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", function () {
                 @Html.Raw(initSwiperLiteral)
