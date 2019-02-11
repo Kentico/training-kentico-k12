@@ -70,7 +70,7 @@
 
                 dropzone.on("error",
                     function (e) {
-                        medioClinic.dropzoneCommon.processErrors(e.xhr.status);
+                        medioClinic.dropzoneCommon.processErrors(e.xhr.status, options.localizationService);
                     });
             };
 

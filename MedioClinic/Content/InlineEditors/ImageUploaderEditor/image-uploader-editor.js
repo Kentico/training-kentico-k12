@@ -34,7 +34,7 @@
             dropzone.on("error",
                 function (e) {
                     document.querySelector(".dz-preview").style.display = "none";
-                    medioClinic.dropzoneCommon.processErrors(e.xhr.status);
+                    medioClinic.dropzoneCommon.processErrors(e.xhr.status, options.localizationService);
                 });
         },
 

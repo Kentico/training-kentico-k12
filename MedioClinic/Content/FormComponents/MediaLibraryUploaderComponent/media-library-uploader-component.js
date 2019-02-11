@@ -20,14 +20,10 @@
 
             var detailsElement = target.parentElement.parentElement.querySelector(".kn-upload-file-details");
             detailsElement.querySelector(".kn-file-size").innerHTML =
-                "<strong>"
-                + kentico.localization.strings["FormComponent.MediaLibraryUploader.FileSize"]
-                + ":</strong> "
+                "<strong>Size:</strong> "
                 + fileSize;
             detailsElement.querySelector(".kn-file-type").innerHTML =
-                "<strong>"
-                + kentico.localization.strings["FormComponent.MediaLibraryUploader.FileType"]
-                + ":</strong> "
+                "<strong>Type:</strong> "
                 + file.type;
         }
     };
@@ -84,7 +80,7 @@
             var filePathElement = document.getElementById(responseObject.filePathId);
             filePathElement.value = responseObject.fileGuid;
             medioClinic.showMessage(
-                kentico.localization.strings["FormComponent.MediaLibraryUploader.UploadComplete"]
+                "Upload of the image is complete. File GUID: "
                 + responseObject.fileGuid, "info");
         } else {
             processErrors(e.target.status);
@@ -98,7 +94,7 @@
     var onUploadProgressChange = function (e) {
         var percentComplete = Math.round(e.loaded * 100 / e.total);
         console.info(
-            kentico.localization.strings["FormComponent.MediaLibraryUploader.UploadProgress"]
+            "Upload progress: "
             + percentComplete + "%");
     };
 
@@ -118,11 +114,11 @@
         var errorFlag = "error";
 
         if (statusCode >= 500) {
-            medioClinic.showMessage(kentico.localization.strings["FormComponent.MediaLibraryUploader.UploadFailed"], errorFlag);
+            medioClinic.showMessage("The upload of the image failed. Please contact the system administrator.", errorFlag);
         } else if (statusCode === 422) {
-            medioClinic.showMessage(kentico.localization.strings["FormComponent.MediaLibraryUploader.UploadUnprocessable"], errorFlag);
+            medioClinic.showMessage("The uploaded image could not be processed. Please contact the system administrator.", errorFlag);
         } else {
-            medioClinic.showMessage(kentico.localization.strings["FormComponent.MediaLibraryUploader.UploadUnknownError"], errorFlag);
+            medioClinic.showMessage("An unknown error happened. Please contact the system administrator.", errorFlag);
         }
     };
 }(window.medioClinic.mediaLibraryUploaderComponent = window.medioClinic.mediaLibraryUploaderComponent || {}));

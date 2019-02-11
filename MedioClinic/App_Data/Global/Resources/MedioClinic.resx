@@ -117,32 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FormComponent.MediaLibraryUploader.FileSize" xml:space="preserve">
-    <value>Size</value>
-  </data>
-  <data name="FormComponent.MediaLibraryUploader.FileType" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="FormComponent.MediaLibraryUploader.UploadComplete" xml:space="preserve">
-    <value>Upload of the image is complete. File GUID:</value>
-  </data>
-  <data name="FormComponent.MediaLibraryUploader.UploadFailed" xml:space="preserve">
-    <value>The upload of the image failed. Please contact the system administrator.</value>
-  </data>
-  <data name="FormComponent.MediaLibraryUploader.UploadProgress" xml:space="preserve">
-    <value>Upload progress:</value>
-  </data>
-  <data name="FormComponent.MediaLibraryUploader.UploadUnknownError" xml:space="preserve">
-    <value>An unknown error happened. Please contact the system administrator.</value>
-  </data>
-  <data name="FormComponent.MediaLibraryUploader.UploadUnprocessable" xml:space="preserve">
+  <data name="FormComponent.DropzoneCommon.UploadUnprocessable" xml:space="preserve">
     <value>The uploaded image could not be processed. Please contact the system administrator.</value>
   </data>
   <data name="FormComponent.DropzoneCommon.UploadFailed" xml:space="preserve">
     <value>The upload of the image failed. Please contact the system administrator.</value>
-  </data>
-  <data name="FormComponent.DropzoneCommon.UploadProgress" xml:space="preserve">
-    <value>Upload progress:</value>
   </data>
   <data name="FormComponent.DropzoneCommon.UploadUnknownError" xml:space="preserve">
     <value>An unknown error happened. Please contact the system administrator.</value>

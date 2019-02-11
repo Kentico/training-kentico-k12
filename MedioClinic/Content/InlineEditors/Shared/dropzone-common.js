@@ -7,16 +7,17 @@
     /**
      * Handles error codes
      * @param {number} statusCode HTTP status code
+     * @param {object} localizationService Kentico localization service
      */
-    dropzoneCommon.processErrors = function (statusCode) {
+    dropzoneCommon.processErrors = function (statusCode, localizationService) {
         var errorFlag = "error";
 
         if (statusCode >= 500) {
-            medioClinic.showMessage(kentico.localization.strings["FormComponent.DropzoneCommon.UploadFailed"], errorFlag);
+            medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadFailed"), errorFlag);
         } else if (statusCode === 422) {
-            medioClinic.showMessage(kentico.localization.strings["FormComponent.DropzoneCommon.UploadUnprocessable"], errorFlag);
+            medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadUnprocessable"), errorFlag);
         } else {
-            medioClinic.showMessage(kentico.localization.strings["FormComponent.DropzoneCommon.UploadUnknownError"], errorFlag);
+            medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadUnknownError"), errorFlag);
         }
     };
 }(window.medioClinic.dropzoneCommon = window.medioClinic.dropzoneCommon || {}));
