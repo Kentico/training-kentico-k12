@@ -13,7 +13,7 @@
                     createImageThumbnails: false,
                     clickable: clickable,
                     dictInvalidFileType: options.localizationService.getString(
-                        "MedioClinic.InlineEditors.ImageUploaderEditor.InvalidFileType")
+                        "InlineEditors.ImageUploaderEditor.InvalidFileType")
                 });
 
             dropzone.on("success",

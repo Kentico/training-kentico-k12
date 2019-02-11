@@ -37,7 +37,7 @@
                     url: editor.getAttribute("data-upload-url"),
                     clickable: editor.parentElement.querySelector("div#" + tempId + ".dropzone a.dz-clickable"),
                     dictInvalidFileType: options.localizationService.getString(
-                        "MedioClinic.InlineEditors.SlideshowEditor.InvalidFileType"),
+                        "InlineEditors.SlideshowEditor.InvalidFileType"),
 
                     // Image rendering: Alternative 2 (begin)
                     previewsContainer: swiper.slides[activeIndexWhenAdded],
@@ -180,7 +180,10 @@
 
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 204) {
-                            console.warn("Could not remove the slide image from page attachments.");
+                            medioClinic.showMessage(
+                                kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"], "warning");
+                            console.warn(
+                                kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"]);
                         }
                     };
 

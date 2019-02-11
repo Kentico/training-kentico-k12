@@ -12,11 +12,11 @@
         var errorFlag = "error";
 
         if (statusCode >= 500) {
-            medioClinic.showMessage("The upload of the image failed. Please contact the system administrator.", errorFlag);
+            medioClinic.showMessage(kentico.localization.strings["FormComponent.DropzoneCommon.UploadFailed"], errorFlag);
         } else if (statusCode === 422) {
-            medioClinic.showMessage("The uploaded image could not be processed. Please contact the system administrator.", errorFlag);
+            medioClinic.showMessage(kentico.localization.strings["FormComponent.DropzoneCommon.UploadUnprocessable"], errorFlag);
         } else {
-            medioClinic.showMessage("An unknown error happened. Please contact the system administrator.", errorFlag);
+            medioClinic.showMessage(kentico.localization.strings["FormComponent.DropzoneCommon.UploadUnknownError"], errorFlag);
         }
     };
 }(window.medioClinic.dropzoneCommon = window.medioClinic.dropzoneCommon || {}));
