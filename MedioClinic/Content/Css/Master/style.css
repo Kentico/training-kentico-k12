@@ -703,6 +703,10 @@ span.kn-badge.closed {
     min-height: 3rem;
 }
 
+.kn-system-messages p {
+    padding: 0.5rem;
+}
+
 /* FORM STYLE OVERRIDES */
 [type="checkbox"] {
     padding: initial;

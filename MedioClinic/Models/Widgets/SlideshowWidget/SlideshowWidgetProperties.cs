@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-using Kentico.Forms.Web.Mvc;
+﻿using Kentico.Forms.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc;
 
 namespace MedioClinic.Models.Widgets

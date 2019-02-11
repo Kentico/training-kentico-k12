@@ -1,11 +1,12 @@
-﻿using CMS.DocumentEngine;
-using Kentico.PageBuilder.Web.Mvc;
-using MedioClinic.Controllers.Widgets;
-using MedioClinic.Models.Widgets;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+
+using CMS.DocumentEngine;
+using Kentico.PageBuilder.Web.Mvc;
+using MedioClinic.Controllers.Widgets;
+using MedioClinic.Models.Widgets;
 
 [assembly: RegisterWidget("MedioClinic.Widget.Slideshow", typeof(SlideshowWidgetController), "{$Widget.Slideshow.Name$}", Description = "{$Widget.Slideshow.Description$}", IconClass = "icon-carousel")]
 
@@ -21,7 +22,6 @@ namespace MedioClinic.Controllers.Widgets
         {
         }
 
-        // GET: SlideshowWidget
         public ActionResult Index()
         {
             var properties = GetProperties();
@@ -50,7 +50,12 @@ namespace MedioClinic.Controllers.Widgets
             });
         }
 
-        private IEnumerable<DocumentAttachment> GetImages(IEnumerable<Guid> guids)
+        /// <summary>
+        /// Gets document attachment images by their GUIDs.
+        /// </summary>
+        /// <param name="guids">GUIDs to search by.</param>
+        /// <returns>The <see cref="DocumentAttachment"/> images.</returns>
+        protected IEnumerable<DocumentAttachment> GetImages(IEnumerable<Guid> guids)
         {
             var page = GetPage();
 

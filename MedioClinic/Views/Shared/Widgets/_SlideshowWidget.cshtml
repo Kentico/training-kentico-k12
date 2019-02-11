@@ -27,18 +27,12 @@
 
 @* Partial views don't support @section directives. *@
 <style>
-    .@Html.Raw(swiperArtifactClass) {
-        @if (editMode || (!editMode && Model.EnforceDimensions))
-        {
-            @Html.Raw($"width:{Model.Width}px;\nheight:{Model.Height}px;")
-        }
-    }
-
-    @if (!editMode && !Model.DisplayArrowSigns)
+@{
+    if (editMode || !editMode && Model.EnforceDimensions)
     {
-        var hideArrowSignsCss = $@"#{swiperId} .swiper-button-prev, #{swiperId} .swiper-button-next {{ display: none; }}";
-        @Html.Raw(hideArrowSignsCss);
+        @Html.Raw($".{swiperArtifactClass} {{ width:{Model.Width}px; height:{Model.Height}px; }}")
     }
+}
 </style>
 
 <div class="swiper-container @Html.Raw(swiperArtifactClass)" id="@swiperId">
@@ -61,32 +55,36 @@
 
             foreach (var image in Model.Images)
             {
-                var sizeConstraint = GetImageSizeConstraint(image, Model.Width, Model.Height);
-                var imageUrl = Url.KenticoImageUrl(image.GetPath(), sizeConstraint);
-                var imageStyleAttribute = image != null ? $"style=\"background-image: url('{imageUrl}');\"" : string.Empty;
-                var imageId = "i-" + image.AttachmentGUID;
-                <div class="swiper-slide">
-                    @if (editMode)
-                    {
-                        <div class="dropzone kn-slideshow-image @Html.Raw(swiperArtifactClass)" id="@imageId" @Html.Raw(imageStyleAttribute)></div>
-                    }
-                    else
-                    {
-                        <img src="@Html.Raw(imageUrl)" @Html.Raw(dimensionAttribute) />
-                    }
-                </div>
+                if (image != null)
+                {
+                    var sizeConstraint = GetImageSizeConstraint(image, Model.Width, Model.Height);
+                    var imageUrl = Url.KenticoImageUrl(image.GetPath(), sizeConstraint);
+                    var imageStyleAttribute = $"style=\"background-image: url('{imageUrl}');\"";
+                    var imageId = "i-" + image.AttachmentGUID;
+
+                    <div class="swiper-slide">
+                        @if (editMode)
+                        {
+                            <div class="dropzone kn-slideshow-image @Html.Raw(swiperArtifactClass)" id="@imageId" @Html.Raw(imageStyleAttribute)></div>
+                        }
+                        else
+                        {
+                            <img src="@Html.Raw(imageUrl)" @Html.Raw(dimensionAttribute) />
+                        }
+                    </div>
+                }
             }
         }
     </div>
 
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    @if (editMode || Model.DisplayArrowSigns)
+    {
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    }
 
     @if (editMode)
     {
-        editMode = true;
-
         Html.RenderPartial("InlineEditors/_SlideshowEditor", new SlideshowEditorViewModel
         {
             PropertyName = nameof(SlideshowWidgetProperties.ImageIds),

@@ -1,12 +1,11 @@
-﻿using CMS.MediaLibrary;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+using CMS.MediaLibrary;
 using CMS.SiteProvider;
 using Kentico.Forms.Web.Mvc;
 using MedioClinic.Models.FormComponents;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 
 [assembly: RegisterFormComponent(
     MediaLibrarySelectionComponent.Identifier, 

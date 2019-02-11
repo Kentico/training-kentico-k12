@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 
-using CMS.DataEngine;
-using CMS.DocumentEngine;
-using CMS.IO;
-using CMS.Membership;
-using CMS.SiteProvider;
-using Kentico.PageBuilder.Web.Mvc;
-using Kentico.Web.Mvc;
 using MedioClinic.Utils;
 
 namespace MedioClinic.Controllers.Widgets
@@ -20,29 +12,37 @@ namespace MedioClinic.Controllers.Widgets
 
         protected IFileManagementHelper FileManagementHelper { get; }
 
-        public ImageUploaderController(IFileManagementHelper fileManagementHelper)
+        protected IErrorHandler ErrorHandler { get; }
+
+        public ImageUploaderController(IFileManagementHelper fileManagementHelper, IErrorHandler errorHandler)
         {
             FileManagementHelper = fileManagementHelper ?? throw new ArgumentNullException(nameof(fileManagementHelper));
+            ErrorHandler = errorHandler ?? throw new ArgumentNullException(nameof(errorHandler));
         }
 
+        // POST: ImageUploader/Upload
         [HttpPost]
-        public JsonResult Upload(int pageId)
+        public ActionResult Upload(int pageId)
         {
-            if (!HttpContext.Kentico().PageBuilder().EditMode)
-            {
-                throw new HttpException(403, "It is allowed to upload an image only when the page builder is in the edit mode.");
-            }
-
+            ErrorHandler.CheckEditMode(HttpContext, nameof(ImageUploaderController.Upload));
             var page = FileManagementHelper.GetPage(pageId);
-
             var imageGuid = Guid.Empty;
 
-            foreach (string requestFileName in Request.Files)
+            if (Request.Files[0] is HttpPostedFileWrapper file && file != null)
             {
-                imageGuid = FileManagementHelper.AddUnsortedAttachment(page, requestFileName, Request, TempPath);
+                try
+                {
+                    imageGuid = FileManagementHelper.AddUnsortedAttachment(page, TempPath, file);
+                }
+                catch (Exception ex)
+                {
+                    return ErrorHandler.HandleException(nameof(ImageUploaderController.Upload), ex, ErrorHandler.UnprocessableStatusCode);
+                }
+
+                return Json(new { guid = imageGuid }); 
             }
 
-            return Json(new { guid = imageGuid });
+            return new HttpStatusCodeResult(ErrorHandler.UnprocessableStatusCode);
         }
     }
 }

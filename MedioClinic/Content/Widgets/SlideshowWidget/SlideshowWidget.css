@@ -3,6 +3,10 @@
     background-repeat: no-repeat;
 }
 
+.swiper-container, .swiper-wrapper {
+    z-index: initial !important;
+}
+
 /*Image rendering: Alternative 2 (begin) */
 .dz-preview {
     position: absolute;

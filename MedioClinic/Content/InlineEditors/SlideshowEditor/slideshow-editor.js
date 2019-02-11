@@ -11,6 +11,7 @@
             imageGuids.splice(-1, 1);
             // Image rendering: Alternative 2 (end)
 
+            /** Adds a new slide to the Swiper object, together with a new Dropzone object. */
             var addSlide = function () {
                 var swiper = medioClinic
                     .slideshowWidget
@@ -65,29 +66,59 @@
                         imageGuids.splice(dropzoneIndex, 1, newGuid);
                         dispatchBuilderEvent(imageGuids);
                     });
+
+
+                dropzone.on("error",
+                    function (e) {
+                        medioClinic.dropzoneCommon.processErrors(e.xhr.status);
+                    });
             };
 
+            /**
+             * Hides the clickable element and the instructional message in the Dropzone object.
+             * @param {HTMLElement} dropzoneElement The parent HTML element of the Dropzone object.
+             */
             var hideDropzoneLabels = function (dropzoneElement) {
                 dropzoneElement.querySelector("a.dz-clickable").style.display = "none";
                 dropzoneElement.querySelector(".dz-message").style.display = "none";
             };
 
             // Image rendering: Alternative 1 (begin)
+            /**
+             * Removes any prefixes that had been previously concatedated in front of a GUID.
+             * @param {string} id The GUID with the prefix.
+             * @returns {string} The bare GUID value.
+             */
             /*var getGuidFromId = function (id) {
                 return id.slice(-36);
             };*/
             // Image rendering: Alternative 1 (end)
 
-            var getDropzoneElementIndex = function (dropzone) {
-                return Array.prototype.slice.call(dropzone.parentElement.parentElement.children)
-                    .indexOf(dropzone.parentElement);
+            /**
+             * Gets the position (index) of a given Dropzone HTML element in the parent Swiper element
+             * @param {HTMLElement} dropzoneElement The HTML element of the Dropzone object.
+             * @returns {number} The position in the parent Swiper.
+             */
+            var getDropzoneElementIndex = function (dropzoneElement) {
+                return Array.prototype.slice.call(dropzoneElement.parentElement.parentElement.children)
+                    .indexOf(dropzoneElement.parentElement);
             };
 
-            var buildSlideMarkup = function (tempId, dropText) {
+            /**
+             * Crafts an HTML markup of a new Swiper slide, together with its child Dropzone element.
+             * @param {string} id The ID of the future Dropzone HTML element.
+             * @param {string} dropText The instructional text for the Dropzone object.
+             * @returns {string} The complete HTML markup of the Swiper slide.
+             */
+            var buildSlideMarkup = function (id, dropText) {
                 return "<div class=\"swiper-slide dropzone-previews\"><div class=\"dropzone\" id=\""
-                    + tempId + "\"><div class=\"dz-message\">" + dropText + "</div></div></div>";
+                    + id + "\"><div class=\"dz-message\">" + dropText + "</div></div></div>";
             };
 
+            /** 
+             *  Generates an UUID (GUID).
+             *  @returns {string} The UUID.
+             * */
             var generateUuid = function () {
                 return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
                     var r = Math.random() * 16 | 0, v = c === "x" ? r : r & 0x3 | 0x8;
@@ -96,10 +127,19 @@
                 });
             };
 
+            /**
+             * Replaces an ID of a given HTML element.
+             * @param {HTMLElement} htmlElement The HTML element, which ID should be swapped.
+             * @param {string} newId The new ID.
+             */
             var replaceId = function (htmlElement, newId) {
                 htmlElement.id = newId;
             };
 
+            /**
+             * Dispatches the Kentico page builder event that updates state of the widget in the browser store.
+             * @param {string[]} imageGuids The GUIDs of the images in the Swiper object.
+             */
             var dispatchBuilderEvent = function (imageGuids) {
                 var event = new CustomEvent("updateProperty",
                     {
@@ -115,6 +155,7 @@
                 editor.dispatchEvent(event);
             };
 
+            /** Removes a slide from the current Swiper object. */
             var removeSlide = function () {
                 var swiper = medioClinic
                     .slideshowWidget

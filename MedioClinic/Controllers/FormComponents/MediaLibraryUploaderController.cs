@@ -1,15 +1,12 @@
-﻿using Business.Services.Context;
-using CMS.DataEngine;
-using CMS.DocumentEngine;
-using CMS.Helpers;
-using CMS.MediaLibrary;
-using CMS.Membership;
-using CMS.SiteProvider;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using System.Web;
 using System.Web.Mvc;
+
+using CMS.Helpers;
+using CMS.MediaLibrary;
+using CMS.SiteProvider;
+using Business.Services.Context;
 using MedioClinic.Extensions;
 using MedioClinic.Utils;
 
@@ -17,18 +14,19 @@ namespace MedioClinic.Controllers
 {
     public class MediaLibraryUploaderController : Controller
     {
-        protected const int ErrorStatusCode = 422;
-
         protected string TempPath => $"{Server.MapPath(@"~\")}App_Data\\Temp\\MediaLibraryUploader";
 
         protected ISiteContextService SiteContextService { get; }
 
         protected IFileManagementHelper FileManagementHelper { get; }
 
-        public MediaLibraryUploaderController(ISiteContextService siteContextService, IFileManagementHelper fileManagementHelper)
+        protected IErrorHandler ErrorHandler { get; }
+
+        public MediaLibraryUploaderController(ISiteContextService siteContextService, IFileManagementHelper fileManagementHelper, IErrorHandler errorHandler)
         {
             SiteContextService = siteContextService ?? throw new ArgumentNullException(nameof(siteContextService));
             FileManagementHelper = fileManagementHelper ?? throw new ArgumentNullException(nameof(fileManagementHelper));
+            ErrorHandler = errorHandler ?? throw new ArgumentNullException(nameof(errorHandler));
         }
 
         // POST: MediaLibraryUploader/Upload
@@ -36,69 +34,123 @@ namespace MedioClinic.Controllers
         public ActionResult Upload(int pageId, string filePathId, int mediaLibraryId)
         {
             var page = FileManagementHelper.GetPage(pageId);
-            var pathSegments = page.NodeAliasPath.Split('/');
 
-            if ((Request.Files[0] is HttpPostedFileWrapper file))
+            if (Request.Files[0] is HttpPostedFileWrapper file && file != null)
             {
-                var directoryPath = FileManagementHelper.EnsureUploadDirectory(TempPath);
-                var imagePath = FileManagementHelper.GetTempFilePath(directoryPath, file);
+                string directoryPath = null;
 
                 try
                 {
-                    MediaLibraryInfoProvider.CreateMediaLibraryFolder(SiteContextService.SiteName, mediaLibraryId, page.NodeAliasPath);
+                    directoryPath = FileManagementHelper.EnsureUploadDirectory(TempPath);
                 }
                 catch (Exception ex)
                 {
-                    // TODO Log exception
-                    // return 500?
+                    return ErrorHandler.HandleException(nameof(MediaLibraryUploaderController.Upload), ex);
                 }
 
-                byte[] data = new byte[file.ContentLength];
-                file.InputStream.Seek(0, SeekOrigin.Begin);
-                file.InputStream.Read(data, 0, file.ContentLength);
-                CMS.IO.File.WriteAllBytes(imagePath, data);
-                CMS.IO.FileInfo fileInfo = CMS.IO.FileInfo.New(imagePath);
-
-                if (fileInfo != null)
+                if (!string.IsNullOrEmpty(directoryPath))
                 {
-                    MediaFileInfo mediaFile = new MediaFileInfo(imagePath, mediaLibraryId);
-                    var mediaFilePathSegments = pathSegments.GetArrayRange(1);
-                    var mediaFilePath = $"{mediaFilePathSegments.Join("/")}/";
-                    mediaFile.FileName = fileInfo.Name.Substring(0, fileInfo.Name.Length - fileInfo.Extension.Length);
-                    mediaFile.FilePath = mediaFilePath;
-                    mediaFile.FileExtension = fileInfo.Extension;
-                    mediaFile.FileMimeType = MimeTypeHelper.GetMimetype(fileInfo.Extension);
-                    mediaFile.FileSiteID = SiteContext.CurrentSiteID;
-                    mediaFile.FileLibraryID = mediaLibraryId;
-                    mediaFile.FileSize = fileInfo.Length;
+                    string imagePath = null;
 
                     try
                     {
-                        MediaFileInfoProvider.SetMediaFileInfo(mediaFile);
+                        imagePath = FileManagementHelper.GetTempFilePath(directoryPath, file.FileName);
+                        MediaLibraryInfoProvider.CreateMediaLibraryFolder(SiteContextService.SiteName, mediaLibraryId, page.NodeAliasPath);
                     }
                     catch (Exception ex)
                     {
-                        return new HttpStatusCodeResult(ErrorStatusCode);
+                        return ErrorHandler.HandleException(nameof(MediaLibraryUploaderController.Upload), ex);
                     }
 
-                    try
+                    if (!string.IsNullOrEmpty(imagePath))
                     {
-                        CMS.IO.File.Delete(imagePath);
-                    }
-                    catch (Exception ex)
-                    {
-                        // TODO Log exception
-                    }
+                        CMS.IO.FileInfo fileInfo = null;
 
-                    return Json(new
-                    {
-                        filePathId,
-                        fileGuid = mediaFile.FileGUID.ToString()
-                    });
+                        try
+                        {
+                            fileInfo = GetFileInfo(file, imagePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            return ErrorHandler.HandleException(nameof(MediaLibraryUploaderController.Upload), ex, ErrorHandler.UnprocessableStatusCode);
+                        }
+
+                        if (fileInfo != null)
+                        {
+                            MediaFileInfo mediaFile = null;
+
+                            try
+                            {
+                                mediaFile = CreateMediafile(mediaLibraryId, page.NodeAliasPath, imagePath, fileInfo);
+                            }
+                            catch (Exception ex)
+                            {
+                                return ErrorHandler.HandleException(nameof(MediaLibraryUploaderController.Upload), ex, ErrorHandler.UnprocessableStatusCode);
+                            }
+
+                            try
+                            {
+                                CMS.IO.File.Delete(imagePath);
+                            }
+                            catch (Exception ex)
+                            {
+                                ErrorHandler.LogException(nameof(MediaLibraryUploaderController.Upload), ex);
+                            }
+
+                            return Json(new
+                            {
+                                filePathId,
+                                fileGuid = mediaFile.FileGUID.ToString()
+                            });
+                        }
+                    }
                 }
             }
 
-            return new HttpStatusCodeResult(ErrorStatusCode);
+            return new HttpStatusCodeResult(ErrorHandler.UnprocessableStatusCode);
+        }
+
+        /// <summary>
+        /// Gets details of an uploaded file.
+        /// </summary>
+        /// <param name="file">Uploaded file contents.</param>
+        /// <param name="filePath">Path to store the file on the disk.</param>
+        /// <returns></returns>
+        protected CMS.IO.FileInfo GetFileInfo(HttpPostedFileWrapper file, string filePath)
+        {
+            byte[] data = new byte[file.ContentLength];
+            file.InputStream.Seek(0, SeekOrigin.Begin);
+            file.InputStream.Read(data, 0, file.ContentLength);
+            CMS.IO.File.WriteAllBytes(filePath, data);
+            CMS.IO.FileInfo fileInfo = CMS.IO.FileInfo.New(filePath);
+
+            return fileInfo;
+        }
+
+        /// <summary>
+        /// Creates a new file in the Kentico media library.
+        /// </summary>
+        /// <param name="mediaLibraryId">Media library ID.</param>
+        /// <param name="nodeAliasPath">Node alias path to replicate in the media library.</param>
+        /// <param name="filePath">Path to the physical file on the disk.</param>
+        /// <param name="fileInfo">File info.</param>
+        /// <returns></returns>
+        protected MediaFileInfo CreateMediafile(int mediaLibraryId, string nodeAliasPath, string filePath, CMS.IO.FileInfo fileInfo)
+        {
+            MediaFileInfo mediaFile = new MediaFileInfo(filePath, mediaLibraryId);
+            var nodeAliasPathSegments = nodeAliasPath.Split('/');
+            var mediaFilePathSegments = nodeAliasPathSegments.GetArrayRange(1);
+            var mediaFilePath = $"{mediaFilePathSegments.Join("/")}/";
+            mediaFile.FileName = fileInfo.Name.Substring(0, fileInfo.Name.Length - fileInfo.Extension.Length);
+            mediaFile.FilePath = mediaFilePath;
+            mediaFile.FileExtension = fileInfo.Extension;
+            mediaFile.FileMimeType = MimeTypeHelper.GetMimetype(fileInfo.Extension);
+            mediaFile.FileSiteID = SiteContext.CurrentSiteID;
+            mediaFile.FileLibraryID = mediaLibraryId;
+            mediaFile.FileSize = fileInfo.Length;
+            MediaFileInfoProvider.SetMediaFileInfo(mediaFile);
+
+            return mediaFile;
         }
     }
 }

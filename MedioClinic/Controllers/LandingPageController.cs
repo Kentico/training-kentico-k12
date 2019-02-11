@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.UI;
 
 using Business.DependencyInjection;
 using Business.Repository.LandingPage;
@@ -18,6 +19,7 @@ namespace MedioClinic.Controllers
         }
 
         // GET: LandingPage
+        [OutputCache(Duration = 3600, VaryByParam = "nodeAlias", Location = OutputCacheLocation.Server)]
         public ActionResult Index(string nodeAlias)
         {
             var landingPageDto = LandingPageRepository.GetLandingPage(nodeAlias);
@@ -27,6 +29,7 @@ namespace MedioClinic.Controllers
                 return HttpNotFound();
             }
 
+            Dependencies.CacheService.SetOutputCacheDependency(nodeAlias);
             var model = GetPageViewModel(landingPageDto.Title);
 
             HttpContext.Kentico().PageBuilder().Initialize(landingPageDto.DocumentId);

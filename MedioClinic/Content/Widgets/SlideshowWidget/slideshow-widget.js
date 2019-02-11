@@ -1,26 +1,34 @@
 ﻿window.medioClinic = window.medioClinic || {};
 
-(function (slideshowWidget, undefined) {
+(function (slideshowWidget) {
     var swipers = [];
+
+    /** The name of the data- HTML attribute that holds the Swiper GUID. */
     slideshowWidget.swiperGuidAttribute = "data-swiper-guid";
 
+    /**
+     * Adds a Swiper object to an internal dictionary.
+     * @param {string} id The ID of the Swiper object.
+     * @param {object} swiper The Swiper object to add.
+     */
     slideshowWidget.addSwiper = function (id, swiper) {
         var found = medioClinic.slideshowWidget.getSwiper(id);
 
-        if (found) {
-            return found[0].id;
-        } else {
+        if (!found) {
             var swiperToAdd = {
                 id: id,
                 swiper: swiper
             };
 
             swipers.push(swiperToAdd);
-
-            return id;
         }
     };
 
+    /**
+     * Retrieves a Swiper object from an internal dictionary by its ID.
+     * @param {string} id The ID to search by.
+     * @returns {object} Either the found Swiper object, or null.
+     */
     slideshowWidget.getSwiper = function (id) {
         var found = swipers.filter(function (currentSwiper) {
             return currentSwiper.id === id;
@@ -33,6 +41,10 @@
         }
     };
 
+    /**
+     * Removes a Swiper object form an internal dictionary.
+     * @param {string} id The ID to search by.
+     */
     slideshowWidget.removeSwiper = function (id) {
         for (var i = swipers.length - 1; i >= 0; i--) {
             if (swipers[i].id === id) {
@@ -41,6 +53,13 @@
         }
     };
 
+    /**
+     * Initializes a new Swiper object in the page.
+     * @param {string} swiperId The ID of the future Swiper object.
+     * @param {bool} editMode Indication of whether the Kentico page builder is in edit mode.
+     * @param {number} transitionDelay An interval of the transition to another slide (milliseconds).
+     * @param {any} transitionSpeed The duration of each transition (milliseconds).
+     */
     slideshowWidget.initSwiper = function (swiperId, editMode, transitionDelay, transitionSpeed) {
         var swiperSelector = "#" + swiperId;
 
@@ -69,6 +88,12 @@
         medioClinic.slideshowWidget.addSwiper(swiperId, swiper);
     };
 
+    /**
+     * Gets a Swiper object for a given slideshow inline editor instance.
+     * @param {HTMLElement} editor The HTML element of the inline editor.
+     * @param {string} swiperGuidAttribute The name of the data- HTML attribute containing the Swiper ID.
+     * @returns {object} The Swiper object.
+     */
     slideshowWidget.getCurrentSwiper = function (editor, swiperGuidAttribute) {
         // Retrieving via the "swiper" property of the respective HTML element
         //return editor.parentElement.swiper;
@@ -77,6 +102,11 @@
         return medioClinic.slideshowWidget.getSwiper(editor.getAttribute(swiperGuidAttribute)).swiper;
     };
 
+    /**
+     * Gets an array of Dropzone HTML element IDs of a given Swiper object.
+     * @param {object} swiper The parent Swiper object.
+     * @returns {string[]} The array of Dropzone IDs.
+     */
     slideshowWidget.collectDropzoneIds = function (swiper) {
         var output = [];
 
@@ -87,4 +117,4 @@
 
         return output;
     };
-}(window.medioClinic.slideshowWidget = window.medioClinic.slideshowWidget || {}, undefined));
+}(window.medioClinic.slideshowWidget = window.medioClinic.slideshowWidget || {}));

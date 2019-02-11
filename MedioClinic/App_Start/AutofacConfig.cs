@@ -48,6 +48,14 @@ namespace MedioClinic
                 .AsImplementedInterfaces()
                 .InstancePerRequest();
 
+            // Registers the common file management helper
+            builder.RegisterType<FileManagementHelper>().As<IFileManagementHelper>()
+                .InstancePerRequest();
+
+            // Registers the common error handler
+            builder.RegisterType<ErrorHandler>().As<IErrorHandler>()
+                .InstancePerRequest();
+
             // Resolves the dependencies
             DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
         }

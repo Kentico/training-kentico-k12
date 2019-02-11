@@ -30,6 +30,12 @@
 
                     editor.dispatchEvent(event);
                 });
+
+            dropzone.on("error",
+                function (e) {
+                    document.querySelector(".dz-preview").style.display = "none";
+                    medioClinic.dropzoneCommon.processErrors(e.xhr.status);
+                });
         },
 
         destroy: function (options) {

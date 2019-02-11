@@ -12,19 +12,10 @@ namespace MedioClinic.Controllers.Widgets
 {
     public class ImageWidgetController : WidgetController<ImageWidgetProperties>
     {
-        /// <summary>
-        /// Creates an instance of <see cref="ImageWidgetController"/> class.
-        /// </summary>
         public ImageWidgetController()
         {
         }
 
-        /// <summary>
-        /// Creates an instance of <see cref="ImageWidgetController"/> class.
-        /// </summary>
-        /// <param name="propertiesRetriever">Retriever for widget properties.</param>
-        /// <param name="currentPageRetriever">Retriever for current page where is the widget used.</param>
-        /// <remarks>Use this constructor for tests to handle dependencies.</remarks>
         public ImageWidgetController(IWidgetPropertiesRetriever<ImageWidgetProperties> propertiesRetriever,
                                         ICurrentPageRetriever currentPageRetriever) : base(propertiesRetriever, currentPageRetriever)
         {
@@ -41,11 +32,16 @@ namespace MedioClinic.Controllers.Widgets
             });
         }
 
-        private DocumentAttachment GetImage(ImageWidgetProperties properties)
+        /// <summary>
+        /// Gets a page attachment image by the properties.
+        /// </summary>
+        /// <param name="properties">Properties with the GUID.</param>
+        /// <returns>The <see cref="DocumentAttachment"/> with the image.</returns>
+        protected DocumentAttachment GetImage(ImageWidgetProperties properties)
         {
             var page = GetPage();
-            return page?.AllAttachments.FirstOrDefault(x => x.AttachmentGUID == properties.ImageGuid);
             
+            return page?.AllAttachments.FirstOrDefault(x => x.AttachmentGUID == properties.ImageGuid);
         }
     } 
 }

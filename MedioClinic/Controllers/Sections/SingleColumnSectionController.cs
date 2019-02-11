@@ -9,7 +9,6 @@ namespace MedioClinic.Controllers.Sections
 {
     public class SingleColumnSectionController : Controller
     {
-        // GET: SingleColumnSection
         public ActionResult Index()
         {
             return PartialView("Sections/_SingleColumnSection");

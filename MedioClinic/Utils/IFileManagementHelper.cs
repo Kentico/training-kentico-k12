@@ -9,7 +9,7 @@ namespace MedioClinic.Utils
         TreeNode GetPage(int pageId);
         string EnsureUploadDirectory(string directoryPath);
         bool CheckPagePermissions(TreeNode page);
-        string GetTempFilePath(string directoryPath, HttpPostedFileBase file);
-        Guid AddUnsortedAttachment(TreeNode page, string requestFileName, HttpRequestBase request, string uploadDirectory);
+        string GetTempFilePath(string directoryPath, string fileName);
+        Guid AddUnsortedAttachment(TreeNode page, string uploadDirectory, HttpPostedFileWrapper file);
     }
 }

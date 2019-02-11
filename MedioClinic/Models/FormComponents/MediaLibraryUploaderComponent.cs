@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Business.Services.Context;
-using CMS.SiteProvider;
+﻿using CMS.SiteProvider;
 using Kentico.Forms.Web.Mvc;
 using MedioClinic.Models.FormComponents;
 
@@ -23,10 +18,7 @@ namespace MedioClinic.Models.FormComponents
 
         public override bool CustomAutopostHandling => true;
 
-        public override string GetValue()
-        {
-            return FileGuid;
-        }
+        public override string GetValue() => FileGuid;
 
         public override void SetValue(string value)
         {

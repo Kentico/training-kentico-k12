@@ -30,7 +30,7 @@ namespace MedioClinic.Utils
         {
             var page = DocumentHelper.GetDocument(pageId, null);
 
-            if (!CheckPagePermissions(page))
+            if (page != null && !CheckPagePermissions(page))
             {
                 throw new HttpException(403, "You are not authorized to upload an image to the page.");
             }
@@ -43,6 +43,11 @@ namespace MedioClinic.Utils
 
         public string EnsureUploadDirectory(string directoryPath)
         {
+            if (string.IsNullOrEmpty(directoryPath))
+            {
+                throw new ArgumentException("Directory path must be specified.", nameof(directoryPath));
+            }
+
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
@@ -51,16 +56,19 @@ namespace MedioClinic.Utils
             return directoryPath;
         }
 
-        public string GetTempFilePath(string directoryPath, HttpPostedFileBase file)
+        public string GetTempFilePath(string directoryPath, string fileName)
         {
-            var fileName = Path.GetFileName(file.FileName);
+            if (string.IsNullOrEmpty(directoryPath))
+            {
+                throw new ArgumentException("Directory path must be specified.", nameof(directoryPath));
+            }
 
             if (string.IsNullOrEmpty(fileName))
             {
                 throw new InvalidOperationException("Cannot upload file without file name.");
             }
 
-            if (!AllowedExtensions.Contains(Path.GetExtension(file.FileName)))
+            if (!AllowedExtensions.Contains(Path.GetExtension(fileName)))
             {
                 throw new InvalidOperationException("Cannot upload file of this type.");
             }
@@ -68,15 +76,25 @@ namespace MedioClinic.Utils
             return Path.Combine(directoryPath, fileName);
         }
 
-        public Guid AddUnsortedAttachment(TreeNode page, string requestFileName, HttpRequestBase request, string uploadDirectory)
+        public Guid AddUnsortedAttachment(TreeNode page, string uploadDirectory, HttpPostedFileWrapper file)
         {
-            if (!(request.Files[requestFileName] is HttpPostedFileWrapper file))
+            if (page == null)
             {
-                return Guid.Empty;
+                throw new ArgumentNullException(nameof(page));
+            }
+
+            if (string.IsNullOrEmpty(uploadDirectory))
+            {
+                throw new ArgumentException("Upload directory path must be specified.", nameof(uploadDirectory));
+            }
+
+            if (file == null)
+            {
+                throw new ArgumentNullException(nameof(file));
             }
 
             var directoryPath = EnsureUploadDirectory(uploadDirectory);
-            var imagePath = GetTempFilePath(directoryPath, file);
+            var imagePath = GetTempFilePath(directoryPath, file.FileName);
             byte[] data = new byte[file.ContentLength];
             file.InputStream.Seek(0, SeekOrigin.Begin);
             file.InputStream.Read(data, 0, file.ContentLength);
