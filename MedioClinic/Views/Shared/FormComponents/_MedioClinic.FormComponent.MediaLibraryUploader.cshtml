@@ -53,11 +53,6 @@
 
     int currentPageId = GetCurrentPageId();
 
-    if (currentPageId > 0)
-    {
-        Model.PageId = currentPageId;
-    }
-
     if (currentPageId == 0)
     {
         // When in Recorded data tab:
@@ -106,7 +101,7 @@
         fileInputAttributes["onchange"] = "medioClinic.mediaLibraryUploaderComponent.renderFileDetails(this);";
         IDictionary<string, object> hiddenInputAttributes = ViewData.GetEditorHtmlAttributes();
         IDictionary<string, object> buttonAttributes = ViewData.GetEditorHtmlAttributes();
-        buttonAttributes["onclick"] = $"medioClinic.mediaLibraryUploaderComponent.uploadFile(this, \"{GetActionUrl(Model.PageId, currentFilePathId)}\");";
+        buttonAttributes["onclick"] = $"medioClinic.mediaLibraryUploaderComponent.uploadFile(this, \"{GetActionUrl(currentPageId, currentFilePathId)}\");";
         buttonAttributes["type"] = "button";
 
         <div class="kn-media-library-uploader grey lighten-5">
@@ -114,7 +109,6 @@
                 <div class="col s6">
                     @Html.CustomInput("file", "mediaLibraryUploader", string.Empty, fileInputAttributes)
                     @Html.HiddenFor(model => model.FileGuid, hiddenInputAttributes)
-                    @Html.HiddenFor(model => model.PageId, hiddenInputAttributes)
                 </div>
                 <div class="kn-upload-file-details col s6">
                     <div class="kn-file-size"></div>

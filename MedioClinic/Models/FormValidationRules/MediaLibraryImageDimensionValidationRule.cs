@@ -4,11 +4,11 @@ using CMS.Helpers;
 using CMS.MediaLibrary;
 using CMS.SiteProvider;
 using Kentico.Forms.Web.Mvc;
-using MedioClinic.Models.FormComponents;
+using MedioClinic.Models.FormValidationRules;
 
 [assembly: RegisterFormValidationRule("MedioClinic.ValidationRule.MediaLibraryImageDimension", typeof(MediaLibraryImageDimensionValidationRule), "{$ValidationRule.MediaLibraryImageDimension.Name$}", Description = "{$ValidationRule.MediaLibraryImageDimension.Description$}")]
 
-namespace MedioClinic.Models.FormComponents
+namespace MedioClinic.Models.FormValidationRules
 {
     [Serializable]
     public class MediaLibraryImageDimensionValidationRule : ValidationRule<string>

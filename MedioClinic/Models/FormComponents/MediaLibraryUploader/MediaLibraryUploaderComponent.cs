@@ -11,9 +11,6 @@ namespace MedioClinic.Models.FormComponents
         [BindableProperty]
         public string FileGuid { get; set; } = string.Empty;
 
-        [BindableProperty]
-        public int PageId { get; set; }
-
         public string SiteName => SiteContext.CurrentSiteName;
 
         public override bool CustomAutopostHandling => true;
