@@ -369,6 +369,7 @@ if (wopener) {
             widthHeightElem.Height = height;
         }
 
+        pnlUpdateWidthHeight.Update();
         LoadPreview();
     }
 
@@ -420,6 +421,7 @@ if (wopener) {
             url = EnsureMediaSelector(url);
         }
 
+        pnlUpdateImgUrl.Update();
         txtUrl.Text = url;
 
         LoadPreview();

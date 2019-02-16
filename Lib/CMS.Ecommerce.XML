@@ -10725,6 +10725,12 @@
             Default value is true.
             </summary>
         </member>
+        <member name="P:CMS.Ecommerce.ECommerceSettings.UseStrictInventoryManagement">
+            <summary>
+            Indicates if strict inventory management is enabled. Value is taken from webconfig key CMSUseStrictInventoryManagement.
+            Default value is false.
+            </summary>
+        </member>
         <member name="P:CMS.Ecommerce.ECommerceSettings.ProvidersCacheMinutes">
             <summary>
             Time (minutes) used for caches used in ecommerce providers. Default value is 10 minutes.
@@ -11369,6 +11375,11 @@
             <summary>
             Removes sku from document when document is moved to another site. 
             SKU is removed only if is not accessible on target site.
+            </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.DocumentHandlers.LogDocumentChangeClone(System.Object,CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs)">
+            <summary>
+            Fixes cloned SKUTreeNode when synchronization task of the document with SKU is being prepared.
             </summary>
         </member>
         <member name="T:CMS.Ecommerce.MacroEngineHandlers">
@@ -19260,7 +19271,10 @@
             Creates or updates order based on the data of the specified shopping cart.
             </summary>
             <param name="cart">Shopping cart data</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set,
+            or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).
+            </exception>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingCartInfoProvider.SetOrder(CMS.Ecommerce.ShoppingCartInfo,System.Boolean)">
             <summary>
@@ -19268,7 +19282,10 @@
             </summary>
             <param name="cart">Shopping cart data</param>
             <param name="generateInvoice">Indicates if new invoice should be generated from the new order data. It is True by default.</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set,
+            or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).
+            </exception>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingCartInfoProvider.SetOrderItems(CMS.Ecommerce.ShoppingCartInfo)">
             <summary>
@@ -19455,7 +19472,10 @@
             </summary>
             <param name="cart">Shopping cart data</param>
             <param name="generateInvoice">Indicates if new invoice should be generated from the new order data. It is True by default.</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set,
+            or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).
+            </exception>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingCartInfoProvider.SetOrderItemsInternal(CMS.Ecommerce.ShoppingCartInfo)">
             <summary>
@@ -20631,6 +20651,7 @@
             Updates products' available items according to the products' units of the specified shopping cart.
             </summary>
             <param name="cart">Shopping cart with some products</param>
+            <exception cref="T:System.InvalidOperationException">When strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).</exception>
         </member>
         <member name="M:CMS.Ecommerce.SKUInfoProvider.IsUserAuthorizedToModifySKU(CMS.Ecommerce.SKUInfo,System.String,CMS.Base.IUserInfo)">
             <summary>
@@ -20793,6 +20814,7 @@
             Updates products' available items in database according to the products' units of the specified shopping cart.
             </summary>
             <param name="cart">Shopping cart with some products</param>
+            <exception cref="T:System.InvalidOperationException">When strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).</exception>
         </member>
         <member name="M:CMS.Ecommerce.SKUInfoProvider.SortProductOptionsAlphabeticallyInternal(System.Int32)">
             <summary>
@@ -20845,6 +20867,14 @@
             <param name="sku">The sku.</param>
             <param name="inventoryChange">The inventory change.</param>
             <param name="cartItem">[Optional] The cart item for specified SKU. Inventory change will be added to cart item's OrderItemUnitCount, to handle multiple UpdateInventory requests.</param>
+            <exception cref="T:System.InvalidOperationException">When strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).</exception>
+        </member>
+        <member name="M:CMS.Ecommerce.SKUInfoProvider.ExecuteUpdateInventoryDbQuery(CMS.Ecommerce.SKUInfo,System.Int32)">
+            <summary>
+            Executes an atomic DB query that updates the number of available items of specified <paramref name="sku"/> and returns the number of available items after this operation.
+            </summary>
+            <param name="sku">The sku.</param>
+            <param name="inventoryChange">The inventory change.</param>
         </member>
         <member name="M:CMS.Ecommerce.SKUInfoProvider.ClearUnusedFields(CMS.Ecommerce.SKUInfo)">
             <summary>
@@ -22552,7 +22582,7 @@
             Also tracks order conversion, sends order notifications and logs purchase activities.
             </summary>
             <returns>Returns the <see cref="T:CMS.Ecommerce.OrderInfo"/> of newly created order.</returns>
-            <exception cref="T:System.InvalidOperationException">Thrown when validation fails.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when validation fails, or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).</exception>
             <seealso cref="T:CMS.Ecommerce.CreateOrderValidator"/>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingService.ValidateCreateOrder(CMS.Ecommerce.ShoppingCartInfo)">

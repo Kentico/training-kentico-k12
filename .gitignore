@@ -320,3 +320,7 @@ CMS/PersonalSite
 ## Project specific ignores
 # Sensitive settings
 AppSettings.config
+
+## Kentico hotfix logs
+log.txt
+modified.txt

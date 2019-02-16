@@ -3085,6 +3085,16 @@
             <returns>Relative path</returns>
             <exception cref="T:System.ArgumentNullException">Throws when <paramref name="virtualPath" /> or <paramref name="appPath" /> is <c>null</c>.</exception>
         </member>
+        <member name="M:CMS.IO.VirtualPathHelper.EnsureTrailingSlash(System.String)">
+            <summary>
+            Ensure trailing slash at the end of path
+            </summary>
+        </member>
+        <member name="M:CMS.IO.VirtualPathHelper.FixVirtualPathSlashes(System.String)">
+            <summary>
+            Normalize slashes and remove slash duplicates
+            </summary>
+        </member>
         <member name="M:CMS.IO.VirtualPathHelper.RemoveDirectives(System.String,System.String[])">
             <summary>
             Removes the default layout directives from the layout code.

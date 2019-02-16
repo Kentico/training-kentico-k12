@@ -965,7 +965,7 @@
             <param name="nodeAliasPath">Node alias path. If is specified, all allowed nodes must be beneath this path</param>
             <returns>Returns true if values are ready</returns>
         </member>
-        <member name="M:CMS.DocumentEngine.Internal.DocumentSearchablesRetriever.GetSearchablesObjects(CMS.Search.SearchIndexInfo,System.String,System.String)">
+        <member name="M:CMS.DocumentEngine.Internal.DocumentSearchablesRetriever.GetSearchableObjects(CMS.Search.SearchIndexInfo,System.String,System.String)">
             <summary>
             Returns <see cref="T:CMS.DataEngine.ISearchable"/> objects for given <paramref name="nodeAliasPath"/>.
             </summary>
@@ -1009,7 +1009,7 @@
         </member>
         <member name="M:CMS.DocumentEngine.Internal.DocumentSearchablesRetriever.LogBatchStart(System.Int32,System.Int32,System.String,System.String,System.Boolean)">
             <summary>
-            Logs the start of batch processing. 
+            Logs the start of batch processing.
             </summary>
             <param name="batchNumber">Number of batch</param>
             <param name="lastID">ID of last item that is not present in the batch</param>
@@ -1243,6 +1243,55 @@
             <summary>
             Indicates whether it is range request.
             </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.Internal.DocumentSynchronizationEvents">
+            <summary>
+            Document synchronization events.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.Internal.DocumentSynchronizationEvents.LogDocumentChangeClone">
+            <summary>
+            Fired when document is clonned during synchronization task creation process.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs">
+            <summary>
+            Encapsulates arguments for <see cref="T:CMS.DocumentEngine.LogDocumentChangeHandler"/>
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs.Original">
+            <summary>
+            Original node.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs.Clone">
+            <summary>
+            Cloned node.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs.#ctor(CMS.DocumentEngine.TreeNode,CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Creates an instance of the <see cref="T:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs"/> class.
+            </summary>
+            <param name="original">Original node.</param>
+            <param name="clone">Cloned node.</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.Internal.LogDocumentChangeCloneHandler">
+            <summary>
+             Event handler for <see cref="F:CMS.DocumentEngine.Internal.DocumentSynchronizationEvents.LogDocumentChangeClone"/> event.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.Internal.LogDocumentChangeCloneHandler.#ctor">
+            <summary>
+            Creates an empty instance of the <see cref="T:CMS.DocumentEngine.Internal.LogDocumentChangeCloneHandler"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.Internal.LogDocumentChangeCloneHandler.StartEvent(CMS.DocumentEngine.TreeNode,CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Initiates the new handler context.
+            </summary>
+            <param name="original">Original node.</param>
+            <param name="clone">Cloned node.</param>
         </member>
         <member name="T:CMS.DocumentEngine.Internal.DocumentCultureDataInfo">
             <summary>

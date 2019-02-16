@@ -93,6 +93,15 @@ public partial class CMSModules_Content_Controls_Dialogs_Properties_URLPropertie
     protected global::CMS.Base.Web.UI.LocalizedLabel lblUrl;
     
     /// <summary>
+    /// pnlUpdateImgUrl control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.CMSUpdatePanel pnlUpdateImgUrl;
+    
+    /// <summary>
     /// txtUrl control.
     /// </summary>
     /// <remarks>
@@ -201,6 +210,15 @@ public partial class CMSModules_Content_Controls_Dialogs_Properties_URLPropertie
     protected global::System.Web.UI.WebControls.PlaceHolder plcSizeSelector;
     
     /// <summary>
+    /// pnlUpdateWidthHeight control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.CMSUpdatePanel pnlUpdateWidthHeight;
+    
+    /// <summary>
     /// widthHeightElem control.
     /// </summary>
     /// <remarks>
@@ -208,6 +226,15 @@ public partial class CMSModules_Content_Controls_Dialogs_Properties_URLPropertie
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::CMSModules_Content_Controls_Dialogs_General_WidthHeightSelector widthHeightElem;
+    
+    /// <summary>
+    /// pnlPreviewArea control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.CMSUpdatePanel pnlPreviewArea;
     
     /// <summary>
     /// plcPreviewArea control.

@@ -218,7 +218,6 @@ public partial class CMSModules_Staging_Tools_Tasks_Tasks : CMSStagingTasksPage
             }
         }
 
-
         var script = @"var currentNodeId = 0,
 selectDocuments = false;
 
@@ -237,6 +236,14 @@ function SelectDocNode(serverId, nodeId) {
     document.location = 'DocumentsList.aspx?serverId=' + currentServerId + '&stagingnodeid=' + nodeId;
 }";
         ScriptHelper.RegisterClientScriptBlock(Page, typeof(string), ClientID + "HandlingTasks", ScriptHelper.GetScript(script));
+    }
+
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+
+        pnlFooter.Visible = !tasksUniGrid.IsEmpty;
     }
 
 
@@ -276,10 +283,11 @@ function SelectDocNode(serverId, nodeId) {
     protected DataSet tasksUniGrid_OnDataReload(string completeWhere, string currentOrder, int currentTopN, string columns, int currentOffset, int currentPageSize, ref int totalRecords)
     {
         // Get the tasks
-        DataSet ds = StagingTaskInfoProvider.SelectDocumentTaskList(CurrentSiteID, SelectedServerID, aliasPath, completeWhere, currentOrder, currentTopN, columns, currentOffset, currentPageSize, ref totalRecords);
+        var tasksQuery = StagingTaskInfoProvider.SelectDocumentTaskList(CurrentSiteID, SelectedServerID, aliasPath, completeWhere, currentOrder, currentTopN, columns, currentOffset, currentPageSize);
+        var result = tasksQuery.Result;
+        totalRecords = tasksQuery.TotalRecords;
 
-        pnlFooter.Visible = (totalRecords > 0);
-        return ds;
+        return result;
     }
 
 
