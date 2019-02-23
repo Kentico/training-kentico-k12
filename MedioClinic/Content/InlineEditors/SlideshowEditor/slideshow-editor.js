@@ -55,15 +55,15 @@
                         hideDropzoneLabels(dropzone.element);
 
                         // Image rendering: Alternative 1 (begin)
-                        /*var slideIdsAfterUpload = medioClinic.slideshowWidget.collectDropzoneIds(swiper);
+                        /*var slideIdsAfterUpload = medioClinic.slideshowWidget.collectImageIds(swiper);
 
                         var imageGuids = slideIdsAfterUpload.map(function (slideId) {
                             return getGuidFromId(slideId);
                         });*/
                         // Image rendering: Alternative 1 (end)
 
-                        var dropzoneIndex = getDropzoneElementIndex(dropzone.element);
-                        imageGuids.splice(dropzoneIndex, 1, newGuid);
+                        var childElementIndex = getChildElementIndex(dropzone.element);
+                        imageGuids.splice(childElementIndex, 1, newGuid);
                         dispatchBuilderEvent(imageGuids);
                     });
 
@@ -99,7 +99,7 @@
              * @param {HTMLElement} dropzoneElement The HTML element of the Dropzone object.
              * @returns {number} The position in the parent Swiper.
              */
-            var getDropzoneElementIndex = function (dropzoneElement) {
+            var getChildElementIndex = function (dropzoneElement) {
                 return Array.prototype.slice.call(dropzoneElement.parentElement.parentElement.children)
                     .indexOf(dropzoneElement.parentElement);
             };
@@ -162,18 +162,18 @@
                     .getCurrentSwiper(editor, medioClinic.slideshowWidget.swiperGuidAttribute);
 
                 // Image rendering: Alternative 1 (begin)
-                /*var dropzoneIds = medioClinic.slideshowWidget.collectDropzoneIds(swiper);
+                /*var imageIds = medioClinic.slideshowWidget.collectImageIds(swiper);
 
-                var imageGuids = dropzoneIds.map(function (slideId) {
+                var imageGuids = imageIds.map(function (slideId) {
                     return getGuidFromId(slideId);
                 });*/
                 // Image rendering: Alternative 1 (end)
 
-                var dropzoneElement = swiper.slides[swiper.activeIndex].children[0];
-                var dropzoneIndex = getDropzoneElementIndex(dropzoneElement);
+                var slideChildElement = swiper.slides[swiper.activeIndex].children[0];
+                var childElementIndex = getChildElementIndex(slideChildElement);
 
-                if (imageGuids[dropzoneIndex]) {
-                    var body = "attachmentGuid=" + imageGuids[dropzoneIndex];
+                if (imageGuids[childElementIndex]) {
+                    var body = "attachmentGuid=" + imageGuids[childElementIndex];
                     var xhr = new XMLHttpRequest();
                     xhr.open("DELETE", editor.getAttribute("data-delete-url"), true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -190,7 +190,7 @@
                     xhr.send(body);
                 }
 
-                imageGuids.splice(dropzoneIndex, 1);
+                imageGuids.splice(childElementIndex, 1);
                 swiper.removeSlide(swiper.activeIndex);
                 dispatchBuilderEvent(imageGuids);
             };
@@ -205,10 +205,10 @@
                 .getCurrentSwiper(options.editor, medioClinic.slideshowWidget.swiperGuidAttribute);
 
             if (swiper) {
-                var dropzoneIds = medioClinic.slideshowWidget.collectDropzoneIds(swiper);
+                var imageIds = medioClinic.slideshowWidget.collectImageIds(swiper);
 
-                if (dropzoneIds && Array.isArray(dropzoneIds)) {
-                    dropzoneIds.forEach(function (dropzoneId) {
+                if (imageIds && Array.isArray(imageIds)) {
+                    imageIds.forEach(function (dropzoneId) {
                         var dropzoneElement = document.getElementById(dropzoneId);
 
                         if (dropzoneElement && dropzoneElement.dropzone) {

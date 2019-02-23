@@ -15,7 +15,7 @@ namespace MedioClinic
             builder.UsePageBuilder(new PageBuilderOptions()
             {
                 DefaultSectionIdentifier = "MedioClinic.Section.SingleColumn",
-                RegisterDefaultSection = false
+                RegisterDefaultSection = true
             });
         }
     }

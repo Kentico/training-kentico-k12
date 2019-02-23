@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.UI;
 
 using Business.DependencyInjection;
@@ -10,15 +11,15 @@ namespace MedioClinic.Controllers
 {
     public class LandingPageController : BaseController
     {
-        private ILandingPageRepository LandingPageRepository { get; }
+        protected ILandingPageRepository LandingPageRepository { get; }
 
         public LandingPageController(
             IBusinessDependencies dependencies, ILandingPageRepository landingPageRepository) : base(dependencies)
         {
-            LandingPageRepository = landingPageRepository;
+            LandingPageRepository = landingPageRepository ?? throw new ArgumentNullException(nameof(landingPageRepository));
         }
 
-        // GET: LandingPage
+        // GET: LandingPage/[nodeAlias]
         [OutputCache(Duration = 3600, VaryByParam = "nodeAlias", Location = OutputCacheLocation.Server)]
         public ActionResult Index(string nodeAlias)
         {
@@ -31,7 +32,6 @@ namespace MedioClinic.Controllers
 
             Dependencies.CacheService.SetOutputCacheDependency(nodeAlias);
             var model = GetPageViewModel(landingPageDto.Title);
-
             HttpContext.Kentico().PageBuilder().Initialize(landingPageDto.DocumentId);
 
             return View(model);

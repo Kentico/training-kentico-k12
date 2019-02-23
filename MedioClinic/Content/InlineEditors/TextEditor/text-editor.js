@@ -12,8 +12,7 @@
                         "unorderedlist",
                         "h1",
                         "h2",
-                        "h3",
-                        "customHtml"
+                        "h3"
                     ]
                 },
                 imageDragging: false,
@@ -21,11 +20,6 @@
                   imageDragging: {}
                 }
             };
-
-            if (editor.dataset.enableFormatting === "False") {
-                config.toolbar = false;
-                config.keyboardCommands = false;
-            }
 
             var mediumEditor = new MediumEditor(editor, config);
 
@@ -46,19 +40,6 @@
             var mediumEditor = MediumEditor.getEditorFromElement(options.editor);
             if (mediumEditor) {
                 mediumEditor.destroy();
-            }
-        },
-
-        dragStart: function (options) {
-            var mediumEditor = MediumEditor.getEditorFromElement(options.editor);
-            var focusedElement = mediumEditor && mediumEditor.getFocusedElement();
-
-            var focusedMediumEditor = focusedElement && MediumEditor.getEditorFromElement(focusedElement);
-            var toolbar = focusedMediumEditor && focusedMediumEditor.getExtensionByName("toolbar");
-
-            if (focusedElement && toolbar) {
-                toolbar.hideToolbar();
-                focusedElement.removeAttribute("data-medium-focused");
             }
         }
     });

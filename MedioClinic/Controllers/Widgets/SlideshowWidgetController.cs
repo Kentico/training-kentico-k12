@@ -25,18 +25,7 @@ namespace MedioClinic.Controllers.Widgets
         public ActionResult Index()
         {
             var properties = GetProperties();
-
-            var guids = properties?
-                .ImageIds?
-                .Select(imageId =>
-                {
-                    Guid guid;
-
-                    return Guid.TryParse(imageId, out guid) ? guid : Guid.Empty;
-                })
-                .Where(guid => guid != Guid.Empty);
-
-            var images = GetImages(guids);
+            var images = GetImages(properties?.ImageIds);
 
             return PartialView("Widgets/_SlideshowWidget", new SlideshowWidgetViewModel
             {

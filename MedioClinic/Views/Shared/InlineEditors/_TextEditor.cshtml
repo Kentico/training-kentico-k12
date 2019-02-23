@@ -3,8 +3,7 @@
 @using (Html.Kentico().BeginInlineEditor("text-editor", Model.PropertyName,
     new
     {
-        @class = "text-editor",
-        data_enable_formatting = Model.EnableFormatting.ToString()
+        @class = "text-editor"
     }))
 {
     @Html.Raw(Model.Text)

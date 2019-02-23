@@ -107,12 +107,12 @@
      * @param {object} swiper The parent Swiper object.
      * @returns {string[]} The array of Dropzone IDs.
      */
-    slideshowWidget.collectDropzoneIds = function (swiper) {
+    slideshowWidget.collectImageIds = function (swiper) {
         var output = [];
 
         for (var s = 0; s <= swiper.slides.length - 1; s++) {
-            var childDropzone = swiper.slides[s].children[0];
-            output.push(childDropzone.id);
+            var childElement = swiper.slides[s].children[0];
+            output.push(childElement.id);
         }
 
         return output;

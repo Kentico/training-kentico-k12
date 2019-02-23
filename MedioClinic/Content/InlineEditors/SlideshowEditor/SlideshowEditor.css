@@ -35,13 +35,17 @@ ul.kn-slideshow-buttons {
         }
 
 .dz-message {
-    position: absolute;
-    width: 230px;
-    padding: 10px;
     font-size: 14px;
-    top: 2.5rem;
-    left: 50%;
-    -webkit-transform: translate(-50%,0);
-    -ms-transform: translate(-50%,0);
-    transform: translate(-50%,0)
+    margin: 2rem auto 0 auto;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+}
+
+.swiper-container {
+    min-height: 20rem;
+}
+
+.data-dz-thumbnail {
+    width: 100%;
 }
