@@ -1,12 +1,12 @@
-﻿using CMS.DataEngine;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Web;
+
+using CMS.DataEngine;
 using CMS.DocumentEngine;
 using CMS.Membership;
 using CMS.SiteProvider;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Web;
 
 namespace MedioClinic.Utils
 {

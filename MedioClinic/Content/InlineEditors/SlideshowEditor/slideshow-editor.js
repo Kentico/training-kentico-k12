@@ -48,8 +48,8 @@
                 });
 
                 dropzone.on("success",
-                    function (e) {
-                        var content = JSON.parse(e.xhr.response);
+                    function (event) {
+                        var content = JSON.parse(event.xhr.response);
                         var newGuid = content.guid;
                         replaceId(dropzone.element, imageGuidPrefix + newGuid);
                         hideDropzoneLabels(dropzone.element);
@@ -69,8 +69,8 @@
 
 
                 dropzone.on("error",
-                    function (e) {
-                        medioClinic.dropzoneCommon.processErrors(e.xhr.status, options.localizationService);
+                    function (event) {
+                        medioClinic.dropzoneCommon.processErrors(event.xhr.status, options.localizationService);
                     });
             };
 
@@ -141,7 +141,7 @@
              * @param {string[]} imageGuids The GUIDs of the images in the Swiper object.
              */
             var dispatchBuilderEvent = function (imageGuids) {
-                var event = new CustomEvent("updateProperty",
+                var customEvent = new CustomEvent("updateProperty",
                     {
                         detail: {
                             name: options.propertyName,
@@ -152,7 +152,7 @@
                         }
                     });
 
-                editor.dispatchEvent(event);
+                editor.dispatchEvent(customEvent);
             };
 
             /** Removes a slide from the current Swiper object. */

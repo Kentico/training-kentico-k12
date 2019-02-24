@@ -34,16 +34,9 @@ ul.kn-slideshow-buttons {
             transition: background-color .2s ease-in
         }
 
-.dz-message {
-    font-size: 14px;
-    margin: 2rem auto 0 auto;
-    padding: 10px;
-    text-align: center;
-    width: 50%;
-}
-
 .swiper-container {
     min-height: 20rem;
+    min-width: 20rem;
 }
 
 .data-dz-thumbnail {

@@ -18,7 +18,9 @@ namespace MedioClinic.Controllers.Widgets
         {
         }
 
-        public SlideshowWidgetController(IWidgetPropertiesRetriever<SlideshowWidgetProperties> propertiesRetriever, ICurrentPageRetriever currentPageRetriever) : base(propertiesRetriever, currentPageRetriever)
+        public SlideshowWidgetController
+            (IWidgetPropertiesRetriever<SlideshowWidgetProperties> propertiesRetriever, ICurrentPageRetriever currentPageRetriever)
+            : base(propertiesRetriever, currentPageRetriever)
         {
         }
 

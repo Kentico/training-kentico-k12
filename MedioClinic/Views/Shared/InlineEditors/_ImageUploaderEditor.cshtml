@@ -2,6 +2,9 @@
 @model ImageUploaderEditorViewModel
 
 @{
+    string GetContainerClass() =>
+        Model.Image != null ? "kn-image-uploader-container" : "kn-image-uploader-empty-container";
+
     // Gets the URL to the ImageUploaderController's action.
     HtmlString GetActionUrl()
     {
@@ -10,9 +13,6 @@
             pageId = Context.Kentico().PageBuilder().PageIdentifier
         }), false);
     }
-
-    string GetContainerClass() =>
-        Model.Image != null ? "kn-image-uploader-container" : "kn-image-uploader-empty-container";
 }
 
 @using (Html.Kentico().BeginInlineEditor("image-uploader-editor", Model.PropertyName,

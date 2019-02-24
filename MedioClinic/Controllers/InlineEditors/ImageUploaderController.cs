@@ -12,19 +12,19 @@ namespace MedioClinic.Controllers.Widgets
 
         protected IFileManagementHelper FileManagementHelper { get; }
 
-        protected IErrorHandler ErrorHandler { get; }
+        protected IErrorHelper ErrorHelper { get; }
 
-        public ImageUploaderController(IFileManagementHelper fileManagementHelper, IErrorHandler errorHandler)
+        public ImageUploaderController(IFileManagementHelper fileManagementHelper, IErrorHelper errorHandler)
         {
             FileManagementHelper = fileManagementHelper ?? throw new ArgumentNullException(nameof(fileManagementHelper));
-            ErrorHandler = errorHandler ?? throw new ArgumentNullException(nameof(errorHandler));
+            ErrorHelper = errorHandler ?? throw new ArgumentNullException(nameof(errorHandler));
         }
 
-        // POST: ImageUploader/Upload
+        // POST: ImageUploader/Upload/[pageId]
         [HttpPost]
         public ActionResult Upload(int pageId)
         {
-            ErrorHandler.CheckEditMode(HttpContext, nameof(ImageUploaderController.Upload));
+            ErrorHelper.CheckEditMode(HttpContext, nameof(ImageUploaderController.Upload));
             var page = FileManagementHelper.GetPage(pageId);
             var imageGuid = Guid.Empty;
 
@@ -36,13 +36,13 @@ namespace MedioClinic.Controllers.Widgets
                 }
                 catch (Exception ex)
                 {
-                    return ErrorHandler.HandleException(nameof(ImageUploaderController.Upload), ex, ErrorHandler.UnprocessableStatusCode);
+                    return ErrorHelper.HandleException(nameof(ImageUploaderController.Upload), ex, ErrorHelper.UnprocessableStatusCode);
                 }
 
                 return Json(new { guid = imageGuid }); 
             }
 
-            return new HttpStatusCodeResult(ErrorHandler.UnprocessableStatusCode);
+            return new HttpStatusCodeResult(ErrorHelper.UnprocessableStatusCode);
         }
     }
 }

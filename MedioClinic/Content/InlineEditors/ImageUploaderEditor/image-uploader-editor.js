@@ -5,8 +5,7 @@
             var zone = editor.querySelector(".dz-uploader");
             var clickable = editor.querySelector(".dz-clickable");
 
-            var dropzone = new Dropzone(zone,
-                {
+            var dropzone = new Dropzone(zone, {
                     acceptedFiles: medioClinic.dropzoneCommon.acceptedFiles,
                     maxFiles: 1,
                     url: editor.getAttribute("data-upload-url"),
@@ -17,10 +16,10 @@
                 });
 
             dropzone.on("success",
-                function (e) {
-                    var content = JSON.parse(e.xhr.response);
+                function (event) {
+                    var content = JSON.parse(event.xhr.response);
 
-                    var event = new CustomEvent("updateProperty",
+                    var customEvent = new CustomEvent("updateProperty",
                         {
                             detail: {
                                 value: content.guid,
@@ -28,20 +27,21 @@
                             }
                         });
 
-                    editor.dispatchEvent(event);
+                    editor.dispatchEvent(customEvent);
                 });
 
             dropzone.on("error",
-                function (e) {
+                function (event) {
                     document.querySelector(".dz-preview").style.display = "none";
-                    medioClinic.dropzoneCommon.processErrors(e.xhr.status, options.localizationService);
+                    medioClinic.dropzoneCommon.processErrors(event.xhr.status, options.localizationService);
                 });
         },
 
         destroy: function (options) {
-            var dropZone = options.editor.querySelector(".dz-uploader").dropzone;
-            if (dropZone) {
-                dropZone.destroy();
+            var dropzone = options.editor.querySelector(".dz-uploader").dropzone;
+
+            if (dropzone) {
+                dropzone.destroy();
             }
         }
     });

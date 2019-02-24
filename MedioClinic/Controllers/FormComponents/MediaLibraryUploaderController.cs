@@ -20,13 +20,13 @@ namespace MedioClinic.Controllers
 
         protected IFileManagementHelper FileManagementHelper { get; }
 
-        protected IErrorHandler ErrorHandler { get; }
+        protected IErrorHelper ErrorHelper { get; }
 
-        public MediaLibraryUploaderController(ISiteContextService siteContextService, IFileManagementHelper fileManagementHelper, IErrorHandler errorHandler)
+        public MediaLibraryUploaderController(ISiteContextService siteContextService, IFileManagementHelper fileManagementHelper, IErrorHelper errorHandler)
         {
             SiteContextService = siteContextService ?? throw new ArgumentNullException(nameof(siteContextService));
             FileManagementHelper = fileManagementHelper ?? throw new ArgumentNullException(nameof(fileManagementHelper));
-            ErrorHandler = errorHandler ?? throw new ArgumentNullException(nameof(errorHandler));
+            ErrorHelper = errorHandler ?? throw new ArgumentNullException(nameof(errorHandler));
         }
 
         // POST: MediaLibraryUploader/Upload
@@ -45,7 +45,7 @@ namespace MedioClinic.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return ErrorHandler.HandleException(nameof(MediaLibraryUploaderController.Upload), ex);
+                    return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController.Upload), ex);
                 }
 
                 if (!string.IsNullOrEmpty(directoryPath))
@@ -59,7 +59,7 @@ namespace MedioClinic.Controllers
                     }
                     catch (Exception ex)
                     {
-                        return ErrorHandler.HandleException(nameof(MediaLibraryUploaderController.Upload), ex);
+                        return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController.Upload), ex);
                     }
 
                     if (!string.IsNullOrEmpty(imagePath))
@@ -72,7 +72,7 @@ namespace MedioClinic.Controllers
                         }
                         catch (Exception ex)
                         {
-                            return ErrorHandler.HandleException(nameof(MediaLibraryUploaderController.Upload), ex, ErrorHandler.UnprocessableStatusCode);
+                            return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController.Upload), ex, ErrorHelper.UnprocessableStatusCode);
                         }
 
                         if (fileInfo != null)
@@ -85,7 +85,7 @@ namespace MedioClinic.Controllers
                             }
                             catch (Exception ex)
                             {
-                                return ErrorHandler.HandleException(nameof(MediaLibraryUploaderController.Upload), ex, ErrorHandler.UnprocessableStatusCode);
+                                return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController.Upload), ex, ErrorHelper.UnprocessableStatusCode);
                             }
 
                             try
@@ -94,7 +94,7 @@ namespace MedioClinic.Controllers
                             }
                             catch (Exception ex)
                             {
-                                ErrorHandler.LogException(nameof(MediaLibraryUploaderController.Upload), ex);
+                                ErrorHelper.LogException(nameof(MediaLibraryUploaderController.Upload), ex);
                             }
 
                             return Json(new
@@ -107,7 +107,7 @@ namespace MedioClinic.Controllers
                 }
             }
 
-            return new HttpStatusCodeResult(ErrorHandler.UnprocessableStatusCode);
+            return new HttpStatusCodeResult(ErrorHelper.UnprocessableStatusCode);
         }
 
         /// <summary>

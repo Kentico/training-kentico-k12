@@ -3,6 +3,12 @@
 @model MedioClinic.Models.Widgets.ImageWidgetViewModel
 
 @{
+    if (Model.Image != null)
+    {
+        var imageUrl = Url.KenticoImageUrl(Model.Image.GetPath());
+        <img src="@Html.Raw(imageUrl)" class="responsive-img" />
+    }
+
     if (Context.Kentico().PageBuilder().EditMode)
     {
         Html.RenderPartial("InlineEditors/_ImageUploaderEditor", new ImageUploaderEditorViewModel
@@ -10,11 +16,5 @@
             PropertyName = nameof(ImageWidgetProperties.ImageGuid),
             Image = Model.Image
         });
-    }
-
-    if (Model.Image != null)
-    {
-        var imageUrl = Url.KenticoImageUrl(Model.Image.GetPath());
-        <img src="@Html.Raw(imageUrl)" class="responsive-img" />
     }
 }

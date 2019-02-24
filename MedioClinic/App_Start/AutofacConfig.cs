@@ -53,7 +53,7 @@ namespace MedioClinic
                 .InstancePerRequest();
 
             // Registers the common error handler
-            builder.RegisterType<ErrorHandler>().As<IErrorHandler>()
+            builder.RegisterType<ErrorHelper>().As<IErrorHelper>()
                 .InstancePerRequest();
 
             // Resolves the dependencies
