@@ -3,7 +3,7 @@ using Business.Dto.Company;
 
 namespace Business.Repository.Company
 {
-    public interface ICompanyServiceRepository : IRepository
+    public interface ICompanyServiceRepository
     {
          IEnumerable<CompanyServiceDto> GetCompanyServices();
     }

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Business.Dto.Culture;
 
-namespace Business.Repository.Culture
+namespace Business.Services.Culture
 {
-    public interface ICultureRepository : IRepository
+    public interface ICultureService
     {
         IEnumerable<CultureDto> GetSiteCultures();
     }

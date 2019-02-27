@@ -3,7 +3,7 @@ using Business.Dto.Map;
 
 namespace Business.Repository.Map
 {
-    public interface IMapRepository : IRepository
+    public interface IMapRepository 
     {
         IEnumerable<MapLocationDto> GetOfficeLocations();
     }

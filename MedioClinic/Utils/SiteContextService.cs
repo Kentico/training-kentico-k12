@@ -1,10 +1,11 @@
-﻿using Business.Services.Context;
+﻿using Business.Services;
+using Business.Services.Context;
 using Kentico.Content.Web.Mvc;
 using Kentico.Web.Mvc;
 
 namespace MedioClinic.Utils
 {
-    public class SiteContextService : ISiteContextService
+    public class SiteContextService : BaseService, ISiteContextService
     {
         public string SiteName { get; }
 

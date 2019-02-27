@@ -24,7 +24,7 @@ namespace MedioClinic.Controllers
                 MenuItems = Dependencies.MenuRepository.GetMenuItems() ?? new List<MenuItemDto>(),
                 Metadata = GetPageMetadata(title),
                 Company = GetCompany(),
-                Cultures = Dependencies.CultureRepository.GetSiteCultures(),
+                Cultures = Dependencies.CultureService.GetSiteCultures(),
                 SocialLinks = GetSocialLinks(),
             };
         }
@@ -36,7 +36,7 @@ namespace MedioClinic.Controllers
                 MenuItems = Dependencies.MenuRepository.GetMenuItems() ?? new List<MenuItemDto>(),
                 Metadata = GetPageMetadata(title),
                 Company = GetCompany(),
-                Cultures = Dependencies.CultureRepository.GetSiteCultures(),
+                Cultures = Dependencies.CultureService.GetSiteCultures(),
                 SocialLinks = GetSocialLinks(),
                 Data = data
             };

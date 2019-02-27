@@ -4,7 +4,7 @@ using Business.Dto.Menu;
 
 namespace Business.Repository.Menu
 {
-    public interface IMenuRepository : IRepository
+    public interface IMenuRepository
     {
         IEnumerable<MenuItemDto> GetMenuItems();
     }
