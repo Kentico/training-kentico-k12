@@ -32,12 +32,15 @@
                 <ul id="langs" class="dropdown-content">
                     @foreach (var culture in Model.Cultures)
                     {
+                        var currentRouteValues = new RouteValueDictionary(
+                            Url.RequestContext.RouteData.Values
+                            )
+                        { ["culture"] = culture.CultureCode };
                         <li>
                             <a href="@Url.Action(
                                          ViewContext.RouteData.Values["action"]?.ToString(),
                                          ViewContext.RouteData.Values["controller"]?.ToString(),
-                                         new { culture = culture.CultureCode}
-                                         )">
+                                            currentRouteValues)">
                                 @culture.CultureShortName
                             </a>
                         </li>
@@ -50,7 +53,7 @@
                     if (ViewContext.RouteData.Values["controller"]?.ToString().Equals(menuItem.Controller, StringComparison.OrdinalIgnoreCase) ?? false)
                     {
                         <li class="kn-bold">
-                           <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
+                            <a href="@Url.Action(menuItem.Action, menuItem.Controller)">@menuItem.Caption</a>
                         </li>
                     }
                     else
@@ -99,7 +102,7 @@
                 <div class="col l4 s12">
                     @if (Model.Company != null)
                     {
-                    <h5 class="white-text">@Html.Localize("Footer.Contact")</h5>
+                        <h5 class="white-text">@Html.Localize("Footer.Contact")</h5>
                         <div class="grey-text text-lighten-4">
                             <p class="kn-smaller kn-address">
                                 <address>
@@ -141,7 +144,7 @@
                 <div class="row">
                     <div class="col s12">
                         <div class="blue-grey-text text-darken-2">
-                           @Html.Raw(Html.Localize("Footer.BuildWithNote")) Kentico, @DateTime.Now.Year.
+                            @Html.Raw(Html.Localize("Footer.BuildWithNote")) Kentico, @DateTime.Now.Year.
                         </div>
                     </div>
                 </div>
