@@ -11,10 +11,8 @@
         }), false);
     }
 
-    // Image rendering: Alternative 2 (begin)
     string SerializeGuids(IEnumerable<Guid> guids) =>
         string.Concat(guids.Select(guid => guid.ToString() + ";"));
-    // Image rendering: Alternative 2 (end)
 }
 
 @using (Html.Kentico().BeginInlineEditor("slideshow-editor", Model.PropertyName,
@@ -22,12 +20,10 @@
     {
         @class = "kn-slideshow-editor",
         data_swiper_guid = Model.SwiperId,
-
-        // Image rendering: Alternative 2
         data_image_guids = SerializeGuids(Model.Images.Select(image => image.AttachmentGUID)),
-
         data_upload_url = GetActionUrl("Upload").ToString(),
         data_delete_url = GetActionUrl("Delete").ToString(),
+        data_enforce_dimensions = Model.EnforceDimensions.ToString().ToLower(),
         data_width = Model.Width,
         data_height = Model.Height,
     }))

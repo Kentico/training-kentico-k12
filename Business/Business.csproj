@@ -533,6 +533,7 @@
     <Compile Include="Dto\Menu\MenuItemDto.cs" />
     <Compile Include="Dto\Page\PageMetadataDto.cs" />
     <Compile Include="Dto\Social\SocialLinkDto.cs" />
+    <Compile Include="Generated\Forms\FloridaEventRegistration.generated.cs" />
     <Compile Include="Generated\Pages\Company.generated.cs" />
     <Compile Include="Generated\Pages\CompanyProvider.generated.cs" />
     <Compile Include="Generated\Pages\CompanyService.generated.cs" />
@@ -573,6 +574,9 @@
     <Compile Include="Repository\Doctor\DoctorSectionRepository.cs" />
     <Compile Include="Repository\Doctor\IDoctorRepository.cs" />
     <Compile Include="Repository\Doctor\IDoctorSectionRepository.cs" />
+    <Compile Include="Repository\Forms\FormItemRepository.cs" />
+    <Compile Include="Repository\Forms\IFormItemRepository.cs" />
+    <Compile Include="Repository\Forms\IFormViewModel.cs" />
     <Compile Include="Repository\Home\HomeSectionRepository.cs" />
     <Compile Include="Repository\Home\IHomeSectionRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />

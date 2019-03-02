@@ -7,7 +7,6 @@
 @{
     var editMode = Context.Kentico().PageBuilder().EditMode;
     var swiperId = "swiper-" + Guid.NewGuid().ToString().ToLower();
-    var swiperArtifactClass = $"{swiperId}-artifact";
     var containerAspectRatio = (double)Model.Width / (double)Model.Height;
 
     // Gets the image constraint in case "Enforce dimensions in the live site" is checked (and for the edit mode).
@@ -92,7 +91,7 @@
 <script>
     @{
         var editModeLiteral = editMode.ToString().ToLower();
-        var initSwiperLiteral = $"medioClinic.slideshowWidget.initSwiper(\"{swiperId}\", {editModeLiteral}, {Model.TransitionDelay}, {Model.TransitionSpeed});";
+        var initSwiperLiteral = $"window.medioClinic.slideshowWidget.initSwiper(\"{swiperId}\", {editModeLiteral}, {Model.TransitionDelay}, {Model.TransitionSpeed});";
     }
 
     // Initialize the current Swiper object.

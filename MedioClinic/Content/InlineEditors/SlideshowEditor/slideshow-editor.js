@@ -6,45 +6,57 @@
             var plusButton = editor.parentElement.querySelector("ul.kn-slideshow-buttons .kn-swiper-plus");
             var minusButton = editor.parentElement.querySelector("ul.kn-slideshow-buttons .kn-swiper-minus");
 
-            // Image rendering: Alternative 2 (begin)
+            var swiper = window.medioClinic
+                .slideshowWidget
+                .getCurrentSwiper(editor, window.medioClinic.slideshowWidget.swiperGuidAttribute);
+
+            // Image GUID retrieval: Alternative 1 (begin)
+            /*var slideIds = window.medioClinic.slideshowWidget.collectImageIds(swiper);
+
+            var imageGuids = slideIds.map(function (slideId) {
+                return window.medioClinic.slideshowWidget.getGuidFromId(slideId);
+            });*/
+            // Image GUID retrieval: Alternative 1 (end)
+
+            // Image GUID retrieval: Alternative 2 (begin)
             var imageGuids = editor.getAttribute("data-image-guids").split(";");
             imageGuids.splice(-1, 1);
-            // Image rendering: Alternative 2 (end)
+            // Image GUID retrieval: Alternative 2 (end)
 
             /** Adds a new slide to the Swiper object, together with a new Dropzone object. */
             var addSlide = function () {
-                var swiper = medioClinic
-                    .slideshowWidget
-                    .getCurrentSwiper(editor, medioClinic.slideshowWidget.swiperGuidAttribute);
                 var tempGuid = generateUuid();
                 var tempId = imageGuidPrefix + tempGuid;
+
                 var markup =
                     buildSlideMarkup(tempId, options.localizationService.getString("InlineEditors.Dropzone.DropText"));
+
                 var activeIndexWhenAdded = swiper.slides.length > 0 ? swiper.activeIndex + 1 : 0;
-
-                // Image rendering: Alternative 2
                 imageGuids.splice(activeIndexWhenAdded, 0, tempGuid);
-
                 swiper.addSlide(activeIndexWhenAdded, markup);
                 swiper.slideNext();
 
-                // Image rendering: Alternative 2
                 var previewTemplate = "<div class=\"dz-preview dz-file-preview\"><img data-dz-thumbnail /></div>";
+                var enforceDimensions = editor.getAttribute("data-enforce-dimensions") === "true";
+                var computedStyle = window.getComputedStyle(editor.parentElement);
+                var computedWidth = computedStyle.width.substring(0, computedStyle.width.length - 2);
+                var computedHeight = computedStyle.height.substring(0, computedStyle.height.length - 2);
+                var width = enforceDimensions ? editor.getAttribute("data-width") : Math.round(computedWidth);
+                var height = enforceDimensions ? editor.getAttribute("data-height") : Math.round(computedHeight);
 
                 var dropzone = new Dropzone(editor.parentElement.querySelector("div#" + tempId + ".dropzone"), {
-                    acceptedFiles: medioClinic.dropzoneCommon.acceptedFiles,
+                    acceptedFiles: window.medioClinic.dropzoneCommon.acceptedFiles,
                     maxFiles: 1,
                     url: editor.getAttribute("data-upload-url"),
                     clickable: editor.parentElement.querySelector("div#" + tempId + ".dropzone a.dz-clickable"),
-                    dictInvalidFileType: options.localizationService.getString(
-                        "InlineEditors.SlideshowEditor.InvalidFileType"),
 
-                    // Image rendering: Alternative 2 (begin)
+                    dictInvalidFileType: options.localizationService.getString(
+                        "InlineEditors.Dropzone.InvalidFileType"),
+
                     previewsContainer: swiper.slides[activeIndexWhenAdded],
                     previewTemplate: previewTemplate,
-                    thumbnailWidth: editor.getAttribute("data-width"),
-                    thumbnailHeight: editor.getAttribute("data-height")
-                    // Image rendering: Alternative 2 (end)
+                    thumbnailWidth: width,
+                    thumbnailHeight: height
                 });
 
                 dropzone.on("success",
@@ -53,24 +65,14 @@
                         var newGuid = content.guid;
                         replaceId(dropzone.element, imageGuidPrefix + newGuid);
                         hideDropzoneLabels(dropzone.element);
-
-                        // Image rendering: Alternative 1 (begin)
-                        /*var slideIdsAfterUpload = medioClinic.slideshowWidget.collectImageIds(swiper);
-
-                        var imageGuids = slideIdsAfterUpload.map(function (slideId) {
-                            return getGuidFromId(slideId);
-                        });*/
-                        // Image rendering: Alternative 1 (end)
-
                         var childElementIndex = getChildElementIndex(dropzone.element);
                         imageGuids.splice(childElementIndex, 1, newGuid);
                         dispatchBuilderEvent(imageGuids);
                     });
 
-
                 dropzone.on("error",
                     function (event) {
-                        medioClinic.dropzoneCommon.processErrors(event.xhr.status, options.localizationService);
+                        window.medioClinic.dropzoneCommon.processErrors(event.xhr.status, options.localizationService);
                     });
             };
 
@@ -82,17 +84,6 @@
                 dropzoneElement.querySelector("a.dz-clickable").style.display = "none";
                 dropzoneElement.querySelector(".dz-message").style.display = "none";
             };
-
-            // Image rendering: Alternative 1 (begin)
-            /**
-             * Removes any prefixes that had been previously concatedated in front of a GUID.
-             * @param {string} id The GUID with the prefix.
-             * @returns {string} The bare GUID value.
-             */
-            /*var getGuidFromId = function (id) {
-                return id.slice(-36);
-            };*/
-            // Image rendering: Alternative 1 (end)
 
             /**
              * Gets the position (index) of a given Dropzone HTML element in the parent Swiper element
@@ -146,8 +137,6 @@
                         detail: {
                             name: options.propertyName,
                             value: imageGuids,
-
-                            // Image rendering: Alternative 2
                             refreshMarkup: false
                         }
                     });
@@ -157,18 +146,6 @@
 
             /** Removes a slide from the current Swiper object. */
             var removeSlide = function () {
-                var swiper = medioClinic
-                    .slideshowWidget
-                    .getCurrentSwiper(editor, medioClinic.slideshowWidget.swiperGuidAttribute);
-
-                // Image rendering: Alternative 1 (begin)
-                /*var imageIds = medioClinic.slideshowWidget.collectImageIds(swiper);
-
-                var imageGuids = imageIds.map(function (slideId) {
-                    return getGuidFromId(slideId);
-                });*/
-                // Image rendering: Alternative 1 (end)
-
                 var slideChildElement = swiper.slides[swiper.activeIndex].children[0];
                 var childElementIndex = getChildElementIndex(slideChildElement);
 
@@ -180,7 +157,7 @@
 
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 204) {
-                            medioClinic.showMessage(
+                            window.medioClinic.showMessage(
                                 kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"], "warning");
                             console.warn(
                                 kentico.localization.strings["InlineEditors.SlideshowEditor.ImageNotDeleted"]);
@@ -200,15 +177,11 @@
         },
 
         destroy: function (options) {
-            var swiper = medioClinic
-                .slideshowWidget
-                .getCurrentSwiper(options.editor, medioClinic.slideshowWidget.swiperGuidAttribute);
-
             if (swiper) {
-                var imageIds = medioClinic.slideshowWidget.collectImageIds(swiper);
+                var slideIds = window.medioClinic.slideshowWidget.collectImageIds(swiper);
 
-                if (imageIds && Array.isArray(imageIds)) {
-                    imageIds.forEach(function (dropzoneId) {
+                if (slideIds && Array.isArray(slideIds)) {
+                    slideIds.forEach(function (dropzoneId) {
                         var dropzoneElement = document.getElementById(dropzoneId);
 
                         if (dropzoneElement && dropzoneElement.dropzone) {
@@ -217,7 +190,7 @@
                     });
                 }
 
-                medioClinic.slideshowWidget.removeSwiper(swiper.el.id);
+                window.medioClinic.slideshowWidget.removeSwiper(swiper.el.id);
                 swiper.destroy();
             }
         }

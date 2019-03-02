@@ -129,10 +129,7 @@
   <data name="InlineEditors.Dropzone.DropText" xml:space="preserve">
     <value>Drop image here or &lt;a class="dz-clickable"&gt;click&lt;/a&gt; to browse</value>
   </data>
-  <data name="InlineEditors.ImageUploaderEditor.InvalidFileType" xml:space="preserve">
-    <value>Unsupported file type. Please upload files of the following types: .bmp, .gif, .ico, .png, .wmf, .jpg, .jpeg, .tiff, .tif</value>
-  </data>
-  <data name="InlineEditors.SlideshowEditor.InvalidFileType" xml:space="preserve">
+  <data name="InlineEditors.Dropzone.InvalidFileType" xml:space="preserve">
     <value>Unsupported file type. Please upload files of the following types: .bmp, .gif, .ico, .png, .wmf, .jpg, .jpeg, .tiff, .tif</value>
   </data>
   <data name="InlineEditors.SlideshowEditor.ImageNotDeleted" xml:space="preserve">

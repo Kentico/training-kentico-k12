@@ -7,10 +7,8 @@
     z-index: initial !important;
 }
 
-/*Image rendering: Alternative 2 (begin) */
 .dz-preview {
     position: absolute;
     top: 0;
     z-index: -1;
 }
-/*Image rendering: Alternative 2 (end) */

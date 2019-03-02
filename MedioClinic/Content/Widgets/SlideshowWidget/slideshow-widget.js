@@ -12,7 +12,7 @@
      * @param {object} swiper The Swiper object to add.
      */
     slideshowWidget.addSwiper = function (id, swiper) {
-        var found = medioClinic.slideshowWidget.getSwiper(id);
+        var found = window.medioClinic.slideshowWidget.getSwiper(id);
 
         if (!found) {
             var swiperToAdd = {
@@ -85,7 +85,7 @@
         }
 
         var swiper = new Swiper(swiperSelector, configuration);
-        medioClinic.slideshowWidget.addSwiper(swiperId, swiper);
+        window.medioClinic.slideshowWidget.addSwiper(swiperId, swiper);
     };
 
     /**
@@ -99,7 +99,16 @@
         //return editor.parentElement.swiper;
 
         // Retrieving off of the global namespace container
-        return medioClinic.slideshowWidget.getSwiper(editor.getAttribute(swiperGuidAttribute)).swiper;
+        return window.medioClinic.slideshowWidget.getSwiper(editor.getAttribute(swiperGuidAttribute)).swiper;
+    };
+
+    /**
+     * Removes any prefixes that had been previously concatedated in front of a GUID.
+     * @param {string} id The GUID with the prefix.
+     * @returns {string} The bare GUID value.
+     */
+    slideshowWidget.getGuidFromId = function (id) {
+        return id.slice(-36);
     };
 
     /**

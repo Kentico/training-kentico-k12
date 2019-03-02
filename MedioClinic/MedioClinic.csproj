@@ -726,6 +726,7 @@
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\FormComponents\MediaLibraryUploaderController.cs" />
+    <Compile Include="Controllers\FormTestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InlineEditors\ImageUploaderController.cs" />
     <Compile Include="Controllers\LandingPageController.cs" />
@@ -748,6 +749,8 @@
     <Compile Include="Models\Contact\ContactViewModel.cs" />
     <Compile Include="Models\Doctors\DoctorDetailViewModel.cs" />
     <Compile Include="Models\Doctors\DoctorsViewModel.cs" />
+    <Compile Include="Models\Forms\BaseFormViewModel.cs" />
+    <Compile Include="Models\Forms\FloridaEventRegistrationViewModel.cs" />
     <Compile Include="Models\FormValidationRules\MediaLibraryImageDimensionValidationRule.cs" />
     <Compile Include="Models\FormComponents\MediaLibrarySelection\MediaLibrarySelectionComponent.cs" />
     <Compile Include="Models\FormComponents\MediaLibrarySelection\MediaLibrarySelectionProperties.cs" />
@@ -807,6 +810,7 @@
     <Content Include="Views\Shared\Sections\_TwoColumnSixtyFourtySection.cshtml" />
     <Content Include="Views\Shared\InlineEditors\_ImageUploaderEditor.cshtml" />
     <Content Include="Views\Shared\Widgets\_ImageWidget.cshtml" />
+    <Content Include="Views\FormTest\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business\Business.csproj">

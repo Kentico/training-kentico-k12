@@ -22,9 +22,9 @@ namespace MedioClinic.Models.Widgets
         public bool EnforceDimensions { get; set; }
 
         [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$Widget.Slideshow.Width$}", Order = 5)]
-        public int Width { get; set; } = 800;
+        public int Width { get; set; }
 
         [EditingComponent(IntInputComponent.IDENTIFIER, Label = "{$Widget.Slideshow.Height$}", Order = 6)]
-        public int Height { get; set; } = 600;
+        public int Height { get; set; }
     }
 }

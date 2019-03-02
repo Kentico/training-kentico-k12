@@ -99,7 +99,7 @@ namespace MedioClinic.Utils
             file.InputStream.Seek(0, SeekOrigin.Begin);
             file.InputStream.Read(data, 0, file.ContentLength);
             CMS.IO.File.WriteAllBytes(imagePath, data);
-            var attachmentGuid = DocumentHelper.AddUnsortedAttachment(page, Guid.Empty, imagePath).AttachmentGUID;
+            var attachmentGuid = DocumentHelper.AddUnsortedAttachment(page, Guid.NewGuid(), imagePath).AttachmentGUID;
             CMS.IO.File.Delete(imagePath);
 
             return attachmentGuid;

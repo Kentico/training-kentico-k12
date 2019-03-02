@@ -26,6 +26,7 @@ namespace MedioClinic
         {
             // Sets 404 HTTP exceptions to be handled via IIS (behavior is specified in the "httpErrors" section in the MedioClinic.config file)
             var error = Server.GetLastError();
+
             if ((error as HttpException)?.GetHttpCode() == 404)
             {
                 Server.ClearError();
