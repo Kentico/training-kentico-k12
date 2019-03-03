@@ -1,6 +1,7 @@
-﻿using Business.Repository.Forms;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
+using Business.Repository.Forms;
 
 namespace MedioClinic.Models.Forms
 {
