@@ -36,14 +36,14 @@ namespace MedioClinic.Controllers
         // POST: FormTest
         [HttpPost]
         public ActionResult Index(
-            [System.Web.Http.FromBody] PageViewModel<FloridaEventRegistrationViewModel> upstreamModel)
+            [System.Web.Http.FromBody] PageViewModel<FloridaEventRegistrationViewModel> uploadModel)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
                     FormItemRepository.InsertFormItem("BizForm.FloridaEventRegistration",
-                                upstreamModel.Data);
+                                uploadModel.Data);
                 }
                 catch
                 {
@@ -53,7 +53,7 @@ namespace MedioClinic.Controllers
                 return Content("Your form has been submitted.");
             }
 
-            var model = GetPageViewModel(upstreamModel.Data, PageName);
+            var model = GetPageViewModel(uploadModel.Data, PageName);
 
             return View(model);
         }

@@ -12,9 +12,9 @@ namespace MedioClinic.Models.Forms
 
         public IDictionary<string, object> Fields =>
             GetFields(
-                new KeyValuePair<string, string>(nameof(FirstName), FirstName),
-                new KeyValuePair<string, string>(nameof(LastName), LastName),
-                new KeyValuePair<string, string>(nameof(EmailInput), EmailInput)
+                new KeyValuePair<string, object>(nameof(FirstName), FirstName),
+                new KeyValuePair<string, object>(nameof(LastName), LastName),
+                new KeyValuePair<string, object>(nameof(EmailInput), EmailInput)
                 );
 
         [Display(Name = "First name", Prompt = "Enter your given name here")]

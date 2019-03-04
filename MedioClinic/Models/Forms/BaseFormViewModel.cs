@@ -4,7 +4,7 @@ namespace MedioClinic.Models.Forms
 {
     public abstract class BaseFormViewModel
     {
-        protected IDictionary<string, object> GetFields<TField>(params KeyValuePair<string, TField>[] fields)
+        protected IDictionary<string, object> GetFields(params KeyValuePair<string, object>[] fields)
         {
             var dictionary = new Dictionary<string, object>();
             

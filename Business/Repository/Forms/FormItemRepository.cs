@@ -4,8 +4,7 @@ namespace Business.Repository.Forms
 {
     class FormItemRepository : IFormItemRepository
     {
-        public void InsertFormItem<TViewModel>(string className, TViewModel viewModel)
-            where TViewModel : class, IFormViewModel, new()
+        public void InsertFormItem(string className, IFormViewModel viewModel)
         {
             var formItem = BizFormItem.New(className);
 

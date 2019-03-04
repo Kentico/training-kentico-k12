@@ -1,10 +1,15 @@
-﻿using CMS.OnlineForms;
-
-namespace Business.Repository.Forms
+﻿namespace Business.Repository.Forms
 {
+    /// <summary>
+    /// A general repository, usable with multiple form view models.
+    /// </summary>
     public interface IFormItemRepository : IRepository
     {
-        void InsertFormItem<TViewModel>(string className, TViewModel viewModel)
-            where TViewModel : class, IFormViewModel, new();
+        /// <summary>
+        /// Inserts data from a form submission.
+        /// </summary>
+        /// <param name="className">Kentico form class name.</param>
+        /// <param name="viewModel">A view model of the form.</param>
+        void InsertFormItem(string className, IFormViewModel viewModel);
     }
 }
