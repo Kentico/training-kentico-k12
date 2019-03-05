@@ -22,11 +22,17 @@ namespace MedioClinic.Controllers
 
         protected IErrorHelper ErrorHelper { get; }
 
-        public MediaLibraryUploaderController(ISiteContextService siteContextService, IFileManagementHelper fileManagementHelper, IErrorHelper errorHandler)
+        public MediaLibraryUploaderController(
+            ISiteContextService siteContextService, 
+            IFileManagementHelper fileManagementHelper, 
+            IErrorHelper errorHandler)
         {
-            SiteContextService = siteContextService ?? throw new ArgumentNullException(nameof(siteContextService));
-            FileManagementHelper = fileManagementHelper ?? throw new ArgumentNullException(nameof(fileManagementHelper));
-            ErrorHelper = errorHandler ?? throw new ArgumentNullException(nameof(errorHandler));
+            SiteContextService = siteContextService 
+                ?? throw new ArgumentNullException(nameof(siteContextService));
+            FileManagementHelper = fileManagementHelper 
+                ?? throw new ArgumentNullException(nameof(fileManagementHelper));
+            ErrorHelper = errorHandler 
+                ?? throw new ArgumentNullException(nameof(errorHandler));
         }
 
         // POST: MediaLibraryUploader/Upload
@@ -55,7 +61,8 @@ namespace MedioClinic.Controllers
                     try
                     {
                         imagePath = FileManagementHelper.GetTempFilePath(directoryPath, file.FileName);
-                        MediaLibraryInfoProvider.CreateMediaLibraryFolder(SiteContextService.SiteName, mediaLibraryId, page.NodeAliasPath);
+                        MediaLibraryInfoProvider.CreateMediaLibraryFolder(
+                            SiteContextService.SiteName, mediaLibraryId, page.NodeAliasPath);
                     }
                     catch (Exception ex)
                     {
@@ -72,42 +79,62 @@ namespace MedioClinic.Controllers
                         }
                         catch (Exception ex)
                         {
-                            return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController.Upload), ex, ErrorHelper.UnprocessableStatusCode);
+                            return ErrorHelper.HandleException(
+                                nameof(MediaLibraryUploaderController.Upload), 
+                                ex, 
+                                ErrorHelper.UnprocessableStatusCode);
                         }
 
                         if (fileInfo != null)
                         {
-                            MediaFileInfo mediaFile = null;
-
-                            try
-                            {
-                                mediaFile = CreateMediafile(mediaLibraryId, page.NodeAliasPath, imagePath, fileInfo);
-                            }
-                            catch (Exception ex)
-                            {
-                                return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController.Upload), ex, ErrorHelper.UnprocessableStatusCode);
-                            }
-
-                            try
-                            {
-                                CMS.IO.File.Delete(imagePath);
-                            }
-                            catch (Exception ex)
-                            {
-                                ErrorHelper.LogException(nameof(MediaLibraryUploaderController.Upload), ex);
-                            }
-
-                            return Json(new
-                            {
-                                filePathId,
-                                fileGuid = mediaFile.FileGUID.ToString()
-                            });
+                            return CreateMediaFile(filePathId, mediaLibraryId, page, imagePath, fileInfo);
                         }
                     }
                 }
             }
 
             return new HttpStatusCodeResult(ErrorHelper.UnprocessableStatusCode);
+        }
+
+        /// <summary>
+        /// Creates a media file and handles possible errors.
+        /// </summary>
+        /// <param name="filePathId">ID of the file path HTML element.</param>
+        /// <param name="mediaLibraryId">ID of the media library.</param>
+        /// <param name="page">A Kentico page.</param>
+        /// <param name="imagePath">Local path to the image.</param>
+        /// <param name="fileInfo">File information.</param>
+        /// <returns></returns>
+        private ActionResult CreateMediaFile(string filePathId, int mediaLibraryId, CMS.DocumentEngine.TreeNode page, string imagePath, CMS.IO.FileInfo fileInfo)
+        {
+            MediaFileInfo mediaFileInfo = null;
+
+            try
+            {
+                mediaFileInfo = CreateMediafileInfo(mediaLibraryId, page.NodeAliasPath, imagePath, fileInfo);
+            }
+            catch (Exception ex)
+            {
+                return ErrorHelper.HandleException(
+                    nameof(MediaLibraryUploaderController.Upload),
+                    ex,
+                    ErrorHelper.UnprocessableStatusCode);
+            }
+
+            try
+            {
+                CMS.IO.File.Delete(imagePath);
+            }
+            catch (Exception ex)
+            {
+                ErrorHelper.LogException(nameof(MediaLibraryUploaderController.Upload), ex);
+            }
+
+            return Json(new
+            {
+                filePathId,
+                fileGuid = mediaFileInfo.FileGUID.ToString()
+            });
         }
 
         /// <summary>
@@ -135,7 +162,8 @@ namespace MedioClinic.Controllers
         /// <param name="filePath">Path to the physical file on the disk.</param>
         /// <param name="fileInfo">File info.</param>
         /// <returns></returns>
-        protected MediaFileInfo CreateMediafile(int mediaLibraryId, string nodeAliasPath, string filePath, CMS.IO.FileInfo fileInfo)
+        protected MediaFileInfo CreateMediafileInfo(
+            int mediaLibraryId, string nodeAliasPath, string filePath, CMS.IO.FileInfo fileInfo)
         {
             MediaFileInfo mediaFile = new MediaFileInfo(filePath, mediaLibraryId);
             var nodeAliasPathSegments = nodeAliasPath.Split('/');
