@@ -7,7 +7,6 @@ using CMS.Helpers;
 using CMS.MediaLibrary;
 using CMS.SiteProvider;
 using Business.Services.Context;
-using MedioClinic.Extensions;
 using MedioClinic.Utils;
 
 namespace MedioClinic.Controllers
@@ -37,10 +36,8 @@ namespace MedioClinic.Controllers
 
         // POST: MediaLibraryUploader/Upload
         [HttpPost]
-        public ActionResult Upload(int pageId, string filePathId, int mediaLibraryId)
+        public ActionResult Upload(string filePathId, int mediaLibraryId)
         {
-            var page = FileManagementHelper.GetPage(pageId);
-
             if (Request.Files[0] is HttpPostedFileWrapper file && file != null)
             {
                 string directoryPath = null;
@@ -61,8 +58,6 @@ namespace MedioClinic.Controllers
                     try
                     {
                         imagePath = FileManagementHelper.GetTempFilePath(directoryPath, file.FileName);
-                        MediaLibraryInfoProvider.CreateMediaLibraryFolder(
-                            SiteContextService.SiteName, mediaLibraryId, page.NodeAliasPath);
                     }
                     catch (Exception ex)
                     {
@@ -87,7 +82,7 @@ namespace MedioClinic.Controllers
 
                         if (fileInfo != null)
                         {
-                            return CreateMediaFile(filePathId, mediaLibraryId, page, imagePath, fileInfo);
+                            return CreateMediaFile(filePathId, mediaLibraryId, imagePath, fileInfo);
                         }
                     }
                 }
@@ -101,17 +96,16 @@ namespace MedioClinic.Controllers
         /// </summary>
         /// <param name="filePathId">ID of the file path HTML element.</param>
         /// <param name="mediaLibraryId">ID of the media library.</param>
-        /// <param name="page">A Kentico page.</param>
         /// <param name="imagePath">Local path to the image.</param>
         /// <param name="fileInfo">File information.</param>
-        /// <returns></returns>
-        private ActionResult CreateMediaFile(string filePathId, int mediaLibraryId, CMS.DocumentEngine.TreeNode page, string imagePath, CMS.IO.FileInfo fileInfo)
+        /// <returns>Either a JSON response, or an HTTP status code.</returns>
+        private ActionResult CreateMediaFile(string filePathId, int mediaLibraryId, string imagePath, CMS.IO.FileInfo fileInfo)
         {
             MediaFileInfo mediaFileInfo = null;
 
             try
             {
-                mediaFileInfo = CreateMediafileInfo(mediaLibraryId, page.NodeAliasPath, imagePath, fileInfo);
+                mediaFileInfo = CreateMediafileInfo(mediaLibraryId, fileInfo);
             }
             catch (Exception ex)
             {
@@ -142,7 +136,7 @@ namespace MedioClinic.Controllers
         /// </summary>
         /// <param name="file">Uploaded file contents.</param>
         /// <param name="filePath">Path to store the file on the disk.</param>
-        /// <returns></returns>
+        /// <returns>The file details.</returns>
         protected CMS.IO.FileInfo GetFileInfo(HttpPostedFileWrapper file, string filePath)
         {
             byte[] data = new byte[file.ContentLength];
@@ -158,19 +152,13 @@ namespace MedioClinic.Controllers
         /// Creates a new file in the Kentico media library.
         /// </summary>
         /// <param name="mediaLibraryId">Media library ID.</param>
-        /// <param name="nodeAliasPath">Node alias path to replicate in the media library.</param>
-        /// <param name="filePath">Path to the physical file on the disk.</param>
         /// <param name="fileInfo">File info.</param>
-        /// <returns></returns>
+        /// <returns>Media file information.</returns>
         protected MediaFileInfo CreateMediafileInfo(
-            int mediaLibraryId, string nodeAliasPath, string filePath, CMS.IO.FileInfo fileInfo)
+            int mediaLibraryId, CMS.IO.FileInfo fileInfo)
         {
-            MediaFileInfo mediaFile = new MediaFileInfo(filePath, mediaLibraryId);
-            var nodeAliasPathSegments = nodeAliasPath.Split('/');
-            var mediaFilePathSegments = nodeAliasPathSegments.GetArrayRange(1);
-            var mediaFilePath = $"{mediaFilePathSegments.Join("/")}/";
+            MediaFileInfo mediaFile = new MediaFileInfo(fileInfo?.FullName, mediaLibraryId);
             mediaFile.FileName = fileInfo.Name.Substring(0, fileInfo.Name.Length - fileInfo.Extension.Length);
-            mediaFile.FilePath = mediaFilePath;
             mediaFile.FileExtension = fileInfo.Extension;
             mediaFile.FileMimeType = MimeTypeHelper.GetMimetype(fileInfo.Extension);
             mediaFile.FileSiteID = SiteContext.CurrentSiteID;

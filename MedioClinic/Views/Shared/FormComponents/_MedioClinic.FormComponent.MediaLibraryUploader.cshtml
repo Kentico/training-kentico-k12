@@ -32,23 +32,17 @@
 
     // Gets the URL to the MediaLibraryUploaderController's action.
     // Takes the filePathId and passes it to the controller to know which form element to fill with the file GUID.
-    string GetActionUrl(int pageId, string filePathId)
+    string GetActionUrl(string filePathId)
     {
-        if (pageId > 0)
+        var path = Url.Action("Upload", "MediaLibraryUploader", new
         {
-            var path = Url.Action("Upload", "MediaLibraryUploader", new
-            {
-                pageId = pageId,
-                filePathId = filePathId,
-                mediaLibraryId = Model.Properties.MediaLibraryId
-            });
+            filePathId = filePathId,
+            mediaLibraryId = Model.Properties.MediaLibraryId
+        });
 
-            var decorated = VirtualContext.GetPreviewPathFromVirtualContext(path, false, "en-us", true); ;
+        var decorated = VirtualContext.GetPreviewPathFromVirtualContext(path, false, "en-us", true); ;
 
-            return decorated;
-        }
-
-        return null;
+        return decorated;
     }
 
     int currentPageId = GetCurrentPageId();
@@ -101,7 +95,7 @@
         fileInputAttributes["onchange"] = "medioClinic.mediaLibraryUploaderComponent.renderFileDetails(this);";
         IDictionary<string, object> hiddenInputAttributes = ViewData.GetEditorHtmlAttributes();
         IDictionary<string, object> buttonAttributes = ViewData.GetEditorHtmlAttributes();
-        buttonAttributes["onclick"] = $"medioClinic.mediaLibraryUploaderComponent.uploadFile(this, \"{GetActionUrl(currentPageId, currentFilePathId)}\");";
+        buttonAttributes["onclick"] = $"medioClinic.mediaLibraryUploaderComponent.uploadFile(this, \"{GetActionUrl(currentFilePathId)}\");";
         buttonAttributes["type"] = "button";
 
         <div class="kn-media-library-uploader grey lighten-5">
