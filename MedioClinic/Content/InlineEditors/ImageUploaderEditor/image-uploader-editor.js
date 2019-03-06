@@ -6,7 +6,7 @@
             var clickable = editor.querySelector(".dz-clickable");
 
             var dropzone = new Dropzone(zone, {
-                    acceptedFiles: medioClinic.dropzoneCommon.acceptedFiles,
+                    acceptedFiles: window.medioClinic.dropzoneCommon.acceptedFiles,
                     maxFiles: 1,
                     url: editor.getAttribute("data-upload-url"),
                     createImageThumbnails: false,
@@ -33,7 +33,7 @@
             dropzone.on("error",
                 function (event) {
                     document.querySelector(".dz-preview").style.display = "none";
-                    medioClinic.dropzoneCommon.processErrors(event.xhr.status, options.localizationService);
+                    window.medioClinic.dropzoneCommon.processErrors(event.xhr.status, options.localizationService);
                 });
         },
 

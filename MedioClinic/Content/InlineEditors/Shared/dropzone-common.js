@@ -13,11 +13,11 @@
         var errorFlag = "error";
 
         if (statusCode >= 500) {
-            medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadFailed"), errorFlag);
+            window.medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadFailed"), errorFlag);
         } else if (statusCode === 422) {
-            medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadUnprocessable"), errorFlag);
+            window.medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadUnprocessable"), errorFlag);
         } else {
-            medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadUnknownError"), errorFlag);
+            window.medioClinic.showMessage(localizationService.getString("FormComponent.DropzoneCommon.UploadUnknownError"), errorFlag);
         }
     };
 }(window.medioClinic.dropzoneCommon = window.medioClinic.dropzoneCommon || {}));

@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using CMS.Helpers;
 using CMS.MediaLibrary;
 using CMS.SiteProvider;
-using Business.Services.Context;
 using MedioClinic.Utils;
 
 namespace MedioClinic.Controllers
@@ -15,19 +14,14 @@ namespace MedioClinic.Controllers
     {
         protected string TempPath => $"{Server.MapPath(@"~\")}App_Data\\Temp\\MediaLibraryUploader";
 
-        protected ISiteContextService SiteContextService { get; }
-
         protected IFileManagementHelper FileManagementHelper { get; }
 
         protected IErrorHelper ErrorHelper { get; }
 
         public MediaLibraryUploaderController(
-            ISiteContextService siteContextService, 
             IFileManagementHelper fileManagementHelper, 
             IErrorHelper errorHandler)
         {
-            SiteContextService = siteContextService 
-                ?? throw new ArgumentNullException(nameof(siteContextService));
             FileManagementHelper = fileManagementHelper 
                 ?? throw new ArgumentNullException(nameof(fileManagementHelper));
             ErrorHelper = errorHandler 
@@ -99,7 +93,7 @@ namespace MedioClinic.Controllers
         /// <param name="imagePath">Local path to the image.</param>
         /// <param name="fileInfo">File information.</param>
         /// <returns>Either a JSON response, or an HTTP status code.</returns>
-        private ActionResult CreateMediaFile(string filePathId, int mediaLibraryId, string imagePath, CMS.IO.FileInfo fileInfo)
+        protected ActionResult CreateMediaFile(string filePathId, int mediaLibraryId, string imagePath, CMS.IO.FileInfo fileInfo)
         {
             MediaFileInfo mediaFileInfo = null;
 
