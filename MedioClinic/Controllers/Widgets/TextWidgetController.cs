@@ -5,21 +5,17 @@ using MedioClinic.Models.Widgets;
 
 using Kentico.PageBuilder.Web.Mvc;
 
-[assembly: RegisterWidget("MedioClinic.Widget.Text", typeof(TextWidgetController), "{$Widget.Text.Name$}", Description = "{$Widget.Text.Description$}", IconClass = "icon-l-text")]
+[assembly: RegisterWidget(
+    "MedioClinic.Widget.Text", 
+    typeof(TextWidgetController), 
+    "{$Widget.Text.Name$}", 
+    Description = "{$Widget.Text.Description$}", 
+    IconClass = "icon-l-text")]
 
 namespace MedioClinic.Controllers.Widgets
 {
     public class TextWidgetController : WidgetController<TextWidgetProperties>
     {
-        public TextWidgetController()
-        {
-        }
-
-        public TextWidgetController(IWidgetPropertiesRetriever<TextWidgetProperties> propertiesRetriever,
-                                        ICurrentPageRetriever currentPageRetriever) : base(propertiesRetriever, currentPageRetriever)
-        {
-        }
-
         public ActionResult Index()
         {
             var properties = GetProperties();
