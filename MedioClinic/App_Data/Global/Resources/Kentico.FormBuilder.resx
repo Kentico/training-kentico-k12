@@ -376,7 +376,7 @@
     <value>Smart fields feature is not available in the Kentico edition you are using.</value>
   </data>
   <data name="kentico.formbuilder.component.name.invalidformat" xml:space="preserve">
-    <value>Field name '{0}' is not a valid code name.</value>
+    <value>The field name '{0}' is invalid. The field name must begin with a letter or an underscore ('_') character. It may contain letters, numbers, and underscore characters.</value>
   </data>
   <data name="kentico.formbuilder.component.name.notunique" xml:space="preserve">
     <value>Field name '{0}' is not unique in the form.</value>
