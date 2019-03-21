@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CMS.SiteProvider;
 using Business.Dto.Culture;
 using Business.Services.Context;
+using CMS.SiteProvider;
 
-namespace Business.Repository.Culture
+namespace Business.Services.Culture
 {
-    public class CultureRepository : ICultureRepository
+    public class CultureService : BaseService, ICultureService
     {
         private ISiteContextService SiteContextService { get; }
 
-        public CultureRepository(ISiteContextService siteContextService)
+        public CultureService(ISiteContextService siteContextService)
         {
             SiteContextService = siteContextService;
         }

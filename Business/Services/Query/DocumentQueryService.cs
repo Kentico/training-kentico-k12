@@ -5,13 +5,13 @@ using Business.Services.Context;
 
 namespace Business.Services.Query
 {
-    public class DocumentQueryService : IDocumentQueryService
+    public class DocumentQueryService : BaseService, IDocumentQueryService
     {
         private ISiteContextService SiteContext { get; }
 
         private readonly string[] _coreColumns =
         {
-            //Defines initial columns returned for optimization. If not set, all columns are returned.
+            // Defines initial columns returned for optimization. If not set, all columns are returned.
             "NodeGUID", "DocumentID", "NodeID"
         };
 

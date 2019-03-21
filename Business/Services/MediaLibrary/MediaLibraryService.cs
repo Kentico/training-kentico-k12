@@ -5,7 +5,7 @@ using Business.Dto.MediaLibrary;
 
 namespace Business.Services.MediaLibrary
 {
-    public class MediaLibraryService : IMediaLibraryService
+    public class MediaLibraryService : BaseService, IMediaLibraryService
     {
         public IEnumerable<MediaLibraryFileDto> GetMediaLibraryFiles(string folder, string sitename, params string[] extensions)
         {

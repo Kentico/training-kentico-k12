@@ -2,7 +2,7 @@
 
 namespace Business.Repository.Doctor
 {
-    public interface IDoctorSectionRepository : IRepository
+    public interface IDoctorSectionRepository
     {
         DoctorSectionDto GetDoctorSection();
     }

@@ -1,9 +1,9 @@
 ﻿using Business.Repository.Company;
-using Business.Repository.Culture;
 using Business.Repository.Menu;
 using Business.Repository.Social;
 using Business.Services.Cache;
 using Business.Services.Context;
+using Business.Services.Culture;
 
 namespace Business.DependencyInjection
 {
@@ -11,7 +11,7 @@ namespace Business.DependencyInjection
     {
         public IMenuRepository MenuRepository { get; }
         public ICompanyRepository CompanyRepository { get; }
-        public ICultureRepository CultureRepository { get; }
+        public ICultureService CultureService { get; }
         public ISiteContextService SiteContextService { get; }
         public ISocialLinkRepository SocialLinkRepository { get; }
         public ICacheService CacheService { get; }
@@ -19,7 +19,7 @@ namespace Business.DependencyInjection
         public BusinessDependencies(
             IMenuRepository menuRepository,
             ICompanyRepository companyRepository,
-            ICultureRepository cultureRepository,
+            ICultureService cultureService,
             ISiteContextService siteContextService,
             ISocialLinkRepository socialLinkRepository,
             ICacheService cacheDependencyService
@@ -27,7 +27,7 @@ namespace Business.DependencyInjection
         {
             MenuRepository = menuRepository;
             CompanyRepository = companyRepository;
-            CultureRepository = cultureRepository;
+            CultureService = cultureService;
             SiteContextService = siteContextService;
             SocialLinkRepository = socialLinkRepository;
             CacheService = cacheDependencyService;

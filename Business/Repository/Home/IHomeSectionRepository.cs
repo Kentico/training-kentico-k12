@@ -2,7 +2,7 @@
 
 namespace Business.Repository.Home
 {
-    public interface IHomeSectionRepository : IRepository
+    public interface IHomeSectionRepository
     {
         HomeSectionDto GetHomeSection();
     }
