@@ -3,7 +3,7 @@ using CMS.DocumentEngine;
 
 namespace Business.Services.Query
 {
-    public interface IDocumentQueryService : IService
+    public interface IDocumentQueryService
     {
         /// <summary>
         /// Wrapper around Kentico's DocumentQuery. 

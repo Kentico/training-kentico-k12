@@ -4,7 +4,7 @@ using Business.Dto.Doctors;
 
 namespace Business.Repository.Doctor
 {
-    public interface IDoctorRepository : IRepository
+    public interface IDoctorRepository
     {
         IEnumerable<DoctorDto> GetDoctors();
         DoctorDto GetDoctor(Guid nodeGuid);

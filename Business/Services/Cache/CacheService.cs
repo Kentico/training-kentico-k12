@@ -5,7 +5,7 @@ using CMS.Helpers;
 
 namespace Business.Services.Cache
 {
-    public class CacheService : ICacheService
+    public class CacheService : BaseService, ICacheService
     {
         public ISiteContextService SiteContextService { get; }
 

@@ -3,7 +3,7 @@ using Business.Dto.Social;
 
 namespace Business.Repository.Social
 {
-    public interface ISocialLinkRepository : IRepository
+    public interface ISocialLinkRepository
     {
         IEnumerable<SocialLinkDto> GetSocialLinks();
     }

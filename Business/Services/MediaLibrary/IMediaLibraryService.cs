@@ -3,7 +3,7 @@ using Business.Dto.MediaLibrary;
 
 namespace Business.Services.MediaLibrary
 {
-    public interface IMediaLibraryService : IService
+    public interface IMediaLibraryService
     {
         /// <summary>
         /// Wrapper around Kentico API for retrieving media stored in media libraries. 

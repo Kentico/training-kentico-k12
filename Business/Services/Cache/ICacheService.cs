@@ -2,7 +2,7 @@
 
 namespace Business.Services.Cache
 {
-    public interface ICacheService : IService
+    public interface ICacheService
     {
         /// <summary>
         /// Gets nodes cache dependency key for any given type and action

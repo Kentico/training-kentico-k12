@@ -2,7 +2,7 @@
 
 namespace Business.Repository.Contact
 {
-    public interface IContactSectionRepository : IRepository
+    public interface IContactSectionRepository
     {
         ContactSectionDto GetContactSection();
     }
