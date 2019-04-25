@@ -177,6 +177,10 @@
         },
 
         destroy: function (options) {
+            var swiper = window.medioClinic
+                .slideshowWidget
+                .getCurrentSwiper(options.editor, window.medioClinic.slideshowWidget.swiperGuidAttribute);
+
             if (swiper) {
                 var slideIds = window.medioClinic.slideshowWidget.collectImageIds(swiper);
 
