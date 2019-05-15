@@ -38,7 +38,11 @@ namespace MedioClinic.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return ErrorHelper.HandleException(nameof(SlideshowManagementController.Upload), ex, ErrorHelper.UnprocessableStatusCode);
+                    return ErrorHelper.HandleException(
+                        nameof(SlideshowManagementController), 
+                        nameof(Upload),
+                        ex, 
+                        ErrorHelper.UnprocessableStatusCode);
                 }
 
                 return Json(new { guid = imageGuid });
@@ -69,7 +73,11 @@ namespace MedioClinic.Controllers
                         }
                         catch (Exception ex)
                         {
-                            ErrorHelper.HandleException(nameof(SlideshowManagementController.Delete), ex, Convert.ToInt32(HttpStatusCode.NoContent));
+                            ErrorHelper.HandleException(
+                                nameof(SlideshowManagementController), 
+                                nameof(Delete), 
+                                ex, 
+                                Convert.ToInt32(HttpStatusCode.NoContent));
                         }
 
                         return new HttpStatusCodeResult(HttpStatusCode.Accepted);

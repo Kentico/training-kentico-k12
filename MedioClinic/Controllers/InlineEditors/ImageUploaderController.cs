@@ -36,7 +36,11 @@ namespace MedioClinic.Controllers.Widgets
                 }
                 catch (Exception ex)
                 {
-                    return ErrorHelper.HandleException(nameof(ImageUploaderController.Upload), ex, ErrorHelper.UnprocessableStatusCode);
+                    return ErrorHelper.HandleException(
+                        nameof(ImageUploaderController), 
+                        nameof(Upload), 
+                        ex, 
+                        ErrorHelper.UnprocessableStatusCode);
                 }
 
                 return Json(new { guid = imageGuid }); 

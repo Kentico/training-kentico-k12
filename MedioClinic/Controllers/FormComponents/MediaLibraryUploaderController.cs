@@ -42,7 +42,7 @@ namespace MedioClinic.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController.Upload), ex);
+                    return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController), nameof(Upload), ex);
                 }
 
                 if (!string.IsNullOrEmpty(directoryPath))
@@ -55,7 +55,7 @@ namespace MedioClinic.Controllers
                     }
                     catch (Exception ex)
                     {
-                        return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController.Upload), ex);
+                        return ErrorHelper.HandleException(nameof(MediaLibraryUploaderController), nameof(Upload), ex);
                     }
 
                     if (!string.IsNullOrEmpty(imagePath))
@@ -69,7 +69,8 @@ namespace MedioClinic.Controllers
                         catch (Exception ex)
                         {
                             return ErrorHelper.HandleException(
-                                nameof(MediaLibraryUploaderController.Upload), 
+                                nameof(MediaLibraryUploaderController), 
+                                nameof(Upload),
                                 ex, 
                                 ErrorHelper.UnprocessableStatusCode);
                         }
@@ -104,7 +105,8 @@ namespace MedioClinic.Controllers
             catch (Exception ex)
             {
                 return ErrorHelper.HandleException(
-                    nameof(MediaLibraryUploaderController.Upload),
+                    nameof(MediaLibraryUploaderController),
+                    nameof(CreateMediaFile),
                     ex,
                     ErrorHelper.UnprocessableStatusCode);
             }
@@ -115,7 +117,7 @@ namespace MedioClinic.Controllers
             }
             catch (Exception ex)
             {
-                ErrorHelper.LogException(nameof(MediaLibraryUploaderController.Upload), ex);
+                ErrorHelper.LogException(nameof(MediaLibraryUploaderController), nameof(CreateMediaFile), ex);
             }
 
             return Json(new

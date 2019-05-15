@@ -21,16 +21,14 @@ namespace MedioClinic.Utils
             }
         }
 
-        public HttpStatusCodeResult HandleException(string source, Exception exception, int statusCode = 500)
+        public HttpStatusCodeResult HandleException(string source, string eventCode, Exception exception, int statusCode = 500)
         {
-            LogException(source, exception);
+            LogException(source, eventCode, exception);
 
             return new HttpStatusCodeResult(statusCode);
         }
 
-        public void LogException(string source, Exception exception)
-        {
-            EventLogProvider.LogException(source, "EXCEPTION", exception, SiteContext.CurrentSiteID);
-        }
+        public void LogException(string source, string eventCode, Exception exception) =>
+            EventLogProvider.LogException(source, eventCode, exception, SiteContext.CurrentSiteID);
     }
 }
