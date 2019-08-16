@@ -10,7 +10,7 @@ To make the project work, follow these steps:
 
 1. Make sure your computer meets the [system requirements](https://docs.kentico.com/k12/installation/system-requirements) outlined in the documentation.
 1. Clone the repo (`git clone https://github.com/Kentico/training-kentico-k12`).
-1. Extract a database backup file out of [/Db/MedioClinic.zip](/Db/MedioClinic.zip).
+1. Extract either a database backup file out of [/Db/MedioClinic.zip](/Db/MedioClinic.zip) or, a database build script out of [/Db/MedioClinicSqlScript.zip](/Db/MedioClinicSqlScript.zip) (if you happen to have an older version of SQL Server).
 1. Start your [SQL Server management studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms) and restore the extracted MedioClinic.bak file.
 1. Register both the [administration interface](/CMS) and the [Medio Clinic website](/MedioClinic) in IIS.
     * If you register the administration interface as an application that sits under `Default Web Site` and has a `Kentico12_Admin` alias, then you won't have to do any adjustments in Visual Studio.
