@@ -380,6 +380,16 @@
             </summary>
             <param name="campaignId">ID of the campaign to get objective for.</param>
         </member>
+        <member name="T:CMS.WebAnalytics.Internal.HitLogDirectProcessor">
+            <summary>
+            Worker thread for logging hits directly to database.
+            </summary>
+        </member>
+        <member name="M:CMS.WebAnalytics.Internal.HitLogDirectProcessor.ProcessItem(CMS.WebAnalytics.LogRecord)">
+            <summary>
+            Save single <paramref name="item"/> to database.
+            </summary>
+        </member>
         <member name="T:CMS.WebAnalytics.Internal.ISearchEnginesDetector">
             <summary>
             Provides information whether current request was made by search engine
@@ -5982,6 +5992,14 @@
             Indicates whether memory storage should be used instead of direct file write
             </summary>
         </member>
+        <member name="P:CMS.WebAnalytics.HitLogProvider.LogDirectly">
+            <summary>
+            Indicates whether to log data directly to database.
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+        </member>
         <member name="P:CMS.WebAnalytics.HitLogProvider.UseMemoryStorage">
             <summary>
             Gets the value that indicates whether memory storage should be used instead of direct file write
@@ -6070,6 +6088,18 @@
             <summary>
             Writes the hit log to the file for all available conversions.
             </summary>
+            <param name="siteName">Site name</param>
+            <param name="culture">Site culture code</param>
+            <param name="objectName">Object name</param>
+            <param name="objectId">Object ID</param>
+            <param name="count">Hit count</param>
+            <param name="value">Hit value</param>
+        </member>
+        <member name="M:CMS.WebAnalytics.HitLogProvider.LogHitDirectly(System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Log hit directly to database, using <see cref="T:CMS.WebAnalytics.Internal.HitLogDirectProcessor"/>.
+            </summary>
+            <param name="codeName">Hit codename</param>
             <param name="siteName">Site name</param>
             <param name="culture">Site culture code</param>
             <param name="objectName">Object name</param>

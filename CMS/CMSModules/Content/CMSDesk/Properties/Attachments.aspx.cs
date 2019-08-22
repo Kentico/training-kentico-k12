@@ -33,9 +33,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Attachments : CMSProp
         CurrentMaster.PanelContent.CssClass = "";
         CurrentMaster.MessagesPlaceHolder.OffsetX = 16;
         CurrentMaster.MessagesPlaceHolder.OffsetY = 16;
-
-        // Mark selected tab
-        SetPropertyTab(TAB_ATTACHMENTS);
     }
 
 

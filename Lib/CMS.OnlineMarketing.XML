@@ -4,6 +4,1527 @@
         <name>CMS.OnlineMarketing</name>
     </assembly>
     <members>
+        <member name="T:CMS.OnlineMarketing.ABTestConstants">
+            <summary>
+            Defines constants for A/B test module.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConstants.AB_TEST_VARIANT_QUERY_STRING_PARAMETER_NAME">
+            <summary>
+            Defines a query string parameter that indicates which A/B variant is to be displayed in the UI.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConstants.ABSESSIONCONVERSION_FIRST">
+            <summary>
+            Code name of the first session conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConstants.ABSESSIONCONVERSION_RECURRING">
+            <summary>
+            Code name of the recurring session conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConstants.ABCONVERSION">
+            <summary>
+            Code name of the conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConstants.AB_COOKIE_PREFIX">
+            <summary>
+            Prefix of A/B test cookie names.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestNameHelper">
+            <summary>
+            Contains helper method for default A/B test naming.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestNameHelper.GetDefaultDisplayName(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets display name to be used when initializing a new A/B test for a page.
+            </summary>
+            <param name="page">Page to get display name for.</param>
+            <returns>Returns display name for <paramref name="page"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <remarks>
+            The default implementation returns display name in format '<see cref="P:CMS.DocumentEngine.TreeNode.DocumentName"/> (<see cref="P:CMS.DocumentEngine.TreeNode.DocumentCulture"/>)'.
+            </remarks>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestNameHelper.GetDefaultDisplayNameInternal(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets display name to be used when initializing a new A/B test for a page.
+            </summary>
+            <param name="page">Page to get display name for.</param>
+            <returns>Returns display name for <paramref name="page"/>.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <remarks>
+            The default implementation returns display name in format '<see cref="P:CMS.DocumentEngine.TreeNode.DocumentName"/> (<see cref="P:CMS.DocumentEngine.TreeNode.DocumentCulture"/>)'.
+            </remarks>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestManager">
+            <summary>
+            Class provides management methods for retrieving and creating A/B test variants.
+            Methods of this class do not save any changes made to pages, they have to be saved explicitly.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestManager.MAXIMUM_VARIANT_NAME_LENGTH">
+            <summary>
+            Maximum length of a variant name.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.#ctor(CMS.OnlineMarketing.Internal.IABTestConfigurationSerializer)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestManager"/>.
+            </summary>
+            <param name="serializer">Serializes the <see cref="T:CMS.OnlineMarketing.Internal.ABTestConfiguration"/>.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.CreateABTest(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Creates a new A/B test for <paramref name="page"/> with included traffic set to 100
+            and stores it to the database. If the page has any A/B test variants defined,
+            they are cleared.
+            </summary>
+            <param name="page">Page to create A/B test for.</param>
+            <returns>Returns a new A/B for <paramref name="page"/>.</returns>
+            <remarks>
+            The A/B test's name is inferred using <see cref="M:CMS.OnlineMarketing.ABTestNameHelper.GetDefaultDisplayName(CMS.DocumentEngine.TreeNode)"/>.
+            </remarks>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.GetABTestWithoutWinner(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets A/B test without a winner for a given <paramref name="page"/>.
+            Returns null if no A/B test is associated with the <paramref name="page"/> or associated A/B test has a winner.
+            </summary>
+            <param name="page">Page to retrieve an unconclued A/B test for.</param>
+            <returns>Returns an unconcluded A/B test for the page, or null.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.GetRunningABTest(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets A/B test for <paramref name="page"/> which is still running.
+            Returns null if no running A/B is available for the page.
+            </summary>
+            <param name="page">Page to retrieve running A/B test for.</param>
+            <returns>Returns running A/B test for the page, or null.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.AddVariant(CMS.DocumentEngine.TreeNode,System.Nullable{System.Guid})">
+            <summary>
+            Adds a new A/B test variant into <paramref name="page"/> based on an existing source variant.
+            </summary>
+            <param name="page">Page for which to add a new variant.</param>
+            <param name="sourceVariantGuid">GUID of the source variant (if null or <see cref="F:System.Guid.Empty"/>, original is assumed as the source).</param>
+            <returns>Returns the new A/B test variant.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="sourceVariantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.RemoveVariant(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Removes an A/B test variant identified by <paramref name="variantGuid"/> from <paramref name="page"/>.
+            </summary>
+            <param name="page">Page from which to remove a variant.</param>
+            <param name="variantGuid">GUID of the variant to be removed.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the original A/B variant is to be deleted.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.PromoteVariant(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Promotes a variant identified by <paramref name="variantGuid"/> as the winner variant.
+            Winning variant is stored in the database within the A/B test.
+            </summary>
+            <param name="page">Page for which to promote the winner variant.</param>
+            <param name="variantGuid">GUID of the variant to be promoted.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when there is no unconcluded A/B test or <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the A/B test for the current <paramref name="page"/> has not finished yet.</exception>
+            <seealso cref="M:CMS.OnlineMarketing.ABTestManager.GetABTestWithoutWinner(CMS.DocumentEngine.TreeNode)"/>
+            <seealso cref="M:CMS.OnlineMarketing.ABTestStatusEvaluator.ABTestIsFinished(CMS.OnlineMarketing.ABTestInfo)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.GetVariants(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Returns all A/B test variants existing for given <paramref name="page"/>.
+            </summary>
+            <returns>
+            Existing variants or empty enumeration when document has empty A/B variant configuration.
+            Variants are represented by <see cref="T:CMS.OnlineMarketing.IABTestVariant"/> interface.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">When passed <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.InvalidOperationException">When document has malformed A/B variant configuration data.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.RenameVariant(CMS.DocumentEngine.TreeNode,System.Guid,System.String)">
+            <summary>
+            Renames an A/B test variant in <paramref name="page"/> identified by variant GUID with given name.
+            </summary>
+            <param name="page">Page in which to rename the variant.</param>
+            <param name="variantGuid">Unique identifier of the variant for which the change the name.</param>
+            <param name="newVariantName">New name for the variant identified with <paramref name="variantGuid"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="newVariantName"/> is null, empty or has more than <see cref="F:CMS.OnlineMarketing.ABTestManager.MAXIMUM_VARIANT_NAME_LENGTH"/> characters.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when there is no variant with <paramref name="variantGuid"/> identifier.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.UpdateVariant(CMS.DocumentEngine.TreeNode,System.Guid,CMS.OnlineMarketing.Internal.VariantConfigurationSource)">
+            <summary>
+            Updates an A/B test variant in <paramref name="page"/> identified by variant GUID with given Page builder widgets configuration.
+            </summary>
+            <param name="page">Page in which to update the variant.</param>
+            <param name="variantGuid">Unique identifier of the variant for which to update the configuration.</param>
+            <param name="configurationSource">Source of the configuration to update the variant with.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> or <paramref name="configurationSource"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.GetSourceVariantConfigurationOrThrow(CMS.DocumentEngine.TreeNode,CMS.OnlineMarketing.Internal.ABTestConfiguration,System.Nullable{System.Guid})">
+            <summary>
+            Gets the variants configuration of the <paramref name="page"/>.
+            </summary>
+            <param name="page">Page for which to get the variants configuration.</param>
+            <param name="testConfiguration">A/B test configuration of the page.</param>
+            <param name="sourceVariantGuid">GUID of the variant.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.GetVariantOrThrow(CMS.DocumentEngine.TreeNode,CMS.OnlineMarketing.Internal.ABTestConfiguration,System.Guid)">
+            <summary>
+            Gets a variant from <paramref name="testConfiguration"/> belonging to <paramref name="page"/> identified by <paramref name="variantGuid"/>.
+            </summary>
+            <param name="page">Page for which to get the variant.</param>
+            <param name="testConfiguration">A/B test configuration of the page.</param>
+            <param name="variantGuid">GUID of the variant to get.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="page"/> does not contain A/B test variant identified by <paramref name="variantGuid"/>.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.CreateABVariant(System.String,System.Boolean,CMS.OnlineMarketing.Internal.VariantConfigurationSource)">
+            <summary>
+            Returns newly created instance of <see cref="T:CMS.OnlineMarketing.Internal.ABTestVariant"/> using given parameters.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestManager.UpdateDocument(CMS.DocumentEngine.TreeNode,CMS.OnlineMarketing.Internal.ABTestConfiguration)">
+            <summary>
+            Updates given <paramref name="page"/> by given <paramref name="variantsConfiguration"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.CachedABTestManager">
+            <summary>
+            Acts as a decorator for <see cref="T:CMS.OnlineMarketing.IABTestManager"/> and adds caching to methods.
+            </summary>
+            <remarks>
+            The implementation caches the <see cref="M:CMS.OnlineMarketing.CachedABTestManager.GetRunningABTest(CMS.DocumentEngine.TreeNode)"/> method's return value only.
+            </remarks>
+        </member>
+        <member name="P:CMS.OnlineMarketing.CachedABTestManager.CacheMinutes">
+            <summary>
+            Gets the number of minutes used for absolute cache expiration.
+            </summary>
+            <remarks>
+            The implementation returns 1440 minutes (24 hours).
+            </remarks>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.#ctor(CMS.OnlineMarketing.IABTestManager,CMS.Core.Internal.IDateTimeNowService)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.CachedABTestManager"/>.
+            </summary>
+            <param name="abTestManager"><see cref="T:CMS.OnlineMarketing.IABTestManager"/> implementation to be decorated with caching.</param>
+            <param name="dateTimeNowService">Service used for getting current datetime.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.AddVariant(CMS.DocumentEngine.TreeNode,System.Nullable{System.Guid})">
+            <summary>
+            Adds a new A/B test variant into <paramref name="page"/> based on an existing source variant.
+            </summary>
+            <param name="page">Page for which to add a new variant.</param>
+            <param name="sourceVariantGuid">GUID of the source variant (if null or <see cref="F:System.Guid.Empty"/>, original is assumed as the source).</param>
+            <returns>Returns the new A/B test variant.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="sourceVariantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.CreateABTest(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Creates a new A/B test for <paramref name="page"/> with included traffic set to 100
+            and stores it to the database. If the page has any A/B test variants defined,
+            they are cleared.
+            </summary>
+            <param name="page">Page to create A/B test for.</param>
+            <returns>Returns a new A/B for <paramref name="page"/>.</returns>
+            <remarks>
+            The A/B test's name is inferred using <see cref="M:CMS.OnlineMarketing.ABTestNameHelper.GetDefaultDisplayName(CMS.DocumentEngine.TreeNode)"/>.
+            </remarks>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.GetABTestWithoutWinner(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets A/B test without a winner for a given <paramref name="page"/>.
+            Returns null if no A/B test is associated with the <paramref name="page"/> or associated A/B test has a winner.
+            </summary>
+            <param name="page">Page to retrieve an unconclued A/B test for.</param>
+            <returns>Returns an unconcluded A/B test for the page, or null.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.GetRunningABTest(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets A/B test for <paramref name="page"/> which is still running.
+            Returns null if no running A/B is available for the page.
+            Results of this method are cached.
+            </summary>
+            <param name="page">Page to retrieve running A/B test for.</param>
+            <returns>Returns running A/B test for the page, or null.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.GetVariants(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Returns all A/B test variants existing for given <paramref name="page"/>.
+            </summary>
+            <returns>
+            Existing variants or empty enumeration when document has empty A/B variant configuration.
+            Variants are represented by <see cref="T:CMS.OnlineMarketing.IABTestVariant"/> interface.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">When passed <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.InvalidOperationException">When feature is not available by license, A/B testing is disabled, resource is not allowed on site, user does not have a Read permission, site isn't defined as content only or document has malformed A/B variant configuration data.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.PromoteVariant(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Promotes a variant identified by <paramref name="variantGuid"/> as the winner variant.
+            Winning variant is stored in the database within the A/B test.
+            </summary>
+            <param name="page">Page for which to promote the winner variant.</param>
+            <param name="variantGuid">GUID of the variant to be promoted.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when there is no unconcluded A/B test or <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the A/B test for the current <paramref name="page"/> has not finished yet.</exception>
+            <seealso cref="M:CMS.OnlineMarketing.CachedABTestManager.GetABTestWithoutWinner(CMS.DocumentEngine.TreeNode)"/>
+            <seealso cref="M:CMS.OnlineMarketing.ABTestStatusEvaluator.ABTestIsFinished(CMS.OnlineMarketing.ABTestInfo)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.RemoveVariant(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Removes an A/B test variant identified by <paramref name="variantGuid"/> from <paramref name="page"/>.
+            </summary>
+            <param name="page">Page from which to remove a variant.</param>
+            <param name="variantGuid">GUID of the variant to be removed.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the original A/B variant is to be deleted.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.RenameVariant(CMS.DocumentEngine.TreeNode,System.Guid,System.String)">
+            <summary>
+            Renames an A/B test variant in <paramref name="page"/> identified by variant GUID with given name.
+            </summary>
+            <param name="page">Page in which to rename the variant.</param>
+            <param name="variantGuid">Unique identifier of the variant for which the change the name.</param>
+            <param name="newVariantName">New name for the variant identified with <paramref name="variantGuid"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="newVariantName"/> is null, empty or has more than <see cref="F:CMS.OnlineMarketing.ABTestManager.MAXIMUM_VARIANT_NAME_LENGTH"/> characters.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when there is no variant with <paramref name="variantGuid"/> identifier.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.CachedABTestManager.UpdateVariant(CMS.DocumentEngine.TreeNode,System.Guid,CMS.OnlineMarketing.Internal.VariantConfigurationSource)">
+            <summary>
+            Updates an A/B test variant in <paramref name="page"/> identified by variant GUID with given Page builder widgets configuration.
+            </summary>
+            <param name="page">Page in which to update the variant.</param>
+            <param name="variantGuid">Unique identifier of the variant for which to update the configuration.</param>
+            <param name="configurationSource">Source of the configuration to update the variant with.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> or <paramref name="configurationSource"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestConversionDefinitionRegister">
+            <summary>
+            Register for conversion types used in A/B testing feature.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionDefinitionRegister.Instance">
+            <summary>
+            Gets the <see cref="T:CMS.OnlineMarketing.ABTestConversionDefinitionRegister"/> instance.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionDefinitionRegister.Items">
+            <summary>
+            Gets all registered instances of <see cref="T:CMS.OnlineMarketing.ABTestConversionDefinition"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionDefinitionRegister.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.OnlineMarketing.ABTestConversionDefinitionRegister"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionDefinitionRegister.Register(CMS.OnlineMarketing.ABTestConversionDefinition)">
+            <summary>
+            Registers given <paramref name="definition"/> to the system.
+            </summary>
+            <param name="definition">Instance of <see cref="T:CMS.OnlineMarketing.ABTestConversionDefinition"/> to be registered.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when null <paramref name="definition"/> is provided.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when <paramref name="definition"/> with already registered <see cref="P:CMS.OnlineMarketing.ABTestConversionDefinition.ConversionName"/> is provided.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionDefinitionRegister.Get(System.String)">
+            <summary>
+            Gets registered configuration retrieved by given <paramref name="conversionName"/>.
+            </summary>
+            <param name="conversionName">Conversion type name.</param>
+            <returns>Configuration instance or null.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when null or empty <paramref name="conversionName"/> is provided.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestConversionDefinition">
+            <summary>
+            Describes configuration for A/B test conversion type.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionDefinition.ConversionName">
+            <summary>
+            Represents unique code name of conversion type.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionDefinition.ConversionDisplayName">
+            <summary>
+            Represents display name of conversion type.
+            </summary>
+            <remarks>
+            String for localization can be used.
+            </remarks>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionDefinition.DefaultValuePlaceholderText">
+            <summary>
+            A placeholder text for the conversion type default value field.
+            </summary>
+            <remarks>
+            String for localization can be used.
+            </remarks>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionDefinition.FormControlDefinition">
+            <summary>
+            Definition of the form control used to pick the object related to conversion type.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionDefinition.IsSystem">
+            <summary>
+            Indicates whether the conversion is a system conversion.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionDefinition.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestConversionDefinition"/>.
+            </summary>
+            <param name="conversionName">Unique code name of conversion type.</param>
+            <param name="conversionDisplayName">Display name of conversion type.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="conversionName"/> or <paramref name="conversionDisplayName"/> is null or empty, or <paramref name="conversionName"/> is not a valid code name (<see cref="M:CMS.Helpers.ValidationHelper.IsCodeName(System.Object,System.Boolean)"/>).</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionDefinition.#ctor(System.String,System.String,CMS.OnlineMarketing.ABTestFormControlDefinition)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestConversionDefinition"/>.
+            </summary>
+            <param name="conversionName">Unique code name of conversion type.</param>
+            <param name="conversionDisplayName">Display name of conversion type.</param>
+            <param name="formControlDefinition">Form control definition used to pick the object related to conversion type.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="conversionName"/> or <paramref name="conversionDisplayName"/> is null or empty, or <paramref name="conversionName"/> is not a valid code name (<see cref="M:CMS.Helpers.ValidationHelper.IsCodeName(System.Object,System.Boolean)"/>).</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="formControlDefinition"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionDefinition.#ctor(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestConversionDefinition"/>.
+            </summary>
+            <param name="conversionName">Unique code name of conversion type.</param>
+            <param name="conversionDisplayName">Display name of conversion type.</param>
+            <param name="isSystem">Determines whether the conversion should be registered as a system conversion.</param>
+            <param name="defaultValuePlaceholderText">Placeholder text for the conversion type default value field.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="conversionName"/> or <paramref name="conversionDisplayName"/> is null or empty, or <paramref name="conversionName"/> is not a valid code name (<see cref="M:CMS.Helpers.ValidationHelper.IsCodeName(System.Object,System.Boolean)"/>).</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionDefinition.#ctor(System.String,System.String,CMS.OnlineMarketing.ABTestFormControlDefinition,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestConversionDefinition"/>.
+            </summary>
+            <param name="conversionName">Unique code name of conversion type.</param>
+            <param name="conversionDisplayName">Display name of conversion type.</param>
+            <param name="formControlDefinition">Form control definition used to pick the object related to conversion type.</param>
+            <param name="isSystem">Determines whether the conversion should be registered as a system conversion.</param>
+            <param name="defaultValuePlaceholderText">Placeholder text for the conversion type default value field.</param>
+            <exception cref="T:System.ArgumentException"><paramref name="conversionName"/> or <paramref name="conversionDisplayName"/> is null or empty, or <paramref name="conversionName"/> is not a valid code name (<see cref="M:CMS.Helpers.ValidationHelper.IsCodeName(System.Object,System.Boolean)"/>).</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="formControlDefinition"/> is null.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestConversionHelper">
+            <summary>
+            Helper class for working with A/B test conversions.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionHelper.CONVERSION_FULLNAME_SEPARATOR">
+            <summary>
+            Separator ('|') is used to join base conversion name from its definition and related item identifier (if specified).
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionHelper.GetConversionFullName(System.String,System.String)">
+            <summary>
+            Create full name of <paramref name="conversionName"/> using given <paramref name="relatedItemIdentifier"/>.
+            </summary>
+            <param name="conversionName">Name of conversion which full name to return.</param>
+            <param name="relatedItemIdentifier">Identifier of a item related to conversion.</param>
+            <returns>Full name of conversion.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionHelper.GetConversionOriginalName(System.String)">
+            <summary>
+            Returns base conversion name if given name <paramref name="conversionFullName"/> contains related item identifier.
+            </summary>
+            <param name="conversionFullName">Conversion name which may contain related item identifier</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="conversionFullName"/> is null.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABTestConversionLogger">
+            <summary>
+            Class providing method for logging A/B test conversions.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestConversionLogger.#ctor(CMS.OnlineMarketing.Internal.IABUserStateManagerFactory,CMS.WebAnalytics.IAnalyticsConsentProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.Internal.ABTestConversionLogger"/> with given <paramref name="abUserStateManagerFactory"/> and <paramref name="analyticsConsentProvider"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestConversionLogger.LogConversion``1(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Log A/B test conversion with given parameters. Actual logging of conversions is different for content only sites and other sites based on given <paramref name="siteName"/>.
+            </summary>
+            <typeparam name="TIdentifier">Type of the A/B variant identifier in <see cref="T:CMS.OnlineMarketing.Internal.ABUserStateManager`1"/>.</typeparam>
+            <param name="requestDomain">Domain of current HTTP request.</param>
+            <param name="siteName">Site name where conversion occurred.</param>
+            <param name="culture">Culture of page where conversion occurred.</param>
+            <param name="conversionName">Name of conversion registered in system.</param>
+            <param name="itemIdentifier">Identifier of object connected to conversion.</param>
+            <param name="objectId">ID of object connected with conversion.</param>
+            <param name="count">Number of conversions that occurred.</param>
+            <param name="value">Conversion value.</param>
+            <seealso cref="P:CMS.OnlineMarketing.ABTestConversionDefinition.ConversionName"/>
+            <seealso cref="M:CMS.OnlineMarketing.ABTestConversionDefinitionRegister.Register(CMS.OnlineMarketing.ABTestConversionDefinition)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestConversionLogger.GetConversionValue(CMS.OnlineMarketing.ABTestInfo,CMS.SiteProvider.SiteInfo,System.String,System.Double)">
+            <summary>
+            Returns value that should be used as value of given <paramref name="conversionName"/>.
+            </summary>
+            <param name="abTest">A/B test for which conversion is logged.</param>
+            <param name="site">Related site info.</param>
+            <param name="conversionName">Name of conversion for which value is returned.</param>
+            <param name="value">Conversion value used for portal engine A/B tests, or fallback conversion value for content only A/B tests.</param>
+            <returns>Conversion value.</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABTestConfigurationSerializer">
+            <summary>
+            Serializer of <see cref="T:CMS.OnlineMarketing.Internal.ABTestConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestConfigurationSerializer.Serialize(CMS.OnlineMarketing.Internal.ABTestConfiguration)">
+            <summary>
+            Serializes an AB test configuration to JSON.
+            </summary>
+            <param name="testConfiguration">Configuration to be serialized to JSON.</param>
+            <returns>Returns serialized configuration.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestConfigurationSerializer.Deserialize(System.String)">
+            <summary>
+            Deserializes configuration of an AB test instance from JSON.
+            </summary>
+            <param name="configurationJson">Configuration in JSON to be deserialized.</param>
+            <returns>Returns deserialized configuration.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestConfigurationSerializer.GetSettings">
+            <summary>
+            Gets serializer settings used to serialize and deserialize <see cref="T:CMS.OnlineMarketing.Internal.ABTestConfiguration"/> objects.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABTestConfigurationTypesBinder">
+            <summary>
+            Serialization binder for <see cref="T:CMS.OnlineMarketing.Internal.ABTestConfigurationSerializer"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestConfigurationTypesBinder.BindToType(System.String,System.String)">
+            <summary>
+            Binds given <paramref name="typeName"/> in <paramref name="assemblyName"/> only if this type is valid for <see cref="T:CMS.OnlineMarketing.Internal.ABTestConfiguration"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.IABTestConfigurationSerializer">
+            <summary>
+            Defines serializer of <see cref="T:CMS.OnlineMarketing.Internal.ABTestConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABTestConfigurationSerializer.Serialize(CMS.OnlineMarketing.Internal.ABTestConfiguration)">
+            <summary>
+            Serializes an AB test configuration to JSON.
+            </summary>
+            <param name="testConfiguration">Configuration to be serialized to JSON.</param>
+            <returns>Returns serialized configuration.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABTestConfigurationSerializer.Deserialize(System.String)">
+            <summary>
+            Deserializes configuration of an AB test instance from JSON.
+            </summary>
+            <param name="configurationJson">Configuration in JSON to be deserialized.</param>
+            <returns>Returns deserialized configuration.</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.VariantConfigurationSource">
+            <summary>
+            Source of the configuration for A/B test variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.VariantConfigurationSource.Widgets">
+            <summary>
+            Page builder widgets configuration.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.VariantConfigurationSource.PageTemplate">
+            <summary>
+            Page template configuration.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABRequestManager">
+            <summary>
+            Class managing requests on AB test pages.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABRequestManager.GetABTestPage(CMS.DocumentEngine.PageInfo)">
+            <summary>
+            Returns the given page or variant page based on whether it has an AB test running.
+            </summary>
+            <param name="originalPage">Original page</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABRequestManager.GetABTestVariant(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Gets AB variant from the user's cookie or randomly selects one and assigns it to the user. Also checks whether the user should be excluded or not
+            (see <see cref="P:CMS.OnlineMarketing.ABTestInfo.ABTestIncludedTraffic"/> or <see cref="P:CMS.OnlineMarketing.ABTestInfo.ABTestVisitorTargeting"/>).
+            </summary>
+            <param name="abTest">AB test</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABRequestManager.ExcludeVisitorsBasedOnSegmentationConditions(CMS.OnlineMarketing.ABTestInfo,CMS.OnlineMarketing.Internal.IABUserStateManager{System.String})">
+            <summary>
+            Uses <see cref="T:CMS.OnlineMarketing.Internal.ABSegmentationEvaluator"/> to check segmentation conditions.
+            Excludes visitor from AB test if did not pass.
+            Excludes also editors from test.
+            </summary>
+            <param name="abTest">AB test</param>
+            <param name="manager">AB user state manager</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> or <paramref name="manager"/> is null</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABRequestManager.SelectRandomTestVariant(System.Collections.Generic.IList{CMS.OnlineMarketing.ABVariantInfo})">
+            <summary>
+            Returns random variant.
+            </summary>
+            <param name="variants">List of AB variants</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABRequestManager.ExcludeAndSetOriginalPage(CMS.OnlineMarketing.Internal.IABUserStateManager{System.String})">
+            <summary>
+            Excludes visitor from ab test and sets him original page.
+            </summary>
+            <param name="manager">AB user state manager</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABTestHelper">
+            <summary>
+            Contains A/B test helper methods.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestHelper.GetABTestPage(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Gets the latest version of a page for the given <paramref name="abTest"/>.
+            Site and culture of the A/B test has to match site and culture of the page.
+            </summary>
+            <param name="abTest">A/B test to get the page for.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="abTest"/> is null.</exception>
+            <returns>Found page.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestHelper.GetUsersTests">
+            <summary>
+            Gets names of the current user's A/B tests.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestHelper.GetValidVariants">
+            <summary>
+            Returns collection with variant identifiers of A/B tests, which are running and in which the current user is included.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestHelper.HasABTestVariantsMaterialized(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Returns whether <paramref name="abTest"/> has it's variants materialized.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestHelper.GetABTestPageInternal(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Gets the latest version of a page for given <paramref name="abTest"/>.
+            Site and culture of the A/B test has to match site and culture of the page.
+            </summary>
+            <param name="abTest">A/B test to get the page for.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown if <paramref name="abTest"/> is null.</exception>
+            <returns>Found page.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestHelper.GetUsersTestsInternal">
+            <summary>
+            Gets names of the current user's A/B tests.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestHelper.GetValidVariantsInternal">
+            <summary>
+            Returns collection with variant identifiers of A/B tests, which are running and in which the current user is included.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABTestVariant">
+            <summary>
+            Represents single AB test variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABTestVariant.Guid">
+            <summary>
+            Identifier of a AB test variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABTestVariant.Name">
+            <summary>
+            Name of a AB test variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABTestVariant.IsOriginal">
+            <summary>
+            Indicates whether this AB test variant is original. In case of <see cref="P:CMS.OnlineMarketing.Internal.ABTestVariant.IsOriginal"/> variant, data associated to this variant are loaded from respective properties of <see cref="T:CMS.DocumentEngine.Internal.DocumentCultureDataInfo"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABTestVariant.PageBuilderWidgets">
+            <summary>
+            Configuration of page builder widgets in JSON format, associated with this variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABTestVariant.PageTemplate">
+            <summary>
+            Configuration of page template in JSON format, associated with this variant.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestVariant.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.OnlineMarketing.Internal.ABTestVariant"/> class.
+            </summary>
+            <param name="name">Name of new variant.</param>
+            <param name="isOriginal">Whether variant is original.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestVariant.#ctor(System.Guid,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.OnlineMarketing.Internal.ABTestVariant"/> class.
+            </summary>
+            <param name="guid">Guid of the variant.</param>
+            <param name="name">Name of new variant.</param>
+            <param name="isOriginal">Whether variant is original.</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABTestConfiguration">
+            <summary>
+            Represents the configuration of a AB test of a given document.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABTestConfiguration.Variants">
+            <summary>
+            Collection of AB test variants associated with given document.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABTestConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.OnlineMarketing.Internal.ABTestConfiguration"/> class.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.IABTestConversionLogger">
+            <summary>
+            Defines set of methods for logging A/B test conversions.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABTestConversionLogger.LogConversion``1(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Double)">
+            <summary>
+            Log A/B test conversion with given parameters. Actual logging of conversions is different for content only sites and other sites based on given <paramref name="siteName"/>.
+            </summary>
+            <typeparam name="TIdentifier">Type of the A/B variant identifier in <see cref="T:CMS.OnlineMarketing.Internal.ABUserStateManager`1"/>.</typeparam>
+            <param name="requestDomain">Domain of current HTTP request.</param>
+            <param name="siteName">Site name where conversion occurred.</param>
+            <param name="culture">Culture of page where conversion occurred.</param>
+            <param name="conversionName">Name of conversion registered in system.</param>
+            <param name="itemIdentifier">Identifier of object connected to conversion.</param>
+            <param name="objectId">ID of object connected with conversion.</param>
+            <param name="count">Number of conversions that occurred.</param>
+            <param name="value">Conversion value.</param>
+            <seealso cref="P:CMS.OnlineMarketing.ABTestConversionDefinition.ConversionName"/>
+            <seealso cref="M:CMS.OnlineMarketing.ABTestConversionDefinitionRegister.Register(CMS.OnlineMarketing.ABTestConversionDefinition)"/>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.StaticRandom">
+            <summary>
+            Class that provides <see cref="T:System.Random"/> generator from thread local storage. This class is preferred to use, because <see cref="T:System.Random"/> class is not
+            thread-safe.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.StaticRandom.Instance">
+            <summary>
+            Gets instance for generator. Differs for each thread.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.StaticRandom.Next(System.Int32)">
+            <summary>
+            Returns a nonnegative random number less than the specified maximum.
+            </summary>
+            <returns>
+            A 32-bit signed integer greater than or equal to zero, and less than <paramref name="maxValue"/>; that is, the range of return values ordinarily includes zero but not <paramref name="maxValue"/>. However, if <paramref name="maxValue"/> equals zero, <paramref name="maxValue"/> is returned.
+            </returns>
+            <param name="maxValue">The exclusive upper bound of the random number to be generated. <paramref name="maxValue"/> must be greater than or equal to zero. </param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="maxValue"/> is less than zero. </exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.StaticRandom.Next(System.Int32,System.Int32)">
+            <summary>
+            Returns a random number within a specified range.
+            </summary>
+            <returns>
+            A 32-bit signed integer greater than or equal to <paramref name="minValue"/> and less than <paramref name="maxValue"/>; that is, the range of return values includes <paramref name="minValue"/> but not <paramref name="maxValue"/>. If <paramref name="minValue"/> equals <paramref name="maxValue"/>, <paramref name="minValue"/> is returned.
+            </returns>
+            <param name="minValue">The inclusive lower bound of the random number returned. </param><param name="maxValue">The exclusive upper bound of the random number returned. <paramref name="maxValue"/> must be greater than or equal to <paramref name="minValue"/>. </param>
+            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="minValue"/> is greater than <paramref name="maxValue"/>. </exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABUserStateManagerFactory">
+            <summary>
+            Factory for <see cref="T:CMS.OnlineMarketing.Internal.IABUserStateManager`1"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManagerFactory.Create``1(System.String)">
+            <summary>
+            Creates a new user state manager for A/B test identified by <paramref name="abTestName"/>.
+            </summary>
+            <typeparam name="TIdentifier">Type of the A/B variant identifier.</typeparam>
+            <param name="abTestName">Name of A/B test to create a manager for.</param>
+            <returns>Returns a new instance of A/B test manager for a test.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="abTestName"/> is null or an empty string.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABVisitRequestHelper">
+            <summary>
+            Holds data related to the current request AB visit logging.
+            </summary>
+            <remarks>
+            This helper class is designed for output cache support in MVC. ABVisit is stored in ASP.NET session. Session creates cookie when something is stored.
+            Set-Cookie causes that output cache response is not cached. This helper ensures that session is created within a separate request.
+            </remarks>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABVisitRequestHelper.ABVisitRequestEnabled">
+            <summary>
+            Indicates whether <see cref="T:CMS.OnlineMarketing.Internal.ABVisitRequestHelper"/> should be used.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABVisitRequestHelper.ABVisitRequestTestName">
+            <summary>
+            Gets the test name used for ABVisit hit within current request.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABVisitRequestHelper.SetABVisitRequestTestName(System.String)">
+            <summary>
+            Sets the current ABVisit test name to the request store
+            </summary>
+            <param name="testName">A/B test name</param>
+            <returns><c>true</c> when stored successfully to the request store; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.IABUserStateManager`1">
+            <summary>
+            Manages current user's A/B test state - can assign an A/B variant to him, save which conversions he has done, or read saved state. Internally uses a cookie for permanent state
+            (see <see cref="T:CMS.OnlineMarketing.Internal.ABCookieValue`1"/>) and session for session state(see <see cref="T:CMS.Helpers.SessionHelper"/>).
+            </summary>
+            <typeparam name="TIdentifier">Type of the A/B variant identifier.</typeparam>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.IABUserStateManager`1.IsExcluded">
+            <summary>
+            Indicates whether is visitor included in A/B test or not.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.SetVisit">
+            <summary>
+            Sets a A/B test visit for current user so that from now on, conversions can be logged also as A/B test session conversions.
+            </summary>
+            <returns>True if visit was assigned successfully (wasn't already assigned). False if a visit is already set.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.SetVisitToSession">
+            <summary>
+            Sets current A/B test visit to the session store.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.IsABVisit">
+            <summary>
+            Returns true if user has visited A/B test page and has visit session.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.GetVariantIdentifier">
+            <summary>
+            Gets name of the A/B variant assigned to the current user. Returns null, if the user hasn't got any variant assigned yet.
+            </summary>
+            <returns>Code name of the variant that is assigned to the current user</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.AssignVariant(`0)">
+            <summary>
+            Assigns an A/B variant to current user so that it can be used on next visit. From now on, permanent conversions can be also saved to
+            user's state.
+            </summary>
+            <param name="variantIdentifier">Identifier of the variant to assign to current user.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.Exclude">
+            <summary>
+            Excludes visitor from A/B test.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.GetPermanentConversions">
+            <summary>
+            Gets permanent conversions that are done by current user.
+            </summary>
+            <returns>Permanent conversions that are done by current user</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.GetSessionConversions">
+            <summary>
+            Gets session conversions that are done by current user.
+            </summary>
+            <returns>Session conversions that are done by current user</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.AddConversion(System.String)">
+            <summary>
+            Adds a conversion to session and permanent conversions if possible.
+            </summary>
+            <param name="conversion">Conversion to add to current user</param>
+            <exception cref="T:System.ArgumentException">conversion is null or empty</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManager`1.IsABTestCookieDefined">
+            <summary>
+            Returns true when A/B test cookie is defined.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.IABUserStateManagerFactory">
+            <summary>
+            Factory for <see cref="T:CMS.OnlineMarketing.Internal.IABUserStateManager`1"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABUserStateManagerFactory.Create``1(System.String)">
+            <summary>
+            Creates a new user state manager for A/B test identified by <paramref name="abTestName"/>.
+            </summary>
+            <typeparam name="TIdentifier">Type of the A/B variant identifier.</typeparam>
+            <param name="abTestName">Name of A/B test to create a manager for.</param>
+            <returns>Returns a new instance of A/B test manager for a test.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="abTestName"/> is null or an empty string.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.IABResponseCookieProvider">
+            <summary>
+            Defines interface for cookie methods.
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABResponseCookieProvider.SetValue(System.String,System.String,System.String,System.DateTime,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Sets the cookie value.
+            </summary>
+            <param name="name">Cookie name</param>
+            <param name="value">Cookie value</param>
+            <param name="path">Cookie path</param>
+            <param name="expires">Cookie expiration</param>
+            <param name="httpOnly">Indicates whether a cookie is accessible by client-side script</param>
+            <param name="domain">Cookie domain</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABResponseCookieProvider.GetValue(System.String)">
+            <summary>
+            Returns cookie value
+            </summary>
+            <param name="cookieName">Cookie name</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.IABResponseCookieProvider.GetDistinctCookieNames">
+            <summary>
+             Gets names of both request and response cookies without duplicates.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABSegmentationEvaluator">
+            <summary>
+            Class that evaluates AB segmentation conditions.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABSegmentationEvaluator.CheckUserIsEditor">
+            <summary>
+            Returns true if visitor is editor.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABSegmentationEvaluator.CheckIncludedTrafficCondition(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Returns false if visitor did not pass traffic condition.
+            </summary>
+            <param name="abTest">AB test</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABSegmentationEvaluator.CheckVisitorTargetingMacro(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Returns false if visitor did not pass targeting macro condition.
+            </summary>
+            <param name="abTest">AB test</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABUserStateManager`1">
+            <summary>
+            Manages current user's A/B test state - can assign an A/B variant to him, save which conversions he has done, or read saved state. Internally uses a cookie for permanent state
+            (see <see cref="T:CMS.OnlineMarketing.Internal.ABCookieValue`1"/>) and session for session state(see <see cref="T:CMS.Helpers.SessionHelper"/>).
+            </summary>
+            <typeparam name="TIdentifier">Type of the A/B variant identifier.</typeparam>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABUserStateManager`1.CookieValue">
+            <summary>
+            Gets or sets cached cookie value.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABUserStateManager`1.IsExcluded">
+            <summary>
+            Indicates whether is visitor included in A/B test or not.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.Internal.ABUserStateManager`1"/>.
+            </summary>
+            <param name="testName">Name of the test for which the user's state is managed</param>
+            <exception cref="T:System.ArgumentException">testName is null or empty</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.#ctor(System.String,CMS.OnlineMarketing.Internal.IABResponseCookieProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.Internal.ABUserStateManager`1"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.SetVisit">
+            <summary>
+            Sets a A/B test visit for current user so that from now on, conversions can be logged also as A/B test session conversions.
+            </summary>
+            <returns>True if visit was assigned successfully (wasn't already assigned). False if a visit is already set.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.SetVisitToSession">
+            <summary>
+            Sets current A/B test visit directly to the session store.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.IsABVisit">
+            <summary>
+            Returns true if user has visited A/B test page and has visit session.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.GetVariantIdentifier">
+            <summary>
+            Gets name of the A/B variant assigned to the current user. Returns null, if the user hasn't got any variant assigned yet.
+            </summary>
+            <returns>Code name of the variant that is assigned to the current user</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.AssignVariant(`0)">
+            <summary>
+            Assigns an A/B variant to current user so that it can be used on next visit. From now on, permanent conversions can be also saved to
+            user's state.
+            </summary>
+            <param name="variantIdentifier">Identifier of the variant to assign to current user.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.Exclude">
+            <summary>
+            Excludes visitor from A/B test.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.GetPermanentConversions">
+            <summary>
+            Gets permanent conversions that are done by current user.
+            </summary>
+            <returns>Permanent conversions that are done by current user</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.GetSessionConversions">
+            <summary>
+            Gets session conversions that are done by current user.
+            </summary>
+            <returns>Session conversions that are done by current user</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.AddConversion(System.String)">
+            <summary>
+            Adds a conversion to session and permanent conversions if possible.
+            </summary>
+            <param name="conversion">Conversion to add to current user</param>
+            <exception cref="T:System.ArgumentException">conversion is null or empty</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.IsABTestCookieDefined">
+            <summary>
+            Returns true when A/B test cookie is defined.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.TryAddPermanentConversion(System.String)">
+            <summary>
+            Adds specified conversion to permanent cookie.
+            </summary>
+            <param name="conversion">Conversion name</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.TryAddSessionConversion(System.String)">
+            <summary>
+            Adds specified conversion to session cookie.
+            </summary>
+            <param name="conversion">Conversion name</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.GetCookieValue(System.String)">
+            <summary>
+            Returns deserialized value of specified cookie.
+            </summary>
+            <param name="cookieName">Cookie name</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABUserStateManager`1.SetCookie(System.String,CMS.OnlineMarketing.Internal.ABCookieValue{`0},System.DateTime)">
+            <summary>
+            Serializes object to a cookie as a JSON object.
+            </summary>
+            <param name="cookieName">Name of the cookie to save object to</param>
+            <param name="cookieValue">Object to serialize to the cookie</param>
+            <param name="expiration">Expiration of the cookie</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Internal.ABCookieValue`1">
+            <summary>
+            Class representing deserialized permanent A/B cookie value.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABCookieValue`1.VariantIdentifier">
+            <summary>
+            A/B variant identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABCookieValue`1.ExcludedFromTest">
+            <summary>
+            Indicates whether is visitor included in A/B test or not.
+            If not, Control is always shown and no A/B conversions and A/B visits are logged.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Internal.ABCookieValue`1.Conversions">
+            <summary>
+            Conversions performed during this test.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Internal.ABCookieValue`1.#ctor">
+            <summary>
+            Constructor. Sets properties to empty values.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestConversionNames">
+            <summary>
+            Class containing names of A/B test conversions.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionNames.PURCHASE">
+            <summary>
+            Purchase conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionNames.PRODUCT_ADDED_TO_CART">
+            <summary>
+            Product has been added to shopping cart conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionNames.PAGE_VISIT">
+            <summary>
+            Page visit conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionNames.FORM_SUBMISSION">
+            <summary>
+            Form submission conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionNames.NEWSLETTER_SUBSCRIPTION">
+            <summary>
+            Subscription to a newsletter conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionNames.USER_REGISTRATION">
+            <summary>
+            User registration conversion.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionNames.PRODUCT_PURCHASE">
+            <summary>
+            Product purchase conversion.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestFormControlDefinition">
+            <summary>
+            Describes configuration of the form control used to pick the object related to A/B test conversion type.
+            </summary>
+            <seealso cref="T:CMS.OnlineMarketing.ABTestConversionDefinition"/>.
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestFormControlDefinition.FormControlType">
+            <summary>
+            Type of the form control used to pick the object related to conversion type.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestFormControlDefinition.FormControlName">
+            <summary>
+            Name of the form control used to pick the object related to conversion type.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestFormControlDefinition.FormControlParameters">
+            <summary>
+            Parameters which allow customization of form control defined by <see cref="P:CMS.OnlineMarketing.ABTestFormControlDefinition.FormControlName"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestFormControlDefinition.FormControlCaption">
+            <summary>
+            Caption shown above the form control used to pick the object related to conversion type.
+            </summary>
+            <seealso cref="P:CMS.OnlineMarketing.ABTestFormControlDefinition.FormControlName"/>.
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestFormControlDefinition.#ctor(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestFormControlDefinition"/>.
+            </summary>
+            <param name="formControlName">Name of the form control used to pick the object related to conversion type.</param>
+            <param name="formControlCaption">Caption shown as label above the form control used to pick the object related to conversion type.</param>
+            <param name="formControlParameters">Parameters which allow customization of form control defined by <paramref name="formControlName"/>.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestFormControlDefinition.#ctor(System.Type,System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestFormControlDefinition"/>.
+            </summary>
+            <param name="formControlType">Type of the form control used to pick the object related to conversion type.</param>
+            <param name="formControlCaption">Caption shown as label above the form control used to pick the object related to conversion type.</param>
+            <param name="formControlParameters">Parameters which allow customization of form control defined by <paramref name="formControlType"/>.</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.TreeNodeExtensions">
+            <summary>
+            Extension methods for <see cref="T:CMS.DocumentEngine.TreeNode"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.TreeNodeExtensions.GetPageBuilderWidgets(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets page builder widgets configuration from <paramref name="page"/>.
+            </summary>
+            <param name="page">Page to retrieve configuration from.</param>
+            <returns>Returns page builder widgets configuration.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.TreeNodeExtensions.SetPageBuilderWidgets(CMS.DocumentEngine.TreeNode,System.String)">
+            <summary>
+            Sets page builder widgets configuration to <paramref name="page"/>.
+            </summary>
+            <param name="page">Page to set configuration to.</param>
+            <param name="value">Configuration value to be set.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.TreeNodeExtensions.GetPageTemplateConfiguration(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets page template configuration from <paramref name="page"/>.
+            </summary>
+            <param name="page">Page to retrieve configuration from.</param>
+            <returns>Returns page template configuration.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.TreeNodeExtensions.SetPageTemplateConfiguration(CMS.DocumentEngine.TreeNode,System.String)">
+            <summary>
+            Sets page template configuration to <paramref name="page"/>.
+            </summary>
+            <param name="page">Page to set configuration to.</param>
+            <param name="value">Configuration value to be set.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.TreeNodeExtensions.GetABTestConfiguration(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets A/B test configuration from <paramref name="page"/>.
+            </summary>
+            <param name="page">Page to retrieve configuration from.</param>
+            <returns>Returns A/B test configuration.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.TreeNodeExtensions.SetABTestConfiguration(CMS.DocumentEngine.TreeNode,System.String)">
+            <summary>
+            Sets A/B test configuration to <paramref name="page"/>.
+            </summary>
+            <param name="page">Page to set configuration to.</param>
+            <param name="value">Configuration value to be set.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.IABTestManager">
+            <summary>
+            Defines set of methods for managing test variants.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.CreateABTest(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Creates a new A/B test for <paramref name="page"/> with included traffic set to 100
+            and stores it to the database. If the page has any A/B test variants defined,
+            they are cleared.
+            </summary>
+            <param name="page">Page to create A/B test for.</param>
+            <returns>Returns a new A/B for <paramref name="page"/>.</returns>
+            <remarks>
+            The A/B test's name is inferred using <see cref="M:CMS.OnlineMarketing.ABTestNameHelper.GetDefaultDisplayName(CMS.DocumentEngine.TreeNode)"/>.
+            </remarks>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.GetABTestWithoutWinner(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets A/B test without a winner for a given <paramref name="page"/>.
+            Returns null if no A/B test is associated with the <paramref name="page"/> or associated A/B test has a winner.
+            </summary>
+            <param name="page">Page to retrieve an unconclued A/B test for.</param>
+            <returns>Returns an unconcluded A/B test for the page, or null.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.GetRunningABTest(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Gets A/B test for <paramref name="page"/> which is still running.
+            Returns null if no running A/B is available for the page.
+            </summary>
+            <param name="page">Page to retrieve running A/B test for.</param>
+            <returns>Returns running A/B test for the page, or null.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.AddVariant(CMS.DocumentEngine.TreeNode,System.Nullable{System.Guid})">
+            <summary>
+            Adds a new A/B test variant into <paramref name="page"/> based on an existing source variant.
+            </summary>
+            <param name="page">Page for which to add a new variant.</param>
+            <param name="sourceVariantGuid">GUID of the source variant (if null or <see cref="F:System.Guid.Empty"/>, original is assumed as the source).</param>
+            <returns>Returns the new A/B test variant.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="sourceVariantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.RemoveVariant(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Removes an A/B test variant identified by <paramref name="variantGuid"/> from <paramref name="page"/>.
+            </summary>
+            <param name="page">Page from which to remove a variant.</param>
+            <param name="variantGuid">GUID of the variant to be removed.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the original A/B variant is to be deleted.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.PromoteVariant(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Promotes a variant identified by <paramref name="variantGuid"/> as the winner variant.
+            Winning variant is stored in the database within the A/B test.
+            </summary>
+            <param name="page">Page for which to promote the winner variant.</param>
+            <param name="variantGuid">GUID of the variant to be promoted.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when there is no unconcluded A/B test or <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when the A/B test for the current <paramref name="page"/> has not finished yet.</exception>
+            <seealso cref="M:CMS.OnlineMarketing.IABTestManager.GetABTestWithoutWinner(CMS.DocumentEngine.TreeNode)"/>
+            <seealso cref="M:CMS.OnlineMarketing.ABTestStatusEvaluator.ABTestIsFinished(CMS.OnlineMarketing.ABTestInfo)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.GetVariants(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Returns all A/B test variants existing for given <paramref name="page"/>.
+            </summary>
+            <returns>
+            Existing variants or empty enumeration when document has empty A/B variant configuration.
+            Variants are represented by <see cref="T:CMS.OnlineMarketing.IABTestVariant"/> interface.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">When passed <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.InvalidOperationException">When document has malformed A/B variant configuration data.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.RenameVariant(CMS.DocumentEngine.TreeNode,System.Guid,System.String)">
+            <summary>
+            Renames an A/B test variant in <paramref name="page"/> identified by variant GUID with given name.
+            </summary>
+            <param name="page">Page in which to rename the variant.</param>
+            <param name="variantGuid">Unique identifier of the variant for which the change the name.</param>
+            <param name="newVariantName">New name for the variant identified with <paramref name="variantGuid"/>.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="newVariantName"/> is null, empty or has more than 100 characters.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when there is no variant with <paramref name="variantGuid"/> identifier.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.IABTestManager.UpdateVariant(CMS.DocumentEngine.TreeNode,System.Guid,CMS.OnlineMarketing.Internal.VariantConfigurationSource)">
+            <summary>
+            Updates an A/B test variant in <paramref name="page"/> identified by variant GUID with given Page builder widgets configuration.
+            </summary>
+            <param name="page">Page in which to update the variant.</param>
+            <param name="variantGuid">Unique identifier of the variant for which to update the configuration.</param>
+            <param name="configurationSource">Source of the configuration to update the variant with.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> or <paramref name="configurationSource"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Throw when <paramref name="variantGuid"/> does not identify an existing variant within <paramref name="page"/>.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ICachedABTestManager">
+            <summary>
+            Acts as a decorator for <see cref="T:CMS.OnlineMarketing.IABTestManager"/> and adds caching to methods.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestConversion">
+            <summary>
+            Represents single conversion setting for an A/B test.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversion.ConversionName">
+            <summary>
+            Code name of the conversion which is used for logging.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversion.Value">
+            <summary>
+            Numeric value for conversion of type specified in <see cref="P:CMS.OnlineMarketing.ABTestConversion.ConversionName"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversion.RelatedItemIdentifier">
+            <summary>
+            Identifier of an item related to the conversion, e.g. newsletter name related to newsletter subscription conversion.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversion.RelatedItemDisplayName">
+            <summary>
+            Display name of an item related to the conversion, e.g. newsletter display name related to newsletter subscription conversion.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversion.ConversionOriginalName">
+            <summary>
+            Original name from conversion definition (<see cref="P:CMS.OnlineMarketing.ABTestConversionDefinition.ConversionName"/>).
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversion.#ctor(System.String,System.String,System.Decimal)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestConversion"/> class.
+            </summary>
+            <param name="conversionName">Code name of new conversion</param>
+            <param name="relatedItemIdentifier">Identifier of related item</param>
+            <param name="value">Value of new conversion</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversion.#ctor(System.Xml.XmlNode)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestConversion"/> class from its XML representation.
+            </summary>
+            <param name="node">XML representation of <see cref="T:CMS.OnlineMarketing.ABTestConversion"/> object</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversion.GetXMLNode(System.Xml.XmlDocument)">
+            <summary>
+            Returns XML node representing the conversion setting.
+            </summary>
+            <param name="doc">XML document</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversion.LoadFromXml(System.Xml.XmlNode)">
+            <summary>
+            Loads conversion setting from XML definition.
+            </summary>
+            <param name="node">Conversion setting XML node</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABTestConversionConfiguration">
+            <summary>
+            Represents conversion configuration for an A/B test which contains list of <see cref="T:CMS.OnlineMarketing.ABTestConversion"/> instances.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionConfiguration.mABTest">
+            <summary>
+            A/B Test to which this Conversion Configuration belongs
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABTestConversionConfiguration.mABTestConversions">
+            <summary>
+            List of conversion settings for an A/B test.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionConfiguration.ABTestConversions">
+            <summary>
+            Iterator for conversions in current configuration.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestConversionConfiguration.ConversionsCount">
+            <summary>
+            Gets conversions count in current configuration.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.#ctor(CMS.OnlineMarketing.ABTestInfo,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.ABTestConversionConfiguration"/> class.
+            </summary>
+            <param name="abTest">Parent A/B Test object.
+            If null value is provided, then this object has to be manually serialized into <see cref="T:CMS.OnlineMarketing.ABTestInfo"/> backing DB field.</param>
+            <param name="conversionConfig">Serialized <see cref="T:CMS.OnlineMarketing.ABTestConversionConfiguration"/> object.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.SetABTestInfoABTestConversions">
+            <summary>
+            Serializes current configuration into parent A/B Test object database field.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.Serialize">
+            <summary>
+            Returns conversion configuration serialized into XML format string.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.AddConversion(CMS.OnlineMarketing.ABTestConversion)">
+            <summary>
+            Adds new conversion to current configuration.
+            </summary>
+            <param name="conversion">Conversion to be added.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.GetConversionAt(System.Int32)">
+            <summary>
+            Gets conversion from current configuration.
+            </summary>
+            <param name="index">The zero-based index of the conversion to retrieve.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.SetConversionAt(System.Int32,CMS.OnlineMarketing.ABTestConversion)">
+            <summary>
+            Updates conversion in current configuration.
+            </summary>
+            <param name="index">The zero-based index of the conversion to update.</param>
+            <param name="conversion">Conversion to be set at <paramref name="index"/>.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.RemoveConversionAt(System.Int32)">
+            <summary>
+            Removes conversion from current configuration.
+            </summary>
+            <param name="index">The zero-based index of the conversion to remove.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.TryGetConversion(System.String,CMS.OnlineMarketing.ABTestConversion@)">
+            <summary>
+            Returns true, if conversion specified by <paramref name="conversionName"/> is defined in the configuration and provides this conversion through the output parameter <paramref name="conversion"/> if exists.
+            </summary>
+            <param name="conversionName">Conversion name.</param>
+            <param name="conversion">Output parameter for conversion.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestConversionConfiguration.TryGetConversionByOriginalName(System.String,CMS.OnlineMarketing.ABTestConversion@)">
+            <summary>
+            Returns true, if conversion specified by <paramref name="conversionOriginalName"/> is defined in the configuration and provides this conversion through the output parameter <paramref name="conversion"/> if exists.
+            </summary>
+            <param name="conversionOriginalName">Original name of the conversion (<see cref="P:CMS.OnlineMarketing.ABTestConversion.ConversionOriginalName"/>) to be retrieved..</param>
+            <param name="conversion">Output parameter for conversion.</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.IABTestVariant">
+            <summary>
+            Describes A/B test variant object.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.IABTestVariant.Guid">
+            <summary>
+            Gets the identifier of a A/B test variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.IABTestVariant.Name">
+            <summary>
+            Gets the name of a A/B test variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.IABTestVariant.IsOriginal">
+            <summary>
+            Indicates whether this A/B test variant is original variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.IABTestVariant.PageBuilderWidgets">
+            <summary>
+            Configuration of page builder widgets in JSON format, associated with this variant.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.IABTestVariant.PageTemplate">
+            <summary>
+            Configuration of page template in JSON format, associated with this variant.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.VariantNameGenerator">
+            <summary>
+            Generator for unique A/B variant names.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.VariantNameGenerator.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.OnlineMarketing.VariantNameGenerator"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.VariantNameGenerator.GetOriginalName">
+            <summary>
+            Returns name of original variant.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.VariantNameGenerator.GetDefaultUniqueName(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Returns unique name in default format "Variant A" with character which is not used in any of given <paramref name="existingNames"/>.
+            </summary>
+            <param name="existingNames">Set of existing names</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.VariantNameGenerator.GetName(System.Collections.Generic.ICollection{System.Int32})">
+            <summary>
+            Returns name based on given collection of indexes from <see cref="F:CMS.OnlineMarketing.VariantNameGenerator.CHARS"/> constant.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.VariantNameGenerator.GetNameWithoutExtension(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Returns name based on given collection of indexes representing characters in <see cref="F:CMS.OnlineMarketing.VariantNameGenerator.CHARS"/> constant.
+            Name is not required to be extended as none index represents last character in <see cref="F:CMS.OnlineMarketing.VariantNameGenerator.CHARS"/> constant.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.VariantNameGenerator.GetNameWithExtension(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Returns name based on given collection of indexes representing characters in <see cref="F:CMS.OnlineMarketing.VariantNameGenerator.CHARS"/> constant.
+            Name is required to be extended because atleast one index represents last character in <see cref="F:CMS.OnlineMarketing.VariantNameGenerator.CHARS"/> constant.
+            </summary>
+        </member>
         <member name="T:CMS.OnlineMarketing.ABCachedObjects">
             <summary>
             Class providing access to cached AB tests and variants.
@@ -24,46 +1545,15 @@
             Returns AB variants for the given test using the cached section.
             </summary>
         </member>
-        <member name="T:CMS.OnlineMarketing.ABRequestManager">
+        <member name="M:CMS.OnlineMarketing.ABCachedObjects.GetVariantsData(CMS.OnlineMarketing.ABTestInfo)">
             <summary>
-            Class managing requests on AB test pages.
+            Returns cached variants for the given AB test.
             </summary>
         </member>
-        <member name="M:CMS.OnlineMarketing.ABRequestManager.GetABTestPage(CMS.DocumentEngine.PageInfo)">
+        <member name="M:CMS.OnlineMarketing.ABCachedObjects.GetVariantDisplayName(System.Int32,System.Guid)">
             <summary>
-            Returns the given page or variant page based on whether it has an AB test running.
+            Returns cached <see cref="P:CMS.OnlineMarketing.ABVariantDataInfo.ABVariantDisplayName"/> of A/B test variant with given <paramref name="variantIdentifier"/> on site with given <paramref name="siteId"/>.
             </summary>
-            <param name="originalPage">Original page</param>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABRequestManager.GetABTestVariant(CMS.OnlineMarketing.ABTestInfo)">
-            <summary>
-            Gets AB variant from the user's cookie or randomly selects one and assigns it to the user. Also checks whether the user should be excluded or not
-            (see <see cref="P:CMS.OnlineMarketing.ABTestInfo.ABTestIncludedTraffic"/> or <see cref="P:CMS.OnlineMarketing.ABTestInfo.ABTestVisitorTargeting"/>).
-            </summary>
-            <param name="abTest">AB test</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABRequestManager.ExcludeVisitorsBasedOnSegmentationConditions(CMS.OnlineMarketing.ABTestInfo,CMS.OnlineMarketing.ABUserStateManager)">
-            <summary>
-            Uses <see cref="T:CMS.OnlineMarketing.ABSegmentationEvaluator"/> to check segmentation conditions.
-            Excludes visitor from AB test if did not pass.
-            Excludes also editors from test.
-            </summary>
-            <param name="abTest">AB test</param>
-            <param name="manager">AB user state manager</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> or <paramref name="manager"/> is null</exception>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABRequestManager.SelectRandomTestVariant(System.Collections.Generic.IList{CMS.OnlineMarketing.ABVariantInfo})">
-            <summary>
-            Returns random variant.
-            </summary>
-            <param name="variants">List of AB variants</param>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABRequestManager.ExcludeAndSetOriginalPage(CMS.OnlineMarketing.ABUserStateManager)">
-            <summary>
-            Excludes visitor from ab test and sets him original page.
-            </summary>
-            <param name="manager">AB user state manager</param>
         </member>
         <member name="T:CMS.OnlineMarketing.ABTestContext">
             <summary>
@@ -131,6 +1621,13 @@
             Test conversions. Only those conversions that are assigned to the test will be shown on overview tab.
             If none conversions are set, all conversions will be visible.
             </summary>
+            <remarks>This property can be used only on portal engine sites. Use <see cref="P:CMS.OnlineMarketing.ABTestInfo.ABTestConversionConfiguration"/> on content only sites.</remarks>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABTestInfo.ABTestConversionConfiguration">
+            <summary>
+            Returns object representation of A/B Test conversion configuration.
+            </summary>
+            <remarks>This property can be used only on content only sites. Use <see cref="P:CMS.OnlineMarketing.ABTestInfo.ABTestConversions"/> on portal engine sites.</remarks>
         </member>
         <member name="P:CMS.OnlineMarketing.ABTestInfo.ABTestCulture">
             <summary>
@@ -241,14 +1738,14 @@
             <summary>
             Returns AB test with specified ID.
             </summary>
-            <param name="abTestId">AB test ID</param>        
+            <param name="abTestId">AB test ID</param>
         </member>
         <member name="M:CMS.OnlineMarketing.ABTestInfoProvider.GetABTestInfo(System.String,System.String)">
             <summary>
             Returns AB test with specified name.
             </summary>
-            <param name="abTestName">AB test name</param>                
-            <param name="siteName">Site name</param>                
+            <param name="abTestName">AB test name</param>
+            <param name="siteName">Site name</param>
         </member>
         <member name="M:CMS.OnlineMarketing.ABTestInfoProvider.GetABTests">
             <summary>
@@ -292,12 +1789,24 @@
             </summary>
             <param name="info">Object to delete</param>
         </member>
+        <member name="M:CMS.OnlineMarketing.ABTestInfoProvider.ABTestingEnabledInternal(System.String)">
+            <summary>
+            Returns true if AB testing is enabled.
+            </summary>
+            <param name="siteName">Site name</param>
+        </member>
         <member name="M:CMS.OnlineMarketing.ABTestInfoProvider.GetABTestIDInternal(System.String,System.String)">
             <summary>
             Returns ID of the specified test.
             </summary>
             <param name="siteName">Site name</param>
             <param name="abTestName">Test name</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestInfoProvider.HandleABVariantDataMaterialization(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Materializes variants of <paramref name="abTestInfo"/> in case A/B test is on content only page, it's OpenFrom column has been changed and it's variants are not materialized.
+            </summary>
+            <param name="abTestInfo">A/B test whose variant to materialize.</param>
         </member>
         <member name="M:CMS.OnlineMarketing.ABTestInfoProvider.RenameStatistics(System.String,System.String,System.Int32)">
             <summary>
@@ -339,6 +1848,67 @@
             Only settings on running sites (if <paramref name="global"/> is true), not hidden and not custom are retrieved.
             Only global settings when <paramref name="global"/> is false.
             </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABVariantDataInfo">
+            <summary>
+            Represents a materialized A/B variant. 
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABVariantDataInfo.OBJECT_TYPE">
+            <summary>
+            Object type
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.ABVariantDataInfo.TYPEINFO">
+            <summary>
+            Type information.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABVariantDataInfo.ABVariantID">
+            <summary>
+            Variant data ID.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABVariantDataInfo.ABVariantTestID">
+            <summary>
+            Variant's test ID.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABVariantDataInfo.ABVariantDisplayName">
+            <summary>
+            Variant display name.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABVariantDataInfo.ABVariantGUID">
+            <summary>
+            Variant GUID.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.ABVariantDataInfo.ABVariantIsOriginal">
+            <summary>
+            Indicates whether the variant is the original one.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfo.DeleteObject">
+            <summary>
+            Deletes the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfo.SetObject">
+            <summary>
+            Updates the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfo.#ctor">
+            <summary>
+            Constructor - Creates an empty ABVariantDataInfo object.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfo.#ctor(System.Data.DataRow)">
+            <summary>
+            Constructor - Creates a new ABVariantDataInfo object from the given DataRow.
+            </summary>
+            <param name="dr">DataRow with the object data</param>
         </member>
         <member name="T:CMS.OnlineMarketing.ABVariantInfo">
             <summary>
@@ -415,6 +1985,46 @@
             Constructor - Creates a new ABVariantInfo object from the given DataRow.
             </summary>
             <param name="dr">DataRow with the object data</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.ABVariantDataInfoProvider">
+            <summary>
+            Class providing <see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/> management.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfoProvider.GetABVariantDataInfo(System.Int32)">
+            <summary>
+            Returns <see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/> with specified ID.
+            </summary>
+            <param name="id"><see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/> ID.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfoProvider.GetVariantsData">
+            <summary>
+            Returns a query for all the A/B variants data.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfoProvider.SetABVariantDataInfo(CMS.OnlineMarketing.ABVariantDataInfo)">
+            <summary>
+            Sets (updates or inserts) specified <see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/>.
+            </summary>
+            <param name="infoObj"><see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/> to be set.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfoProvider.DeleteABVariantDataInfo(CMS.OnlineMarketing.ABVariantDataInfo)">
+            <summary>
+            Deletes specified <see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/>.
+            </summary>
+            <param name="infoObj"><see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/> to be deleted.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfoProvider.DeleteABVariantDataInfo(System.Int32)">
+            <summary>
+            Deletes <see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/> with specified ID.
+            </summary>
+            <param name="id"><see cref="T:CMS.OnlineMarketing.ABVariantDataInfo"/> ID.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantDataInfoProvider.DeleteInfo(CMS.OnlineMarketing.ABVariantDataInfo)">
+            <summary>
+            Deletes the object from the database.
+            </summary>
+            <param name="info">Object to delete</param>
         </member>
         <member name="T:CMS.OnlineMarketing.ABVariantInfoProvider">
             <summary>
@@ -542,7 +2152,7 @@
         </member>
         <member name="M:CMS.OnlineMarketing.ABVariantInfoProvider.DeleteInfo(CMS.OnlineMarketing.ABVariantInfo)">
             <summary>
-            Deletes the object to the database.
+            Deletes the object from the database.
             </summary>
             <param name="info">Object to delete</param>
         </member>
@@ -585,6 +2195,23 @@
             </summary>
             <param name="variantObj">AB Variant</param>
         </member>
+        <member name="T:CMS.OnlineMarketing.ABTestURLHelper">
+            <summary>
+            Provides URL processing methods for A/B test conversion logging.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestURLHelper.TryRemovePresentationURLAnchorAndQuery(System.String,CMS.SiteProvider.SiteInfo,System.String@)">
+            <summary>
+            Tries to parse the application-relative path from the provided <paramref name="url"/>. Query string and anchor (#) are omitted.
+            </summary>
+            <param name="url">Absolute live site url or url relative to presentation url.</param>
+            <param name="site">Content-Only site which SitePresentationUrl corresponds with <paramref name="url"/> </param>
+            <param name="relativeUrl">In case of successful operation, the result is stored here.</param>
+            <returns>
+            Returns <c>true</c> when given <paramref name="url"/> was successfully stripped by presentation url and query string; otherwise <c>false</c>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">When <paramref name="url"/> or <paramref name="site"/> is null.</exception>
+        </member>
         <member name="T:CMS.OnlineMarketing.ABTestStatusEnum">
             <summary>
             AB test status enumeration.
@@ -618,6 +2245,21 @@
         <member name="M:CMS.OnlineMarketing.ABTestStatusEvaluator.ABTestIsRunning(CMS.OnlineMarketing.ABTestInfo)">
             <summary>
             Checks whether the AB test is running.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestStatusEvaluator.ABTestIsFinished(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Checks whether the AB test is finished.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestStatusEvaluator.ABTestNotStarted(CMS.OnlineMarketing.ABTestInfo)">
+            <summary>
+            Checks whether the AB test has not been started yet.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABTestStatusEvaluator.ABTestNotStarted(CMS.OnlineMarketing.ABTestStatusEnum)">
+            <summary>
+            Checks whether the current AB test status corresponds to not started test.
             </summary>
         </member>
         <member name="M:CMS.OnlineMarketing.ABTestStatusEvaluator.GetStatus(CMS.OnlineMarketing.ABTestInfo)">
@@ -669,11 +2311,19 @@
             <param name="variant">AB variant to remove</param>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="variant"/> is null</exception>
         </member>
-        <member name="M:CMS.OnlineMarketing.ABVariantColorAssigner.GetVariantColor(CMS.OnlineMarketing.ABVariantInfo)">
+        <member name="M:CMS.OnlineMarketing.ABVariantColorAssigner.RemoveVariantData(CMS.OnlineMarketing.ABVariantDataInfo)">
+            <summary>
+            Tries to remove AB variant data from cache. 
+            </summary>
+            <param name="variant">AB variant to remove</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="variant"/> is null</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.ABVariantColorAssigner.GetVariantColor(System.Int32,System.Int32)">
             <summary>
             Gets cached variant color.
             </summary>
-            <param name="variant">Variant to get color for</param>
+            <param name="variantID">ID of variant to get color for</param>
+            <param name="abTestID">ID of test the variant belongs to</param>
             <returns>Cached variant color</returns>
         </member>
         <member name="M:CMS.OnlineMarketing.ABVariantColorAssigner.FindLeastUsedColor(System.Collections.Concurrent.ConcurrentDictionary{System.Int32,System.Drawing.Color})">
@@ -683,36 +2333,23 @@
             <param name="assignedColors">AB Test dictionary of colors to search for the least used</param>
             <returns>Color that is least used</returns>
         </member>
-        <member name="T:CMS.OnlineMarketing.StaticRandom">
+        <member name="T:CMS.OnlineMarketing.ABTestActivityModifier">
             <summary>
-            Class that provides <see cref="T:System.Random"/> generator from thread local storage. This class is preferred to use, because <see cref="T:System.Random"/> class is not
-            thread-safe.
+            Class for updating A/B test related properties in activities.
             </summary>
         </member>
-        <member name="P:CMS.OnlineMarketing.StaticRandom.Instance">
+        <member name="M:CMS.OnlineMarketing.ABTestActivityModifier.#ctor(CMS.Base.ISiteService)">
             <summary>
-            Gets instance for generator. Differs for each thread.
+            Creates instance of <see cref="T:CMS.OnlineMarketing.ABTestActivityModifier"/>.
             </summary>
+            <param name="siteService">Site service.</param>
         </member>
-        <member name="M:CMS.OnlineMarketing.StaticRandom.Next(System.Int32)">
+        <member name="M:CMS.OnlineMarketing.ABTestActivityModifier.Modify(CMS.Activities.IActivityInfo)">
             <summary>
-            Returns a nonnegative random number less than the specified maximum.
+            Updates <see cref="P:CMS.Activities.IActivityInfo.ActivityABVariantName"/> with name of current A/B test variant if one is present.
             </summary>
-            <returns>
-            A 32-bit signed integer greater than or equal to zero, and less than <paramref name="maxValue"/>; that is, the range of return values ordinarily includes zero but not <paramref name="maxValue"/>. However, if <paramref name="maxValue"/> equals zero, <paramref name="maxValue"/> is returned.
-            </returns>
-            <param name="maxValue">The exclusive upper bound of the random number to be generated. <paramref name="maxValue"/> must be greater than or equal to zero. </param>
-            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="maxValue"/> is less than zero. </exception>
-        </member>
-        <member name="M:CMS.OnlineMarketing.StaticRandom.Next(System.Int32,System.Int32)">
-            <summary>
-            Returns a random number within a specified range.
-            </summary>
-            <returns>
-            A 32-bit signed integer greater than or equal to <paramref name="minValue"/> and less than <paramref name="maxValue"/>; that is, the range of return values includes <paramref name="minValue"/> but not <paramref name="maxValue"/>. If <paramref name="minValue"/> equals <paramref name="maxValue"/>, <paramref name="minValue"/> is returned.
-            </returns>
-            <param name="minValue">The inclusive lower bound of the random number returned. </param><param name="maxValue">The exclusive upper bound of the random number returned. <paramref name="maxValue"/> must be greater than or equal to <paramref name="minValue"/>. </param>
-            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="minValue"/> is greater than <paramref name="maxValue"/>. </exception>
+            <remarks>Only activities of type <see cref="F:CMS.Activities.PredefinedActivityType.PAGE_VISIT"/> or <see cref="F:CMS.Activities.PredefinedActivityType.LANDING_PAGE"/> are updated.</remarks>
+            <param name="activity">Activity which property to update.</param>
         </member>
         <member name="T:CMS.OnlineMarketing.ContactProcessingCheckerActivityLogFilter">
             <summary>
@@ -746,6 +2383,18 @@
             Filters out logging for pages with disabled logging
             </summary>
             <returns>Returns <c>true</c> if logging should be filtered out, because current document has disabled logging. Otherwise returns <c>false</c>.</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.MVTActivityModifier">
+            <summary>
+            Class for updating MVT related properties in activities.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.MVTActivityModifier.Modify(CMS.Activities.IActivityInfo)">
+            <summary>
+            Updates <see cref="P:CMS.Activities.IActivityInfo.ActivityMVTCombinationName"/> with current MVT combination name.
+            </summary>
+            <remarks>Only activities of type <see cref="F:CMS.Activities.PredefinedActivityType.PAGE_VISIT"/> or <see cref="F:CMS.Activities.PredefinedActivityType.LANDING_PAGE"/> are updated.</remarks>
+            <param name="activity">Activity which property to update.</param>
         </member>
         <member name="T:CMS.OnlineMarketing.ContentPersonalizationUsageDataSource">
             <summary>
@@ -940,34 +2589,19 @@
             AB testing event handlers.
             </summary>
         </member>
-        <member name="F:CMS.OnlineMarketing.ABHandlers.ABSESSIONCONVERSION_FIRST">
-            <summary>
-            Code name of the first session conversion used in log files.
-            </summary>
-        </member>
-        <member name="F:CMS.OnlineMarketing.ABHandlers.ABSESSIONCONVERSION_RECURRING">
-            <summary>
-            Code name of the recurring session conversion used in log files.
-            </summary>
-        </member>
-        <member name="F:CMS.OnlineMarketing.ABHandlers.ABCONVERSION">
-            <summary>
-            Conversion name.
-            </summary>
-        </member>
         <member name="F:CMS.OnlineMarketing.ABHandlers.PARAM_ABTEST_NAME">
             <summary>
-            Used as a query parameter when logging analytics via JavaScript. 
+            Used as a query parameter when logging analytics via JavaScript.
             </summary>
         </member>
         <member name="F:CMS.OnlineMarketing.ABHandlers.PARAM_ABTEST_VARIANT_NAME">
             <summary>
-            Used as a query parameter when logging analytics via JavaScript. 
+            Used as a query parameter when logging analytics via JavaScript.
             </summary>
         </member>
         <member name="F:CMS.OnlineMarketing.ABHandlers.PARAM_ABVISIT_FIRST">
             <summary>
-            Used as a query parameter when logging analytics via JavaScript. 
+            Used as a query parameter when logging analytics via JavaScript.
             </summary>
         </member>
         <member name="M:CMS.OnlineMarketing.ABHandlers.Init">
@@ -983,7 +2617,7 @@
         <member name="M:CMS.OnlineMarketing.ABHandlers.LogABVisit(System.Object,System.EventArgs)">
             <summary>
             Checks whether the request is on AB test and user got assigned AB test variant.
-            Context properties (<see cref="P:CMS.OnlineMarketing.ABTestContext.CurrentABTest"/>, <see cref="P:CMS.OnlineMarketing.ABTestContext.CurrentABTestVariant"/>, <see cref="P:CMS.OnlineMarketing.ABTestContext.IsFirstABRequest"/>) 
+            Context properties (<see cref="P:CMS.OnlineMarketing.ABTestContext.CurrentABTest"/>, <see cref="P:CMS.OnlineMarketing.ABTestContext.CurrentABTestVariant"/>, <see cref="P:CMS.OnlineMarketing.ABTestContext.IsFirstABRequest"/>)
             used are assigned in ABTestInfoProvider when AB variant for a PageInfo is requested (not in this handler).
             </summary>
         </member>
@@ -1011,18 +2645,7 @@
             Logs AB conversions.
             </summary>
         </member>
-        <member name="M:CMS.OnlineMarketing.ABHandlers.LogABTestConversion(System.String,System.String,System.String,System.Int32,System.Int32,System.Double)">
-            <summary>
-            Checks cookies and logs AB test conversions.
-            </summary>
-            <param name="siteName">Site name</param>
-            <param name="culture">Culture</param>
-            <param name="conversionName">Conversion name</param>
-            <param name="objectId">Object ID</param>
-            <param name="count">Conversions count</param>
-            <param name="value">Conversions value</param>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABHandlers.UpdateAliasPaths(System.Object,CMS.DocumentEngine.DocumentEventArgs)">
+        <member name="M:CMS.OnlineMarketing.ABHandlers.UpdateAliasPaths(CMS.DocumentEngine.DocumentEventArgs)">
             <summary>
             Updates paths of AB variants and AB tests when underlying document is moved or updated (document/node and AB variant/test are linked together just by alias path, not FK).
             </summary>
@@ -1032,30 +2655,6 @@
             Returns a <see cref="T:CMS.DocumentEngine.TreeNode"/> which represents an original AB variant for given <paramref name="variantNode"/>.
             </summary>
             <param name="variantNode">Node which represents AB variant</param>
-        </member>
-        <member name="T:CMS.OnlineMarketing.ABSegmentationEvaluator">
-            <summary>
-            Class that evaluates AB segmentation conditions.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABSegmentationEvaluator.CheckUserIsEditor">
-            <summary>
-            Returns true if visitor is editor.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABSegmentationEvaluator.CheckIncludedTrafficCondition(CMS.OnlineMarketing.ABTestInfo)">
-            <summary>
-            Returns false if visitor did not pass traffic condition.
-            </summary>
-            <param name="abTest">AB test</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABSegmentationEvaluator.CheckVisitorTargetingMacro(CMS.OnlineMarketing.ABTestInfo)">
-            <summary>
-            Returns false if visitor did not pass targeting macro condition.
-            </summary>
-            <param name="abTest">AB test</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
         </member>
         <member name="T:CMS.OnlineMarketing.ABVariantStatisticsData">
             <summary>
@@ -1133,144 +2732,6 @@
             <param name="editedTest">Test being edited</param>
             <param name="rivalTest">Test being compared</param>
             <remarks>This method is internal so it can be accessed in separate assembly for tests.</remarks>
-        </member>
-        <member name="T:CMS.OnlineMarketing.ABUserStateManager">
-            <summary>
-            Manages current user's AB test state - can assign an AB variant to him, save which conversions he has done, or read saved state. Internally uses a cookie for permanent state 
-            (see <see cref="T:CMS.OnlineMarketing.ABCookieValue"/>) and session for session state(see <see cref="T:CMS.Helpers.SessionHelper"/>).
-            </summary>
-        </member>
-        <member name="F:CMS.OnlineMarketing.ABUserStateManager.ABCOOKIE_PREFIX">
-            <summary>
-            Prefix of AB test cookie names.
-            </summary>
-        </member>
-        <member name="P:CMS.OnlineMarketing.ABUserStateManager.CookieValue">
-            <summary>
-            Gets or sets cached cookie value.
-            </summary>
-        </member>
-        <member name="P:CMS.OnlineMarketing.ABUserStateManager.IsExcluded">
-            <summary>
-            Indicates whether is visitor included in AB test or not.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.#ctor(System.String)">
-            <summary>
-            Constructor.
-            </summary>
-            <param name="testName">Name of the test for which the user's state is managed</param>
-            <exception cref="T:System.ArgumentException">testName is null or empty</exception>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.SetVisit">
-            <summary>
-            Sets a AB test visit for current user so that from now on, conversions can be logged also as AB test session conversions.
-            </summary>
-            <returns>True if visit was assigned successfully (wasn't already assigned). False if a visit is already set.</returns>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.IsABVisit">
-            <summary>
-            Returns true if user has visited AB test page and has visit session.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.GetUsersTests">
-            <summary>
-            Gets names of the current user's AB tests.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.GetVariantName">
-            <summary>
-            Gets name of the AB variant assigned to the current user. Returns null, if the user hasn't got any variant assigned yet.
-            </summary>
-            <returns>Code name of the variant that is assigned to the current user</returns>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.AssignVariant(System.String)">
-            <summary>
-            Assigns an AB variant to current user so that it can be used on next visit. From now on, permanent conversions can be also saved to
-            user's state.
-            </summary>
-            <param name="variantName">Name of the variant to assign current user to</param>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.Exclude">
-            <summary>
-            Excludes visitor from AB test.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.GetPermanentConversions">
-            <summary>
-            Gets permanent conversions that are done by current user.
-            </summary>
-            <returns>Permanent conversions that are done by current user</returns>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.GetSessionConversions">
-            <summary>
-            Gets session conversions that are done by current user.
-            </summary>
-            <returns>Session conversions that are done by current user</returns>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.AddConversion(System.String)">
-            <summary>
-            Adds a conversion to session and permanent conversions if possible.
-            </summary>
-            <param name="conversion">Conversion to add to current user</param>
-            <exception cref="T:System.ArgumentException">conversion is null or empty</exception>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.IsABTestCookieDefined">
-            <summary>
-            Returns true when A/B test cookie is defined.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.TryAddPermanentConversion(System.String)">
-            <summary>
-            Adds specified conversion to permanent cookie.
-            </summary>
-            <param name="conversion">Conversion name</param>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.TryAddSessionConversion(System.String)">
-            <summary>
-            Adds specified conversion to session cookie.
-            </summary>
-            <param name="conversion">Conversion name</param>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.GetCookieValue(System.String)">
-            <summary>
-            Returns deserialized value of specified cookie.
-            </summary>
-            <param name="cookieName">Cookie name</param>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABUserStateManager.SetCookie(System.String,CMS.OnlineMarketing.ABCookieValue,System.DateTime)">
-            <summary>
-            Serializes object to a cookie as a JSON object.
-            </summary>
-            <param name="cookieName">Name of the cookie to save object to</param>
-            <param name="cookieValue">Object to serialize to the cookie</param>
-            <param name="expiration">Expiration of the cookie</param>
-        </member>
-        <member name="T:CMS.OnlineMarketing.ABCookieValue">
-            <summary>
-            Class representing deserialized permanent AB cookie value.
-            </summary>
-        </member>
-        <member name="P:CMS.OnlineMarketing.ABCookieValue.VariantName">
-            <summary>
-            AB variant name.
-            </summary>
-        </member>
-        <member name="P:CMS.OnlineMarketing.ABCookieValue.ExcludedFromTest">
-            <summary>
-            Indicates whether is visitor included in AB test or not.
-            If not, Control is always shown and no AB conversions and AB visits are logged.
-            </summary>
-        </member>
-        <member name="P:CMS.OnlineMarketing.ABCookieValue.Conversions">
-            <summary>
-            Conversions performed during this test.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.ABCookieValue.#ctor">
-            <summary>
-            Constructor. Sets properties to empty values.
-            </summary>
         </member>
         <member name="T:CMS.OnlineMarketing.ABConversionRateInterval">
             <summary>
@@ -1833,11 +3294,6 @@
         <member name="M:CMS.OnlineMarketing.OnlineMarketingHandlers.StoreActivities(System.Object,System.EventArgs)">
             <summary>
             Performs bulk insert of activities currently stored in memory before the application ends to ensure the persistence.
-            </summary>
-        </member>
-        <member name="M:CMS.OnlineMarketing.OnlineMarketingHandlers.AddABVariantNameOrMVTCombinationNameToActivity(System.Object,CMS.Base.CMSEventArgs{CMS.Activities.IActivityInfo})">
-            <summary>
-            Adds details to <see cref="F:CMS.Activities.PredefinedActivityType.PAGE_VISIT"/> or <see cref="F:CMS.Activities.PredefinedActivityType.LANDING_PAGE"/> activity. 
             </summary>
         </member>
         <member name="M:CMS.OnlineMarketing.OnlineMarketingHandlers.LogAbAndMvtContext(System.Object,CMS.WebAnalytics.AnalyticsJSEventArgs)">
@@ -3622,6 +5078,11 @@
             Registers the object type of this module
             </summary>
         </member>
+        <member name="M:CMS.OnlineMarketing.OnlineMarketingModule.RegisterActivityModifiers">
+            <summary>
+            Register classes for modifying on-line marketing related properties in activities.
+            </summary>
+        </member>
         <member name="M:CMS.OnlineMarketing.OnlineMarketingModule.MoveMVTests(System.Object[])">
             <summary>
             Move all related MVTests from one location to another
@@ -3631,12 +5092,6 @@
         <member name="M:CMS.OnlineMarketing.OnlineMarketingModule.EnsureDefaultCombination(System.Object[])">
             <summary>
             Ensure that the page template has a default combination created.
-            </summary>
-            <param name="parameters">Parameters array</param>
-        </member>
-        <member name="M:CMS.OnlineMarketing.OnlineMarketingModule.GetMVTestSiteId(System.Object[])">
-            <summary>
-            
             </summary>
             <param name="parameters">Parameters array</param>
         </member>

@@ -108,9 +108,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Languages : CMSProper
 
         // Display document information
         DocumentManager.ShowDocumentInfo(false);
-
-        // Set selected tab
-        SetPropertyTab(TAB_LANGUAGES);
     }
 
     #endregion

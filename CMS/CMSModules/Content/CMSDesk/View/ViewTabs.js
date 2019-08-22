@@ -22,3 +22,10 @@ function RefreshTree(expandNodeId, selectNodeId) {
         parent.RefreshTree(expandNodeId, selectNodeId);
     }
 }
+
+// Select node
+function SelectNode(nodeId, nodeElem, tab) {
+    if ((parent !== this) && parent.SelectNode) {
+        parent.SelectNode(nodeId, nodeElem, tab);
+    }
+}

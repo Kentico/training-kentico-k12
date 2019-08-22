@@ -190,7 +190,7 @@
         </member>
         <member name="P:CMS.EventLog.EventLogWorker.MaintenanceInterval">
             <summary>
-            Gets the maintenance interval in milliseconds (default 10s)
+            Gets the maintenance interval in milliseconds (default 60s)
             </summary>
         </member>
         <member name="P:CMS.EventLog.EventLogWorker.UseLogContext">
@@ -1335,26 +1335,20 @@
             </summary>
             <param name="ev">Logged event</param>
         </member>
-        <member name="M:CMS.EventLog.EventLogProvider.CanDeleteOlderItems(System.Int32,System.Int32,System.Int32@)">
-            <summary>
-            Returns true if the older event log items can be deleted (if the system exceeded the allowed buffer)
-            </summary>
-            <param name="siteId">Site ID</param>
-            <param name="logSize">Log size for the given site</param>
-            <param name="itemsAfterDeletion">Returns the number of items after the deletion process</param>
-        </member>
         <member name="M:CMS.EventLog.EventLogProvider.DeleteOlderItems(System.Int32,System.Int32)">
             <summary>
-            Deletes the old event log events
+            Executes stored procedure for deleting old events of given <paramref name="siteId"/> from event log.
             </summary>
-            <param name="siteId">Site ID</param>
-            <param name="logSize">Log size for the given site</param>
+            <param name="siteId">Site ID.</param>
+            <param name="logSize">Log size for the given site.</param>
+            <returns>Number of remaining events of given <paramref name="siteId"/> in event log.</returns>
         </member>
         <member name="M:CMS.EventLog.EventLogProvider.DeleteOlderItems(System.Collections.Generic.IEnumerable{System.Int32})">
             <summary>
-            Deletes the older items for the given list of sites
+            Deletes the older items for the given list of <paramref name="siteIds"/>.
             </summary>
             <param name="siteIds">Site IDs</param>
+            <returns>True if any item has been deleted, otherwise false.</returns>
         </member>
         <member name="M:CMS.EventLog.EventLogProvider.GetEventInfoInternal(System.Int32)">
             <summary>
@@ -1387,9 +1381,23 @@
         </member>
         <member name="M:CMS.EventLog.EventLogProvider.GetLogItemsInternal(System.Int32)">
             <summary>
-            Gets the log items count for specified site.
+            Returns the log items count for specified site.
             </summary>
-            <param name="siteId">Site ID</param>
+            <param name="siteId">Site ID.</param>
+            <remarks>This method get item count straight from database without any caching.</remarks>
+        </member>
+        <member name="M:CMS.EventLog.EventLogProvider.GetLogItemsCount(System.Int32)">
+            <summary>
+            Returns number of logged items in event log for given <paramref name="siteId"/>.
+            </summary>
+            <param name="siteId">Site ID.</param>
+            <remarks>This method uses internal caching mechanism that is not intended for public use.</remarks>
+        </member>
+        <member name="M:CMS.EventLog.EventLogProvider.GetLogItemsCountFromDatabase(System.Int32)">
+            <summary>
+            Returns the log items count for specified site straight from database.
+            </summary>
+            <param name="siteId">Site ID.</param>
         </member>
         <member name="M:CMS.EventLog.EventLogProvider.SetEventLogInfoInternal(CMS.EventLog.EventLogInfo)">
             <summary>
@@ -1474,6 +1482,11 @@
             Executes when the event logging throws an error.
             </summary>
             <param name="ex">Exception thrown upon problem with logging</param>
+        </member>
+        <member name="M:CMS.EventLog.EventLogProvider.IncrementLoggedEventsCount(System.Int32)">
+            <summary>
+            Increment cached number of logged events for given <paramref name="siteId"/>.
+            </summary>
         </member>
         <member name="T:CMS.EventLog.EventLogHandlers">
             <summary>

@@ -1888,6 +1888,59 @@
             <param name="code">Code behind content</param>
             <param name="designer">Designer content</param>
         </member>
+        <member name="T:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters">
+            <summary>
+            Parameters of live site dialog with widget properties.
+            </summary>
+        </member>
+        <member name="P:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.ZoneId">
+            <summary>
+            Zone identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.ZoneType">
+            <summary>
+            Zone type.
+            </summary>
+        </member>
+        <member name="P:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.TemplateId">
+            <summary>
+            Template identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.InstanceGuid">
+            <summary>
+            Instance guid.
+            </summary>
+        </member>
+        <member name="P:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.IsInlineWidget">
+            <summary>
+            Indicates whether widget is inline widget.
+            </summary>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.#ctor(System.String,CMS.PortalEngine.ViewModeEnum)">
+            <summary>
+            Creates an instance of the <see cref="T:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters"/> class
+            </summary>
+            <param name="aliasPath">Node alias path.</param>
+            <param name="viewMode">View mode.</param>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.ToString">
+            <summary>
+             Returns a string that represents the current object.
+            </summary>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.GetHashString">
+            <summary>
+            Returns hash string for the current instance.
+            </summary>
+        </member>
+        <member name="M:CMS.PortalEngine.Web.UI.Internal.LiveSiteWidgetsParameters.ValidateHash(System.String)">
+            <summary>
+            Validates given <paramref name="hash"/> for current instance.
+            </summary>
+            <param name="hash">Hash to validate.</param>
+        </member>
         <member name="T:CMS.PortalEngine.Web.UI.PartialCacheItemsProvider">
             <summary>
             Class providing methods for web part partial cache items management.

@@ -252,6 +252,7 @@ public partial class CMSModules_Newsletters_Tools_Newsletters_Newsletter_Subscri
             {
                 AllowOptIn = false,
                 SendConfirmationEmail = false,
+                RemoveUnsubscriptionFromNewsletter = false,
                 RemoveAlsoUnsubscriptionFromAllNewsletters = false,
             });
         }

@@ -12,6 +12,24 @@
 public partial class CMSModules_BizForms_Tools_BizForm_Edit_EditRecordMVC {
     
     /// <summary>
+    /// plcMess control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.MessagesPlaceHolder plcMess;
+    
+    /// <summary>
+    /// alWarning control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.AlertLabel alWarning;
+    
+    /// <summary>
     /// mvcLayout control.
     /// </summary>
     /// <remarks>

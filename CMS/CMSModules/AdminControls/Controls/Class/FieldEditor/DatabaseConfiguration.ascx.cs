@@ -939,10 +939,10 @@ public partial class CMSModules_AdminControls_Controls_Class_FieldEditor_Databas
                 DecimalScale = ValidationHelper.GetInteger(AttributePrecision, 0)
             };
 
-            var result = checkType.ValidateDataType();
-            if (!String.IsNullOrEmpty(result))
+            var result = checkType.GetValidationResult();
+            if (!result.Success)
             {
-                return GetString("TemplateDesigner.ErrorDefaultValue") + " " + result;
+                return GetString("TemplateDesigner.ErrorDefaultValue") + " " + result.ErrorMessage;
             }
         }
 

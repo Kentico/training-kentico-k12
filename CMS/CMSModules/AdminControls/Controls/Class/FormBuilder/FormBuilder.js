@@ -265,7 +265,7 @@
 
     function getComponentFromClassList(cssClasses) {
         // Regular expression to mach 'component_*' pattern
-        var regComponent = /component_\w+/;
+        var regComponent = /component_[\w|\.]+/;
         var cssClass = regComponent.exec(cssClasses)[0];
 
         // substr(10) removes 'component_' prefix

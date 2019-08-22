@@ -543,6 +543,15 @@ cz;Czech Republic</value>
   <data name="kentico.formbuilder.component.consentselector.invalidconsentselected" xml:space="preserve">
     <value>Please select an existing consent.</value>
   </data>
+  <data name="kentico.formbuilder.component.fileuploader.name" xml:space="preserve">
+    <value>File uploader</value>
+  </data>
+  <data name="kentico.formbuilder.component.fileuploader.description" xml:space="preserve">
+    <value>Provides a component for uploading files.</value>
+  </data>
+  <data name="kentico.formbuilder.component.fileuploader.viewfile" xml:space="preserve">
+    <value>View '{0}' (in a new tab).</value>
+  </data>
   <data name="kentico.formbuilder.error.property" xml:space="preserve">
     <value>Property '{0}' is in an invalid state.</value>
   </data>
@@ -602,5 +611,26 @@ cz;Czech Republic</value>
   </data>
   <data name="kentico.formbuilder.section.withoutZones" xml:space="preserve">
     <value>Sections with the following section identifiers do not contain any component zones. Sections without component zones are not supported.</value>
+  </data>
+  <data name="kentico.formbuilder.component.fileuploader.deletefile" xml:space="preserve">
+    <value>Delete file</value>
+  </data>
+  <data name="kentico.formbuilder.component.fileuploader.selectfile" xml:space="preserve">
+    <value>Please select a file</value>
+  </data>
+  <data name="kentico.formbuilder.component.fileuploader.tempfiledeleted" xml:space="preserve">
+    <value>The file has expired, please select it again and resubmit the form.</value>
+  </data>
+  <data name="kentico.formbuilder.component.consentagreement.properties.noconsentchosen" xml:space="preserve">
+    <value>No consent has been selected. Please select one in properties panel of this component.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.boolisset.description" xml:space="preserve">
+    <value>Checks if the component is selected or enabled.</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.boolisset.name" xml:space="preserve">
+    <value>Component is enabled</value>
+  </data>
+  <data name="kentico.formbuilder.validationrule.boolisset.title" xml:space="preserve">
+    <value>Component is enabled</value>
   </data>
 </root>

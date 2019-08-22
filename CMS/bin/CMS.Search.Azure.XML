@@ -442,7 +442,7 @@
         </member>
         <member name="M:CMS.Search.Azure.SearchTaskEngine.GetIndexesWithSearchableObjectsForPartialRebuild(System.String,System.String,CMS.Search.Internal.SearchablesRetriever)">
             <summary>
-            Returns collection of Azure indexes with all the related <see cref="T:CMS.DataEngine.ISearchable"/> objects for given <paramref name="objectType"/> 
+            Returns collection of Azure indexes with all the related <see cref="T:CMS.DataEngine.ISearchable"/> objects for given <paramref name="objectType"/>
             and <paramref name="siteNodeIdentifier"/> (site name and node alias path) that are necessary for partial rebuild.
             </summary>
         </member>
@@ -457,7 +457,7 @@
             </summary>
             <param name="indexInfo">Index to rebuild.</param>
         </member>
-        <member name="M:CMS.Search.Azure.SearchTaskEngine.UpdateIndex(CMS.Search.SearchIndexInfo,System.Collections.Generic.IEnumerable{CMS.DataEngine.ISearchable},System.Func{CMS.DataEngine.ISearchable,Microsoft.Azure.Search.Models.IndexAction},Microsoft.Azure.Search.Models.Index)">
+        <member name="M:CMS.Search.Azure.SearchTaskEngine.UpdateIndex(CMS.Search.SearchIndexInfo,System.Collections.Generic.IEnumerable{CMS.DataEngine.ISearchable},System.Func{CMS.DataEngine.ISearchable,System.Collections.Generic.IEnumerable{Microsoft.Azure.Search.Models.Field},Microsoft.Azure.Search.Models.IndexAction},Microsoft.Azure.Search.Models.Index)">
             <summary>
             Updates <paramref name="indexInfo"/> content and definition if necessary.
             </summary>
@@ -465,8 +465,8 @@
             <param name="indexInfo">Defines <see cref="T:CMS.Search.SearchIndexInfo"/> to be created or updated in Azure Search service.</param>
             <param name="searchables">Objects whose documents in the index should be modified. Modification is defined by <paramref name="transformSearchableToIndexAction"/>.</param>
             <param name="transformSearchableToIndexAction">Defines how <paramref name="indexInfo"/> should be modified by a <see cref="T:CMS.DataEngine.ISearchable"/> object from <paramref name="searchables"/>.</param>
-            <param name="existingIndex"> 
-            Defines Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> already existing in Azure Search service. Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> has to be defined if there 
+            <param name="existingIndex">
+            Defines Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> already existing in Azure Search service. Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> has to be defined if there
             is already existing Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> otherwise <see cref="T:Microsoft.Rest.Azure.CloudException"/> may be thrown.
             Can be null or empty if Azure <see cref="T:Microsoft.Azure.Search.Models.Index"/> is created from scratch.
             </param>
@@ -726,6 +726,11 @@
             Azure Search document which is being created from <see cref="P:CMS.Search.Azure.CreateDocumentEventArgs.SearchDocument"/>.
             </summary>
         </member>
+        <member name="P:CMS.Search.Azure.CreateDocumentEventArgs.Fields">
+            <summary>
+            Enumeration of Azure Search fields corresponding to the <see cref="P:CMS.Search.Azure.CreateDocumentEventArgs.Document"/>.
+            </summary>
+        </member>
         <member name="P:CMS.Search.Azure.CreateDocumentEventArgs.Searchable">
             <summary>
             Searchable for which the document is being created.
@@ -755,6 +760,11 @@
         <member name="P:CMS.Search.Azure.AddDocumentValueEventArgs.AzureName">
             <summary>
             Name of resulting field in Azure Search <see cref="P:CMS.Search.Azure.AddDocumentValueEventArgs.Document"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.Search.Azure.AddDocumentValueEventArgs.Fields">
+            <summary>
+            Enumeration of Azure Search fields corresponding to the <see cref="P:CMS.Search.Azure.AddDocumentValueEventArgs.Document"/>.
             </summary>
         </member>
         <member name="P:CMS.Search.Azure.AddDocumentValueEventArgs.Value">
@@ -862,7 +872,7 @@
         </member>
         <member name="F:CMS.Search.Azure.DocumentCreator.CreatingDocument">
             <summary>
-            An event raised upon <see cref="M:CMS.Search.Azure.DocumentCreator.CreateDocument(CMS.DataEngine.SearchDocument,CMS.DataEngine.ISearchable,CMS.DataEngine.ISearchIndexInfo)"/> execution. The before phase allows for modification of processed <see cref="P:CMS.Search.Azure.CreateDocumentEventArgs.SearchDocument"/>,
+            An event raised upon <see cref="M:CMS.Search.Azure.DocumentCreator.CreateDocument(CMS.DataEngine.SearchDocument,CMS.DataEngine.ISearchable,CMS.DataEngine.ISearchIndexInfo,System.Collections.Generic.IEnumerable{Microsoft.Azure.Search.Models.Field})"/> execution. The before phase allows for modification of processed <see cref="P:CMS.Search.Azure.CreateDocumentEventArgs.SearchDocument"/>,
             the after phase allows for modification of resulting <see cref="P:CMS.Search.Azure.CreateDocumentEventArgs.Document"/>.
             </summary>
         </member>
@@ -877,17 +887,18 @@
             Initializes a new document creator.
             </summary>
         </member>
-        <member name="M:CMS.Search.Azure.DocumentCreator.CreateDocument(CMS.DataEngine.SearchDocument,CMS.DataEngine.ISearchable,CMS.DataEngine.ISearchIndexInfo)">
+        <member name="M:CMS.Search.Azure.DocumentCreator.CreateDocument(CMS.DataEngine.SearchDocument,CMS.DataEngine.ISearchable,CMS.DataEngine.ISearchIndexInfo,System.Collections.Generic.IEnumerable{Microsoft.Azure.Search.Models.Field})">
             <summary>
-            Creates an Azure Search <see cref="T:Microsoft.Azure.Search.Models.Document"/> for given <paramref name="searchDocument"/>. The <paramref name="searchable"/> and <paramref name="searchIndex"/> parameters
+            Creates an Azure Search <see cref="T:Microsoft.Azure.Search.Models.Document"/> for given <paramref name="searchDocument"/>. The <paramref name="searchable"/>, <paramref name="searchIndex"/> and <paramref name="fields"/> parameters
             are to provide contextual information for the creation.
             </summary>
             <param name="searchDocument">Search document for which to create an Azure Search document.</param>
             <param name="searchable">Searchable for which the document is being created.</param>
             <param name="searchIndex">Index for which the document is being created.</param>
+            <param name="fields">Enumeration of Azure Search fields corresponding to the <paramref name="searchable"/>.</param>
             <returns>Returns Azure Search document for <paramref name="searchable"/>.</returns>
         </member>
-        <member name="M:CMS.Search.Azure.DocumentCreator.AddDocumentValue(Microsoft.Azure.Search.Models.Document,CMS.DataEngine.SearchDocument,System.String,CMS.DataEngine.ISearchable,CMS.DataEngine.ISearchIndexInfo)">
+        <member name="M:CMS.Search.Azure.DocumentCreator.AddDocumentValue(Microsoft.Azure.Search.Models.Document,CMS.DataEngine.SearchDocument,System.String,CMS.DataEngine.ISearchable,CMS.DataEngine.ISearchIndexInfo,System.Collections.Generic.IEnumerable{Microsoft.Azure.Search.Models.Field})">
             <summary>
             Adds value of <paramref name="searchDocument"/> field <paramref name="name"/> to Azure Search <paramref name="document"/>.
             </summary>
@@ -896,6 +907,7 @@
             <param name="name">Name of <paramref name="searchDocument"/> field being added.</param>
             <param name="searchable">Searchable to which the Azure Search document relates.</param>
             <param name="searchIndex">Index to which the Azure Search document relates.</param>
+            <param name="fields">Enumeration of Azure Search fields defined in the index the resulting document belongs to.</param>
         </member>
         <member name="M:CMS.Search.Azure.DocumentCreator.ProcessSystemField(System.String,System.Object@)">
             <summary>

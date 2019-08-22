@@ -1,14 +1,34 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true"  Codebehind="TreeActionsPanel.ascx.cs" Inherits="CMSModules_Content_Controls_TreeActionsPanel" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TreeActionsPanel.ascx.cs" Inherits="CMSModules_Content_Controls_TreeActionsPanel" %>
 <div class="tree-actions-panel">
     <asp:PlaceHolder runat="server" ID="plcContentButtons">
         <cms:CMSPanel ID="pnlButtons" ShortID="pb" runat="server" CssClass="tree-buttons">
             <div class="btn-group">
                 <cms:CMSButton runat="server" ID="btnEdit" ButtonStyle="Default" OnClientClick="return false;" />
-                <cms:CMSButton runat="server" ID="btnPreview" ButtonStyle="Default" OnClientClick="return false;" />
+                <div class="btn-group cms-split-button">
+                    <cms:CMSButton runat="server" ID="btnPreview" ButtonStyle="Default" OnClientClick="return false;" />
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                        <span class="sr-only"><%= GetString("content.ui.previewoptions") %></span>
+                    </button>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="javascript: GetCurrentNodePreviewUrl()" title='<%= GetString("content.ui.previewinnewtab") %>'><%= GetString("content.ui.previewinnewtab") %></a></li>
+                    </ul>
+                </div>
                 <cms:CMSButton runat="server" ID="btnListing" ButtonStyle="Default" OnClientClick="return false;" />
             </div>
         </cms:CMSPanel>
     </asp:PlaceHolder>
+
+    <script type="text/javascript">
+        function OpenInNewTabCallback(url) {
+            if (url) {
+                var newTab = window.open(url, '_blank');
+                // Browser may block pop-up windows which causes newTab is undefined.
+                newTab && newTab.focus();
+            }
+        }
+    </script>
 
     <div class="tree-actions">
         <cms:CMSAccessibleButton runat="server" ID="btnNew" OnClientClick="NewItem(); return false;" IconCssClass="icon-plus" IconOnly="true" />

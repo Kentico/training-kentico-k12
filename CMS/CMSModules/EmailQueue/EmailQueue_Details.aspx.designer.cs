@@ -192,6 +192,24 @@ public partial class CMSModules_EmailQueue_EmailQueue_Details {
     protected global::CMS.DocumentEngine.Web.UI.CMSHtmlEditor htmlTemplateBody;
     
     /// <summary>
+    /// lblPlainText control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.LocalizedLabel lblPlainText;
+    
+    /// <summary>
+    /// lblPlainTextValue control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Label lblPlainTextValue;
+    
+    /// <summary>
     /// plcAttachments control.
     /// </summary>
     /// <remarks>

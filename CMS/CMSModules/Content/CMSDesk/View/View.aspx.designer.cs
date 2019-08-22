@@ -30,6 +30,15 @@ public partial class CMSModules_Content_CMSDesk_View_View {
     protected global::CMS.Base.Web.UI.MessagesPlaceHolder plcMess;
     
     /// <summary>
+    /// alWarning control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.AlertLabel alWarning;
+    
+    /// <summary>
     /// ucView control.
     /// </summary>
     /// <remarks>

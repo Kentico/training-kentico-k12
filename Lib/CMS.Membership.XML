@@ -371,7 +371,7 @@
         </member>
         <member name="M:CMS.Membership.AuthenticationHelper.FindUsersByEmail(System.String)">
             <summary>
-            Find users specified by Email
+            Finds enabled users specified by the <paramref name="userEmail"/>.
             </summary>
             <param name="userEmail">Email assigned to the user.</param>
         </member>
@@ -2591,11 +2591,6 @@
             Membership related context methods and variables.
             </summary>
         </member>
-        <member name="F:CMS.Membership.MembershipContext.SHIFTED_INTERVAL_IN_MINUTES">
-            <summary>
-            Time interval used for creating token info.
-            </summary>
-        </member>
         <member name="F:CMS.Membership.MembershipContext.MF_AUTHENICATION_INFO">
             <summary>
             Session key used for information about partially authentication.
@@ -2603,7 +2598,7 @@
         </member>
         <member name="P:CMS.Membership.MembershipContext.CurrentUserProfile">
             <summary>
-            Current user info object according the URL parameter of the current request. 
+            Current user info object according the URL parameter of the current request.
             It is available when the request contains parameters "userid", "username" or "userguid" with valid value of the user.
             </summary>
         </member>
@@ -2685,7 +2680,7 @@
         <member name="M:CMS.Membership.MembershipContext.GetCurrentUserProfile">
             <summary>
             Returns information on the current user according user ID/ user name specified as an URL parameter of the current request
-            </summary>        
+            </summary>
         </member>
         <member name="M:CMS.Membership.MembershipContext.GetImpersonatingUser">
             <summary>
@@ -2695,7 +2690,7 @@
         </member>
         <member name="M:CMS.Membership.MembershipContext.CreatePartialAuthenticationInfo(System.DateTime)">
             <summary>
-            Get hash stamp which represents valid period for user.  
+            Get hash stamp which represents valid period for user.
             </summary>
             <param name="time">DateTime.</param>
         </member>
@@ -2867,7 +2862,7 @@
         <member name="F:CMS.Membership.SecurityEvents.MultiFactorAuthenticate">
             <summary>
             Fires when multi-factor authentication of the user is performed, allows to customize way of sending passcode
-            </summary> 
+            </summary>
         </member>
         <member name="F:CMS.Membership.SecurityEvents.AuthorizeResource">
             <summary>

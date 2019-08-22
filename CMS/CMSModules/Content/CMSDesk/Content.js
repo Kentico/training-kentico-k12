@@ -178,7 +178,7 @@ function PerformSplitViewRedirect(originalUrl, newCulture, successCallback, erro
 //#endregion
 
 // Switches to editing mode of particular document
-function EditDocument(nodeId, tab) {
+function EditDocument(nodeId, tab, culture) {
     SetMode('editform', true);
 
     var query = null;
@@ -186,7 +186,7 @@ function EditDocument(nodeId, tab) {
         query = '?tabName=' + tab;
     }
 
-    window.PerformContentRedirect('editform', 'content', nodeId, query);
+    window.PerformContentRedirect('editform', 'content', nodeId, query, culture);
 }
 
 // Displays the selected document in the current mode
@@ -650,8 +650,8 @@ function PerformDialogAction(action, nodeId) {
 }
 
 
-function PerformContentRedirect(mode, action, nodeId, query) {
-    PerformRedirect(mode, action, nodeId, null, query, null, false, ViewContent);
+function PerformContentRedirect(mode, action, nodeId, query, culture) {
+  PerformRedirect(mode, action, nodeId, culture, query, null, false, ViewContent);
 }
 
 function CopyRef(arg) {

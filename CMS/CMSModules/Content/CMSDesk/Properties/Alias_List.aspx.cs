@@ -65,8 +65,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Alias_List : CMSPrope
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        SetPropertyTab(TAB_URLS);
-
         // Set where condition - show nothing when nodeId is zero
         UniGridAlias.WhereCondition = "AliasNodeID = " + NodeID;
 

@@ -160,7 +160,7 @@ public partial class CMSModules_Scoring_Controls_UI_Rule_List : CMSAdminListCont
 
     #endregion
 
-    
+
     #region "Public methods"
 
     /// <summary>
@@ -176,7 +176,7 @@ public partial class CMSModules_Scoring_Controls_UI_Rule_List : CMSAdminListCont
         {
             mButtonRecalculate.Tooltip = tooltip;
         }
-    } 
+    }
 
     #endregion
 
@@ -191,8 +191,8 @@ public partial class CMSModules_Scoring_Controls_UI_Rule_List : CMSAdminListCont
         gridElem.WhereCondition = "RuleScoreID = " + ScoreId;
         InitHeaderActions();
         InitWarnings(ScoreId);
-        
-        var deleteAction = gridElem.GridActions.GetAction("#delete");
+
+        var deleteAction = gridElem.GridActions.GetActionByName("#delete");
         deleteAction.ModuleName = ModuleNameForPermissionCheck;
         deleteAction.Permissions = PermissionsEnum.Modify.ToString();
     }
@@ -203,7 +203,7 @@ public partial class CMSModules_Scoring_Controls_UI_Rule_List : CMSAdminListCont
         gridElem.ZeroRowsText = GetString("om.rule.nodatafound");
     }
 
-    
+
     private object gridElem_OnExternalDataBound(object sender, string sourceName, object parameter)
     {
         switch (sourceName.ToLowerCSafe())

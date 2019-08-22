@@ -2178,6 +2178,26 @@
             </summary>
             <returns>Dataset as object</returns>
         </member>
+        <member name="T:CMS.DocumentEngine.Web.UI.AlternativeUrlsConstraintControl">
+            <summary>
+            Class for alternative url regex constraint text box form control.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.Web.UI.AlternativeUrlsConstraintControl.TextBox">
+            <summary>
+            Textbox control
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.Web.UI.AlternativeUrlsConstraintControl.IsValid">
+            <summary>
+            Returns true if provided value is a valid regex and pattern is not inefficient to compute.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.Web.UI.AlternativeUrlsConstraintControl.OnInit(System.EventArgs)">
+            <summary>
+            Init event handler
+            </summary>
+        </member>
         <member name="T:CMS.DocumentEngine.Web.UI.ContentUploader">
             <summary>
             Multi-file content uploader class for Http handler.
@@ -5356,6 +5376,17 @@
             <summary>
             Initializes the control properties.
             </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.Web.UI.Internal.SaveAsTemplateButtonActionProvider">
+            <summary>
+            Provides the button action for the 'Save as template' MVC feature.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.Web.UI.Internal.SaveAsTemplateButtonActionProvider.Get">
+            <summary>
+            Gets the button action.
+            </summary>
+            <returns>Returns <c>null</c> if the action should not be available in the current context.</returns>
         </member>
         <member name="T:CMS.DocumentEngine.Web.UI.TempITemplate">
             <summary>

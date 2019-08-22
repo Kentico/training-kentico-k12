@@ -2586,6 +2586,16 @@
             <param name="olderThan">Limit time for deletion of a file</param>
             <param name="deleteEmptyFolder">Indicates if the specified folder should be deleted if there are no files left at the end</param>
         </member>
+        <member name="M:CMS.IO.StorageHelper.DeleteOldFiles(CMS.IO.DirectoryInfo,System.DateTime,System.Boolean,System.Boolean,System.Func{System.String,System.String,System.Boolean})">
+            <summary>
+            Deletes files older than specified time from the file system.
+            </summary>
+            <param name="dir">Directory to process</param>
+            <param name="olderThan">Limit time for deletion of a file</param>
+            <param name="deleteEmptyFolder">Indicates if the specified folder should be deleted if there are no files left at the end</param>
+            <param name="recursively">Indicates if the subfolders of the folder are to be processed.</param>
+            <param name="deleteFileCallback">Callback accepting folder name and file respectively and returning a value indicating whether the file is to be deleted.</param>
+        </member>
         <member name="M:CMS.IO.StorageHelper.DeleteOldFiles(System.String,System.DateTime,System.Boolean)">
             <summary>
             Deletes files older than specified time from the file system.
@@ -3084,6 +3094,16 @@
             <param name="appPath">Application path</param>
             <returns>Relative path</returns>
             <exception cref="T:System.ArgumentNullException">Throws when <paramref name="virtualPath" /> or <paramref name="appPath" /> is <c>null</c>.</exception>
+        </member>
+        <member name="M:CMS.IO.VirtualPathHelper.EnsureTrailingSlash(System.String)">
+            <summary>
+            Ensure trailing slash at the end of path
+            </summary>
+        </member>
+        <member name="M:CMS.IO.VirtualPathHelper.FixVirtualPathSlashes(System.String)">
+            <summary>
+            Normalize slashes and remove slash duplicates
+            </summary>
         </member>
         <member name="M:CMS.IO.VirtualPathHelper.RemoveDirectives(System.String,System.String[])">
             <summary>

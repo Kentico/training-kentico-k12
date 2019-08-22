@@ -54,12 +54,16 @@ public partial class CMSModules_Ecommerce_FormControls_SelectProductImage : Form
 
 
     /// <summary>
-    /// Gets type of ECommerce object (SKU or SKUOption)
+    /// Gets type of SKU object (SKU, SKUOption, SKUVariant)
     /// </summary>
     public string SKUObjectType
     {
-        get;
-        set;
+        get
+        {
+            var sku = EditedObject is SKUTreeNode node ? node.SKU : EditedObject as SKUInfo;
+
+            return sku != null ? sku.TypeInfo.ObjectType : SKUInfo.OBJECT_TYPE_SKU;
+        }
     }
 
 
@@ -236,11 +240,6 @@ public partial class CMSModules_Ecommerce_FormControls_SelectProductImage : Form
         if (Form.AdditionalData.ContainsKey("IsInCompare"))
         {
             Enabled = !ValidationHelper.GetBoolean(Form.AdditionalData["IsInCompare"], true);
-        }
-
-        if (Form.AdditionalData.ContainsKey("SKUObjectType"))
-        {
-            SKUObjectType = ValidationHelper.GetString(Form.AdditionalData["SKUObjectType"], SKUInfo.OBJECT_TYPE_SKU);
         }
     }
 

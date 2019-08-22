@@ -1093,6 +1093,11 @@
             <param name="aliasesTable">Aliases table</param>
             <param name="th">Translation helper</param>
         </member>
+        <member name="M:CMS.Synchronization.SyncManager.UpdateAlternativeUrls(System.Data.DataSet,CMS.DocumentEngine.TreeNode,CMS.DataEngine.TranslationHelper)">
+            <summary>
+            Updates the alternative urls during synchronization.
+            </summary>
+        </member>
         <member name="M:CMS.Synchronization.SyncManager.TranslateNodeColumns(CMS.DocumentEngine.TreeNode,CMS.DataEngine.TranslationHelper)">
             <summary>
             Translates given node columns using data from helper.
@@ -1248,6 +1253,24 @@
             Process synchronization task optionally with children
             </summary>
             <param name="parameters">Parameters array</param>
+        </member>
+        <member name="T:CMS.Synchronization.AlternativeUrlSynchronizationManager">
+            <summary>
+            Support for synchronization of alternative url objects.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.AlternativeUrlSynchronizationManager.#ctor(CMS.Synchronization.ISyncManager,CMS.DocumentEngine.TreeNode,CMS.DataEngine.TranslationHelper)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.Synchronization.AlternativeUrlSynchronizationManager"/>.
+            </summary>
+            <param name="syncManager">Implementation of <see cref="T:CMS.Synchronization.ISyncManager"/>.</param>
+            <param name="treeNode">Synchronized document, parent of alternative urls.</param>
+            <param name="translationHelper">Translation helper used in current synchronization.</param>
+        </member>
+        <member name="M:CMS.Synchronization.AlternativeUrlSynchronizationManager.Synchronize(System.Collections.Generic.ICollection{CMS.DocumentEngine.AlternativeUrlInfo})">
+            <summary>
+            Runs synchronization for given <paramref name="alternativeUrls"/>.
+            </summary>
         </member>
         <member name="T:CMS.Synchronization.AttachmentSynchronizationManager">
             <summary>

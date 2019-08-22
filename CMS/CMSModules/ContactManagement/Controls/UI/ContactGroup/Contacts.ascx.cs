@@ -506,64 +506,66 @@ public partial class CMSModules_ContactManagement_Controls_UI_ContactGroup_Conta
     {
         try
         {
-            AutomationManager manager = AutomationManager.GetInstance(CurrentUser);
-
-            List<string> contactIds = null;
+            string error = String.Empty;
+            int processId = ValidationHelper.GetInteger(hdnIdentifier.Value, 0);
 
             switch (what)
             {
                 case What.All:
                     // Get selected IDs based on where condition
-                    DataSet contacts = ContactGroupMemberInfoProvider.GetRelationships().Where(where).Column("ContactGroupMemberRelatedID");
-                    if (!DataHelper.DataSourceIsEmpty(contacts))
-                    {
-                        contactIds = DataHelper.GetUniqueValues(contacts.Tables[0], "ContactGroupMemberRelatedID", true);
-                    }
+                    var contactIdsQuery = ContactGroupMemberInfoProvider.GetRelationships().Where(where).Column("ContactGroupMemberRelatedID");
+                    var contactsQuery = ContactInfoProvider.GetContacts().WhereIn("ContactId", contactIdsQuery);
+                    error = ExecuteProcess(processId, contactsQuery);
                     break;
 
                 case What.Selected:
-                    contactIds = gridElem.SelectedItems;
+                    var contactIds = gridElem.SelectedItems;
+                    var query = ContactInfoProvider.GetContacts().WhereIn("ContactId", contactIds);
+                    error = ExecuteProcess(processId, query);
                     break;
             }
 
-            if (contactIds != null)
+            if (String.IsNullOrEmpty(error))
             {
-                string error = String.Empty;
-                using (CMSActionContext context = new CMSActionContext())
-                {
-                    context.AllowAsyncActions = false;
-                    int processId = ValidationHelper.GetInteger(hdnIdentifier.Value, 0);
-
-                    foreach (string contactId in contactIds)
-                    {
-                        var contact = ContactInfoProvider.GetContactInfo(ValidationHelper.GetInteger(contactId, 0));
-
-                        try
-                        {
-                            manager.StartProcess(contact, processId);
-                        }
-                        catch (ProcessRecurrenceException ex)
-                        {
-                            error += "<div>" + ex.Message + "</div>";
-                        }
-                    }
-                }
-
-                if (String.IsNullOrEmpty(error))
-                {
-                    string confirmation = GetString(what == What.All ? "ma.process.started" : "ma.process.startedselected");
-                    ShowConfirmation(confirmation);
-                }
-                else
-                {
-                    ShowError(GetString("ma.process.error"), error, null);
-                }
+                string confirmation = GetString(what == What.All ? "ma.process.started" : "ma.process.startedselected");
+                ShowConfirmation(confirmation);
+            }
+            else
+            {
+                ShowError(GetString("ma.process.error"), error, null);
             }
         }
         catch (Exception ex)
         {
             LogAndShowError("Automation", "STARTPROCESS", ex);
         }
+    }
+
+
+    private string ExecuteProcess(int processId, ObjectQuery<ContactInfo> query)
+    {
+        AutomationManager manager = AutomationManager.GetInstance(CurrentUser);
+        string error = string.Empty;
+
+        using (new CMSActionContext() { AllowAsyncActions = false })
+        {
+            query.ForEachPage(contacts =>
+            {
+                foreach (var contact in contacts)
+                {
+                    try
+                    {
+                        manager.StartProcess(contact, processId);
+                    }
+                    catch (ProcessRecurrenceException ex)
+                    {
+                        error += "<div>" + ex.Message + "</div>";
+                    }
+                }
+            }, 10000);
+        }
+
+        return error;
     }
 
 

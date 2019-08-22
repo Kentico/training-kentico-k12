@@ -1,16 +1,23 @@
 using System;
+using System.Collections.Specialized;
 
+using CMS.Base;
 using CMS.Base.Web.UI;
+using CMS.Core;
 using CMS.DocumentEngine.PageBuilder;
+using CMS.DocumentEngine.Web.UI.Internal;
 using CMS.FormEngine.Web.UI;
 using CMS.Helpers;
 using CMS.Membership;
+using CMS.PortalEngine;
 using CMS.UIControls;
 
 public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
 {
     private bool dataPropagated;
     private string actionName;
+
+    private readonly ITempPageBuilderWidgetsPropagator widgetsPropagator = Service.Resolve<ITempPageBuilderWidgetsPropagator>();
 
 
     /// <summary>
@@ -65,6 +72,17 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
 
 
     /// <summary>
+    /// OnInit
+    /// </summary>
+    protected override void OnInit(EventArgs e)
+    {
+        PortalContext.ViewMode = ViewModeEnum.Edit;
+
+        base.OnInit(e);
+    }
+
+
+    /// <summary>
     /// Handles the Load event of the Page control.
     /// </summary>
     protected void Page_Load(object sender, EventArgs e)
@@ -75,10 +93,29 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
         editMenu.UseSmallIcons = true;
         editMenu.IsLiveSite = false;
 
+        // Bind external buttons
+        var extensionTarget = editMenu as IExtensibleEditMenu;
+        extensionTarget.InitializeExtenders("Content");
+
+        EnsurSaveAsTemplateButton();
+
         editMenu.HeaderActions.OnGetActionScript += GetActionScript;
         ((CMSDocumentManager)DocumentManager).OnGetActionScript += GetActionScript;
 
+        ScriptHelper.RegisterDialogScript(Page);
         ScriptHelper.RegisterJQuery(this);
+    }
+
+
+    private void EnsurSaveAsTemplateButton()
+    {
+        var action = new SaveAsTemplateButtonActionProvider().Get();
+        if (action != null)
+        {
+            editMenu.MoreActionsButton.Visible = true;
+            editMenu.MoreActionsButton.ToolTip = GetString("EditMenu.MoreActions");
+            editMenu.MoreActionsButton.Actions.Add(action);
+        }
     }
 
 
@@ -123,6 +160,13 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
         {
             pageview.Attributes.Add("src", url);
         }
+
+        ScriptHelper.RegisterStartupScript(this, typeof(string), "pagesavedastemplate", ScriptHelper.GetScript($@"
+            cmsrequire(['CMS/EventHub', 'CMS/MessageService'], function (eventHub, msgService) {{
+                eventHub.subscribe('pagesavedastemplate', function () {{ 
+                    msgService.showSuccess('{ ResHelper.GetString("pagetemplatesmvc.saveastemplate.succes") }');
+                }});              
+            }})"));
     }
 
 
@@ -138,7 +182,9 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
             guid = InstanceGUID,
             origin = targetOrigin,
             documentGuid = Node.DocumentGUID,
-            // Delete dislpayed variants in session storage on full page refresh or for undo checkout action (variant can be removed)
+            applicationPath = SystemContext.ApplicationPath,
+            mixedContentMessage = GetString("builder.ui.mixedcontenterrormessage"),
+            // Delete displayed variants in session storage on full page refresh or for undo checkout action (variant can be removed)
             deleteDisplayedVariants = !RequestHelper.IsPostBack() || string.Equals(actionName, DocumentComponentEvents.UNDO_CHECKOUT, StringComparison.OrdinalIgnoreCase)
         });
     }
@@ -146,7 +192,18 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
 
     private bool TryGetUrl(out string url)
     {
-        url = PageBuilderHelper.GetPreviewLink(Node, MembershipContext.AuthenticatedUser.UserName);
+        try
+        {
+            var queryStringParameters = GetQueryStringParameters();
+            url = PageBuilderHelper.GetPreviewLink(Node, MembershipContext.AuthenticatedUser.UserName, queryStringParameters);
+        }
+        catch (InvalidOperationException ex)
+        {
+            LogAndShowError("PageEdit", "PreviewLinkGeneration", ex);
+            url = null;
+            return false;
+        }
+
         if (url == null)
         {
             url = URLHelper.ResolveUrl(AdministrationUrlHelper.GetInformationUrl("document.nopreviewavailable"));
@@ -167,9 +224,31 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
     }
 
 
+    private NameValueCollection GetQueryStringParameters()
+    {
+        NameValueCollection queryStringParameters = null;
+        if (DocumentManager.AllowSave)
+        {
+            queryStringParameters = new NameValueCollection()
+            {
+                { PageBuilderHelper.EDITING_INSTANCE_QUERY_NAME, InstanceGUID.ToString() }
+            };
+        }
+
+        return queryStringParameters;
+    }
+
+
     private void DocumentManager_OnAfterAction(object sender, DocumentManagerEventArgs e)
     {
         actionName = e.ActionName;
+
+        if (e.ActionName == DocumentComponentEvents.UNDO_CHECKOUT)
+        {
+            widgetsPropagator.Delete(InstanceGUID);
+            return;
+        }
+
         if (!IsSavePerformingAction(e.ActionName))
         {
             return;
@@ -180,7 +259,7 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
             return;
         }
 
-        new TempPageBuilderWidgetsPropagator(e.Node).Delete(InstanceGUID);
+        widgetsPropagator.Delete(InstanceGUID);
     }
 
 
@@ -191,7 +270,8 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit : CMSContentPage
             return;
         }
 
-        new TempPageBuilderWidgetsPropagator(e.Node).Propagate(InstanceGUID);
+        widgetsPropagator.Propagate(e.Node, InstanceGUID);
+
         dataPropagated = true;
     }
 }

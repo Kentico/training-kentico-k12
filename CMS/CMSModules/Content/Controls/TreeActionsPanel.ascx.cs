@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Web.UI;
 
 using CMS.Base.Web.UI;
 using CMS.Helpers;
+using CMS.PortalEngine;
 using CMS.UIControls;
 
-
-public partial class CMSModules_Content_Controls_TreeActionsPanel : CMSUserControl
+public partial class CMSModules_Content_Controls_TreeActionsPanel : CMSUserControl, ICallbackEventHandler
 {
     #region "Variables"
 
     private Dictionary<string, string> mJsModuleData;
+    private string mNodePreviewUrl = String.Empty;
 
     #endregion
 
@@ -80,6 +81,16 @@ public partial class CMSModules_Content_Controls_TreeActionsPanel : CMSUserContr
         {
             SetupControls();
         }
+
+        string getPreviewUrlScript = $@"function GetCurrentNodePreviewUrl() {{
+            var nodeId = GetSelectedNodeId();
+            var cultureCode = GetSelectedCulture();
+            var argument = nodeId + ';' + cultureCode;
+
+            { Page.ClientScript.GetCallbackEventReference(this, "argument", "OpenInNewTabCallback", null) }
+        }}
+";
+        ScriptHelper.RegisterClientScriptBlock(this, typeof(string), "GetPreviewUrlScript", getPreviewUrlScript, true);
     }
 
 
@@ -166,6 +177,43 @@ public partial class CMSModules_Content_Controls_TreeActionsPanel : CMSUserContr
         JsModuleData.Add("defaultSelection", "#" + defaultClientID);
 
         ScriptHelper.RegisterModule(Page, "CMS/ContentMenu", JsModuleData);
+    }
+
+
+    /// <summary>
+    /// Callback event handler.
+    /// </summary>
+    /// <param name="argument">Callback argument</param>
+    public void RaiseCallbackEvent(string eventArgument)
+    {
+        if (String.IsNullOrEmpty(eventArgument))
+        {
+            return;
+        }
+
+        var parts = eventArgument.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
+        if (parts.Length == 2)
+        {
+            mNodePreviewUrl = DocumentUIHelper.GetDocumentPageUrl(new UIPageURLSettings
+            {
+                NodeID = ValidationHelper.GetInteger(parts[0], 0),
+                Culture = parts[1],
+                Mode = ViewModeEnum.Preview.ToString(),
+                AllowViewValidate = false,
+            });
+        }
+        
+        mNodePreviewUrl = mNodePreviewUrl ?? URLHelper.ResolveUrl(AdministrationUrlHelper.GetInformationUrl("document.nopreviewavailable"));
+    }
+
+
+    /// <summary>
+    /// Callback result retrieving handler.
+    /// </summary>
+    public string GetCallbackResult()
+    {
+        return mNodePreviewUrl;
     }
 
     #endregion

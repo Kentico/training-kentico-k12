@@ -606,7 +606,7 @@
             Defines search provider for which to return relevant indexes.
             If not defined then indexes for all search providers are returned.
             </param>
-            <seealso cref="P:CMS.Search.SearchIndexInfo.IndexProvider"/>   
+            <seealso cref="P:CMS.Search.SearchIndexInfo.IndexProvider"/>
         </member>
         <member name="M:CMS.Search.Internal.SearchablesRetriever.GetRelevantIndexes(System.String,System.String)">
             <summary>
@@ -646,6 +646,14 @@
             <param name="indexInfo"><see cref="T:CMS.Search.SearchIndexInfo"/> for which to return collection of <see cref="T:CMS.DataEngine.ISearchable"/>s.</param>
             <seealso cref="M:CMS.DataEngine.ISearchable.GetSearchDocument(CMS.DataEngine.ISearchIndexInfo)"/>
         </member>
+        <member name="M:CMS.Search.Internal.SearchablesRetriever.GetSearchableObjects(CMS.Search.SearchIndexInfo,System.String,System.String)">
+            <summary>
+            Returns <see cref="T:CMS.DataEngine.ISearchable"/> objects for given <paramref name="nodeAliasPath"/>.
+            </summary>
+            <param name="index">Index for which to find <see cref="T:CMS.DataEngine.ISearchable"/> objects.</param>
+            <param name="nodeAliasPath">Node alias path for which to find <see cref="T:CMS.DataEngine.ISearchable"/> objects.</param>
+            <param name="siteName">Site for which to find <see cref="T:CMS.DataEngine.ISearchable"/> objects. By default are used sites from <paramref name="index"/>'s settings.</param>
+        </member>
         <member name="M:CMS.Search.Internal.SearchablesRetriever.GetObjectID(System.String,System.String@)">
             <summary>
             Returns object ID from potentially compound ID (Id;objecttype in case of BizForms).
@@ -661,7 +669,7 @@
         </member>
         <member name="M:CMS.Search.Internal.SearchablesRetriever.LogFormBatchStart(System.Int32,System.Int32,System.String)">
             <summary>
-            Logs start of batch processing. 
+            Logs start of batch processing.
             </summary>
             <param name="batchNumber">Number of batch.</param>
             <param name="lastID">ID of last item that is not present in the batch.</param>
@@ -3260,9 +3268,11 @@
             <param name="combineWithDefaultCulture">Indicates whether the search service uses site default language version of pages as a replacement for pages
             that are not translated into the language the search performed in (see the Remarks section on details of the search culture).</param>
             <remarks>
-            This constructor passes <see cref="P:System.Globalization.CultureInfo.Name"/> value of <see cref="P:System.Globalization.CultureInfo.CurrentUICulture"/> as the name of culture
+            This method passes <see cref="P:System.Globalization.CultureInfo.Name"/> value of <see cref="P:System.Globalization.CultureInfo.CurrentUICulture"/> as the name of culture
             to search in.
             </remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="searchIndexNames"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="searchText"/> is null or whitespace string.</exception>
         </member>
         <member name="M:CMS.Search.SearchParameters.PrepareForPages(System.String,System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Int32,CMS.Base.IUserInfo,System.String,System.Boolean)">
             <summary>
@@ -3287,6 +3297,80 @@
             </remarks>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="searchIndexNames"/> is null.</exception>
             <exception cref="T:System.ArgumentException">Thrown when <paramref name="searchText"/> is null or whitespace string.</exception>
+        </member>
+        <member name="M:CMS.Search.SearchParameters.PrepareForPages(CMS.Search.SearchPattern,System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Int32,CMS.Base.IUserInfo,System.Boolean)">
+            <summary>
+            <para>
+            Creates a new instance of the <see cref="T:CMS.Search.SearchParameters"/> class for a page search for given <paramref name="searchPattern"/>
+            across indexes specified in <paramref name="searchIndexNames"/>. The <paramref name="user"/> parameter limits search result
+            when performing permission checks in result filtering.
+            </para>
+            <para>
+            Retrieves the result for the first page for invalid page numbers.
+            </para>
+            </summary>
+            <param name="searchPattern">Text to search for with specified level of support for syntax.</param>
+            <param name="searchIndexNames">Names of indexes to perform search on.</param>
+            <param name="pageNumber">Number of a page for which to retrieve results, starting from 1.</param>
+            <param name="pageSize">Size of a page.</param>
+            <param name="user">User for whom to filter the result.</param>
+            <param name="combineWithDefaultCulture">Indicates whether the search service uses site default language version of pages as a replacement for pages
+            that are not translated into the language the search performed in (see the Remarks section on details of the search culture).</param>
+            <remarks>
+            This method passes <see cref="P:System.Globalization.CultureInfo.Name"/> value of <see cref="P:System.Globalization.CultureInfo.CurrentUICulture"/> as the name of culture
+            to search in.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="searchIndexNames"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="searchPattern"/> containts text which is null or whitespace string.</exception>
+        </member>
+        <member name="M:CMS.Search.SearchParameters.PrepareForPages(CMS.Search.SearchPattern,System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Int32,CMS.Base.IUserInfo,System.String,System.Boolean)">
+            <summary>
+            <para>
+            Creates a new instance of the <see cref="T:CMS.Search.SearchParameters"/> class for a page search for given <paramref name="searchPattern"/>
+            across indexes specified in <paramref name="searchIndexNames"/>. The <paramref name="user"/> parameter limits search result
+            when performing permission checks in result filtering.
+            </para>
+            <para>
+            Retrieves the result for the first page for invalid page numbers.
+            </para>
+            </summary>
+            <param name="searchPattern">Text to search for with specified level of support for syntax.</param>
+            <param name="searchIndexNames">Names of indexes to perform search on.</param>
+            <param name="pageNumber">Number of a page for which to retrieve results, starting from 1.</param>
+            <param name="pageSize">Size of a page.</param>
+            <param name="user">User for whom to filter the result.</param>
+            <param name="cultureName">Name of culture to search in. Pass null to search in all cultures.</param>
+            <param name="combineWithDefaultCulture">Indicates whether the search service uses site default language version of pages as a replacement for pages that are not translated into the language specified by <paramref name="cultureName"/>.</param>
+            <remarks>
+            The default culture is determined by <see cref="M:CMS.Helpers.CultureHelper.GetDefaultCultureCode(System.String)"/> call for <see cref="P:CMS.SiteProvider.SiteContext.CurrentSiteName"/>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="searchIndexNames"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="searchPattern"/> containts text which is null or whitespace string.</exception>
+        </member>
+        <member name="T:CMS.Search.SearchPattern">
+            <summary>
+            Search text with type of supported search syntax.
+            </summary>
+        </member>
+        <member name="P:CMS.Search.SearchPattern.SearchText">
+            <summary>
+            Text to search for.
+            </summary>
+        </member>
+        <member name="P:CMS.Search.SearchPattern.SupportedSearchSyntax">
+            <summary>
+            Supported search syntax, to determine how are the characters of <see cref="P:CMS.Search.SearchPattern.SearchText"/> escaped.
+            </summary>
+        </member>
+        <member name="M:CMS.Search.SearchPattern.#ctor(System.String,CMS.Search.SearchOptionsEnum)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.Search.SearchPattern"/>.
+            </summary>
+            <param name="searchText">Text to search for.</param>
+            <param name="supportedSearchSyntax">Type of supported search sytnax.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="searchText"/>is null or whitespace.</exception>
+            <seealso cref="M:CMS.Search.SearchParameters.PrepareForPages(CMS.Search.SearchPattern,System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Int32,CMS.Base.IUserInfo,System.Boolean)"/>
+            <seealso cref="M:CMS.Search.SearchParameters.PrepareForPages(CMS.Search.SearchPattern,System.Collections.Generic.IEnumerable{System.String},System.Int32,System.Int32,CMS.Base.IUserInfo,System.String,System.Boolean)"/>
         </member>
         <member name="T:CMS.Search.SearchQueryClauses">
             <summary>

@@ -7,8 +7,19 @@
     <column source="MacroRuleDisplayName" caption="$general.displayname$" wrap="false">
       <filter type="text" />
     </column>
-    <column source="MacroRuleCondition" caption="$macros.macrorule.condition$" wrap="false" >
+    <column source="MacroRuleCondition" caption="$macros.macrorule.condition$" wrap="true" cssclass="main-column-100">
       <filter type="text" />
+    </column>
+    <column source="MacroRuleAvailability" caption="$macros.macrorule.availability$" wrap="false" cssclass="main-column-100" externalsourcename="MacroRuleAvailability" allowsorting="false">
+      <filter type="custom" controlname="EnumSelector" source="MacroRuleAvailability">
+        <Parameters>
+          <filterparameter name="AssemblyName" value="CMS.MacroEngine" />
+          <filterparameter name="TypeName" value="CMS.MacroEngine.MacroRuleAvailabilityEnum" />
+          <filterparameter name="UseStringRepresentation" value="false" />
+          <filterparameter name="Items" value=";{$general.selectall$}" />
+          <filterparameter name="Sort" value="true" />
+        </Parameters>
+      </filter>
     </column>
     <column source="MacroRuleEnabled" caption="$general.enabled$" wrap="false" externalsourcename="#yesno" localize="true">
       <filter type="bool" />

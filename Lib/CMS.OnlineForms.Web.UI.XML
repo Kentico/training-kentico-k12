@@ -276,6 +276,15 @@
             Reloads the form and its data.
             </summary>
         </member>
+        <member name="M:CMS.OnlineForms.Web.UI.BizForm.RegisterRestoreFocusScript(System.Web.UI.Page)">
+            <summary>
+            Registers script capable of restoring focus when asynchronous postback is finished.
+            </summary>
+            <remarks>
+            Script is operational only when UpdatePanel control is used.
+            </remarks>
+            <param name="page">Page to register</param>
+        </member>
         <member name="M:CMS.OnlineForms.Web.UI.BizForm.BizForm_OnUploadFile(System.Object,System.EventArgs)">
             <summary>
             Handles file upload
@@ -307,18 +316,6 @@
             </summary>
             <param name="fileNameString">File name from database in format "[guid].[extension]/[originalfilename].[extension]"</param>
         </member>
-        <member name="M:CMS.OnlineForms.Web.UI.BizForm.SaveFileToDisk(System.Web.HttpPostedFile,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String)">
-            <summary>
-            Save uploaded file to file system.
-            </summary>
-            <param name="postedFile">Posted file</param>
-            <param name="fileName">File name</param>
-            <param name="filesFolderPath">Directory path where the file is saved to</param>
-            <param name="width">Image required width</param>
-            <param name="height">Image required height</param>
-            <param name="maxSideSize">Image required max side size</param>
-            <param name="siteName">Site name</param>
-        </member>
         <member name="M:CMS.OnlineForms.Web.UI.BizForm.DeleteFile(System.String,System.String,System.String)">
             <summary>
             Delete uploaded file from file system.
@@ -339,6 +336,21 @@
             <param name="liveTileContext">Context of the live tile. Contains information about the user and the site the model is requested for</param>
             <exception cref="T:System.ArgumentNullException"><paramref name="liveTileContext"/> is null</exception>
             <returns>Live tile model</returns>
+        </member>
+        <member name="T:CMS.OnlineForms.Web.UI.OnlineFormsWebUIModule">
+            <summary>
+            Represents the Form web UI module.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.OnlineFormsWebUIModule.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.OnlineForms.Web.UI.OnlineFormsWebUIModule"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Web.UI.OnlineFormsWebUIModule.OnInit">
+            <summary>
+            Initializes the Form web UI module.
+            </summary>
         </member>
         <member name="T:CMS.OnlineForms.Web.UI.CMSBizFormPage">
             <summary>

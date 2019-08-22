@@ -10,6 +10,10 @@
     <div class="preview-edit-panel">
         <cms:EditMenu runat="server" ID="editMenu" ShortID="m" />
     </div>
-    <cms:MessagesPlaceHolder runat="server" ID="plcMess" OffsetX="16" OffsetY="16" />
+    <div class="preview-page">
+        <cms:MessagesPlaceHolder runat="server" ID="plcMess" OffsetX="16" OffsetY="16" UseRelativePlaceHolder="true">
+            <cms:AlertLabel runat="server" ID="alWarning" AlertType="Warning" Text="&nbsp;" CssClass="alert-dismissable alert-warning-absolute hidden" EnableViewState="False" />
+        </cms:MessagesPlaceHolder>
+    </div>
     <cms:DeviceView ID="ucView" runat="server" />
 </asp:Content>

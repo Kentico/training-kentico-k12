@@ -113,6 +113,54 @@ public partial class CMSModules_BizForms_FormControls_SelectBizForm : FormEngine
 
 
     /// <summary>
+    /// Indicates selection mode of the control.
+    /// </summary>
+    public SelectionModeEnum SelectionMode
+    {
+        get
+        {
+            SelectionModeEnum result = SelectionModeEnum.SingleDropDownList;
+
+            // Value may be stored as integer or enum string
+            object value = GetValue("SelectionMode");
+
+            if (value is int || value is SelectionModeEnum)
+            {
+                result = (SelectionModeEnum)value;
+            }
+            else if (value is string)
+            {
+                Enum.TryParse(value.ToString(), true, out result);
+            }
+
+            return result;
+        }
+        set
+        {
+            SetValue("SelectionMode", (int)value);
+        }
+    }
+
+
+    /// <summary>
+    /// Specifies, whether the selector allows empty selection. If the dialog allows empty selection,
+    /// it displays the (none) field in the DDL variant and Clear button in the Textbox variant (default true).
+    /// For multiple selection it returns empty string, otherwise it returns 0.
+    /// </summary>
+    public bool AllowEmpty
+    {
+        get
+        {
+            return ValidationHelper.GetBoolean(GetValue("AllowEmpty"), true);
+        }
+        set
+        {
+            SetValue("AllowEmpty", value);
+        }
+    }
+
+
+    /// <summary>
     /// Gets the inner UniSelector control.
     /// </summary>
     public UniSelector UniSelector
@@ -128,14 +176,18 @@ public partial class CMSModules_BizForms_FormControls_SelectBizForm : FormEngine
 
     #region "Methods"
 
-    protected void Page_Init(object sender, EventArgs e)
+    protected override void OnInit(EventArgs e)
     {
+        base.OnInit(e);
+
         SetValue("UniSelector", uniSelector);
     }
 
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void OnLoad(EventArgs e)
     {
+        base.OnLoad(e);
+
         if (StopProcessing)
         {
             uniSelector.StopProcessing = true;
@@ -157,8 +209,13 @@ public partial class CMSModules_BizForms_FormControls_SelectBizForm : FormEngine
             return;
         }
 
-        // If current control context is widget or livesite hide site selector
-        if (ControlsHelper.CheckControlContext(this, ControlContext.WIDGET_PROPERTIES) || ControlsHelper.CheckControlContext(this, ControlContext.LIVE_SITE))
+        uniSelector.SelectionMode = SelectionMode;
+        uniSelector.AllowEmpty = AllowEmpty;
+
+        // If current control context is widget or livesite or SingleDropDownList mode hide site selector
+        if (ControlsHelper.CheckControlContext(this, ControlContext.WIDGET_PROPERTIES)
+            || ControlsHelper.CheckControlContext(this, ControlContext.LIVE_SITE)
+            || SelectionMode == SelectionModeEnum.SingleDropDownList)
         {
             ShowSiteFilter = false;
         }
@@ -169,7 +226,6 @@ public partial class CMSModules_BizForms_FormControls_SelectBizForm : FormEngine
         if ((FieldInfo != null) && DataTypeManager.IsInteger(TypeEnum.Field, FieldInfo.DataType))
         {
             uniSelector.ReturnColumnName = "FormID";
-            uniSelector.SelectionMode = SelectionModeEnum.SingleDropDownList;
             ShowSiteFilter = false;
             uniSelector.AllowEmpty = true;
         }

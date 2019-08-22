@@ -168,7 +168,7 @@ public partial class CMSModules_BizForms_FormControls_FormFieldSelector : FormEn
         drpFields.Enabled = false;
 
         IEnumerable<FormFieldInfo> fields;
-        if (FieldsDataType != FieldDataType.Unknown)
+        if (FieldsDataType != FieldDataType.Unknown && FieldsDataType != FieldDataType.ALL)
         {
             fields = formInfo.GetFields(FieldsDataType).Where(x => x.Visible);
         }

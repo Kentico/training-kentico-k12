@@ -3,6 +3,11 @@
      Codebehind="BizFormDetails.aspx.cs" %>
 
 <asp:Content ID="cntBody" runat="server" ContentPlaceHolderID="plcContent">
+    <cms:MessagesPlaceHolder runat="server" ID="plcMess" OffsetX="16" OffsetY="16" UseRelativePlaceHolder="False">
+        <div>
+            <cms:AlertLabel runat="server" ID="alWarning" AlertType="Warning" Text="&nbsp;" CssClass="alert-dismissable alert-warning-absolute hidden" EnableViewState="False" />
+        </div>
+    </cms:MessagesPlaceHolder>
     <cms:BizForm ID="bizRecord" runat="server" IsLiveSite="false" DefaultFormLayout="Divs" Visible="false" />
     <iframe ID="mvcFrame" runat="server" style="width:100%;height:100%;" frameborder="0" Visible="false"></iframe>
 </asp:Content>

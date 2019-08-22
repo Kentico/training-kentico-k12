@@ -672,6 +672,29 @@
             <param name="taskgroupId">Task group ID</param>
             <param name="userId">User ID</param>   
         </member>
+        <member name="T:CMS.Synchronization.StagingTaskDataBinder">
+            <summary>
+            Provides a type to which deserialization is to be bound.
+            </summary>
+        </member>
+        <member name="P:CMS.Synchronization.StagingTaskDataBinder.Instance">
+            <summary>
+            Gets the current instance of the <see cref="T:CMS.Synchronization.StagingTaskDataBinder"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.StagingTaskDataBinder.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.Synchronization.StagingTaskDataBinder"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.StagingTaskDataBinder.BindToType(System.String,System.String)">
+            <summary>
+            Returns a type to be bound to for deserialization of staging data.
+            </summary>
+            <param name="assemblyName">Specifies the <see cref="T:System.Reflection.Assembly" /> name of the serialized object. </param>
+            <param name="typeName">Specifies the <see cref="T:System.Type" /> name of the serialized object. </param>
+            <exception cref="T:System.InvalidOperationException">Thrown when, <paramref name="assemblyName"/> and <paramref name="typeName"/> are not supported by the staging.</exception>
+        </member>
         <member name="T:CMS.Synchronization.StagingTaskUserInfo">
             <summary>
             StagingTaskUserInfo data container class.
@@ -1879,11 +1902,27 @@
             <param name="taskId">Task identifier</param>
             <param name="isRunning">Flag indicating that task is being processed</param>
         </member>
+        <member name="M:CMS.Synchronization.IntegrationSynchronizationInfoProvider.SetIntegrationSynchronizationRunning(System.Int32,System.Int32)">
+            <summary>
+            Sets a flag indicating that task is being processed.
+            </summary>
+            <param name="connectorId">Connector identifier</param>
+            <param name="taskId">Task identifier</param>
+            <returns>Returns true when <see cref="P:CMS.Synchronization.IntegrationSynchronizationInfo.SynchronizationIsRunning"/> was successfully set to true.</returns>
+        </member>
         <member name="M:CMS.Synchronization.IntegrationSynchronizationInfoProvider.DeleteInfo(CMS.Synchronization.IntegrationSynchronizationInfo)">
             <summary>
             Deletes the object to the database.
             </summary>
             <param name="info">Object to delete</param>
+        </member>
+        <member name="M:CMS.Synchronization.IntegrationSynchronizationInfoProvider.SetIntegrationSynchronizationRunningInternal(System.Int32,System.Int32)">
+            <summary>
+            Sets a flag indicating that task is being processed.
+            </summary>
+            <param name="connectorId">Connector identifier</param>
+            <param name="taskId">Task identifier</param>
+            <returns>Returns true when <see cref="P:CMS.Synchronization.IntegrationSynchronizationInfo.SynchronizationIsRunning"/> was successfully set to true.</returns>
         </member>
         <member name="T:CMS.Synchronization.IntegrationSyncLogInfo">
             <summary>
@@ -3358,18 +3397,9 @@
             </summary>
             <param name="taskId">Task id</param>
         </member>
-        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectTaskList(System.Int32,System.Int32,System.String,System.String)">
+        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectTaskList(System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32)">
             <summary>
-            Selects all the tasks within subtree of given alias path, with information on the count of the failed attempts and without the task data.
-            </summary>
-            <param name="siteId">Tasks site ID</param>
-            <param name="serverId">Tasks server ID</param>
-            <param name="where">Where condition</param>
-            <param name="orderBy">Order by clause</param>
-        </member>
-        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectTaskList(System.Int32,System.Int32,System.String,System.String,System.Int32,System.String)">
-            <summary>
-            Selects all the tasks within subtree of given alias path, with information on the count of the failed attempts and without the task data.
+            Selects all the tasks with information on the count of the failed attempts and without the task data.
             </summary>
             <param name="siteId">Tasks site ID</param>
             <param name="serverId">Tasks server ID</param>
@@ -3377,6 +3407,8 @@
             <param name="orderBy">Order by clause</param>
             <param name="topN">Select top N rows</param>
             <param name="columns">Select only specified columns</param>
+            <param name="offset">Index of first record to get</param>
+            <param name="maxRecords">Maximum number of records to get. If maxRecords is zero or less, all records are returned (no paging is used)</param>
         </member>
         <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectTaskList(System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -3392,16 +3424,6 @@
             <param name="maxRecords">Maximum number of records to get. If maxRecords is zero or less, all records are returned (no paging is used)</param>
             <param name="totalRecords">Returns total records</param>
         </member>
-        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectDocumentTaskList(System.Int32,System.Int32,System.String,System.String,System.String)">
-            <summary>
-            Selects all the tasks within subtree of given alias path, with information on the count of the failed attempts and without the task data.
-            </summary>
-            <param name="siteId">Tasks site ID</param>
-            <param name="serverId">Tasks server ID</param>
-            <param name="aliasPath">Tasks alias path</param>
-            <param name="where">Where condition</param>
-            <param name="orderBy">Order by</param>
-        </member>
         <member name="M:CMS.Synchronization.StagingTaskInfoProvider.DeleteOrphanedTasks(System.Collections.Generic.ICollection{System.Int32})">
             <summary>
             Deletes old orphaned tasks.
@@ -3409,7 +3431,7 @@
             <remarks>Orphaned task is task that does NOT have any <see cref="T:CMS.Synchronization.SynchronizationInfo"/> bindings.</remarks>
             <param name="taskIds">IDs from which the orphaned tasks should be removed.</param>
         </member>
-        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectDocumentTaskList(System.Int32,System.Int32,System.String,System.String,System.String,System.Int32,System.String)">
+        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectDocumentTaskList(System.Int32,System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32)">
             <summary>
             Selects all the tasks within subtree of given alias path, with information on the count of the failed attempts and without the task data.
             </summary>
@@ -3420,6 +3442,8 @@
             <param name="orderBy">Order by</param>
             <param name="topN">Select only top N rows</param>
             <param name="columns">Select only specified columns</param>
+            <param name="offset">Index of first record to get</param>
+            <param name="maxRecords">Maximum number of records to get. If maxRecords is zero or less, all records are returned (no paging is used)</param>
         </member>
         <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectDocumentTaskList(System.Int32,System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -3436,17 +3460,7 @@
             <param name="maxRecords">Maximum number of records to get. If maxRecords is zero or less, all records are returned (no paging is used)</param>
             <param name="totalRecords">Returns total records</param>
         </member>
-        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectObjectTaskList(System.Int32,System.Int32,System.String,System.String,System.String)">
-            <summary>
-            Selects all the tasks within subtree of given alias path, with information on the count of the failed attempts and without the task data.
-            </summary>
-            <param name="siteId">Tasks site ID</param>
-            <param name="serverId">Tasks server ID</param>
-            <param name="objectTypes">Object types</param>
-            <param name="where">Where condition</param>
-            <param name="orderBy">Order by</param>
-        </member>
-        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectObjectTaskList(System.Int32,System.Int32,System.String,System.String,System.String,System.Int32,System.String)">
+        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectObjectTaskList(System.Int32,System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32)">
             <summary>
             Selects all the tasks within subtree of given alias path, with information on the count of the failed attempts and without the task data.
             </summary>
@@ -3457,6 +3471,8 @@
             <param name="orderBy">Order by</param>
             <param name="topN">Select top N rows</param>
             <param name="columns">Select only specified columns</param>
+            <param name="offset">Index of first record to get</param>
+            <param name="maxRecords">Maximum number of records to get. If maxRecords is zero or less, all records are returned (no paging is used)</param>
         </member>
         <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectObjectTaskList(System.Int32,System.Int32,System.String,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
             <summary>
@@ -3540,6 +3556,19 @@
             <summary>
             Deletes synchronization tasks without any binding to a server (i.e. there is no record in Staging_Synchronization table for such task).
             </summary>
+        </member>
+        <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectTaskListInternal(System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32)">
+            <summary>
+            Selects all the tasks with information on the count of the failed attempts and without the task data.
+            </summary>
+            <param name="siteId">Tasks site ID</param>
+            <param name="serverId">Tasks server ID</param>
+            <param name="where">Where condition</param>
+            <param name="orderBy">Order by clause</param>
+            <param name="topN">Select top N rows</param>
+            <param name="columns">Select only specified columns</param>
+            <param name="offset">Index of first record to get</param>
+            <param name="maxRecords">Maximum number of records to get. If maxRecords is zero or less, all records are returned (no paging is used)</param>
         </member>
         <member name="M:CMS.Synchronization.StagingTaskInfoProvider.SelectTaskListInternal(System.Int32,System.Int32,System.String,System.String,System.Int32,System.String,System.Int32,System.Int32,System.Int32@)">
             <summary>

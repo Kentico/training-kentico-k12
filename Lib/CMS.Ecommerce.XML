@@ -787,6 +787,33 @@
             Returns true if the collection contains the specified <paramref name="couponCode"/>. Uses case-insensitive ordinal string comparison.
             </summary>
         </member>
+        <member name="T:CMS.Ecommerce.ProductAddedToCartEventArgs">
+            <summary>
+            Event arguments for "product added to shopping cart" event
+            </summary>
+        </member>
+        <member name="P:CMS.Ecommerce.ProductAddedToCartEventArgs.AddedShoppingCartItem">
+            <summary>
+            Newly added shopping cart item.
+            </summary>        
+        </member>
+        <member name="M:CMS.Ecommerce.ProductAddedToCartEventArgs.#ctor(CMS.Ecommerce.ShoppingCartItemInfo)">
+            <summary>
+            Initializes new instance of <see cref="T:CMS.Ecommerce.ProductAddedToCartEventArgs"/>.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">When null <paramref name="addedShoppingCartItem"/> is provided.</exception>
+        </member>
+        <member name="T:CMS.Ecommerce.ProductAddedToCartHandler">
+            <summary>
+            Product added to shopping cart event handler.
+            </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.ProductAddedToCartHandler.StartEvent(CMS.Ecommerce.ShoppingCartItemInfo)">
+            <summary>
+            Initiates the event handling
+            </summary>
+            <param name="addedShoppingCartItem">Product added to shopping cart</param>
+        </member>
         <member name="T:CMS.Ecommerce.IAddressConverter">
             <summary>
             Defines methods which converts addresses.
@@ -3645,7 +3672,7 @@
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.ProcessPayment(System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
-            Proceses the payment in external gateway directly.
+            Processes the payment in external gateway directly.
             </summary>
             <param name="paymentData">Additional payment data containing credit card data.</param>
             <returns>
@@ -3655,12 +3682,12 @@
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.ProcessPaymentInternal(System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
-            Proceses the payment in external gateway directly.
+            Processes the payment in external gateway directly.
             </summary>
             <param name="paymentData">Additional payment data containing credit card data.</param>
             <remarks>
             Method stores the gateway response data into <see cref="P:CMS.Ecommerce.CMSAuthorizeNetProvider.AuthorizeNetPaymentResult"/>.
-            Any occured error is logged to event log.
+            Any occurred error is logged to event log.
             </remarks>
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.AuthorizePayment(System.Collections.Generic.IDictionary{System.String,System.Object})">
@@ -3680,7 +3707,7 @@
             <param name="paymentData">Additional payment data containing credit card data.</param>
             <remarks>
             Method stores the gateway response data into <see cref="P:CMS.Ecommerce.CMSAuthorizeNetProvider.AuthorizeNetPaymentResult"/>.
-            Any occured error is logged to event log.
+            Any occurred error is logged to event log.
             </remarks>
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.CapturePayment">
@@ -3698,7 +3725,7 @@
             </summary>
             <remarks>
             Method stores the gateway response data into <see cref="P:CMS.Ecommerce.CMSAuthorizeNetProvider.AuthorizeNetPaymentResult"/>.
-            Any occured error is logged to event log.
+            Any occurred error is logged to event log.
             </remarks>
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.UpdatePaymentInfo(CMS.Ecommerce.AuthorizeNetDataContracts.CreateTransactionResponse)">
@@ -3714,7 +3741,7 @@
             <param name="request">Request object</param>
             <returns>Instance of <see cref="T:CMS.Ecommerce.AuthorizeNetDataContracts.ResponseResult"/>.</returns>
             <remarks>
-            Any occured error is logged to event log and stored in <see cref="P:CMS.Ecommerce.CMSAuthorizeNetProvider.AuthorizeNetPaymentResult"/>.
+            Any occurred error is logged to event log and stored in <see cref="P:CMS.Ecommerce.CMSAuthorizeNetProvider.AuthorizeNetPaymentResult"/>.
             </remarks>
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.DeserializeResponse``1(System.String)">
@@ -3728,9 +3755,9 @@
             Check whether response from gateway is <see cref="T:CMS.Ecommerce.AuthorizeNetDataContracts.ErrorResponse"/> or <see cref="T:CMS.Ecommerce.AuthorizeNetDataContracts.TransactionResponse"/> containing errors. Create error message and description.
             </summary>
             <param name="response">Deserialized response from gateway</param>
-            <returns>False if request doen't contain any errors, otherwise true.</returns>
+            <returns>False if request doesn't contain any errors, otherwise true.</returns>
             <remarks>
-            Any occured error is logged to event log and stored in <see cref="P:CMS.Ecommerce.CMSAuthorizeNetProvider.AuthorizeNetPaymentResult"/>.
+            Any occurred error is logged to event log and stored in <see cref="P:CMS.Ecommerce.CMSAuthorizeNetProvider.AuthorizeNetPaymentResult"/>.
             </remarks>
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.GetMainMessageTextRepresentation(CMS.Ecommerce.AuthorizeNetDataContracts.MainMessage,System.Boolean)">
@@ -3757,7 +3784,7 @@
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.GetCapturePaymentRequest">
             <summary>
-            Creates requet object for capturing authorized payment.
+            Creates request object for capturing authorized payment.
             </summary>
             <returns>Instance of <see cref="T:CMS.Ecommerce.AuthorizeNetDataContracts.CreateTransactionRequest"/>.</returns>
         </member>
@@ -3770,9 +3797,10 @@
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.GetMerchantAuthentication">
             <summary>
-            Creates authenttication for payment request.
+            Creates authentication for payment request.
             </summary>
             <returns>Instance of <see cref="T:CMS.Ecommerce.AuthorizeNetDataContracts.MerchantAuthentication"/>.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when merchant login ID or merchant transaction key exceeds maximal length.</exception>
         </member>
         <member name="M:CMS.Ecommerce.CMSAuthorizeNetProvider.GetCustomer">
             <summary>
@@ -9859,6 +9887,11 @@
             Fired when existing order has been paid.
             </summary>
         </member>
+        <member name="F:CMS.Ecommerce.EcommerceEvents.ProductAddedToShoppingCart">
+            <summary>
+            Fired when a product was added to the shopping cart.
+            </summary>
+        </member>
         <member name="T:CMS.Ecommerce.NewOrderCreatedEventArgs">
             <summary>
             Event arguments for "new order created" event
@@ -10725,6 +10758,12 @@
             Default value is true.
             </summary>
         </member>
+        <member name="P:CMS.Ecommerce.ECommerceSettings.UseStrictInventoryManagement">
+            <summary>
+            Indicates if strict inventory management is enabled. Value is taken from webconfig key CMSUseStrictInventoryManagement.
+            Default value is false.
+            </summary>
+        </member>
         <member name="P:CMS.Ecommerce.ECommerceSettings.ProvidersCacheMinutes">
             <summary>
             Time (minutes) used for caches used in ecommerce providers. Default value is 10 minutes.
@@ -11369,6 +11408,11 @@
             <summary>
             Removes sku from document when document is moved to another site. 
             SKU is removed only if is not accessible on target site.
+            </summary>
+        </member>
+        <member name="M:CMS.Ecommerce.DocumentHandlers.LogDocumentChangeClone(System.Object,CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs)">
+            <summary>
+            Fixes cloned SKUTreeNode when synchronization task of the document with SKU is being prepared.
             </summary>
         </member>
         <member name="T:CMS.Ecommerce.MacroEngineHandlers">
@@ -15437,7 +15481,7 @@
             Send login details notification email based on given template. Resolves macros "UserName", "Password", "UserFullName", "AccountUrl".
             Returns true on success. 
             </summary>
-             <param name="user">New user</param>
+            <param name="user">New user</param>
             <param name="password">New password</param>
             <param name="emailTemplateCodeName">Template</param>
             <param name="siteId">Site Id</param>
@@ -15736,6 +15780,11 @@
             <param name="value">Conversion value</param>
             <param name="count">Count of conversions to log</param>
             <param name="siteName">Name of the site the conversion should be logged for</param>
+        </member>
+        <member name="M:CMS.Ecommerce.ECommerceHelper.IsSiteContentOnly(System.Int32)">
+            <summary>
+            Returns if site specified by <paramref name="siteId"/> is content only.
+            </summary>
         </member>
         <member name="M:CMS.Ecommerce.ECommerceHelper.TrackVariantParentConversion(CMS.Ecommerce.ShoppingCartItemInfo,System.String,System.String,System.String,CMS.MacroEngine.MacroResolver)">
             <summary>
@@ -19260,7 +19309,10 @@
             Creates or updates order based on the data of the specified shopping cart.
             </summary>
             <param name="cart">Shopping cart data</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set,
+            or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).
+            </exception>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingCartInfoProvider.SetOrder(CMS.Ecommerce.ShoppingCartInfo,System.Boolean)">
             <summary>
@@ -19268,7 +19320,10 @@
             </summary>
             <param name="cart">Shopping cart data</param>
             <param name="generateInvoice">Indicates if new invoice should be generated from the new order data. It is True by default.</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set,
+            or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).
+            </exception>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingCartInfoProvider.SetOrderItems(CMS.Ecommerce.ShoppingCartInfo)">
             <summary>
@@ -19455,7 +19510,10 @@
             </summary>
             <param name="cart">Shopping cart data</param>
             <param name="generateInvoice">Indicates if new invoice should be generated from the new order data. It is True by default.</param>
-            <exception cref="T:System.InvalidOperationException">Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set.</exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when ShoppingCartCustomerID and/or ShoppingCartCurrencyID not set,
+            or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).
+            </exception>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingCartInfoProvider.SetOrderItemsInternal(CMS.Ecommerce.ShoppingCartInfo)">
             <summary>
@@ -20631,6 +20689,7 @@
             Updates products' available items according to the products' units of the specified shopping cart.
             </summary>
             <param name="cart">Shopping cart with some products</param>
+            <exception cref="T:System.InvalidOperationException">When strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).</exception>
         </member>
         <member name="M:CMS.Ecommerce.SKUInfoProvider.IsUserAuthorizedToModifySKU(CMS.Ecommerce.SKUInfo,System.String,CMS.Base.IUserInfo)">
             <summary>
@@ -20793,6 +20852,7 @@
             Updates products' available items in database according to the products' units of the specified shopping cart.
             </summary>
             <param name="cart">Shopping cart with some products</param>
+            <exception cref="T:System.InvalidOperationException">When strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).</exception>
         </member>
         <member name="M:CMS.Ecommerce.SKUInfoProvider.SortProductOptionsAlphabeticallyInternal(System.Int32)">
             <summary>
@@ -20845,6 +20905,14 @@
             <param name="sku">The sku.</param>
             <param name="inventoryChange">The inventory change.</param>
             <param name="cartItem">[Optional] The cart item for specified SKU. Inventory change will be added to cart item's OrderItemUnitCount, to handle multiple UpdateInventory requests.</param>
+            <exception cref="T:System.InvalidOperationException">When strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).</exception>
+        </member>
+        <member name="M:CMS.Ecommerce.SKUInfoProvider.ExecuteUpdateInventoryDbQuery(CMS.Ecommerce.SKUInfo,System.Int32)">
+            <summary>
+            Executes an atomic DB query that updates the number of available items of specified <paramref name="sku"/> and returns the number of available items after this operation.
+            </summary>
+            <param name="sku">The sku.</param>
+            <param name="inventoryChange">The inventory change.</param>
         </member>
         <member name="M:CMS.Ecommerce.SKUInfoProvider.ClearUnusedFields(CMS.Ecommerce.SKUInfo)">
             <summary>
@@ -22002,6 +22070,11 @@
             When the referenced object does not exist, <c>null</c> or <paramref name="replacement"/> is stored to the FK column. 
             </summary>
         </member>
+        <member name="M:CMS.Ecommerce.SKUTreeNode.ClearSKU">
+            <summary>
+            Clears SKU property without reseting NodeSKUID.
+            </summary>
+        </member>
         <member name="T:CMS.Ecommerce.DefaultSettingService">
             <summary>
             Default implementation of <see cref="T:CMS.Ecommerce.ISettingService"/> interface.
@@ -22458,7 +22531,7 @@
             Removes item specified by <paramref name="shoppingCartItemInfo"/> from the current shopping cart.
             Also removes all children and bundle items from the cart, logs the activity and evaluates the cart.
             </summary>
-            <param name="shoppingCartItemInfo">Item to be removed.</param>     
+            <param name="shoppingCartItemInfo">Item to be removed.</param>
             <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="shoppingCartItemInfo"/> is null.</exception>
             <seealso cref="M:CMS.Ecommerce.ShoppingCartInfo.Evaluate"/>
             <remarks>This method does nothing when the specified <paramref name="shoppingCartItemInfo"/> is not in the cart.</remarks>
@@ -22552,7 +22625,7 @@
             Also tracks order conversion, sends order notifications and logs purchase activities.
             </summary>
             <returns>Returns the <see cref="T:CMS.Ecommerce.OrderInfo"/> of newly created order.</returns>
-            <exception cref="T:System.InvalidOperationException">Thrown when validation fails.</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown when validation fails, or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so or when strict inventory management is enabled and trying to update inventory below zero to an item which doesn't allow so (<see cref="P:CMS.Ecommerce.SKUInfo.SKUSellOnlyAvailable"/> is true).</exception>
             <seealso cref="T:CMS.Ecommerce.CreateOrderValidator"/>
         </member>
         <member name="M:CMS.Ecommerce.ShoppingService.ValidateCreateOrder(CMS.Ecommerce.ShoppingCartInfo)">

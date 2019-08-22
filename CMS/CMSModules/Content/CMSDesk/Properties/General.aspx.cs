@@ -81,8 +81,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_General : CMSProperti
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        SetPropertyTab(TAB_GENERAL);
-
         // Register the scripts
         ScriptHelper.RegisterLoader(Page);
         ScriptHelper.RegisterTooltip(Page);
@@ -890,18 +888,8 @@ function US_GetNewItemId_", ctrlSiteSelectStyleSheet.ValueElementID, @"(newStyle
 
     private void InitPreviewUrl()
     {
-        if (Node.DocumentWorkflowCycleGUID != Guid.Empty)
-        {
-            lnkPreviewURL.Visible = true;
-            lblNoPreviewGuid.Visible = false;
-            bool isFile = CMSString.Equals(Node.NodeClassName, SystemDocumentTypes.File, true);
-            lnkPreviewURL.Attributes.Add("href", Node.GetPreviewLink(CurrentUser.UserName, isFile, embededInAdministration: false));
-        }
-        else
-        {
-            lnkPreviewURL.Visible = false;
-            lblNoPreviewGuid.Visible = true;
-        }
+        bool isFile = CMSString.Equals(Node.NodeClassName, SystemDocumentTypes.File, true);
+        lnkPreviewURL.Attributes.Add("href", Node.GetPreviewLink(CurrentUser.UserName, isFile, embededInAdministration: false));
     }
 
 

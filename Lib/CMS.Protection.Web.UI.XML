@@ -58,6 +58,11 @@
             Singleton instance of <see cref="T:CMS.Protection.Web.UI.CsrfProtection"/> class.
             </summary>
         </member>
+        <member name="M:CMS.Protection.Web.UI.CsrfProtection.IsProtectionEnabled">
+            <summary>
+            Returns <c>true</c> when CSRF protection is enabled by web.config key.
+            </summary>
+        </member>
         <member name="M:CMS.Protection.Web.UI.CsrfProtection.PreInit">
             <summary>
             Registers event handler.

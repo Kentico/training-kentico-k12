@@ -1,5 +1,7 @@
 ﻿using System;
-
+using CMS.Helpers;
+using CMS.PortalEngine;
+using CMS.PortalEngine.Web.UI.Internal;
 using CMS.UIControls;
 
 
@@ -34,6 +36,8 @@ public partial class CMSModules_Widgets_LiveDialogs_WidgetProperties_Properties 
         widgetProperties.IsLiveSite = true;
         widgetProperties.CurrentPageInfo = CurrentPageInfo;
 
+        widgetProperties.OnNotAllowed += widgetProperties_OnNotAllowed;
+
         widgetProperties.LoadData();
     }
 
@@ -45,7 +49,22 @@ public partial class CMSModules_Widgets_LiveDialogs_WidgetProperties_Properties 
     {
         base.OnLoad(e);
 
-        widgetProperties.OnNotAllowed += widgetProperties_OnNotAllowed;
+        var viewMode = ViewModeCode.FromString(QueryHelper.GetString("viewmode", String.Empty));
+        var hash = QueryHelper.GetString("hash", String.Empty);
+
+        LiveSiteWidgetsParameters dialogParameters = new LiveSiteWidgetsParameters(aliasPath, viewMode)
+        {
+            ZoneId = zoneId,
+            ZoneType = zoneType,
+            InstanceGuid = instanceGuid,
+            TemplateId = templateId,
+            IsInlineWidget = inline
+        };
+
+        if (!dialogParameters.ValidateHash(hash))
+        {
+            return;
+        }
 
         // Register the OnSave event handler
         FramesManager.OnSave += (sender, arg) => { return widgetProperties.OnSave(); };

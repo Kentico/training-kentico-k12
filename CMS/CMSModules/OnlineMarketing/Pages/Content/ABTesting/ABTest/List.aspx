@@ -11,8 +11,8 @@
 
 <asp:Content ID="cntBody" runat="server" ContentPlaceHolderID="plcContent">
     <asp:Panel runat="server" ID="pnlDisabled">
-        <cms:DisabledModule runat="server" ID="ucDisabledModule" TestSettingKeys="CMSAnalyticsEnabled;CMSABTestingEnabled" />
+        <cms:DisabledModule runat="server" ID="ucDisabledModule"/>
     </asp:Panel>
-    <cms:SmartTip runat="server" ID="tipHowToListing" />
+    <cms:SmartTip runat="server" ID="tipHowToListing" Visible="true" />
     <cms:AbTestList ID="listElem" runat="server" IsLiveSite="false" />
 </asp:Content>

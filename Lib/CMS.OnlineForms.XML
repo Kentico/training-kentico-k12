@@ -59,6 +59,140 @@
             Namespace for biz form classes.
             </summary>
         </member>
+        <member name="T:CMS.OnlineForms.BizFormUploadFileSerializer">
+            <summary>
+            Class responsible for serialization and deserialization of <see cref="T:CMS.OnlineForms.BizFormUploadFile"/> instances.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormUploadFileSerializer.Deserialize(System.String)">
+            <summary>
+            Deserializes <paramref name="text"/> into a <see cref="T:CMS.OnlineForms.BizFormUploadFile"/> instance.
+            </summary>
+            <param name="text">Text to be deserialized.</param>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormUploadFileSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes a <see cref="T:CMS.OnlineForms.BizFormUploadFile"/> object into string.
+            </summary>
+            <param name="value"><see cref="T:CMS.OnlineForms.BizFormUploadFile"/> instance to be serialized.</param>
+            <exception cref="T:System.ArgumentException">Thrown when value is not of <see cref="T:CMS.OnlineForms.BizFormUploadFile"/> type.</exception>
+        </member>
+        <member name="T:CMS.OnlineForms.Internal.GetBizFormFileHandlerBase">
+            <summary>
+            Base handler class for serving biz form files.
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+        </member>
+        <member name="P:CMS.OnlineForms.Internal.GetBizFormFileHandlerBase.AllowCache">
+            <summary>
+            Indicates whether caching is allowed. Returns false.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.Internal.GetBizFormFileHandlerBase.ProcessRequestBase(System.Web.HttpContextBase,System.String,System.String,System.String)">
+            <summary>
+            Processes biz form file request.
+            </summary>
+            <param name="context">Handler context</param>
+            <param name="fileName">File name (as originally provided by the <see cref="M:CMS.FormEngine.FormHelper.GetGuidFileName(System.String)"/> method).</param>
+            <param name="originalFileName">File name for download (as originally provided by the <see cref="M:CMS.FormEngine.FormHelper.GetOriginalFileName(System.String)"/> method).
+            If invalid or not provided, the content disposition will use <paramref name="fileName"/> value instead.</param>
+            <param name="siteName">Site name the corresponding form belongs to.</param>
+        </member>
+        <member name="T:CMS.OnlineForms.BizFormFileService">
+            <summary>
+            Contains uploaded file manipulation methods for forms.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormFileService.GetTempFileName(System.String)">
+            <summary>
+            Gets temporary file name for an identifier.
+            </summary>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <returns>Returns the temporary file name based on <paramref name="tempFileIdentifier"/>.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="tempFileIdentifier"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormFileService.SaveUploadedFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Saves uploded form file to the file system. The file can be optionally resized if it is an image file.
+            The type of the file is determined from the <paramref name="postedFile"/>'s <see cref="P:System.Web.HttpPostedFileBase.FileName"/>.
+            </summary>
+            <param name="postedFile">Posted file from a client.</param>
+            <param name="fileName">File name to be used for <paramref name="postedFile"/>.</param>
+            <param name="filesFolderPath">Folder path where uploaded form files are being saved.</param>
+            <param name="width">Required image width to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="height">Required image height to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="maxSideSize">Required image max side size to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="siteName">Site name the corresponding form belongs to.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="postedFile"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="fileName"/> or <paramref name="filesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormFileService.SaveUploadedFileAsTempFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Saves uploaded form file as a temporary file to the file system. The file can be optionally resized if it is an image file.
+            The type of the file is determined from the <paramref name="postedFile"/>'s <see cref="P:System.Web.HttpPostedFileBase.FileName"/>.
+            </summary>
+            <param name="postedFile">Posted file from a client.</param>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <param name="tempFilesFolderPath">Folder path where temporary form files are being saved.</param>
+            <param name="width">Required image width to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="height">Required image height to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="maxSideSize">Required image max side size to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="postedFile"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="tempFileIdentifier"/> or <paramref name="tempFilesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormFileService.SaveUploadedFileCore(System.Web.HttpPostedFileBase,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Boolean)">
+            <summary>
+            Saves uploaded file to the file system. The file can be optionally resized if it is an image file.
+            The type of the file is determined from the <paramref name="originalFileExtension"/>.
+            </summary>
+            <param name="postedFile">Posted file from a client.</param>
+            <param name="fileName">File name to be used for <paramref name="postedFile"/>.</param>
+            <param name="filesFolderPath">Folder path where uploaded form files are being saved.</param>
+            <param name="originalFileExtension">Original file extension to determine whether file is an image file.</param>
+            <param name="width">Required image width to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="height">Required image height to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="maxSideSize">Required image max side size to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="siteName">Site name the corresponding form belongs to.</param>
+            <param name="isTempFile">A value indicating whether file represents a temporary file.</param>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormFileService.PromoteTempFile(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Saves temporary file previously saved via the <see cref="M:CMS.OnlineForms.BizFormFileService.SaveUploadedFileAsTempFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32)"/> method as a parmenent form file.
+            </summary>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <param name="tempFilesFolderPath">Folder path where temporary files are being saved.</param>
+            <param name="fileName">File name to be used for the permanent file.</param>
+            <param name="filesFolderPath">Folder path where uploaded form files are being saved.</param>
+            <param name="siteName">Site name the corresponding form belongs to.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="tempFileIdentifier"/>, <paramref name="tempFilesFolderPath"/>, <paramref name="fileName"/> or <paramref name="filesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormFileService.DeleteFile(System.String,System.String,System.String)">
+            <summary>
+            Deletes file previously saved via the <see cref="M:CMS.OnlineForms.BizFormFileService.SaveUploadedFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String)"/> or <see cref="M:CMS.OnlineForms.BizFormFileService.PromoteTempFile(System.String,System.String,System.String,System.String,System.String)"/> method.
+            </summary>
+            <param name="fileName">File name to be used for the file.</param>
+            <param name="filesFolderPath">Folder path where uploaded form files are being saved.</param>
+            <param name="siteName">Site name the corresponding form belongs to.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="fileName"/> or <paramref name="filesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormFileService.DeleteTempFile(System.String,System.String)">
+            <summary>
+            Deletes temporary file previously saved via the <see cref="M:CMS.OnlineForms.BizFormFileService.SaveUploadedFileAsTempFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32)"/> method which was not promoted to a permanent file.
+            </summary>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <param name="tempFilesFolderPath">Folder path where temporary files are being saved.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="tempFileIdentifier"/> or <paramref name="tempFilesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.BizFormFileService.TempFileExists(System.String,System.String)">
+            <summary>
+            Checks whether file previously saved via the <see cref="M:CMS.OnlineForms.BizFormFileService.SaveUploadedFileAsTempFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32)"/> still exists.
+            </summary>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <param name="tempFilesFolderPath">Folder path where temporary files are being saved.</param>
+            <returns>True if the file exists, otherwise false.</returns>
+        </member>
         <member name="T:CMS.OnlineForms.BizFormHelper">
             <summary>
             Provides helper methods for biz forms.
@@ -646,11 +780,12 @@
             <param name="column">Name of the column where file information is stored, optional</param>
             <param name="siteId">Site ID</param>
         </member>
-        <member name="M:CMS.OnlineForms.BizFormInfoProvider.GetBizFormFileColumns(System.String)">
+        <member name="M:CMS.OnlineForms.BizFormInfoProvider.GetBizFormFileColumns(System.String,CMS.FormEngine.FormDevelopmentModelEnum)">
             <summary>
             Returns names of the columns where BizForm file information is stored.
             </summary>
             <param name="classFormDefinition">BizForm's class form definition</param>
+            <param name="formDevelopmentModel">Development model of the form whose file columns are retreived.</param>
         </member>
         <member name="M:CMS.OnlineForms.BizFormInfoProvider.DeleteBizFormFile(System.String,System.String,System.String)">
             <summary>
@@ -741,6 +876,26 @@
             <param name="actionName">Action name</param>
             <param name="data">Custom task data</param>
             <param name="binary">Binary data</param>
+        </member>
+        <member name="T:CMS.OnlineForms.BizFormUploadFile">
+            <summary>
+            Class represents a file uploaded via BizForm submission.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineForms.BizFormUploadFile.DATATYPE_FORMFILE">
+            <summary>
+            Data type identifier. Used to identify related <see cref="T:CMS.DataEngine.DataType"/> in the <see cref="T:CMS.DataEngine.DataTypeManager"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.BizFormUploadFile.SystemFileName">
+            <summary>
+            Gets or sets the system file name of the uploaded file.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.BizFormUploadFile.OriginalFileName">
+            <summary>
+            Gets or sets the original file name of the uploaded file.
+            </summary>
         </member>
         <member name="T:CMS.OnlineForms.BizFormException">
             <summary>
@@ -872,6 +1027,84 @@
             Registers the properties of this object
             </summary>
         </member>
+        <member name="T:CMS.OnlineForms.IBizFormFileService">
+            <summary>
+            Defines manipulation methods for a file uploaded via forms.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.IBizFormFileService.GetTempFileName(System.String)">
+            <summary>
+            Gets temporary file name for an identifier.
+            </summary>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <returns>Returns the temporary file name based on <paramref name="tempFileIdentifier"/>.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="tempFileIdentifier"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.IBizFormFileService.SaveUploadedFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Saves uploded form file to the file system. The file can be optionally resized if it is an image file.
+            The type of the file is determined from the <paramref name="postedFile"/>'s <see cref="P:System.Web.HttpPostedFileBase.FileName"/>.
+            </summary>
+            <param name="postedFile">Posted file from a client.</param>
+            <param name="fileName">File name to be used for <paramref name="postedFile"/>.</param>
+            <param name="filesFolderPath">Folder path where uploaded form files are being saved.</param>
+            <param name="width">Required image width to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="height">Required image height to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="maxSideSize">Required image max side size to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="siteName">Site name the corresponding form belongs to.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="postedFile"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="fileName"/> or <paramref name="filesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.IBizFormFileService.SaveUploadedFileAsTempFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Saves uploaded form file as a temporary file to the file system. The file can be optionally resized if it is an image file.
+            The type of the file is determined from the <paramref name="postedFile"/>'s <see cref="P:System.Web.HttpPostedFileBase.FileName"/>.
+            </summary>
+            <param name="postedFile">Posted file from a client.</param>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <param name="tempFilesFolderPath">Folder path where temporary form files are being saved.</param>
+            <param name="width">Required image width to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="height">Required image height to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <param name="maxSideSize">Required image max side size to resize the <paramref name="postedFile"/> to if the file is an image file, or 0.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="postedFile"/> is null.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="tempFileIdentifier"/> or <paramref name="tempFilesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.IBizFormFileService.PromoteTempFile(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Saves temporary file previously saved via the <see cref="M:CMS.OnlineForms.IBizFormFileService.SaveUploadedFileAsTempFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32)"/> method as a parmenent form file.
+            </summary>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <param name="tempFilesFolderPath">Folder path where temporary files are being saved.</param>
+            <param name="fileName">File name to be used for temporary file.</param>
+            <param name="filesFolderPath">Folder path where uploaded form files are being saved.</param>
+            <param name="siteName">Site name the corresponding form belongs to.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="tempFileIdentifier"/>, <paramref name="tempFilesFolderPath"/>, <paramref name="fileName"/> or <paramref name="filesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.IBizFormFileService.DeleteTempFile(System.String,System.String)">
+            <summary>
+            Deletes temporary file previously saved via the <see cref="M:CMS.OnlineForms.IBizFormFileService.SaveUploadedFileAsTempFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32)"/> method which was not promoted to a permanent file.
+            </summary>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <param name="tempFilesFolderPath">Folder path where temporary files are being saved.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="tempFileIdentifier"/> or <paramref name="tempFilesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.IBizFormFileService.DeleteFile(System.String,System.String,System.String)">
+            <summary>
+            Deletes file previously saved via the <see cref="M:CMS.OnlineForms.IBizFormFileService.SaveUploadedFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String)"/> or <see cref="M:CMS.OnlineForms.IBizFormFileService.PromoteTempFile(System.String,System.String,System.String,System.String,System.String)"/> method.
+            </summary>
+            <param name="fileName">File name to be used for the file.</param>
+            <param name="filesFolderPath">Folder path where uploaded form files are being saved.</param>
+            <param name="siteName">Site name the corresponding form belongs to.</param>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="fileName"/> or <paramref name="filesFolderPath"/> is null or an empty string.</exception>
+        </member>
+        <member name="M:CMS.OnlineForms.IBizFormFileService.TempFileExists(System.String,System.String)">
+            <summary>
+            Checks whether file previously saved via the <see cref="M:CMS.OnlineForms.IBizFormFileService.SaveUploadedFileAsTempFile(System.Web.HttpPostedFileBase,System.String,System.String,System.Int32,System.Int32,System.Int32)"/> still exists.
+            </summary>
+            <param name="tempFileIdentifier">Identifier of the temporary file to derive file name from.</param>
+            <param name="tempFilesFolderPath">Folder path where temporary files are being saved.</param>
+            <returns>True if the file exists, otherwise false.</returns>
+        </member>
         <member name="T:CMS.OnlineForms.CMSContactFilledFormFieldWithValueInstanceTranslator">
             <summary>
             Translates ContactHasEnteredASpecificValueInASpecificFormSFieldInTheLastXDays Macro rule.
@@ -931,11 +1164,17 @@
         <member name="P:CMS.OnlineForms.DeleteBizFormFileWebFarmTask.SiteName">
             <summary>
             Gets or sets name of the site which bizform is assigned to.
+            Null if <see cref="P:CMS.OnlineForms.DeleteBizFormFileWebFarmTask.IsTempFile"/> is true.
             </summary>
         </member>
         <member name="P:CMS.OnlineForms.DeleteBizFormFileWebFarmTask.FileName">
             <summary>
             Gets or sets name of the file to be deleted.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.DeleteBizFormFileWebFarmTask.IsTempFile">
+            <summary>
+            Gets or sets the flag indicating whether file is a temporary file. False by default.
             </summary>
         </member>
         <member name="M:CMS.OnlineForms.DeleteBizFormFileWebFarmTask.#ctor">
@@ -1669,6 +1908,42 @@
             <param name="table">Parent data</param>
             <param name="th">Translation helper</param>
         </member>
+        <member name="T:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask">
+            <summary>
+            Web farm task used to promote temporary files attached to a form.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask.SiteName">
+            <summary>
+            Gets or sets the name of the site the form is assigned to.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask.TempFileName">
+            <summary>
+            Gets or sets the name of the temporary file to be promoted.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask.FileName">
+            <summary>
+            Gets or sets the name of the file to be updated.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask.ConditionMethod">
+            <summary>
+            Returns true if the synchronization of the BizForm files is allowed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by moving the temporary file identified by <see cref="P:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask.TempFileName"/> to a new location specified by <see cref="P:CMS.OnlineForms.PromoteBizFormTempFileWebFarmTask.FileName"/>.
+            </summary>
+        </member>
         <member name="T:CMS.OnlineForms.BizFormMailSender">
             <summary>
             Represents default implementation for sending on-line form notification and autoresponder emails.
@@ -1817,22 +2092,28 @@
         </member>
         <member name="P:CMS.OnlineForms.UpdateBizFormFileWebFarmTask.SiteName">
             <summary>
-            Gets or sets name of the site which bizform is assigned to.
+            Gets or sets the name of the site the form is assigned to.
+            Null if <see cref="P:CMS.OnlineForms.UpdateBizFormFileWebFarmTask.IsTempFile"/> is true.
             </summary>
         </member>
         <member name="P:CMS.OnlineForms.UpdateBizFormFileWebFarmTask.FileName">
             <summary>
-            Gets or sets name of the file to be updated.
+            Gets or sets the name of the file to be updated.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineForms.UpdateBizFormFileWebFarmTask.IsTempFile">
+            <summary>
+            Gets or sets the flag indicating whether file is a temporary file. False by default.
             </summary>
         </member>
         <member name="M:CMS.OnlineForms.UpdateBizFormFileWebFarmTask.#ctor">
             <summary>
-            Initializes a new instance of <see cref="T:CMS.OnlineForms.UpdateBizFormFileWebFarmTask"/>
+            Initializes a new instance of the <see cref="T:CMS.OnlineForms.UpdateBizFormFileWebFarmTask"/> class.
             </summary>
         </member>
         <member name="M:CMS.OnlineForms.UpdateBizFormFileWebFarmTask.ConditionMethod">
             <summary>
-            Returns true whether the synchronization of the BizForm files is allowed.
+            Returns true if the synchronization of the BizForm files is allowed.
             </summary>
         </member>
         <member name="M:CMS.OnlineForms.UpdateBizFormFileWebFarmTask.ExecuteTask">

@@ -717,6 +717,7 @@ public partial class CMSWebParts_Newsletters_NewsletterSubscriptionWebPart : CMS
                     {
                         SendConfirmationEmail = SendConfirmationEmail,
                         AllowOptIn = true,
+                        RemoveUnsubscriptionFromNewsletter = true,
                         RemoveAlsoUnsubscriptionFromAllNewsletters = true,
                     });
 

@@ -45,7 +45,7 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ {
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblInfo2;
+    protected global::CMS.Base.Web.UI.LocalizedLabel lblInfo2;
     
     /// <summary>
     /// lblInfo control.
@@ -54,7 +54,7 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ {
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.Label lblInfo;
+    protected global::CMS.Base.Web.UI.LocalizedLabel lblInfo;
     
     /// <summary>
     /// pnlSelection control.
@@ -81,7 +81,7 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ {
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::CMS.Base.Web.UI.CMSButton lnkSelectDefault;
+    protected global::CMS.Base.Web.UI.LocalizedButton lnkSelectDefault;
     
     /// <summary>
     /// lnkSelectAll control.
@@ -90,7 +90,7 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ {
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::CMS.Base.Web.UI.CMSButton lnkSelectAll;
+    protected global::CMS.Base.Web.UI.LocalizedButton lnkSelectAll;
     
     /// <summary>
     /// lnkSelectNew control.
@@ -99,7 +99,7 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ {
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::CMS.Base.Web.UI.CMSButton lnkSelectNew;
+    protected global::CMS.Base.Web.UI.LocalizedButton lnkSelectNew;
     
     /// <summary>
     /// lnkSelectNone control.
@@ -108,7 +108,7 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ {
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::CMS.Base.Web.UI.CMSButton lnkSelectNone;
+    protected global::CMS.Base.Web.UI.LocalizedButton lnkSelectNone;
     
     /// <summary>
     /// pnlMacroResigning control.
@@ -264,6 +264,15 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ {
     protected global::CMS.Base.Web.UI.CMSCheckBox chkLogInt;
     
     /// <summary>
+    /// chkRebuildIndexes control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.CMSCheckBox chkRebuildIndexes;
+    
+    /// <summary>
     /// chkCopyFiles control.
     /// </summary>
     /// <remarks>
@@ -316,13 +325,4 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ {
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
     protected global::CMS.Base.Web.UI.CMSCheckBox chkCopySiteFiles;
-    
-    /// <summary>
-    /// ltlScript control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Literal ltlScript;
 }

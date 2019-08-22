@@ -158,8 +158,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Security : CMSPropert
                     pnlAccessPart.Visible = false;
                 }
 
-                SetPropertyTab(TAB_SECURITY);
-
                 // Check license
                 if (DataHelper.GetNotEmpty(RequestContext.CurrentDomain, string.Empty) != string.Empty)
                 {

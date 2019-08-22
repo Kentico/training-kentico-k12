@@ -104,6 +104,11 @@ function US_SetItems(items, names, hiddenFieldID, txtClientID, hidValue, hidHash
     return false;
 }
 
+function escapeRegExp(string) {
+    // Escape the following special characters for regular expression: \ ^ $ * + ? . ( ) | { } [ ]
+    return string.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
+
 function US_ProcessItem(clientId, valuesSeparator, chkbox, changeChecked) {
     var itemsElem = document.getElementById(clientId + '_hiddenSelected');
     var items = itemsElem.value;
@@ -120,9 +125,8 @@ function US_ProcessItem(clientId, valuesSeparator, chkbox, changeChecked) {
         }
     }
     else {
-        // Escape the following special characters for regular expression: \ ^ $ * + ? . ( ) | { } [ ]
-        var expSeparator = valuesSeparator.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-        var re = new RegExp(expSeparator + item + expSeparator, 'i');
+        var pattern = escapeRegExp(valuesSeparator + item + valuesSeparator);
+        var re = new RegExp(pattern, 'i');
         items = items.replace(re, valuesSeparator);
     }
     itemsElem.value = items;

@@ -1,5 +1,6 @@
 ﻿using System;
 
+using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.Helpers;
 using CMS.OnlineForms.Web.UI;
@@ -37,6 +38,8 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_EditRecordMVC : CMSB
         {
             frameId = formBuilderFrame.ClientID,
             frameSrc = presentationUrl.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName),
+            mixedContentMessage = GetString("builder.ui.mixedcontenterrormessage"),
+            applicationPath = SystemContext.ApplicationPath
         });
     }
 

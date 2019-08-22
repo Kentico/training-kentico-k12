@@ -42,8 +42,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_LinkedDocs : CMSPrope
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        SetPropertyTab(TAB_LINKEDDOCS);
-
         if (Node != null)
         {
             // Check modify permissions

@@ -71,7 +71,7 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_NotificationEmail : 
         InitHTMLEditor();
 
         formInfo = EditedObject as BizFormInfo;
-        
+
         if (!RequestHelper.IsPostBack())
         {
             if (formInfo!= null)
@@ -86,8 +86,6 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_NotificationEmail : 
                 txtFromEmail.Text = ValidationHelper.GetString(formInfo.FormSendFromEmail, "");
                 txtToEmail.Text = ValidationHelper.GetString(formInfo.FormSendToEmail, "");
                 txtSubject.Text = ValidationHelper.GetString(formInfo.FormEmailSubject, "");
-
-                pnlAttachDocs.Visible = formInfo.FormDevelopmentModel == (int)FormDevelopmentModelEnum.WebForms;
                 chkAttachDocs.Checked = formInfo.FormEmailAttachUploadedDocs;
                 chkSendToEmail.Checked = ((txtFromEmail.Text + txtToEmail.Text) != "");
                 if (!chkSendToEmail.Checked)

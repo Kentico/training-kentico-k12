@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="CMSModules_ImportExport_Controls_Import___objects__"
+﻿<%@ Control Language="C#" AutoEventWireup="false" Inherits="CMSModules_ImportExport_Controls_Import___objects__"
      Codebehind="__objects__.ascx.cs" %>
 <%@ Register Src="~/CMSModules/Membership/FormControls/Users/SelectUser.ascx" TagName="SelectUser"
     TagPrefix="cms" %>
@@ -43,16 +43,16 @@
     <asp:Label ID="lblWarning" runat="server" EnableViewState="false" />
 </asp:Panel>
 <asp:Panel runat="server" ID="pnlInfo" CssClass="wizard-section content-block-25">
-    <asp:Label ID="lblInfo2" runat="server" EnableViewState="false" />
-    <asp:Label ID="lblInfo" runat="server" EnableViewState="false" />
+    <cms:LocalizedLabel ID="lblInfo2" runat="server" EnableViewState="false" ResourceString="ImportObjects.Info2" />
+    <cms:LocalizedLabel ID="lblInfo" runat="server" EnableViewState="false" ResourceString="ImportObjects.Info" />
 </asp:Panel>
 <asp:Panel runat="server" ID="pnlSelection" CssClass="wizard-section content-block-25">
     <cms:LocalizedHeading ID="headSelection" runat="server" EnableViewState="false" Level="4" CssClass="listing-title" ResourceString="ImportObjects.Selection" />
     <div class="control-group-inline control-group-inline-wrap">
-        <cms:CMSButton ID="lnkSelectDefault" runat="server" OnClick="lnkSelectDefault_Click" ButtonStyle="Default" />
-        <cms:CMSButton ID="lnkSelectAll" runat="server" OnClick="lnkSelectAll_Click" ButtonStyle="Default" />
-        <cms:CMSButton ID="lnkSelectNew" runat="server" OnClick="lnkSelectNew_Click" ButtonStyle="Default" />
-        <cms:CMSButton ID="lnkSelectNone" runat="server" OnClick="lnkSelectNone_Click" ButtonStyle="Default" />
+        <cms:LocalizedButton ID="lnkSelectDefault" runat="server" OnClick="lnkSelectDefault_Click" ButtonStyle="Default" ResourceString="ImportObjects.SelectDefault" EnableViewState="false" />
+        <cms:LocalizedButton ID="lnkSelectAll" runat="server" OnClick="lnkSelectAll_Click" ButtonStyle="Default" ResourceString="ImportObjects.SelectAll" EnableViewState="false" />
+        <cms:LocalizedButton ID="lnkSelectNew" runat="server" OnClick="lnkSelectNew_Click" ButtonStyle="Default" ResourceString="ImportObjects.SelectNew" EnableViewState="false" />
+        <cms:LocalizedButton ID="lnkSelectNone" runat="server" OnClick="lnkSelectNone_Click" ButtonStyle="Default" ResourceString="ImportObjects.SelectNone" EnableViewState="false" />
     </div>
 </asp:Panel>
 <asp:Panel runat="server" ID="pnlMacroResigning" CssClass="wizard-section content-block-25">
@@ -85,23 +85,22 @@
                 <cms:CMSCheckBox ID="chkRunSite" runat="server" />
                 <cms:CMSCheckBox ID="chkDeleteSite" runat="server" />
             </asp:PlaceHolder>
-            <cms:CMSCheckBox ID="chkSkipOrfans" runat="server" />
-            <cms:CMSCheckBox ID="chkImportTasks" runat="server" />
-            <cms:CMSCheckBox ID="chkLogSync" runat="server" />
-            <cms:CMSCheckBox ID="chkLogInt" runat="server" />
-            <cms:CMSCheckBox ID="chkCopyFiles" runat="server" />
+            <cms:CMSCheckBox ID="chkSkipOrfans" runat="server" ResourceString="ImportObjects.SkipOrfans" />
+            <cms:CMSCheckBox ID="chkImportTasks" runat="server" ResourceString="ImportObjects.ImportTasks" />
+            <cms:CMSCheckBox ID="chkLogSync" runat="server" ResourceString="ImportObjects.LogSynchronization" />
+            <cms:CMSCheckBox ID="chkLogInt" runat="server" ResourceString="ImportObjects.LogIntegration" />
+            <cms:CMSCheckBox ID="chkRebuildIndexes" runat="server" ResourceString="importobjects.rebuildsiteindexes" />
+            <cms:CMSCheckBox ID="chkCopyFiles" runat="server" ResourceString="ImportObjects.CopyFiles" />
             <div class="selector-subitem">
                 <div class="checkbox-list-vertical">
-                    <cms:CMSCheckBox ID="chkCopyCodeFiles" runat="server" />
-                    <cms:CMSCheckBox ID="chkCopyAssemblies" runat="server" />
-                    <cms:CMSCheckBox ID="chkCopyGlobalFiles" runat="server" />
+                    <cms:CMSCheckBox ID="chkCopyCodeFiles" runat="server" ResourceString="ImportObjects.CopyCodeFiles" />
+                    <cms:CMSCheckBox ID="chkCopyAssemblies" runat="server" ResourceString="ImportObjects.CopyAssemblies" />
+                    <cms:CMSCheckBox ID="chkCopyGlobalFiles" runat="server" ResourceString="ImportObjects.CopyGlobalFiles" />
                     <asp:PlaceHolder ID="plcSiteFiles" runat="server" Visible="false">
-                        <cms:CMSCheckBox ID="chkCopySiteFiles" runat="server" />
+                        <cms:CMSCheckBox ID="chkCopySiteFiles" runat="server" ResourceString="ImportObjects.CopySiteFiles" />
                     </asp:PlaceHolder>
                 </div>
             </div>
         </div>
     </div>
-
 </asp:Panel>
-<asp:Literal ID="ltlScript" EnableViewState="false" runat="Server" />

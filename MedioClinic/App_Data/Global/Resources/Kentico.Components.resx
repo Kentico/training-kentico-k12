@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="kentico.components.mediafileselector.dialogtitle.single" xml:space="preserve">
+    <value>Select media file</value>
+  </data>
+  <data name="kentico.components.mediafileselector.select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="kentico.components.mediafileselector.name" xml:space="preserve">
+    <value>Media file selector</value>
+  </data>
+  <data name="kentico.components.mediafileselector.librarynotfound" xml:space="preserve">
+    <value>The media library was not found.</value>
+  </data>
+  <data name="kentico.components.mediafileselector.notauthorized" xml:space="preserve">
+    <value>You are not authorized to view the media library content.</value>
+  </data>
+  <data name="kentico.components.mediafileselector.emptyfolder" xml:space="preserve">
+    <value>This folder is empty</value>
+  </data>
+  <data name="kentico.components.mediafileselector.invalidvalue" xml:space="preserve">
+    <value>The selected file(s) are not valid.</value>
+  </data>
+  <data name="kentico.components.mediafileselector.collapse" xml:space="preserve">
+    <value>Collapse</value>
+  </data>
+  <data name="kentico.components.mediafileselector.expand" xml:space="preserve">
+    <value>Expand</value>
+  </data>
+  <data name="kentico.components.mediafileselector.clear" xml:space="preserve">
+    <value>clear the selection</value>
+  </data>
+  <data name="kentico.components.mediafileselector.or" xml:space="preserve">
+    <value>or</value>
+  </data>
+  <data name="kentico.components.mediafileselector.selectdifferent" xml:space="preserve">
+    <value>Select different file</value>
+  </data>
+  <data name="kentico.components.mediafileselector.countTitle" xml:space="preserve">
+    <value>{0} out of {1} files selected</value>
+  </data>
+  <data name="kentico.components.mediafileselector.libraryname" xml:space="preserve">
+    <value>Library:</value>
+  </data>
+  <data name="kentico.components.mediafileuploader.droptext" xml:space="preserve">
+    <value>Drop file here or click to browse</value>
+  </data>
+  <data name="kentico.components.mediafileselector.dialogtitle.multiple" xml:space="preserve">
+    <value>Select media files</value>
+  </data>
+  <data name="kentico.components.mediafileselector.filter.placeholder" xml:space="preserve">
+    <value>Filter the folder</value>
+  </data>
+  <data name="kentico.components.mediafileselector.filter.noFiles" xml:space="preserve">
+    <value>No items match your filter.&lt;br /&gt;Perhaps they hide in a different folder.</value>
+  </data>
+  <data name="kentico.components.mediafileselector.showAll" xml:space="preserve">
+    <value>Show all</value>
+  </data>
+  <data name="kentico.components.mediafileuploader.uploaderror" xml:space="preserve">
+    <value>An error occurred while uploading the file '{0}'. Contact your system administrator.</value>
+  </data>
+  <data name="kentico.components.mediafileselector.changeFile" xml:space="preserve">
+    <value>Change file</value>
+  </data>
+  <data name="kentico.components.mediafileselector.removeFile" xml:space="preserve">
+    <value>Remove file</value>
+  </data>
+  <data name="kentico.components.mediafileselector.clearall" xml:space="preserve">
+    <value>Clear all</value>
+  </data>
+  <data name="kentico.components.mediafileselector.empty" xml:space="preserve">
+    <value>No items selected.</value>
+  </data>
+  <data name="kentico.components.pageselector.name" xml:space="preserve">
+    <value>Page selector</value>
+  </data>
+  <data name="kentico.components.pageselector.dialogtitle" xml:space="preserve">
+    <value>Select page</value>
+  </data>
+  <data name="kentico.components.pageselector.selectedvalue.label" xml:space="preserve">
+    <value>Selected page</value>
+  </data>
+  <data name="kentico.components.pageselector.button.select" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="kentico.components.pageselector.button.clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="kentico.components.pageselector.nopageselected" xml:space="preserve">
+    <value>No page selected</value>
+  </data>
+  <data name="kentico.components.pageselector.invalidvalue" xml:space="preserve">
+    <value>Invalid page</value>
+  </data>
+  <data name="kentico.components.pageselector.invalidvalue.explanationtext" xml:space="preserve">
+    <value>The selected page has been deleted or you don't have permissions to select it.</value>
+  </data>
+  <data name="kentico.components.pageselector.invalidvalue.validationtext" xml:space="preserve">
+    <value>The selected page has been deleted or you don't have permissions to select it. Please select a different page.</value>
+  </data>
+  <data name="kentico.components.mediafileselector.countNotLimitedTitle" xml:space="preserve">
+    <value>{0} files selected</value>
+  </data>
+  <data name="kentico.components.mediafileselector.cannotloaddata" xml:space="preserve">
+    <value>Media files could not be loaded. Contact your system administrator.</value>
+  </data>
+  <data name="kentico.components.mediafileuploader.forbiddenextension" xml:space="preserve">
+    <value>Type of the file '{0}' is not allowed.</value>
+  </data>
+  <data name="kentico.components.mediafileuploader.uploadsuccess" xml:space="preserve">
+    <value>All files were successfully uploaded.</value>
+  </data>
+  <data name="kentico.components.pageselector.invalidroot" xml:space="preserve">
+    <value>Preconfigured root page '{0}' was not found.</value>
+  </data>
+  <data name="kentico.components.messagesPlaceholder.close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="kentico.components.messagesPlaceholder.error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="kentico.components.messagesPlaceholder.success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="kentico.components.mediafileuploader.timeout" xml:space="preserve">
+    <value>Upload of the file '{0}' timed out.</value>
+  </data>
+  <data name="kentico.components.mediafileselector.missingfile" xml:space="preserve">
+    <value>Missing file</value>
+  </data>
+  <data name="kentico.components.mediafileselector.fileerror" xml:space="preserve">
+    <value>File error</value>
+  </data>
+  <data name="kentico.components.mediafileselector.fileerror.title" xml:space="preserve">
+    <value>Type of the selected media file is not allowed or you don't have permissions to see the file.</value>
+  </data>
+  <data name="kentico.components.mediafileselector.missingfile.title" xml:space="preserve">
+    <value>Selected media file has been deleted.</value>
+  </data>
+  <data name="kentico.components.pathselector.name" xml:space="preserve">
+    <value>Path selector</value>
+  </data>
+  <data name="kentico.components.mediafileselector.dialog.button.apply" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="kentico.components.pageselector.dialog.button.apply" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="kentico.components.pageselector.notauthorized" xml:space="preserve">
+    <value>You are not authorized to view child pages of '{0}' page.</value>
+  </data>
+</root>

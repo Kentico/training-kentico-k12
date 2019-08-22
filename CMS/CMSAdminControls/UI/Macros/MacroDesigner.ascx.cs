@@ -125,6 +125,24 @@ public partial class CMSAdminControls_UI_Macros_MacroDesigner : FormEngineUserCo
 
 
     /// <summary>
+    /// Indicates which macro rules will be shown in the listing along with the <see cref="MacroRuleAvailabilityEnum.Both"/>.
+    /// </summary>
+    /// <remarks>Value in each macro rule indicates in which application can the macro rule be evaluated (i.e. the implementation of underlying macros is available).</remarks>
+    public MacroRuleAvailabilityEnum MacroRuleAvailability
+    {
+        get
+        {
+            return ruleElem.MacroRuleAvailability;
+        }
+
+        set
+        {
+            ruleElem.MacroRuleAvailability = value;
+        }
+    }
+
+
+    /// <summary>
     /// Determines which rules to display. 0 means all rules, 1 means only rules which does not require context, 2 only rules which require context.
     /// </summary>
     public int DisplayRuleType
@@ -164,7 +182,7 @@ public partial class CMSAdminControls_UI_Macros_MacroDesigner : FormEngineUserCo
     protected void Page_Load(object sender, EventArgs e)
     {
         editorElem.Editor.UseSmallFonts = true;
-        editorElem.Editor.FullScreenParentElementID = pnlEditor.ClientID;        
+        editorElem.Editor.FullScreenParentElementID = pnlEditor.ClientID;
 
         // Init tabs
         tabsElem.UrlTarget = "_self";

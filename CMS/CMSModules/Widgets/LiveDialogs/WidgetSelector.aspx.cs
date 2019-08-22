@@ -10,6 +10,7 @@ using CMS.Localization;
 using CMS.Membership;
 using CMS.PortalEngine;
 using CMS.UIControls;
+using CMS.PortalEngine.Web.UI.Internal;
 
 
 public partial class CMSModules_Widgets_LiveDialogs_WidgetSelector : CMSLiveModalPage
@@ -25,10 +26,33 @@ public partial class CMSModules_Widgets_LiveDialogs_WidgetSelector : CMSLiveModa
             RedirectToAccessDenied(GetString("widgets.security.notallowed"));
         }
 
-        selectElem.AliasPath = QueryHelper.GetString("aliaspath", String.Empty);
+        var aliasPath = QueryHelper.GetString("aliaspath", String.Empty);
+        var zoneId = QueryHelper.GetString("zoneid", String.Empty);
+        var zoneType = QueryHelper.GetString("zonetype", "").ToEnum<WidgetZoneTypeEnum>();
+        var templateId = QueryHelper.GetInteger("templateid", 0);
+        var instanceGuid = QueryHelper.GetGuid("instanceguid", Guid.Empty);
+        var viewMode = ViewModeCode.FromString(QueryHelper.GetString("viewmode", String.Empty));
+        var hash = QueryHelper.GetString("hash", String.Empty);
+        var inline = QueryHelper.GetBoolean("inline", false);
+
+        LiveSiteWidgetsParameters dialogParameters = new LiveSiteWidgetsParameters(aliasPath, viewMode)
+        {
+            ZoneId = zoneId,
+            ZoneType = zoneType,
+            InstanceGuid = instanceGuid,
+            TemplateId = templateId,
+            IsInlineWidget = inline
+        };
+        
+        if (!dialogParameters.ValidateHash(hash))
+        {
+            return;
+        }
+
+        selectElem.AliasPath = aliasPath;
         selectElem.CultureCode = QueryHelper.GetString("culture", LocalizationContext.PreferredCultureCode);
-        selectElem.ZoneId = QueryHelper.GetString("zoneid", String.Empty);
-        selectElem.ZoneType = QueryHelper.GetString("zonetype", "").ToEnum<WidgetZoneTypeEnum>();
+        selectElem.ZoneId = zoneId;
+        selectElem.ZoneType = zoneType;
 
         bool isInline = QueryHelper.GetBoolean("inline", false);
         selectElem.IsInline = isInline;
@@ -47,7 +71,7 @@ function SelectCurrentWidget()
             script.Append(@"
     selectedSkipDialog = false;");
         }
-            script.Append(@"
+        script.Append(@"
     SelectWidget(selectedValue, selectedSkipDialog);
 }
 

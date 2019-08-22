@@ -651,14 +651,13 @@ public partial class CMSModules_System_Controls_System : CMSAdminControl
         {
         }
 
-        TableManager tm = new TableManager(null);
-
-        lblDBNameValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseName);
-        lblServerVersionValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseServerVersion);
-
         // DB information
         if (!RequestHelper.IsPostBack())
         {
+            TableManager tm = new TableManager(null);
+
+            lblDBNameValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseName);
+            lblServerVersionValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseServerVersion);
             lblDBSizeValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseSize);
             lblServerNameValue.Text = HTMLHelper.HTMLEncode(tm.DatabaseServerName);
 

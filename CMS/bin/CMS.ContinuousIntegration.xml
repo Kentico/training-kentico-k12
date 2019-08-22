@@ -3993,31 +3993,6 @@
             <param name="relativePaths">Collection of relative path of the file.</param>
             <remarks>Only non-empty and not-null paths are processed.</remarks>
         </member>
-        <member name="T:CMS.ContinuousIntegration.FileSystemCryptoHelper">
-            <summary>
-            File system repository cryptography helper methods.
-            </summary>
-        </member>
-        <member name="M:CMS.ContinuousIntegration.FileSystemCryptoHelper.GetHashAlgorithm">
-            <summary>
-            Gets default hash algorithm.
-            </summary>
-            <returns>Instance of default hash algorithm.</returns>
-            <remarks>
-            A new instance of hash algorithm is created upon each method call (i.e. you should dispose the instance
-            when no longer needed).
-            </remarks>
-        </member>
-        <member name="M:CMS.ContinuousIntegration.FileSystemCryptoHelper.BytesToHexa(System.Byte[],System.Nullable{System.Int32})">
-            <summary>
-            Converts byte array to string of hexadecimal digits (each byte is represented by 2 digits).
-            The length of the string is truncated to <paramref name="truncateToLength"/>, if specified.
-            No boundary check is performed.
-            </summary>
-            <param name="data">Byte array to be converted to hexadecimal digits string.</param>
-            <param name="truncateToLength">If specified, the resulting hexadecimal digits string is truncated to given length. Full length is taken by default.</param>
-            <returns>Bytes of <paramref name="data"/> array converted to hexadecimal string, optionally truncated to specified length.</returns>
-        </member>
         <member name="T:CMS.ContinuousIntegration.FileSystemRepositoryHelper">
             <summary>
             Contains methods necessary to define and validate the behavior of file system repository. 

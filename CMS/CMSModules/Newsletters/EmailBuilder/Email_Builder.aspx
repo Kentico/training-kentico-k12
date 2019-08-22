@@ -7,9 +7,9 @@
 
 <asp:Content ContentPlaceHolderID="plcContent" ID="content" runat="server">
     <div class="email-builder">
-        <cms:AlertLabel runat="server" ID="alError" AlertType="Error" Text="&nbsp;" CssClass="alert-error-floating hidden" EnableViewState="False" />
-        <cms:AlertLabel runat="server" ID="alSuccess" AlertType="Confirmation" Text="&nbsp;" CssClass="alert-success-floating hidden" EnableViewState="False" />
-        <cms:AlertLabel runat="server" ID="alInfo" AlertType="Information" Text="&nbsp;" CssClass="alert-info-floating hidden" EnableViewState="False" />
+        <cms:AlertLabel runat="server" ID="alError" AlertType="Error" Text="&nbsp;" CssClass="alert-error-absolute hidden" EnableViewState="False" />
+        <cms:AlertLabel runat="server" ID="alSuccess" AlertType="Confirmation" Text="&nbsp;" CssClass="alert-success-absolute hidden" EnableViewState="False" />
+        <cms:AlertLabel runat="server" ID="alInfo" AlertType="Information" Text="&nbsp;" CssClass="alert-info-absolute hidden" EnableViewState="False" />
         <cms:AlertLabel runat="server" ID="alInfoRight" AlertType="Information" Text="&nbsp;" CssClass="alert-info-floating-right hidden" EnableViewState="False" />
         <div class="email-builder-right-section">
             <asp:PlaceHolder ID="plcVariantSelection" runat="server" Visible="false">

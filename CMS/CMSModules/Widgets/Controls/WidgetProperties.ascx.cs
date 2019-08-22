@@ -282,6 +282,8 @@ public partial class CMSModules_Widgets_Controls_WidgetProperties : CMSUserContr
         }
 
         DocumentManager.RegisterSaveChangesScript = false;
+
+        SetViewMode();
     }
 
 
@@ -425,6 +427,20 @@ public partial class CMSModules_Widgets_Controls_WidgetProperties : CMSUserContr
 
 
     #region "Private methods"
+
+    private static void SetViewMode()
+    {
+        var viewMode = QueryHelper.GetString("viewMode", string.Empty);
+        if (!string.IsNullOrEmpty(viewMode))
+        {
+            ViewModeEnum mode = ViewModeCode.FromString(viewMode);
+            if (mode != ViewModeEnum.Unknown)
+            {
+                PortalContext.SetRequestViewMode(mode);
+            }
+        }
+    }
+
 
     /// <summary>
     /// Initializes the form.
@@ -832,7 +848,7 @@ public partial class CMSModules_Widgets_Controls_WidgetProperties : CMSUserContr
             ViewModeEnum viewMode = PortalContext.ViewMode;
 
             // Check manage permission for non-livesite version
-            if (!viewMode.IsLiveSite() && (viewMode != ViewModeEnum.DashboardWidgets))
+            if (!viewMode.IsLiveSite() && viewMode != ViewModeEnum.DashboardWidgets && viewMode != ViewModeEnum.UserWidgets)
             {
                 if (CurrentUser.IsAuthorizedPerDocument(CurrentPageInfo.NodeID, CurrentPageInfo.ClassName, NodePermissionsEnum.Modify) != AuthorizationResultEnum.Allowed)
                 {

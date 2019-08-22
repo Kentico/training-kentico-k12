@@ -3574,19 +3574,6 @@ input.CodeNameTextBoxInactive {
     padding-left: 3px;
 }
 
-.WebAnalitycsMenuItemEdit {
-    padding-right: 10px;
-}
-
-.WebAnalitycsMenuItemImage {
-    margin: 0 5px 1px 0;
-    vertical-align: middle;
-}
-
-.RTL .WebAnalitycsMenuItemImage {
-    margin: 0 0 1px 5px;
-}
-
 .CMSNewsletter.NewsletterNew .FieldLabel {
     width: 200px;
 }

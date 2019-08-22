@@ -9,7 +9,6 @@ using CMS.Helpers;
 using CMS.Modules;
 using CMS.OnlineMarketing;
 using CMS.OnlineMarketing.Web.UI;
-using CMS.SiteProvider;
 using CMS.UIControls;
 
 
@@ -72,17 +71,32 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
 
     #region "Page events"
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void OnLoad(EventArgs e)
     {
-        SetRedirectUrlAfterCreate();
-        InitHeaderActions();
-        DisableFieldsByTestStatus();
+        base.OnLoad(e);
 
-        // If this is GET request or POST request called by modal dialog, use test values from DB
-        if (!RequestHelper.IsPostBack() || (Request["__EVENTARGUMENT"] == "modalClosed"))
+        Page.LoadComplete += Page_LoadComplete;
+
+        SetRedirectUrlAfterCreate();
+
+        if (ABTest.ABTestID > 0)
+        { 
+            // If this is GET request or POST request called by modal dialog, use test values from DB
+            if (!RequestHelper.IsPostBack() || (Request["__EVENTARGUMENT"] == "modalClosed"))
+            {
+                form.FieldControls["ABTestOpenFrom"].Value = ABTest.ABTestOpenFrom;
+                form.FieldControls["ABTestOpenTo"].Value = ABTest.ABTestOpenTo;
+            }
+        }
+    }
+
+
+    protected void form_OnCreate(object sender, EventArgs e)
+    {
+        var editedObject = UIContext.EditedObject as ABTestInfo;
+        if ((editedObject != null && editedObject.ABTestID > 0) && CurrentSite.SiteIsContentOnly)
         {
-            form.FieldControls["ABTestOpenFrom"].Value = ABTest.ABTestOpenFrom;
-            form.FieldControls["ABTestOpenTo"].Value = ABTest.ABTestOpenTo;
+            form.AlternativeFormName = "UpdateMvc";
         }
     }
 
@@ -111,8 +125,11 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
 
     protected void form_OnBeforeValidate(object sender, EventArgs e)
     {
-        // Visitor targeting value is filled in by the condition builder so prevent it from being erased on failed validation
-        form.FieldControls["ABTestVisitorTargeting"].Value = ValidationHelper.GetString(form.GetFieldValue("ABTestVisitorTargeting"), string.Empty);
+        if (!form.IsInsertMode)
+        {
+            // Visitor targeting value is filled in by the condition builder so prevent it from being erased on failed validation
+            form.FieldControls["ABTestVisitorTargeting"].Value = ValidationHelper.GetString(form.GetFieldValue("ABTestVisitorTargeting"), string.Empty);
+        }
 
         if (!IsValid())
         {
@@ -128,6 +145,15 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
         {
             CreateDefaultVariant(ABTest);
         }
+
+        // Set the test status to null so it is re-evaluated using the new values.
+        mTestStatus = null;
+    }
+
+
+    private void Page_LoadComplete(object sender, EventArgs e)
+    {
+        InitHeaderActions();
     }
 
 
@@ -141,6 +167,8 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
             MessagesWriter.ShowStatusInfo(ABTest);
             MessagesWriter.ShowABTestScheduleInformation(ABTest, TestStatus);
             MessagesWriter.ShowMissingVariantsTranslationsWarning(ABTest);
+            
+            DisableFieldsByTestStatus();
         }
 
         form.SubmitButton.Visible = false;
@@ -157,12 +185,13 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
     private void DisableFieldsByTestStatus()
     {
         // Disable fields not allowed to be changed once set
-        form.FieldControls["ABTestOriginalPage"].Enabled = (ABTest.ABTestID == 0);
+        form.FieldControls["ABTestOriginalPage"].Enabled = false;
 
         // Disable fields not allowed if the test has been started
         bool notStarted = ((TestStatus == ABTestStatusEnum.NotStarted) || (TestStatus == ABTestStatusEnum.Scheduled));
         form.FieldControls["ABTestOpenFrom"].Enabled = notStarted;
         form.FieldControls["ABTestCulture"].Enabled = notStarted;
+        form.FieldControls["ABTestConversions"].Enabled = notStarted;
 
         // Disable fields not allowed if the test has been finished
         bool notFinished = (TestStatus != ABTestStatusEnum.Finished);
@@ -178,14 +207,14 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
     private void CreateDefaultVariant(ABTestInfo info)
     {
         // Create instance of AB variant
-        ABVariantInfo variant = new ABVariantInfo();
-
-        // Set properties
-        variant.ABVariantPath = info.ABTestOriginalPage;
-        variant.ABVariantTestID = info.ABTestID;
-        variant.ABVariantDisplayName = GetString("abtesting.originalvariantdisplayname");
-        variant.ABVariantName = "Original";
-        variant.ABVariantSiteID = info.ABTestSiteID;
+        ABVariantInfo variant = new ABVariantInfo
+        {
+            ABVariantPath = info.ABTestOriginalPage,
+            ABVariantTestID = info.ABTestID,
+            ABVariantDisplayName = GetString("abtesting.originalvariantdisplayname"),
+            ABVariantName = "Original",
+            ABVariantSiteID = info.ABTestSiteID
+        };
 
         // Save to the storage
         ABVariantInfoProvider.SetABVariantInfo(variant);
@@ -222,8 +251,8 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
         {
             ABTestID = ABTest.ABTestID,
             ABTestOriginalPage = page,
-            ABTestCulture = form.GetFieldValue("ABTestCulture").ToString(),
-            ABTestSiteID = SiteContext.CurrentSiteID,
+            ABTestCulture = form.GetFieldValue("ABTestCulture")?.ToString(),
+            ABTestSiteID = CurrentSite.SiteID,
         };
 
         updatedTest.ABTestOpenFrom = ValidationHelper.GetDateTime(form.GetFieldValue("ABTestOpenFrom"), DateTimeHelper.ZERO_TIME);
@@ -272,7 +301,7 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
         url = URLHelper.AddParameterToUrl(url, "saved", "1");
 
         url = URLHelper.PropagateUrlParameters(url, "aliaspath", "nodeid", "displayTitle", "dialog");
-        
+
         url = ApplicationUrlHelper.AppendDialogHash(url);
 
         form.RedirectUrlAfterCreate = url;
@@ -291,6 +320,11 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_Edit : CMSAdm
         };
 
         HeaderActions.AddAction(btnSave);
+
+        if (CurrentSite.SiteIsContentOnly)
+        {
+            return;
+        }
 
         switch (TestStatus)
         {

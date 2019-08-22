@@ -13,7 +13,14 @@
         forceModal = true;
     }
     if (otherParams == undefined) {
-        otherParams = 'toolbar=no,directories=no,menubar=no,modal=yes,dependent=yes,resizable=yes';
+        otherParams = {
+            toolbar: false,
+            directories: false,
+            menubar: false,
+            modal: true,
+            dependent: true,
+            resizable: true
+        };
     }
 
     var advanced = false;

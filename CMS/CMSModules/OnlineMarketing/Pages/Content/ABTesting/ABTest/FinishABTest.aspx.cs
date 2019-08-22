@@ -125,7 +125,7 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_F
         ScriptHelper.RegisterWOpenerScript(this);
 
         // Refresh the window opener with parameter indicating that the refresh was caused by this modal window
-        ScriptHelper.RegisterStartupScript(this, typeof(string), "RefreshPage", ScriptHelper.GetScript("wopener.__doPostBack('', 'modalClosed'); CloseDialog();"));
+        ScriptHelper.RegisterStartupScript(this, typeof(string), "RefreshPage", ScriptHelper.GetScript("wopener.RefreshPage(false); CloseDialog();"));
     }
 
     #endregion

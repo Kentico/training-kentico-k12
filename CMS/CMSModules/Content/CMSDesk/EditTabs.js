@@ -40,10 +40,13 @@ function DeleteDocument(nodeId) {
     }
 }
 
-function EditDocument(nodeId, tab) {
-    if ((nodeId != 0) && (parent != this)) {
-        parent.EditDocument(nodeId, tab);
-        parent.RefreshTree(nodeId, nodeId);
+function EditDocument(nodeId, tab, culture) {
+    if ((nodeId != 0) && (parent != this)) {    
+      if (culture) {
+        parent.ChangeLanguage(culture);
+      }
+      parent.EditDocument(nodeId, tab, culture);
+      parent.RefreshTree(nodeId, nodeId);
     }
 }
 

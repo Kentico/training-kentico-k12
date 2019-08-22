@@ -173,7 +173,6 @@
                         <div class="editing-form-value-cell">
                             <cms:CMSUpdatePanel ID="pnlUpdatePreviewUrl" runat="server" UpdateMode="conditional">
                                 <ContentTemplate>
-                                    <cms:LocalizedLabel ID="lblNoPreviewGuid" runat="server" EnableViewState="false" Visible="false" CssClass="form-control-text" ResourceString="GeneralProperties.NoPreviewGuid" />
                                     <a id="lnkPreviewURL" runat="server" target="_blank" class="form-control-text"><%= ResHelper.GetString("GeneralProperties.ShowPreview") %></a>
                                     <cms:CMSAccessibleButton runat="server" ID="btnResetPreviewGuid" EnableViewState="false" IconOnly="True" IconCssClass="icon-rotate-right" />
                                 </ContentTemplate>

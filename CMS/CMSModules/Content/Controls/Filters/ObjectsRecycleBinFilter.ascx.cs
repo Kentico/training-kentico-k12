@@ -13,13 +13,6 @@ using CMS.UIControls;
 
 public partial class CMSModules_Content_Controls_Filters_ObjectsRecycleBinFilter : CMSAbstractRecycleBinFilterControl
 {
-    #region "Private variables"
-
-    private bool mLoadObjTypes = true;
-
-    #endregion
-
-
     #region "Public properties"
 
     /// <summary>
@@ -162,6 +155,7 @@ public partial class CMSModules_Content_Controls_Filters_ObjectsRecycleBinFilter
     protected void Page_Load(object sender, EventArgs e)
     {
         userSelector.DropDownSingleSelect.AutoPostBack = true;
+        userSelector.DropDownSingleSelect.SelectedIndexChanged += userSelector_SelectedIndexChanged;
 
         if (!RequestHelper.IsPostBack())
         {
@@ -179,20 +173,6 @@ public partial class CMSModules_Content_Controls_Filters_ObjectsRecycleBinFilter
         }
     }
 
-
-    /// <summary>
-    /// Page pre render event.
-    /// </summary>
-    protected void Page_PreRender(object sender, EventArgs e)
-    {
-        if (mLoadObjTypes)
-        {
-            SetObjTypeSelector();
-            objTypeSelector.Reload(true);
-        }
-        pnlObjType.Update();
-    }
-
     #endregion
 
 
@@ -201,12 +181,13 @@ public partial class CMSModules_Content_Controls_Filters_ObjectsRecycleBinFilter
     /// <summary>
     /// Reload control data.
     /// </summary>
-    public void ReloadData()
+    private void ReloadData()
     {
         SetObjTypeSelector();
         objTypeSelector.Reload(true);
-        mLoadObjTypes = false;
         WhereCondition = null;
+
+        pnlObjType.Update();
     }
 
 
@@ -268,7 +249,7 @@ public partial class CMSModules_Content_Controls_Filters_ObjectsRecycleBinFilter
     /// <summary>
     /// Set object type selector properties
     /// </summary>
-    protected void SetObjTypeSelector()
+    private void SetObjTypeSelector()
     {
         objTypeSelector.UserID = ValidationHelper.GetInteger(userSelector.Value, 0);
         if (SiteID > 0)
@@ -327,6 +308,12 @@ public partial class CMSModules_Content_Controls_Filters_ObjectsRecycleBinFilter
     }
 
 
+    private void userSelector_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        ReloadData();
+    }
+
+
     /// <summary>
     /// Stores filter state to the specified object.
     /// </summary>
@@ -369,6 +356,9 @@ public partial class CMSModules_Content_Controls_Filters_ObjectsRecycleBinFilter
         userSelector.ReloadData();
 
         nameFilter.ResetFilter();
+
+        objTypeSelector.Value = null;
+        objTypeSelector.Reload(true);
     }
 
     #endregion

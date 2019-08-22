@@ -369,6 +369,7 @@ if (wopener) {
             widthHeightElem.Height = height;
         }
 
+        pnlUpdateWidthHeight.Update();
         LoadPreview();
     }
 
@@ -398,7 +399,7 @@ if (wopener) {
         {
             url = EnsureMediaSelector(url);
         }
-
+        
         txtUrl.Text = url;
 
         LoadPreview();
@@ -420,6 +421,7 @@ if (wopener) {
             url = EnsureMediaSelector(url);
         }
 
+        pnlUpdateImgUrl.Update();
         txtUrl.Text = url;
 
         LoadPreview();
@@ -862,6 +864,8 @@ if (wopener) {
                     }
                 }
 
+                
+                
                 retval[DialogParameters.IMG_URL] = (resolveUrl ? UrlResolver.ResolveUrl(imgUrl) : imgUrl);
                 retval[DialogParameters.IMG_EXT] = ValidationHelper.GetString(ViewState[DialogParameters.URL_EXT], "");
                 retval[DialogParameters.IMG_SIZETOURL] = sizeToUrl;

@@ -2,6 +2,8 @@
 // Stylesheet for pages UI.
 // --------------------------------------------------
 
+@import (reference) "../cms.messages.less";
+
 // Variables
 @tree-default-width: 	304px; // Based on Size set in CMSModules/Content/CMSDesk/Default.aspx
 @tree-panel-bg:         @color-gray-140;
@@ -52,4 +54,8 @@
         margin-top: @base-unit * 0.5;
         margin-bottom: @base-unit * 0.5;
     }
+}
+
+.preview-page {
+    .alert-absolute();
 }

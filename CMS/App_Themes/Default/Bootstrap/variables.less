@@ -154,10 +154,12 @@
 @caret-width-large:              @base-unit * 0.375;
 
 // Disabled style for buttons and dropdown menu
-@action-disabled-bg:             @color-gray-100;
-@action-disabled-bg-stripe:      @color-gray-130;
-@action-disabled-color:          @color-gray-90;
-@dropdown-disabled-bg-stripe:    fade(@action-disabled-bg-stripe, 25);
+@action-disabled-bg:                      @color-gray-100;
+@action-disabled-bg-stripe:               @color-gray-130;
+@action-disabled-bg-stripe-transparent:   fade(@action-disabled-bg-stripe, 0);
+@action-disabled-color:                   @color-gray-90;
+@dropdown-disabled-bg-stripe:             fade(@action-disabled-bg-stripe, 25);
+@dropdown-disabled-bg-stripe-transparent: fade(@dropdown-disabled-bg-stripe, 0);
 
 // Tables
 // -------------------------

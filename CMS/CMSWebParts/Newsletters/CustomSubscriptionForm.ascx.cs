@@ -664,6 +664,7 @@ public partial class CMSWebParts_Newsletters_CustomSubscriptionForm : CMSAbstrac
                     {
                         SendConfirmationEmail = SendConfirmationEmail,
                         AllowOptIn = true,
+                        RemoveUnsubscriptionFromNewsletter = true,
                         RemoveAlsoUnsubscriptionFromAllNewsletters = true,
                         SourceSubscriber = subscriber
                     });

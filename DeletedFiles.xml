@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UpgradeItemsList xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceItemsToRemove>
+    <string>CMS\CMSModules\Content\CMSDesk\Validation\Default.aspx</string>
+    <string>CMS\CMSModules\Content\CMSDesk\Validation\Default.aspx.cs</string>
+    <string>CMS\CMSModules\Content\CMSDesk\Validation\Default.aspx.designer.cs</string>
+    <string>CMS\CMSModules\Content\CMSDesk\Validation\Header.aspx</string>
+    <string>CMS\CMSModules\Content\CMSDesk\Validation\Header.aspx.cs</string>
+    <string>CMS\CMSModules\Content\CMSDesk\Validation\Header.aspx.designer.cs</string>
+    <string>CMS\CMSScripts\CMSModules\CMS.Builder\MessageService.js</string>
+    <string>CMS\CMSScripts\CMSModules\CMS.Builder\PageBuilder\ModalDialogService.js</string>
+    <string>CMS\App_Data\Templates\DancingGoatMvc</string>
+  </SourceItemsToRemove>
+</UpgradeItemsList>

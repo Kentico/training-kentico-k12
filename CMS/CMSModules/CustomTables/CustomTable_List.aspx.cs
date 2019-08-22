@@ -55,7 +55,7 @@ public partial class CMSModules_CustomTables_CustomTable_List : CMSCustomTablesP
             {
                 // Delete the class
                 DataClassInfoProvider.DeleteDataClassInfo(classId);
-                CustomTableItemProvider.ClearLicensesCount();
+                CustomTableItemProvider.ClearLicensesCount(true);
             }
             catch (CheckDependenciesException)
             {

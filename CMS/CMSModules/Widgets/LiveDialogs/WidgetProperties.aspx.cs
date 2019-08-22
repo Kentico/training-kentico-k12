@@ -1,11 +1,11 @@
 ﻿using System;
-
 using CMS.DocumentEngine;
 using CMS.Helpers;
 using CMS.Localization;
 using CMS.Membership;
 using CMS.PortalEngine;
 using CMS.PortalEngine.Web.UI;
+using CMS.PortalEngine.Web.UI.Internal;
 using CMS.SiteProvider;
 using CMS.UIControls;
 
@@ -21,6 +21,23 @@ public partial class CMSModules_Widgets_LiveDialogs_WidgetProperties : CMSWidget
         if (!AuthenticationHelper.IsAuthenticated())
         {
             RedirectToAccessDenied(GetString("widgets.security.notallowed"));
+        }
+
+        var viewMode = ViewModeCode.FromString(QueryHelper.GetString("viewmode", String.Empty));
+        var hash = QueryHelper.GetString("hash", String.Empty);
+
+        LiveSiteWidgetsParameters dialogparameters = new LiveSiteWidgetsParameters(aliasPath, viewMode)
+        {
+            ZoneId = zoneId,
+            ZoneType = zoneType,
+            InstanceGuid = instanceGuid,
+            TemplateId = templateId,
+            IsInlineWidget = inline
+        };
+
+        if (!dialogparameters.ValidateHash(hash))
+        {
+            return;
         }
 
         // Set page title 

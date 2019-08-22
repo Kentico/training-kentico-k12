@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 using System.Web.UI;
 
 using CMS.Base.Web.UI;
@@ -71,7 +70,6 @@ public partial class CMSModules_Content_FormControls_Documents_SelectPath : Form
         }
     }
 
-
     #endregion
 
 
@@ -125,7 +123,11 @@ public partial class CMSModules_Content_FormControls_Documents_SelectPath : Form
                     }
                 }
 
-                if (ControlsHelper.CheckControlContext(this, ControlContext.WIDGET_PROPERTIES) && (!siteNameIsAll))
+                if (EnableSiteSelection.HasValue)
+                {
+                    mConfig.ContentSites = EnableSiteSelection.Value ? AvailableSitesEnum.All : AvailableSitesEnum.OnlyCurrentSite;
+                }
+                else if (ControlsHelper.CheckControlContext(this, ControlContext.WIDGET_PROPERTIES) && (!siteNameIsAll))
                 {
                     // If used in a widget, site selection is provided by a site selector form control (using HasDependingField/DependsOnAnotherField principle)
                     // therefore the site selector drop-down list in the SelectPath dialog contains only a single site - preselected by the site selector form control
@@ -134,11 +136,11 @@ public partial class CMSModules_Content_FormControls_Documents_SelectPath : Form
                 else if (SiteID > 0)
                 {
                     // Preselect site name if site identifier is selected
-                    Config.ContentSites = AvailableSitesEnum.OnlySingleSite;
+                    mConfig.ContentSites = AvailableSitesEnum.OnlySingleSite;
                     SiteInfo si = SiteInfoProvider.GetSiteInfo(SiteID);
                     if (si != null)
                     {
-                        Config.ContentSelectedSite = si.SiteName;
+                        mConfig.ContentSelectedSite = si.SiteName;
                     }
                 }
                 else if (AllowSetPermissions)
@@ -242,16 +244,10 @@ public partial class CMSModules_Content_FormControls_Documents_SelectPath : Form
     /// <summary>
     /// Determines whether to enable site selection or not.
     /// </summary>
-    public bool EnableSiteSelection
+    public bool? EnableSiteSelection
     {
-        get
-        {
-            return Config.ContentSites == AvailableSitesEnum.All;
-        }
-        set
-        {
-            Config.ContentSites = (value ? AvailableSitesEnum.All : AvailableSitesEnum.OnlyCurrentSite);
-        }
+        get;
+        set;
     }
 
 
@@ -462,55 +458,52 @@ public partial class CMSModules_Content_FormControls_Documents_SelectPath : Form
         if (AllowSetPermissions)
         {
             // Script for opening dialog, shows alert if document doesn't exist
-            StringBuilder urlScript = new StringBuilder();
-            urlScript.Append(@"
-function PerformAction(content, context) {
-    var arr = content.split('", separator, @"');
+            var urlScript = $@"
+function PerformAction(content, context) {{
+    var arr = content.split('{separator}');
     if(arr[0] == '0')
-    {
-        alert('", GetString("content.documentnotexists"), @"');
-    }
+    {{
+        alert('{GetString("content.documentnotexists")}');
+    }}
     else
-    {
+    {{
         modalDialog(arr[1], 'SetPermissions', '605', '800');
-    }
-}");
+    }}
+}}";
 
-            ScriptHelper.RegisterClientScriptBlock(this, typeof(string), "GetPermissionsUrl", ScriptHelper.GetScript(urlScript.ToString()));
+            ScriptHelper.RegisterClientScriptBlock(this, typeof(string), "GetPermissionsUrl", urlScript, true);
 
             btnSetPermissions.OnClientClick = Page.ClientScript.GetCallbackEventReference(this, "document.getElementById('" + PathTextBox.ClientID + "').value", "PerformAction", "'SetPermissionContext'") + "; return false;";
 
             // Disable text box if there is no current document
             if (DocumentContext.CurrentDocument == null)
             {
-                StringBuilder textChanged = new StringBuilder();
-                textChanged.Append(@"
-function TextChanged_", ClientID, @"() {
-    var textElem = document.getElementById('", PathTextBox.ClientID, @"');
+                var textChanged = $@"
+function TextChanged_{ClientID}() {{
+    var textElem = document.getElementById('{PathTextBox.ClientID}');
     if ((textElem != null) && (textElem.value == null || textElem.value == ''))
-    {
-        BTN_Disable('", btnSetPermissions.ClientID, @"');
-    }
+    {{
+        BTN_Disable('{btnSetPermissions.ClientID}');
+    }}
     else
-    {
-        BTN_Enable('", btnSetPermissions.ClientID, @"');
-    }
-    setTimeout('TextChanged_", ClientID, @"()', 500);
-}
-setTimeout('TextChanged_", ClientID, @"()', 500);");
+    {{
+        BTN_Enable('{btnSetPermissions.ClientID}');
+    }}
+    setTimeout('TextChanged_{ClientID}()', 500);
+}}
+setTimeout('TextChanged_{ClientID}()', 500);";
 
-                ScriptHelper.RegisterStartupScript(this, typeof(string), "TextChanged" + ClientID, ScriptHelper.GetScript(textChanged.ToString()));
+                ScriptHelper.RegisterStartupScript(this, typeof(string), "TextChanged" + ClientID, textChanged, true);
             }
         }
 
         // Register script for changing control state
-        StringBuilder changeStatScript = new StringBuilder();
-        changeStatScript.Append(@"
-function ChangeState_", ClientID, @"(state) {",
-    ControlsHelper.GetPostBackEventReference(this, "changestate|").Replace("'changestate|'", "'changestate|' + state"), @";
-}");
+        var changeStatScript = $@"
+function ChangeState_{ClientID}(state) {{
+    {ControlsHelper.GetPostBackEventReference(this, "changestate|").Replace("'changestate|'", "'changestate|' + state")};
+}}";
 
-        ScriptHelper.RegisterClientScriptBlock(this, typeof(string), "ChangeState_" + ClientID, changeStatScript.ToString(), true);
+        ScriptHelper.RegisterClientScriptBlock(this, typeof(string), "ChangeState_" + ClientID, changeStatScript, true);
     }
 
 

@@ -204,6 +204,40 @@ cmsdefine(['Underscore'], function (_) {
             }
 
             return url.slice(0, questionMarkPosition);
+        },
+
+
+        /**
+        * Gets the protocol scheme of the URL, including the final ':'
+        *
+        * @param {string} url - URL
+        * @return {string} The protocol scheme of the URL
+        */
+        getProtocol = function (url) {
+            if (window.URL.prototype) {
+                var urlObj = new URL(url);
+
+                return urlObj.protocol;
+            }
+
+            // IE11 compatibility
+            const urlElement = document.createElement('a');
+            urlElement.setAttribute("href", url);
+
+            return urlElement.protocol;
+        },
+
+
+        /**
+        * Indicates if the URL scheme is HTTPS.
+        *
+        * @param {string} url - URL
+        * @return {boolean} Returns true if the URL scheme is HTTPS
+        */
+        isUrlSecure = function (url) {
+            var httpsScheme = "https:";
+            
+            return (getProtocol(url) === httpsScheme);
         };
 
 
@@ -213,6 +247,7 @@ cmsdefine(['Underscore'], function (_) {
         getParameterAsInt: getValueAsInt,
         getParameterString: getString,
         getHostWithScheme: getHostWithScheme,
+        isUrlSecure: isUrlSecure,
         setParameter: setValue,
         removeParameters: removeParameters,
         removeParameter: removeParameter,

@@ -14,129 +14,6 @@
     TagName="SmartTip" %>
 
 <asp:Content ID="cntContent" runat="server" ContentPlaceHolderID="plcContent">
-    <script type="text/javascript">
-        //<![CDATA[
-        var ABOverview = (function ($, document) {
-
-            var advancedControls, spanShowMoreLess, filters,
-
-            /**       
-             * Saves state of all selectors (sampling, success metric, counting methodology, ..) + status of whether the advanced controls
-             * are collapsed or expanded to a cookie, so it can be retrieved on further requests from code-behind.
-             */
-             saveSelectorsState = function (selectorsState) {
-                 if (!selectorsState) {
-                     selectorsState = {};
-                 }
-
-                 if (selectorsState["<%= samplingElem.ID %>"] === undefined) {
-                     selectorsState["<%= samplingElem.ID %>"] = filters.sampling.index(filters.sampling.filter(".active"));
-                 }
-
-                 if (selectorsState["<%= graphDataElem.ID %>"] === undefined) {
-                     selectorsState["<%= graphDataElem.ID %>"] = filters.graphData.index(filters.graphData.filter(".active"));
-                 }
-
-                 selectorsState["<%= drpSuccessMetric.ID %>"] = filters.successMetric[0].selectedIndex;
-                 selectorsState["<%= drpCountingMethodology.ID %>"] = filters.countingMethodology[0].selectedIndex;
-                 selectorsState["<%= drpCulture.ID %>"] = filters.culture.val();
-                 selectorsState["<%= drpConversions.ID %>"] = filters.conversion.val();
-                 selectorsState["<%= AdvancedControls.ID %>"] = advancedControls.is(':visible');
-
-                 var today = new Date(),
-                     expiration = new Date();
-
-                 expiration.setTime(today.getTime() + 3600 * 1000 * 24 * 60);
-                 document.cookie = "<%= SelectorsCookieKey %>=" + JSON.stringify(selectorsState) + "; path=/; expires=" + expiration.toGMTString();
-             },
-
-            /**
-            * Save the state of all selectors. State of the sampling buttons is set to given button.
-            */
-            saveSelectorStateSamplingClick = function (button) {
-                var selectorsState = {};
-
-                selectorsState["<%= samplingElem.ID %>"] = filters.sampling.index($(button));
-                saveSelectorsState(selectorsState);
-            },
-
-            /**
-            * Save the state of all selectors. State of the graph data buttons is set to given button.
-            */
-            saveSelectorStateGraphDataClick = function (button) {
-                var selectorsState = {};
-
-                selectorsState["<%= graphDataElem.ID %>"] = filters.graphData.index($(button));
-                saveSelectorsState(selectorsState);
-            },
-
-            /**
-             * Switches visibility of advanced controls and changes text of the switch control.
-             */
-            changeAdvancedFilters = function () {
-                if (advancedControls.is(':visible')) {
-                    advancedControls.hide();
-                    spanShowMoreLess.text('<%= GetString(SHOW_FILTERS_TEXT) %>');
-                } else {
-                    advancedControls.attr('style', 'display: block;');
-                    spanShowMoreLess.text('<%= GetString(HIDE_FILTERS_TEXT) %>');
-                }
-            },
-
-            /**
-             * Finds all controls needed by this module. They cannot be found on module init, because by then jQuery is not initialized yet.
-             */
-            findControls = function () {
-                advancedControls = $('#<%= AdvancedControls.ClientID %>');
-                spanShowMoreLess = $('#<%= spnShowAdvancedFilters.ClientID %>');
-                filters = {
-                    sampling: $("#<%= samplingElem.ClientID %> > .btn"),
-                    successMetric: $("select[name='<%= drpSuccessMetric.UniqueID %>']"),
-                    countingMethodology: $("select[name='<%= drpCountingMethodology.UniqueID %>']"),
-                    graphData: $("#<%= graphDataElem.ClientID %> > .btn"),
-                    culture: $("select[name^='<%= drpCulture.UniqueID %>']"),
-                    conversion: $("select[name^='<%= drpConversions.UniqueID %>']")
-                };
-            },
-
-            /**
-             * Creates handlers that save selector state.
-             */
-            createFilterHandlers = function () {
-                $.each(filters, function (name, filter) {
-                    filter.change(function () {
-                        saveSelectorsState();
-                    });
-                });
-            },
-
-            /**
-             * Creates a handler that switches visibility of advanced filters and saves selector state.
-             */
-            createMoreLessButtonHandler = function () {
-                spanShowMoreLess.click(function () {
-                    changeAdvancedFilters();
-                    saveSelectorsState();
-                });
-            };
-
-            return {
-                init: function () {
-                    findControls();
-                    createFilterHandlers();
-                    createMoreLessButtonHandler();
-                },
-                saveSelectorStateSamplingClick: saveSelectorStateSamplingClick,
-                saveSelectorStateGraphDataClick: saveSelectorStateGraphDataClick
-            };
-        }($cmsj, document));
-
-        $cmsj(document).ready(function () {
-            ABOverview.init();
-        });
-
-        //]]>
-    </script>
     <cms:SmartTip runat="server" ID="tipHowToOverview" />
     <asp:Panel runat="server" CssClass="ab-overview">
         <div class="form-horizontal form-filter">
@@ -226,7 +103,8 @@
                         <cms:LocalizedLiteral DisplayColon="True" runat="server" EnableViewState="false" ResourceString="abtesting.page" />
                     </th>
                     <td>
-                        <a runat="server" id="lnkTest"></a>
+                        <a runat="server" id="lnkTest" Visible="false"></a>
+                        <asp:Literal ID="lblTest" Visible="false" runat="server" />
                     </td>
                 </tr>
                 <tr>

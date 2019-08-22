@@ -1,5 +1,6 @@
 ﻿using System;
 
+using CMS.Base;
 using CMS.Base.Web.UI;
 using CMS.Helpers;
 using CMS.OnlineForms;
@@ -41,6 +42,8 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_FormBuilderMVC : CMS
         {
             frameId = formBuilderFrame.ClientID,
             frameSrc = URLHelper.AddParameterToUrl(presentationUrl.TrimEnd('/') + VirtualContext.GetFormBuilderPath(path, CurrentUser.UserName), BUILDER_MODE_QUERY_STRING_NAME, FORM_BUILDER_MODE),
+            mixedContentMessage = GetString("builder.ui.mixedcontenterrormessage"),
+            applicationPath = SystemContext.ApplicationPath
         });
     }
 }

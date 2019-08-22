@@ -1294,3 +1294,29 @@ input:invalid {
 .toggle-button .checkbox input + label {
     display: none;
 }
+
+// Textbox with placeholder
+&.Safari {
+    .cms-input-group.cms-textwithplaceholder-container::before {
+        padding: 6px 8px 6px;
+    }
+}
+
+.cms-input-group.cms-textwithplaceholder-container::before {
+    content: attr(data-content);
+    position: absolute;
+    color: @color-gray-90;
+    display: inline-block;
+    padding: 5px 8px 4px;
+    background-color: @color-gray-150;
+    border: 2px solid @color-gray-130;
+    border-radius: 3px 0 0 3px;
+}
+
+.cms-input-group.cms-textwithplaceholder-container {
+    .cms-textwithplaceholder-hidden {
+        display: inline-block;
+        visibility: hidden;
+        position: absolute;
+    }
+}

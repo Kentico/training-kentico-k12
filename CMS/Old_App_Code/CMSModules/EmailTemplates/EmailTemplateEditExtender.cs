@@ -20,20 +20,7 @@ public class EmailTemplateEditExtender : ControlExtender<UIForm>
 {
     public override void OnInit()
     {
-        Control.Page.Load += Page_Load;
         Control.Page.PreRender += Page_PreRender;
-    }
-
-
-    private void Page_Load(object sender, EventArgs e)
-    {
-        var typeValue = Control.GetFieldValue("EmailTemplateType");
-        if (typeValue != null)
-        {
-            SetProperty("EmailTemplateSubject", typeValue);
-            SetProperty("EmailTemplateText", typeValue);
-            SetProperty("EmailTemplatePlainText", typeValue);
-        }
     }
 
 
@@ -42,16 +29,6 @@ public class EmailTemplateEditExtender : ControlExtender<UIForm>
         if (!Control.IsInsertMode)
         {
             InitHeaderActions();
-        }
-    }
-
-
-    private void SetProperty(string fieldName, object value)
-    {
-        var control = Control.FieldControls[fieldName];
-        if (control != null)
-        {
-            control.SetValue("ResolverName", value);
         }
     }
 

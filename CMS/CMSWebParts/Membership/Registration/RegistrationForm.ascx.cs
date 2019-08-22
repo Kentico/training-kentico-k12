@@ -249,8 +249,8 @@ public partial class CMSWebParts_Membership_Registration_RegistrationForm : CMSA
 
 
     /// <summary>
-    /// Gets or sets the value that indicates whether after successful registration is 
-    /// notification email sent to the administrator 
+    /// Gets or sets the value that indicates whether after successful registration is
+    /// notification email sent to the administrator
     /// </summary>
     public bool NotifyAdministrator
     {
@@ -565,7 +565,7 @@ public partial class CMSWebParts_Membership_Registration_RegistrationForm : CMSA
                 siteList = AssignToSites.Split(';');
             }
 
-            // Check whether another user with this user name (which is effectively email) does not exist 
+            // Check whether another user with this user name (which is effectively email) does not exist
             UserInfo ui = UserInfoProvider.GetUserInfo(txtEmail.Text);
             SiteInfo si = SiteContext.CurrentSite;
             UserInfo siteui = UserInfoProvider.GetUserInfo(UserInfoProvider.EnsureSitePrefixUserName(txtEmail.Text, si));
@@ -724,7 +724,7 @@ public partial class CMSWebParts_Membership_Registration_RegistrationForm : CMSA
                 return;
             }
 
-            // Set password            
+            // Set password
             UserInfoProvider.SetPassword(ui, passStrength.Text);
 
             #region "Welcome Emails (confirmation, waiting for approval)"
@@ -758,7 +758,7 @@ public partial class CMSWebParts_Membership_Registration_RegistrationForm : CMSA
             if (template != null)
             {
                 // Create relation between contact and user. This ensures that contact will be correctly recognized when user approves registration (if approval is required)
-                // New contact with user data is created in case it is not disabled by Data protection settings, otherwise an anonymous contact is created. Moreover an another  
+                // New contact with user data is created in case it is not disabled by Data protection settings, otherwise an anonymous contact is created. Moreover an another
                 // anonymous contact could be created during approval process when a new browser is used for approval step (when contact isn't in browser cookies).
                 int contactId = ModuleCommands.OnlineMarketingGetCurrentContactID();
                 if (contactId > 0)
@@ -846,7 +846,9 @@ public partial class CMSWebParts_Membership_Registration_RegistrationForm : CMSA
             // Track successful registration conversion
             if (TrackConversionName != String.Empty)
             {
-                if (AnalyticsHelper.AnalyticsEnabled(siteName) && Service.Resolve<IAnalyticsConsentProvider>().HasConsentForLogging() && !AnalyticsHelper.IsIPExcluded(siteName, RequestContext.UserHostAddress))
+                if (AnalyticsHelper.AnalyticsEnabled(siteName) && Service.Resolve<IAnalyticsConsentProvider>().HasConsentForLogging()
+                    && !AnalyticsHelper.IsIPExcluded(siteName, RequestContext.UserHostAddress)
+                    && SystemContext.IsCMSRunningAsMainApplication)
                 {
                     // Log conversion
                     HitLogProvider.LogConversions(siteName, LocalizationContext.PreferredCultureCode, TrackConversionName, 0, ConversionValue);
@@ -924,7 +926,7 @@ public partial class CMSWebParts_Membership_Registration_RegistrationForm : CMSA
                 {
                     string url = QueryHelper.GetString("ReturnURL", "");
 
-                    // Do url decode 
+                    // Do url decode
                     url = Server.UrlDecode(url);
 
                     // Check that url is relative path or hash is ok

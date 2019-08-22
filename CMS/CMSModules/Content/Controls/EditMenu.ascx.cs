@@ -218,6 +218,23 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
     }
 
 
+    /// <summary>
+    /// Indicates if 'Send notification emails' checkbox should be displayed.
+    /// </summary>
+    public bool ShowNotificationCheckBox { get; set; } = false;
+
+
+    /// <summary>
+    /// Button with more actions.
+    /// </summary>
+    public CMSMoreOptionsButton MoreActionsButton
+    {
+        get
+        {
+            return btnMoreActions;
+        }
+    }
+
     #endregion
 
 
@@ -310,17 +327,20 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
         originalMode = DocumentManager.Mode;
 
         // Initialize e-mail check box
-        if ((DocumentManager.Mode != FormModeEnum.Insert) && (DocumentManager.Mode != FormModeEnum.InsertNewCultureVersion))
+        if (ShowNotificationCheckBox)
         {
-            WorkflowInfo workflow = DocumentManager.Workflow;
-            if (workflow != null)
+            if ((DocumentManager.Mode != FormModeEnum.Insert) && (DocumentManager.Mode != FormModeEnum.InsertNewCultureVersion))
             {
-                // Keep the value
-                if (RequestHelper.IsPostBack())
+                WorkflowInfo workflow = DocumentManager.Workflow;
+                if (workflow != null)
                 {
-                    mSendNotification = chkEmails.Checked;
+                    // Keep the value
+                    if (RequestHelper.IsPostBack())
+                    {
+                        mSendNotification = chkEmails.Checked;
+                    }
+                    chkEmails.Checked = workflow.SendEmails(DocumentManager.SiteName, WorkflowEmailTypeEnum.Unknown);
                 }
-                chkEmails.Checked = workflow.SendEmails(DocumentManager.SiteName, WorkflowEmailTypeEnum.Unknown);
             }
         }
     }
@@ -546,11 +566,11 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                 if (DocumentManager.IsActionAllowed(DocumentComponentEvents.CREATE_VERSION))
                 {
                     newVersion = new HeaderAction
-                                     {
-                                         Text = ResHelper.GetString("EditMenu.NewVersionIcon", ResourceCulture),
-                                         Tooltip = ResHelper.GetString("EditMenu.NewVersion", ResourceCulture),
-                                         EventName = DocumentComponentEvents.CREATE_VERSION
-                                     };
+                    {
+                        Text = ResHelper.GetString("EditMenu.NewVersionIcon", ResourceCulture),
+                        Tooltip = ResHelper.GetString("EditMenu.NewVersion", ResourceCulture),
+                        EventName = DocumentComponentEvents.CREATE_VERSION
+                    };
                 }
             }
 
@@ -575,18 +595,18 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                         if (ShowUndoCheckOut && DocumentManager.IsActionAllowed(DocumentComponentEvents.UNDO_CHECKOUT))
                         {
                             undoCheckout = new DocumentUndoCheckOutAction
-                                {
-                                    OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.UNDO_CHECKOUT, "if(!confirm(" + ScriptHelper.GetString(ResHelper.GetString("EditMenu.UndoCheckOutConfirmation", ResourceCulture)) + ")) { return false; }"),
-                                };
+                            {
+                                OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.UNDO_CHECKOUT, "if(!confirm(" + ScriptHelper.GetString(ResHelper.GetString("EditMenu.UndoCheckOutConfirmation", ResourceCulture)) + ")) { return false; }"),
+                            };
                         }
 
                         // Check-in action
                         if (ShowCheckIn && DocumentManager.IsActionAllowed(DocumentComponentEvents.CHECKIN))
                         {
                             checkin = new DocumentCheckInAction
-                                {
-                                    OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.CHECKIN, submitScript),
-                                };
+                            {
+                                OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.CHECKIN, submitScript),
+                            };
 
                             // Add check-in comment
                             AddCommentAction(DocumentComponentEvents.CHECKIN, checkin);
@@ -600,11 +620,11 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                                 if (ShowSubmitToApproval)
                                 {
                                     approve = new DocumentApproveAction
-                                        {
-                                            Text = ResHelper.GetString("EditMenu.IconSubmitToApproval", ResourceCulture),
-                                            Tooltip = ResHelper.GetString("EditMenu.SubmitToApproval", ResourceCulture),
-                                            OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.APPROVE, submitScript)
-                                        };
+                                    {
+                                        Text = ResHelper.GetString("EditMenu.IconSubmitToApproval", ResourceCulture),
+                                        Tooltip = ResHelper.GetString("EditMenu.SubmitToApproval", ResourceCulture),
+                                        OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.APPROVE, submitScript)
+                                    };
                                 }
                             }
                             else
@@ -612,9 +632,9 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                                 if (ShowApprove)
                                 {
                                     approve = new DocumentApproveAction
-                                        {
-                                            OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.APPROVE, submitScript)
-                                        };
+                                    {
+                                        OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.APPROVE, submitScript)
+                                    };
                                 }
                             }
                         }
@@ -628,9 +648,9 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                             if (prevStepsCount > 0)
                             {
                                 reject = new DocumentRejectAction
-                                    {
-                                        OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.REJECT, submitScript)
-                                    };
+                                {
+                                    OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.REJECT, submitScript)
+                                };
 
                                 // For workflow managers allow reject to specified step
                                 if (WorkflowManager.CanUserManageWorkflow(CurrentUser, Node.NodeSiteName))
@@ -640,11 +660,11 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                                         foreach (var s in prevSteps)
                                         {
                                             reject.AlternativeActions.Add(new DocumentRejectAction
-                                                {
-                                                    Text = String.Format(ResHelper.GetString("EditMenu.RejectTo", ResourceCulture), HTMLHelper.HTMLEncode(ResHelper.LocalizeString(s.StepDisplayName, ResourceCulture))),
-                                                    OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.REJECT, submitScript),
-                                                    CommandArgument = s.RelatedHistoryID.ToString()
-                                                });
+                                            {
+                                                Text = String.Format(ResHelper.GetString("EditMenu.RejectTo", ResourceCulture), HTMLHelper.HTMLEncode(ResHelper.LocalizeString(s.StepDisplayName, ResourceCulture))),
+                                                OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.REJECT, submitScript),
+                                                CommandArgument = s.RelatedHistoryID.ToString()
+                                            });
                                         }
                                     }
                                 }
@@ -721,12 +741,12 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                                     foreach (var s in approveSteps)
                                     {
                                         DocumentApproveAction app = new DocumentApproveAction
-                                            {
-                                                Text = String.Format(ResHelper.GetString(itemText, ResourceCulture), HTMLHelper.HTMLEncode(ResHelper.LocalizeString(s.StepDisplayName, ResourceCulture))),
-                                                Tooltip = ResHelper.GetString(itemDesc, ResourceCulture),
-                                                OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.APPROVE, submitScript),
-                                                CommandArgument = s.StepID.ToString()
-                                            };
+                                        {
+                                            Text = String.Format(ResHelper.GetString(itemText, ResourceCulture), HTMLHelper.HTMLEncode(ResHelper.LocalizeString(s.StepDisplayName, ResourceCulture))),
+                                            Tooltip = ResHelper.GetString(itemDesc, ResourceCulture),
+                                            OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.APPROVE, submitScript),
+                                            CommandArgument = s.StepID.ToString()
+                                        };
 
                                         if (s.StepIsPublished)
                                         {
@@ -757,12 +777,12 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                                         string itemText = Step.StepIsEdit ? "EditMenu.SubmitTo" : "EditMenu.ApproveTo";
                                         string itemDesc = Step.StepIsEdit ? "EditMenu.SubmitToApproval" : "EditMenu.Approve";
                                         DocumentApproveAction app = new DocumentApproveAction
-                                            {
-                                                Text = String.Format(ResHelper.GetString(itemText, ResourceCulture), HTMLHelper.HTMLEncode(ResHelper.LocalizeString(nextS.StepDisplayName, ResourceCulture))),
-                                                Tooltip = ResHelper.GetString(itemDesc, ResourceCulture),
-                                                OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.APPROVE, submitScript),
-                                                CommandArgument = nextS.StepID.ToString()
-                                            };
+                                        {
+                                            Text = String.Format(ResHelper.GetString(itemText, ResourceCulture), HTMLHelper.HTMLEncode(ResHelper.LocalizeString(nextS.StepDisplayName, ResourceCulture))),
+                                            Tooltip = ResHelper.GetString(itemDesc, ResourceCulture),
+                                            OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.APPROVE, submitScript),
+                                            CommandArgument = nextS.StepID.ToString()
+                                        };
 
                                         // Process action appearance
                                         ProcessAction(app, Step, nextS);
@@ -772,9 +792,9 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
 
                                     // Add direct publish action
                                     publish = new DocumentPublishAction
-                                        {
-                                            OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.PUBLISH, submitScript),
-                                        };
+                                    {
+                                        OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.PUBLISH, submitScript),
+                                    };
 
                                     // Process action appearance
                                     ProcessAction(approve, Step, nextS);
@@ -830,9 +850,9 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                             int archiveStepsCount = archiveSteps.Count;
 
                             archive = new DocumentArchiveAction
-                                {
-                                    OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.ARCHIVE, "if(!confirm(" + ScriptHelper.GetString(ResHelper.GetString("EditMenu.ArchiveConfirmation", ResourceCulture)) + ")) { return false; }" + submitScript),
-                                };
+                            {
+                                OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.ARCHIVE, "if(!confirm(" + ScriptHelper.GetString(ResHelper.GetString("EditMenu.ArchiveConfirmation", ResourceCulture)) + ")) { return false; }" + submitScript),
+                            };
 
                             // Multiple archive steps
                             if (archiveStepsCount > 1)
@@ -848,12 +868,12 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                                 foreach (var s in archiveSteps)
                                 {
                                     DocumentArchiveAction arch = new DocumentArchiveAction
-                                        {
-                                            Text = String.Format(ResHelper.GetString(itemText, ResourceCulture), HTMLHelper.HTMLEncode(ResHelper.LocalizeString(s.StepDisplayName, ResourceCulture))),
-                                            Tooltip = ResHelper.GetString(itemDesc, ResourceCulture),
-                                            OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.ARCHIVE, "if(!confirm(" + ScriptHelper.GetString(ResHelper.GetString("EditMenu.ArchiveConfirmation", ResourceCulture)) + ")) { return false; }" + submitScript),
-                                            CommandArgument = s.StepID.ToString()
-                                        };
+                                    {
+                                        Text = String.Format(ResHelper.GetString(itemText, ResourceCulture), HTMLHelper.HTMLEncode(ResHelper.LocalizeString(s.StepDisplayName, ResourceCulture))),
+                                        Tooltip = ResHelper.GetString(itemDesc, ResourceCulture),
+                                        OnClientClick = RaiseGetClientValidationScript(DocumentComponentEvents.ARCHIVE, "if(!confirm(" + ScriptHelper.GetString(ResHelper.GetString("EditMenu.ArchiveConfirmation", ResourceCulture)) + ")) { return false; }" + submitScript),
+                                        CommandArgument = s.StepID.ToString()
+                                    };
 
                                     // Process action appearance
                                     ProcessAction(arch, Step, s);
@@ -969,6 +989,7 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
                     saveAnother = new SaveAction
                     {
                         RegisterShortcutScript = false,
+                        ButtonStyle = ButtonStyle.Default,
                         Text = ResHelper.GetString("editmenu.iconsaveandanother", ResourceCulture),
                         Tooltip = ResHelper.GetString("EditMenu.SaveAndAnother", ResourceCulture),
                         OnClientClick = RaiseGetClientValidationScript(ComponentEvents.SAVE, (DocumentManager.ConfirmChanges ? DocumentManager.GetAllowSubmitScript() : "") + saveAnotherScript),
@@ -1030,7 +1051,7 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
         plcControls.Visible = true;
 
         // Set e-mails checkbox
-        chkEmails.Visible = WorkflowManager.CanUserManageWorkflow(CurrentUser, DocumentManager.SiteName) && ((approve != null) || (reject != null) || (archive != null));
+        chkEmails.Visible = ShowNotificationCheckBox && WorkflowManager.CanUserManageWorkflow(CurrentUser, DocumentManager.SiteName) && ((approve != null) || (reject != null) || (archive != null));
         if (chkEmails.Visible)
         {
             chkEmails.ResourceString = ResHelper.GetString("WorfklowProperties.SendMail", ResourceCulture);
@@ -1083,9 +1104,9 @@ public partial class CMSModules_Content_Controls_EditMenu : EditMenu, IExtensibl
     private void EnsureRefreshScript()
     {
         PostBackOptions options = new PostBackOptions(this)
-                        {
-                            PerformValidation = false
-                        };
+        {
+            PerformValidation = false
+        };
 
         string postback = ControlsHelper.GetPostBackEventReference(menu, options, false, true);
         string externalRefreshScript = null;

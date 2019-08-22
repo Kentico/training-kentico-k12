@@ -38,8 +38,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Menu : CMSPropertiesP
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        SetPropertyTab(TAB_MENU);
-
         radInactive.Attributes.Add("onclick", "enableTextBoxes('inactive')");
         radStandard.Attributes.Add("onclick", "enableTextBoxes('')");
         radUrl.Attributes.Add("onclick", "enableTextBoxes('url')");

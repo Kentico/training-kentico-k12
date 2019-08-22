@@ -668,7 +668,7 @@
         </member>
         <member name="M:CMS.DataProtection.ConsentAgreementService.GetContactIDsWhoAgreed(CMS.DataProtection.ConsentInfo)">
             <summary>
-            Gets an object query that returns contact IDs who agreed to the specified consent ad their agreement is still active (has not been revoked).
+            Gets an object query that returns contact IDs who agreed to the specified consent and their agreement is still active (has not been revoked).
             </summary>
         </member>
         <member name="M:CMS.DataProtection.ConsentAgreementService.GetActiveAgreementsQuery(CMS.DataEngine.WhereCondition,System.String)">
@@ -871,6 +871,22 @@
             Puts specified consent into archive.
             </summary>
             <param name="consent">Consent to archive.</param>
+        </member>
+        <member name="T:CMS.DataProtection.Internal.ConsentContactsRetriever">
+            <summary>
+            Retrieves contacts who have agreed to the given consent.
+            </summary>
+        </member>
+        <member name="M:CMS.DataProtection.Internal.ConsentContactsRetriever.#ctor(CMS.DataProtection.ConsentInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DataProtection.Internal.ConsentContactsRetriever"/> class.
+            </summary>
+            <param name="consent">The consent which contacts will be returned for.</param>
+        </member>
+        <member name="M:CMS.DataProtection.Internal.ConsentContactsRetriever.GetContacts">
+            <summary>
+            Returns contacts who agreed to the consent.
+            </summary>
         </member>
         <member name="T:CMS.DataProtection.ConsentContent">
             <summary>

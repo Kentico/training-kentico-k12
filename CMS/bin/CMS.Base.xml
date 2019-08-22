@@ -924,6 +924,12 @@
             <param name="type">Type of class</param>
             <param name="settings">Settings used for filter list of classes</param>
         </member>
+        <member name="M:CMS.Base.ClassHelper.GetBaseTypes(System.Type)">
+            <summary>
+            Return all base types of given <paramref name="type"/>.
+            </summary>
+            <exception cref="T:System.ArgumentNullException">When <paramref name="type"/> has null value.</exception>
+        </member>
         <member name="M:CMS.Base.ClassHelper.ClassLoadedInternal(System.String,System.String)">
             <summary>
             Indicates if given class is loaded.
@@ -988,6 +994,11 @@
         <member name="M:CMS.Base.ClassHelper.TypeCanBeCreatedAutomatically(System.Type)">
             <summary>
             Returns <c>true</c> if type is creatable automatically by <see cref="M:System.Activator.CreateInstance(System.Type)"/> method.
+            </summary>
+        </member>
+        <member name="M:CMS.Base.ClassHelper.GetBaseTypesCore(System.Type)">
+            <summary>
+            Return all base types of given <paramref name="type"/>.
             </summary>
         </member>
         <member name="T:CMS.Base.ClassNotLoadedException">

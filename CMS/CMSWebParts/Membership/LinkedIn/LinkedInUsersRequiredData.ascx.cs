@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Text;
 using System.Web;
-using System.Xml;
 
 using CMS.Core;
 using CMS.Activities.Loggers;
@@ -12,6 +11,7 @@ using CMS.DocumentEngine;
 using CMS.Helpers;
 using CMS.Membership;
 using CMS.ExternalAuthentication;
+using CMS.ExternalAuthentication.LinkedIn;
 using CMS.Modules;
 using CMS.PortalEngine.Web.UI;
 using CMS.PortalEngine;
@@ -30,7 +30,7 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
 
     #region "Private variables"
 
-    private LinkedInHelper linkedInHelper;
+    private LinkedInProfile mLinkedInProfile;
     private IMembershipActivityLogger mMembershipActivityLogger;
 
 
@@ -309,18 +309,10 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
                 plcPasswordNew.Visible = AllowFormsAuthentication;
                 pnlExistingUser.Visible = AllowExistingUser;
 
-                // Load LinkedIn data from session
-                linkedInHelper = new LinkedInHelper();
-                string linkedInData = ValidationHelper.GetString(SessionHelper.GetValue(SESSION_NAME_USERDATA), string.Empty);
-                if (!string.IsNullOrEmpty(linkedInData))
-                {
-                    var doc = new XmlDocument();
-                    doc.LoadXml(linkedInData);
-                    linkedInHelper.Initialize(doc);
-                }
+                SetLinkedInProfileFromSession();
 
-                // There is no LinkedIn user ID stored in session - hide all
-                if (string.IsNullOrEmpty(linkedInHelper.MemberId) && HideForNoLinkedInUserID)
+                // There is no LinkedIn profile stored in session - hide all
+                if (mLinkedInProfile == null && HideForNoLinkedInUserID)
                 {
                     Visible = false;
                 }
@@ -342,7 +334,7 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
     /// </summary>
     protected void btnOkExist_Click(object sender, EventArgs e)
     {
-        if (!String.IsNullOrEmpty(linkedInHelper.MemberId))
+        if (!String.IsNullOrEmpty(mLinkedInProfile?.Id))
         {
             if (!String.IsNullOrEmpty(txtUserName.Text))
             {
@@ -355,7 +347,7 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
                 if (ui != null)
                 {
                     // Add LinkedIn profile member id to user
-                    ui.UserSettings.UserLinkedInID = linkedInHelper.MemberId;
+                    ui.UserSettings.UserLinkedInID = mLinkedInProfile.Id;
                     UserInfoProvider.SetUserInfo(ui);
 
                     // Set authentication cookie and redirect to page
@@ -381,7 +373,7 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
     /// </summary>
     protected void btnOkNew_Click(object sender, EventArgs e)
     {
-        if (!String.IsNullOrEmpty(linkedInHelper.MemberId))
+        if (!String.IsNullOrEmpty(mLinkedInProfile?.Id))
         {
             string currentSiteName = SiteContext.CurrentSiteName;
 
@@ -437,7 +429,7 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
                 {
                     // Register new user
                     string error = DisplayMessage;
-                    ui = AuthenticationHelper.AuthenticateLinkedInUser(linkedInHelper.MemberId, linkedInHelper.FirstName, linkedInHelper.LastName, currentSiteName, true, false, ref error);
+                    ui = AuthenticationHelper.AuthenticateLinkedInUser(mLinkedInProfile.Id, mLinkedInProfile.LocalizedFirstName, mLinkedInProfile.LocalizedLastName, currentSiteName, true, false, ref error);
                     DisplayMessage = error;
 
                     if (ui != null)
@@ -446,9 +438,11 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
                         ui.UserName = ui.UserNickName = txtUserNameNew.Text.Trim();
                         ui.Email = txtEmail.Text;
 
-                        if (linkedInHelper.BirthDate != DateTimeHelper.ZERO_TIME)
+                        var birthDate = mLinkedInProfile.BirthDate?.ToDateTime();
+
+                        if (birthDate.HasValue && birthDate.Value != DateTimeHelper.ZERO_TIME)
                         {
-                            ui.UserSettings.UserDateOfBirth = linkedInHelper.BirthDate;
+                            ui.UserSettings.UserDateOfBirth = birthDate.Value;
                         }
 
                         // Set password
@@ -549,20 +543,38 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInUsersRequiredData :
     /// </summary>
     private void LoadData()
     {
-        string userName = linkedInHelper.FirstName;
+        if (mLinkedInProfile == null)
+        {
+            return;
+        }
 
-        if (!String.IsNullOrEmpty(linkedInHelper.LastName))
+        string userName = mLinkedInProfile.LocalizedFirstName;
+
+        if (!String.IsNullOrEmpty(mLinkedInProfile.LocalizedLastName))
         {
             if (String.IsNullOrEmpty(userName))
             {
-                userName = linkedInHelper.LastName;
+                userName = mLinkedInProfile.LocalizedLastName;
             }
             else
             {
-                userName += "_" + linkedInHelper.LastName;
+                userName += "_" + mLinkedInProfile.LocalizedLastName;
             }
         }
         txtUserNameNew.Text = userName;
+    }
+
+
+    private void SetLinkedInProfileFromSession()
+    {
+        var sessionValue = SessionHelper.GetValue(SESSION_NAME_USERDATA);
+        mLinkedInProfile = sessionValue as LinkedInProfile;
+
+        if (sessionValue != null && mLinkedInProfile == null)
+        {
+            // Old format is stored in session, value needs to be cleared.
+            SessionHelper.Remove(SESSION_NAME_USERDATA);
+        }
     }
 
     #endregion

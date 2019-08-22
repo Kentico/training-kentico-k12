@@ -290,7 +290,8 @@ public partial class CMSModules_Content_Controls_TreeContextMenu : CMSContextMen
                 plcNewLink.Visible &= !SiteContext.CurrentSite.SiteIsContentOnly;
 
                 // AB test variant settings
-                if (SettingsKeyInfoProvider.GetBoolValue(SiteContext.CurrentSiteName + ".CMSABTestingEnabled")
+                if (!CurrentSite.SiteIsContentOnly
+                    && SettingsKeyInfoProvider.GetBoolValue(SiteContext.CurrentSiteName + ".CMSABTestingEnabled")
                     && EnableABTestVariant
                     && CurrentUser.IsAuthorizedPerResource("cms.ABTest", "Read")
                     && ModuleEntryManager.IsModuleLoaded(ModuleName.ONLINEMARKETING)

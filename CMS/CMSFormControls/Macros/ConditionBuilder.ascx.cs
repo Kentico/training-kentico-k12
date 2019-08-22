@@ -115,7 +115,7 @@ public partial class CMSFormControls_Macros_ConditionBuilder : FormEngineUserCon
 
 
     /// <summary>
-    /// Gets or sets he maximum width of conditional builder in pixels. 
+    /// Gets or sets he maximum width of conditional builder in pixels.
     /// 0 mean unlimited and default value is 600px.
     /// </summary>
     public int MaxWidth
@@ -182,6 +182,23 @@ public partial class CMSFormControls_Macros_ConditionBuilder : FormEngineUserCon
 
 
     /// <summary>
+    /// Indicates which macro rules will be shown in the listing along with the <see cref="MacroRuleAvailabilityEnum.Both"/>.
+    /// </summary>
+    /// <remarks>Value in each macro rule indicates in which application can the macro rule be evaluated (i.e. the implementation of underlying macros is available).</remarks>
+    public MacroRuleAvailabilityEnum MacroRuleAvailability
+    {
+        get
+        {
+            return (MacroRuleAvailabilityEnum)GetValue("MacroRuleAvailability", (int)MacroRuleAvailabilityEnum.MainApplication);
+        }
+        set
+        {
+            SetValue("MacroRuleAvailability", (int)value);
+        }
+    }
+
+
+    /// <summary>
     /// Gets or sets field value.
     /// </summary>
     public override object Value
@@ -207,8 +224,7 @@ public partial class CMSFormControls_Macros_ConditionBuilder : FormEngineUserCon
         set
         {
             string val = MacroProcessor.RemoveDataMacroBrackets(ValidationHelper.GetString(value, ""));
-            MacroIdentityOption identityOption;
-            val = MacroSecurityProcessor.RemoveMacroSecurityParams(val, out identityOption);
+            val = MacroSecurityProcessor.RemoveMacroSecurityParams(val, out MacroIdentityOption identityOption);
             hdnValue.Value = MacroProcessor.RemoveDataMacroBrackets(val.Trim());
             RefreshText();
         }
@@ -418,8 +434,7 @@ function InsertMacroCondition" + ClientID + @"(text) {
                     MacroExpression xml = MacroExpression.ExtractParameter(hdnValueTrim, "rule", 0);
                     if (xml != null)
                     {
-                        MacroIdentityOption identityOption;
-                        hdnValue.Value = MacroSecurityProcessor.RemoveMacroSecurityParams(ValidationHelper.GetString(xml.Value, ""), out identityOption);
+                        hdnValue.Value = MacroSecurityProcessor.RemoveMacroSecurityParams(ValidationHelper.GetString(xml.Value, ""), out MacroIdentityOption identityOption);
                     }
                 }
             }
@@ -451,11 +466,9 @@ function InsertMacroCondition" + ClientID + @"(text) {
     /// <param name="o">Parameter values</param>
     private object TimeZoneTransformation(object o)
     {
-        if (o is DateTime)
+        if (o is DateTime dt)
         {
-            DateTime dt = (DateTime)o;
-            TimeZoneInfo usedTimeZone;
-            return TimeZoneHelper.GetCurrentTimeZoneDateTimeString(dt, MembershipContext.AuthenticatedUser, SiteContext.CurrentSite, out usedTimeZone);
+            return TimeZoneHelper.GetCurrentTimeZoneDateTimeString(dt, MembershipContext.AuthenticatedUser, SiteContext.CurrentSite, out TimeZoneInfo usedTimeZone);
         }
 
         return o;
@@ -467,7 +480,14 @@ function InsertMacroCondition" + ClientID + @"(text) {
         var controlHash = GetHashCode();
         SessionHelper.SetValue("ConditionBuilderCondition_" + controlHash, EditorValue);
 
-        string dialogUrl = String.Format("{0}?clientid={1}&controlHash={2}&module={3}&ruletype={4}&showglobal={5}", ApplicationUrlHelper.ResolveDialogUrl("~/CMSFormControls/Macros/ConditionBuilder.aspx"), ClientID, controlHash, RuleCategoryNames, DisplayRuleType, ShowGlobalRules ? "1" : "0");
+        string dialogUrl = String.Format("{0}?clientid={1}&controlHash={2}&module={3}&ruletype={4}&showglobal={5}&macroruleavailability={6}",
+            ApplicationUrlHelper.ResolveDialogUrl("~/CMSFormControls/Macros/ConditionBuilder.aspx"),
+            ClientID,
+            controlHash,
+            RuleCategoryNames,
+            DisplayRuleType,
+            ShowGlobalRules ? "1" : "0",
+            (int)MacroRuleAvailability);
         if (!string.IsNullOrEmpty(ResolverName))
         {
             SessionHelper.SetValue("ConditionBuilderResolver_" + controlHash, ResolverName);

@@ -20,9 +20,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Versions : CMSPropert
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        // Set current tab
-        SetPropertyTab(TAB_VERSIONS);
-
         if (Node == null)
         {
             // Hide all if no node is specified

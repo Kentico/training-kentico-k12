@@ -129,8 +129,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Template : CMSPropert
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        SetPropertyTab(TAB_TEMPLATE);
-
         // Setup child controls
         inheritElem.Node = Node;
 

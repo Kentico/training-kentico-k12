@@ -210,6 +210,15 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
     protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkTest;
     
     /// <summary>
+    /// lblTest control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::System.Web.UI.WebControls.Literal lblTest;
+    
+    /// <summary>
     /// lblStatus control.
     /// </summary>
     /// <remarks>

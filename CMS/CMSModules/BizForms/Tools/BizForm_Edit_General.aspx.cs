@@ -28,6 +28,8 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_General : CMSBizForm
     protected void Page_Load(object sender, EventArgs e)
     {
         rfvDisplayName.Text = GetString("BizFormGeneral.rfvDisplayName");
+        lblButtonText.AssociatedControlClientID = txtButtonText.TextBox.ClientID;
+
         bfi = EditedObject as BizFormInfo;
 
         if ((!RequestHelper.IsPostBack()) && (bfi != null))
@@ -98,7 +100,6 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_General : CMSBizForm
         if (bfi.FormDevelopmentModel == (int)FormDevelopmentModelEnum.Mvc)
         {
             radContinue.Visible = false;
-            pnlSubmitButtonImage.Visible = false;
         }
     }
 

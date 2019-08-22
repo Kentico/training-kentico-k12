@@ -30,12 +30,10 @@
             Unfinished AB test means that <see cref="P:CMS.OnlineMarketing.ABTestInfo.ABTestOpenTo"/> is empty or greater than <see cref="P:System.DateTime.Now"/>.
             </summary>
         </member>
-        <member name="M:CMS.OnlineMarketing.Web.UI.ABDocumentMarker.GetAliasPathsForUnfinishedTests(System.String,System.String)">
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABDocumentMarker.GetAliasPathsForUnfinishedTests">
             <summary>
             Returns alias paths of documents included in unfinished tests.
             </summary>
-            <param name="siteName">Site name</param>
-            <param name="culture">Culture</param>
         </member>
         <member name="T:CMS.OnlineMarketing.Web.UI.ABTestMessagesWriter">
             <summary>
@@ -87,6 +85,545 @@
             <param name="abTest">AB test</param>
             <exception cref="T:System.ArgumentNullException"><paramref name="abTest"/> is null</exception>
         </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABTestTempPageBuilderWidgetsPropagator">
+            <summary>
+            Propagates widgets and template configuration from temporary data to page data or A/B test variant data.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestTempPageBuilderWidgetsPropagator.#ctor(CMS.DocumentEngine.PageBuilder.ITempPageBuilderWidgetsPropagator,CMS.OnlineMarketing.IABTestManager,CMS.OnlineMarketing.Web.UI.IABTestVariantIdentifierProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.OnlineMarketing.Web.UI.ABTestTempPageBuilderWidgetsPropagator"/> class.
+            </summary>
+            <param name="tempPageBuilderWidgetsPropagator">Previously registered <see cref="T:CMS.DocumentEngine.PageBuilder.ITempPageBuilderWidgetsPropagator"/> implementation instance.</param>
+            <param name="abTestManager">AB test manager service.</param>
+            <param name="abTestVariantIdentifierProvider">Provides A/B test variant identifier.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestTempPageBuilderWidgetsPropagator.Propagate(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Propagates widgets and template configuration from temporary data to a page data or A/B test variant data
+            based on the variant GUID obtained from a persistent store.
+            </summary>
+            <param name="instanceGuid">Instance GUID of editing.</param>
+            <param name="page">Page to propagate data into.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+            <seealso cref="T:CMS.OnlineMarketing.Web.UI.ABTestVariantIdentifierProvider"/>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper">
+            <summary>
+            Helps with the A/B test variants in the Pages application UI.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.SetPersistentVariantIdentifier(System.Int32,System.Guid)">
+            <summary>
+            Persists identifier of the A/B variant to be displayed in Pages UI for given node.
+            </summary>
+            <param name="pageId">Identifies page for which to persist A/B variant.</param>
+            <param name="targetVariant">A/B variant identifier that should be persisted for the usage in the UI for given <paramref name="pageId"/>.</param>
+            <seealso cref="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.GetPersistentVariantIdentifier(System.Int32)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.GetPersistentVariantIdentifier(System.Int32)">
+            <summary>
+            Gets identifier of the A/B variant (original is considered to be an A/B variant as well) persisted for usage in the UI for given node.
+            If null then no variant was persisted for the given node.
+            </summary>
+            <param name="pageId">Identifies page for which to retrieve A/B variant.</param>
+            <seealso cref="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.SetPersistentVariantIdentifier(System.Int32,System.Guid)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.RemovePersistentVariantIdentifier(System.Int32)">
+            <summary>
+            Removes persisted variant identifier for given <paramref name="pageId"/>.
+            </summary>
+            <seealso cref="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.SetPersistentVariantIdentifier(System.Int32,System.Guid)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.SetPersistentVariantIdentifierInternal(System.Int32,System.Guid)">
+            <summary>
+            Persists identifier of the A/B variant to be displayed in Pages UI for given node.
+            </summary>
+            <param name="pageId">Identifies page for which to persist A/B variant.</param>
+            <param name="targetVariant">A/B variant identifier that should be persisted for the usage in the UI for given <paramref name="pageId"/>.</param>
+            <seealso cref="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.GetPersistentVariantIdentifierInternal(System.Int32)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.GetPersistentVariantIdentifierInternal(System.Int32)">
+            <summary>
+            Gets identifier of the A/B variant (original is considered to be an A/B variant as well) persisted for usage in the UI for given node.
+            If null then no variant was persisted for the given node.
+            </summary>
+            <param name="pageId">Identifies page for which to retrieve A/B variant.</param>
+            <seealso cref="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.SetPersistentVariantIdentifierInternal(System.Int32,System.Guid)"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.RemovePersistentVariantIdentifierInternal(System.Int32)">
+            <summary>
+            Removes persisted variant identifier for given <paramref name="pageId"/>.
+            </summary>
+            <seealso cref="M:CMS.OnlineMarketing.Web.UI.ABTestUIVariantHelper.SetPersistentVariantIdentifier(System.Int32,System.Guid)"/>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABTestVariantIdentifierProvider">
+            <summary>
+            Provides A/B test variant identifier.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ABTestVariantIdentifierProvider.VARIANT_IDENTIFIER_FORM_FIELD_NAME">
+            <summary>
+            Defines the name of the Form's field persisting an identifier of the A/B variant to be saved.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestVariantIdentifierProvider.#ctor(CMS.Base.IHttpContextAccessor)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.OnlineMarketing.Web.UI.ABTestVariantIdentifierProvider" />.
+            </summary>
+            <param name="httpContextAccessor">Encapsulates the access to <see cref="T:CMS.Base.IHttpContext"/> instance.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestVariantIdentifierProvider.GetVariantIdentifier">
+            <summary>
+            Returns a variant identifer for which the Page builder's configuration is to be saved.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ContentOnlySiteABDocumentMarker">
+            <summary>
+            Class used to mark documents on <see cref="F:CMS.DocumentEngine.DocumentEvents.GetDocumentMark"/> event. Generates HTML of images that are to be added to
+            <see cref="P:CMS.DocumentEngine.DocumentMarkEventArgs.MarkContent"/> event arguments property.
+            </summary>
+            <remarks>
+            Implementation is designed for content only sites.
+            </remarks>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ContentOnlySiteABDocumentMarker.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.Web.UI.ContentOnlySiteABDocumentMarker"/>.
+            </summary>
+            <param name="path">Path (<see cref="P:CMS.DocumentEngine.TreeNode.NodeAliasPath"/>) of a document</param>
+            <param name="siteName">Name of the site that the document is on</param>
+            <param name="culture">Culture of the document</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ContentOnlySiteABDocumentMarker.#ctor(System.String,System.String,System.String,CMS.Core.Internal.IDateTimeNowService,CMS.Core.ILocalizationService)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.Web.UI.ContentOnlySiteABDocumentMarker"/>.
+            </summary>
+            <param name="path">Path (<see cref="P:CMS.DocumentEngine.TreeNode.NodeAliasPath"/>) of a document</param>
+            <param name="siteName">Name of the site that the document is on</param>
+            <param name="culture">Culture of the document</param>
+            <param name="dateTimeService">Instance of <see cref="T:CMS.Core.Internal.IDateTimeNowService"/></param>
+            <param name="localizationService">Instance of <see cref="T:CMS.Core.ILocalizationService"/></param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ContentOnlySiteABDocumentMarker.GetIcons">
+            <summary>
+            Returns HTML code of all A/B icons to mark the document specified in constructor.
+            </summary>
+            <returns>HTML of all icons marking the specified document</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABTestVariantListing">
+            <summary>
+            Class representing a web component used to display and edit A/B tests variants.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.ListItems">
+            <summary>
+            List of items to be rendered in the list.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.SelectedItemIdentifier">
+            <summary>
+            Gets or sets identifier of an item that should be selected in the listing.
+            </summary>
+            <seealso cref="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListItem.Key"/>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.SelectItemCallback">
+            <summary>
+            Gets or sets the Javascript function to be called when an item is selected. 
+            The function receives an object as a parameter containing data related to the selected item.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.EditItemCallback">
+            <summary>
+            Gets or sets the Javascript function to be called when an item is edited. 
+            The function receives an object as a parameter containing data related to the edited item.
+            </summary>
+            <remarks>
+            Name of a function with given signature: 'function(editedItem, newName)' is expected here.
+            </remarks>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.RemoveItemCallback">
+            <summary>
+            Gets or sets the Javascript function to be called when an item is removed. 
+            The function receives an object as a parameter containing data related to the removed item.
+            </summary>
+            <remarks>
+            Name of a function with given signature: 'function(itemToRemove)' is expected here.
+            </remarks>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.MaximumNameLength">
+            <summary>
+            Maximum length of the variant name.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.EditActionIconTitle">
+            <summary>
+            Gets or sets the title of the edit action icon.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.RemoveActionIconTitle">
+            <summary>
+            Gets or sets the title of the remove action icon.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.ActionDisabledTitle">
+            <summary>
+            Gets or sets the title displayed on disabled actions.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.RemoveConfirmationMessage">
+            <summary>
+            Gets or sets the remove action confirmation message.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.OnlineMarketing.Web.UI.ABTestVariantListing"/> class.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.SubmitButton">
+            <summary>
+            Encapsulates Kentico submit button web component.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.SubmitButton.PRIMARY_BUTTON_CLASS_STYLE">
+            <summary>
+            Css class indicating green primary button.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.SubmitButton.DEFAULT_BUTTON_CLASS_STYLE">
+            <summary>
+            Css class indicating grey default button.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.SubmitButton.Text">
+            <summary>
+            Gets or set button text.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.SubmitButton.Tooltip">
+            <summary>
+            Gets or sets the text displayed on mouseover.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.SubmitButton.Identifier">
+            <summary>
+            Gets or sets button guid identifier.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.SubmitButton.IsPrimaryButton">
+            <summary>
+            Gets or sets a value which indicates whether button is primary. Otherewise is default.
+            </summary>
+            <remarks>Primary button represents green button and default represents grey button.</remarks>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.SubmitButton.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.Web.UI.SubmitButton"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABTestVariantListItem">
+            <summary>
+            Class represents an item in <see cref="T:CMS.OnlineMarketing.Web.UI.PopUpWindow"/>'s list.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListItem.Name">
+            <summary>
+            Display name of the item.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListItem.Key">
+            <summary>
+            Unique key of the item.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListItem.EditActionState">
+            <summary>
+            Indicates the state of the edit action for this item.
+            </summary>
+            <remarks>
+            In order for edit to work, Javascript function has to be set in <see cref="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.EditItemCallback"/> property.
+            </remarks>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListItem.RemoveActionState">
+            <summary>
+            Indicates the state of the remove action for this item.
+            </summary>
+            <remarks>
+            In order for remove to work, Javascript function has to be set in <see cref="P:CMS.OnlineMarketing.Web.UI.ABTestVariantListing.RemoveItemCallback"/> property.
+            </remarks>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.PopUpWindow">
+            <summary>
+            This class represents popup window with item listing and actions in footer.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.HeaderText">
+            <summary>
+            Gets or sets the header text of the popup window.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.ContentHeaderText">
+            <summary>
+            Gets or sets the content header text.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.ContentControl">
+            <summary>
+            Control to be rendered in the middle part of the window.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.FooterControls">
+            <summary>
+            Controls to be rendered in the footer of the window.
+            If left empty footer is omitted.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.Position">
+            <summary>
+            Gets or sets position of the window. 
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.DisplayTriangle">
+            <summary>
+            If true then a triangle is rendered to show trigger point of the window.
+            Position of the triangle is affected by <see cref="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.Position"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.ColorTheme">
+            <summary>
+            Gets or sets the color theme of the dialog.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.PopUpWindow.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:CMS.OnlineMarketing.Web.UI.PopUpWindow"/>.
+            </summary>
+            <remarks>
+            To use click-away and closing functionality of the window you may use 'CMS.OnlineMarketing/PopUpWindow' helper module.
+            </remarks>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABVariantSelector">
+            <summary>
+            A multi button that allows creating new A/B variants and switching between them.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.DocumentManager">
+            <summary>
+            Manager responsible for saving current page.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CurrentABTest">
+            <summary>
+            A/B test for current page.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CurrentVariant">
+            <summary>
+            Gets the variant for currently edited page.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CanCurrentABTestBeModified">
+            <summary>
+            Returns true if <see cref="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CurrentABTest"/> is modifiable without affecting results.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.ABTestVariants">
+            <summary>
+            Contains A/B test variants for current node in order in which they are to be displayed.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.UserHasReadPermission">
+            <summary>
+            Indicates whether user has 'Read' permission for A/B test module.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.UserHasPermissions">
+            <summary>
+            Indicates whether user has 'Manage' permission for A/B test module and 'Modify' for Content module.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.IsCurrentUserAuthorized">
+            <summary>
+            Indicates whether user is authorized to interact with the selector.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.#ctor(System.Boolean)">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.OnlineMarketing.Web.UI.ABVariantSelector"/> for the current page.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">If it is not possible to recognize the currently edited page.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.ShowPromoteWinnerInfoMessage">
+            <summary>
+            Shows info message to prompt the user to select the winning A/B variant after the A/B test has finished.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.AddHiddenFieldToStoreCurrentVariant">
+            <summary>
+            Creates and adds hidden field to a page to persist variant identifier to be used for saving Page builder's configuration.
+            </summary>
+            <seealso cref="M:CMS.OnlineMarketing.Web.UI.IABTestVariantIdentifierProvider.GetVariantIdentifier"/>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.GetOrderedVariants">
+            <summary>
+            Orders variants so that the original variant is the last in the list all the other variants are ordered alphabetically.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.RaiseCallbackEvent(System.String)">
+            <summary>
+            Handles a callback event from the client.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.GetCallbackResult">
+            <summary>
+            Returns a result to the client after processing the client's callback.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VerifyPermissions">
+            <summary>
+            Verifies that current user has 'Manage' permission for A/B test module and 'Modify' permission for Content module.
+            Throws <see cref="T:CMS.DataEngine.PermissionCheckException"/> if user lacks the permissions.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.SaveDocument">
+            <summary>
+            Saves the edited document.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">Thrown when document cannot be saved.</exception>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.LoadABTestVariants">
+            <summary>
+            Loads existing A/B test variants into class property.
+            Should be called only once in page lifecycle from <see cref="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.OnInit(System.EventArgs)"/> method.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VerifyCanModifyABTest">
+            <summary>
+            Verifies that current AB test is currently in a state when it can be modified.
+            Throws <see cref="T:System.InvalidOperationException"/> if test is in a state when it can't be modified.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CallbackResult.SuccessMessage">
+            <summary>
+            Success message to be displayed after successfully processing the callback action.
+            Keep null or empty not to display any success message.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CallbackResult.NodeId">
+            <summary>
+            Gets or sets id of the node which should be selected after refreshing all the iframes in the Pages application.
+            If equals to zero then no refresh is performed.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CallbackParameters.ActionName">
+            <summary>
+            Name of the action that should be raised when callback is received.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CallbackParameters.VariantIdentifier">
+            <summary>
+            Success message to be displayed after successfuly processing the callback action.
+            Keep null or empty to not display any success message.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.CallbackParameters.Name">
+            <summary>
+            Returns new variant name.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VariantsCollection.Original">
+            <summary>
+            Gets the variant representing original page.
+            Returns null if no variants are defined for current page.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VariantsCollection.Count">
+            <summary>
+            Gets the number of variants.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VariantsCollection.#ctor(System.Collections.Generic.IEnumerable{CMS.OnlineMarketing.IABTestVariant})">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VariantsCollection"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VariantsCollection.GetVariant(System.Nullable{System.Guid})">
+            <summary>
+            Returns a variant for given <paramref name="key"/>.
+            If <paramref name="key"/> not found then return null.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.VariantsCollection.AddRange(System.Collections.Generic.IEnumerable{CMS.OnlineMarketing.IABTestVariant})">
+            <summary>
+            Adds variants to the collection.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABVariantSelector.TempData">
+            <summary>
+            A temporary data storage to store data required in a subsequent request.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.TempData.StoreMessage(System.Int32,System.String)">
+            <summary>
+            Stores a message to be displayed in a subsequent request.
+            </summary>
+            <param name="pageId">Identifier for the page in which the message is to be displayed.</param>
+            <param name="message">The message to be displayed.</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABVariantSelector.TempData.GetMessage(System.Int32)">
+            <summary>
+            Gets a stored message for given <paramref name="pageId"/>.
+            </summary>
+            <param name="pageId">Identifier for the page in which the message is to be displayed.</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ABTestVariantListItemActionState">
+            <summary>
+            Represents possible states of a variant list item action.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.PopUpWindowPosition">
+            <summary>
+            Enumeration representing possible position values of <see cref="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.Position"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.PopUpWindowColorTheme">
+            <summary>
+            Enumeration representing possible theme values of <see cref="P:CMS.OnlineMarketing.Web.UI.PopUpWindow.ColorTheme"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.EditMenuABVariantSelectorExtender">
+            <summary>
+            Adds an A/B variant selector combo button the edit menu of the Content module on MVC sites.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.EditMenuABVariantSelectorExtender.Initialize(CMS.Base.Web.UI.IExtensibleEditMenu)">
+            <summary>
+            Adds an A/B variant selector combo button the edit menu of the Content module on MVC sites.
+            </summary>
+            <param name="instance">The menu to add the A/B variant selector to.</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.IABDocumentMarker">
+            <summary>
+            Describes implementation marking document node in pages application by additional HTML code.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.IABDocumentMarker.GetIcons">
+            <summary>
+            Returns HTML code of all A/B icons to mark the document specified in constructor.
+            </summary>
+            <returns>HTML of all icons marking the specified document</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.IABTestVariantIdentifierProvider">
+            <summary>
+            Provides A/B test variant identifier.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.IABTestVariantIdentifierProvider.GetVariantIdentifier">
+            <summary>
+            Returns a variant identifer for which the Page builder's configuration is to be saved.
+            </summary>
+        </member>
         <member name="T:CMS.OnlineMarketing.Web.UI.AbTestLiveTileModelProvider">
             <summary>
             Provides live tile model for the AB test dashboard tile.
@@ -106,6 +643,49 @@
             </summary>
             <param name="site">Tests site</param>
             <returns>Number of tests</returns>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.Internal.PageBuilderConfigurationSourceABTestVariantLoader">
+            <summary>
+            Loads Page builder configuration from page data.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.Internal.PageBuilderConfigurationSourceABTestVariantLoader.#ctor(CMS.DocumentEngine.PageBuilder.Internal.IPageBuilderConfigurationSourceLoader,CMS.OnlineMarketing.IABTestManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.OnlineMarketing.Web.UI.Internal.PageBuilderConfigurationSourceABTestVariantLoader"/> class with given <paramref name="pageBuilderConfigurationLoader"/> and <paramref name="abTestManager"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.Internal.PageBuilderConfigurationSourceABTestVariantLoader.Load(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Loads Page builder configuration for a page.
+            </summary>
+            <param name="page">Page from which the configuration will be loaded.</param>
+            <returns>Returns the configuration source.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.Internal.ABTestingUrlInput">
+            <summary>
+            Url input for selecting page url in A/B testing application.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.Internal.ABTestingUrlInput.Value">
+            <summary>
+            Value representing the control.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.Internal.ABTestingUrlInput.ValueDisplayName">
+            <summary>
+            Gets the display name of the value item.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.Internal.ABTestingUrlInput.OnInit(System.EventArgs)">
+            <summary>
+            OnInit event.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.Internal.ABTestingUrlInput.IsValid">
+            <summary>
+            Returns true if entered data is valid. If data is invalid, it returns false and displays an error message.
+            </summary>
         </member>
         <member name="T:CMS.OnlineMarketing.Web.UI.ABConversionRateIntervalVisualizer">
             <summary>
@@ -349,6 +929,76 @@
             <param name="variantConversions">Number of conversions</param>
             <param name="variantVisits">Number of visits</param>
         </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.ConversionDesigner">
+            <summary>
+            Control provides management of A/B Test conversion configurations.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ConversionDesigner.EDITED_INDEX_NONE">
+            <summary>
+            Indicates that there is no conversion edited.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.ConversionDesigner.EDITED_INDEX_ADD">
+            <summary>
+            Indicates that new conversion is edited.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.ConversionDesigner.Value">
+            <summary>
+            Gets or sets list with conversion settings.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.OnInit(System.EventArgs)">
+            <summary>
+            Init event handler.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.OnLoad(System.EventArgs)">
+            <summary>
+            Load event handler.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.OnPreRender(System.EventArgs)">
+            <summary>
+            Pre-render event handler.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.LoadViewState(System.Object)">
+            <summary>
+            Customized LoadViewState.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.SaveViewState">
+            <summary>
+            Customized SaveViewState.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.CreateEditPanel">
+            <summary>
+            Composes panel for conversion editing.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.RemoveConversion(System.Int32)">
+            <summary>
+            Removes conversion at specified index.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.GenerateConversions">
+            <summary>
+            Generates conversion controls by the list.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.AddEditPanel">
+            <summary>
+            Adds dialog for conversion editing.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ConversionDesigner.CreateConversion(CMS.OnlineMarketing.ABTestConversion,System.Int32)">
+            <summary>
+            Creates default view for given conversion and adds it to the main panel.
+            </summary>
+        </member>
         <member name="T:CMS.OnlineMarketing.Web.UI.MagnificPopupYouTubeJavaScriptRegistrator">
             <summary>
             Class for registering video link elements that show YouTube video in Magnific Popup lightbox.
@@ -438,6 +1088,11 @@
             </summary>
             <param name="abTest">AB test</param>
             <returns>Returns null if variant is not found or is not active.</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.ABHandlers.OnPreviewLinkGeneration_Execute(System.Object,CMS.DocumentEngine.Internal.GeneratePreviewLinkEventArgs)">
+            <summary>
+            Adds query string parameter to the preview link being generated.
+            </summary>
         </member>
         <member name="T:CMS.OnlineMarketing.Web.UI.MVTHandlers">
             <summary>
@@ -533,6 +1188,199 @@
             </summary>
             <param name="context">Evaluation context with child resolver</param>
             <param name="parameters">Method parameters</param>
+        </member>
+        <member name="T:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage">
+            <summary>
+            Base class for overview UI pages of AB test.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.mABTest">
+            <summary>
+            Current AB test.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.mTestStatus">
+            <summary>
+            Gets status of the current test.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.mVariantPerformanceCalculator">
+            <summary>
+            AB Variant performance calculator.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.mMinConversionRateLowerBound">
+            <summary>
+            The minimum lower bound of the conversion rate intervals for the test.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.mConversionRateRange">
+            <summary>
+            The difference between the minimum lower bound and the maximum upper bound values for the test.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.mMessagesWriter">
+            <summary>
+            Class that writes info messages into the page.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.mIsUserAuthorizedToManageTest">
+            <summary>
+            Indicates whether the user is authorized to manage the test.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.MAX_LINK_LENGTH">
+            <summary>
+            Max length of a link that is in the upper right box - long links can break that table.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.WINNING_VARIANT_MIN_CONVERSIONS">
+            <summary>
+            Minimum of conversions to mark a variant as winning.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.WINNING_VARIANT_MIN_CHANCETOBEAT">
+            <summary>
+            Minimum chance to beat to mark a variant as winning.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.SHOW_FILTERS_TEXT">
+            <summary>
+            Resource string of the show advanced filters text.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.HIDE_FILTERS_TEXT">
+            <summary>
+            Resource string of the hide advanced filters text.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.METRIC_CONVERSIONS_OVER_VISITS">
+            <summary>
+            Code name of the conversions over visits metric.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.METRIC_CHANCE_TO_BEAT_ORIGINAL">
+            <summary>
+            Code name of the chance to beat original metric.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.METRIC_CONVERSION_RATE">
+            <summary>
+            Code name of the conversion rate metric.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.METRIC_CONVERSION_VALUE">
+            <summary>
+            Code name of the conversion value metric.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.METRIC_AVG_CONVERSION_VALUE">
+            <summary>
+            Code name of the average conversion value metric.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.METRIC_CONVERSION_COUNT">
+            <summary>
+            Code name of the conversion count metric.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.SamplingActions">
+            <summary>
+            Names of sampling selector actions.
+            </summary>
+        </member>
+        <member name="F:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.DataFormatActions">
+            <summary>
+            Names of data format selector actions.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.ABTest">
+            <summary>
+            Gets current AB test.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.TestStatus">
+            <summary>
+            Gets status of the current test.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.MessagesWriter">
+            <summary>
+            Gets class that writes info messages into the page.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.SelectorsCookieKey">
+            <summary>
+            Gets key of the cookie saving important selectors' state.
+            </summary>
+        </member>
+        <member name="P:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.IsUserAuthorizedToManageTest">
+            <summary>
+            Indicates whether the user is authorized to finish the test.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.AddCSSToParentControl(System.Web.UI.Control,System.String)">
+            <summary>
+            Sets CSS class of a parent of given control.
+            </summary>
+            <param name="control">Child control that has a parent that's being changed</param>
+            <param name="cssClass">CSS class to change parent to</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.GetConversionCondition(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Returns where condition which specifies selected conversion.
+            </summary>
+            <param name="conversion">CSS class to change parent to</param>
+            <param name="testConversions">All names of conversions assigned to the AB test</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.GetFinishDate">
+            <summary>
+            Gets finish date of the AB test or current date if the date is empty.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.DataAvailable(System.Collections.Generic.IEnumerable{CMS.OnlineMarketing.ABVariantStatisticsData},System.String)">
+            <summary>
+            Checks whether there is test data for filters specified by the user.
+            </summary>
+            <param name="statisticsData">Statistics data</param>
+            <param name="successMetric">Success metric</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.ShortenUrl(System.String,System.Int32)">
+            <summary>
+            Shortens URL, adds dots and rounds URL length to the nearest slash occurrence.
+            </summary>
+            <returns>Unchanged URL, if <paramref name="maxLength"/> doesn't exceed length of <paramref name="url"/> or shortened URL in format '../something/something'</returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.GetPercentageImprovementPanel(System.Double)">
+            <summary>
+            Returns panel with information about improvement.
+            </summary>
+            <param name="improvement">Improvement</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.GetHits(System.String,System.String,System.String,System.String)">
+            <summary>
+            Returns hits for specified codename.
+            </summary>
+            <param name="codename">Statistics codename</param>
+            <param name="columns">Selected columns</param>
+            <param name="culture">Culture</param>
+            <param name="where">Additional where condition</param>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.InitGraphColumns">
+            <summary>
+            Creates a DataTable object with predefined columns.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.InitSamplingButtons(CMS.Base.Web.UI.CMSButtonGroup)">
+            <summary>
+            Initializes sampling button group in radio button panel.
+            </summary>
+        </member>
+        <member name="M:CMS.OnlineMarketing.Web.UI.CMSABTestOverviewPage.InitGraphDataButtons(CMS.Base.Web.UI.CMSButtonGroup)">
+            <summary>
+            Initializes graph data button group in radio button panel.
+            </summary>
         </member>
         <member name="T:CMS.OnlineMarketing.Web.UI.CMSABTestPage">
             <summary>

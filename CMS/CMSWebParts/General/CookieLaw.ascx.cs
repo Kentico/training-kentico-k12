@@ -573,6 +573,13 @@ public partial class CMSWebParts_General_CookieLaw : CMSAbstractWebPart
                     RevokeConsent(originalContact);
                 }
             }
+
+            if (!UseUpdatePanel)
+            {
+                // Make a full client-side reload after the cookie level is changed.
+                // Campaigns feature needs to have the visitor cookie level set at the beginning of a request in order to log campaign statistics.
+                URLHelper.Redirect(RequestContext.RawURL);
+            }
         }
     }
 

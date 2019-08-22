@@ -37,6 +37,7 @@ public partial class CMSFormControls_Macros_ConditionBuilderDialog : DesignerPag
         designerElem.RuleCategoryNames = QueryHelper.GetString("module", "");
         designerElem.DisplayRuleType = QueryHelper.GetInteger("ruletype", 0);
         designerElem.ShowGlobalRules = QueryHelper.GetBoolean("showglobal", true);
+        designerElem.MacroRuleAvailability = (MacroRuleAvailabilityEnum)QueryHelper.GetInteger("macroruleavailability", 0);
 
         // Set correct resolver to the control
         string resolverName = ValidationHelper.GetString(SessionHelper.GetValue("ConditionBuilderResolver_" + controlHash), "");

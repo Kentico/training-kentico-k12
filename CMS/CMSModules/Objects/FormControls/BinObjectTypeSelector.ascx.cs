@@ -11,14 +11,6 @@ using CMS.Synchronization;
 
 public partial class CMSModules_Objects_FormControls_BinObjectTypeSelector : FormEngineUserControl
 {
-    #region "Variables"
-
-    private bool mShowAll = true;
-    private string mObjectType = null;
-
-    #endregion
-
-
     #region "Properties"
 
     /// <summary>
@@ -36,25 +28,9 @@ public partial class CMSModules_Objects_FormControls_BinObjectTypeSelector : For
     /// </summary>
     public bool ShowAll
     {
-        get
-        {
-            return mShowAll;
-        }
-        set
-        {
-            mShowAll = value;
-        }
-    }
-
-
-    /// <summary>
-    /// Ensure creating child controls.
-    /// </summary>
-    protected override void CreateChildControls()
-    {
-        base.CreateChildControls();
-        Reload(false);
-    }
+        get;
+        set;
+    } = true;
 
 
     /// <summary>
@@ -97,31 +73,17 @@ public partial class CMSModules_Objects_FormControls_BinObjectTypeSelector : For
         }
         set
         {
-            mObjectType = ValidationHelper.GetString(value, "");
+            var objType = ValidationHelper.GetString(value, "");
+            
             Reload(false);
+
+            drpObjectTypes.ClearSelection();
+            var selectedItem = drpObjectTypes.Items.FindByValue(objType);
+            if (selectedItem != null)
+            {
+                selectedItem.Selected = true;
+            }
         }
-    }
-
-
-    public string SelectedValue
-    {
-        get
-        {
-            return ValidationHelper.GetString(ViewState["SelectedValue"], null);
-        }
-        set
-        {
-            ViewState["SelectedValue"] = value;
-        }
-    }
-
-
-    /// <summary>
-    /// Returns true if user control is valid.
-    /// </summary>
-    public override bool IsValid()
-    {
-        return true;
     }
 
 
@@ -152,6 +114,30 @@ public partial class CMSModules_Objects_FormControls_BinObjectTypeSelector : For
     #region "Control methods"
 
     /// <summary>
+    /// Ensure creating child controls.
+    /// </summary>
+    protected override void CreateChildControls()
+    {
+        base.CreateChildControls();
+
+        Reload(false);
+    }
+
+
+    /// <summary>
+    /// Reload DDL content.
+    /// </summary>
+    /// <param name="force">Indicates if DDL reload should be forced</param>
+    public void Reload(bool force)
+    {
+        if ((drpObjectTypes.Items.Count == 0) || force)
+        {
+            ReloadData();
+        }
+    }
+
+
+    /// <summary>
     /// Loads drop down list with data.
     /// </summary>
     private void ReloadData()
@@ -175,55 +161,15 @@ public partial class CMSModules_Objects_FormControls_BinObjectTypeSelector : For
                 if (!String.IsNullOrEmpty(objType))
                 {
                     // Sort object types by translated display names
-                    sdObjectTypes.Add(GetString("ObjectType." + objType.Replace(".", "_")), objType);
+                    sdObjectTypes.Add(objType, GetString("ObjectType." + objType.Replace(".", "_")));
                 }
             }
 
             foreach (string key in sdObjectTypes.Keys)
             {
-                drpObjectTypes.Items.Add(new ListItem(key, sdObjectTypes[key]));
+                drpObjectTypes.Items.Add(new ListItem(sdObjectTypes[key], key));
             }
         }
-
-        // Preselect value
-        if (!String.IsNullOrEmpty(SelectedValue))
-        {
-            mObjectType = SelectedValue;
-        }
-        ListItem selectedItem = drpObjectTypes.Items.FindByValue(mObjectType);
-        if (selectedItem != null)
-        {
-            drpObjectTypes.ClearSelection();
-            selectedItem.Selected = true;
-        }
-        else
-        {
-            drpObjectTypes.SelectedIndex = 0;
-            SelectedValue = null;
-        }
-    }
-
-
-    /// <summary>
-    /// Reload DDL content.
-    /// </summary>
-    /// <param name="force">Indicates if DDL reload should be forced</param>
-    public void Reload(bool force)
-    {
-        drpObjectTypes.SelectedIndexChanged += new EventHandler(drpObjectTypes_SelectedIndexChanged);
-        if ((drpObjectTypes.Items.Count == 0) || force)
-        {
-            ReloadData();
-        }
-    }
-
-
-    /// <summary>
-    /// DLL selected index changed event
-    /// </summary>
-    protected void drpObjectTypes_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        SelectedValue = drpObjectTypes.SelectedValue;
     }
 
     #endregion

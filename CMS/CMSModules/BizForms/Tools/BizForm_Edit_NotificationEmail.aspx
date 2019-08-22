@@ -42,7 +42,7 @@
                 <cms:CMSTextBox ID="txtSubject" runat="server" MaxLength="250" />
             </div>
         </div>
-        <asp:Panel ID="pnlAttachDocs" runat="server" CssClass="form-group">
+        <div class="form-group">
             <div class="editing-form-label-cell">
                 <cms:LocalizedLabel CssClass="control-label" ID="lblAttachDocs" runat="server" EnableViewState="False" ResourceString="BizForm_Edit_NotificationEmail.AttachUploadedDocs" ToolTipResourceString="bizformgeneral.notification.attachdocumentdesc"
                     DisplayColon="true" AssociatedControlID="chkAttachDocs" />
@@ -50,7 +50,7 @@
             <div class="editing-form-value-cell">
                 <cms:CMSCheckBox ID="chkAttachDocs" runat="server" AutoPostBack="false" />
             </div>
-        </asp:Panel>
+        </div>
         <div class="form-group">
             <cms:CMSCheckBox ID="chkCustomLayout" runat="server" AutoPostBack="true" OnCheckedChanged="chkCustomLayout_CheckedChanged" />
         </div>

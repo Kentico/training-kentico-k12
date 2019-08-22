@@ -395,6 +395,7 @@ public partial class CMSModules_Newsletters_Controls_MySubscriptions : CMSAdminC
                     {
                         SendConfirmationEmail = SendConfirmationEmail,
                         AllowOptIn = true,
+                        RemoveUnsubscriptionFromNewsletter = true,
                         RemoveAlsoUnsubscriptionFromAllNewsletters = true,
                     });
                 }

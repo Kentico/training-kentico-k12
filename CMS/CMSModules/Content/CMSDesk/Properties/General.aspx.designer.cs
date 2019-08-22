@@ -462,15 +462,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_General {
     protected global::CMS.Base.Web.UI.CMSUpdatePanel pnlUpdatePreviewUrl;
     
     /// <summary>
-    /// lblNoPreviewGuid control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::CMS.Base.Web.UI.LocalizedLabel lblNoPreviewGuid;
-    
-    /// <summary>
     /// lnkPreviewURL control.
     /// </summary>
     /// <remarks>

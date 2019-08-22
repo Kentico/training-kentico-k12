@@ -665,6 +665,31 @@
             <param name="removePrefix">If true, the prefix defined in <see cref="T:CMS.FormEngine.UniqueMemberNameGenerator" /> is removed.</param>
             <returns>A unique member name for the specified field.</returns>
         </member>
+        <member name="T:CMS.FormEngine.DataTypeIntegrityValidationResultType">
+            <summary>
+            DataType integrity validation result types
+            </summary>
+        </member>
+        <member name="F:CMS.FormEngine.DataTypeIntegrityValidationResultType.NoError">
+            <summary>
+            Validation passed
+            </summary>
+        </member>
+        <member name="F:CMS.FormEngine.DataTypeIntegrityValidationResultType.TypeError">
+            <summary>
+            Input value cannot be converted to required type
+            </summary>
+        </member>
+        <member name="F:CMS.FormEngine.DataTypeIntegrityValidationResultType.MaxLengthError">
+            <summary>
+            String length exceeds database allowed storage size
+            </summary>
+        </member>
+        <member name="F:CMS.FormEngine.DataTypeIntegrityValidationResultType.PrecisionError">
+            <summary>
+            Decimal precision is not valid
+            </summary>
+        </member>
         <member name="T:CMS.FormEngine.FormLayoutTypeEnum">
             <summary>
             Enum for form layout type.
@@ -794,6 +819,17 @@
             </summary>
             <returns>Error message if the value doesn't match field's data type; otherwise null.</returns>
         </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetValidationResult">
+            <summary>
+            Checks if value matches field's data type.
+            </summary>
+            <returns><see cref="T:CMS.FormEngine.DataTypeIntegrityValidationResult"/> object with error message set.</returns>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetDataTypeErrorMessage(System.String)">
+            <summary>
+            Gets error message for data type.
+            </summary>
+        </member>
         <member name="M:CMS.FormEngine.DataTypeIntegrity.GetIntErrorMessage">
             <summary>
             Gets error message for integer type.
@@ -813,11 +849,22 @@
             <summary>
             Checks if length of text is not exceeded.
             </summary>
-            <returns>Error message if text length is exceeded, otherwise null.</returns>
+            <returns>False if text length is exceeded.</returns>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetValidateTextLengthErrorMessage">
+            <summary>
+            Gets error message if text length is exceeded.
+            </summary>
         </member>
         <member name="M:CMS.FormEngine.DataTypeIntegrity.FurtherValidateDecimal">
             <summary>
             Further validates value for decimal type.
+            </summary>
+            <returns>False if validation failed.</returns>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrity.GetValidateDecimalErrorMessage">
+            <summary>
+            Gets error message if decimal validation failed
             </summary>
         </member>
         <member name="M:CMS.FormEngine.DataTypeIntegrity.GetDateTimeErrorMessage">
@@ -833,6 +880,46 @@
         <member name="M:CMS.FormEngine.DataTypeIntegrity.GetGuidErrorMessage">
             <summary>
             Gets error message for GUID type.
+            </summary>
+        </member>
+        <member name="T:CMS.FormEngine.DataTypeIntegrityValidationResult">
+            <summary>
+            DataType integrity validation result object
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.DataTypeIntegrityValidationResult.ResultType">
+            <summary>
+            DataType integrity validation result type
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.DataTypeIntegrityValidationResult.ErrorMessage">
+            <summary>
+            Error message if validation failed
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.DataTypeIntegrityValidationResult.Success">
+            <summary>
+            Represents the success of the validation,
+            (<see langword="true"/> if validation was successful; otherwise, <see langword="false"/>).
+            </summary>
+            <remarks><seealso cref="F:CMS.FormEngine.DataTypeIntegrityValidationResultType.NoError"/></remarks>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrityValidationResult.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.FormEngine.DataTypeIntegrityValidationResult"/>
+            class with a successful validation.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrityValidationResult.#ctor(CMS.FormEngine.DataTypeIntegrityValidationResultType,System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.FormEngine.DataTypeIntegrityValidationResult"/>
+            class by using a validation result type and an error message.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.DataTypeIntegrityValidationResult.#ctor(CMS.FormEngine.DataTypeIntegrityValidationResult)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.FormEngine.DataTypeIntegrityValidationResult"/>
+            class by using <see cref="T:CMS.FormEngine.DataTypeIntegrityValidationResult"/> object.
             </summary>
         </member>
         <member name="T:CMS.FormEngine.CombineWithFormSettings">
@@ -2965,7 +3052,14 @@
             Returns BizForm files folder physical path according to 'CMSBizFormFilesFolder' settings key.
             </summary>
             <param name="siteName">Site name</param>
-            <param name="webFullPath">Physical path to the root of the web project (e.g. c:\WebProject\), if it is not specified web application physical path is used (optional)</param>
+            <param name="webFullPath">Physical path to the root of the web project (e.g. c:\WebProject\). If it is not specified the web application physical path is used.</param>
+        </member>
+        <member name="M:CMS.FormEngine.FormHelper.GetBizFormTempFilesFolderPath(System.String)">
+            <summary>
+            Gets BizForm temporary files folder physical path based on <see cref="M:CMS.DataEngine.TempFileInfoProvider.GetTempFilesRootFolderPath(System.String)"/>.
+            </summary>
+            <param name="webFullPath">Physical path to the root of the web project (e.g. c:\WebProject\). If it is not specified the web application physical path is used.</param>
+            <returns>Returns folder path for form's temporary files.</returns>
         </member>
         <member name="M:CMS.FormEngine.FormHelper.UseSiteSpecificCustomFolder(System.String)">
             <summary>

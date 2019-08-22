@@ -542,18 +542,15 @@
             </summary>
             <param name="uniqueIdentifier">Unique identifier of the smart tip</param>
         </member>
-        <member name="M:CMS.Base.Web.UI.UserSmartTipDismissalManager.LoadUserDismissedSmartTips(CMS.Membership.UserInfo)">
+        <member name="M:CMS.Base.Web.UI.UserSmartTipDismissalManager.LoadUserDismissedSmartTips">
             <summary>
             Loads user dismissed smart tips from persistent storage.
             </summary>
-            <param name="user">Specified user to load his dismissed smart tips</param>
         </member>
-        <member name="M:CMS.Base.Web.UI.UserSmartTipDismissalManager.SaveUserDismissedSmartTips(CMS.Membership.UserInfo,System.Collections.Generic.HashSet{System.String})">
+        <member name="M:CMS.Base.Web.UI.UserSmartTipDismissalManager.SaveUserDismissedSmartTips">
             <summary>
             Saves user dismissed smart tips to persistent storage.
             </summary>
-            <param name="user">Specified user to save his dismissed smart tips</param>
-            <param name="dismissedSmartTips">List of dismissed smart tips</param>
         </member>
         <member name="T:CMS.Base.Web.UI.ControlExtender">
             <summary>
@@ -1219,6 +1216,27 @@
             </summary>
             <param name="status">DiffStatus of text part</param>
             <returns>Particular class name</returns>
+        </member>
+        <member name="T:CMS.Base.Web.UI.CleanupAction">
+            <summary>
+            Describes a cleanup action to be performed on a folder.
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.CleanupAction.FolderPath">
+            <summary>
+            Gets or sets the folder path for the cleanup.
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.CleanupAction.Recursive">
+            <summary>
+            Gets or sets a value indicating whether the folder cleanup is to be performed recursively for all subfolders. False by default.
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.CleanupAction.DeleteFileCallback">
+            <summary>
+            Gets or sets the callback to be invoked for each file being cleaned up. The return value
+            indicates whether to delete the file.
+            </summary>
         </member>
         <member name="T:CMS.Base.Web.UI.CMSFileUpload">
             <summary>
@@ -7503,8 +7521,7 @@
         </member>
         <member name="T:CMS.Base.Web.UI.CMSAccessibleButton">
             <summary>
-            Button that generates appropriate HTML code
-            for its use in actions container.
+            Button that generates appropriate HTML code for its use in actions container.
             </summary>
         </member>
         <member name="P:CMS.Base.Web.UI.CMSAccessibleButton.IconOnly">
@@ -7515,21 +7532,6 @@
         <member name="P:CMS.Base.Web.UI.CMSAccessibleButton.ScreenReaderDescription">
             <summary>
             Gets or sets the description for screen readers.
-            </summary>
-        </member>
-        <member name="P:CMS.Base.Web.UI.CMSAccessibleButton.UseSubmitBehavior">
-            <summary>
-            When true button is render as type="submit". Otherwise type is type="button".
-            </summary>
-        </member>
-        <member name="P:CMS.Base.Web.UI.CMSAccessibleButton.TagKey">
-            <summary>
-            HTML tag for this control.
-            </summary>
-        </member>
-        <member name="P:CMS.Base.Web.UI.CMSAccessibleButton.RenderInputTag">
-            <summary>
-            When true input tag is rendered instead of button tag.
             </summary>
         </member>
         <member name="P:CMS.Base.Web.UI.CMSAccessibleButton.ButtonStyle">
@@ -7546,6 +7548,26 @@
         <member name="M:CMS.Base.Web.UI.CMSAccessibleButton.Render(System.Web.UI.HtmlTextWriter)">
             <summary>
             Renders the button.
+            </summary>
+        </member>
+        <member name="T:CMS.Base.Web.UI.CMSAccessibleButtonBase">
+            <summary>
+            Button that generates appropriate HTML code for its use in actions container.
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.CMSAccessibleButtonBase.UseSubmitBehavior">
+            <summary>
+            When true button is render as type="submit". Otherwise type is type="button".
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.CMSAccessibleButtonBase.TagKey">
+            <summary>
+            HTML tag for this control.
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.CMSAccessibleButtonBase.RenderInputTag">
+            <summary>
+            When true input tag is rendered instead of button tag.
             </summary>
         </member>
         <member name="T:CMS.Base.Web.UI.ButtonStyle">
@@ -7883,6 +7905,11 @@
         <member name="P:CMS.Base.Web.UI.CMSMultiButtonBase.DropDownItemsAlignment">
             <summary>
             Indicates to which direction button actions will be aligned. Default is LEFT.
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.CMSMultiButtonBase.RenderFirstActionSeparately">
+            <summary>
+            Indicates if the first action should be rendered as part of the primary button.
             </summary>
         </member>
         <member name="M:CMS.Base.Web.UI.CMSMultiButtonBase.#ctor">
@@ -9430,6 +9457,11 @@
             Gets or sets the additional CSS class for control.
             </summary>        
         </member>
+        <member name="P:CMS.Base.Web.UI.InlineEditingTextBox.EnableEditingOnTextClick">
+            <summary>
+            If <c>true</c> edit mode can be reached by clicking the formatted text, otherwise the formatted text is not clickable and it's necessary to call <see cref="M:CMS.Base.Web.UI.InlineEditingTextBox.SwitchToEditMode"/> method explicitly.
+            </summary>
+        </member>
         <member name="E:CMS.Base.Web.UI.InlineEditingTextBox.Formatting">
             <summary>
             Formatting event. Use this event to set FormattedText property.
@@ -9468,18 +9500,13 @@
             Initializes a new instance of the InlineEditingTextBox class.
             </summary>
         </member>
-        <member name="M:CMS.Base.Web.UI.InlineEditingTextBox.DataBind">
-            <summary>
-            Binds a data source to the invoked server control and all its child controls.
-            </summary>
-        </member>
         <member name="M:CMS.Base.Web.UI.InlineEditingTextBox.OnPreRender(System.EventArgs)">
             <summary>
             Raises the System.Web.UI.Control.PreRender event.
             </summary>
             <param name="e">The System.EventArgs object that contains the event data.</param> 
         </member>
-        <member name="M:CMS.Base.Web.UI.InlineEditingTextBox.EditClick">
+        <member name="M:CMS.Base.Web.UI.InlineEditingTextBox.SwitchToEditMode">
             <summary>
             Switches control into editing mode.
             </summary>
@@ -11430,6 +11457,11 @@
             Script registration key for only numbers script.
             </summary>
         </member>
+        <member name="F:CMS.Base.Web.UI.ScriptHelper.COMPONENTS_KEY">
+            <summary>
+            Script registration key for web components generated by Page builder build.
+            </summary>
+        </member>
         <member name="F:CMS.Base.Web.UI.ScriptHelper.mAllowProgressScript">
             <summary>
             If true, progress script is allowed on pages.
@@ -12200,6 +12232,12 @@
             <summary>
             Hides the parent vertical tabs
             </summary>
+        </member>
+        <member name="M:CMS.Base.Web.UI.ScriptHelper.RegisterWebComponentsScript(System.Web.UI.Page)">
+            <summary>
+            Registers a client script, which is responsible for loading custom web components.
+            </summary>
+            <param name="page">The page to register the client script to.</param>
         </member>
         <member name="T:CMS.Base.Web.UI.AudioVideoParameters">
             <summary>

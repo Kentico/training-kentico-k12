@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web.UI;
 
 using CMS.Base;
 using CMS.DataEngine;
@@ -7,9 +6,10 @@ using CMS.Ecommerce;
 using CMS.Helpers;
 using CMS.Membership;
 using CMS.SiteProvider;
+using CMS.UIControls;
 
 
-public partial class CMSModules_Ecommerce_CMSPages_GetInvoice : Page
+public partial class CMSModules_Ecommerce_CMSPages_GetInvoice : CMSPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

@@ -15,6 +15,7 @@ using CMS.PortalEngine.Web.UI;
 using CMS.PortalEngine;
 using CMS.SiteProvider;
 using CMS.WorkflowEngine;
+using CMS.PortalEngine.Web.UI.Internal;
 
 public partial class CMSWebParts_Widgets_WidgetActions : CMSAbstractWebPart, IPostBackEventHandler
 {
@@ -341,7 +342,14 @@ public partial class CMSWebParts_Widgets_WidgetActions : CMSAbstractWebPart, IPo
                         templateId = pi.UsedPageTemplateInfo.PageTemplateId;
                     }
 
-                    addScript = (PortalContext.ViewMode == ViewModeEnum.EditLive ? "OEDeactivateWebPartBorder({ webPartSpanId: $cmsj('.OnSiteMenuTable').parent().attr('id').replace('OE_OE_', 'OE_')}, null );" : String.Empty) + "NewWidget(new zoneProperties('" + zoneInstance.ZoneID + "', '" + pi.NodeAliasPath + "', '" + templateId + "')); return false;";
+                    var dialogParams = new LiveSiteWidgetsParameters(pi.NodeAliasPath, ViewMode)
+                    {
+                        ZoneId = zoneInstance.ZoneID,
+                        TemplateId = templateId,
+                    };
+                    var hash = dialogParams.GetHashString();
+
+                    addScript = (PortalContext.ViewMode == ViewModeEnum.EditLive ? "OEDeactivateWebPartBorder({ webPartSpanId: $cmsj('.OnSiteMenuTable').parent().attr('id').replace('OE_OE_', 'OE_')}, null );" : String.Empty) + "NewWidget(new zoneProperties('" + zoneInstance.ZoneID + "', '" + pi.NodeAliasPath + "', '" + templateId + "', undefined, undefined, undefined, undefined, '" + ViewMode + "', '" + hash + "')); return false;";
                     btnAddWidget.Attributes.Add("onclick", addScript);
                 }
 

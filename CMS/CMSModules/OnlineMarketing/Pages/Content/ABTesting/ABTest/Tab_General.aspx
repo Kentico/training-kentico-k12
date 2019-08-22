@@ -5,7 +5,7 @@
 <%@ Register Src="~/CMSModules/OnlineMarketing/Controls/UI/AbTest/Edit.ascx" TagPrefix="cms" TagName="AbTestEdit" %>
 <%@ Register Src="~/CMSAdminControls/Basic/DisabledModuleInfo.ascx" TagPrefix="cms" TagName="DisabledModule" %>
 <asp:Content ID="cntBody" runat="server" ContentPlaceHolderID="plcContent">
-    <cms:DisabledModule runat="server" ID="ucDisabledModule" TestSettingKeys="CMSAnalyticsEnabled;CMSABTestingEnabled" />
+    <cms:DisabledModule runat="server" ID="ucDisabledModule" />
     <cms:MessagesPlaceHolder runat="server" ID="plcMess" />
     <cms:AbTestEdit ID="editElem" runat="server" IsLiveSite="false" />
 </asp:Content>

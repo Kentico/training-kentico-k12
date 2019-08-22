@@ -171,15 +171,8 @@ public partial class CMSModules_EmailQueue_EmailQueue_Details : CMSModalPage
 
         if (UserIsAdmin)
         {
-            if (string.IsNullOrEmpty(ei.EmailPlainTextBody))
-            {
-                LoadHTMLBody(ei);
-            }
-            else
-            {
-                LoadPlainTextBody(ei);
-            }
-
+            LoadHTMLBody(ei);
+            LoadPlainTextBody(ei);
             GetAttachments();
         }
     }
@@ -192,6 +185,13 @@ public partial class CMSModules_EmailQueue_EmailQueue_Details : CMSModalPage
     private void LoadHTMLBody(EmailInfo ei)
     {
         string body = ei.EmailBody;
+
+        if (string.IsNullOrEmpty(body))
+        {
+            lblBodyValue.Visible = true;
+            lblBodyValue.Text = GetString("emailqueue.detail.valuenotentered");
+            return;
+        }
 
         // Regular expression to search the tracking image in HTML code
         Regex regExp = RegexHelper.GetRegex("(src=\"[^\"]+Track.ashx)\\?[^\"]*", true);
@@ -219,15 +219,19 @@ public partial class CMSModules_EmailQueue_EmailQueue_Details : CMSModalPage
     /// <param name="ei">The e-mail message object</param>
     private void LoadPlainTextBody(EmailInfo ei)
     {
+        if (string.IsNullOrEmpty(ei.EmailPlainTextBody))
+        {
+            lblPlainTextValue.Text = GetString("emailqueue.detail.valuenotentered");
+            return;
+        }
+
         DiscussionMacroResolver dmh = new DiscussionMacroResolver { ResolveToPlainText = true };
         string body = dmh.ResolveMacros(ei.EmailPlainTextBody);
 
         body = HTMLHelper.HTMLEncode(body);
 
-        lblBodyValue.Visible = true;
-
         // Replace line breaks with br tags and modify discussion macros
-        lblBodyValue.Text = DiscussionMacroResolver.RemoveTags(HTMLHelper.HTMLEncodeLineBreaks(body));
+        lblPlainTextValue.Text = DiscussionMacroResolver.RemoveTags(HTMLHelper.HTMLEncodeLineBreaks(body));
     }
 
 

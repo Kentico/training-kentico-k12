@@ -93,13 +93,13 @@ public partial class CMSModules_Content_Controls_EditMenu {
     protected global::System.Web.UI.WebControls.PlaceHolder plcAdditionalControls;
     
     /// <summary>
-    /// plcDevices control.
+    /// btnMoreActions control.
     /// </summary>
     /// <remarks>
     /// Auto-generated field.
     /// To modify move field declaration from designer file to code-behind file.
     /// </remarks>
-    protected global::System.Web.UI.WebControls.PlaceHolder plcDevices;
+    protected global::CMS.Base.Web.UI.CMSMoreOptionsButton btnMoreActions;
     
     /// <summary>
     /// pnlDoc control.

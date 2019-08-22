@@ -855,6 +855,11 @@
             OnInit event handler
             </summary>
         </member>
+        <member name="M:CMS.ContactManagement.Web.UI.OnlineMarketingRulesListExtender.OnExternalDataBound(System.Object,System.String,System.Object)">
+            <summary>
+            Handles external data-bound event of <see cref="T:CMS.UIControls.UniGrid"/>.
+            </summary>
+        </member>
         <member name="T:CMS.ContactManagement.Web.UI.AuthorizationHelper">
             <summary>
             Helps authorize current user to read or modify resources contained in module CMS.ContactManagement.

@@ -110,8 +110,17 @@
     <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Search, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Search.3.0.2\lib\net45\Microsoft.Azure.Search.dll</HintPath>
+    <Reference Include="Microsoft.Azure.Search, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.5.0.3\lib\net452\Microsoft.Azure.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Common, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.Common.5.0.3\lib\net452\Microsoft.Azure.Search.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Data, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.Data.5.0.3\lib\net452\Microsoft.Azure.Search.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Search.Service, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Search.Service.5.0.3\lib\net452\Microsoft.Azure.Search.Service.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -146,10 +155,10 @@
       <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.ProjectServer.Client.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.4\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.17\lib\net452\Microsoft.Rest.ClientRuntime.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.4\lib\net45\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.18\lib\net452\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SharePoint.Client, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.dll</HintPath>
@@ -181,8 +190,8 @@
     <Reference Include="Microsoft.SharePoint.Client.WorkflowServices, Version=16.1.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SharePointOnline.CSOM.16.1.6621.1200\lib\net45\Microsoft.SharePoint.Client.WorkflowServices.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Spatial, Version=6.15.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Spatial.6.15.0\lib\portable-net45+win+wpa81\Microsoft.Spatial.dll</HintPath>
+    <Reference Include="Microsoft.Spatial, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.7.2.0\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
@@ -261,6 +270,7 @@
     <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Rx-PlatformServices.2.2.5\lib\net45\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime" />
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -301,8 +311,10 @@
     </Content>
     <Content Include="App_Data\CMSModules\Cms\UI\Grids\CMS_Resource\default.xml" />
     <Content Include="App_Data\CMSModules\Cms\UI\Grids\CMS_Transformation\default.xml" />
+    <Content Include="App_Data\CMSModules\DataProtection\UI\Grids\CMS_ConsentAgreement\list.xml" />
     <Content Include="App_Data\CMSModules\DataProtection\UI\Grids\CMS_ConsentArchive\default.xml" />
     <Content Include="App_Data\CMSModules\Design\UI\Grids\CMS_CSSStylesheet\SingleSiteGridDefinition.xml" />
+    <Content Include="App_Data\CMSModules\Content\UI\Grids\CMS_PageTemplateConfiguration\default.xml" />
     <Content Include="App_Data\CMSModules\Design\UI\Grids\CMS_Webpart\usage.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -1507,6 +1519,8 @@
     <Content Include="CMSModules\ContactManagement\Pages\Contact\Details.aspx" />
     <Content Include="CMSModules\ContactManagement\Pages\Tools\Contact\ImportCSV.aspx" />
     <Content Include="CMSModules\Content\CMSDesk\MVC\Edit.aspx" />
+    <Content Include="CMSModules\Content\CMSDesk\MVC\Properties\AlternativeUrls.aspx" />
+    <Content Include="CMSModules\Content\CMSDesk\MVC\TemplateSelection.aspx" />
     <Content Include="CMSModules\Content\Controls\Attachments\DocumentAttachments\Transformations\Attachment.ascx" />
     <Content Include="CMSModules\Content\Controls\Attachments\DocumentAttachments\Transformations\AttachmentSize.ascx" />
     <Content Include="CMSModules\Content\FormControls\Tags\TagSelectorService.asmx" />
@@ -1525,6 +1539,7 @@
     <Content Include="CMSModules\Forums\Controls\Layouts\CustomLayout.txt" />
     <Content Include="CMSModules\ImportExport\Controls\Export\cms_resource.ascx" />
     <Content Include="CMSModules\ImportExport\Controls\Export\Site\community_group.ascx" />
+    <Content Include="CMSModules\ImportExport\Controls\Import\ma_automationaction.ascx" />
     <Content Include="CMSModules\Modules\Controls\NuGetPackages\ExportModule.ascx" />
     <Content Include="CMSModules\Newsletters\Controls\RecipientContactGroups.ascx" />
     <Content Include="CMSModules\Newsletters\Controls\IssueLinks.ascx" />
@@ -1540,6 +1555,8 @@
     <Content Include="CMSModules\Newsletters\Tools\Newsletters\Newsletter_Report.aspx" />
     <Content Include="CMSModules\OnlineMarketing\Controls\Settings\SelectContactDeletionImplementation.ascx" />
     <Content Include="CMSModules\ContinuousIntegration\Pages\Settings.aspx" />
+    <Content Include="CMSModules\OnlineMarketing\Controls\UI\ABTest\ConversionEditor.ascx" />
+    <Content Include="CMSModules\OnlineMarketing\Pages\Content\ABTesting\ABTest\OverviewMVC.aspx" />
     <Content Include="CMSModules\SharePoint\FormControls\SharePointListSelector.ascx" />
     <Content Include="CMSModules\SharePoint\FormControls\TimeIntervalSelector.ascx" />
     <Content Include="CMSAdminControls\UI\ContextHelp.ascx" />
@@ -1602,10 +1619,15 @@
     <Content Include="CMSScripts\CMSModules\CMS.Builder\FormBuilder\Messaging.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Builder\FrameSrcAttributeModifier.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Builder\PageBuilder\DragAndDropService.js" />
-    <Content Include="CMSScripts\CMSModules\CMS.Builder\MessageService.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Builder\MessageTypes.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Builder\PageBuilder\Messaging.js" />
-    <Content Include="CMSScripts\CMSModules\CMS.Builder\PageBuilder\ModalDialogService.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.Builder\ModalDialogService.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.OnlineMarketing\ABTestOverview.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.OnlineMarketing\ABVariantSelector.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.OnlineMarketing\PopUpWindow.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.PageTemplates\TemplateSelector.js" />
+    <Content Include="CMSScripts\CMSModules\CMS\CookiePolicyDetection.js" />
+    <Content Include="CMSScripts\CMSModules\CMS\MessageService.js" />
     <Content Include="CMSScripts\CMSModules\CMS\NumericUpDown.js" />
     <Content Include="CMSScripts\CMSModules\AdminControls\StarsRating.js" />
     <Content Include="CMSScripts\CMSModules\CMS.Charts\amCharts\amcharts.js" />
@@ -3768,6 +3790,78 @@
     <Content Include="CMSScripts\mootools.js" />
     <Content Include="CMSScripts\DesignMode\OnSiteEdit.js" />
     <Content Include="CMSScripts\Controls\resizer.js" />
+    <Content Include="CMSScripts\WebComponents\components.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-12ee72ee.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-3cefcc8d.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-4e6b1b49.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-5dc1aa56.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-be87adfa.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-ee323282.js" />
+    <Content Include="CMSScripts\WebComponents\components\components.core.js" />
+    <Content Include="CMSScripts\WebComponents\components\components.core.pf.js" />
+    <Content Include="CMSScripts\WebComponents\components\components.global.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-abtest-variant-listing.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-abtest-variant-listing.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-abtest-variant-listing.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-abtest-variant-listing.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-add-component-button.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-add-component-button.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-alert-box.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-alert-box.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-alert-box.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-alert-box.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-dialog-header.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-dialog-header.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-dialog-header.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-dialog-header.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-drop-marker.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-drop-marker.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-drop-marker.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-drop-marker.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-form-modal-dialog.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-form-modal-dialog.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-header-button.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-header-button.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-header-button.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-header-button.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-loader.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-loader.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-loader.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-loader.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files-form-component.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files-form-component.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files-grid.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files-grid.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files-grid.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files-grid.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-media-files.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-miller-column.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-miller-column.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-modal-dialog.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-modal-dialog.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-modal-dialog.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-modal-dialog.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-page-selector-form-component.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-page-selector-form-component.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-page-selector.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-page-selector.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-page-selector.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-page-selector.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-personalization-button.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-personalization-button.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-pop-up-container.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-pop-up-container.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-section-header.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-section-header.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-submit-button.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-submit-button.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-submit-button.sc.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-submit-button.sc.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-widget-header.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\kentico-widget-header.js" />
     <Content Include="CMSScripts\RequireJS\config.js" />
     <Content Include="CMSScripts\RequireJS\CMSConfigRequire.js" />
     <Content Include="CMSScripts\RequireJS\require.js" />
@@ -4223,7 +4317,13 @@
     <Content Include="DancingGoatMvc\media\CoffeeGallery\St-Helena-Coffee.jpg" />
     <Content Include="DancingGoatMvc\media\CoffeeGallery\Thailand-Coffee.jpg" />
     <Content Include="DancingGoatMvc\media\CoffeeGallery\Work-And-Coffee.jpg" />
+    <Content Include="DancingGoatMvc\media\EmailCampaigns\coffee-101-lesson-1.jpg" />
+    <Content Include="DancingGoatMvc\media\EmailCampaigns\coffee-101-lesson-2.jpg" />
+    <Content Include="DancingGoatMvc\media\EmailCampaigns\colombia-coffee-promotion.jpg" />
+    <Content Include="DancingGoatMvc\media\Graphics\banner-default.jpg" />
+    <Content Include="DancingGoatMvc\media\Graphics\colombia-coffee.jpg" />
     <Content Include="DancingGoatMvc\media\Graphics\default-image-product.png" />
+    <Content Include="DancingGoatMvc\media\Graphics\hero-image.jpg" />
     <Content Include="DancingGoatMvc\media\Graphics\Logos\logo-dancing-goat-inverted.png" />
     <Content Include="DancingGoat\Fonts\Core-icons.svg" />
     <Content Include="DancingGoat\Icons\icons-core.css" />
@@ -4403,6 +4503,10 @@
     <Content Include="App_Themes\Default\Bootstrap\icon-font-face.less" />
     <Content Include="App_Themes\Default\Bootstrap\icon-font-base-class.less" />
     <Content Include="App_Themes\Default\CMSModules\cms.content\cms.content.pagebuilder.less" />
+    <Content Include="App_Themes\Default\CMSModules\cms.content\cms.content.templateselection.less" />
+    <Content Include="App_Themes\Default\CMSModules\cms.abtests\cms.abtests.conversiondesigner.less" />
+    <Content Include="App_Themes\Default\CMSModules\cms.content\cms.content.alternativeurls.less" />
+    <None Include="App_Themes\Default\CMSModules\cms.messages.less" />
     <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.emailproperties.less" />
     <None Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.less" />
     <Content Include="App_Themes\Default\CMSModules\cms.emailmarketing\cms.emailmarketing.emailbuilder.tabs.less" />
@@ -4986,6 +5090,20 @@
     <Compile Include="CMSModules\Content\CMSDesk\MVC\Edit.aspx.designer.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CMSModules\Content\CMSDesk\MVC\Properties\AlternativeUrls.aspx.cs">
+      <DependentUpon>AlternativeUrls.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\Content\CMSDesk\MVC\Properties\AlternativeUrls.aspx.designer.cs">
+      <DependentUpon>AlternativeUrls.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSModules\Content\CMSDesk\MVC\TemplateSelection.aspx.cs">
+      <DependentUpon>TemplateSelection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\Content\CMSDesk\MVC\TemplateSelection.aspx.designer.cs">
+      <DependentUpon>TemplateSelection.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CMSModules\Content\Controls\Attachments\DocumentAttachments\Transformations\Attachment.ascx.cs">
       <DependentUpon>Attachment.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5154,6 +5272,13 @@
     <Compile Include="CMSModules\ImportExport\Controls\Export\Site\community_group.ascx.designer.cs">
       <DependentUpon>community_group.ascx</DependentUpon>
     </Compile>
+    <Compile Include="CMSModules\ImportExport\Controls\Import\ma_automationaction.ascx.cs">
+      <DependentUpon>ma_automationaction.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\ImportExport\Controls\Import\ma_automationaction.ascx.designer.cs">
+      <DependentUpon>ma_automationaction.ascx</DependentUpon>
+    </Compile>
     <Compile Include="CMSModules\Modules\Controls\NuGetPackages\ExportModule.ascx.cs">
       <DependentUpon>ExportModule.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5258,6 +5383,20 @@
     </Compile>
     <Compile Include="CMSModules\OnlineMarketing\Controls\Settings\SelectContactDeletionImplementation.ascx.designer.cs">
       <DependentUpon>SelectContactDeletionImplementation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSModules\OnlineMarketing\Controls\UI\ABTest\ConversionEditor.ascx.cs">
+      <DependentUpon>ConversionEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\OnlineMarketing\Controls\UI\ABTest\ConversionEditor.ascx.designer.cs">
+      <DependentUpon>ConversionEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CMSModules\OnlineMarketing\Pages\Content\ABTesting\ABTest\OverviewMVC.aspx.cs">
+      <DependentUpon>OverviewMVC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CMSModules\OnlineMarketing\Pages\Content\ABTesting\ABTest\OverviewMVC.aspx.designer.cs">
+      <DependentUpon>OverviewMVC.aspx</DependentUpon>
     </Compile>
     <Compile Include="CMSModules\Personas\Controls\PersonaContactCounter.ascx.cs">
       <DependentUpon>PersonaContactCounter.ascx</DependentUpon>
@@ -9661,20 +9800,6 @@
     </Compile>
     <Compile Include="CMSModules\Content\CMSDesk\Validation\CSS.aspx.designer.cs">
       <DependentUpon>CSS.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Content\CMSDesk\Validation\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Content\CMSDesk\Validation\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CMSModules\Content\CMSDesk\Validation\Header.aspx.cs">
-      <DependentUpon>Header.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CMSModules\Content\CMSDesk\Validation\Header.aspx.designer.cs">
-      <DependentUpon>Header.aspx</DependentUpon>
     </Compile>
     <Compile Include="CMSModules\Content\CMSDesk\Validation\HTML.aspx.cs">
       <DependentUpon>HTML.aspx</DependentUpon>
@@ -20786,8 +20911,6 @@
     <Content Include="CMSModules\ContactManagement\Pages\Tools\Contact\Membership\Users.aspx" />
     <Content Include="CMSModules\Content\CMSDesk\Validation\Links.aspx" />
     <Content Include="CMSModules\Content\CMSDesk\Validation\CSS.aspx" />
-    <Content Include="CMSModules\Content\CMSDesk\Validation\Default.aspx" />
-    <Content Include="CMSModules\Content\CMSDesk\Validation\Header.aspx" />
     <Content Include="CMSModules\Content\CMSDesk\Validation\HTML.aspx" />
     <Content Include="CMSModules\Content\CMSDesk\Validation\ValidationResults.aspx" />
     <Content Include="CMSModules\Content\CMSDesk\Validation\ViewCode.aspx" />
@@ -21488,6 +21611,8 @@
     <Content Include="CMSScripts\Vendor\Angular-1.5.5\angular-route.min.js.map" />
     <Content Include="CMSScripts\CMSModules\CMS.Newsletter\emailbuilder.localization.json" />
     <Content Include="CMSScripts\CMSModules\CMS\Tabs.js" />
+    <Content Include="CMSScripts\CMSModules\CMS.PageTemplates\TemplateSelector.localization.json" />
+    <Content Include="App_Themes\Default\CMSModules\cms.onlinemarketing\cms.onlinemarketing.abtestpopup.less" />
     <None Include="Old_App_WebReferences\WS\WebService.discomap" />
     <None Include="Old_App_WebReferences\WS\WebService.wsdl" />
     <Content Include="CMSAdminControls\web.config" />
@@ -22042,7 +22167,9 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="CMSResources\CMS_Install.resx" />
-    <Content Include="CMSResources\Hotfix.resx" />
+    <Content Include="CMSResources\Hotfix.resx">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\DancingGoat\Resources\dancingGoat.resx" />
@@ -22050,6 +22177,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\CMSModules\WebAnalytics\MaxMind\" />
+    <Folder Include="CMSTemplates\CorporateSite\" />
     <Folder Include="CorporateSite\media\VideoGallery\__thumbnails\" />
   </ItemGroup>
   <PropertyGroup>
@@ -22062,7 +22190,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

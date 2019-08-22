@@ -11,7 +11,7 @@
         <asp:PlaceHolder ID="plcUsers" runat="server">
             <div class="form-group">
                 <div class="filter-form-label-cell">
-                    <cms:LocalizedLabel CssClass="control-label" ID="lblUsers" runat="server" DisplayColon="true" ResourceString="general.user" />
+                    <cms:LocalizedLabel CssClass="control-label" ID="lblUsers" runat="server" DisplayColon="true" ResourceString="general.user" EnableViewState="false" />
                 </div>
                 <div class="filter-form-value-cell-wide">
                     <cms:SelectUser ID="userSelector" runat="server" IsLiveSite="false" SelectionMode="SingleDropDownList"
@@ -22,7 +22,7 @@
         <asp:PlaceHolder ID="plcNameFilter" runat="server">
             <div class="form-group">
                 <div class="filter-form-label-cell">
-                    <cms:LocalizedLabel CssClass="control-label" ID="lblName" runat="server" DisplayColon="true" ResourceString="general.objectname" />
+                    <cms:LocalizedLabel CssClass="control-label" ID="lblName" runat="server" DisplayColon="true" ResourceString="general.objectname" EnableViewState="false" />
                 </div>
                 <cms:TextSimpleFilter ID="nameFilter" runat="server" Column="VersionObjectDisplayName" />
             </div>
@@ -30,7 +30,7 @@
         <asp:PlaceHolder ID="plcObjectTypeFilter" runat="server">
             <div class="form-group">
                 <div class="filter-form-label-cell">
-                    <cms:LocalizedLabel CssClass="control-label" ID="lblObjectType" runat="server" DisplayColon="true" ResourceString="general.objecttype" />
+                    <cms:LocalizedLabel CssClass="control-label" ID="lblObjectType" runat="server" DisplayColon="true" ResourceString="general.objecttype" EnableViewState="false" />
                 </div>
                 <div class="filter-form-value-cell-wide">
                     <cms:CMSUpdatePanel ID="pnlObjType" runat="server" UpdateMode="Conditional">
@@ -59,7 +59,7 @@
             <div class="filter-form-buttons-cell-wide">
                 <cms:LocalizedButton ID="btnReset" runat="server" ButtonStyle="Default" EnableViewState="false" />
                 <cms:LocalizedButton ID="btnShow" runat="server" ResourceString="general.filter" ButtonStyle="Primary"
-                    OnClick="btnShow_Click" />
+                    OnClick="btnShow_Click" EnableViewState="false" />
             </div>
         </div>
     </div>

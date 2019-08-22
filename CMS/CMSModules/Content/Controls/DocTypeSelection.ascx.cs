@@ -84,9 +84,12 @@ public partial class CMSModules_Content_Controls_DocTypeSelection : CMSAbstractN
             AllowNewABTest &= Scope.ScopeAllowABVariant;
             AllowNewLink &= Scope.ScopeAllowLinks;
         }
+  
+        var contentOnlySite = SiteContext.CurrentSite.SiteIsContentOnly;
 
-        // It's not allowed to link an existing page for content only sites
-        AllowNewLink &= !SiteContext.CurrentSite.SiteIsContentOnly;
+        // It's not allowed to link an existing page nor create Portal-Engine-style A/B variants for content only sites
+        AllowNewLink &= !contentOnlySite;
+        AllowNewABTest &= !contentOnlySite;
 
         lblNewLink.Text = GetString("content.ui.linkexistingdoc");
         lnkNewLink.NavigateUrl = "javascript:modalDialog('" + GetLinkDialogUrl(ParentNodeID) + "', 'contentselectnode', '90%', '85%')";
