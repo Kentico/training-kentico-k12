@@ -744,10 +744,10 @@ function UpdateLabel_", ClientID, @"(content, context) {
     public string GetCallbackResult()
     {
         string result = "";
-        UserInfo ui = UserInfoProvider.GetUserInfo(loginElem.UserName);
-        if (ui != null)
+        UserInfo userInfo = UserInfoProvider.GetUserInfoForSitePrefix(loginElem.UserName, CurrentSite);
+        if (userInfo != null)
         {
-            string siteName = SiteContext.CurrentSiteName;
+            string siteName = CurrentSite.SiteName;
 
             // Prepare return URL
             string returnUrl = RequestContext.CurrentURL;
@@ -756,14 +756,14 @@ function UpdateLabel_", ClientID, @"(content, context) {
                 returnUrl = URLHelper.AddParameterToUrl(returnUrl, "username", loginElem.UserName);
             }
 
-            switch (UserAccountLockCode.ToEnum(ui.UserAccountLockReason))
+            switch (UserAccountLockCode.ToEnum(userInfo.UserAccountLockReason))
             {
                 case UserAccountLockEnum.MaximumInvalidLogonAttemptsReached:
-                    result = AuthenticationHelper.SendUnlockAccountRequest(ui, siteName, "USERLOGON", SettingsKeyInfoProvider.GetValue(siteName + ".CMSSendPasswordEmailsFrom"), null, returnUrl);
+                    result = AuthenticationHelper.SendUnlockAccountRequest(userInfo, siteName, "USERLOGON", SettingsKeyInfoProvider.GetValue(siteName + ".CMSSendPasswordEmailsFrom"), null, returnUrl);
                     break;
 
                 case UserAccountLockEnum.PasswordExpired:
-                    result = AuthenticationHelper.SendPasswordRequest(ui, siteName, "USERLOGON", SettingsKeyInfoProvider.GetValue(siteName + ".CMSSendPasswordEmailsFrom"), "Membership.PasswordExpired", null, AuthenticationHelper.GetResetPasswordUrl(siteName), returnUrl);
+                    result = AuthenticationHelper.SendPasswordRequest(userInfo, siteName, "USERLOGON", SettingsKeyInfoProvider.GetValue(siteName + ".CMSSendPasswordEmailsFrom"), "Membership.PasswordExpired", null, AuthenticationHelper.GetResetPasswordUrl(siteName), returnUrl);
                     break;
             }
         }

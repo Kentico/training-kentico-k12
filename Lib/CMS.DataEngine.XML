@@ -28102,7 +28102,12 @@
             <summary>
             Copies the properties of this collection to the other collection
             </summary>
-            <param name="col">Target collection</param>
+            <param name="targetCollection">Target collection</param>
+        </member>
+        <member name="M:CMS.DataEngine.InfoObjectCollection`1.CopyItemsTo(CMS.DataEngine.IInfoObjectCollection)">
+            <summary>
+            Copies the items of this collection to the other collection
+            </summary>
         </member>
         <member name="M:CMS.DataEngine.InfoObjectCollection`1.EnsureObjectValues(CMS.DataEngine.BaseInfo)">
             <summary>

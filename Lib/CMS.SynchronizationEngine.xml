@@ -718,6 +718,20 @@
             Removes tasks that were processed by current instance.
             </summary>
         </member>
+        <member name="M:CMS.Synchronization.StagingTaskRunner.DeleteSynchronizationInfos(System.Collections.Generic.ICollection{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            This method was created to prevent breaking changes in API during hotfix.
+            It duplicates method <see cref="M:CMS.Synchronization.SynchronizationInfoProvider.DeleteSynchronizationInfos(System.Collections.Generic.ICollection{System.Int32},System.Int32,System.Int32)"/>,
+            with additional where condition to prevent the deletion of failed syncronization records.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.StagingTaskRunner.DeleteInstanceGlobalTasks(System.Collections.Generic.ICollection{System.Int32},CMS.Synchronization.ServerInfo)">
+            <summary>
+            This method was created to prevent breaking changes in API during hotfix.
+            It duplicates method <see cref="M:CMS.Synchronization.SynchronizationInfoProvider.DeleteInstanceGlobalTasks(System.Collections.Generic.ICollection{System.Int32},CMS.Synchronization.ServerInfo)"/>,
+            with additional where condition to prevent the deletion of failed syncronization records.
+            </summary>
+        </member>
         <member name="M:CMS.Synchronization.StagingTaskRunner.RunSynchronization(CMS.Synchronization.StagingTaskInfo,CMS.Synchronization.SynchronizationInfo,System.Boolean)">
             <summary>
             Runs the task synchronization for specified server.
@@ -733,9 +747,9 @@
             <param name="task">Task data</param>
             <param name="taskSync">Task synchronization info</param>
         </member>
-        <member name="M:CMS.Synchronization.StagingTaskRunner.LogSynchronizationError(CMS.Synchronization.StagingTaskInfo,CMS.Synchronization.SynchronizationInfo,System.String)">
+        <member name="M:CMS.Synchronization.StagingTaskRunner.UpdateSynchronizationErrorMessage(CMS.Synchronization.StagingTaskInfo,CMS.Synchronization.SynchronizationInfo,System.String)">
             <summary>
-            Logs the synchronization error.
+            Updates the synchronization error message according to the <paramref name="result"/>.
             </summary>
             <param name="task">Task</param>
             <param name="taskSync">Task synchronization info</param>

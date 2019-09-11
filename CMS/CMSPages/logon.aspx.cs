@@ -738,8 +738,8 @@ function UpdateLabel_", ClientID, @"(content, context) {
     public string GetCallbackResult()
     {
         string result = "";
-        UserInfo ui = UserInfoProvider.GetUserInfo(Login1.UserName);
-        if (ui != null)
+        UserInfo user = UserInfoProvider.GetUserInfoForSitePrefix(Login1.UserName, SiteContext.CurrentSite);
+        if (user != null)
         {
             string siteName = SiteContext.CurrentSiteName;
 
@@ -750,14 +750,14 @@ function UpdateLabel_", ClientID, @"(content, context) {
                 returnUrl = URLHelper.AddParameterToUrl(returnUrl, "username", Login1.UserName);
             }
 
-            switch (UserAccountLockCode.ToEnum(ui.UserAccountLockReason))
+            switch (UserAccountLockCode.ToEnum(user.UserAccountLockReason))
             {
                 case UserAccountLockEnum.MaximumInvalidLogonAttemptsReached:
-                    result = AuthenticationHelper.SendUnlockAccountRequest(ui, siteName, "USERLOGON", SettingsKeyInfoProvider.GetValue(siteName + ".CMSSendPasswordEmailsFrom"), null, returnUrl);
+                    result = AuthenticationHelper.SendUnlockAccountRequest(user, siteName, "USERLOGON", SettingsKeyInfoProvider.GetValue(siteName + ".CMSSendPasswordEmailsFrom"), null, returnUrl);
                     break;
 
                 case UserAccountLockEnum.PasswordExpired:
-                    result = AuthenticationHelper.SendPasswordRequest(ui, siteName, "USERLOGON", SettingsKeyInfoProvider.GetValue(siteName + ".CMSSendPasswordEmailsFrom"), "Membership.PasswordExpired", null, AuthenticationHelper.GetResetPasswordUrl(siteName), returnUrl);
+                    result = AuthenticationHelper.SendPasswordRequest(user, siteName, "USERLOGON", SettingsKeyInfoProvider.GetValue(siteName + ".CMSSendPasswordEmailsFrom"), "Membership.PasswordExpired", null, AuthenticationHelper.GetResetPasswordUrl(siteName), returnUrl);
                     break;
             }
         }

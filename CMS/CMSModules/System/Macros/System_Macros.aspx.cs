@@ -8,6 +8,7 @@ using CMS.Base;
 using CMS.DataEngine;
 using CMS.EventLog;
 using CMS.Helpers;
+using CMS.LicenseProvider;
 using CMS.MacroEngine;
 using CMS.Membership;
 using CMS.UIControls;
@@ -148,7 +149,10 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
             pnlAsyncLog.Visible = true;
             var objectTypes = Functions.GetObjectTypesWithMacros();
 
-            RunAsync(EVENTLOG_SOURCE_REFRESHSECURITYPARAMS, p => RefreshSecurityParams(objectTypes, oldSaltInput, newSaltInput));
+            RunAsync(EVENTLOG_SOURCE_REFRESHSECURITYPARAMS, delegate
+            {
+                LicenseCheckDisabler.ExecuteWithoutLicenseCheck(() => RefreshSecurityParams(objectTypes, oldSaltInput, newSaltInput));
+            });
         };
     }
 
@@ -176,6 +180,7 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
     /// <param name="objectTypes">Object types</param>
     /// <param name="oldSalt">Old salt </param>
     /// <param name="newSalt">New salt</param>
+    [CanDisableLicenseCheck("Is5IQpmPLnWt6GXYdzMsvL+jAXhGSGmq8MeUsRaNhgFOycE+dNSxWW2AS9rB11Lp5RP9Wb2ZGene1KIEMfiy1A==")]
     private void RefreshSecurityParams(IEnumerable<string> objectTypes, string oldSalt, string newSalt)
     {
         var oldSaltSpecified = !string.IsNullOrEmpty(oldSalt) && !chkRefreshAll.Checked;
@@ -197,7 +202,10 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
 
                 try
                 {
-                    var infos = new InfoObjectCollection(objectType);
+                    var infos = new InfoObjectCollection(objectType)
+                    {
+                        PageSize = 1000
+                    };
 
                     var csi = infos.TypeInfo.ClassStructureInfo;
                     var orderByIndex = FindOrderByIndex(csi);
@@ -205,8 +213,6 @@ public partial class CMSModules_System_Macros_System_Macros : GlobalAdminPage
                     {
                         infos.OrderByColumns = orderByIndex.GetOrderBy();
                     }
-
-                    infos.PageSize = 1000;
 
                     // Skip object types derived from general data class object type to avoid duplicities
                     if ((infos.TypeInfo.OriginalObjectType == DataClassInfo.OBJECT_TYPE) && (infos.TypeInfo.ObjectType != DataClassInfo.OBJECT_TYPE))

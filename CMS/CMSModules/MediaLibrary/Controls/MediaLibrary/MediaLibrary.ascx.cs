@@ -31,7 +31,7 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaLibrary 
     private MediaLibraryInfo mLibraryInfo;
     private SiteInfo mLibrarySiteInfo;
 
-    private bool mDisplayOnlyImportedFiles;
+    private bool mDisplayOnlyImportedFiles = ValidationHelper.GetBoolean(SettingsHelper.AppSettings["CMSMediaLibraryDisplayOnlyImportedFiles"], false);
     private string mLibraryRootFolder;
     private string mFolderPath = string.Empty;
     private string mLibraryPath = string.Empty;

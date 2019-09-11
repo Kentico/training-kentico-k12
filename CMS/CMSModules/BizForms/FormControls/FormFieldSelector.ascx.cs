@@ -79,13 +79,16 @@ public partial class CMSModules_BizForms_FormControls_FormFieldSelector : FormEn
 
     protected override void OnLoad(EventArgs e)
     {
-        selectForm.DropDownSingleSelect.AutoPostBack = true;
-        selectForm.Reload(false);
-
-        if (!LoadExistingValue())
+        if (!IsPostBack)
         {
-            LoadFields();
-        }
+            selectForm.DropDownSingleSelect.AutoPostBack = true;
+            selectForm.Reload(false);
+            
+            if (!LoadExistingValue())
+            {
+                LoadFields();
+            }
+        }        
 
         base.OnLoad(e);
     }
