@@ -16,7 +16,6 @@ namespace Business.Services.MediaLibrary
             return MediaFileInfoProvider.GetMediaFiles()
                 .WhereEquals("FileLibraryID", mediaLibrary.LibraryID)
                 .WhereIn("FileExtension", extensions)
-                .ToList()
                 .Select(m => new MediaLibraryFileDto()
                 {
                     Title = m.FileTitle,

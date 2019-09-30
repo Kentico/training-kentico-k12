@@ -18,7 +18,6 @@ namespace Business.Repository.Doctor
             return DocumentQueryService.GetDocuments<DoctorSection>()
                 .AddColumns("Title")
                 .TopN(1)
-                .ToList()
                 .Select(m => new DoctorSectionDto()
                 {
                     Header = m.Title

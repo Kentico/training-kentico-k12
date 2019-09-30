@@ -16,7 +16,6 @@ namespace Business.Repository.Company
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.CompanyService>()
                 .AddColumns("Header", "Text", "Icon")
                 .OrderByAscending("NodeOrder")
-                .ToList()
                 .Select(m => new CompanyServiceDto()
                 {
                     Header = m.Header,

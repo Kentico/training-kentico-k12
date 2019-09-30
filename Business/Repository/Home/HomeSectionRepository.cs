@@ -17,7 +17,6 @@ namespace Business.Repository.Home
             return DocumentQueryService.GetDocuments<HomeSection>()
                 .AddColumns("Title", "Text", "Button")
                 .TopN(1)
-                .ToList()
                 .Select(m => new HomeSectionDto()
                 {
                     Title = m.Title,

@@ -16,7 +16,6 @@ namespace Business.Repository.Map
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.MapLocation>()
                 .AddColumns("Longitude", "Latitude", "Tooltip")
                 .OrderByAscending("NodeOrder")
-                .ToList()
                 .Select(m => new MapLocationDto()
                 {
                     Latitude = m.Latitude,
