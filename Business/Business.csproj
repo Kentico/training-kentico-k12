@@ -562,6 +562,8 @@
     <Compile Include="Repository\Company\ICompanyServiceRepository.cs" />
     <Compile Include="Repository\Contact\ContactSectionRepository.cs" />
     <Compile Include="Repository\Contact\IContactSectionRepository.cs" />
+    <Compile Include="Repository\MediaLibrary\IMediaLibraryRepository.cs" />
+    <Compile Include="Repository\MediaLibrary\MediaLibraryRepository.cs" />
     <Compile Include="Services\Culture\CultureService.cs" />
     <Compile Include="Services\Culture\ICultureService.cs" />
     <Compile Include="Repository\Doctor\DoctorRepository.cs" />
@@ -583,8 +585,6 @@
     <Compile Include="Services\Cache\ICacheService.cs" />
     <Compile Include="Services\Context\ISiteContextService.cs" />
     <Compile Include="Services\IService.cs" />
-    <Compile Include="Services\MediaLibrary\IMediaLibraryService.cs" />
-    <Compile Include="Services\MediaLibrary\MediaLibraryService.cs" />
     <Compile Include="Services\Query\DocumentQueryService.cs" />
     <Compile Include="Services\Query\IDocumentQueryService.cs" />
   </ItemGroup>

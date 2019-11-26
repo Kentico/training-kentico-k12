@@ -2,28 +2,29 @@
 using Business.DependencyInjection;
 using Business.Repository.Contact;
 using Business.Repository.Map;
-using Business.Services.MediaLibrary;
+using Business.Repository.MediaLibrary;
 using MedioClinic.Models.Contact;
 
 namespace MedioClinic.Controllers
 {
     public class ContactController : BaseController
     {
-
         private IContactSectionRepository ContactSectionRepository { get; }
         private IMapRepository MapRepository { get; }
-        private IMediaLibraryService MediaLibraryService { get; }
+        private IMediaLibraryRepository MediaLibraryRepository { get; }
 
         public ContactController(
-            IBusinessDependencies dependencies, 
+            IBusinessDependencies dependencies,
             IContactSectionRepository contactSectionRepository,
             IMapRepository mapRepository,
-            IMediaLibraryService mediaLibraryService
+            IMediaLibraryRepository mediaLibraryRepository
             ) : base(dependencies)
         {
             ContactSectionRepository = contactSectionRepository;
             MapRepository = mapRepository;
-            MediaLibraryService = mediaLibraryService;
+            MediaLibraryRepository = mediaLibraryRepository;
+            MediaLibraryRepository.MediaLibraryName = "MedicalCenters";
+            MediaLibraryRepository.MediaLibrarySiteName = Dependencies.SiteContextService.SiteName;
         }
 
         public ActionResult Index()
@@ -39,7 +40,7 @@ namespace MedioClinic.Controllers
             {
                 ContactSection = contactSection,
                 OfficeLocations = MapRepository.GetOfficeLocations(),
-                MedicalCenterImages = MediaLibraryService.GetMediaLibraryFiles("MedicalCenters", Dependencies.SiteContextService.SiteName, ".jpg", ".png")
+                MedicalCenterImages = MediaLibraryRepository.GetMediaLibraryDtos(".jpg", ".png")
             }, contactSection.Header);
 
             return View(model);
