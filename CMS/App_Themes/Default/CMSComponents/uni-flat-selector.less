@@ -1,14 +1,8 @@
 ﻿// UniFlat selector
 
-.FlatItem .SelectorEnvelope:hover {
-    background: #d0e8ed;
-}
-
-
 .PTSelection .UniFlatSearchPanel {
     background: #e5e5e5;
 }
-
 
 .PTSelection .UniFlatContent {
     height: 225px;
@@ -17,6 +11,7 @@
 .PTSelection .ItemSelector .InheritedTemplate {
     padding: 15px;
 }
+
 .PTSelection .SelectorFlatItems {
     background-color: #ffffff;
 }
@@ -30,10 +25,27 @@
     text-align: center;
     height: 160px;
     width: 152px;
+
+    &.EnvelopeBig {
+        height: @base-unit * 14;
+    }
 }
 
-.RTL .FlatItem .SelectorEnvelope {
-    float: right;
+.FlatItem .SelectorEnvelope:hover {
+    background: #d0e8ed;
+}
+
+.FlatSelectedItem .SelectorEnvelope {
+    .FlatItem .SelectorEnvelope;
+    background: #b3dce9;
+}
+
+.RTL {
+    .FlatItem, .FlatSelectedItem {
+        .SelectorEnvelope {
+            float: right;
+        }
+    }
 }
 
 .UniFlatContent {
@@ -46,10 +58,10 @@
 
 .SelectorFlatItems {
     margin: @base-unit @base-unit 0 @base-unit;
-}
 
-.SelectorFlatItems .SelectorFlatText {
-    font-weight: bold;
+    .SelectorFlatText {
+        font-weight: bold;
+    }
 }
 
 .NewPageDialog .UniFlatPager {
@@ -60,23 +72,22 @@
     height: 120px;
 }
 
-
 .SelectorTree {
     width: 300px;
     height: 700px;
     overflow: auto;
-}
 
-.SelectorTree span.Name {
-    display: inline-block;
+    span.Name {
+        display: inline-block;
+    }
+
+    .TreePadding {
+        padding: 8px;
+    }
 }
 
 .PageContentFrame .SelectorTree {
     width: 250px;
-}
-
-.SelectorTree .TreePadding {
-    padding: 8px;
 }
 
 .SelectorNoResults {
@@ -85,19 +96,17 @@
     text-align: left;
 }
 
-.RTL .SelectorNoResults {
-    padding-right: 5px;
-    padding-top: 10px;
+.RTL .SelectorNoResults {    
     text-align: right;
 }
 
 .SelectorTable {
     width: 100%;
-}
 
-    .SelectorTable td {
+    td {
         vertical-align: top;
     }
+}
 
 .SelectorBorder {
     background-color: #d6d9d6;
@@ -115,11 +124,18 @@
     padding: @base-unit @base-unit * 0.5 0 @base-unit * 0.5;
     min-height: @base-unit * 4;
     border: none;
-}
 
-.SelectorFlatImage i {
-    color: @color-gray-70;
-    font-size: 64px !important;
+    i {
+        color: @color-gray-70;
+        font-size: 64px !important;
+    }
+}
+.EnvelopeBig {
+    .SelectorFlatImage {
+        padding: @base-unit * 0.5 @base-unit * 0.5 0 @base-unit * 0.5;
+        min-height: @base-unit * 8.5;
+        position: relative;
+    }
 }
 
 .SelectorFlatText {
@@ -127,19 +143,8 @@
     margin: 0;
     padding: @base-unit * 0.25 @base-unit * 0.5;
     color: @color-blue-70;
-    word-wrap: break-word;  
-}
-
-.RTL .FlatSelectedItem .SelectorEnvelope {
-    float: right;
-}
-
-.FlatSelectedItem .SelectorEnvelope {
-    float: left;
-    text-align: center;
-    height: 160px;
-    width: 152px;
-    background: #d0e8ed;
+    word-wrap: break-word;
+    line-height: 19px;
 }
 
 .PTSelection .RadioPanel label {

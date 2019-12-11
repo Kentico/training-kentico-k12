@@ -12,7 +12,18 @@ cmsdefine([], function () {
         return window.location.href;
     };
 
+
+    /**
+    * Gets current URL Location object.
+    *
+    * @returns {Location} Current URL
+    */
+    var getCurrentUrlLocation = function () {
+        return window.location;
+    };
+
     return {
-        getCurrentUrl: getCurrentUrl
+        getCurrentUrl: getCurrentUrl,
+        getCurrentUrlLocation: getCurrentUrlLocation
     };
 });

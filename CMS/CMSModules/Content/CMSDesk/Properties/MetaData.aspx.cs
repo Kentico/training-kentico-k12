@@ -19,9 +19,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_MetaData : CMSPropert
         // Register the scripts
         ScriptHelper.RegisterLoader(Page);
 
-        // Set tab mode
-        SetPropertyTab(TAB_METADATA);
-
         MetaDataControlExtender extender = new MetaDataControlExtender();
         extender.UIModuleName = "cms.content";
         extender.UIPageElementName = "metadata.page";

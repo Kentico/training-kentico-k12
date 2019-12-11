@@ -40,19 +40,19 @@ public partial class CMSModules_Content_Controls_Relationships_AddRelatedDocumen
         {
             if (mConfig == null)
             {
-                mConfig = new DialogConfiguration();
-                mConfig.HideLibraries = true;
-                mConfig.ContentSelectedSite = SiteContext.CurrentSiteName;
-                mConfig.HideAnchor = true;
-                mConfig.HideAttachments = true;
-                mConfig.HideContent = false;
-                mConfig.HideEmail = true;
-                mConfig.HideLibraries = true;
-                mConfig.HideWeb = true;
-                mConfig.ContentSelectedSite = SiteContext.CurrentSiteName;
-                mConfig.OutputFormat = OutputFormatEnum.Custom;
-                mConfig.CustomFormatCode = "relationship";
-                mConfig.SelectableContent = SelectableContentEnum.AllContent;
+                mConfig = new DialogConfiguration
+                {
+                    HideLibraries = true,
+                    ContentSelectedSite = SiteContext.CurrentSiteName,
+                    HideAnchor = true,
+                    HideAttachments = true,
+                    HideContent = false,
+                    HideEmail = true,
+                    HideWeb = true,
+                    OutputFormat = OutputFormatEnum.Custom,
+                    CustomFormatCode = "relationship",
+                    SelectableContent = SelectableContentEnum.AllContent
+                };
             }
             return mConfig;
         }

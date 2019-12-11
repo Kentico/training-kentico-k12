@@ -83,13 +83,12 @@ window.kentico.updatableFormHelper = (function () {
         $(form).find("input[type='submit']").attr("onclick", "return false;");
         form.updating = true;
 
-        var xhr = new XMLHttpRequest();
         var formData = new FormData(form);
         formData.append("kentico_update_form", "true");
 
         var focus = nextFocusElement || document.activeElement;
 
-        xhr.addEventListener("load", function (event) {
+        var onResponse = function (event) {
             if (!event.target.response.data) {
                 var selectionStart = selectionEnd = null;
                 if (focus && (focus.type === "text" || focus.type === "search" || focus.type === "password" || focus.type === "tel" || focus.type === "url")) {
@@ -97,7 +96,9 @@ window.kentico.updatableFormHelper = (function () {
                     selectionEnd = focus.selectionEnd;
                 }
 
+                var currentScrollPosition = $(window).scrollTop();
                 $(elementIdSelector).replaceWith(event.target.responseText);
+                $(window).scrollTop(currentScrollPosition);
 
                 if (focus.id) {
                     var newInput = document.getElementById(focus.id);
@@ -107,7 +108,39 @@ window.kentico.updatableFormHelper = (function () {
                     }
                 }
             }
-        });
+        };
+
+        createRequest(form, formData, onResponse);
+    }
+
+    function submitForm(event) {
+        event.preventDefault();
+        var form = event.target;
+        var formData = new FormData(form);
+
+        var onResponse = function(event) {
+            var contentType = event.target.getResponseHeader("Content-Type");
+
+            if (contentType.indexOf("application/json") === -1) {
+                var currentScrollPosition = $(window).scrollTop();
+                var replaceTarget = form.getAttribute("data-ktc-ajax-update");
+
+                $(replaceTarget).replaceWith(event.target.response);
+                $(window).scrollTop(currentScrollPosition);
+            } else {
+                var json = JSON.parse(event.target.response);
+
+                location.href = json.redirectTo;
+            }
+        };
+
+        createRequest(form, formData, onResponse);
+    }
+
+    function createRequest(form, formData, onResponse) {
+        var xhr = new XMLHttpRequest();
+
+        xhr.addEventListener("load", onResponse);
 
         xhr.open("POST", form.action);
         xhr.send(formData);
@@ -156,6 +189,7 @@ window.kentico.updatableFormHelper = (function () {
 
     return {
         registerEventListeners: registerEventListeners,
-        updateForm: updateForm
+        updateForm: updateForm,
+        submitForm: submitForm
     };
 }());

@@ -1180,11 +1180,16 @@
             </summary>
             <param name="siteName">Site name of the site to stop</param>
         </member>
-        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetSiteNameFromUrl(System.String)">
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetSiteNameFromUrl(System.String,System.String)">
             <summary>
             Returns site name from url.
             </summary>
             <param name="url">Url</param>
+            <param name="appPath">Application path.</param>
+            <remarks>
+            If no <paramref name="appPath"/> is provided,
+            value from <see cref="P:CMS.Base.SystemContext.ApplicationPath"/> is used.
+            </remarks>
         </member>
         <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteInfoFromDB(System.String,System.String)">
             <summary>
@@ -1257,11 +1262,16 @@
             </summary>
             <param name="siteName">Site name of the site to run</param>
         </member>
-        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetSiteNameFromUrlInternal(System.String)">
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetSiteNameFromUrlInternal(System.String,System.String)">
             <summary>
             Returns site name from URL.
             </summary>
             <param name="url">URL of the site</param>
+            <param name="appPath">Application path.</param>
+            <remarks>
+            If no <paramref name="appPath"/> is provided,
+            value from <see cref="P:CMS.Base.SystemContext.ApplicationPath"/> is used.
+            </remarks>
         </member>
         <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteInfoFromDBInternal(System.String,System.String)">
             <summary>

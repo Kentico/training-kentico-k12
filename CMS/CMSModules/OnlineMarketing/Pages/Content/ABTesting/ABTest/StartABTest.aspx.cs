@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Linq;
 
 using CMS.Base.Web.UI;
 using CMS.Helpers;
 using CMS.OnlineMarketing;
 using CMS.SiteProvider;
 using CMS.UIControls;
-
 
 /// <summary>
 /// Modal dialog invoked from AB test Overview page.
@@ -141,7 +139,7 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_S
         ScriptHelper.RegisterWOpenerScript(this);
 
         // Refresh the window opener with parameter indicating that the refresh was caused by this modal window
-        ScriptHelper.RegisterStartupScript(this, typeof(string), "RefreshPage", ScriptHelper.GetScript("wopener.__doPostBack('', 'modalClosed'); CloseDialog();"));
+        ScriptHelper.RegisterStartupScript(this, typeof(string), "RefreshPage", ScriptHelper.GetScript("wopener.RefreshPage(false); CloseDialog();"));
     }
 
     #endregion

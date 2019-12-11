@@ -1,4 +1,5 @@
 using Kentico.Content.Web.Mvc;
+using Kentico.Content.Web.Mvc.Routing;
 using Kentico.Web.Mvc;
 
 namespace MedioClinic
@@ -10,6 +11,11 @@ namespace MedioClinic
             // Enable required Kentico features
 
             builder.UsePreview();
+
+            builder.UsePageRouting(new PageRoutingOptions
+            {
+                EnableAlternativeUrls = true
+            });
         }
     }
 }

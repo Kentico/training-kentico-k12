@@ -1618,7 +1618,7 @@ public partial class CMSModules_AdminControls_Controls_Class_NewClassWizard : CM
                     // Clear custom tables count
                     if (isCustomTable)
                     {
-                        CustomTableItemProvider.ClearLicensesCount();
+                        CustomTableItemProvider.ClearLicensesCount(true);
                     }
                 }
             }

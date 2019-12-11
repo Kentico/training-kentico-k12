@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Data;
-using System.Collections;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
 
+using CMS.Core;
 using CMS.DocumentEngine.Web.UI;
 using CMS.EventLog;
 using CMS.Helpers;
-using CMS.IO;
 using CMS.PortalEngine.Web.UI;
 using CMS.Base.Web.UI;
 
@@ -99,24 +94,21 @@ public partial class CMSWebParts_Filters_Filter : CMSAbstractWebPart
             {
                 try
                 {
-                    if (File.Exists(Server.MapPath(FilterControlPath)))
+                    mFilterControl = (Page.LoadUserControl(FilterControlPath)) as CMSAbstractBaseFilterControl;
+                    if (mFilterControl != null)
                     {
-                        mFilterControl = (Page.LoadUserControl(FilterControlPath)) as CMSAbstractBaseFilterControl;
-                        if (mFilterControl != null)
+                        mFilterControl.ID = "filterControl";
+                        Controls.AddAt(0, mFilterControl);
+                        mFilterControl.FilterName = FilterName;
+                        if (Page != null)
                         {
-                            mFilterControl.ID = "filterControl";
-                            Controls.AddAt(0, mFilterControl);
-                            mFilterControl.FilterName = FilterName;
-                            if (Page != null)
-                            {
-                                mFilterControl.Page = Page;
-                            }
+                            mFilterControl.Page = Page;
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    EventLogProvider.LogException("Filter control", "LOADFILTER", ex);
+                    EventLogProvider.LogException("Filter control", "LOADFILTER", ex, loggingPolicy: LoggingPolicy.ONLY_ONCE);
                 }
             }
         }

@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="CMSModules_Content_Controls_Dialogs_Properties_URLProperties"
-     Codebehind="URLProperties.ascx.cs" %>
+    CodeBehind="URLProperties.ascx.cs" %>
 
 <%@ Register Src="~/CMSModules/Content/Controls/Dialogs/General/WidthHeightSelector.ascx"
     TagPrefix="cms" TagName="WidthHeightSelector" %>
@@ -23,8 +23,12 @@
                                             ResourceString="general.url" />
                                     </div>
                                     <div class="editing-form-value-cell media-dialog-value-cell">
-                                        <cms:CMSTextBox ID="txtUrl" runat="server" CssClass="form-control media-url-control" />
-                                        <cms:CMSAccessibleButton ID="imgRefresh" IconCssClass="icon-rotate-right cms-icon-80" IconOnly="true" runat="server" OnClick="imgRefresh_Click" />
+                                        <cms:CMSUpdatePanel ID="pnlUpdateImgUrl" runat="server" UpdateMode="Conditional">
+                                            <ContentTemplate>
+                                                <cms:CMSTextBox ID="txtUrl" runat="server" CssClass="form-control media-url-control" />
+                                                <cms:CMSAccessibleButton ID="imgRefresh" IconCssClass="icon-rotate-right cms-icon-80" IconOnly="true" runat="server" OnClick="imgRefresh_Click" />
+                                            </ContentTemplate>
+                                        </cms:CMSUpdatePanel>
                                     </div>
                                 </div>
                             </asp:PlaceHolder>
@@ -61,24 +65,32 @@
                                     </div>
                                 </asp:PlaceHolder>
                                 <asp:PlaceHolder ID="plcSizeSelector" runat="server">
-                                    <cms:WidthHeightSelector ID="widthHeightElem" runat="server" ShowActions="false"
-                                        ShowLabels="true" Locked="false" TextBoxesClass="input-width-20" />
+                                    <cms:CMSUpdatePanel ID="pnlUpdateWidthHeight" runat="server" UpdateMode="Conditional">
+                                        <ContentTemplate>
+                                            <cms:WidthHeightSelector ID="widthHeightElem" runat="server" ShowActions="false"
+                                                ShowLabels="true" Locked="false" TextBoxesClass="input-width-20" />
+                                        </ContentTemplate>
+                                    </cms:CMSUpdatePanel>
                                 </asp:PlaceHolder>
                             </div>
                             <div class="preview">
-                                <asp:PlaceHolder ID="plcPreviewArea" runat="server">
-                                    <asp:Panel runat="server" ID="pnlImagePreview" CssClass="DialogPropertiesPreview DialogLongPreview">
-                                        <cms:ImagePreview ID="imagePreview" runat="server" />
-                                    </asp:Panel>
-                                    <asp:Panel runat="server" ID="pnlMediaPreview" CssClass="DialogPropertiesPreview DialogLongPreview">
-                                        <cms:MediaPreview runat="server" ID="mediaPreview" />
-                                    </asp:Panel>
-                                </asp:PlaceHolder>
+                                <cms:CMSUpdatePanel runat="server" ID="pnlPreviewArea" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:PlaceHolder ID="plcPreviewArea" runat="server">
+                                            <asp:Panel runat="server" ID="pnlImagePreview" CssClass="DialogPropertiesPreview DialogLongPreview">
+                                                <cms:ImagePreview ID="imagePreview" runat="server" />
+                                            </asp:Panel>
+                                            <asp:Panel runat="server" ID="pnlMediaPreview" CssClass="DialogPropertiesPreview DialogLongPreview">
+                                                <cms:MediaPreview runat="server" ID="mediaPreview" />
+                                            </asp:Panel>
+                                        </asp:PlaceHolder>
+                                        <asp:Button ID="btnHidden" runat="server" CssClass="HiddenButton" EnableViewState="false" />
+                                        <asp:Button ID="btnTxtHidden" runat="server" CssClass="HiddenButton" EnableViewState="false" />                                        
+                                    </ContentTemplate>
+                                </cms:CMSUpdatePanel>
+                                <asp:Button ID="btnHiddenSize" runat="server" CssClass="HiddenButton" EnableViewState="false" />
                             </div>
                         </div>
-                        <asp:Button ID="btnHidden" runat="server" CssClass="HiddenButton" EnableViewState="false" />
-                        <asp:Button ID="btnTxtHidden" runat="server" CssClass="HiddenButton" EnableViewState="false" />
-                        <asp:Button ID="btnHiddenSize" runat="server" CssClass="HiddenButton" EnableViewState="false" />
                     </asp:Panel>
                 </ContentTemplate>
             </cms:JQueryTab>

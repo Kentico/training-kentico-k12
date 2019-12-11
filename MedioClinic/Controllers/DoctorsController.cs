@@ -48,7 +48,7 @@ namespace MedioClinic.Controllers
             return View(model);
         }
 
-        [OutputCache(Duration = 3600, VaryByParam = "nodeGuid", Location = OutputCacheLocation.Server)]
+        [OutputCache(Duration = 3600, VaryByParam = "nodeGuid", VaryByCustom = "DefaultSet", Location = OutputCacheLocation.Server)]
         public ActionResult Detail(Guid nodeGuid, string nodeAlias)
         {
             var doctor = DoctorRepository.GetDoctor(nodeGuid);

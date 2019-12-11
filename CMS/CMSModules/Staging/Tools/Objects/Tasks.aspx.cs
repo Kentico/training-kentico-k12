@@ -209,6 +209,14 @@ public partial class CMSModules_Staging_Tools_Objects_Tasks : CMSStagingTasksPag
     }
 
 
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+
+        pnlFooter.Visible = !gridTasks.IsEmpty;
+    }
+
+
     /// <summary>
     /// Executes given action asynchronously
     /// </summary>
@@ -232,9 +240,11 @@ public partial class CMSModules_Staging_Tools_Objects_Tasks : CMSStagingTasksPag
         string where = GetSiteWhere();
         WhereCondition mergedWhere = new WhereCondition(completeWhere).And().Where(where);
 
-        DataSet ds = StagingTaskInfoProvider.SelectObjectTaskList(CurrentSiteID, SelectedServerID, objectType, mergedWhere.ToString(true), currentOrder, currentTopN, columns, currentOffset, currentPageSize, ref totalRecords);
-        pnlFooter.Visible = (totalRecords > 0);
-        return ds;
+        var tasksQuery = StagingTaskInfoProvider.SelectObjectTaskList(CurrentSiteID, SelectedServerID, objectType, mergedWhere.ToString(true), currentOrder, currentTopN, columns, currentOffset, currentPageSize);
+        var result = tasksQuery.Result;
+        totalRecords = tasksQuery.TotalRecords;
+
+        return result;
     }
 
 

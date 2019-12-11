@@ -156,7 +156,7 @@ public partial class CMSModules_Content_CMSDesk_TemplateSelection : CMSContentPa
                     templateId = pti.PageTemplateId;
                 }
 
-                URLHelper.Redirect("~/CMSModules/Content/CMSDesk/Edit/edit.aspx" + RequestContext.CurrentQueryString + "&templateid=" + templateId);
+                URLHelper.Redirect("~/CMSModules/Content/CMSDesk/Edit/edit.aspx" + RequestContext.CurrentQueryString + "&templateidentifier=" + templateId);
             }
 
         }

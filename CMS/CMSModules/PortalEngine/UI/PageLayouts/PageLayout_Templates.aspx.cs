@@ -31,7 +31,7 @@ public partial class CMSModules_PortalEngine_UI_PageLayouts_PageLayout_Templates
         String url = ApplicationUrlHelper.GetElementDialogUrl("cms.design", "PageTemplate.EditPageTemplate");
         string script = @"
 function EditPageTemplate(id){
-     modalDialog('" + url + @"&objectid=' + id, 'TemplateSelection', 1024, 768, false);
+     modalDialog('" + url + @"&objectid=' + id, 'TemplateSelection', 1024, 768);
 }";
 
         ScriptHelper.RegisterDialogScript(this.Page);

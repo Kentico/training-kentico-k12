@@ -16,7 +16,6 @@ namespace Business.Repository.Social
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.SocialLink>()
                 .AddColumns("Title", "Url", "Icon")
                 .OrderByAscending("NodeOrder")
-                .ToList()
                 .Select(m => new SocialLinkDto()
                 {
                     Url = m.Url,

@@ -19,15 +19,15 @@
   cursor: not-allowed;
   color: #696663;
   background-color: #a3a2a2;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, #bdbbbb 1px, #bdbbbb 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .cms-bootstrap .dropdown-disabled {
   cursor: not-allowed;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .cms-bootstrap .dropdown-disabled:hover {
   background-color: inherit;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .cms-bootstrap html {
   font-family: sans-serif;
@@ -3853,8 +3853,14 @@ body.cms-bootstrap,
 .cms-bootstrap .color-orange-80 {
   color: #c98209;
 }
+.cms-bootstrap .color-blue-70 {
+  color: #0f6194;
+}
 .cms-bootstrap .color-blue-100 {
   color: #1175ae;
+}
+.cms-bootstrap .color-gray-50 {
+  color: #262524;
 }
 .cms-bootstrap .color-gray-100 {
   color: #a3a2a2;
@@ -6354,6 +6360,24 @@ textarea.cms-bootstrap .input-lg {
 .cms-bootstrap .toggle-button .checkbox input + label {
   display: none;
 }
+.cms-bootstrap.Safari .cms-input-group.cms-textwithplaceholder-container::before {
+  padding: 6px 8px 6px;
+}
+.cms-bootstrap .cms-input-group.cms-textwithplaceholder-container::before {
+  content: attr(data-content);
+  position: absolute;
+  color: #696663;
+  display: inline-block;
+  padding: 5px 8px 4px;
+  background-color: #e5e5e5;
+  border: 2px solid #bdbbbb;
+  border-radius: 3px 0 0 3px;
+}
+.cms-bootstrap .cms-input-group.cms-textwithplaceholder-container .cms-textwithplaceholder-hidden {
+  display: inline-block;
+  visibility: hidden;
+  position: absolute;
+}
 .cms-bootstrap .form-filter {
   width: 660px;
   margin-bottom: 32px;
@@ -6680,7 +6704,7 @@ textarea.cms-bootstrap .input-lg {
   cursor: not-allowed;
   color: #696663;
   background-color: #a3a2a2;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, #bdbbbb 1px, #bdbbbb 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
   text-shadow: none;
   box-shadow: none;
 }
@@ -7105,11 +7129,11 @@ textarea.cms-bootstrap .input-lg {
 }
 .cms-bootstrap .dropdown-menu .disabled a {
   cursor: not-allowed;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .cms-bootstrap .dropdown-menu .disabled a:hover {
   background-color: inherit;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .cms-bootstrap .open > .dropdown-menu {
   display: block;
@@ -9126,7 +9150,6 @@ textarea.cms-bootstrap .input-lg {
   border: #d7ebbf;
   z-index: 100500;
   overflow-x: hidden;
-  position: fixed !important;
 }
 .cms-bootstrap .alert-success i {
   color: #497d04;
@@ -11746,7 +11769,7 @@ td.cms-bootstrap .visible-print {
   cursor: not-allowed;
   color: #696663;
   background-color: #a3a2a2;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, #bdbbbb 1px, #bdbbbb 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
   text-shadow: none;
   box-shadow: none;
 }
@@ -11927,7 +11950,7 @@ td.cms-bootstrap .visible-print {
   cursor: not-allowed;
   color: #696663;
   background-color: #a3a2a2;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, #bdbbbb 1px, #bdbbbb 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
   text-shadow: none;
   box-shadow: none;
 }
@@ -12568,6 +12591,89 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .ab-overview .red-arrow:before {
   content: "\e682";
 }
+.cms-bootstrap .conversion-designer .conversion-row {
+  background-color: #bdbbbb;
+  min-height: 32px;
+  margin-bottom: 1px;
+  display: -ms-flexbox;
+  display: flex;
+}
+.cms-bootstrap .conversion-designer .conversion-row > span {
+  cursor: pointer;
+  display: inline-block;
+  margin: 8px;
+  width: 245px;
+}
+.cms-bootstrap .conversion-designer .conversion-row > span.disabled {
+  cursor: default;
+}
+.cms-bootstrap .conversion-designer .conversion-row .checkbox,
+.cms-bootstrap .conversion-designer .conversion-row .radio {
+  display: inline-block;
+}
+.cms-bootstrap .conversion-designer .conversion-row .checkbox label,
+.cms-bootstrap .conversion-designer .conversion-row .radio label {
+  margin-right: 0;
+  width: 0;
+}
+.cms-bootstrap .conversion-designer .conversion-row .control-group-inline {
+  display: block;
+}
+.cms-bootstrap .conversion-designer .conversion-row .cms-input-group {
+  display: inline-block;
+  vertical-align: middle;
+}
+.cms-bootstrap .conversion-designer .conversion-row .remove-conversion {
+  visibility: hidden;
+}
+.cms-bootstrap .conversion-designer .edit-conversion-row .editing-form-label-cell,
+.cms-bootstrap .conversion-designer .edit-conversion-row .editing-form-value-cell {
+  float: left;
+  width: 100%;
+}
+.cms-bootstrap .conversion-designer .edit-conversion-row .control-label {
+  text-align: left;
+}
+.cms-bootstrap .conversion-designer .edit-conversion-row .cms-input-group {
+  width: 100%;
+}
+.cms-bootstrap .conversion-designer .edit-conversion-row .form-horizontal {
+  margin-bottom: 0;
+}
+.cms-bootstrap .conversion-designer .edit-conversion-row .form-horizontal .editing-form-category {
+  margin-top: 0;
+}
+.cms-bootstrap .conversion-designer .edit-conversion-row .form-horizontal .editing-form-category-fields {
+  margin-bottom: 0;
+}
+.cms-bootstrap .conversion-designer .edit-conversion-row .form-group .btn-default {
+  margin-top: 8px;
+}
+.cms-bootstrap .conversion-designer .conversion-row.edit-conversion-row {
+  padding: 16px;
+  background-color: #d0e8ed;
+  display: block;
+}
+.cms-bootstrap .conversion-designer .designer-conversions {
+  margin-bottom: 16px;
+  max-width: 320px;
+}
+.cms-bootstrap .conversion-designer .conversion-actions {
+  float: right;
+  margin: auto;
+}
+.cms-bootstrap .conversion-designer .conversion-row.edit-conversion-row .rule-description {
+  display: inline-block;
+  margin-top: 8px;
+}
+.cms-bootstrap .conversion-designer .Info {
+  display: inline-block;
+  padding: 3px 5px;
+  vertical-align: top;
+}
+.cms-bootstrap .conversion-designer .conversion-row:hover .remove-conversion {
+  visibility: visible;
+}
 .cms-bootstrap .campaign-report-radios td {
   padding-bottom: 4px;
 }
@@ -13080,6 +13186,13 @@ td.cms-bootstrap .visible-print {
   margin-top: 8px;
   margin-bottom: 8px;
 }
+.cms-bootstrap .preview-page .alert-success-absolute,
+.cms-bootstrap .preview-page .alert-info-absolute,
+.cms-bootstrap .preview-page .alert-error-absolute,
+.cms-bootstrap .preview-page .alert-warning-absolute {
+  position: absolute;
+  margin: 16px 0 0 16px;
+}
 .cms-bootstrap .document-flag-tooltip {
   width: 330px;
 }
@@ -13113,10 +13226,46 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .document-flags .Translated {
   background-color: #95be5f;
 }
+.cms-bootstrap .page-builder .alert-success-absolute,
+.cms-bootstrap .page-builder .alert-info-absolute,
 .cms-bootstrap .page-builder .alert-error-absolute,
 .cms-bootstrap .page-builder .alert-warning-absolute {
   position: absolute;
   margin: 16px 0 0 16px;
+}
+.cms-bootstrap .selector-header h4 {
+  text-align: left;
+  border-bottom: 1px solid #d6d9d6;
+  line-height: 0.1em;
+  height: 0.1em;
+  margin: 16px 16px 16px 0;
+}
+.cms-bootstrap .selector-header h4 span {
+  background-color: #ffffff;
+  padding: 0 16px;
+}
+.cms-bootstrap .selector-messages {
+  padding: 8px 16px 0;
+}
+.cms-bootstrap .selector-no-templates {
+  display: none;
+  padding: 16px;
+}
+.cms-bootstrap .selector-no-templates.show {
+  display: block;
+}
+.cms-bootstrap .selector-image {
+  max-height: 136px;
+  max-width: 136px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%) translateY(4px);
+  -webkit-transform: translate(-50%, calc(-50% + 4px));
+          transform: translate(-50%, calc(-50% + 4px));
+}
+.cms-bootstrap .form-filter.alternativeurl-form {
+  width: 992px;
 }
 .cms-bootstrap .create-install-package-dialog .form-group {
   margin-bottom: 0px;
@@ -13539,6 +13688,23 @@ td.cms-bootstrap .visible-print {
   right: 0;
   padding-top: 0;
 }
+.cms-bootstrap .ab-test-variant-selector-wrapper {
+  position: relative;
+}
+.cms-bootstrap .ab-test-variant-selector-wrapper .ab-test-pop-up-dialog {
+  position: absolute;
+  right: 0;
+  top: 41px;
+  border-color: transparent transparent #0f6194 transparent;
+  -webkit-transform: none !important;
+      -ms-transform: none !important;
+          transform: none !important;
+  visibility: hidden;
+  z-index: 9951;
+}
+.cms-bootstrap .ab-test-variant-selector-wrapper .ab-test-pop-up-dialog.open {
+  visibility: visible;
+}
 .cms-bootstrap .widget-properties-sidebar {
   height: inherit;
   background-color: #ffffff;
@@ -13672,11 +13838,17 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .email-builder {
   height: 100vh;
 }
-.cms-bootstrap .email-builder .alert-error-floating,
-.cms-bootstrap .email-builder .alert-success-floating,
-.cms-bootstrap .email-builder .alert-info-floating {
+.cms-bootstrap .email-builder .alert-success-absolute,
+.cms-bootstrap .email-builder .alert-info-absolute,
+.cms-bootstrap .email-builder .alert-error-absolute,
+.cms-bootstrap .email-builder .alert-warning-absolute {
   position: absolute;
-  margin: 64px 0 0 16px;
+  margin: 16px 0 0 16px;
+}
+.cms-bootstrap .email-builder .alert-error-absolute,
+.cms-bootstrap .email-builder .alert-success-absolute,
+.cms-bootstrap .email-builder .alert-info-absolute {
+  margin-top: 64px;
   max-width: 500px;
 }
 .cms-bootstrap .email-builder .alert-info-floating-right {
@@ -14711,7 +14883,7 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .cms-edit-menu .control-group-inline {
   margin-right: 8px;
 }
-.cms-bootstrap .cms-edit-menu .control-group-inline > div:not(.device-profile-menu):not(.device-rotation):not(.personas-selectable-button) {
+.cms-bootstrap .cms-edit-menu .control-group-inline > div:not(.device-profile-menu):not(.device-rotation):not(.personas-selectable-button):not(.more-actions-button) {
   float: left;
   display: inline-block;
 }
@@ -14767,48 +14939,6 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .cms-edit-menu a[disabled="disabled"] {
   text-decoration: none !important;
 }
-.cms-bootstrap .cms-edit-menu .MenuItemEdit,
-.cms-bootstrap .cms-edit-menu .MenuItemEditDisabled,
-.cms-bootstrap .cms-edit-menu .SepContextButton {
-  display: block;
-  float: left;
-  background: #bdbbbb;
-  text-decoration: none;
-}
-.cms-bootstrap .RTL .LTR .cms-edit-menu .MenuItemEdit,
-.cms-bootstrap .RTL .LTR .cms-edit-menu .MenuItemEditDisabled,
-.cms-bootstrap .RTL .LTR .cms-edit-menu .SepContextButton {
-  float: left;
-}
-.cms-bootstrap .RTL .cms-edit-menu .MenuItemEdit,
-.cms-bootstrap .RTL .cms-edit-menu .MenuItemEditDisabled,
-.cms-bootstrap .RTL .cms-edit-menu .SepContextButton {
-  float: right;
-}
-.cms-bootstrap .cms-edit-menu .MenuItemEdit:hover,
-.cms-bootstrap .cms-edit-menu .SepContextButton:hover {
-  background: #a3a2a2;
-}
-.cms-bootstrap .cms-edit-menu .MenuItemEditDisabled {
-  cursor: default;
-  color: #8A8A8A;
-}
-.cms-bootstrap .cms-edit-menu .MenuItemEdit img,
-.cms-bootstrap .cms-edit-menu .MenuItemEditDisabled img,
-.cms-bootstrap .cms-edit-menu .MenuItemEdit input[type="image"],
-.cms-bootstrap .cms-edit-menu .MenuItemEditDisabled input[type="image"] {
-  margin: 0;
-  padding: 4px;
-  width: 16px;
-  height: 16px;
-  vertical-align: bottom;
-  border: none;
-  box-sizing: content-box;
-}
-.cms-bootstrap .cms-edit-menu .MenuItemEditDisabled img {
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-}
 .cms-bootstrap .cms-edit-menu .Pad,
 .cms-bootstrap .RTL .LTR .cms-edit-menu .Pad {
   margin-right: 8px;
@@ -14845,40 +14975,12 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .RTL .cms-edit-menu .MenuButtonText {
   padding: 0 0 0 16px;
 }
-.cms-bootstrap .cms-edit-menu .ContextButton,
-.cms-bootstrap .cms-edit-menu .SepContextButton,
-.cms-bootstrap .RTL .LTR .cms-edit-menu .ContextButton,
-.cms-bootstrap .RTL .LTR .cms-edit-menu .SepContextButton {
-  display: block;
-  float: right;
-  height: 24px;
-  width: 19px;
-  cursor: pointer;
-}
-.cms-bootstrap .RTL .cms-edit-menu .ContextButton,
-.cms-bootstrap .RTL .cms-edit-menu .SepContextButton {
-  float: left;
-  border-left: none;
-}
-.cms-bootstrap .cms-edit-menu .ContextButton .Arrow,
-.cms-bootstrap .cms-edit-menu .SepContextButton .Arrow {
-  height: 24px;
-  background: url(../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Content/EditMenu/16/arrow.png) no-repeat center center;
-  display: block;
-}
 .cms-bootstrap .cms-edit-menu .AdditionalControls {
   margin-top: 3px;
 }
 .cms-bootstrap .cms-edit-menu .AdditionalControls label,
 .cms-bootstrap .cms-edit-menu .AdditionalControls input[type=checkbox] {
   vertical-align: middle;
-}
-.cms-bootstrap .cms-edit-menu .SubItemsArrow {
-  float: right;
-  margin-top: 4px !important;
-}
-.cms-bootstrap .RTL .cms-edit-menu .SubItemsArrow {
-  float: left;
 }
 .cms-bootstrap .PortalContextMenu.cms-edit-menu {
   padding: 0;
@@ -14890,13 +14992,6 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .PortalContextMenu.cms-edit-menu .Text {
   float: none;
   display: inline;
-}
-.cms-bootstrap .PortalContextMenu.cms-edit-menu .MenuItemEdit,
-.cms-bootstrap .PortalContextMenu.cms-edit-menu .MenuItemEditDisabled {
-  color: #fff;
-  background: none;
-  border: none;
-  width: 100%;
 }
 .cms-bootstrap .cms-edit-menu .Right,
 .cms-bootstrap .cms-edit-menu .RightABVariant,
@@ -14917,15 +15012,6 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .PortalContextMenu.cms-edit-menu .ItemPadding,
 .cms-bootstrap .PortalContextMenu.cms-edit-menu .ItemPadding:hover {
   padding: 2px !important;
-}
-.cms-bootstrap .FreeLayout {
-  background-color: #fff;
-  background: url(../../CMSPages/GetResource.ashx?image=CMSModules/CMS_PortalEngine/Grid.png);
-  border: solid 1px #fff !important;
-  min-width: 100%;
-}
-.cms-bootstrap .FreeLayout.ActiveDropArea {
-  border: dashed 1px red !important;
 }
 .cms-bootstrap .RightAlign,
 .cms-bootstrap .RTL .LTR .RightAlign,
@@ -15022,6 +15108,13 @@ td.cms-bootstrap .visible-print {
 }
 .cms-bootstrap .form-builder {
   z-index: 5;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: stretch;
+      align-items: stretch;
+  height: 100vh;
 }
 .cms-bootstrap .form-builder .form-component {
   display: table;
@@ -15033,11 +15126,9 @@ td.cms-bootstrap .visible-print {
 }
 .cms-bootstrap .settings-panel {
   background-color: #e5e5e5;
-  position: fixed;
+  -ms-flex: 0 0 330px;
+      flex: 0 0 330px;
   overflow: auto;
-  top: 0;
-  bottom: 0;
-  right: 0;
   width: 330px;
   padding: 16px;
 }
@@ -15212,13 +15303,10 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .form-components {
   background-color: #ffffff;
   border-right: 8px solid #d6d9d6;
-  position: fixed;
+  -ms-flex: 0 0 270px;
+      flex: 0 0 270px;
   overflow-x: hidden;
   overflow-y: auto;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 270px;
   z-index: 2;
 }
 .cms-bootstrap .form-components .ui-draggable-dragging {
@@ -15246,13 +15334,11 @@ td.cms-bootstrap .visible-print {
   width: 95px;
 }
 .cms-bootstrap .form-builder-form {
-  position: fixed;
   overflow: auto;
   padding: 20px;
-  top: 0;
-  bottom: 0;
-  right: 363px;
-  left: 278px;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  overflow-y: auto;
   z-index: 1;
 }
 .cms-bootstrap .form-builder-form .editing-form-category-fields > div:after {
@@ -15367,9 +15453,6 @@ td.cms-bootstrap .visible-print {
   top: auto !important;
   left: auto !important;
 }
-.cms-bootstrap .FlatItem .SelectorEnvelope:hover {
-  background: #d0e8ed;
-}
 .cms-bootstrap .PTSelection .UniFlatSearchPanel {
   background: #e5e5e5;
 }
@@ -15391,7 +15474,24 @@ td.cms-bootstrap .visible-print {
   height: 160px;
   width: 152px;
 }
-.cms-bootstrap .RTL .FlatItem .SelectorEnvelope {
+.cms-bootstrap .FlatItem .SelectorEnvelope.EnvelopeBig {
+  height: 224px;
+}
+.cms-bootstrap .FlatItem .SelectorEnvelope:hover {
+  background: #d0e8ed;
+}
+.cms-bootstrap .FlatSelectedItem .SelectorEnvelope {
+  float: left;
+  text-align: center;
+  height: 160px;
+  width: 152px;
+  background: #b3dce9;
+}
+.cms-bootstrap .FlatSelectedItem .SelectorEnvelope.EnvelopeBig {
+  height: 224px;
+}
+.cms-bootstrap .RTL .FlatItem .SelectorEnvelope,
+.cms-bootstrap .RTL .FlatSelectedItem .SelectorEnvelope {
   float: right;
 }
 .cms-bootstrap .UniFlatContent {
@@ -15420,11 +15520,11 @@ td.cms-bootstrap .visible-print {
 .cms-bootstrap .SelectorTree span.Name {
   display: inline-block;
 }
-.cms-bootstrap .PageContentFrame .SelectorTree {
-  width: 250px;
-}
 .cms-bootstrap .SelectorTree .TreePadding {
   padding: 8px;
+}
+.cms-bootstrap .PageContentFrame .SelectorTree {
+  width: 250px;
 }
 .cms-bootstrap .SelectorNoResults {
   padding-left: 5px;
@@ -15432,8 +15532,6 @@ td.cms-bootstrap .visible-print {
   text-align: left;
 }
 .cms-bootstrap .RTL .SelectorNoResults {
-  padding-right: 5px;
-  padding-top: 10px;
   text-align: right;
 }
 .cms-bootstrap .SelectorTable {
@@ -15460,22 +15558,18 @@ td.cms-bootstrap .visible-print {
   color: #403e3d;
   font-size: 64px !important;
 }
+.cms-bootstrap .EnvelopeBig .SelectorFlatImage {
+  padding: 8px 8px 0 8px;
+  min-height: 136px;
+  position: relative;
+}
 .cms-bootstrap .SelectorFlatText {
   display: block;
   margin: 0;
   padding: 4px 8px;
   color: #0f6194;
   word-wrap: break-word;
-}
-.cms-bootstrap .RTL .FlatSelectedItem .SelectorEnvelope {
-  float: right;
-}
-.cms-bootstrap .FlatSelectedItem .SelectorEnvelope {
-  float: left;
-  text-align: center;
-  height: 160px;
-  width: 152px;
-  background: #d0e8ed;
+  line-height: 19px;
 }
 .cms-bootstrap .PTSelection .RadioPanel label {
   position: relative;
@@ -16732,6 +16826,17 @@ td.cms-bootstrap .visible-print {
   width: 304px;
   text-align: left;
 }
+.cms-bootstrap .inline-editing-textbox-wide {
+  width: 704px;
+}
+.cms-bootstrap .inline-editing-textbox-wide .static-textpanel {
+  width: 704px;
+  overflow: visible;
+}
+.cms-bootstrap .inline-editing-textbox-wide .editing-textbox {
+  width: 656px;
+  text-align: left;
+}
 .cms-bootstrap .menu-header-item,
 .cms-bootstrap .menu-header-item-selected {
   margin-right: 16px;
@@ -17533,7 +17638,7 @@ td.cms-bootstrap .visible-print {
   cursor: not-allowed;
   color: #696663;
   background-color: #a3a2a2;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, #bdbbbb 1px, #bdbbbb 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .cms-bootstrap .autocomplete {
   display: inline;

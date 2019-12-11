@@ -1,6 +1,4 @@
-﻿using System;
-
-using CMS.UIControls;
+﻿using CMS.UIControls;
 
 
 [Security(Resource = "CMS.Content", UIElements = "Validation.Accessibility")]
@@ -14,16 +12,6 @@ public partial class CMSModules_Content_CMSDesk_Validation_Accessibility : CMSVa
         {
             return validator;
         }
-    }
-
-    #endregion
-
-
-    #region "Page events"
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        SetValidationTab(TAB_ACCESSIBILITY);
     }
 
     #endregion

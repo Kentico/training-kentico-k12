@@ -1,7 +1,10 @@
 ﻿// FormBuilder - right panel
-
 .form-builder {
     z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100vh;
 
     .form-component {
         display: table;
@@ -16,11 +19,8 @@
 
 .settings-panel {
     background-color: @color-gray-150;
-    position: fixed;
+    flex: 0 0 330px;
     overflow: auto;
-    top: 0;
-    bottom: 0;
-    right: 0;
     width: 330px;
     padding: @base-unit;
 
@@ -40,9 +40,9 @@
         padding: 15px 0 3px;
     }
 
-        .label-property.Top {
-            padding-top: 0;
-        }
+    .label-property.Top {
+        padding-top: 0;
+    }
 
     .field-property {
         min-height: 22px;
@@ -189,12 +189,12 @@
         }
     }
 
-        .rule-row:hover {
-            .remove-rule,
-            .rule-warning {
-                visibility: visible;
-            }
+    .rule-row:hover {
+        .remove-rule,
+        .rule-warning {
+            visibility: visible;
         }
+    }
 }
 
 .options-designer {
@@ -203,10 +203,10 @@
         margin-bottom: -10px;
     }
 
-        .options-designer-options:before,
-        .options-designer-options:after {
-            content: "\00a0";
-        }
+    .options-designer-options:before,
+    .options-designer-options:after {
+        content: "\00a0";
+    }
 
     .drag-option {
         cursor: move;
@@ -232,14 +232,14 @@
         }
     }
 
-        .option-row:hover .LocalizablePanel,
-        .option-row:hover .remove-option,
-        .option-row:hover .drag-option,
-        .option-row.selected-row .LocalizablePanel,
-        .option-row.selected-row .remove-option,
-        .option-row.selected-row .drag-option {
-            visibility: visible;
-        }
+    .option-row:hover .LocalizablePanel,
+    .option-row:hover .remove-option,
+    .option-row:hover .drag-option,
+    .option-row.selected-row .LocalizablePanel,
+    .option-row.selected-row .remove-option,
+    .option-row.selected-row .drag-option {
+        visibility: visible;
+    }
 }
 
 // FormBuilder - left panel
@@ -247,13 +247,9 @@
 .form-components {
     background-color: @color-white;
     border-right: 8px solid @color-gray-140;
-    position: fixed;
+    flex: 0 0 270px;
     overflow-x: hidden;
     overflow-y: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 270px;
     z-index: 2;
 
     .ui-draggable-dragging {
@@ -269,9 +265,9 @@
         cursor: move;
     }
 
-        > div:hover {
-            background-color: @color-blue-130;
-        }
+    > div:hover {
+        background-color: @color-blue-130;
+    }
 }
 
 .form-component {
@@ -288,18 +284,12 @@
         width: 95px;
     }
 }
-
-
 // FormBuilder - form
-
 .form-builder-form {
-    position: fixed;
     overflow: auto;
     padding: 20px;
-    top: 0;
-    bottom: 0;
-    right: 363px;
-    left: 278px;
+    flex-grow: 1;
+    overflow-y: auto;
     z-index: 1;
 
     .editing-form-category-fields {
@@ -319,14 +309,14 @@
         border: 1px solid transparent;
     }
 
-        .editing-form-category-fields > div:hover {
-            border: dashed 1px @color-gray-90;
-            cursor: move !important;
-        }
+    .editing-form-category-fields > div:hover {
+        border: dashed 1px @color-gray-90;
+        cursor: move !important;
+    }
 
-            .editing-form-category-fields > div:hover .field-actions {
-                visibility: visible;
-            }
+    .editing-form-category-fields > div:hover .field-actions {
+        visibility: visible;
+    }
 
     .editing-form-category-fields {
         min-height: 2px;
@@ -411,9 +401,9 @@
         border: dashed 1px @color-gray-90;
     }
 
-        .empty-form.Green {
-            border: dashed 1px @color-green-120;
-        }
+    .empty-form.Green {
+        border: dashed 1px @color-green-120;
+    }
 
     .selected-field {
         background-color: @color-blue-130;

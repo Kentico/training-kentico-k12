@@ -36,14 +36,5 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ContentPersonaliza
         pnlContainer.Enabled = !DocumentManager.ProcessingAction;
     }
 
-
-    protected override void OnPreRender(EventArgs e)
-    {
-        base.OnPreRender(e);
-
-        // Set selected tab
-        SetPropertyTab(TAB_VARIANTS);
-    }
-
     #endregion
 }

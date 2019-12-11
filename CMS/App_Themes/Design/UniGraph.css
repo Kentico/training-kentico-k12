@@ -6,15 +6,15 @@
   cursor: not-allowed;
   color: #696663;
   background-color: #a3a2a2;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, #bdbbbb 1px, #bdbbbb 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, #bdbbbb 1px, #bdbbbb 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .dropdown-disabled {
   cursor: not-allowed;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .dropdown-disabled:hover {
   background-color: inherit;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px);
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px);
 }
 .ActionSearch {
   height: 25px;

@@ -43,7 +43,6 @@ namespace Business.Repository.Doctor
         {
             return DocumentQueryService.GetDocuments<CMS.DocumentEngine.Types.MedioClinic.Doctor>()
                 .AddColumns(_doctorColumns)
-                .ToList()
                 .Select(DoctorDtoSelect);
         }
 

@@ -144,6 +144,14 @@ public partial class CMSModules_Staging_Tools_AllTasks_Tasks : CMSStagingTasksPa
     }
 
 
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+
+        pnlFooter.Visible = !gridTasks.IsEmpty;
+    }
+
+
     /// <summary>
     /// Executes given action asynchronously
     /// </summary>
@@ -164,9 +172,11 @@ public partial class CMSModules_Staging_Tools_AllTasks_Tasks : CMSStagingTasksPa
     protected DataSet gridTasks_OnDataReload(string completeWhere, string currentOrder, int currentTopN, string columns, int currentOffset, int currentPageSize, ref int totalRecords)
     {
         // Get the tasks
-        DataSet ds = StagingTaskInfoProvider.SelectTaskList(CurrentSiteID, SelectedServerID, completeWhere, currentOrder, currentTopN, columns, currentOffset, currentPageSize, ref totalRecords);
-        pnlFooter.Visible = (totalRecords > 0);
-        return ds;
+        var tasksQuery = StagingTaskInfoProvider.SelectTaskList(CurrentSiteID, SelectedServerID, completeWhere, currentOrder, currentTopN, columns, currentOffset, currentPageSize);
+        var result = tasksQuery.Result;
+        totalRecords = tasksQuery.TotalRecords;
+
+        return result;
     }
 
 

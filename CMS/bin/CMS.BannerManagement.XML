@@ -449,6 +449,12 @@
             <param name="bannerCategoryCodeName">Code name.</param>
             <param name="siteId">Site to be searched.</param>
         </member>
+        <member name="M:CMS.BannerManagement.BannerCategoryInfoProvider.DeleteInfo(CMS.BannerManagement.BannerCategoryInfo)">
+            <summary>
+            Logs export task for each banner belonging to the category and deletes the category.
+            </summary>
+            <param name="info">Banner category to delete.</param>
+        </member>
         <member name="T:CMS.BannerManagement.BannerRedirect">
             <summary>
             Redirects user to the banner's address and logs banner click for banner with specified ID.

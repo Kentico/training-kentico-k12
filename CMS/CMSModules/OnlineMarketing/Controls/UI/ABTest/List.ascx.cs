@@ -1,32 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-
-using CMS.Base;
-
-using System.Linq;
 using System.Web.UI.WebControls;
 
+using CMS.Base;
+using CMS.Base.Web.UI;
+using CMS.Core;
 using CMS.DataEngine;
 using CMS.DocumentEngine;
 using CMS.FormEngine.Web.UI;
 using CMS.Helpers;
+using CMS.Membership;
 using CMS.OnlineMarketing;
 using CMS.SiteProvider;
 using CMS.UIControls;
 using CMS.WebAnalytics;
 
-using GridAction = CMS.UIControls.UniGridConfig.Action;
-
 public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_List : CMSAdminListControl
-{
-    #region "Variables"
+{    
+    private readonly string permissionsRequiredTooltip = ResHelper.GetString("abtesting.permission.manage.tooltip");
 
-    private string mAliasPath = String.Empty;
-    private bool mShowOriginalPageColumn = true;
-
-    #endregion
-
+    private bool IsAuthorizedToManage { get; } = MembershipContext.AuthenticatedUser.IsAuthorizedPerResource(ModuleName.ABTEST, PERMISSION_MANAGE);
 
     #region "Properties"
 
@@ -47,15 +40,9 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_List : CMSAdm
     /// </summary>
     public string AliasPath
     {
-        get
-        {
-            return mAliasPath;
-        }
-        set
-        {
-            mAliasPath = value;
-        }
-    }
+        get;
+        set;
+    } = String.Empty;
 
 
     /// <summary>
@@ -107,15 +94,9 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_List : CMSAdm
     /// </summary>
     public bool ShowOriginalPageColumn
     {
-        get
-        {
-            return mShowOriginalPageColumn;
-        }
-        set
-        {
-            mShowOriginalPageColumn = value;
-        }
-    }
+        get;
+        set;
+    } = true;
 
     #endregion
 
@@ -125,14 +106,6 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_List : CMSAdm
     protected void Page_Load(object sender, EventArgs e)
     {
         LoadData();
-
-        if (!mShowOriginalPageColumn)
-        {
-            HideGridColumns(new[]
-            {
-                "ABTestOriginalPage"
-            });
-        }
 
         // Set nice 'No data' message (message differs based on whether the user is in content tree or on on-line marketing tab
         gridElem.ZeroRowsText = GetString(NodeID > 0 ? "abtesting.abtest.nodataondocument" : "abtesting.abtest.nodata");
@@ -148,6 +121,17 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_List : CMSAdm
         }
 
         gridElem.EditActionUrl = url;
+    }
+
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+
+        if (!ShowOriginalPageColumn)
+        {
+            HideOriginalPageColumn();
+        }
     }
 
 
@@ -177,41 +161,73 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_List : CMSAdm
     /// </summary>
     protected object gridElem_OnExternalDataBound(object sender, string sourceName, object parameter)
     {
-        string param = parameter.ToString();
-
-        switch (sourceName.ToLowerCSafe())
+        switch (sourceName.ToLowerInvariant())
         {
             case "status":
+            {
+                if (Enum.TryParse(parameter.ToString(), out ABTestStatusEnum status))
                 {
-                    ABTestStatusEnum status;
-                    if (Enum.TryParse(param, out status))
-                    {
-                        return ABTestStatusEvaluator.GetFormattedStatus(status);
-                    }
-                    break;
+                    return ABTestStatusEvaluator.GetFormattedStatus(status);
                 }
+                break;
+            }
 
             case "page":
-                return new HyperLink
+            {
+                var dataRowView = parameter as DataRowView;
+                if (dataRowView == null)
                 {
-                    NavigateUrl = DocumentURLProvider.GetUrl(param),
-                    Text = HTMLHelper.HTMLEncode(param),
-                    Target = "_blank"
+                    return String.Empty;
+                }
+
+                var abTestInfo = new ABTestInfo(dataRowView.Row);
+
+                var selectionParameters = new NodeSelectionParameters
+                {
+                    AliasPath = abTestInfo.ABTestOriginalPage,
+                    CultureCode = abTestInfo.ABTestCulture,
+                    SiteName = SiteContext.CurrentSiteName,
+                    SelectOnlyPublished = true,
+                    CombineWithDefaultCulture = !SiteContext.CurrentSite.SiteIsContentOnly
                 };
+
+                var node = new TreeProvider().SelectSingleNode(selectionParameters);
+                var encodedTestPage = HTMLHelper.HTMLEncode(abTestInfo.ABTestOriginalPage);
+
+                return node == null
+                    ? (object)encodedTestPage
+                    : new HyperLink
+                    {
+                        NavigateUrl = DocumentURLProvider.GetAbsoluteLiveSiteURL(node),
+                        Text = encodedTestPage,
+                        Target = "_blank"
+                    };
+            }
 
             case "visitors":
             case "conversions":
+            {
+                string statisticsCodeName = (sourceName.ToLowerInvariant() == "visitors" ? "abvisitfirst" : "absessionconversionfirst");
+
+                var dataRowView = parameter as DataRowView;
+                if (dataRowView == null)
                 {
-                    string statisticsCodeName = (sourceName.ToLowerCSafe() == "visitors" ? "abvisitfirst" : "absessionconversionfirst");
-
-                    ABTestInfo abTestInfo = ABTestInfoProvider.GetABTestInfo(param, SiteContext.CurrentSiteName);
-                    if (abTestInfo != null)
-                    {
-                        return ValidationHelper.GetInteger(HitsInfoProvider.GetAllHitsInfo(SiteContext.CurrentSiteID, HitsIntervalEnum.Year, statisticsCodeName + ";" + abTestInfo.ABTestName + ";%", "SUM(HitsCount)", abTestInfo.ABTestCulture).Tables[0].Rows[0][0], 0);
-                    }
-
                     return 0;
                 }
+
+                var abTestInfo = new ABTestInfo(dataRowView.Row);
+
+                return ValidationHelper.GetInteger(HitsInfoProvider.GetAllHitsInfo(SiteContext.CurrentSiteID, HitsIntervalEnum.Year, statisticsCodeName + ";" + abTestInfo.ABTestName + ";%", "SUM(HitsCount)", abTestInfo.ABTestCulture).Tables[0].Rows[0][0], 0);
+            }
+            
+            case "delete":
+                CMSGridActionButton btn = (CMSGridActionButton)sender;
+                btn.Enabled = IsAuthorizedToManage;
+                if(!IsAuthorizedToManage)
+                {
+                    btn.ToolTip = permissionsRequiredTooltip;
+                }
+                break;
         }
 
         return null;
@@ -246,19 +262,13 @@ public partial class CMSModules_OnlineMarketing_Controls_UI_AbTest_List : CMSAdm
 
 
     /// <summary>
-    /// Hides any grid column.
+    /// Hides original page grid column.
     /// </summary>
-    /// <param name="columnSourceNames">Column source name</param>
-    private void HideGridColumns(IEnumerable<string> columnSourceNames)
+    private void HideOriginalPageColumn()
     {
-        if ((gridElem.GridColumns != null) && (columnSourceNames != null) && (columnSourceNames.Any()))
+        if (gridElem.NamedColumns.TryGetValue("ABTestOriginalPage", out DataControlField originalPage))
         {
-            var columns = gridElem.GridColumns.Columns.Where(t => columnSourceNames.Contains(t.Source));
-
-            foreach (var column in columns)
-            {
-                column.Visible = false;
-            }
+            originalPage.Visible = false;
         }
     }
 

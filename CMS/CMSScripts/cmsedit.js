@@ -351,9 +351,9 @@ function DeleteDocument(nodeId) {
     }
 }
 
-function EditDocument(nodeId, tab) {
+function EditDocument(nodeId, tab, culture) {
     if ((parent !== this) && parent.EditDocument) {
-        parent.EditDocument(nodeId, tab);
+        parent.EditDocument(nodeId, tab, culture);
     }
 }
 

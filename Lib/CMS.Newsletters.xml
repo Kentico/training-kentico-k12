@@ -314,6 +314,11 @@
             Gets current action - 0 for SUBSCRIBE, 1 for UNSUBSCRIBE contact.
             </summary>
         </member>
+        <member name="P:CMS.Newsletters.NewsletterSubscriptionAction.InheritDoubleOptIn">
+            <summary>
+            If true, action uses subscribe settings from it's newsletter.
+            </summary>
+        </member>
         <member name="P:CMS.Newsletters.NewsletterSubscriptionAction.SiteName">
             <summary>
             Site name.
@@ -3213,7 +3218,7 @@
             <summary>
             Indicates that widget definition was not properly loaded.
             </summary>
-            <remarks>Property is not serialized to output XML, if the value is <c>false</c>.</remarks>
+            <remarks>Property is not serialized to output XML.</remarks>
         </member>
         <member name="P:CMS.Newsletters.Issues.Widgets.Configuration.Widget.Properties">
             <summary>
@@ -4865,6 +4870,57 @@
             </summary>
             <param name="subscriber">Subscriber to check.</param>
         </member>
+        <member name="T:CMS.Newsletters.DoubleOptInExtensionDefinition">
+            <summary>
+            Describes configuration for double opt-in extension.
+            </summary>
+        </member>
+        <member name="P:CMS.Newsletters.DoubleOptInExtensionDefinition.GetQueryParameters">
+            <summary>
+            This function is invoked when double opt-in URL is generated.
+            </summary>
+            <remarks>Return query parameters which are used to extend double opt-in URL.</remarks>
+        </member>
+        <member name="P:CMS.Newsletters.DoubleOptInExtensionDefinition.ApprovalAction">
+            <summary>
+            This action is invoked when the subscription is approved via double opt-in URL.
+            </summary>
+            <remarks>Gets collection of HTTP query-string values as parameter.</remarks>
+        </member>
+        <member name="M:CMS.Newsletters.DoubleOptInExtensionDefinition.#ctor(System.Func{System.Collections.Specialized.NameValueCollection},System.Action{System.Collections.Specialized.NameValueCollection})">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.Newsletters.DoubleOptInExtensionDefinition"/>.
+            </summary>
+            <param name="getQueryParameters">Function which is invoked when double opt-in URL is generated</param>
+            <param name="approvalAction">Action which is invoked when the subscription is approved via double opt-in URL</param>
+        </member>
+        <member name="T:CMS.Newsletters.DoubleOptInExtensionDefinitionRegister">
+            <summary>
+            Register for actions extending double opt-in feature.
+            </summary>
+        </member>
+        <member name="P:CMS.Newsletters.DoubleOptInExtensionDefinitionRegister.Instance">
+            <summary>
+            Gets the <see cref="T:CMS.Newsletters.DoubleOptInExtensionDefinitionRegister"/> instance.
+            </summary>
+        </member>
+        <member name="P:CMS.Newsletters.DoubleOptInExtensionDefinitionRegister.Items">
+            <summary>
+            Gets all registered instances of <see cref="T:CMS.Newsletters.DoubleOptInExtensionDefinition"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Newsletters.DoubleOptInExtensionDefinitionRegister.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:CMS.Newsletters.DoubleOptInExtensionDefinitionRegister"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Newsletters.DoubleOptInExtensionDefinitionRegister.Register(CMS.Newsletters.DoubleOptInExtensionDefinition)">
+            <summary>
+            Registers given <paramref name="definition"/> to the system.
+            </summary>
+            <param name="definition">Instance of <see cref="T:CMS.Newsletters.DoubleOptInExtensionDefinition"/> to be registered.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when null <paramref name="definition"/> is provided.</exception>
+        </member>
         <member name="T:CMS.Newsletters.HashValidationResult">
             <summary>
             Hash validation result.
@@ -5176,6 +5232,7 @@
             <param name="email">Email address</param>
             <param name="newsletterID">Newsletter ID</param>
             <exception cref="T:System.ArgumentException">Email is not specified</exception>
+            <remarks>Takes global unsubscription into account.</remarks>
         </member>
         <member name="M:CMS.Newsletters.ISubscriptionService.UnsubscribeFromSingleNewsletter(System.String,System.Int32,System.Nullable{System.Int32},System.Boolean)">
             <summary>
@@ -5198,36 +5255,34 @@
             </summary>
             <param name="email">Email address</param>
             <param name="issueID">ID of issue that visitor used for unsubscription. Use only when issue ID is known.</param>
-            <param name="sendConfirmationEmail">If true, confirmation email will be send after successful unsubscription</param>
+            <param name="sendConfirmationEmail">The parameter for backward compatibility - it is not used anymore.</param>
             <exception cref="T:System.ArgumentException">Email is not specified</exception>
         </member>
         <member name="M:CMS.Newsletters.ISubscriptionService.Subscribe(System.Int32,System.Int32,CMS.Newsletters.SubscribeSettings)">
             <summary>
             Subscribes subscriber to given newsletter.
-            Removes the email from unsubscription list for given newsletter. Whether or not email is removed from "unsubscribe form all" list can be specified in <paramref name="subscribeSettings"/> parameter.
-            <paramref name="subscribeSettings"/> parameter specifies whether confirmation email will be send and if subscription should be approved immediately.
             </summary>
-            <remarks>
+            <remarks>      
             If the subscription is approved, performs logging of the subscription logging activity.
+            Whether or not email is removed from newsletter unsubscription or "unsubscribe from all" list can be specified in <paramref name="subscribeSettings"/> parameter.
             </remarks>
-            <param name="subscriberID">Subscriber ID</param>
-            <param name="newsletterID">Newsletter ID</param>
-            <param name="subscribeSettings">Options defining additional behavior of this method. Cannot be null.</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="subscribeSettings"/> is null</exception>
-            <exception cref="T:System.ArgumentException">Newsletter does not exist or email is not specified</exception>
+            <param name="subscriberID">Subscriber ID.</param>
+            <param name="newsletterID">Newsletter ID.</param>
+            <param name="subscribeSettings">Options defining additional behavior of this method. Cannot be <c>null</c>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="subscribeSettings"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Newsletter does not exist or email is not specified.</exception>
         </member>
         <member name="M:CMS.Newsletters.ISubscriptionService.Subscribe(CMS.ContactManagement.ContactInfo,CMS.Newsletters.NewsletterInfo,CMS.Newsletters.SubscribeSettings)">
             <summary>
             Subscribes contact to given newsletter.
-            Removes the email from unsubscription list for given newsletter. Whether or not email is removed from "unsubscribe from all" list can be specified in <paramref name="subscribeSettings"/> parameter.
-            <paramref name="subscribeSettings"/> parameter specifies whether confirmation email will be sent and if subscription should be approved immediately.
             </summary>
             <remarks>
             If the subscription is approved, performs logging of the subscription logging activity.
+            Whether or not email is removed from newsletter unsubscription or "unsubscribe from all" list can be specified in <paramref name="subscribeSettings"/> parameter.
             </remarks>
-            <param name="contact">ContactInfo object</param>
-            <param name="newsletter">NewsletterInfo object</param>
-            <param name="subscribeSettings">Options defining additional behavior of this method. Cannot be null</param>
+            <param name="contact"><see cref="T:CMS.ContactManagement.ContactInfo"/> object.</param>
+            <param name="newsletter"><see cref="T:CMS.Newsletters.NewsletterInfo"/> object.</param>
+            <param name="subscribeSettings">Options defining additional behavior of this method. Cannot be <c>null</c>.</param>
             <exception cref="T:System.ArgumentNullException">Either <paramref name="contact"/>, <paramref name="newsletter"/>, or <paramref name="subscribeSettings"/> is <c>null</c>.</exception>
         </member>
         <member name="M:CMS.Newsletters.ISubscriptionService.Subscribe(CMS.ContactManagement.ContactGroupInfo,CMS.Newsletters.NewsletterInfo)">
@@ -5252,24 +5307,36 @@
             <summary>
             Settings defining how exactly will ISubscriptionService.Subscribe method behave.
             </summary>
+            <seealso cref="M:CMS.Newsletters.ISubscriptionService.Subscribe(CMS.ContactManagement.ContactInfo,CMS.Newsletters.NewsletterInfo,CMS.Newsletters.SubscribeSettings)"/>
+            <seealso cref="M:CMS.Newsletters.ISubscriptionService.Subscribe(System.Int32,System.Int32,CMS.Newsletters.SubscribeSettings)"/>
         </member>
         <member name="P:CMS.Newsletters.SubscribeSettings.SendConfirmationEmail">
             <summary>
-            If true, confirmation email will be send after successful subscription.
-            Default is false.
+            If <c>true</c>, confirmation email will be send after successful subscription.
+            Default is <c>false</c>.
             </summary>
         </member>
         <member name="P:CMS.Newsletters.SubscribeSettings.AllowOptIn">
             <summary>
-            If true and double opt-in is enabled for given newsletter, subscription will be created as unapproved and double opt-in email will be sent.
-            Default is false.
+            If <c>true</c> and double opt-in is enabled for given newsletter, subscription will be created as unapproved and double opt-in email will be sent.
+            Default is <c>false</c>.
             </summary>
         </member>
         <member name="P:CMS.Newsletters.SubscribeSettings.RemoveAlsoUnsubscriptionFromAllNewsletters">
             <summary>
-            If true, email is also removed from "unsubscribe all" list so it receives newsletters again.
-            Default is false.
+            If <c>true</c>, email is also removed from "unsubscribe all" list so it receives newsletters again.
+            Default is <c>false</c>.
             </summary>
+            <remarks>When set to <c>true</c>, the option <see cref="P:CMS.Newsletters.SubscribeSettings.RemoveUnsubscriptionFromNewsletter"/> is ignored.</remarks>
+        </member>
+        <member name="P:CMS.Newsletters.SubscribeSettings.RemoveUnsubscriptionFromNewsletter">
+            <summary>
+            If <c>true</c>, unsubscription is removed for specified email and newsletter.
+            Default is <c>false</c>.
+            </summary>
+            <remarks>If the option <see cref="P:CMS.Newsletters.SubscribeSettings.RemoveAlsoUnsubscriptionFromAllNewsletters"/> is set to <c>true</c>, both unsubscription types 
+            are deleted for specified email address regardless the option <see cref="P:CMS.Newsletters.SubscribeSettings.RemoveUnsubscriptionFromNewsletter"/>.
+            </remarks>
         </member>
         <member name="P:CMS.Newsletters.SubscribeSettings.SourceSubscriber">
             <summary>
@@ -5464,13 +5531,12 @@
             <param name="newsletterId">ID of newsletter to get subscribers from</param>
             <param name="email">Email to find</param>
         </member>
-        <member name="M:CMS.Newsletters.SubscriberInfoProvider.CreateSubscriberFromContact(System.Int32,CMS.Newsletters.SubscriberInfo,System.String[])">
+        <member name="M:CMS.Newsletters.SubscriberInfoProvider.CreateSubscriberFromContact(System.Int32,CMS.Newsletters.SubscriberInfo)">
             <summary>
             Creates subscriber object using contact info and source subscriber data.
             </summary>
             <param name="contactId">Contact ID</param>
             <param name="original">Source subscriber</param>
-            <param name="columns">List of columns to retrieve from contact</param>
         </member>
         <member name="M:CMS.Newsletters.SubscriberInfoProvider.ClearLicSubscribers">
             <summary>
@@ -5497,6 +5563,19 @@
             Deletes specified subscriber.
             </summary>
             <param name="subscriberObj">Subscriber object</param>
+        </member>
+        <member name="M:CMS.Newsletters.SubscriberInfoProvider.UpdateDataInternal(CMS.DataEngine.WhereCondition,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Updates the data in the database based on the given where condition.
+            </summary>
+            <param name="where">Where condition.</param>
+            <param name="values">New values for the data. Dictionary of [columnName] => [value].</param>
+        </member>
+        <member name="M:CMS.Newsletters.SubscriberInfoProvider.BulkDeleteInternal(CMS.DataEngine.IWhereCondition)">
+            <summary>
+            Bulk deletes info objects based on the given condition.
+            </summary>
+            <param name="where">Where condition for the objects which should be deleted.</param>
         </member>
         <member name="T:CMS.Newsletters.SubscriptionHelper">
             <summary>
@@ -5602,7 +5681,7 @@
             <param name="email">Email address</param>
             <param name="newsletterID">Newsletter ID</param>
             <exception cref="T:System.ArgumentException">Email is not specified</exception>
-            <remarks>Does not take global unsubscription into account.</remarks>
+            <remarks>Takes global unsubscription into account.</remarks>
         </member>
         <member name="M:CMS.Newsletters.SubscriptionService.UnsubscribeFromSingleNewsletter(System.String,System.Int32,System.Nullable{System.Int32},System.Boolean)">
             <summary>
@@ -5626,37 +5705,35 @@
             </summary>
             <param name="email">Email address</param>
             <param name="issueID">ID of issue that visitor used for unsubscription. Use only when issue ID is known.</param>
-            <param name="sendConfirmationEmail">If true, confirmation email will be sent after successful unsubscription</param>
+            <param name="sendConfirmationEmail">The parameter for backward compatibility - it is not used anymore.</param>
             <exception cref="T:System.InvalidOperationException"><paramref name="email"/> is already unsubscribed.</exception>
             <exception cref="T:System.ArgumentException">Email is not specified</exception>
         </member>
         <member name="M:CMS.Newsletters.SubscriptionService.Subscribe(System.Int32,System.Int32,CMS.Newsletters.SubscribeSettings)">
             <summary>
-            Subscribes subscriber to given newsletter.
-            Removes the email from unsubscription list for given newsletter. Whether or not email is removed from "unsubscribe from all" list can be specified in <paramref name="subscribeSettings"/> parameter.
-            <paramref name="subscribeSettings"/> parameter specifies whether confirmation email will be sent and if subscription should be approved immediately.
+            Subscribes subscriber to given newsletter.       
             </summary>
             <remarks>
             If the subscription is approved, performs logging of the subscription logging activity.
+            Whether or not email is removed from newsletter unsubscription or "unsubscribe from all" list can be specified in <paramref name="subscribeSettings"/> parameter.
             </remarks>
-            <param name="subscriberID">Subscriber ID</param>
-            <param name="newsletterID">Newsletter ID</param>
-            <param name="subscribeSettings">Options defining additional behavior of this method. Cannot be null</param>
-            <exception cref="T:System.ArgumentNullException"><paramref name="subscribeSettings"/> is null</exception>
-            <exception cref="T:System.ArgumentException">Newsletter does not exist or email is not specified</exception>
+            <param name="subscriberID">Subscriber ID.</param>
+            <param name="newsletterID">Newsletter ID.</param>
+            <param name="subscribeSettings">Options defining additional behavior of this method. Cannot be <c>null</c>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="subscribeSettings"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Newsletter does not exist or email is not specified.</exception>
         </member>
         <member name="M:CMS.Newsletters.SubscriptionService.Subscribe(CMS.ContactManagement.ContactInfo,CMS.Newsletters.NewsletterInfo,CMS.Newsletters.SubscribeSettings)">
             <summary>
-            Subscribes contact to given newsletter.
-            Removes the email from unsubscription list for given newsletter. Whether or not email is removed from "unsubscribe from all" list can be specified in <paramref name="subscribeSettings"/> parameter.
-            <paramref name="subscribeSettings"/> parameter specifies whether confirmation email will be sent and if subscription should be approved immediately.
+            Subscribes contact to given newsletter.       
             </summary>
             <remarks>
             If the subscription is approved, performs logging of the subscription logging activity.
+            Whether or not email is removed from newsletter unsubscription or "unsubscribe from all" list can be specified in <paramref name="subscribeSettings"/> parameter.        
             </remarks>
-            <param name="contact">ContactInfo object</param>
-            <param name="newsletter">NewsletterInfo object</param>
-            <param name="subscribeSettings">Options defining additional behavior of this method. Cannot be null</param>
+            <param name="contact"><see cref="T:CMS.ContactManagement.ContactInfo"/> object.</param>
+            <param name="newsletter"><see cref="T:CMS.Newsletters.NewsletterInfo"/> object.</param>
+            <param name="subscribeSettings">Options defining additional behavior of this method. Cannot be <c>null</c>.</param>
             <exception cref="T:System.ArgumentNullException">Either <paramref name="contact"/>, <paramref name="newsletter"/>, or <paramref name="subscribeSettings"/> is <c>null</c>.</exception>
         </member>
         <member name="M:CMS.Newsletters.SubscriptionService.Subscribe(CMS.ContactManagement.ContactGroupInfo,CMS.Newsletters.NewsletterInfo)">
@@ -5685,8 +5762,8 @@
         </member>
         <member name="M:CMS.Newsletters.SubscriptionService.Subscribe(CMS.Newsletters.SubscriberInfo,CMS.Newsletters.NewsletterInfo,CMS.Newsletters.SubscribeSettings)">
             <summary>
-            Subscribes subscriber to given newsletter.
-            Removes the email from unsubscription list for given newsletter. Whether or not email is removed from "unsubscribe form all" list can be specified in <paramref name="subscribeSettings"/> parameter.
+            Subscribes subscriber to the given newsletter.
+            Whether or not email is removed from newsletter unsubscription or "unsubscribe from all" list can be specified in <paramref name="subscribeSettings"/> parameter.
             <paramref name="subscribeSettings"/> parameter specifies whether confirmation email will be send and if subscription should be approved immediately.
             </summary>
             <remarks>
@@ -8000,6 +8077,11 @@
             Subscriber related object (contact, contact group).
             </summary>
         </member>
+        <member name="P:CMS.Newsletters.SubscriberInfo.SubscriberIsFake">
+            <summary>
+            Indicates fake subscriber. <see cref="T:CMS.Newsletters.IFakeSubscriberService"/>
+            </summary>
+        </member>
         <member name="P:CMS.Newsletters.SubscriberInfo.TypeInfo">
             <summary>
             Type information.
@@ -8319,6 +8401,13 @@
             <param name="newsletterId">Id of newsletter</param>
             <returns>DataQuery containing all IDs of subscribers with a given newsletter</returns>
         </member>
+        <member name="M:CMS.Newsletters.SubscriberNewsletterInfoProvider.UpdateDataInternal(CMS.DataEngine.WhereCondition,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Object}})">
+            <summary>
+            Updates the data in the database based on the given where condition.
+            </summary>
+            <param name="where">Where condition.</param>
+            <param name="values">New values for the data. Dictionary of [columnName] => [value].</param>
+        </member>
         <member name="T:CMS.Newsletters.ThreadEmailSender">
             <summary>
             Async e-mail sender. Gets e-mails from newsletter queue, prepares them and sends them to e-mail queue.
@@ -8405,10 +8494,9 @@
             </summary>
             <param name="getFailed">Indicates if failed issues can be used</param>
         </member>
-        <member name="M:CMS.Newsletters.ThreadEmailSender.GetMailsToSend(CMS.Newsletters.IssueInfo)">
+        <member name="M:CMS.Newsletters.ThreadEmailSender.GetVariantEmailsCount(CMS.Newsletters.IssueInfo)">
             <summary>
             Returns number of emails that should be sent for current variant.
-            Set 'Test phase' status to the parent issue.
             </summary>
         </member>
         <member name="M:CMS.Newsletters.ThreadEmailSender.EnsureWinnerSelectionTask(System.Int32)">
@@ -8481,7 +8569,7 @@
         </member>
         <member name="M:CMS.Newsletters.IUnsubscriptionProvider.IsUnsubscribedFromSingleNewsletter(System.String,System.Int32)">
             <summary>
-            Returns true if specified email address is unsubscribed from newsletter. 
+            Returns true if specified email address won't receive given newsletter. 
             </summary>
             <param name="email">Email address</param>
             <param name="newsletterID">Newsletter ID</param>
@@ -8664,7 +8752,6 @@
         <member name="T:CMS.Newsletters.UnsubscriptionProvider">
             <summary>
             Class that handles unsubscriptions.
-            If false, having null in the newsletter ID column means unsubscribed from all newsletters.
             </summary>
         </member>
         <member name="M:CMS.Newsletters.UnsubscriptionProvider.GetUnsubscriptionsFromSingleNewsletter(System.Int32)">
@@ -8680,14 +8767,14 @@
         </member>
         <member name="M:CMS.Newsletters.UnsubscriptionProvider.IsUnsubscribedFromSingleNewsletter(System.String,System.Int32)">
             <summary>
-            Returns true if specified email address is unsubscribed from newsletter.
+            Returns <c>true</c> if specified email address won't receive given newsletter. 
             </summary>
             <param name="email">Email address</param>
             <param name="newsletterID">Newsletter ID</param>
         </member>
         <member name="M:CMS.Newsletters.UnsubscriptionProvider.IsUnsubscribedFromAllNewsletters(System.String)">
             <summary>
-            Returns true if specified email address is unsubscribed from the all newsletters.
+            Returns <c>true</c> if specified email address is unsubscribed from the all newsletters.
             </summary>
             <param name="email">Email address</param>
             <exception cref="T:System.ArgumentException"><paramref name="email"/> is not specified</exception>

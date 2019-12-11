@@ -32,5 +32,24 @@ namespace MedioClinic
                 Response.StatusCode = 404;
             }
         }
+
+        public override string GetVaryByCustomString(HttpContext context, string custom)
+        {
+            var options = OutputCacheKeyHelper.CreateOptions();
+
+            switch (custom)
+            {
+                case "DefaultSet":
+                default:
+                    options
+                        .VaryByBrowser()
+                        .VaryByHost();
+                    break;
+            }
+
+            var cacheKey = OutputCacheKeyHelper.GetVaryByCustomString(context, custom, options);
+
+            return !string.IsNullOrEmpty(cacheKey) ? cacheKey : base.GetVaryByCustomString(context, custom);
+        }
     }
 }

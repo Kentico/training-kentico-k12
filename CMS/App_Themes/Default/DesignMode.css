@@ -311,11 +311,11 @@ body.cms-bootstrap,
 }
 .cms-bootstrap .PortalContextMenu .ItemDisabled {
   cursor: not-allowed !important;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px) !important;
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px) !important;
 }
 .cms-bootstrap .PortalContextMenu .ItemDisabled:hover {
   background-color: inherit !important;
-  background-image: repeating-linear-gradient(-45deg, transparent 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, transparent 3px, transparent 4px) !important;
+  background-image: repeating-linear-gradient(-45deg, rgba(189, 187, 187, 0) 0px, rgba(189, 187, 187, 0.25) 1px, rgba(189, 187, 187, 0.25) 2px, rgba(189, 187, 187, 0) 3px, rgba(189, 187, 187, 0) 4px) !important;
 }
 .cms-bootstrap .PortalContextMenu.CPMenu {
   display: none;
@@ -820,6 +820,15 @@ body.cms-bootstrap,
 .RTL .StandardZone .WebPartZoneType {
   padding-left: 0;
   padding-right: 4px;
+}
+.FreeLayout {
+  background-color: #fff;
+  background: url(../../CMSPages/GetResource.ashx?image=CMSModules/CMS_PortalEngine/Grid.png);
+  border: solid 1px #fff !important;
+  min-width: 100%;
+}
+.FreeLayout.ActiveDropArea {
+  border: dashed 1px red !important;
 }
 .WebPartZoneHeaderOrphaned .WebPartZoneActiveContextMenu .WebPartZoneLeftAction {
   background: #ececec;
@@ -1379,6 +1388,33 @@ body.cms-bootstrap,
 }
 .cms-bootstrap #CMSHeaderDiv .btn-default:hover {
   background: #a3a2a2;
+}
+.cms-bootstrap .tree-buttons .btn-group.cms-split-button > .btn {
+  padding-right: 8px;
+  border-right-width: 0px;
+}
+.cms-bootstrap .tree-buttons .btn-group.cms-split-button > .btn.active {
+  border-right-width: 0px;
+}
+.cms-bootstrap .tree-buttons .btn-group.cms-split-button > .btn.active + .dropdown-toggle {
+  background-color: #1175ae;
+  border-color: #1175ae;
+  box-shadow: #0f6194 0 -3px 0 inset;
+  color: #fff;
+}
+.cms-bootstrap .tree-buttons .btn-group.cms-split-button > .btn + .dropdown-toggle {
+  padding: 0 3px 0 2px;
+  border-left: 0;
+  border-right: 1px solid #a3a2a2;
+}
+.cms-bootstrap .tree-buttons .btn-group.cms-split-button > .btn:hover.active + .dropdown-toggle {
+  background-color: #1175ae;
+  border-color: #1175ae;
+}
+.cms-bootstrap .tree-buttons .btn-group.cms-split-button > .btn.active + .dropdown-toggle:hover {
+  background-color: #0f6194;
+  border-color: #0f6194;
+  box-shadow: #0f6194 0 -3px 0 inset;
 }
 .DesignMode .webpart-error-label {
   padding-top: 32px;

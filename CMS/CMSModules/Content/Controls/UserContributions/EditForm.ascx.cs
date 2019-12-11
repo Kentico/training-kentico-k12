@@ -18,6 +18,7 @@ using CMS.LicenseProvider;
 using CMS.Localization;
 using CMS.Membership;
 using CMS.PortalEngine;
+using CMS.PortalEngine.Web.UI.Internal;
 using CMS.Protection;
 using CMS.SiteProvider;
 using CMS.UIControls;
@@ -1302,8 +1303,14 @@ public partial class CMSModules_Content_Controls_UserContributions_EditForm : CM
                         CMSHtmlEditor htmlEditor = ControlsHelper.GetChildControl(control, typeof(CMSHtmlEditor)) as CMSHtmlEditor;
                         if (htmlEditor != null)
                         {
+                            var parameters = new LiveSiteWidgetsParameters(CurrentDocument.NodeAliasPath, PortalContext.ViewMode)
+                            {
+                                IsInlineWidget = true
+                            };
                             htmlEditor.Node = CurrentDocument;
                             htmlEditor.RemovePlugins.Add("maximize");
+                            htmlEditor.Config["CurrentHash"] = parameters.GetHashString();
+                            htmlEditor.Config["CurrentViewMode"] =  PortalContext.ViewMode.ToStringRepresentation();
                         }
                     }
                 }

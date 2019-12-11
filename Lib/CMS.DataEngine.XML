@@ -32,6 +32,16 @@
             Gets the object query for the provider
             </summary>
         </member>
+        <member name="T:CMS.DataEngine.MemoryCacheItemPolicy">
+            <summary>
+            Helper methods and properties related to <see cref="T:System.Runtime.Caching.CacheItemPolicy"/> used for <see cref="T:CMS.DataEngine.MemoryCacheStorage`2"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DataEngine.MemoryCacheItemPolicy.GetDefaultPolicyWithClearCacheMonitor(System.Runtime.Caching.MemoryCache)">
+            <summary>
+            Returns <see cref="T:System.Runtime.Caching.CacheItemPolicy"/> with <see cref="F:System.Runtime.Caching.CacheItemPriority.Default"/> priority and cache entry cache monitor attached to <see cref="F:CMS.DataEngine.MemoryCacheItemPolicy.CLEAR_CACHE_ITEM"/> name.
+            </summary>
+        </member>
         <member name="T:CMS.DataEngine.InfoProviderLoader">
             <summary>
             Provides functionality for info object provider loading.
@@ -91,6 +101,11 @@
         <member name="M:CMS.DataEngine.MemoryCacheStorage`2.NormalizeCacheKey(`0)">
             <summary>
             Returns key value as string. Key is lowercased for string key type.
+            </summary>
+        </member>
+        <member name="M:CMS.DataEngine.MemoryCacheStorage`2.ResetCacheEntryMonitorCacheItem">
+            <summary>
+            Initialize or Re-initialize cache entry cache monitor.
             </summary>
         </member>
         <member name="T:CMS.DataEngine.ICacheStorage`2">
@@ -895,6 +910,51 @@
             <summary>
             Gets query to create column index based on its settings
             </summary>
+        </member>
+        <member name="T:CMS.DataEngine.DefaultDataTypeTextSerializer">
+            <summary>
+            Class responsible for serialization and deserialization of <see cref="T:CMS.DataEngine.DataType"/> values to text.
+            Serializer is used as a fallback when no serializer is set for given data type.
+            </summary>
+            <seealso cref="M:CMS.DataEngine.DataTypeManager.ConvertToSystemType(CMS.DataEngine.TypeEnum,System.String,System.Object,System.Globalization.CultureInfo,System.Boolean)"/>
+        </member>
+        <member name="M:CMS.DataEngine.DefaultDataTypeTextSerializer.#ctor(System.String)">
+            <summary>
+            Creates an instance of <see cref="T:CMS.DataEngine.DefaultDataTypeTextSerializer"/>.
+            </summary>
+            <param name="fieldType">Data type of the values the serializer will be used for.</param>
+            <seealso cref="P:CMS.DataEngine.DataType.FieldType"/>
+        </member>
+        <member name="M:CMS.DataEngine.DefaultDataTypeTextSerializer.Deserialize(System.String)">
+            <summary>
+            Deserialize <paramref name="text"/> into desired object.
+            </summary>
+            <param name="text">Text to be deserialized.</param>
+        </member>
+        <member name="M:CMS.DataEngine.DefaultDataTypeTextSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes <paramref name="value"/> into text.
+            </summary>
+            <param name="value">Value to be serialized.</param>
+        </member>
+        <member name="T:CMS.DataEngine.IDataTypeTextSerializer">
+            <summary>
+            Defines contract for serialization and deserialization of <see cref="T:CMS.DataEngine.DataType"/> values to text.
+            </summary>
+            <remarks>Used for saving values in BizForm definitions.</remarks>
+        </member>
+        <member name="M:CMS.DataEngine.IDataTypeTextSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes <paramref name="value"/> into text.
+            </summary>
+            <param name="value">Value to be serialized.</param>
+            <exception cref="T:System.ArgumentException">Thrown when value is not of expected type.</exception>
+        </member>
+        <member name="M:CMS.DataEngine.IDataTypeTextSerializer.Deserialize(System.String)">
+            <summary>
+            Deserialize <paramref name="text"/> into desired object.
+            </summary>
+            <param name="text">Text to be deserialized.</param>
         </member>
         <member name="T:CMS.DataEngine.QueryScopeEnum">
             <summary>
@@ -5723,6 +5783,12 @@
             Conversion function for this data type
             </summary>
         </member>
+        <member name="P:CMS.DataEngine.DataType`1.DbConversionFunc">
+            <summary>
+            Conversion function which converts value to its database representation.
+            If not defined, value is used without any conversions.
+            </summary>
+        </member>
         <member name="F:CMS.DataEngine.DataType`1.IsOfTypeFunction">
             <summary>
             Function used to determine whether a given value is of this data type.
@@ -5758,9 +5824,40 @@
             <param name="conversionFunc">Conversion function</param>
             <param name="validationFunction">Determines whether passed object value is of this data type.</param>
         </member>
+        <member name="M:CMS.DataEngine.DataType`1.#ctor(System.String,System.String,System.String,System.Func{System.Object,`0,System.Globalization.CultureInfo,`0},System.Func{`0,System.Object,System.Globalization.CultureInfo,System.Object},CMS.DataEngine.IDataTypeTextSerializer)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="sqlType">SQL type</param>
+            <param name="fieldType">Field type</param>
+            <param name="schemaType">Schema type</param>
+            <param name="conversionFunc">Conversion function</param>
+            <param name="dbConversionFunc">Function which converts value to its database representation.</param>
+            <param name="textSerializer">Text serializer used for this type.</param>
+        </member>
+        <member name="M:CMS.DataEngine.DataType`1.#ctor(System.String,System.String,System.String,System.Func{System.Object,`0,System.Globalization.CultureInfo,`0},System.Func{`0,System.Object,System.Globalization.CultureInfo,System.Object},CMS.DataEngine.IDataTypeTextSerializer,System.Func{System.Object,System.Globalization.CultureInfo,System.Boolean})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="sqlType">SQL type</param>
+            <param name="fieldType">Field type</param>
+            <param name="schemaType">Schema type</param>
+            <param name="conversionFunc">Conversion function</param>
+            <param name="dbConversionFunc">Function which converts value to its database representation.</param>
+            <param name="textSerializer">Text serializer used for this type.</param>
+            <param name="validationFunction">Determines whether passed object value is of this data type.</param>
+        </member>
         <member name="M:CMS.DataEngine.DataType`1.Convert(System.Object,System.Globalization.CultureInfo,System.Object)">
             <summary>
             Converts the value to a proper type
+            </summary>
+            <param name="value">Value to convert</param>
+            <param name="culture">Culture used for conversion of the type</param>
+            <param name="defaultValue">Default value to return in case the conversion fails</param>
+        </member>
+        <member name="M:CMS.DataEngine.DataType`1.ConvertToDbType(System.Object,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Converts the value to its database representation.
             </summary>
             <param name="value">Value to convert</param>
             <param name="culture">Culture used for conversion of the type</param>
@@ -5780,6 +5877,11 @@
         <member name="T:CMS.DataEngine.DataType">
             <summary>
             Data type definition
+            </summary>
+        </member>
+        <member name="F:CMS.DataEngine.DataType.mTextSerializer">
+            <summary>
+            Serializer used to serialize and deserialize values of this data type.
             </summary>
         </member>
         <member name="P:CMS.DataEngine.DataType.TypeGroup">
@@ -5898,6 +6000,31 @@
             Use case insensitive HashSet for the list of items
             </summary>
         </member>
+        <member name="P:CMS.DataEngine.DataType.TextSerializer">
+            <summary>
+            Gets the <see cref="T:CMS.DataEngine.IDataTypeTextSerializer"/> instance for this data type.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DataType.UsableByType">
+            <summary>
+            Indicates whether the data type can be found by <see cref="M:CMS.DataEngine.DataTypeManager.GetDataType(System.Type)"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DataType.UsableByFieldType">
+            <summary>
+            Indicates whether this data type can be used as <see cref="F:CMS.DataEngine.TypeEnum.Field"/> type.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DataType.UsableBySqlType">
+            <summary>
+            Indicates whether this data type can be used as <see cref="F:CMS.DataEngine.TypeEnum.SQL"/> type.
+            </summary>
+        </member>
+        <member name="P:CMS.DataEngine.DataType.UsableBySchemaType">
+            <summary>
+            Indicates whether this data type can be used as <see cref="F:CMS.DataEngine.TypeEnum.Schema"/> type.
+            </summary>
+        </member>
         <member name="P:CMS.DataEngine.DataType.VariableSize">
             <summary>
             If true, the data type has variable size
@@ -5955,6 +6082,14 @@
         <member name="M:CMS.DataEngine.DataType.Convert(System.Object,System.Globalization.CultureInfo,System.Object)">
             <summary>
             Converts the value to a proper type
+            </summary>
+            <param name="value">Value to convert</param>
+            <param name="culture">Culture used for conversion of the type</param>
+            <param name="defaultValue">Default value to return in case the conversion fails</param>
+        </member>
+        <member name="M:CMS.DataEngine.DataType.ConvertToDbType(System.Object,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            Converts the value to its database representation.
             </summary>
             <param name="value">Value to convert</param>
             <param name="culture">Culture used for conversion of the type</param>
@@ -27967,7 +28102,12 @@
             <summary>
             Copies the properties of this collection to the other collection
             </summary>
-            <param name="col">Target collection</param>
+            <param name="targetCollection">Target collection</param>
+        </member>
+        <member name="M:CMS.DataEngine.InfoObjectCollection`1.CopyItemsTo(CMS.DataEngine.IInfoObjectCollection)">
+            <summary>
+            Copies the items of this collection to the other collection
+            </summary>
         </member>
         <member name="M:CMS.DataEngine.InfoObjectCollection`1.EnsureObjectValues(CMS.DataEngine.BaseInfo)">
             <summary>
@@ -34906,6 +35046,11 @@
         <member name="F:CMS.DataEngine.PredefinedObjectType.ABVARIANT">
             <summary>
             Code name for tests' variants.
+            </summary>
+        </member>
+        <member name="F:CMS.DataEngine.PredefinedObjectType.ABVARIANTDATA">
+            <summary>
+            Code name for tests' variants (MVC).
             </summary>
         </member>
         <member name="F:CMS.DataEngine.PredefinedObjectType.ACTIVITY">

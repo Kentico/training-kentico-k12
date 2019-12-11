@@ -104,20 +104,20 @@ public partial class CMSModules_Content_FormControls_Relationships_RelatedDocume
                 return mConfig;
             }
 
-            mConfig = new DialogConfiguration();
-            mConfig.HideLibraries = true;
-            mConfig.ContentSelectedSite = SiteContext.CurrentSiteName;
-            mConfig.HideAnchor = true;
-            mConfig.HideAttachments = true;
-            mConfig.HideContent = false;
-            mConfig.HideEmail = true;
-            mConfig.HideLibraries = true;
-            mConfig.HideWeb = true;
-            mConfig.ContentSelectedSite = SiteContext.CurrentSiteName;
-            mConfig.OutputFormat = OutputFormatEnum.Custom;
-            mConfig.CustomFormatCode = "relationship";
-            mConfig.ContentSites = AvailableSitesEnum.OnlyCurrentSite;
-            mConfig.AdditionalQueryParameters = "contentchanged=false";
+            mConfig = new DialogConfiguration
+            {
+                HideLibraries = true,
+                ContentSelectedSite = SiteContext.CurrentSiteName,
+                HideAnchor = true,
+                HideAttachments = true,
+                HideContent = false,
+                HideEmail = true,
+                HideWeb = true,
+                OutputFormat = OutputFormatEnum.Custom,
+                CustomFormatCode = "relationship",
+                ContentSites = IsAdHocRelationship ? AvailableSitesEnum.OnlyCurrentSite : AvailableSitesEnum.All,
+                AdditionalQueryParameters = "contentchanged=false"
+            };
             return mConfig;
         }
     }

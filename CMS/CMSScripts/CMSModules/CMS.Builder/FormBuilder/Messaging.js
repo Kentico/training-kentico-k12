@@ -1,11 +1,13 @@
 ﻿cmsdefine([
-    'CMS.Builder/MessageService',
-    'CMS.Builder/MessageTypes'
-], function (msgService, messageTypes) {
+    'CMS/MessageService',
+    'CMS.Builder/MessageTypes',
+    'CMS.Builder/ModalDialogService'
+], function (msgService, messageTypes, ModalDialogService) {
 
     var Module = function (serverData) {
         var frame = document.getElementById(serverData.frameId);
         var targetOrigin = serverData.origin;
+        var modalService = new ModalDialogService();
 
         var receiveMessage = function (event) {            
             if (event.origin !== targetOrigin) {
@@ -24,10 +26,20 @@
                     break;
 
                 case messageTypes.MESSAGING_WARNING:
-                    msgService.showWarning(event.data.data);
+                    msgService.showWarning(event.data.data, true);
                     break;
+
+                case messageTypes.CANCEL_SCREENLOCK:
                 case messageTypes.CONFIGURATION_CHANGED:
                     window.top.CancelScreenLockCountdown && window.top.CancelScreenLockCountdown();
+                    break;
+
+                case messageTypes.OPEN_MODAL_DIALOG:
+                    modalService.addModalDialogOverlay(document.body);
+                    break;
+
+                case messageTypes.CLOSE_MODAL_DIALOG:
+                    modalService.removeModalDialogOverlay();
                     break;
             }
         };

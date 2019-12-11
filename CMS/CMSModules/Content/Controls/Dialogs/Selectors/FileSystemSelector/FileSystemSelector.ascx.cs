@@ -1125,7 +1125,10 @@ function imageEdit_FileSystemRefresh(arg){{{{
             // Check if config path ends with file, if yes then select file otherwise select item
             if (File.Exists(Server.MapPath(config.SelectedPath)))
             {
-                selectedItem = selectedItem.Substring(0, selectedItem.LastIndexOfCSafe(slashChar));
+                if (selectedItem.LastIndexOf(slashChar) != -1)
+                {
+                    selectedItem = selectedItem.Substring(0, selectedItem.LastIndexOfCSafe(slashChar));
+                }
             }
 
             config.DefaultPath = selectedItem;

@@ -117,4 +117,433 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="settingskey.cmshotfixdataversion" xml:space="preserve">
+    <value>Hotfix data version</value>
+  </data>
+  <data name="settingskey.cmshotfixdataversion.description" xml:space="preserve">
+    <value>Represents the version to which data was updated in the last hotfix procedure run.</value>
+  </data>
+  <data name="settingskey.cmshotfixprocedureinprogress" xml:space="preserve">
+    <value>Hotfix procedure in progress</value>
+  </data>
+  <data name="settingskey.cmshotfixprocedureinprogress.description" xml:space="preserve">
+    <value>Indicates whether the hotfix procedure is running on any server instance possibly participating in a web farm.</value>
+  </data>
+  <data name="dataprotection.consents.consentagreements" xml:space="preserve">
+    <value>Consent agreements</value>
+  </data>
+  <data name="dataprotection.consents.consentagreements.nodata" xml:space="preserve">
+    <value>No agreements found.</value>
+  </data>
+  <data name="content.ui.propertiesalternativeurls" xml:space="preserve">
+    <value>Alternative URLs</value>
+  </data>
+  <data name="content.ui.previewinnewtab" xml:space="preserve">
+    <value>Open in a new tab</value>
+  </data>
+  <data name="content.ui.previewoptions" xml:space="preserve">
+    <value>Show preview options</value>
+  </data>
+  <data name="content.ui.preview.thirdpartycookiesblocked" xml:space="preserve">
+    <value>The page preview may not work properly as your browser is likely blocking 3rd party cookies. Please consider opening the preview in a new tab.</value>
+  </data>
+  <data name="ma.action.newslettersubscription.inheritdoubleoptin.caption" xml:space="preserve">
+    <value>Inherit double opt-in setting:</value>
+  </data>
+  <data name="ma.action.newslettersubscription.inheritdoubleoptin.description" xml:space="preserve">
+    <value>If selected, the 'Enable double opt-in' setting is inherited from the selected newsletter (the system sends newsletter subscription activation emails for newsletters with enabled double opt-in). If cleared, the double opt-in setting from the newsletter is ignored and double opt-in is always disabled.</value>
+  </data>
+  <data name="abtest.popupdialog.contentheader" xml:space="preserve">
+    <value>Select a variant or add a new one</value>
+  </data>
+  <data name="abtest.popupdialog.header" xml:space="preserve">
+    <value>A/B testing</value>
+  </data>
+  <data name="abtesting.createabvariant" xml:space="preserve">
+    <value>Create A/B variant</value>
+  </data>
+  <data name="abtesting.addnewvariant" xml:space="preserve">
+    <value>Add new variant</value>
+  </data>
+  <data name="abtesting.abvariantselectorerror" xml:space="preserve">
+    <value>Unexpected error has occured during the action processing</value>
+  </data>
+  <data name="abtesting.newabtestwithvariantscreated" xml:space="preserve">
+    <value>A new A/B test with two variants was created for the current page.</value>
+  </data>
+  <data name="abtesting.newabvariantcreated" xml:space="preserve">
+    <value>New A/B variant '{0}' created.</value>
+  </data>
+  <data name="abtesting.abvariantremoved" xml:space="preserve">
+    <value>A/B variant '{0}' removed.</value>
+  </data>
+  <data name="abtesting.missingpage" xml:space="preserve">
+    <value>The page corresponding to this A/B test is no longer available. It might have been deleted.</value>
+  </data>
+  <data name="abtesting.starttest.tooltip.disabled" xml:space="preserve">
+    <value>The A/B tested page is under a workflow and needs to be published before you can start the test. Alternatively, you can schedule a start and end date for the test on the 'Settings' tab.</value>
+  </data>
+  <data name="objecttype.cms_pagetemplateconfiguration" xml:space="preserve">
+    <value>Page template configuration</value>
+  </data>
+  <data name="objecttasks.cms_pagetemplateconfiguration" xml:space="preserve">
+    <value>Page template configurations</value>
+  </data>
+  <data name="pagetemplatesmvc.notemplates" xml:space="preserve">
+    <value>No page templates available.</value>
+  </data>
+  <data name="pagetemplatesmvc.notemplateselected" xml:space="preserve">
+    <value>You need to select a page template to continue.</value>
+  </data>
+  <data name="pagetemplatesmvc.invalidcodename" xml:space="preserve">
+    <value>The code name of the page template is not valid.</value>
+  </data>
+  <data name="pagetemplatesmvc.invalididentifier" xml:space="preserve">
+    <value>The identifier of the page template is not valid.</value>
+  </data>
+  <data name="pagetemplatesmvc.notfound" xml:space="preserve">
+    <value>The page template was not found.</value>
+  </data>
+  <data name="pagetemplatesmvc.invalidtype" xml:space="preserve">
+    <value>The type of the page template is not valid.</value>
+  </data>
+  <data name="pagetemplatesmvc.missingtype" xml:space="preserve">
+    <value>The type of the page template is not specified.</value>
+  </data>
+  <data name="pagetemplatesmvc.requesterror" xml:space="preserve">
+    <value>An error occurred while attempting to retrieve page templates. Contact your system administrator and check that the page builder feature is registered correctly in the MVC project.</value>
+  </data>
+  <data name="pagetemplatesmvc.selector.cannotretrievetemplates" xml:space="preserve">
+    <value>Page template selector cannot retrieve available page templates.</value>
+  </data>
+  <data name="macroruleavailabilityenum.mainapplication" xml:space="preserve">
+    <value>Main application</value>
+  </data>
+  <data name="macroruleavailabilityenum.both" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="macroruleavailabilityenum.mvclivesite" xml:space="preserve">
+    <value>MVC live-site</value>
+  </data>
+  <data name="macros.macrorule.availability" xml:space="preserve">
+    <value>Availability</value>
+  </data>
+  <data name="macros.macrorule.availability.description" xml:space="preserve">
+    <value>Specifies the context in which the macro rule can be evaluated. Rules marked with 'Main application' or 'MVC live-site' appear in the rule designer only for conditions that are resolved by the corresponding application.</value>
+  </data>
+  <data name="pagetemplatesmvc.defaulttemplates" xml:space="preserve">
+    <value>Default templates</value>
+  </data>
+  <data name="pagetemplatesmvc.customtemplates" xml:space="preserve">
+    <value>Custom templates</value>
+  </data>
+  <data name="macros.macrorule.availability.conditionbuilder.description" xml:space="preserve">
+    <value>Indicates which macro rules will be shown in the listing along with the rules marked as "Both".</value>
+  </data>
+  <data name="pagetemplatesmvc.saveastemplate" xml:space="preserve">
+    <value>Save as template</value>
+  </data>
+  <data name="pagetemplatesmvc.saveastemplate.error" xml:space="preserve">
+    <value>Saving page as a template failed.</value>
+  </data>
+  <data name="pagetemplatesmvc.saveastemplate.succes" xml:space="preserve">
+    <value>The page was saved as a new template.</value>
+  </data>
+  <data name="pagetemplatesmvc.unsavedchanges" xml:space="preserve">
+    <value>You have unsaved changes on this page.\nSave your changes first to create a new template.</value>
+  </data>
+  <data name="app.pagetemplatesmvc.caption" xml:space="preserve">
+    <value>Page templates (MVC)</value>
+  </data>
+  <data name="app.pagetemplatesmvc.description" xml:space="preserve">
+    <value>Provides a list of all custom page templates available on the site, and allows you to delete them. Such custom templates allow you to reuse page builder content, such as sections and widgets. You can create custom templates in the Pages application by selecting existing pages that are based on a default template, and saving them as custom templates.</value>
+  </data>
+  <data name="content.permission.managepagetemplates.description" xml:space="preserve">
+    <value>Allows users to save the content of pages as custom page templates, and view or delete custom templates in the Page templates (MVC) application.</value>
+  </data>
+  <data name="content.permission.managealternativeurls.description" xml:space="preserve">
+    <value>Allows users to add, edit and delete alternative URLs for pages.</value>
+  </data>
+  <data name="objecttype.om_abvariantdata" xml:space="preserve">
+    <value>A/B variant data</value>
+  </data>
+  <data name="abtesting.manageabtest" xml:space="preserve">
+    <value>Manage A/B test</value>
+  </data>
+  <data name="emailqueue.detail.plaintext" xml:space="preserve">
+    <value>Body (Plain text)</value>
+  </data>
+  <data name="emailqueue.detail.valuenotentered" xml:space="preserve">
+    <value>Value not entered</value>
+  </data>
+  <data name="abtesting.removevariant" xml:space="preserve">
+    <value>Remove variant</value>
+  </data>
+  <data name="abtesting.removevariant.confirmation" xml:space="preserve">
+    <value>Remove the variant?</value>
+  </data>
+  <data name="abtesting.renamevariant" xml:space="preserve">
+    <value>Rename variant</value>
+  </data>
+  <data name="pagetemplatesmvc.displayname" xml:space="preserve">
+    <value>Template display name</value>
+  </data>
+  <data name="pagetemplatesmvc.description" xml:space="preserve">
+    <value>Template description</value>
+  </data>
+  <data name="pagetemplatesmvc.thumbnail" xml:space="preserve">
+    <value>Thumbnail</value>
+  </data>
+  <data name="abtest.conversion.purchase" xml:space="preserve">
+    <value>Purchase</value>
+  </data>
+  <data name="abtest.conversion.productaddedtocart" xml:space="preserve">
+    <value>Product added to shopping cart</value>
+  </data>
+  <data name="abtest.conversion.pagevisit" xml:space="preserve">
+    <value>Page visit</value>
+  </data>
+  <data name="abtest.conversion.formsubmission" xml:space="preserve">
+    <value>Form submission</value>
+  </data>
+  <data name="abtest.conversion.newslettersubscription" xml:space="preserve">
+    <value>Newsletter subscription</value>
+  </data>
+  <data name="abtest.conversion.userregistration" xml:space="preserve">
+    <value>User registration</value>
+  </data>
+  <data name="abtest.conversion.productpurchase" xml:space="preserve">
+    <value>Purchase of a specific product</value>
+  </data>
+  <data name="abtest.conversion.pagevisit.formcontrolcaption" xml:space="preserve">
+    <value>Page URL</value>
+  </data>
+  <data name="abtest.conversion.formsubmission.formcontrolcaption" xml:space="preserve">
+    <value>Form</value>
+  </data>
+  <data name="abtest.conversion.newslettersubscription.formcontrolcaption" xml:space="preserve">
+    <value>Newsletter</value>
+  </data>
+  <data name="abtest.conversion.productpurchase.formcontrolcaption" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="abtest.conversion.purchase.valueplaceholder" xml:space="preserve">
+    <value>(total price)</value>
+  </data>
+  <data name="abtest.conversion.productpurchase.valueplaceholder" xml:space="preserve">
+    <value>(total product price)</value>
+  </data>
+  <data name="abtest.conversion.relatedobject" xml:space="preserve">
+    <value>Related object</value>
+  </data>
+  <data name="abtesting.selectwinner.testnotfinished.tooltip" xml:space="preserve">
+    <value>A winner can only be selected for a finished A/B test.</value>
+  </data>
+  <data name="abtesting.selectwinner.underworkflow.tooltip" xml:space="preserve">
+    <value>A winner cannot be selected because of the page's current workflow step.</value>
+  </data>
+  <data name="abtesting.finishedtest.promotewinnerpromptmessage" xml:space="preserve">
+    <value>The A/B test has finished, continue by selecting the winning variant.</value>
+  </data>
+  <data name="abtesting.finishedtest.promotewinnerpromptmessage.warning" xml:space="preserve">
+    <value>The A/B test has finished. To select the winning variant, &lt;a href="{0}" target="_top"&gt;move the document&lt;/a&gt; to an editable workflow step.</value>
+  </data>
+  <data name="abtesting.pages.finishedtest.promotewinnerpromptmessage" xml:space="preserve">
+    <value>The A/B test running on this page has finished, continue by &lt;a id='{0}'&gt;selecting the winning variant.&lt;/a&gt;</value>
+  </data>
+  <data name="abtesting.pages.finishedtest.promotewinnerpromptmessage.warning" xml:space="preserve">
+    <value>The A/B test running on this page has finished. To select the winning variant, move the document to an editable workflow step.</value>
+  </data>
+  <data name="EditMenu.MoreActions" xml:space="preserve">
+    <value>Show more actions</value>
+  </data>
+  <data name="pagetemplatesmvc.saveastemplate.tooltip" xml:space="preserve">
+    <value>Save the page with the current content as a custom template.</value>
+  </data>
+  <data name="abtest.popupdialog.cannotmodifyabtest" xml:space="preserve">
+    <value>The A/B test cannot be modified unless the page is in an editable workflow step.</value>
+  </data>
+  <data name="abtesting.starttest.tooltip.permissionrequired" xml:space="preserve">
+    <value>You don't have the required permissions to start the A/B test.</value>
+  </data>
+  <data name="abtesting.selectwinner" xml:space="preserve">
+    <value>Select variant as winner</value>
+  </data>
+  <data name="abtesting.selectwinner.permission.tooltip" xml:space="preserve">
+    <value>You don't have the required permissions to select the variant as the test winner.</value>
+  </data>
+  <data name="abtesting.winningvariantselected.tooltip" xml:space="preserve">
+    <value>This variant was selected as the winner.</value>
+  </data>
+  <data name="abtesting.winner" xml:space="preserve">
+    <value>Winner</value>
+  </data>
+  <data name="abtesting.pagevisit.incorrecturl" xml:space="preserve">
+    <value>Please enter an absolute URL that starts with the site presentation URL.</value>
+  </data>
+  <data name="abtest.conversion.productaddedtocart.formcontrolcaption" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="abtesting.conversions.description" xml:space="preserve">
+    <value>Sets the visitor actions that the system tracks and logs as conversions for the A/B test. These conversions are the metrics that you use to evaluate the test's variants (using the reports on the Overview tab). The specified conversions are logged only for visitors who view the tested page.</value>
+  </data>
+  <data name="settingskey.cmsstoreaddtoshoppingcartconversionname.description" xml:space="preserve">
+    <value>Specifies the code name of the web analytics conversion that the system logs when a customer adds a product to their shopping cart. You can create new conversions in the Conversions application. Note: These conversion settings do not apply to MVC sites. To track product conversions for MVC A/B tests, configure the 'Product added to shopping cart' conversion in the settings of individual A/B tests.</value>
+  </data>
+  <data name="settingskey.cmsstoreaddtoshoppingcartconversionvalue.description" xml:space="preserve">
+    <value>Sets a number that will be recorded as the value of the add to shopping cart conversion. The values are cumulative, i.e. when a conversion hit is logged, the specified value is added to the total sum previously recorded for this conversion. You may insert a macro expression into this field to dynamically retrieve a value from the current website context. Note: These conversion settings do not apply to MVC sites. To track product conversions for MVC A/B tests, configure the 'Product added to shopping cart' conversion in the settings of individual A/B tests.</value>
+  </data>
+  <data name="settingskey.cmsstoreorderconversionname.description" xml:space="preserve">
+    <value>Specifies the code name of the web analytics conversion that the system logs when a customer completes an order. You can create new conversions in the Conversions application. Note: These conversion settings do not apply to MVC sites. To track order conversions for MVC A/B tests, configure the 'Purchase' conversion in the settings of individual A/B tests.</value>
+  </data>
+  <data name="settingskey.cmsstoreorderconversionvalue.description" xml:space="preserve">
+    <value>Sets a number that will be recorded as the value of the order conversion. The values are cumulative, i.e. when a conversion hit is logged, the specified value is added to the total sum previously recorded for this conversion. You may insert a macro expression into this field to dynamically retrieve a value from the current website context. Note: These conversion settings do not apply to MVC sites. To track order conversions for MVC A/B tests, configure the 'Purchase' conversion in the settings of individual A/B tests.</value>
+  </data>
+  <data name="abtesting.createabvariant.tooltip" xml:space="preserve">
+    <value>Creates a new A/B test and a first test variant for the current page.</value>
+  </data>
+  <data name="abtesting.permission.manage.tooltip" xml:space="preserve">
+    <value>You don't have the required permissions to manage A/B tests.</value>
+  </data>
+  <data name="abtesting.winningvariantselected" xml:space="preserve">
+    <value>The test has finished.&lt;br /&gt;&lt;br /&gt;&lt;b&gt;{0}&lt;/b&gt; was selected as the winner.</value>
+  </data>
+  <data name="abtesting.conversionsandtraffic" xml:space="preserve">
+    <value>Conversions and Traffic</value>
+  </data>
+  <data name="objecttype.cms_alternativeurl" xml:space="preserve">
+    <value>Document alternative URL</value>
+  </data>
+  <data name="apiexamples.overview" xml:space="preserve">
+    <value>To view the API examples, please visit the &lt;a href="https://docs.kentico.com/api12sp" target="_blank"&gt;https://docs.kentico.com/api12sp&lt;/a&gt; documentation.&lt;br/&gt;The documentation helps developers learn the basics of the Kentico API and serves as a library of code snippets. The examples mostly cover basic operations for managing system objects (creating, retrieving, updating and deleting).&lt;br/&gt;If you wish to inspect the example code directly in Visual Studio, you can find the files in the &lt;strong&gt;CodeSamples\\APIExamples&lt;/strong&gt; folder of your Kentico setup files.</value>
+  </data>
+  <data name="abtesting.howto.howtosetupabtestmvc.text" xml:space="preserve">
+    <value>The A/B tests application provides a list of all existing tests. To create a new test, navigate to the Pages application, select the related page, switch to the 'Page' tab, and click the 'Create A/B variant' button. &lt;a target="_blank" href="{0}"&gt;Learn more about A/B testing&lt;/a&gt;.</value>
+  </data>
+  <data name="alternativeurl.gridtitle" xml:space="preserve">
+    <value>The page is available under the following alternative URLs</value>
+  </data>
+  <data name="alternativeurl.newurl" xml:space="preserve">
+    <value>New URL</value>
+  </data>
+  <data name="objecttasks.cms_alternativeurl" xml:space="preserve">
+    <value>Document alternative URLs</value>
+  </data>
+  <data name="importobjects.warningobjectdefinitionhotfixversion" xml:space="preserve">
+    <value>&lt;strong&gt;Please note: &lt;/strong&gt; You are about to import a package from an older hotfix version. This package includes object definitions which may alter or break the current behavior of your system. All items which are in conflict with existing items were automatically deselected. Please select carefully items which you want to import.</value>
+  </data>
+  <data name="importobjects.warningobjectdefinitionversion" xml:space="preserve">
+    <value>&lt;strong&gt;Please note: &lt;/strong&gt; You are about to import a package from an older version. This package includes object definitions which may alter or break the current behavior of your system. All items which are in conflict with existing items were automatically deselected. Please select carefully items which you want to import.</value>
+  </data>
+  <data name="settingscategory.cmsurlalternativeurlmvc" xml:space="preserve">
+    <value>Alternative URLs (MVC)</value>
+  </data>
+  <data name="settingskey.cmsalternativeurluienabled" xml:space="preserve">
+    <value>Enable editing interface</value>
+  </data>
+  <data name="settingskey.cmsalternativeurluienabled.description" xml:space="preserve">
+    <value>Enables the editing interface for alternative URLs in the Pages application (after selecting a page in Edit mode, on the 'Properties -&gt; Alternative URLs' tab). The Alternative URLs feature also needs to be enabled in the MVC application that presents the website. The setting only controls the visibility of the editing interface. Any existing alternative URLs remain functional even if you disable the setting.</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsconstraint" xml:space="preserve">
+    <value>Alternative URLs constraint</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsconstraintdescription" xml:space="preserve">
+    <value>A regular expression used to specify which alternative URLs are allowed. The expression is matched against the alternative URL path value, without the site's 'Presentation URL' prefix. If a user attempts to add an alternative URL that does not match, the system prevents the creation and displays the error message specified in the 'Alternative URLs error message' setting.</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsexcludedurls" xml:space="preserve">
+    <value>Excluded alternative URLs</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsexcludedurlsdescription" xml:space="preserve">
+    <value>A list of text values specifying restricted alternative URL paths (without the prefix of the site's Presentation URL). If a user attempts to add an alternative URL matching one of the specified values, the system prevents the creation and displays the error message specified in the 'Alternative URLs error message' setting. Every path value must be entered on a new line. The comparison is case-insensitive.&lt;br/&gt;&lt;br/&gt;If you need to exclude a large number of URL paths, you can add the asterisk ('*') character as a wildcard to the start or end of values. The wildcard represents any number of characters.</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlstimeouterrormessage" xml:space="preserve">
+    <value>'{0}' cannot be evaluated. For more information see the Event Log or contact the system administrator.</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsfallbackerrormessage" xml:space="preserve">
+    <value>The specified alternative URL is excluded by the current system configuration and cannot be used as an alternative URL.</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlserrormessage" xml:space="preserve">
+    <value>Alternative URLs error message</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlserrormessagedescription" xml:space="preserve">
+    <value>Text of the error message displayed in the Pages application when a user attempts to add an alternative URL that either matches an excluded URL or does not fulfill the requirements of the URL constraint.</value>
+  </data>
+  <data name="alternativeurl.openurl" xml:space="preserve">
+    <value>Open URL in a new window</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsmode" xml:space="preserve">
+    <value>Alternative URLs mode</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsmode.redirect" xml:space="preserve">
+    <value>Redirect</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsmode.rewrite" xml:space="preserve">
+    <value>Rewrite</value>
+  </data>
+  <data name="settingskey.cmsalternativeurlsmode.description" xml:space="preserve">
+    <value>Sets the action that occurs when a visitor accesses a page through an alternative URL.  &lt;strong&gt;Redirect&lt;/strong&gt; - the system performs a permanent 301 redirect from the alternative URL to the main URL of the given page. &lt;strong&gt;Rewrite&lt;/strong&gt; - visitors see the page content with the alternative URL remaining in the browser bar.</value>
+  </data>
+  <data name="abtesting.pagevisit.existingalternativeurl" xml:space="preserve">
+    <value>Please enter the main URL of the page, not one of its alternative URLs.</value>
+  </data>
+  <data name="abtesting.pagevisit.mainurlhint" xml:space="preserve">
+    <value>The main URL for the given page is: {0}</value>
+  </data>
+  <data name="alternativeurl.isinconflictwithalternativeurl" xml:space="preserve">
+    <value>Alternative URL '{0}' is in conflict with another alternative URL used for the {1} page.</value>
+  </data>
+  <data name="alternativeurl.isinconflictwithpage" xml:space="preserve">
+    <value>Alternative URL '{0}' is in conflict with the main URL of the {1} page.</value>
+  </data>
+  <data name="alternativeurl.currentpageisinconflictwithalternativeurl" xml:space="preserve">
+    <value>The current page's URL is in conflict with alternative URL &lt;strong&gt;'{0}'&lt;/strong&gt; used for the {1} page. Contact your administrator or remove the alternative URL.</value>
+  </data>
+  <data name="app.pagetemplatesmvc.smarttip.header" xml:space="preserve">
+    <value>Not sure how to begin?</value>
+  </data>
+  <data name="app.pagetemplatesmvc.smarttip.content" xml:space="preserve">
+    <value>The &lt;strong&gt;Page templates (MVC)&lt;/strong&gt; application offers a list of all custom page templates available in your system. Do you want to create a new custom page template? Use the &lt;strong&gt;Pages&lt;/strong&gt; application where you can save a page as a new template. &lt;br/&gt;</value>
+  </data>
+  <data name="app.pagetemplatesmvc.smarttip.link" xml:space="preserve">
+    <value>Learn more about page templates.</value>
+  </data>
+  <data name="formfileuploader.exceededmaxfilesize.errormessage" xml:space="preserve">
+    <value>The selected file exceeds the maximum allowed file size of {0} MB.</value>
+  </data>
+  <data name="formcontrol.alternativeurlsconstraintcontrol.invalidregex" xml:space="preserve">
+    <value>Provided regular exception is not valid. Original message follows: {0}</value>
+  </data>
+  <data name="formcontrol.alternativeurlsconstraintcontrol.regextimeout" xml:space="preserve">
+    <value>Regex evaluation timeout occurred. This may be a sign of an inefficient pattern.</value>
+  </data>
+  <data name="campaign.conversions.teststartednoconversions" xml:space="preserve">
+    <value>The test was started without any defined conversions.</value>
+  </data>
+  <data name="sm.country.mk" xml:space="preserve">
+    <value>North Macedonia</value>
+  </data>
+  <data name="importobjects.rebuildsiteindexes" xml:space="preserve">
+    <value>Rebuild site search indexes</value>
+  </data>
+  <data name="webpart.onlineform.defaultformlayout.description" xml:space="preserve">
+    <value>Determines whether the form's HTML output consists of a table or Div elements. Applies to forms that use the automatically generated layout or a custom 'ASCX' type layout (the selection controls the element enclosing the entire form and the output of individual form fields). Forms with a custom 'HTML' type layout always output the code specified by the layout.</value>
+  </data>
+  <data name="formfileuploader.temporaryunavailable.errormessage" xml:space="preserve">
+    <value>File upload is temporarily unavailable. Please try again later.</value>
+  </data>
+  <data name="settingskey.cmslinkedinsigninpermissionscope" xml:space="preserve">
+    <value>Requested permissions (scope)</value>
+  </data>
+  <data name="settingskey.cmslinkedinsigninpermissionscope.description" xml:space="preserve">
+    <value>A space delimited list of member permissions your application is requesting on behalf of the user. The default is 'r_liteprofile'. If you wish to load birth date values for users who register on your site using their LinkedIn credentials, your LinkedIn application requires the 'r_fullprofile' permission. To obtain this permission, you need to apply and be approved as a LinkedIn Partner.</value>
+  </data>
+  <data name="builder.ui.mixedcontenterrormessage" xml:space="preserve">
+    <value>This feature is currently unavailable because the Kentico administration application is using secured HTTPS protocol. To enable this feature, the MVC application must be configured to also use HTTPS.</value>
+  </data>
+  <data name="formfileuploader.temporaryunavailable.eventlog" xml:space="preserve">
+    <value>The folder used to store temporary files submitted via on-line forms '{0}' has exceeded the maximum allowed size (500 MB by default). The maximum size can be configured using the 'CMSTemporaryUploadFilesFolderSizeLimit' web.config key.</value>
+  </data>
+  <data name="abtesting.popupdialog.cannotmodifyrunningabtest" xml:space="preserve">
+    <value>A running A/B test cannot be modified.</value>
+  </data>
 </root>

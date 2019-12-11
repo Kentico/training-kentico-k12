@@ -8,6 +8,7 @@
     </div>
     <div class="page-builder">
         <cms:MessagesPlaceHolder runat="server" ID="plcMess" OffsetX="16" OffsetY="16" UseRelativePlaceHolder="False">
+            <cms:AlertLabel runat="server" ID="alSuccess" AlertType="Confirmation" Text="&nbsp;" CssClass="alert-success-absolute hidden" EnableViewState="False" />
             <cms:AlertLabel runat="server" ID="alWarning" AlertType="Warning" Text="&nbsp;" CssClass="alert-dismissable alert-warning-absolute hidden" EnableViewState="False" />
             <cms:AlertLabel runat="server" ID="alError" AlertType="Error" Text="&nbsp;" CssClass="alert-dismissable alert-error-absolute hidden" EnableViewState="False" />
         </cms:MessagesPlaceHolder>

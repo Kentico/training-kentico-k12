@@ -16,6 +16,17 @@
             <param name="data">Data to extract text from.</param>
             <param name="context">Extraction context.</param>
         </member>
+        <member name="M:CMS.Search.TextExtractors.PdfSearchTextExtractor.StripInvalidContentCharacters(System.String)">
+            <summary>
+            Strips invalid characters from the <paramref name="content"/> before being returned
+            as the extracted PDF content.
+            </summary>
+            <param name="content">Input to strip invalid characters from.</param>
+            <returns>Returns input with invalid characters stripped, or null if input is null.</returns>
+            <remarks>
+            The default implementation strips invalid Unicode surrogate pairs from the <paramref name="content"/>.
+            </remarks>
+        </member>
         <member name="M:CMS.Search.TextExtractors.PdfSearchTextExtractor.SafelyExtractContent(CMS.Core.BinaryData)">
             <summary>
             Extracts PDF content and returns it. When an error occurs, empty string is returned and corresponding exception is logged.
@@ -126,6 +137,34 @@
         <member name="M:CMS.Search.TextExtractors.StreamExtensions.ReadToEnd(System.IO.Stream,System.Text.Encoding)">
             <summary>
             Reads all characters from the current position to the end of the stream.
+            </summary>
+        </member>
+        <member name="T:CMS.Search.TextExtractors.UnicodeUtils">
+            <summary>
+            Contains a utility method for Unicode characters processing.
+            </summary>
+        </member>
+        <member name="F:CMS.Search.TextExtractors.UnicodeUtils.INVALID_SURROGATE_PAIR_PATTERN">
+            <summary>
+            Regular expression pattern describing invalid surrogate pair.
+            </summary>
+        </member>
+        <member name="M:CMS.Search.TextExtractors.UnicodeUtils.StripInvalidSurrogatePairs(System.String)">
+            <summary>
+            Strips invalid surrogate pairs from <paramref name="input"/> string. Pairs are stripped either partially (low surrogate is kept)
+            or completely depending on whether the low surrogate is a valid character.
+            </summary>
+            <param name="input">Input to strip invalid surrogate pairs from.</param>
+            <returns>Returns string where invalid surrogate pairs are omitted. Returns null if <paramref name="input"/> is null.</returns>
+            <remarks>
+            A valid surrogate pair is a pair comprising a high surrogate (Unicode character in range 0xD800-0xDFFF) and a low surrogate (Unicode character in range 0xDC00-0xDFFF).
+            A high surrogate followed by a character which does not fall within the low surrogate range is considered invalid.
+            </remarks>
+        </member>
+        <member name="M:CMS.Search.TextExtractors.UnicodeUtils.FixInvalidSurrogatePair(System.Text.RegularExpressions.Match)">
+            <summary>
+            Fixes invalid surrogate pair (or an unpaired high surrogate at the end of a string) by omitting the high surrogate or both the high and the low surrogate
+            depending on whether the low surrogate represents a valid character.
             </summary>
         </member>
         <member name="T:CMS.Search.TextExtractors.XlsxSearchTextExtractor">

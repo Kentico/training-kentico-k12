@@ -32,10 +32,9 @@
 // Design mode with "cms-bootstrap" wrapping
 // -----------------------------------------
 .cms-bootstrap {
-    .PageContent { 
+    .PageContent {
         padding: @base-unit;
     }
-
     // Protect CK Editor from global td padding reset
     .cke_dialog .cke_dialog_contents_body {
         padding: 17px 10px 5px;
@@ -92,6 +91,43 @@
 
             &:hover {
                 background: @btn-default-box-shadow;
+            }
+        }
+    }
+
+    // Buttons for view mode switching above the content tree
+    .tree-buttons {
+        // Override Bootstrap's style for Split button
+        .btn-group.cms-split-button > .btn {
+            padding-right: 8px;
+            border-right-width: 0px;
+
+            &.active {
+                border-right-width: 0px;
+            }
+
+            &.active + .dropdown-toggle {
+                background-color: @color-blue-100;
+                border-color: @color-blue-100;
+                box-shadow: @color-blue-70 0 -@btn-shadow-width 0 inset;
+                color: #fff;
+            }
+
+            & + .dropdown-toggle {
+                padding: 0 3px 0 2px;
+                border-left: 0;
+                border-right: 1px solid @color-gray-100;
+            }
+
+            &:hover.active + .dropdown-toggle {
+                background-color: @color-blue-100;
+                border-color: @color-blue-100;
+            }
+
+            &.active + .dropdown-toggle:hover {
+                background-color: @color-blue-70;
+                border-color: @color-blue-70;
+                box-shadow: @color-blue-70 0 -@btn-shadow-width 0 inset;
             }
         }
     }

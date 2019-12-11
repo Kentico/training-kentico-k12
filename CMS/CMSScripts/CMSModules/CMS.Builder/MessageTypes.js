@@ -11,6 +11,10 @@
         LOAD_DISPLAYED_WIDGET_VARIANTS: "Kentico.LoadDisplayedWidgetVariants",
         GET_DISPLAYED_WIDGET_VARIANTS: "Kentico.GetDisplayedWidgetVariants",
         OPEN_MODAL_DIALOG: "Kentico.OpenModalDialog",
-        CLOSE_MODAL_DIALOG: "Kentico.CloseModalDialog"
+        CLOSE_MODAL_DIALOG: "Kentico.CloseModalDialog",
+        SAVE_TEMP_CONFIGURATION: "Kentico.SaveTempConfiguration",
+        TEMP_CONFIGURATION_STORED: "Kentico.TempConfigurationStored",
+        CHANGE_TEMPLATE: "Kentico.ChangeTemplate",
+        CANCEL_SCREENLOCK: "Kentico.CancelScreenLock"
     }
 });

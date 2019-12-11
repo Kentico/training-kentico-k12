@@ -31,8 +31,10 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ : Impor
     #endregion
 
 
-    protected void Page_Load(object sender, EventArgs e)
+    protected override void OnLoad(EventArgs e)
     {
+        base.OnLoad(e);
+
         if (StopProcessing)
         {
             return;
@@ -60,42 +62,33 @@ public partial class CMSModules_ImportExport_Controls_Import___objects__ : Impor
             }
         }
 
-        lblInfo.Text = GetString("ImportObjects.Info");
-        lblInfo2.Text = GetString("ImportObjects.Info2");
-
-        lnkSelectAll.Text = GetString("ImportObjects.SelectAll");
-        lnkSelectNone.Text = GetString("ImportObjects.SelectNone");
-        lnkSelectNew.Text = GetString("ImportObjects.SelectNew");
-        lnkSelectDefault.Text = GetString("ImportObjects.SelectDefault");
-
         // Confirmation for select all
         lnkSelectAll.OnClientClick = $"return confirm({ScriptHelper.GetString(ResHelper.GetString("importobjects.selectallconfirm"))});";
 
-        chkCopyFiles.Text = GetString("ImportObjects.CopyFiles");
-        chkCopyGlobalFiles.Text = GetString("ImportObjects.CopyGlobalFiles");
-        chkCopyAssemblies.Text = GetString("ImportObjects.CopyAssemblies");
-        chkCopyCodeFiles.Text = GetString("ImportObjects.CopyCodeFiles");
-        chkCopySiteFiles.Text = GetString("ImportObjects.CopySiteFiles");
+        chkCopyFiles.Attributes.Add("onclick", "CheckChange();");
+
+        userSelectorMacroResigningUser.UniSelector.TextBoxSelect.AddCssClass("input-width-60");
+    }
+
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+
+        if (StopProcessing)
+        {
+            return;
+        }
 
         // Javascript
         string script = $@"
-var im_g_parent = document.getElementById('{chkCopyFiles.ClientID}'); 
-var im_g_childIDs = ['{chkCopyGlobalFiles.ClientID}', '{chkCopySiteFiles.ClientID}', '{chkCopyCodeFiles.ClientID}','{chkCopyAssemblies.ClientID}']; 
-var im_g_childIDNames = ['gl', 'site', 'code', 'asbl']; 
-var im_g_isPrecompiled = {(SystemContext.IsPrecompiledWebsite ? "true" : "false")}; 
-InitCheckboxes(); 
+var im_g_parent = document.getElementById('{chkCopyFiles.ClientID}');
+var im_g_childIDs = ['{chkCopyGlobalFiles.ClientID}', '{chkCopySiteFiles.ClientID}', '{chkCopyCodeFiles.ClientID}','{chkCopyAssemblies.ClientID}'];
+var im_g_childIDNames = ['gl', 'site', 'code', 'asbl'];
+var im_g_isPrecompiled = {(SystemContext.IsPrecompiledWebsite ? "true" : "false")};
+InitCheckboxes();
 ";
-
-        ltlScript.Text = ScriptHelper.GetScript(script);
-
-        chkCopyFiles.Attributes.Add("onclick", "CheckChange();");
-
-        chkSkipOrfans.Text = GetString("ImportObjects.SkipOrfans");
-        chkImportTasks.Text = GetString("ImportObjects.ImportTasks");
-        chkLogSync.Text = GetString("ImportObjects.LogSynchronization");
-        chkLogInt.Text = GetString("ImportObjects.LogIntegration");
-
-        userSelectorMacroResigningUser.UniSelector.TextBoxSelect.AddCssClass("input-width-60");
+        ScriptHelper.RegisterStartupScript(this, typeof(string), "ImportObjects" + ClientID, script, true);
     }
 
 
@@ -125,6 +118,7 @@ InitCheckboxes();
 
         ImportSettings.LogSynchronization = chkLogSync.Checked;
         ImportSettings.LogIntegration = chkLogInt.Checked;
+        ImportSettings.RebuildSearchIndex = chkRebuildIndexes.Checked;
 
         var userId = (string) userSelectorMacroResigningUser.Value;
         if (!String.IsNullOrEmpty(userId))
@@ -180,6 +174,8 @@ InitCheckboxes();
             chkImportTasks.Checked = ValidationHelper.GetBoolean(ImportSettings.GetSettings(ImportExportHelper.SETTINGS_TASKS), true);
             chkLogSync.Checked = ImportSettings.LogSynchronization;
             chkLogInt.Checked = ImportSettings.LogIntegration;
+            chkRebuildIndexes.Checked = ImportSettings.SiteIsIncluded;
+            chkRebuildIndexes.Visible = ImportSettings.SiteIsIncluded;
 
             Visible = true;
 

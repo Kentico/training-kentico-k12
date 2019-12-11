@@ -177,14 +177,13 @@ public partial class CMSFormControls_Macros_MacroEditor : FormEngineUserControl
     {
         get
         {
-            string resolverName = ValidationHelper.GetString(GetValue("ResolverName"), string.Empty);
+            string resolverName = ValidationHelper.GetString(GetValue("ResolverName"), base.ResolverName);
             if (Form != null && Form.ContextResolver != null)
             {
                 resolverName = Form.ContextResolver.ResolveMacros(resolverName);
             }
 
-            // Add "resolver" suffix, because ResolverFactory.GetResolver needs this
-            return AddResolverSuffix(resolverName);
+            return resolverName;
         }
         set
         {
@@ -381,20 +380,6 @@ function PasteImage(imageurl) {{
 
         ScriptHelper.RegisterScriptFile(Page, "Macros/MacroSelector.js");
         ScriptHelper.RegisterClientScriptBlock(Page, typeof(string), "PasteImage_" + ClientID, script, true);
-    }
-
-
-    /// <summary>
-    /// Add "resolver" suffix if text does not end with "resolver". 
-    /// </summary>
-    protected string AddResolverSuffix(string text)
-    {
-        if (!text.EndsWith("resolver", StringComparison.OrdinalIgnoreCase))
-        {
-            return text + "resolver";
-        }
-
-        return text;
     }
 
     #endregion

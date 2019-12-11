@@ -1284,6 +1284,57 @@
             </summary>
             <param name="returnUrl">Url used for redirect once the LinkedIn login form is submitted.</param>
         </member>
+        <member name="T:CMS.ExternalAuthentication.LinkedIn.LinkedInDateObject">
+            <summary>
+            Represents date according to LinkedIn API.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInDateObject.Day">
+            <summary>
+            Day represented in integer. Valid range from 1 to 31 depending on month.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInDateObject.Month">
+            <summary>
+            Month represented in integer. Valid range from 1 to 12.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInDateObject.Year">
+            <summary>
+            Year represented in integer.
+            </summary>
+        </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedIn.LinkedInDateObject.ToDateTime">
+            <summary>
+            Converts the object to the nullable DateTime. Returns null if object represents incorrect date.
+            </summary>
+            <returns>DateTime object created from <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInDateObject.Year"/>, <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInDateObject.Month"/> and <see cref="P:CMS.ExternalAuthentication.LinkedIn.LinkedInDateObject.Day"/>. If those values do not form a correct date, <see cref="F:CMS.Helpers.DateTimeHelper.ZERO_TIME"/> is returned.</returns>
+        </member>
+        <member name="T:CMS.ExternalAuthentication.LinkedIn.LinkedInProfile">
+            <summary>
+            Represents a LinkedIn profile according to the LinkedIn API.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInProfile.Id">
+            <summary>
+            The unique identifier for the given member.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInProfile.LocalizedFirstName">
+            <summary>
+            Localized first name of the member.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInProfile.LocalizedLastName">
+            <summary>
+            Localized last name of the member.
+            </summary>
+        </member>
+        <member name="P:CMS.ExternalAuthentication.LinkedIn.LinkedInProfile.BirthDate">
+            <summary>
+            Birth date of the member
+            </summary>
+        </member>
         <member name="T:CMS.ExternalAuthentication.LinkedInHelper">
             <summary>
             LinkedIn helper class.
@@ -1297,6 +1348,11 @@
         <member name="F:CMS.ExternalAuthentication.LinkedInHelper.RESPONSE_AUTHENTICATED">
             <summary>
             Represents LinkedIn response "Authenticated".
+            </summary>
+        </member>
+        <member name="F:CMS.ExternalAuthentication.LinkedInHelper.PROFILE_API_ENDPOINT">
+            <summary>
+            API endpoint for the LinkedIn profile request.
             </summary>
         </member>
         <member name="P:CMS.ExternalAuthentication.LinkedInHelper.MemberId">
@@ -1339,6 +1395,15 @@
             <param name="requireBirthDate">Require birth date</param>
             <param name="customFields">Array of custom LinkedIn profile field names</param>
         </member>
+        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.CheckStatus(System.Boolean,System.Boolean,System.Boolean,CMS.ExternalAuthentication.LinkedIn.LinkedInProfile@)">
+            <summary>
+            Checks status of current user. Returns LinkedIn response status.
+            </summary>
+            <param name="requireFirstName">Require first name.</param>
+            <param name="requireLastName">Require last name.</param>
+            <param name="requireBirthDate">Require birth date.</param>
+            <param name="linkedInProfile">Output parameter for LinkedIn profile.</param>
+        </member>
         <member name="M:CMS.ExternalAuthentication.LinkedInHelper.GetPurifiedUrl">
             <summary>
             Returns <see cref="P:CMS.Helpers.RequestContext.CurrentURL"/> with stripped OAuth parameters. 
@@ -1373,11 +1438,6 @@
             Loads LinkedIn response.
             </summary>
             <param name="response">LinkedIn response as XmlDocument object</param>
-        </member>
-        <member name="M:CMS.ExternalAuthentication.LinkedInHelper.GetXmlResponse(System.IO.Stream)">
-            <summary>
-            Returns LinkedIn response as XmlDocument.
-            </summary>
         </member>
         <member name="T:CMS.ExternalAuthentication.LinkedInProvider">
             <summary>

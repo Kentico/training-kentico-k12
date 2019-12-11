@@ -29,8 +29,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Categories : CMSPrope
         DocumentManager.HandleWorkflow = false;
 
         DocumentManager.RegisterSaveChangesScript = false;
-
-        SetPropertyTab(TAB_CATEGORIES);
     }
 
 

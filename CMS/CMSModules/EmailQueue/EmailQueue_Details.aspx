@@ -76,6 +76,15 @@
                         Visible="false" Enabled="false" ToolbarSet="Disabled" />
                 </div>
             </asp:Panel>
+            <div class="form-group">
+                <div class="editing-form-label-cell">
+                    <cms:LocalizedLabel CssClass="control-label" ID="lblPlainText" runat="server" ResourceString="emailqueue.detail.plaintext"
+                        DisplayColon="true" EnableViewState="false" />
+                </div>
+                <div class="editing-form-value-cell">
+                    <asp:Label ID="lblPlainTextValue" CssClass="form-control-text" runat="server" EnableViewState="false" />
+                </div>
+            </div>
             <asp:PlaceHolder ID="plcAttachments" runat="server" Visible="false">
                 <div class="form-group">
                     <div class="editing-form-label-cell">

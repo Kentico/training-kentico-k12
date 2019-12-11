@@ -99,7 +99,11 @@ function CMSRfrLblPos(elm, options) {
     var opacity = elm.css('opacity');
     elm.css('opacity', 0).css('position', 'static');
     var offset = elm.offset();
-    elm.css('position', 'absolute');
+    if (elm.hasClass('alert-success')) {
+        elm.css('position', 'fixed');
+    } else {
+        elm.css('position', 'absolute');
+    }
     var top = CMSGetPlcPos();
 
     //Wrapper object

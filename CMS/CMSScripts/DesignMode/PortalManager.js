@@ -15,7 +15,7 @@ var pmCopyInProgress = false;
 var pmPasteInProgress = false;
 var pmPasteEnabled = false;
 
-function webPartProperties(zoneId, webPartId, nodeAliasPath, instanceGuid, templateId, clientId, variantId, clipBoardItem, key) {
+function webPartProperties(zoneId, webPartId, nodeAliasPath, instanceGuid, templateId, clientId, variantId, clipBoardItem, key, viewMode, hash) {
     this.clientId = clientId;
     this.zoneId = zoneId;
     this.webPartId = webPartId;
@@ -25,10 +25,12 @@ function webPartProperties(zoneId, webPartId, nodeAliasPath, instanceGuid, templ
     this.variantId = variantId;
     this.containsClipBoardItem = clipBoardItem;
     this.clipBoardKey = key;
+    this.viewMode = viewMode;
+    this.hash = hash;
 }
 
 
-function zoneProperties(zoneId, nodeAliasPath, templateId, zoneType, layoutZone, clipBoardItem, key) {
+function zoneProperties(zoneId, nodeAliasPath, templateId, zoneType, layoutZone, clipBoardItem, key, viewMode, hash) {
     this.zoneId = zoneId;
     this.nodeAliasPath = nodeAliasPath;
     this.templateId = templateId;
@@ -36,6 +38,8 @@ function zoneProperties(zoneId, nodeAliasPath, templateId, zoneType, layoutZone,
     this.layoutZone = layoutZone;
     this.containsClipBoardItem = clipBoardItem;
     this.clipBoardKey = key;
+    this.viewMode = viewMode;
+    this.hash = hash;
 }
 
 
@@ -532,10 +536,16 @@ function NewWidget(zone) {
     setZoneType(zone.zoneType);
     setAliasPath(path);
     setTemplate(zone.templateId);
+    setViewMode(zone.viewMode);
+    setHash(zone.hash);
 
     isLayoutZone = !!zone.layoutZone;
     setIsLayoutZone(isLayoutZone);
-    modalDialog(widgetSelectorUrl + '?aliaspath=' + path + '&culture=' + getCulture() + '&templateid=' + zone.templateId + '&zoneid=' + escape(zone.zoneId) + '&zonetype=' + zone.zoneType + '&layoutzone=' + zone.layoutZone, 'selectwidget', '90%', '85%');
+
+    var url = widgetSelectorUrl + '?aliaspath=' + path + '&culture=' + getCulture() + '&templateid=' + zone.templateId + '&zoneid=' + escape(zone.zoneId) + '&zonetype=' + zone.zoneType + '&layoutzone=' + zone.layoutZone + '&viewMode=' + zone.viewMode;
+    url = appendHashString(url, zone.hash);
+
+    modalDialog(url, 'selectwidget', '90%', '85%');
 }
 
 function AddWidgetWithoutDialog(widgetId, widgetZoneId, isLayoutZone) {
@@ -553,7 +563,9 @@ function OnSelectWidget(widgetId, skipDialog) {
         AddWidgetWithoutDialog(widgetId, getZone(), getIsLayoutZone());
     }
     else {
-        modalDialog(widgetPropertiesUrl + '?aliaspath=' + getAliasPath() + '&culture=' + getCulture() + '&templateid=' + getTemplate() + '&zoneid=' + getZone() + '&zonetype=' + getZoneType() + '&widgetid=' + widgetId + '&layoutzone=' + getIsLayoutZone() + '&isnew=1' + getDashBoardParameter(), 'configurewidget', 950, '85%');
+        var url = widgetPropertiesUrl + '?aliaspath=' + getAliasPath() + '&culture=' + getCulture() + '&templateid=' + getTemplate() + '&zoneid=' + getZone() + '&zonetype=' + getZoneType() + '&widgetid=' + widgetId + '&layoutzone=' + getIsLayoutZone() + '&isnew=1' + getDashBoardParameter() + '&viewMode=' + getViewMode();
+        url = appendHashString(url, getHash());
+        modalDialog(url, 'configurewidget', 950, '85%');
     }
 }
 
@@ -569,7 +581,8 @@ function ConfigureWidget(widget) {
         aliasPath = encodeURIComponent(aliasPath);
     }
 
-    var url = widgetPropertiesUrl + '?aliaspath=' + aliasPath + '&culture=' + getCulture() + '&templateid=' + widget.templateId + '&zoneid=' + widget.zoneId + '&widgetid=' + widget.webPartId + '&instanceguid=' + widget.instanceGuid;
+    var url = widgetPropertiesUrl + '?aliaspath=' + aliasPath + '&culture=' + getCulture() + '&templateid=' + widget.templateId + '&zoneid=' + widget.zoneId + '&widgetid=' + widget.webPartId + '&instanceguid=' + widget.instanceGuid + '&viewMode=' + widget.viewMode;
+    url = appendHashString(url, widget.hash);
 
     if (variantId > 0) {
         url += '&variantid=' + variantId;
@@ -777,4 +790,12 @@ function ClearBorderDeactivation(id) {
         bordersToDeactivate[id] = null;
         clearTimeout(toDeactivate);
     }
+}
+
+function appendHashString(url, hash) {
+    if (hash) {
+        return url + '&hash=' + hash;
+    }
+
+    return url;
 }

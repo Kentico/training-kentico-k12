@@ -4,6 +4,16 @@
         <name>CMS.Synchronization.WSE3</name>
     </assembly>
     <members>
+        <member name="T:CMS.Synchronization.WSE3.IX509StoreLocationProvider">
+            <summary>
+            Describes provider for retrieving certificate store location.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.WSE3.IX509StoreLocationProvider.GetStoreLocation">
+            <summary>
+            Returns store location used for X.509 certificate store.
+            </summary>
+        </member>
         <member name="T:CMS.Synchronization.WSE3.WSE3Module">
             <summary>
             Represents the WSE3 module.
@@ -170,11 +180,6 @@
         <member name="T:CMS.Synchronization.WSE3.SyncServer">
             <summary>
             Content staging service.
-            </summary>
-        </member>
-        <member name="P:CMS.Synchronization.WSE3.SyncServer.LogTasks">
-            <summary>
-            Indicates if logging staging task is enabled.
             </summary>
         </member>
         <member name="F:CMS.Synchronization.WSE3.SyncServer.UseTreeCustomHandlers">
@@ -354,7 +359,7 @@
         </member>
         <member name="M:CMS.Synchronization.WSE3.X509Helper.VerifyMessageParts(Microsoft.Web.Services3.SoapContext)">
             <summary>
-            Vefies, if all the required message parts are present.
+            Verifies, if all the required message parts are present.
             </summary>
             <param name="context">Soap context</param>
         </member>
@@ -371,6 +376,21 @@
             </summary>
             <param name="token">Token to check</param>
             <param name="siteName">Site name</param>
+        </member>
+        <member name="T:CMS.Synchronization.WSE3.X509StoreLocationProvider">
+            <summary>
+            Base implementation of <see cref="T:CMS.Synchronization.WSE3.IX509StoreLocationProvider"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.WSE3.X509StoreLocationProvider.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.Synchronization.WSE3.X509StoreLocationProvider"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.WSE3.X509StoreLocationProvider.GetStoreLocation">
+            <summary>
+            Returns store location used for X.509 certificate store.
+            </summary>
         </member>
     </members>
 </doc>

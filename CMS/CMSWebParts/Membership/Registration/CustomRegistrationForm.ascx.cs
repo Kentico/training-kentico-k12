@@ -125,7 +125,7 @@ public partial class CMSWebParts_Membership_Registration_CustomRegistrationForm 
 
 
     /// <summary>
-    /// Gets or sets colons visibility in form labels. Default value is true. 
+    /// Gets or sets colons visibility in form labels. Default value is true.
     /// </summary>
     public bool DisplayColons
     {
@@ -141,7 +141,7 @@ public partial class CMSWebParts_Membership_Registration_CustomRegistrationForm 
 
 
     /// <summary>
-    /// Gets or sets form layout. 
+    /// Gets or sets form layout.
     /// </summary>
     public string FormLayout
     {
@@ -157,7 +157,7 @@ public partial class CMSWebParts_Membership_Registration_CustomRegistrationForm 
 
 
     /// <summary>
-    /// Gets or sets field layout. 
+    /// Gets or sets field layout.
     /// </summary>
     public string FieldLayout
     {
@@ -290,8 +290,8 @@ public partial class CMSWebParts_Membership_Registration_CustomRegistrationForm 
 
 
     /// <summary>
-    /// Gets or sets the value that indicates whether after successful registration is 
-    /// notification email sent to the administrator 
+    /// Gets or sets the value that indicates whether after successful registration is
+    /// notification email sent to the administrator
     /// </summary>
     public bool NotifyAdministrator
     {
@@ -656,7 +656,7 @@ public partial class CMSWebParts_Membership_Registration_CustomRegistrationForm 
             nickName = ValidationHelper.GetString(txtNickName.Value, String.Empty);
         }
 
-        // Test if "global" or "site" user exists. 
+        // Test if "global" or "site" user exists.
         SiteInfo si = SiteContext.CurrentSite;
         UserInfo siteui = UserInfoProvider.GetUserInfo(UserInfoProvider.EnsureSitePrefixUserName(userName, si));
         if ((UserInfoProvider.GetUserInfo(userName) != null) || (siteui != null))
@@ -806,7 +806,10 @@ public partial class CMSWebParts_Membership_Registration_CustomRegistrationForm 
         // Track successful registration conversion
         if (TrackConversionName != String.Empty)
         {
-            if (AnalyticsHelper.AnalyticsEnabled(CurrentSiteName) && Service.Resolve<IAnalyticsConsentProvider>().HasConsentForLogging() && !AnalyticsHelper.IsIPExcluded(CurrentSiteName, RequestContext.UserHostAddress))
+            if (AnalyticsHelper.AnalyticsEnabled(CurrentSiteName)
+                && Service.Resolve<IAnalyticsConsentProvider>().HasConsentForLogging()
+                && !AnalyticsHelper.IsIPExcluded(CurrentSiteName, RequestContext.UserHostAddress)
+                && SystemContext.IsCMSRunningAsMainApplication)
             {
                 HitLogProvider.LogConversions(CurrentSiteName, LocalizationContext.PreferredCultureCode, TrackConversionName, 0, ConversionValue);
             }

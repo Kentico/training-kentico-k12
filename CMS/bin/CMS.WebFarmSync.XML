@@ -438,51 +438,54 @@
             Server was automatically disabled (memory tasks removed and stopped generating new ones).
             </summary>
         </member>
-        <member name="T:CMS.WebFarmSync.AnonymousTasksProcesor">
+        <member name="T:CMS.WebFarmSync.AnonymousTasksProcessor">
             <summary>
-            Web sync helper.
+            Class responsible for processing anonymous tasks.
             </summary>
+            <remarks>
+            Anonymous tasks are a way to run webfarm tasks on instance without webfarms enabled. Processor also bypasses license limitations.
+            Processing is started by <see cref="M:CMS.WebFarmSync.AnonymousTasksProcessor.NotifyServer"/> and a batch of size <see cref="P:CMS.WebFarmSync.WebFarmTaskProcessor.TaskBatchSize"/> is processed.
+            </remarks>
+            <seealso cref="T:CMS.WebFarmSync.WebFarmTaskProcessor"/>
         </member>
-        <member name="F:CMS.WebFarmSync.AnonymousTasksProcesor.NOTIFY_FILENAME">
+        <member name="F:CMS.WebFarmSync.AnonymousTasksProcessor.NOTIFY_FILENAME">
             <summary>
             File name of the file for web farm server notification
             </summary>
         </member>
-        <member name="P:CMS.WebFarmSync.AnonymousTasksProcesor.NotifyPath">
+        <member name="P:CMS.WebFarmSync.AnonymousTasksProcessor.NotificationPath">
             <summary>
             Physical path to the watcher folder for web farm server notification.
             </summary>
         </member>
-        <member name="P:CMS.WebFarmSync.AnonymousTasksProcesor.NotifyWatcher">
+        <member name="P:CMS.WebFarmSync.AnonymousTasksProcessor.NotifyWatcher">
             <summary>
             File watcher to notify web farm server to process tasks.
             </summary>
         </member>
-        <member name="M:CMS.WebFarmSync.AnonymousTasksProcesor.GetNotificationPath(System.String)">
+        <member name="M:CMS.WebFarmSync.AnonymousTasksProcessor.GetNotificationPath">
             <summary>
             Gets default notification path for given server physical path
             </summary>
-            <param name="serverPhysicalPath">Server physical path</param>
         </member>
-        <member name="M:CMS.WebFarmSync.AnonymousTasksProcesor.NotifyServer(System.String)">
+        <member name="M:CMS.WebFarmSync.AnonymousTasksProcessor.NotifyServer">
             <summary>
-            Notifies a web farm server about a new task.
+            Notifies instance to process a batch of anonymous webfarm tasks.
             </summary>
-            <param name="notificationPath">Notification path in UNC format. Use WebSyncHelperClass.GetNotificationPath(string serverPhysicalPath) method to get default system notification path.</param>
         </member>
-        <member name="M:CMS.WebFarmSync.AnonymousTasksProcesor.RegisterWatchers">
+        <member name="M:CMS.WebFarmSync.AnonymousTasksProcessor.RegisterWatchers">
             <summary>
             Initializes file system watchers
             </summary>
         </member>
-        <member name="M:CMS.WebFarmSync.AnonymousTasksProcesor.NotifyWatcher_Changed(System.Object,System.IO.FileSystemEventArgs)">
+        <member name="M:CMS.WebFarmSync.AnonymousTasksProcessor.NotifyWatcher_Changed(System.Object,System.IO.FileSystemEventArgs)">
             <summary>
             Handles changed event of file system watcher.
             </summary>
             <param name="sender">File system watcher</param>
             <param name="e">File system event argument</param>
         </member>
-        <member name="M:CMS.WebFarmSync.AnonymousTasksProcesor.GetAnonymousTasks">
+        <member name="M:CMS.WebFarmSync.AnonymousTasksProcessor.GetAnonymousTasks">
             <summary>
             Gets dataset with anonymous tasks with additional information about presence of binary data of the tasks.
             </summary>
@@ -879,7 +882,7 @@
         </member>
         <member name="M:CMS.WebFarmSync.WebFarmTaskProcessor.GetSystemTasks">
             <summary>
-            Returns all system tasks for the given server.
+            Returns all system tasks for the given server. System tasks are executed even when license check for web farms does not pass.
             </summary>
             <remarks>Web farm task type is registered by its full name. Therefore retrieving specific task is executed with 'typeof(CLASSNAME).FullName'.</remarks>
         </member>

@@ -79,13 +79,16 @@ public partial class CMSModules_BizForms_FormControls_FormFieldSelector : FormEn
 
     protected override void OnLoad(EventArgs e)
     {
-        selectForm.DropDownSingleSelect.AutoPostBack = true;
-        selectForm.Reload(false);
-
-        if (!LoadExistingValue())
+        if (!IsPostBack)
         {
-            LoadFields();
-        }
+            selectForm.DropDownSingleSelect.AutoPostBack = true;
+            selectForm.Reload(false);
+            
+            if (!LoadExistingValue())
+            {
+                LoadFields();
+            }
+        }        
 
         base.OnLoad(e);
     }
@@ -168,7 +171,7 @@ public partial class CMSModules_BizForms_FormControls_FormFieldSelector : FormEn
         drpFields.Enabled = false;
 
         IEnumerable<FormFieldInfo> fields;
-        if (FieldsDataType != FieldDataType.Unknown)
+        if (FieldsDataType != FieldDataType.Unknown && FieldsDataType != FieldDataType.ALL)
         {
             fields = formInfo.GetFields(FieldsDataType).Where(x => x.Visible);
         }

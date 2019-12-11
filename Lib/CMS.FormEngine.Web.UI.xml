@@ -767,6 +767,51 @@
             Sets client-side max length of the textbox control.
             </summary>
         </member>
+        <member name="T:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder">
+            <summary>
+            Textbox form control with ability to display fixed placeholder text in front of the editable field.
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder.TextBox">
+            <summary>
+            Textbox control
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder.MaxLength">
+            <summary>
+            Maximum text length.
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder.PlaceholderText">
+            <summary>
+            Text that will be displayed in front of the editable field.
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder.Enabled">
+            <summary>
+            Gets or sets the enabled state of the control.
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder.Value">
+            <summary>
+            Gets or sets form control value.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder.#ctor">
+            <summary>
+            Constructor of the form control.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder.OnInit(System.EventArgs)">
+            <summary>
+            OnInit event handler.
+            </summary>
+        </member>
+        <member name="M:CMS.FormEngine.Web.UI.TextBoxWithPlaceholder.OnPreRender(System.EventArgs)">
+            <summary>
+            OnPreRender event handler.
+            </summary>
+        </member>
         <member name="T:CMS.FormEngine.Web.UI.TextFilterControl">
             <summary>
             Base class for the text filter control.
@@ -990,6 +1035,7 @@
             </summary>
             <param name="ffi">Form field info</param>
             <param name="form">Form where the control is used.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="ffi"/> or <paramref name="form"/> is <c>null</c></exception>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.FieldActions.CreateChildControls">
             <summary>
@@ -1252,6 +1298,11 @@
         <member name="P:CMS.FormEngine.Web.UI.Html5InputFormControl.Value">
             <summary>
             Form control value.
+            </summary>
+        </member>
+        <member name="P:CMS.FormEngine.Web.UI.Html5InputFormControl.Enabled">
+            <summary>
+            Gets or sets state enable.
             </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.Html5InputFormControl.IsCheckbox(System.String)">
@@ -2926,6 +2977,11 @@
             </summary>
             <param name="eventType">Component event type.</param>
             <param name="action">Document action delegate.</param>
+        </member>
+        <member name="M:CMS.FormEngine.Web.UI.CMSDocumentManager.CheckDocumentConflictWithAlternativeUrls">
+            <summary>
+            Logs warning if URL of edited document is in conflict with some alternative URL.
+            </summary>
         </member>
         <member name="M:CMS.FormEngine.Web.UI.CMSDocumentManager.RegisterScripts">
             <summary>

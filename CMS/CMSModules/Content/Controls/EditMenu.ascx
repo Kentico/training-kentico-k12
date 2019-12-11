@@ -14,7 +14,7 @@
                 <asp:Panel ID="pnlRight" runat="server" CssClass="header-actions-additional-indented btn-actions control-group-inline">
                     <cms:CMSCheckBox ID="chkEmails" CssClass="action-checkbox dont-check-changes" runat="server" Checked="true" />
                     <asp:PlaceHolder ID="plcAdditionalControls" runat="server" Visible="false"></asp:PlaceHolder>
-                    <asp:PlaceHolder ID="plcDevices" runat="server" Visible="false"></asp:PlaceHolder>
+                    <cms:CMSMoreOptionsButton ID="btnMoreActions" runat="server" DropDownItemsAlignment="Right" RenderFirstActionSeparately="false" CssClass="more-actions-button" Visible="false" />
                 </asp:Panel>
             </asp:PlaceHolder>
         </div>

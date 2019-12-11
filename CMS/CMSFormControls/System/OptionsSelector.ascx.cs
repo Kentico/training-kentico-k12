@@ -373,10 +373,10 @@ public partial class CMSFormControls_System_OptionsSelector : FormEngineUserCont
                         // Validate input value
                         var checkType = new DataTypeIntegrity(items[0], EditedFieldDataType);
 
-                        var result = checkType.ValidateDataType();
-                        if (!String.IsNullOrEmpty(result))
+                        var result = checkType.GetValidationResult();
+                        if (!result.Success)
                         {
-                            ValidationError += string.Format(GetString("TemplateDesigner.ErrorDropDownListOptionsInvalidValue"), lineIndex + 1) + " " + result + " ";
+                            ValidationError += string.Format(GetString("TemplateDesigner.ErrorDropDownListOptionsInvalidValue"), lineIndex + 1) + " " + result.ErrorMessage + " ";
                             valid = false;
                             break;
                         }

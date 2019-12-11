@@ -3020,6 +3020,13 @@
             </summary>
             <param name="nodeId">Node ID.</param>
         </member>
+        <member name="M:CMS.Modules.ApplicationUrlHelper.GetPageEditLink(System.Int32,System.String)">
+            <summary>
+            Get the direct link for page identified by given node ID.
+            </summary>
+            <param name="nodeId">Node ID.</param>
+            <param name="culture">Culture name.</param>
+        </member>
         <member name="M:CMS.Modules.ApplicationUrlHelper.GetApplicationUrl(System.String,System.String,System.String)">
             <summary>
             Returns application URL for application specified by module name and element name
@@ -3053,7 +3060,7 @@
             Returns dialog UI element URL, appends automatically Dialog and Hash parameters.
             </summary>
             <param name="ui">Target element</param>
-            <param name="objectId">Object ID to append to query</param> 
+            <param name="objectId">Object ID to append to query</param>
             <param name="additionalQuery">Additional query for URL</param>
         </member>
         <member name="M:CMS.Modules.ApplicationUrlHelper.AppendDialogHash(System.String)">

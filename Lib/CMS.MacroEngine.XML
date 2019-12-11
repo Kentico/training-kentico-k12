@@ -3025,6 +3025,26 @@
             </summary>
             <param name="context">Evaluation context under which to evaluate the field value</param>
         </member>
+        <member name="T:CMS.MacroEngine.MacroRuleAvailabilityEnum">
+            <summary>
+            Indicates in which application can the <see cref="T:CMS.MacroEngine.MacroRuleInfo"/> be evaluated.
+            </summary>
+        </member>
+        <member name="F:CMS.MacroEngine.MacroRuleAvailabilityEnum.MainApplication">
+            <summary>
+            Macro rule can be evaluated in the main application (i.e. the implementation of underlying macros is available).
+            </summary>
+        </member>
+        <member name="F:CMS.MacroEngine.MacroRuleAvailabilityEnum.MvcLiveSite">
+            <summary>
+            Macro rule can be evaluated in the MVC live-site (i.e. the implementation of underlying macros is available).
+            </summary>
+        </member>
+        <member name="F:CMS.MacroEngine.MacroRuleAvailabilityEnum.Both">
+            <summary>
+            Macro rule can be evaluated in both applications (i.e. the implementation of underlying macros is available).
+            </summary>
+        </member>
         <member name="T:CMS.MacroEngine.MacroSecurityProcessor">
             <summary>
             Class providing general macro security parameters processing.
@@ -6361,6 +6381,11 @@
         <member name="P:CMS.MacroEngine.MacroRuleInfo.MacroRuleGUID">
             <summary>
             Macor rule GUID.
+            </summary>
+        </member>
+        <member name="P:CMS.MacroEngine.MacroRuleInfo.MacroRuleAvailability">
+            <summary>
+            Indicates in which application can the macro rule be evaluated (i.e. the implementation of underlying macros is available).
             </summary>
         </member>
         <member name="M:CMS.MacroEngine.MacroRuleInfo.DeleteObject">

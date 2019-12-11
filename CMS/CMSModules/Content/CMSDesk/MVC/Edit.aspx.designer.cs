@@ -30,6 +30,15 @@ public partial class CMSModules_Content_CMSDesk_MVC_Edit {
     protected global::CMS.Base.Web.UI.MessagesPlaceHolder plcMess;
     
     /// <summary>
+    /// alSuccess control.
+    /// </summary>
+    /// <remarks>
+    /// Auto-generated field.
+    /// To modify move field declaration from designer file to code-behind file.
+    /// </remarks>
+    protected global::CMS.Base.Web.UI.AlertLabel alSuccess;
+    
+    /// <summary>
     /// alWarning control.
     /// </summary>
     /// <remarks>

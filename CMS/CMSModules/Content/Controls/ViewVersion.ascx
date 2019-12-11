@@ -7,13 +7,14 @@
         Tip('<div style=\'width:' + imageWidth + 'px;text-align:center;\'><img src=\'' + url + '\' alt=\'' + attachmentName + '\' /></div>');
     }
 
-    function versionExpandWebParts() {
-        var leftElem = document.getElementById('vWpLeft');
-        var leftElemLink = document.getElementById('vWpLeftLink');
+    function versionExpandWebParts(el) {
+        var parent = el.parentElement.parentElement;
+        var leftElem = parent.getElementsByClassName('vWpLeft')[0];
+        var leftElemLink = parent.getElementsByClassName('vWpLeftLink')[0];
         versionExpandWebPartsInternal(leftElem, leftElemLink);
 
-        var rightElem = document.getElementById('vWpRight');
-        var rightElemLink = document.getElementById('vWpRightLink');
+        var rightElem = parent.getElementsByClassName('vWpRight')[0];
+        var rightElemLink = parent.getElementsByClassName('vWpRightLink')[0];
         versionExpandWebPartsInternal(rightElem, rightElemLink);
     }
 
@@ -67,7 +68,7 @@
             padding-left: 20px;
         }
 
-        #vWpLeft > .json-property, #vWpRight > .json-property {
+        .vWpLeft > .json-property, .vWpRight > .json-property {
             padding-left: 0px;
         }
     </style>

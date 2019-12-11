@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Data;
-
-using CMS.Base;
-
 using System.Linq;
 using System.Text;
 using System.Web.UI;
@@ -30,9 +27,6 @@ public partial class CMSModules_Reporting_Controls_DisplayReport : AbstractRepor
     private bool wasPreRender;
     private bool isSave;
     private bool reportLoaded;
-    private bool mCheckInnerControls = true;
-    private bool mLoadFormParameters = true;
-    private bool mDisplayFilter = true; // DisplayFilter property
     private bool mDisplayFilterResult = true; // internal display filter based on DisplayFilter and visible elements
     private string mReportHTML = String.Empty;
     private ArrayList mReportControls;
@@ -155,15 +149,9 @@ public partial class CMSModules_Reporting_Controls_DisplayReport : AbstractRepor
     /// </summary>
     public bool CheckInnerControls
     {
-        get
-        {
-            return mCheckInnerControls;
-        }
-        set
-        {
-            mCheckInnerControls = value;
-        }
-    }
+        get;
+        set;
+    } = true;
 
 
     /// <summary>
@@ -187,15 +175,9 @@ public partial class CMSModules_Reporting_Controls_DisplayReport : AbstractRepor
     /// </summary>
     public bool DisplayFilter
     {
-        get
-        {
-            return mDisplayFilter;
-        }
-        set
-        {
-            mDisplayFilter = value;
-        }
-    }
+        get;
+        set;
+    } = true;
 
 
     /// <summary>
@@ -235,15 +217,9 @@ public partial class CMSModules_Reporting_Controls_DisplayReport : AbstractRepor
     /// </summary>
     public bool LoadFormParameters
     {
-        get
-        {
-            return mLoadFormParameters;
-        }
-        set
-        {
-            mLoadFormParameters = value;
-        }
-    }
+        get;
+        set;
+    } = true;
 
 
     /// <summary>
@@ -357,9 +333,9 @@ public partial class CMSModules_Reporting_Controls_DisplayReport : AbstractRepor
         }
 
         // Disable CSS class for filter if filter isn't visible
-        if ((!mDisplayFilterResult) || (formParameters == null) ||
+        if ((!mDisplayFilterResult) ||
             (ReportInfo == null) || (ReportInfo.ReportParameters == String.Empty) ||
-            (ReportInfo.ReportParameters.ToLowerCSafe() == "<form></form>"))
+            ReportInfo.ReportParameters.Equals("<form></form>", StringComparison.OrdinalIgnoreCase))
         {
             formParameters.CssClass = String.Empty;
         }
@@ -503,9 +479,23 @@ public partial class CMSModules_Reporting_Controls_DisplayReport : AbstractRepor
                 ctrl.SavedReportID = mSavedReportId;
             }
 
-            if (formParameters != null && (!formParameters.Visible || formParameters.ValidateData()))
+            if (EmailMode || !formParameters.Visible || formParameters.FieldControls != null && formParameters.ValidateData())
             {
                 ctrl.ReloadData(forceLoad);
+            }
+            else if (formParameters.FieldControls == null)
+            {
+                void DelayReportReload(object sender, EventArgs eventArgs)
+                {
+                    formParameters.PreRender -= DelayReportReload;
+
+                    if (formParameters.ValidateData())
+                    {
+                        ctrl.ReloadData(forceLoad);
+                    }
+                }
+
+                formParameters.PreRender += DelayReportReload;
             }
 
             if (ctrl.ComputedWidth != 0)
@@ -628,7 +618,7 @@ public partial class CMSModules_Reporting_Controls_DisplayReport : AbstractRepor
     /// Renders control to String representation
     /// </summary>
     /// <param name="siteID">This SiteID is used in report query instead of default CMSContext one</param>
-    public String RenderToString(int siteID)
+    public string RenderToString(int siteID)
     {
         // Change siteID from context to subscription id
         AllParameters.Add("CMSContextCurrentSiteID", siteID);

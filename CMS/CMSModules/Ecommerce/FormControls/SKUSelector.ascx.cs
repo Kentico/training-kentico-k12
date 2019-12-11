@@ -34,8 +34,6 @@ public partial class CMSModules_Ecommerce_FormControls_SKUSelector : FormEngineU
     private bool mDisplayOnlyProductsWithoutOptions;
     private bool mAllowMultipleChoice;
 
-    private object mMultipleChoiceValue;
-
     #endregion
 
 
@@ -109,7 +107,7 @@ public partial class CMSModules_Ecommerce_FormControls_SKUSelector : FormEngineU
                 // Ensure uniselector's selection mode
                 uniSelector.SelectionMode = SelectionModeEnum.Multiple;
 
-                uniSelector.Value = mMultipleChoiceValue = value;
+                uniSelector.Value = value;
             }
             else
             {
@@ -693,11 +691,6 @@ public partial class CMSModules_Ecommerce_FormControls_SKUSelector : FormEngineU
             uniSelector.ZeroRowsText = string.Empty;
         }
 
-        // Need to set uni-selector value again after basic form reload
-        if (AllowMultipleChoice)
-        {
-            uniSelector.Value = mMultipleChoiceValue;
-        }
 
         var where = new WhereCondition();
 

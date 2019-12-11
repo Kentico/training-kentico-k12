@@ -6,6 +6,7 @@ using CMS.Base.Web.UI;
 using CMS.Core;
 using CMS.DataEngine;
 using CMS.DocumentEngine;
+using CMS.DocumentEngine.Internal;
 using CMS.FormEngine;
 using CMS.Helpers;
 using CMS.LicenseProvider;
@@ -52,18 +53,6 @@ public partial class CMSModules_Content_CMSDesk_Edit_Edit : CMSContentPage
         get
         {
             return QueryHelper.GetInteger("classid", 0);
-        }
-    }
-
-
-    /// <summary> 
-    /// TemplateID, used when Use template selection is enabled for class of newly created document.
-    /// </summary>
-    protected int TemplateID
-    {
-        get
-        {
-            return QueryHelper.GetInteger("templateid", -1);
         }
     }
 
@@ -193,15 +182,29 @@ public partial class CMSModules_Content_CMSDesk_Edit_Edit : CMSContentPage
                             RedirectToAccessDenied(String.Format(GetString("cmsdesk.documentslicenselimits"), ""));
                         }
 
-                        // Check if need template selection, if so, then redirect to template selection page
-                        int templateId = TemplateID;
-                        if (!ProductSection && ci.ClassShowTemplateSelection && (templateId < 0))
+                        if (!ci.ClassIsContentOnly)
                         {
-                            URLHelper.Redirect("~/CMSModules/Content/CMSDesk/TemplateSelection.aspx" + RequestContext.CurrentQueryString);
-                        }
+                            // Check if need template selection, if so, then redirect to template selection page
+                            int templateId = QueryHelper.GetInteger("templateidentifier", -1);
 
-                        // Set default template ID
-                        formElem.DefaultPageTemplateID = (templateId > 0) ? templateId : ci.ClassDefaultPageTemplateID;
+                            if (!ProductSection && ci.ClassShowTemplateSelection && (templateId < 0))
+                            {
+                                URLHelper.Redirect("~/CMSModules/Content/CMSDesk/TemplateSelection.aspx" + RequestContext.CurrentQueryString);
+                            }
+
+                            // Set default template ID
+                            formElem.DefaultPageTemplateID = (templateId > 0) ? templateId : ci.ClassDefaultPageTemplateID;
+                        }
+                        else
+                        {
+                            var templateIdentifier = QueryHelper.GetString("templateidentifier", string.Empty);
+                            var noTemplateFlag = QueryHelper.GetBoolean("noTemplate", false);
+
+                            if (!noTemplateFlag && !ProductSection && ci.ClassIsMenuItemType && string.IsNullOrEmpty(templateIdentifier))
+                            {
+                                URLHelper.Redirect("~/CMSModules/Content/CMSDesk/MVC/TemplateSelection.aspx" + RequestContext.CurrentQueryString);
+                            }
+                        }
 
                         string newClassName = ci.ClassName;
                         formElem.FormName = newClassName + ".default";
@@ -380,7 +383,7 @@ public partial class CMSModules_Content_CMSDesk_Edit_Edit : CMSContentPage
         // Register script files
         ScriptHelper.RegisterTooltip(this);
         ScriptHelper.RegisterEditScript(Page);
-        
+
         bool isNew = Action == "new";
 
         // Title and breadcrumbs for product section edit
@@ -422,21 +425,67 @@ public partial class CMSModules_Content_CMSDesk_Edit_Edit : CMSContentPage
 
     void DocumentManager_OnBeforeAction(object sender, DocumentManagerEventArgs e)
     {
-        if (newdocument || newculture)
+        if (newdocument)
         {
-            var pti = PageTemplateInfoProvider.GetPageTemplateInfo(formElem.DefaultPageTemplateID);
-            // Ensure ad-hoc template as default                    
-            if ((pti != null) && pti.IsReusable && pti.PageTemplateCloneAsAdHoc)
+            if (ci.ClassIsContentOnly)
             {
-                // Create ad-hoc template (display name is created automatically)
-                var adHocTemplate = PageTemplateInfoProvider.CloneTemplateAsAdHoc(pti, null, SiteContext.CurrentSiteID, e.Node.NodeGUID);
-                PageTemplateInfoProvider.SetPageTemplateInfo(adHocTemplate);
-                formElem.DefaultPageTemplateID = adHocTemplate.PageTemplateId;
-
-                if (SiteContext.CurrentSite != null)
+                var templateIdentifier = QueryHelper.GetString("templateidentifier", string.Empty);
+                if (string.IsNullOrEmpty(templateIdentifier))
                 {
-                    PageTemplateInfoProvider.AddPageTemplateToSite(adHocTemplate.PageTemplateId, SiteContext.CurrentSiteID);
+                    return;
                 }
+
+                var templateType = QueryHelper.GetString("templateType", string.Empty);
+                if (string.IsNullOrEmpty(templateType))
+                {
+                    e.IsValid = false;
+                    e.ErrorMessage = GetString("pagetemplatesmvc.missingtype");
+                    return;
+                }
+
+                if (!ValidationHelper.IsCodeName(templateIdentifier))
+                {
+                    e.IsValid = false;
+                    e.ErrorMessage = GetString("pagetemplatesmvc.invalidcodename");
+                    return;
+                }
+
+
+                if (string.Equals(templateType, "custom", StringComparison.OrdinalIgnoreCase))
+                {
+                    PreparePageWithCustomTemplate(e);
+                }
+                else if (string.Equals(templateType, "default", StringComparison.OrdinalIgnoreCase))
+                {
+                    PreparePageWithDefaultTemplate(e, templateIdentifier);
+                }
+                else
+                {
+                    e.IsValid = false;
+                    e.ErrorMessage = GetString("pagetemplatesmvc.invalidtype");
+                }
+            }
+            else
+            {
+                EnsureAdHocTemplate(e);
+            }
+        }
+        else if (newculture)
+        {
+            if (ci.ClassIsContentOnly)
+            {
+                var defaultCulture = CultureHelper.GetDefaultCultureCode(CurrentSiteName);
+                var templateConfiguration = new PageTemplateConfigurationForEmptyCultureVersionProvider()
+                    .Get(NodeID, defaultCulture);
+
+                if (templateConfiguration != null)
+                {
+                    PreparePageWithDefaultTemplate(e, templateConfiguration.Identifier);
+                }
+            }
+            else
+            {
+                EnsureAdHocTemplate(e);
             }
         }
     }
@@ -482,6 +531,76 @@ public partial class CMSModules_Content_CMSDesk_Edit_Edit : CMSContentPage
 
 
     #region "Methods"
+
+
+    private void PreparePageWithCustomTemplate(DocumentManagerEventArgs e)
+    {
+        var templateGuid = QueryHelper.GetGuid("templateidentifier", Guid.Empty);
+        if (templateGuid == Guid.Empty)
+        {
+            e.IsValid = false;
+            e.ErrorMessage = GetString("pagetemplatesmvc.invalididentifier");
+            return;
+        }
+
+        var template = PageTemplateConfigurationInfoProvider.GetPageTemplateConfigurationInfoByGUID(templateGuid, SiteContext.CurrentSiteID);
+        if (template == null)
+        {
+            e.IsValid = false;
+            e.ErrorMessage = GetString("pagetemplatesmvc.notfound");
+            return;
+        }
+
+        string templateConfiguration = GetTemplateConfiguration(template);
+
+        e.Node.SetValue("DocumentPageBuilderWidgets", template.PageTemplateConfigurationWidgets);
+        e.Node.SetValue("DocumentPageTemplateConfiguration", templateConfiguration);
+    }
+
+
+    private static string GetTemplateConfiguration(PageTemplateConfigurationInfo template)
+    {
+        var templateConfiguration = template.PageTemplateConfigurationTemplate;
+
+        PageTemplateConfigurationSerializer serializer = new PageTemplateConfigurationSerializer();
+
+        var templateConfigurationInstance = serializer.Deserialize(templateConfiguration);
+        templateConfigurationInstance.ConfigurationIdentifier = template.PageTemplateConfigurationGUID;
+
+        return serializer.Serialize(templateConfigurationInstance);
+    }
+
+
+    private static void PreparePageWithDefaultTemplate(DocumentManagerEventArgs e, string templateIdentifier)
+    {
+        var configuration = new PageTemplateConfiguration
+        {
+            Identifier = templateIdentifier
+        };
+
+        var json = new PageTemplateConfigurationSerializer().Serialize(configuration);
+        e.Node.SetValue("DocumentPageTemplateConfiguration", json);
+    }
+
+
+    private void EnsureAdHocTemplate(DocumentManagerEventArgs e)
+    {
+        var pti = PageTemplateInfoProvider.GetPageTemplateInfo(formElem.DefaultPageTemplateID);
+        // Ensure ad-hoc template as default                    
+        if ((pti != null) && pti.IsReusable && pti.PageTemplateCloneAsAdHoc)
+        {
+            // Create ad-hoc template (display name is created automatically)
+            var adHocTemplate = PageTemplateInfoProvider.CloneTemplateAsAdHoc(pti, null, SiteContext.CurrentSiteID, e.Node.NodeGUID);
+            PageTemplateInfoProvider.SetPageTemplateInfo(adHocTemplate);
+            formElem.DefaultPageTemplateID = adHocTemplate.PageTemplateId;
+
+            if (SiteContext.CurrentSite != null)
+            {
+                PageTemplateInfoProvider.AddPageTemplateToSite(adHocTemplate.PageTemplateId, SiteContext.CurrentSiteID);
+            }
+        }
+    }
+
 
     /// <summary>
     /// Adds script for redirecting to NotAllowed page.

@@ -48,8 +48,6 @@ public partial class CMSModules_Content_CMSDesk_Properties_Workflow : CMSPropert
 
         // Enable split mode
         EnableSplitMode = true;
-
-        SetPropertyTab(TAB_WORKFLOW);
     }
 
 

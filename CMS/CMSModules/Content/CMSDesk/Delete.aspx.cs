@@ -896,8 +896,8 @@ public partial class CMSModules_Content_CMSDesk_Delete : CMSContentPage
 
     private void SetSeoPanelVisibility(TreeNode node)
     {
-        // It doesn't make sense to display this panel for root, content only documents or links
-        if (node.IsRoot() || node.NodeIsContentOnly || node.IsLink)
+        // Hide SEO panel for root or content only documents
+        if (node.IsRoot() || node.NodeIsContentOnly)
         {
             pnlSeo.Enabled = pnlSeo.Visible = false;
         }

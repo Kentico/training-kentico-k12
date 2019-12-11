@@ -9,6 +9,7 @@ using CMS.Ecommerce;
 using CMS.Ecommerce.Web.UI;
 using CMS.FormEngine.Web.UI;
 using CMS.Helpers;
+using CMS.Membership;
 using CMS.PortalEngine;
 
 /// <summary>
@@ -134,11 +135,11 @@ public partial class CMSWebParts_Ecommerce_Checkout_Forms_CustomerDetail : CMSCh
     {
         base.ValidateStepData(sender, e);
 
-        if (!customerForm.ValidateData())
+        if (!customerForm.ValidateData() || !ValidateCustomerEmailIsUnique())
         {
             if (e != null)
             {
-                e.CancelEvent = true;
+                e.CancelEvent = true;                
             }
         }
     }
@@ -177,15 +178,7 @@ public partial class CMSWebParts_Ecommerce_Checkout_Forms_CustomerDetail : CMSCh
         var shoppingService = Service.Resolve<IShoppingService>();
         shoppingService.SetCustomer(customer);
 
-        // Address cannot be inserted before customer is saved (otherwise it would be an orphan address)
-        // In case of address update - AddressName and AddressPersonalName should be re-generated according current customer info (if not present on the address form)
-        if (((shoppingService.GetBillingAddress() == null) ||
-            (shoppingService.GetShippingAddress() == null) ||
-            (ShoppingCart.ShoppingCartCompanyAddress != null))
-            && (customer.CustomerID > 0))
-        {
-            SaveCustomerAddresses(ShoppingCart);
-        }
+        SaveCustomerAddresses(ShoppingCart);
 
         ShoppingCartInfoProvider.SetShoppingCartInfo(ShoppingCart);
 
@@ -264,5 +257,21 @@ public partial class CMSWebParts_Ecommerce_Checkout_Forms_CustomerDetail : CMSCh
         return (customer != null) && (!string.IsNullOrEmpty(customer.CustomerOrganizationID) ||
                                      !string.IsNullOrEmpty(customer.CustomerTaxRegistrationID) ||
                                      !string.IsNullOrEmpty(customer.CustomerCompany));
+    }
+
+
+    private bool ValidateCustomerEmailIsUnique()
+    {
+        var emailFieldName = nameof(CustomerInfo.CustomerEmail);
+        var customerEmail = customerForm.GetFieldValue(emailFieldName) as string;
+        var user = MembershipContext.AuthenticatedUser;
+
+        if (user != null && customerForm.EditedObject is CustomerInfo && !UserInfoProvider.IsEmailUnique(customerEmail, user))
+        {   
+            customerForm.DisplayErrorLabel(emailFieldName, ResHelper.GetString("cloneuser.uniqueemailrequired"));
+            return false;
+        }
+
+        return true;
     }
 }

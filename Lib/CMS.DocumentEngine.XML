@@ -439,6 +439,36 @@
             <param name="width">Width.</param>
             <param name="height">Height.</param>
         </member>
+        <member name="T:CMS.DocumentEngine.AlternativeUrlsCopier">
+            <summary>
+            Provides methods to copy alternative URLs between 2 documents.
+            </summary>
+            <remarks>
+            Copier does copy alternative URLs only when both documents belong to different content only site.
+            </remarks>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlsCopier.#ctor(CMS.DocumentEngine.TreeNode,CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Initialize a new instance of <see cref="T:CMS.DocumentEngine.AlternativeUrlsCopier"/>.
+            </summary>
+            <param name="sourceDocument">Source document.</param>
+            <param name="targetDocument">Target document.</param>
+            <exception cref="T:System.ArgumentNullException">When any of given document is null.</exception>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlsCopier.#ctor(CMS.DocumentEngine.TreeNode,CMS.DocumentEngine.TreeNode,CMS.Core.IEventLogService)">
+            <summary>
+            Initialize a new instance of <see cref="T:CMS.DocumentEngine.AlternativeUrlsCopier"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlsCopier.Copy">
+            <summary>
+            Method attempts to copy all alternative URLs belonging to source document to target document.
+            </summary>
+            <remarks>
+            In case that copied alternative URL doesn't pass the validation, event is logged and processing continues by next alternative URL.
+            No other exceptions are handled.
+            </remarks>
+        </member>
         <member name="T:CMS.DocumentEngine.ContinuousIntegrationComponentsDataLoader">
             <summary>
             Loads the data for <see cref="T:CMS.DocumentEngine.TreeNode"/> components.
@@ -543,367 +573,421 @@
             Loads coupled data for given document.
             </summary>
         </member>
-        <member name="T:CMS.DocumentEngine.ClearDocumentFieldsTypeInfosWebFarmTask">
+        <member name="T:CMS.DocumentEngine.Internal.DocumentEventsInternal">
             <summary>
-            Web farm task used to clear document field type infos.
+            Document events for internal purposes.
             </summary>
-            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
         </member>
-        <member name="M:CMS.DocumentEngine.ClearDocumentFieldsTypeInfosWebFarmTask.ExecuteTask">
+        <member name="F:CMS.DocumentEngine.Internal.DocumentEventsInternal.GeneratePreviewLink">
             <summary>
-            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.Internal.DocumentFieldsInfoProvider.Clear(System.Boolean)"/> method.
+            Fires during preview link generation.
             </summary>
         </member>
-        <member name="T:CMS.DocumentEngine.ClearDocumentTypeInfosWebFarmTask">
+        <member name="T:CMS.DocumentEngine.Internal.PageTemplateConfiguration">
             <summary>
-            Web farm task used to clear document type infos.
+            Page template configuration for a MVC page.
             </summary>
-            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
         </member>
-        <member name="M:CMS.DocumentEngine.ClearDocumentTypeInfosWebFarmTask.ExecuteTask">
+        <member name="P:CMS.DocumentEngine.Internal.PageTemplateConfiguration.Identifier">
             <summary>
-            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.TreeNodeProvider.Clear(System.Boolean)"/> method.
+            Identifier of the page template.
             </summary>
         </member>
-        <member name="T:CMS.DocumentEngine.ClearResolvedClassNamesWebFarmTask">
+        <member name="P:CMS.DocumentEngine.Internal.PageTemplateConfiguration.ConfigurationIdentifier">
             <summary>
-            Web farm task used to clear resolved class names.
+            Identifier of the page template configuration based on which the page was created.
             </summary>
-            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
         </member>
-        <member name="M:CMS.DocumentEngine.ClearResolvedClassNamesWebFarmTask.ExecuteTask">
+        <member name="P:CMS.DocumentEngine.Internal.PageTemplateConfiguration.Properties">
             <summary>
-            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.DocumentTypeHelper.ClearClassNames(System.Boolean)"/> method.
+            Properties of the page template.
             </summary>
         </member>
-        <member name="T:CMS.DocumentEngine.DeleteAttachmentWebFarmTask">
+        <member name="T:CMS.DocumentEngine.Internal.PageTemplateConfigurationForEmptyCultureVersionProvider">
             <summary>
-            Web farm task used to delete attachments.
+            Provides the best template configuration for a new page culture version.
             </summary>
-            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
         </member>
-        <member name="P:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.SiteName">
+        <member name="M:CMS.DocumentEngine.Internal.PageTemplateConfigurationForEmptyCultureVersionProvider.Get(System.Int32,System.String)">
             <summary>
-            Gets or sets name of the site which is file assigned to.
+            Provides the best template configuration for a new page culture version.
             </summary>
+            <param name="nodeId">Node ID.</param>
+            <param name="defaultCulture">Culture code of the default culture.</param>
         </member>
-        <member name="P:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.FileGuid">
+        <member name="T:CMS.DocumentEngine.Internal.PageTemplateConfigurationSerializer">
             <summary>
-            Gets or sets identifier of the file to be deleted.
+            Handles serialization and deserialization of page template configuration to/from JSON format.
             </summary>
         </member>
-        <member name="P:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.DeleteDirectory">
+        <member name="M:CMS.DocumentEngine.Internal.PageTemplateConfigurationSerializer.Serialize(CMS.DocumentEngine.Internal.PageTemplateConfiguration)">
             <summary>
-            Gets or sets a value that indicates whether directory will be deleted.
+            Serializes page template configuration to JSON string.
             </summary>
+            <param name="configuration">Page template configuration.</param>        
         </member>
-        <member name="M:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.#ctor">
+        <member name="M:CMS.DocumentEngine.Internal.PageTemplateConfigurationSerializer.Deserialize(System.String)">
             <summary>
-            Initializes a new instance of <see cref="T:CMS.DocumentEngine.DeleteAttachmentWebFarmTask"/>.
+            Deserializes JSON string to page template configuration.
             </summary>
+            <param name="json">JSON string.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.ConditionMethod">
+        <member name="T:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs">
             <summary>
-            Returns true if the synchronization of the deletion of the attachments is allowed
+            Encapsulates arguments for <see cref="T:CMS.DocumentEngine.LogDocumentChangeHandler"/>
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.ExecuteTask">
+        <member name="P:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs.Original">
             <summary>
-            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.AttachmentBinaryHelper.DeleteFile(System.Guid,System.String,System.Boolean,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            Original node.
             </summary>
         </member>
-        <member name="T:CMS.DocumentEngine.InvalidateDocumentTypeInfoWebFarmTask">
+        <member name="P:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs.Clone">
             <summary>
-            Web farm task used to invalidate document type infos.
+            Cloned node.
             </summary>
-            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
         </member>
-        <member name="P:CMS.DocumentEngine.InvalidateDocumentTypeInfoWebFarmTask.ClassName">
+        <member name="M:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs.#ctor(CMS.DocumentEngine.TreeNode,CMS.DocumentEngine.TreeNode)">
             <summary>
-            Gets or sets name of the class file to be invalidated.
+            Creates an instance of the <see cref="T:CMS.DocumentEngine.Internal.LogDocumentChangeCloneEventArgs"/> class.
             </summary>
+            <param name="original">Original node.</param>
+            <param name="clone">Cloned node.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.InvalidateDocumentTypeInfoWebFarmTask.ExecuteTask">
+        <member name="T:CMS.DocumentEngine.Internal.DocumentSynchronizationEvents">
             <summary>
-            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.TreeNodeProvider.InvalidateTypeInfo(System.String,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            Document synchronization events.
             </summary>
         </member>
-        <member name="T:CMS.DocumentEngine.InvalidateDocumentFieldsTypeInfoWebFarmTask">
+        <member name="F:CMS.DocumentEngine.Internal.DocumentSynchronizationEvents.LogDocumentChangeClone">
             <summary>
-            Web farm task used to invalidate document fields.
+            Fired when document is clonned during synchronization task creation process.
             </summary>
-            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
         </member>
-        <member name="P:CMS.DocumentEngine.InvalidateDocumentFieldsTypeInfoWebFarmTask.ClassName">
+        <member name="T:CMS.DocumentEngine.Internal.LogDocumentChangeCloneHandler">
             <summary>
-            Gets or sets name of the class file which data fields will be invalidated.
+             Event handler for <see cref="F:CMS.DocumentEngine.Internal.DocumentSynchronizationEvents.LogDocumentChangeClone"/> event.
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.InvalidateDocumentFieldsTypeInfoWebFarmTask.ExecuteTask">
+        <member name="M:CMS.DocumentEngine.Internal.LogDocumentChangeCloneHandler.#ctor">
             <summary>
-            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.Internal.DocumentFieldsInfoProvider.InvalidateTypeInfo(System.String,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            Creates an empty instance of the <see cref="T:CMS.DocumentEngine.Internal.LogDocumentChangeCloneHandler"/> class.
             </summary>
         </member>
-        <member name="T:CMS.DocumentEngine.UpdateAttachmentWebFarmTask">
+        <member name="M:CMS.DocumentEngine.Internal.LogDocumentChangeCloneHandler.StartEvent(CMS.DocumentEngine.TreeNode,CMS.DocumentEngine.TreeNode)">
             <summary>
-            Web farm task used to update attachment of documents.
+            Initiates the new handler context.
             </summary>
-            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+            <param name="original">Original node.</param>
+            <param name="clone">Cloned node.</param>
         </member>
-        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.SiteName">
+        <member name="T:CMS.DocumentEngine.Internal.PageTemplateWebServiceUrlProvider">
             <summary>
-            Gets or sets name of the site which is file assigned to.
+            Encapsulates methods related to providing web service URLs of MVC page templates.  
             </summary>
         </member>
-        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.FileGuid">
+        <member name="M:CMS.DocumentEngine.Internal.PageTemplateWebServiceUrlProvider.#ctor(CMS.Base.IUserInfo)">
             <summary>
-            Gets or sets identifier of the file to be updated.
+            Creates a new instance of <see cref="T:CMS.DocumentEngine.Internal.PageTemplateWebServiceUrlProvider"/>.
             </summary>
+            <param name="user">The user used to authenticate the request.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="user"/> is <c>null</c>.</exception>
         </member>
-        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.FileName">
+        <member name="M:CMS.DocumentEngine.Internal.PageTemplateWebServiceUrlProvider.GetTemplatesEndpointUrl(CMS.DocumentEngine.TreeNode,System.String,System.String)">
             <summary>
-            Gets or sets name of the file to be updated.
+            Gets URL of an endpoint which provides definition of allowed page templates for the given parent node.
             </summary>
+            <param name="parentNode">The parent node for which the endpoint retrieves filtered page templates.</param>
+            <param name="pageType">The page type for which the endpoint retrieves filtered page templates.</param>
+            <param name="culture">The culture for which the endpoint retrieves filtered page templates.</param>
+            <returns>A string representation of the endpoint URL</returns>
+            <exception cref="T:System.InvalidOperationException">Site's <see cref="P:CMS.SiteProvider.SiteInfo.SitePresentationURL"/> is not set.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="parentNode"/>, <paramref name="pageType"/> or <paramref name="culture"/> is <c>null</c>.</exception>
         </member>
-        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.FileExtension">
+        <member name="T:CMS.DocumentEngine.Internal.AlternativeUrlHelper">
             <summary>
-            Gets or sets extension of the file to be updated.
+            Helper methods for alternative URLs.
             </summary>
         </member>
-        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.DeleteOldFiles">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetMainDocument(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Gets or sets a value that indicates if files in destination folder with mask '[guid]*.*' should be deleted.
+            Returns main document of given <paramref name="alternativeUrl"/>.
             </summary>
+            <param name="alternativeUrl"></param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="alternativeUrl"/> is <c>null</c>.</exception>
         </member>
-        <member name="M:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.#ctor">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetMainDocumentInternal(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Initializes a new instance of <see cref="T:CMS.DocumentEngine.UpdateAttachmentWebFarmTask"/>.
+            Returns main document of given <paramref name="alternativeUrl"/>.
             </summary>
+            <param name="alternativeUrl"></param>
         </member>
-        <member name="M:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.ConditionMethod">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.IsAlternativeUrlsSiteConflict(CMS.DocumentEngine.TreeNode,System.Int32)">
             <summary>
-            Returns true if the synchronization of the attachments is allowed.
+            Checks whether the given site contains any of the alternative URLs defined for the given page or its child pages in all cultures.
             </summary>
+            <param name="node">Page for which alternative URLs will be checked.</param>
+            <param name="siteId">ID of the site to check for alternative URLs.</param>
+            <returns>True if the site has at least one identical alternative URL.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="node"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="siteId"/> is invalid.</exception>
         </member>
-        <member name="M:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.ExecuteTask">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.IsAlternativeUrlsSiteConflictInternal(CMS.DocumentEngine.TreeNode,System.Int32)">
             <summary>
-            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.AttachmentBinaryHelper.SaveFileToDisk(System.String,System.String,System.String,System.String,CMS.Core.BinaryData,System.Boolean,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            Checks whether the given site contains any of the alternative URLs defined for the given page or its child pages in all cultures.
             </summary>
+            <param name="node">Page for which alternative URLs will be checked.</param>
+            <param name="siteId">ID of the site to check for alternative URLs.</param>
+            <returns>True if the site has at least one identical alternative URL.</returns>
         </member>
-        <member name="T:CMS.DocumentEngine.IGetAttachmentHandler">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingAlternativeUrl(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Represents the contract that Kentico requires when processing HTTP requests for attachments.
+            Returns <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> that has the same URL on the same site as given <paramref name="alternativeUrl"/>.
             </summary>
+            <param name="alternativeUrl">Alternative URL to find conflict with.</param>
         </member>
-        <member name="T:CMS.DocumentEngine.PreviewLinkGenerator">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingAlternativeUrlInternal(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Generates preview link for a page.
+            Returns <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> that has the same URL on the same site as given <paramref name="alternativeUrl"/>.
             </summary>
+            <param name="alternativeUrl">Alternative URL to find conflict with.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.PreviewLinkGenerator.#ctor(CMS.DocumentEngine.TreeNode)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingAlternativeUrl(CMS.DocumentEngine.TreeNode)">
             <summary>
-            Creates an instance of <see cref="T:CMS.DocumentEngine.PreviewLinkGenerator"/> class.
+            Returns alternative URL that is in conflict with given <paramref name="node"/>.
+            Alternative URL is in conflict with the <paramref name="node"/> when their URLs match.
             </summary>
-            <param name="page">Page for which the preview link should be generated.</param>
+            <param name="node">Page for which to find an alternative URL it might be in conflict with.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.PreviewLinkGenerator.Generate(System.String,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingAlternativeUrlInternal(CMS.DocumentEngine.TreeNode)">
             <summary>
-            Generates preview link for specified page and user.
+            Returns alternative URL that is in conflict with given <paramref name="node"/>.
+            Alternative URL is in conflict with the <paramref name="node"/> when their URLs match.
             </summary>
-            <param name="userName">User name.</param>
-            <param name="ensureQueryHash">Indicates if query string hash should be added. For content-only nodes, hash is added always.</param>
-            <param name="readonlyMode">Indicates if readonly mode should be enabled to disallow modify actions and POST requests.</param>
-            <param name="embededInAdministration">Indicates if page is embedded in administration inside an iframe.</param>
+            <param name="node">Page for which to find an alternative URL it might be in conflict with.</param>
         </member>
-        <member name="T:CMS.DocumentEngine.PageBuilder.PageBuilderHelper">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingPage(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Provides helper methods for a Page builder feature.
+            Returns a page that is in conflict with given <paramref name="alternativeUrlInfo"/>.
+            Page is in conflict with the <paramref name="alternativeUrlInfo"/> when their URLs match.
             </summary>
+            <param name="alternativeUrlInfo">Alternative URL for which to find a page it might be in conflict with.</param>
+            <returns>Page that is in conflict with <paramref name="alternativeUrlInfo"/>.</returns>
         </member>
-        <member name="F:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.EDIT_MODE_QUERY_NAME">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingPageInternal(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Query string key for edit mode detection.
+            Returns a page that is in conflict with given <paramref name="alternativeUrl"/>.
+            Page is in conflict with the <paramref name="alternativeUrl"/> when their URLs match.
             </summary>
+            <param name="alternativeUrl">Alternative URL for which to find a page it might be in conflict with.</param>
+            <returns>Page that is in conflict with <paramref name="alternativeUrl"/>.</returns>
+            <seealso cref="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingPage(CMS.DocumentEngine.AlternativeUrlInfo)"/>
         </member>
-        <member name="F:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.CLEAR_PAGE_CACHE_QUERY_NAME">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.FindConflictingPage(CMS.DocumentEngine.DocumentQuery,System.String[])">
             <summary>
-            Query string key for clear cache request.
+            Returns a page that is in conflict with <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> represented by <paramref name="alternativeUrlSegments"/>.
             </summary>
+            <param name="documentQuery">Document query used for retrieving pages that might be in conflict with <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> represented by <paramref name="alternativeUrlSegments"/>.</param>
+            <param name="alternativeUrlSegments">
+            Represents alternative URL to be checked against the pages.
+            <see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> is split into segments e.g. alternative URL 'short/example/url' is split into ["short","example","url"]. 
+            </param>
+            <returns> Returns a page that s in conflict with alternative URL, otherwise returns null.</returns>
+            <seealso cref="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.IsInCollision(CMS.DocumentEngine.TreeNode,System.String[])"/>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.AddEditModeParameter(System.String)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.UrlMatchesConstraint(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Adds query string parameter to URL to identify the edit mode of Page builder feature.
+            Returns <c>true</c> if <paramref name="alternativeUrl"/> matches allowed alternative URL constraint defined in settings application.
             </summary>
-            <param name="url">URL to modify.</param>
+            <param name="alternativeUrl"><see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> to be match against the pattern constraint.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="alternativeUrl"/> is <c>null</c>.</exception>
+            <exception cref="T:System.Text.RegularExpressions.RegexMatchTimeoutException">Thrown when matching pattern constraint against <see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> takes too long.</exception>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.AddClearPageCacheParameter(System.String)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.UrlMatchesConstraintInternal(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Adds query string parameter to URL to identify the clear page cache request.
+            Returns <c>true</c> if <paramref name="alternativeUrl"/> matches allowed alternative URL constraint defined in settings application.
             </summary>
-            <param name="url">URL to modify.</param>
+            <param name="alternativeUrl"><see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> to be match against the pattern constraint.</param>
+            <exception cref="T:System.Text.RegularExpressions.RegexMatchTimeoutException">Thrown when matching pattern constraint against <see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> takes too long.</exception>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.GetPreviewLink(CMS.DocumentEngine.TreeNode,System.String)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingExcludedUrl(CMS.DocumentEngine.NormalizedAlternativeUrl,System.Int32)">
             <summary>
-            Generates preview link for specified page and user.
+            Returns conflicting URL when given <paramref name="alternativeUrl"/> matches any excluded URL defined in settings application or any system URL.
             </summary>
-            <param name="page">Page for which the preview link should be generated.</param>
-            <param name="userName">User name.</param>
+            <remarks>The <paramref name="alternativeUrl"/> is matched against global settings and site settings identified by <paramref name="siteId"/>.</remarks>
+            <param name="alternativeUrl"><see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> to be matched against alternative URL constraints.</param>
+            <param name="siteId">Identifier of the site to which the URL belongs.</param>
         </member>
-        <member name="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsCleaner">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.MatchesAnyExcludedUrl(CMS.DocumentEngine.NormalizedAlternativeUrl,System.Int32)">
             <summary>
-            Provides an scheduled task for the temporary PageBuilder widgets configuration deletion.
+            Returns <c>true</c> if <paramref name="alternativeUrl"/> matches any excluded URL defined in settings application.
             </summary>
+            <remarks>The <paramref name="alternativeUrl"/> is matched against global settings and site settings identified by <paramref name="siteId"/>.</remarks>
+            <param name="alternativeUrl"><see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> to be matched against alternative URL constraints.</param>
+            <param name="siteId">Identifier of the site to which the URL belongs.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsCleaner.Execute(CMS.Scheduler.TaskInfo)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.MatchesAnyExcludedUrlInternal(CMS.DocumentEngine.NormalizedAlternativeUrl,System.Int32)">
             <summary>
-            Executes the purge action.
+            Returns <c>true</c> if <paramref name="alternativeUrl"/> matches any excluded URL defined in settings application.
             </summary>
-            <param name="task">Task to process</param>
+            <remarks>The <paramref name="alternativeUrl"/> is matched against global settings and site settings identified by <paramref name="siteId"/>.</remarks>
+            <param name="alternativeUrl"><see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> to be matched against alternative URL constraints.</param>
+            <param name="siteId">Identifier of the site to which the URL belongs.</param>
         </member>
-        <member name="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetConflictingExcludedUrlInternal(CMS.DocumentEngine.NormalizedAlternativeUrl,System.Int32)">
             <summary>
-            Propagates widgets configuration from temporary data to a page data.
+            Returns conflicting URL when given <paramref name="alternativeUrl"/> matches any excluded URL defined in settings application or any system URL.
             </summary>
+            <remarks>The <paramref name="alternativeUrl"/> is matched against global settings and site settings identified by <paramref name="siteId"/>.</remarks>
+            <param name="alternativeUrl"><see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> to be matched against alternative URL constraints.</param>
+            <param name="siteId">Identifier of the site to which the URL belongs.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.#ctor(CMS.DocumentEngine.TreeNode)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.NormalizeAlternativeUrl(System.String)">
             <summary>
-            Creates an instance of <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator"/> class.
+            Ensures correct format of the <paramref name="alternativeUrl"/>.
             </summary>
-            <param name="page">Page instance.</param>
+            <remarks>
+            <para>
+            Following rules are applied
+            <para>
+            Leading/trailing whitespace characters are trimmed.
+            </para>
+            <para>
+            Leading tilde with slash or leading slash is removed.
+            </para>
+            <para>
+            Multiple slashes are replaced by single slash.
+            </para>
+            <para>
+            Trailing slash is removed.
+            </para>
+            <para>
+            Query string and anchor is removed.
+            </para>
+            <para>
+            Value is decoded.
+            </para>
+            </para>
+            </remarks>
+            <param name="alternativeUrl">Url in string to be normalized.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.Propagate(System.Guid)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.NormalizeAlternativeUrlInternal(System.String)">
             <summary>
-            Propagates widgets configuration from temporary data to a page data.
+            Ensures correct format of the <paramref name="alternativeUrl"/>.
             </summary>
-            <param name="instanceGuid">Instance GUID of editing.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.Delete(System.Guid)">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetDocumentIdentification(CMS.DocumentEngine.AlternativeUrlInfo)">
             <summary>
-            Deletes widgets configuration from temporary data.
+            Returns human-readable document identification for given <paramref name="alternativeUrl"/>.
             </summary>
-            <param name="instanceGuid">Instance GUID of editing.</param>
+            <returns>
+            String value in form 'document name path' (document culture).
+            </returns>
         </member>
-        <member name="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetDocumentIdentification(System.String,System.String)">
             <summary>
-            Data container class for <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/>.
+            Returns human-readable document identification for given <paramref name="documentNamePath"/> and <paramref name="documentCulture"/>.
             </summary>
+            <returns>
+            String value in form 'document name path' (document culture).
+            </returns>
         </member>
-        <member name="F:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.OBJECT_TYPE">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetDocumentIdentificationInternal(System.String,System.String)">
             <summary>
-            Object type.
+            Returns human-readable document identification for given <paramref name="documentNamePath"/> and <paramref name="documentCulture"/>.
             </summary>
+            <returns>
+            String value in form 'document name path' (document culture).
+            </returns>
         </member>
-        <member name="F:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.TYPEINFO">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.IsUrlPatternSuspect(CMS.DataEngine.DataClassInfo,System.String[],System.Collections.Generic.IEnumerable{CMS.DataEngine.ColumnDefinition})">
             <summary>
-            Type information.
+            Checks whether <paramref name="dataClassInfo"/>'s URL pattern might be resolved to an alternative URL composed of <paramref name="alternativeUrlSegments"/>.
+            Returns a <see cref="T:CMS.DataEngine.WhereCondition"/> to be used for a <see cref="T:CMS.DocumentEngine.DocumentQuery"/> to locate documents that might be in conflict with alternative URL.
+            Returns null, if the <paramref name="dataClassInfo"/>'s URL pattern will not be in conflict with alternative URL.  
             </summary>
+            <example>
+            <para>
+            URL pattern contains a constant part e.g. /Articles/{%NodeGuid%} and alternative URL is like /News/Example
+            then we do not need to check pages of that page type.
+            </para>
+            <para>
+            {%NodeName%}/{%DocumentName%}/News might be a suspect when alternative URL is /Awesome/Fresh/News.
+            </para>
+            <para>
+            {%NodeId%}/{%NodeGuid%}/News cannot be a suspect when alternative URL is /Awesome/Fresh/News, because 'Awesome'
+            cannot be converted to int supposed that {%NodeId%} macro is backed by integer type. {%NodeGuid%} is also incompatible with 'Fresh'.
+            </para>
+            </example>
         </member>
-        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderWidgetsID">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.TryConvertToDatabaseValue(System.String,CMS.DataEngine.ColumnDefinition,System.Object@)">
             <summary>
-            Page builder widgets ID.
+            Tries to convert the value from the alternative URL's segment to a type defined by <paramref name="columnDefinition"/>.
             </summary>
         </member>
-        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderWidgetsConfiguration">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetPageDefaultColumnDefinitions">
             <summary>
-            Page builder widgets configuration.
+            Returns columns definitions for a page.
             </summary>
         </member>
-        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderWidgetsGuid">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.IsInCollision(CMS.DocumentEngine.TreeNode,System.String[])">
             <summary>
-            Page builder widgets guid.
+            Returns true, if <paramref name="page"/> is in conflict with alternative URL represented by <paramref name="alternativeUrlSegments"/>.
             </summary>
+            <param name="page">Page to be checked if it is in conflict with given alternative URL.</param>
+            <param name="alternativeUrlSegments">
+            Represents alternative URL to be checked against the <paramref name="page"/>.
+            <see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> is split into segments e.g. alternative URL 'short/example/url' is split into ["short","example","url"]. 
+            </param>
+            <seealso cref="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.FindConflictingPage(CMS.DocumentEngine.DocumentQuery,System.String[])"/>
         </member>
-        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderWidgetsLastModified">
+        <member name="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.GetPageTypes">
             <summary>
-            Page builder widgets last modified.
+            Returns collection of page types with URL pattern 
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.DeleteObject">
+        <member name="T:CMS.DocumentEngine.Internal.ExcludedAlternativeUrlEvaluator">
             <summary>
-            Deletes the object using appropriate provider.
+            Class for evaluating excluded alternative URLs in settings.
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.SetObject">
+        <member name="M:CMS.DocumentEngine.Internal.ExcludedAlternativeUrlEvaluator.GetMatchingExcludedUrl(System.String,System.String)">
             <summary>
-            Updates the object using appropriate provider.
+            Processes <paramref name="excludedUrls"/> from settings and returns excluded URL that matches given <paramref name="alternativeUrl"/>.
             </summary>
+            <param name="alternativeUrl">Alternative URL for which matching excluded URL is found.</param>
+            <param name="excludedUrls">Excluded URLs to which alternative URL is matched.</param>
+            <returns>Matched excluded URL or <c>String.Empty</c> if no match is found.</returns>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+        <member name="T:CMS.DocumentEngine.Internal.GeneratePreviewLinkEventArgs">
             <summary>
-            Constructor for de-serialization.
+            Encapsulates event arguments to generate preview link for a <see cref="T:CMS.DocumentEngine.TreeNode"/>.
             </summary>
-            <param name="info">Serialization info.</param>
-            <param name="context">Streaming context.</param>
+            <seealso cref="T:CMS.DocumentEngine.PreviewLinkGenerator"/>
+            <seealso cref="T:CMS.DocumentEngine.Internal.GeneratePreviewLinkHandler"/>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.#ctor">
+        <member name="M:CMS.DocumentEngine.Internal.GeneratePreviewLinkEventArgs.#ctor(CMS.DocumentEngine.TreeNode)">
             <summary>
-            Creates an empty instance of the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> class.
+            Initializes an instance of <see cref="T:CMS.DocumentEngine.Internal.GeneratePreviewLinkEventArgs"/>.
             </summary>
+            <param name="page">Defines a <see cref="T:CMS.DocumentEngine.TreeNode"/> for which the preview link is generated.</param>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.#ctor(System.Data.DataRow)">
+        <member name="P:CMS.DocumentEngine.Internal.GeneratePreviewLinkEventArgs.Page">
             <summary>
-            Creates a new instances of the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> class from the given <see cref="T:System.Data.DataRow"/>.
+            Returns a <see cref="T:CMS.DocumentEngine.TreeNode"/> for which the preview link is generated.
             </summary>
-            <param name="dr">DataRow with the object data.</param>
         </member>
-        <member name="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider">
+        <member name="P:CMS.DocumentEngine.Internal.GeneratePreviewLinkEventArgs.QueryStringParameters">
             <summary>
-            Class providing <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> management.
+            Defines query string parameters to add the preview link.
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.#ctor">
+        <member name="T:CMS.DocumentEngine.Internal.GeneratePreviewLinkHandler">
             <summary>
-            Creates an instance of <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider"/>.
+            Handler for event raised during the preview link generation to be decorated.
             </summary>
-        </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.GetPageBuilderWidgets">
-            <summary>
-            Returns a query for all the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> objects.
-            </summary>
-        </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.GetPageBuilderWidgetsInfo(System.Int32)">
-            <summary>
-            Returns <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> with specified ID.
-            </summary>
-            <param name="id"><see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> ID.</param>
-        </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.SetPageBuilderWidgetsInfo(CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo)">
-            <summary>
-            Sets (updates or inserts) specified <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/>.
-            </summary>
-            <param name="infoObj"><see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> to be set.</param>
-        </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.DeletePageBuilderWidgetsInfo(CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo)">
-            <summary>
-            Deletes specified <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/>.
-            </summary>
-            <param name="infoObj"><see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> to be deleted.</param>
-        </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.DeletePageBuilderWidgetsInfo(System.Int32)">
-            <summary>
-            Deletes <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> with specified ID.
-            </summary>
-            <param name="id"><see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> ID.</param>
-        </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.BulkDeleteData(CMS.DataEngine.WhereCondition)">
-            <summary>
-            Bulk deletes temporary configurations based on the given condition.
-            </summary>
-        </member>
-        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.BulkDeleteDataInternal(CMS.DataEngine.WhereCondition)">
-            <summary>
-            Bulk deletes temporary configurations based on the given condition.
-            </summary>
-        </member>
-        <member name="T:CMS.DocumentEngine.DocumentTypeHandlers">
-            <summary>
-            Provides handlers for document types.
-            </summary>
-        </member>
-        <member name="M:CMS.DocumentEngine.DocumentTypeHandlers.Init">
-            <summary>
-            Initializes the document handlers
-            </summary>
+            <seealso cref="T:CMS.DocumentEngine.PreviewLinkGenerator"/>
+            <seealso cref="T:CMS.DocumentEngine.Internal.GeneratePreviewLinkEventArgs"/>
         </member>
         <member name="T:CMS.DocumentEngine.Internal.DocumentSearchablesRetriever">
             <summary>
@@ -965,7 +1049,7 @@
             <param name="nodeAliasPath">Node alias path. If is specified, all allowed nodes must be beneath this path</param>
             <returns>Returns true if values are ready</returns>
         </member>
-        <member name="M:CMS.DocumentEngine.Internal.DocumentSearchablesRetriever.GetSearchablesObjects(CMS.Search.SearchIndexInfo,System.String,System.String)">
+        <member name="M:CMS.DocumentEngine.Internal.DocumentSearchablesRetriever.GetSearchableObjects(CMS.Search.SearchIndexInfo,System.String,System.String)">
             <summary>
             Returns <see cref="T:CMS.DataEngine.ISearchable"/> objects for given <paramref name="nodeAliasPath"/>.
             </summary>
@@ -1009,7 +1093,7 @@
         </member>
         <member name="M:CMS.DocumentEngine.Internal.DocumentSearchablesRetriever.LogBatchStart(System.Int32,System.Int32,System.String,System.String,System.Boolean)">
             <summary>
-            Logs the start of batch processing. 
+            Logs the start of batch processing.
             </summary>
             <param name="batchNumber">Number of batch</param>
             <param name="lastID">ID of last item that is not present in the batch</param>
@@ -1530,7 +1614,17 @@
         </member>
         <member name="P:CMS.DocumentEngine.Internal.DocumentCultureDataInfo.DocumentPageBuilderWidgets">
             <summary>
-            Gets configuration of Page builder document widgets.
+            Gets or sets configuration of Page builder document widgets used for MVC support only.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.Internal.DocumentCultureDataInfo.DocumentPageTemplateConfiguration">
+            <summary>
+            Gets or sets configuration of page template used for MVC support only.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.Internal.DocumentCultureDataInfo.DocumentABTestConfiguration">
+            <summary>
+            Gets or sets configuration of A/B test.
             </summary>
         </member>
         <member name="P:CMS.DocumentEngine.Internal.DocumentCultureDataInfo.DocumentCustomData">
@@ -2276,6 +2370,11 @@
             Inserts the root node data.
             </summary>
         </member>
+        <member name="M:CMS.DocumentEngine.Internal.DocumentNodeDataInfo.DeleteEventAttendees">
+            <summary>
+            Deletes all event attendees of specified node.
+            </summary>
+        </member>
         <member name="T:CMS.DocumentEngine.Internal.DocumentNodeDataInfoProvider">
             <summary>
             Class providing document tree nodes management.
@@ -2425,6 +2524,928 @@
             Checks if the object has unique code name. Returns true if the object has unique code name.
             </summary>
             <param name="infoObj">Info object to check.</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.ClearDocumentFieldsTypeInfosWebFarmTask">
+            <summary>
+            Web farm task used to clear document field type infos.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="M:CMS.DocumentEngine.ClearDocumentFieldsTypeInfosWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.Internal.DocumentFieldsInfoProvider.Clear(System.Boolean)"/> method.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.ClearDocumentTypeInfosWebFarmTask">
+            <summary>
+            Web farm task used to clear document type infos.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="M:CMS.DocumentEngine.ClearDocumentTypeInfosWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.TreeNodeProvider.Clear(System.Boolean)"/> method.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.ClearResolvedClassNamesWebFarmTask">
+            <summary>
+            Web farm task used to clear resolved class names.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="M:CMS.DocumentEngine.ClearResolvedClassNamesWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.DocumentTypeHelper.ClearClassNames(System.Boolean)"/> method.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.DeleteAttachmentWebFarmTask">
+            <summary>
+            Web farm task used to delete attachments.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="P:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.SiteName">
+            <summary>
+            Gets or sets name of the site which is file assigned to.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.FileGuid">
+            <summary>
+            Gets or sets identifier of the file to be deleted.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.DeleteDirectory">
+            <summary>
+            Gets or sets a value that indicates whether directory will be deleted.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.DocumentEngine.DeleteAttachmentWebFarmTask"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.ConditionMethod">
+            <summary>
+            Returns true if the synchronization of the deletion of the attachments is allowed
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.DeleteAttachmentWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.AttachmentBinaryHelper.DeleteFile(System.Guid,System.String,System.Boolean,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.InvalidateDocumentTypeInfoWebFarmTask">
+            <summary>
+            Web farm task used to invalidate document type infos.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="P:CMS.DocumentEngine.InvalidateDocumentTypeInfoWebFarmTask.ClassName">
+            <summary>
+            Gets or sets name of the class file to be invalidated.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidateDocumentTypeInfoWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.TreeNodeProvider.InvalidateTypeInfo(System.String,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.InvalidateDocumentFieldsTypeInfoWebFarmTask">
+            <summary>
+            Web farm task used to invalidate document fields.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="P:CMS.DocumentEngine.InvalidateDocumentFieldsTypeInfoWebFarmTask.ClassName">
+            <summary>
+            Gets or sets name of the class file which data fields will be invalidated.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidateDocumentFieldsTypeInfoWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.Internal.DocumentFieldsInfoProvider.InvalidateTypeInfo(System.String,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.UpdateAttachmentWebFarmTask">
+            <summary>
+            Web farm task used to update attachment of documents.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.SiteName">
+            <summary>
+            Gets or sets name of the site which is file assigned to.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.FileGuid">
+            <summary>
+            Gets or sets identifier of the file to be updated.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.FileName">
+            <summary>
+            Gets or sets name of the file to be updated.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.FileExtension">
+            <summary>
+            Gets or sets extension of the file to be updated.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.DeleteOldFiles">
+            <summary>
+            Gets or sets a value that indicates if files in destination folder with mask '[guid]*.*' should be deleted.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.DocumentEngine.UpdateAttachmentWebFarmTask"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.ConditionMethod">
+            <summary>
+            Returns true if the synchronization of the attachments is allowed.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.UpdateAttachmentWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.DocumentEngine.AttachmentBinaryHelper.SaveFileToDisk(System.String,System.String,System.String,System.String,CMS.Core.BinaryData,System.Boolean,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.Internal.IPageBuilderConfigurationSourceLoader">
+            <summary>
+            Loads Page builder configuration source.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.Internal.IPageBuilderConfigurationSourceLoader.Load(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Loads Page builder configuration source for a page.
+            </summary>
+            <param name="page">Page from which the configuration will be loaded.</param>
+            <returns>Returns the configuration source.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.Internal.PageBuilderConfigurationSource">
+            <summary>
+            Represents source for Page builder configuration.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageBuilder.Internal.PageBuilderConfigurationSource.WidgetsConfiguration">
+            <summary>
+            Source of widgets configuration in JSON format.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageBuilder.Internal.PageBuilderConfigurationSource.PageTemplateConfiguration">
+            <summary>
+            Source of page template configuration in JSON format.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.Internal.PageBuilderConfigurationSourceNativeLoader">
+            <summary>
+            Loads Page builder configuration from page data.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageBuilder.Internal.PageBuilderConfigurationSourceNativeLoader.WIDGETS_CONFIGURATION_FIELD_NAME">
+            <summary>
+            Name of the field column in documents' table storing the Page builder widgets configuration.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageBuilder.Internal.PageBuilderConfigurationSourceNativeLoader.TEMPLATE_CONFIGURATION_FIELD_NAME">
+            <summary>
+            Name of the field column in documents' table storing the Page builder template configuration.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.Internal.PageBuilderConfigurationSourceNativeLoader.Load(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Loads Page builder configuration for a page.
+            </summary>
+            <param name="page">Page from which the configuration will be loaded.</param>
+            <returns>Returns the configuration source.</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.ITempPageBuilderWidgetsPropagator">
+            <summary>
+            Propagates widgets and template configuration from temporary data to page data.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.ITempPageBuilderWidgetsPropagator.Propagate(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Propagates widgets and template configuration from temporary data to page data.
+            </summary>
+            <param name="page">Page to propagate data into.</param>
+            <param name="instanceGuid">Instance GUID of editing.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.ITempPageBuilderWidgetsPropagator.Delete(System.Guid)">
+            <summary>
+            Deletes widgets configuration from temporary data.
+            </summary>
+            <param name="instanceGuid">Instance GUID of editing.</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.PageBuilderHelper">
+            <summary>
+            Provides helper methods for a Page builder feature.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.EDITING_INSTANCE_QUERY_NAME">
+            <summary>
+            Query string key for editing instance identifier.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.EDIT_MODE_QUERY_NAME">
+            <summary>
+            Query string key for edit mode detection.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.CLEAR_PAGE_CACHE_QUERY_NAME">
+            <summary>
+            Query string key for clear cache request.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.AddEditModeParameter(System.String)">
+            <summary>
+            Adds query string parameter to URL to identify the edit mode of Page builder feature.
+            </summary>
+            <param name="url">URL to modify.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.AddClearPageCacheParameter(System.String)">
+            <summary>
+            Adds query string parameter to URL to identify the clear page cache request.
+            </summary>
+            <param name="url">URL to modify.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.PageBuilderHelper.GetPreviewLink(CMS.DocumentEngine.TreeNode,System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Generates preview link for specified page and user.
+            </summary>
+            <param name="page">Page for which the preview link should be generated.</param>
+            <param name="userName">User name.</param>
+            <param name="queryString">Optional additional query string parameters.</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsCleaner">
+            <summary>
+            Provides an scheduled task for the temporary PageBuilder widgets configuration deletion.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsCleaner.Execute(CMS.Scheduler.TaskInfo)">
+            <summary>
+            Executes the purge action.
+            </summary>
+            <param name="task">Task to process</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator">
+            <summary>
+            Propagates widgets and template configuration from temporary data to page data.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.#ctor(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator"/> class.
+            </summary>
+            <param name="page">Page instance.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.Propagate(System.Guid)">
+            <summary>
+            Propagates widgets and template configuration from temporary data to page data.
+            </summary>
+            <param name="instanceGuid">Instance GUID of editing.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.Propagate(CMS.DocumentEngine.TreeNode,System.Guid)">
+            <summary>
+            Propagates widgets and template configuration from temporary data to page data.
+            </summary>
+            <param name="page">Page to propagate data into.</param>
+            <param name="instanceGuid">Instance GUID of editing.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="page"/> is null.</exception>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.Delete(System.Guid)">
+            <summary>
+            Deletes widgets configuration from temporary data.
+            </summary>
+            <param name="instanceGuid">Instance GUID of editing.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsPropagator.GetTempDataQuery(System.Guid)">
+            <summary>
+            Gets object query for retrieving <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> by its GUID.
+            </summary>
+            <param name="instanceGuid">GUID of the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> to retrieve.</param>
+            <returns>Returns query for retrieving <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/>.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when <paramref name="instanceGuid"/> is <see cref="F:System.Guid.Empty"/>.</exception>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo">
+            <summary>
+            Data container class for <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/>.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.OBJECT_TYPE">
+            <summary>
+            Object type.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.TYPEINFO">
+            <summary>
+            Type information.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderWidgetsID">
+            <summary>
+            Page builder widgets ID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderWidgetsConfiguration">
+            <summary>
+            Page builder widgets configuration.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderTemplateConfiguration">
+            <summary>
+            Page builder page template configuration.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderWidgetsGuid">
+            <summary>
+            Page builder widgets guid.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.PageBuilderWidgetsLastModified">
+            <summary>
+            Page builder widgets last modified.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.DeleteObject">
+            <summary>
+            Deletes the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.SetObject">
+            <summary>
+            Updates the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor for de-serialization.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.#ctor">
+            <summary>
+            Creates an empty instance of the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo.#ctor(System.Data.DataRow)">
+            <summary>
+            Creates a new instances of the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> class from the given <see cref="T:System.Data.DataRow"/>.
+            </summary>
+            <param name="dr">DataRow with the object data.</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider">
+            <summary>
+            Class providing <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> management.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.GetPageBuilderWidgets">
+            <summary>
+            Returns a query for all the <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> objects.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.GetPageBuilderWidgetsInfo(System.Int32)">
+            <summary>
+            Returns <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> with specified ID.
+            </summary>
+            <param name="id"><see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> ID.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.SetPageBuilderWidgetsInfo(CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo)">
+            <summary>
+            Sets (updates or inserts) specified <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/>.
+            </summary>
+            <param name="infoObj"><see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> to be set.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.DeletePageBuilderWidgetsInfo(CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo)">
+            <summary>
+            Deletes specified <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/>.
+            </summary>
+            <param name="infoObj"><see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> to be deleted.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.DeletePageBuilderWidgetsInfo(System.Int32)">
+            <summary>
+            Deletes <see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> with specified ID.
+            </summary>
+            <param name="id"><see cref="T:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfo"/> ID.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.BulkDeleteData(CMS.DataEngine.WhereCondition)">
+            <summary>
+            Bulk deletes temporary configurations based on the given condition.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageBuilder.TempPageBuilderWidgetsInfoProvider.BulkDeleteDataInternal(CMS.DataEngine.WhereCondition)">
+            <summary>
+            Bulk deletes temporary configurations based on the given condition.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.IGetAttachmentHandler">
+            <summary>
+            Represents the contract that Kentico requires when processing HTTP requests for attachments.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageTemplateConfigurationInfo">
+            <summary>
+            Data container class for <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/>.
+            Represents custom page template configuration for MVC sites.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageTemplateConfigurationInfo.OBJECT_TYPE">
+            <summary>
+            Object type.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.PageTemplateConfigurationInfo.TYPEINFO">
+            <summary>
+            Type information.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationID">
+            <summary>
+            Page template configuration ID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationGUID">
+            <summary>
+            Page template configuration GUID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationSiteID">
+            <summary>
+            Page template configuration site ID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationLastModified">
+            <summary>
+            Page template configuration last modified.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationName">
+            <summary>
+            Page template configuration name.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationDescription">
+            <summary>
+            Page template configuration description.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationThumbnailGUID">
+            <summary>
+            Page template configuration thumbnail GUID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationTemplate">
+            <summary>
+            Page template configuration template configuration.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.PageTemplateConfigurationInfo.PageTemplateConfigurationWidgets">
+            <summary>
+            Page template configuration widgets configuration.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfo.DeleteObject">
+            <summary>
+            Deletes the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfo.SetObject">
+            <summary>
+            Updates the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor for de-serialization.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfo.#ctor">
+            <summary>
+            Creates an empty instance of the <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfo.#ctor(System.Data.DataRow)">
+            <summary>
+            Creates a new instances of the <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> class from the given <see cref="T:System.Data.DataRow"/>.
+            </summary>
+            <param name="dr">DataRow with the object data.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfo.CheckPermissionsInternal(CMS.DataEngine.PermissionsEnum,System.String,CMS.Base.IUserInfo,System.Boolean)">
+            <summary>
+            Checks whether the specified user has permissions for this object. This method is called automatically after CheckPermissions event was fired.
+            </summary>
+            <param name="permission">Permission to perform this operation will be checked</param>
+            <param name="siteName">Permissions on this site will be checked</param>
+            <param name="userInfo">Permissions of this user will be checked</param>
+            <param name="exceptionOnFailure">If true, PermissionCheckException is thrown whenever a permission check fails</param>
+            <returns>True if user is allowed to perform specified operation on the this object; otherwise false</returns>
+        </member>
+        <member name="T:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider">
+            <summary>
+            Class providing <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> management.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider.GetPageTemplateConfigurations">
+            <summary>
+            Returns a query for all the <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> objects.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider.GetPageTemplateConfigurationInfo(System.Int32)">
+            <summary>
+            Returns <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> with specified ID.
+            </summary>
+            <param name="id"><see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> ID.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider.GetPageTemplateConfigurationInfoByGUID(System.Guid,System.Int32)">
+            <summary>
+            Returns <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> with specified GUID.
+            </summary>
+            <param name="guid"><see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> GUID.</param>
+            <param name="siteId">Site ID.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider.SetPageTemplateConfigurationInfo(CMS.DocumentEngine.PageTemplateConfigurationInfo)">
+            <summary>
+            Sets (updates or inserts) specified <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/>.
+            </summary>
+            <param name="infoObj"><see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> to be set.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider.DeletePageTemplateConfigurationInfo(CMS.DocumentEngine.PageTemplateConfigurationInfo)">
+            <summary>
+            Deletes specified <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/>.
+            </summary>
+            <param name="infoObj"><see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> to be deleted.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PageTemplateConfigurationInfoProvider.DeletePageTemplateConfigurationInfo(System.Int32)">
+            <summary>
+            Deletes <see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> with specified ID.
+            </summary>
+            <param name="id"><see cref="T:CMS.DocumentEngine.PageTemplateConfigurationInfo"/> ID.</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.AlternativeUrlConflictChecker">
+            <summary>
+            Checker for conflicts between page URLs and alternative URLs.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlConflictChecker.#ctor(System.Collections.Generic.IEnumerable{CMS.DocumentEngine.TreeNode},System.Int32,System.Text.StringBuilder)">
+            <summary>
+            Checks for conflicts between page URLs and alternative URLs.
+            </summary>
+            <paramref name="nodes">Documents to check conflicts for.</paramref>
+            <paramref name="siteId">Conflicts are checked against Alternative URLs on this site.</paramref>
+            <paramref name="stringBuilder">String builder where the discovered conflict warnings should be appended.</paramref>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlConflictChecker.CheckConflicts">
+            <summary>
+            Checks for conflicts between page URLs and alternative URLs and appends them to the <see cref="F:CMS.DocumentEngine.AlternativeUrlConflictChecker.stringBuilder"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.AlternativeUrlValidatorTask">
+            <summary>
+            Provides a scheduled task that validates alternative URLs against site settings (Excluded alternative URLs), checks conflicts between page URLs and alternative URLs and logs detected issues to event log.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlValidatorTask.Execute(CMS.Scheduler.TaskInfo)">
+            <summary>
+            Executes the task given in a task info.
+            </summary>
+            <param name="task">Container with task information</param>
+            <returns>Textual description of task run's failure if any.</returns>
+        </member>
+        <member name="T:CMS.DocumentEngine.AlternativeUrlInfo">
+            <summary>
+            Data container class for <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/>.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.AlternativeUrlInfo.OBJECT_TYPE">
+            <summary>
+            Object type.
+            </summary>
+        </member>
+        <member name="F:CMS.DocumentEngine.AlternativeUrlInfo.TYPEINFO">
+            <summary>
+            Type information.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlID">
+            <summary>
+            Alternative url ID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlGUID">
+            <summary>
+            Alternative url GUID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlDocumentID">
+            <summary>
+            Alternative url document ID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlSiteID">
+            <summary>
+            Alternative url site ID.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl">
+            <summary>
+            Alternative url url.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlLastModified">
+            <summary>
+            Alternative url last modified.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfo.DeleteObject">
+            <summary>
+            Deletes the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfo.SetObject">
+            <summary>
+            Updates the object using appropriate provider.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfo.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor for de-serialization.
+            </summary>
+            <param name="info">Serialization info.</param>
+            <param name="context">Streaming context.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfo.#ctor">
+            <summary>
+            Creates an empty instance of the <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfo.#ctor(System.Data.DataRow)">
+            <summary>
+            Creates a new instances of the <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> class from the given <see cref="T:System.Data.DataRow"/>.
+            </summary>
+            <param name="dr">DataRow with the object data.</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.AlternativeUrlInfoProvider">
+            <summary>
+            Class providing <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> management.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:CMS.DocumentEngine.AlternativeUrlInfoProvider"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.GetAlternativeUrls">
+            <summary>
+            Returns a query for all the <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> objects.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.GetAlternativeUrlInfo(System.Int32)">
+            <summary>
+            Returns <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> with specified ID.
+            </summary>
+            <param name="id"><see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> ID.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.SetAlternativeUrlInfo(CMS.DocumentEngine.AlternativeUrlInfo)">
+            <summary>
+            Sets (updates or inserts) specified <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/>.
+            </summary>
+            <param name="alternativeUrl"><see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> to be set.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.DeleteAlternativeUrlInfo(CMS.DocumentEngine.AlternativeUrlInfo)">
+            <summary>
+            Deletes specified <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/>.
+            </summary>
+            <param name="alternativeUrl"><see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> to be deleted.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.DeleteAlternativeUrlInfo(System.Int32)">
+            <summary>
+            Deletes <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> with specified ID.
+            </summary>
+            <param name="id"><see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> ID.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.GetAlternativeUrl(CMS.DocumentEngine.NormalizedAlternativeUrl,System.Int32)">
+            <summary>
+            Returns instance of <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> with defined given <paramref name="url"/> on given <paramref name="siteId" />.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.GetAlternativeUrlInternal(CMS.DocumentEngine.NormalizedAlternativeUrl,System.Int32)">
+            <summary>
+            Returns instance of <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> with defined given <paramref name="url"/> on given <paramref name="siteId" />.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.SetInfoCheckForConflictingPage(CMS.DocumentEngine.AlternativeUrlInfo)">
+            <summary>
+            Inserts or Updates the object to the database.
+            If <paramref name="info"/> is in conflict with page's URL then <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> is thrown.
+            </summary>
+            <param name="info">Object to insert / update</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.AlternativeUrlInfoProvider.SetInfo(CMS.DocumentEngine.AlternativeUrlInfo)">
+            <summary>
+            Inserts or Updates the object to the database.
+            </summary>
+            <param name="info">Object to insert / update</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.InvalidAlternativeUrlException">
+            <summary>
+            Exception that is thrown when <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> is in conflict with another URL or constraint.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.InvalidAlternativeUrlException.AlternativeUrl">
+            <summary>
+            Alternative URL that is invalid.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.InvalidAlternativeUrlException.ExcludedUrl">
+            <summary>
+            Excluded URL that is in conflict with <see cref="P:CMS.DocumentEngine.InvalidAlternativeUrlException.AlternativeUrl"/>. 
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.InvalidAlternativeUrlException.ConflictingAlternativeUrl">
+            <summary>
+            <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> that is in conflict with <see cref="P:CMS.DocumentEngine.InvalidAlternativeUrlException.AlternativeUrl"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.InvalidAlternativeUrlException.ConflictingPage">
+            <summary>
+            Page that is in conflict with <see cref="P:CMS.DocumentEngine.InvalidAlternativeUrlException.AlternativeUrl"/>.
+            </summary>
+        </member>
+        <member name="P:CMS.DocumentEngine.InvalidAlternativeUrlException.Message">
+            <summary>
+            Gets a message that describes the current exception.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(CMS.DocumentEngine.AlternativeUrlInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class.
+            </summary>
+            <param name="invalidAlternativeUrl">Alternative URL that does not match pattern constraint.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(CMS.DocumentEngine.AlternativeUrlInfo,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class.
+            </summary>
+            <param name="invalidAlternativeUrl">Alternative URL that does not match pattern constraint.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(CMS.DocumentEngine.AlternativeUrlInfo,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class.
+            </summary>
+            <param name="invalidAlternativeUrl">Alternative URL that is excluded URL.</param>
+            <param name="excludedUrl">Excluded URL that is in conflict with <paramref name="invalidAlternativeUrl"/>.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(CMS.DocumentEngine.AlternativeUrlInfo,System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class with a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="invalidAlternativeUrl">Alternative URL that does not satisfy settings constraint.</param>
+            <param name="excludedUrl">Excluded URL that is in conflict with <paramref name="invalidAlternativeUrl"/>.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(CMS.DocumentEngine.AlternativeUrlInfo,CMS.DocumentEngine.AlternativeUrlInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class.
+            </summary>
+            <param name="invalidAlternativeUrl">Alternative URL that is in conflict with another <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/>.</param>
+            <param name="conflictingAlternativeUrl">Existing <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> with the same <see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> as <paramref name="invalidAlternativeUrl"/>.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(CMS.DocumentEngine.AlternativeUrlInfo,CMS.DocumentEngine.AlternativeUrlInfo,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class.
+            </summary>
+            <param name="invalidAlternativeUrl">Alternative URL that is in conflict with another <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/>.</param>
+            <param name="conflictingAlternativeUrl">Existing <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/> with the same <see cref="P:CMS.DocumentEngine.AlternativeUrlInfo.AlternativeUrlUrl"/> as <paramref name="invalidAlternativeUrl"/>.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(CMS.DocumentEngine.AlternativeUrlInfo,CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class.
+            </summary>
+            <param name="invalidAlternativeUrl">Alternative URL that is in conflict with another <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/>.</param>
+            <param name="conflictingPage">Existing page with the same URL as <paramref name="invalidAlternativeUrl"/>.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(CMS.DocumentEngine.AlternativeUrlInfo,CMS.DocumentEngine.TreeNode,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class.
+            </summary>
+            <param name="invalidAlternativeUrl">Alternative URL that is in conflict with another <see cref="T:CMS.DocumentEngine.AlternativeUrlInfo"/>.</param>
+            <param name="conflictingPage">Existing page with the same URL as <paramref name="invalidAlternativeUrl"/>.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.InvalidAlternativeUrlException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.DocumentEngine.InvalidAlternativeUrlException"/> class with serialized data.
+            </summary>
+            <param name="info">The object that holds the serialized object data.</param>
+            <param name="context">The contextual information about the source or destination.</param>
+        </member>
+        <member name="T:CMS.DocumentEngine.NormalizedAlternativeUrl">
+            <summary>
+            Class represents url in normalized state used in alternative url feature.
+            </summary>
+            <remarks>
+            Regular url can be normalized using <see cref="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.NormalizeAlternativeUrl(System.String)"/> method.
+            </remarks>
+            <seealso cref="M:CMS.DocumentEngine.Internal.AlternativeUrlHelper.NormalizeAlternativeUrl(System.String)"/>
+        </member>
+        <member name="P:CMS.DocumentEngine.NormalizedAlternativeUrl.NormalizedUrl">
+            <summary>
+            Gets normalized url.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.NormalizedAlternativeUrl.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.DocumentEngine.NormalizedAlternativeUrl"/>.
+            </summary>
+            <param name="normalizedUrl">Url in normalized state.</param>
+            <exception cref="T:System.InvalidOperationException">When null value is provided.</exception>
+        </member>
+        <member name="M:CMS.DocumentEngine.NormalizedAlternativeUrl.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>
+            A string that represents the current object.
+            </returns>
+        </member>
+        <member name="T:CMS.DocumentEngine.PreviewLinkGenerator">
+            <summary>
+            Generates preview link for a page.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.PreviewLinkGenerator.#ctor(CMS.DocumentEngine.TreeNode)">
+            <summary>
+            Creates an instance of <see cref="T:CMS.DocumentEngine.PreviewLinkGenerator"/> class.
+            </summary>
+            <param name="page">Page for which the preview link should be generated.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PreviewLinkGenerator.Generate(System.String,System.Boolean,System.Boolean,System.Boolean,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Generates preview link for specified page and user.
+            </summary>
+            <param name="userName">User name.</param>
+            <param name="ensureQueryHash">Indicates if query string hash should be added. For content-only nodes, hash is added always.</param>
+            <param name="readonlyMode">Indicates if readonly mode should be enabled to disallow modify actions and POST requests.</param>
+            <param name="embededInAdministration">Indicates if page is embedded in administration inside an iframe.</param>
+            <param name="queryString">Optional additional query string parameters.</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.PreviewLinkGenerator.DecorateUrlWithQueryStringParameters(System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Decorates <paramref name="url"/> with query strings.
+            </summary>
+        </member>
+        <member name="T:CMS.DocumentEngine.DocumentTypeHandlers">
+            <summary>
+            Provides handlers for document types.
+            </summary>
+        </member>
+        <member name="M:CMS.DocumentEngine.DocumentTypeHandlers.Init">
+            <summary>
+            Initializes the document handlers
+            </summary>
         </member>
         <member name="T:CMS.DocumentEngine.Query.QueryExtensions">
             <summary>
@@ -9392,14 +10413,14 @@
             <summary>
             Returns current document version. If versioning is used, gets the current VersionHistory record, otherwise gets the record directly from the database. Result contains coupled data only if classNames are specified.
             </summary>
-            <param name="siteName">Nodes site name</param>
-            <param name="aliasPath">Path. It may contain % and _ as wild card characters for any number of unknown characters or one unknown character respectively (for MS SQL).</param>
-            <param name="cultureCode">Nodes culture code</param>
+            <param name="siteName">Nodes site name.</param>
+            <param name="aliasPath">Node alias path.</param>
+            <param name="cultureCode">Nodes culture code.</param>
             <param name="combineWithDefaultCulture">Indicates whether node in default culture should be returned if node in specified culture was not found.</param>
-            <param name="classNames">List of class names separated by semicolon (e.g.: "cms.article;cms.product")</param>
-            <param name="where">Where condition for the data selection</param>
-            <param name="orderBy">Order by clause for the data selection</param>
-            <param name="maxRelativeLevel">Maximum child level of the selected nodes</param>
+            <param name="classNames">List of class names separated by semicolon (e.g.: "cms.article;cms.product").</param>
+            <param name="where">Where condition for the data selection.</param>
+            <param name="orderBy">Order by clause for the data selection.</param>
+            <param name="maxRelativeLevel">Maximum child level of the selected nodes.</param>
             <param name="selectOnlyPublished">Select only published nodes.</param>
             <param name="columns">Columns to be selected</param>
             <param name="tree">TreeProvider to use</param>
@@ -9768,7 +10789,7 @@
         <member name="M:CMS.DocumentEngine.DocumentHelper.GetAttachments(CMS.DocumentEngine.TreeNode,System.Boolean)">
             <summary>
             Gets attachments (<see cref="T:CMS.DocumentEngine.AttachmentInfo"/>) or attachments versions (<see cref="T:CMS.DocumentEngine.AttachmentHistoryInfo"/>) for given document.
-            Result contains objects of type <see cref="T:CMS.DocumentEngine.AttachmentHistoryInfo"/> if given document is under workflow. Otherwise result contains <see cref="T:CMS.DocumentEngine.AttachmentInfo"/>. 
+            Result contains objects of type <see cref="T:CMS.DocumentEngine.AttachmentHistoryInfo"/> if given document is under workflow. Otherwise result contains <see cref="T:CMS.DocumentEngine.AttachmentInfo"/>.
             Returns only main attachments, not attachment variants.
             </summary>
             <param name="node">Document which contains requested attachments.</param>
@@ -10042,8 +11063,8 @@
         <member name="M:CMS.DocumentEngine.DocumentHelper.IsSearchTaskCreationAllowed(CMS.DocumentEngine.TreeNode)">
             <summary>
             Returns true if the search task for given node should be created.
-            Returns true if 
-             - search is allowed on general level AND 
+            Returns true if
+             - search is allowed on general level AND
              - search is allowed for document type of given node
              - published version for given node exists AND
             </summary>
@@ -13433,7 +14454,7 @@
         </member>
         <member name="P:CMS.DocumentEngine.NodeSelectionParameters.AliasPath">
             <summary>
-            Path. It may contain % and _ as wild card characters for any number of unknown characters or one unknown character respectively (for MS SQL)
+            Node alias path.
             </summary>
         </member>
         <member name="P:CMS.DocumentEngine.NodeSelectionParameters.CultureCode">
@@ -15312,11 +16333,10 @@
             Ensures the default data for inserting new culture version.
             </summary>
         </member>
-        <member name="M:CMS.DocumentEngine.TreeNode.EnsureDefaultDataForInsert(CMS.DocumentEngine.TreeNode)">
+        <member name="M:CMS.DocumentEngine.TreeNode.EnsureDefaultDataForInsert">
             <summary>
             Ensures the default data for the inserting new document
             </summary>
-            <param name="parent">Parent node</param>
         </member>
         <member name="M:CMS.DocumentEngine.TreeNode.EnsureDefaultData">
             <summary>
@@ -15349,11 +16369,6 @@
         <member name="M:CMS.DocumentEngine.TreeNode.RemovePersonalizationDependencies">
             <summary>
             Removes user personalization for specified document.
-            </summary>
-        </member>
-        <member name="M:CMS.DocumentEngine.TreeNode.DeleteEventAttendees">
-            <summary>
-            Deletes all event attendees of specified document.
             </summary>
         </member>
         <member name="M:CMS.DocumentEngine.TreeNode.EnsureInitialOrder(System.String)">
@@ -16282,16 +17297,16 @@
             <summary>
             Returns single node specified by alias path, culture and site name matching the provided parameters. Result contains coupled data only if classNames are specified.
             </summary>
-            <param name="siteName">Nodes site name</param>
-            <param name="aliasPath">Node alias path - may contain % and _ as wild card characters for any number of unknown characters or one unknown character respectively (for MS SQL).</param>
-            <param name="cultureCode">Nodes culture code</param>
+            <param name="siteName">Node site name.</param>
+            <param name="aliasPath">Node alias path.</param>
+            <param name="cultureCode">Node culture code.</param>
             <param name="combineWithDefaultCulture">Indicates whether node in default culture should be returned if node in specified culture was not found.</param>
-            <param name="classNames">List of class names separated by semicolon (e.g.: "cms.article;cms.product")</param>
-            <param name="where">Where condition to use for the data selection</param>
-            <param name="orderBy">Order by clause to use for the data selection</param>
-            <param name="maxRelativeLevel">Maximum child level of the selected nodes</param>
+            <param name="classNames">List of class names separated by semicolon (e.g.: "cms.article;cms.product").</param>
+            <param name="where">Where condition to use for the data selection.</param>
+            <param name="orderBy">Order by clause to use for the data selection.</param>
+            <param name="maxRelativeLevel">Maximum child level of the selected nodes.</param>
             <param name="selectOnlyPublished">Select only published nodes.</param>
-            <param name="columns">Columns to be selected. Columns definition must contain mandatory columns (NodeID, NodeLinkedNodeID, DocumentCulture)</param>
+            <param name="columns">Columns to be selected. Columns definition must contain mandatory columns (NodeID, NodeLinkedNodeID, DocumentCulture).</param>
         </member>
         <member name="M:CMS.DocumentEngine.TreeProvider.SelectSingleNode(CMS.DocumentEngine.NodeSelectionParameters)">
             <summary>
@@ -16342,16 +17357,16 @@
             <summary>
             Returns single node specified by alias path, culture and site name matching the provided parameters. Result contains coupled data only if classNames are specified.
             </summary>
-            <param name="siteName">Node site name</param>
-            <param name="aliasPath">Node alias path - may contain % and _ as wild card characters for any number of unknown characters or one unknown character respectively (for MS SQL).</param>
-            <param name="cultureCode">Culture code</param>
+            <param name="siteName">Node site name.</param>
+            <param name="aliasPath">Node alias path.</param>
+            <param name="cultureCode">Culture code.</param>
             <param name="combineWithDefaultCulture">Indicates whether node in default culture should be returned if node in specified culture was not found.</param>
-            <param name="classNames">List of class names separated by semicolon (e.g.: "cms.article;cms.product")</param>
-            <param name="where">Where condition for the data selection</param>
-            <param name="orderBy">Order by clause for the data selection</param>
-            <param name="maxRelativeLevel">Maximum child level of the selected nodes</param>
+            <param name="classNames">List of class names separated by semicolon (e.g.: "cms.article;cms.product").</param>
+            <param name="where">Where condition for the data selection.</param>
+            <param name="orderBy">Order by clause for the data selection.</param>
+            <param name="maxRelativeLevel">Maximum child level of the selected nodes.</param>
             <param name="selectOnlyPublished">Select only published nodes.</param>
-            <param name="columns">Columns to be selected</param>
+            <param name="columns">Columns to be selected.</param>
         </member>
         <member name="M:CMS.DocumentEngine.TreeProvider.SelectSingleNode``1(CMS.DocumentEngine.NodeSelectionParameters)">
             <summary>
@@ -16737,9 +17752,18 @@
             <param name="node">Moved document</param>
             <param name="targetSiteId">Target site ID</param>
         </member>
-        <member name="M:CMS.DocumentEngine.TreeProvider.ChangeDocumentRelatedObjectsSite(CMS.DocumentEngine.TreeNode,System.Int32)">
+        <member name="M:CMS.DocumentEngine.TreeProvider.ChangeDocumentRelatedObjectsSite(CMS.DocumentEngine.TreeNode,System.Int32,System.Boolean)">
             <summary>
-            Handles related objects of a single document when moved to different site
+            Handles related objects of a single document when moved to different site.
+            </summary>
+            <param name="node">Document</param>
+            <param name="targetSiteId">Target site ID</param>
+            <param name="shouldMoveAlternativeUrls">Indicates if related alternative URLs should be moved too</param>
+        </member>
+        <member name="M:CMS.DocumentEngine.TreeProvider.MoveAlternativeUrls(CMS.DocumentEngine.TreeNode,System.Int32)">
+            <summary>
+            Moves alternative URLs across the sites.
+            If there is any conflict, the alternative URL is deleted to prevent any inconsistency.
             </summary>
             <param name="node">Document</param>
             <param name="targetSiteId">Target site ID</param>

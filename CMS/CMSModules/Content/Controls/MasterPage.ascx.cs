@@ -213,7 +213,7 @@ public partial class CMSModules_Content_Controls_MasterPage : CMSPreviewControl
             {
                 Text = GetString("PageProperties.EditTemplateProperties"),
                 Tooltip = GetString("PageProperties.EditTemplateProperties"),
-                OnClientClick = "modalDialog('" + elemUrl + "', 'TemplateSelection', '85%', '85%', false);return false;",
+                OnClientClick = "modalDialog('" + elemUrl + "', 'TemplateSelection', '85%', '85%');return false;",
                 Enabled = actionsEnabled
             };
 

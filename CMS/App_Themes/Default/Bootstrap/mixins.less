@@ -631,16 +631,16 @@
     cursor: not-allowed;
     color: @action-disabled-color;
     background-color: @action-disabled-bg;
-    background-image: repeating-linear-gradient(-45deg, transparent 0px, @action-disabled-bg-stripe 1px, @action-disabled-bg-stripe 2px, transparent 3px, transparent 4px);
+    background-image: repeating-linear-gradient(-45deg, @action-disabled-bg-stripe-transparent 0px, @action-disabled-bg-stripe 1px, @action-disabled-bg-stripe 2px, @action-disabled-bg-stripe-transparent 3px, @action-disabled-bg-stripe-transparent 4px);
 }
 
 .dropdown-disabled {
     cursor: not-allowed;
-    background-image: repeating-linear-gradient(-45deg, transparent 0px, @dropdown-disabled-bg-stripe 1px, @dropdown-disabled-bg-stripe 2px, transparent 3px, transparent 4px);
+    background-image: repeating-linear-gradient(-45deg, @dropdown-disabled-bg-stripe-transparent 0px, @dropdown-disabled-bg-stripe 1px, @dropdown-disabled-bg-stripe 2px, @dropdown-disabled-bg-stripe-transparent 3px, @dropdown-disabled-bg-stripe-transparent 4px);
 
     &:hover {
         background-color: inherit;
-        background-image: repeating-linear-gradient(-45deg, transparent 0px, @dropdown-disabled-bg-stripe 1px, @dropdown-disabled-bg-stripe 2px, transparent 3px, transparent 4px);
+        background-image: repeating-linear-gradient(-45deg, @dropdown-disabled-bg-stripe-transparent 0px, @dropdown-disabled-bg-stripe 1px, @dropdown-disabled-bg-stripe 2px, @dropdown-disabled-bg-stripe-transparent 3px, @dropdown-disabled-bg-stripe-transparent 4px);
     }
 }
 

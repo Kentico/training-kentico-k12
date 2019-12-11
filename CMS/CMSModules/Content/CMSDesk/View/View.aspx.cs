@@ -2,14 +2,19 @@
 
 using CMS.Base;
 using CMS.Base.Web.UI;
+using CMS.DataEngine;
 using CMS.Helpers;
 using CMS.Membership;
 using CMS.PortalEngine;
+using CMS.SiteProvider;
 using CMS.UIControls;
 
 
 public partial class CMSModules_Content_CMSDesk_View_View : CMSContentPage
 {
+    private const string COOKIE_POLICY_DETECTION_PATH = "/KenticoCookiePolicyCheck";
+    private const string COOKIE_POLICY_DETECTION_COOKIE_NAME = "KenticoCookiePolicyTest";
+
     #region "Variables & Properties"
 
     private string viewPage;
@@ -111,12 +116,55 @@ $cmsj(document).ready(function () {
             {
                 frameId = ucView.FrameID,
                 frameSrc = viewPage,
+                mixedContentMessage = GetString("builder.ui.mixedcontenterrormessage"),
+                applicationPath = SystemContext.ApplicationPath
             });
         }
         else
         {
             ucView.ViewPage = viewPage;
         }
+
+        RegisterCookiePolicyDetection();
+    }
+
+
+    /// <summary>
+    /// Registers client scripts that display a message in case when the browser prevents iframe pages from setting cookies. The message informs user 
+    /// that the previewed page may not work properly as e.g. form submission requires CSRF token saved in cookie.
+    /// </summary>
+    private void RegisterCookiePolicyDetection()
+    {
+        var dci = DataClassInfoProvider.GetDataClassInfo(Node?.NodeClassName);
+        
+        if (SiteContext.CurrentSite.SiteIsContentOnly && !string.IsNullOrEmpty(dci?.ClassURLPattern))
+        {
+            string cookieValue = Guid.NewGuid().ToString();
+            string sitePresentationUrl = SiteContext.CurrentSite.SitePresentationURL.TrimEnd('/');
+            string sourceOrigin = GetOriginFromUrl(RequestContext.URL.ToString());
+            string targetOrigin = GetOriginFromUrl(sitePresentationUrl);
+            string iframeUrl = sitePresentationUrl + COOKIE_POLICY_DETECTION_PATH;
+            iframeUrl += QueryHelper.BuildQueryWithHash("origin", sourceOrigin, "cookieName", COOKIE_POLICY_DETECTION_COOKIE_NAME, "cookieValue", cookieValue);
+
+            ScriptHelper.RegisterRequireJs(this);
+
+            var moduleParameters = new
+            {
+                iframeUrl,
+                targetOrigin,
+                cookieName = COOKIE_POLICY_DETECTION_COOKIE_NAME,
+                cookieValue,
+                message = GetString("content.ui.preview.thirdpartycookiesblocked")
+            };
+
+            ScriptHelper.RegisterModule(this, "CMS/CookiePolicyDetection", moduleParameters);
+        }
+    }
+
+
+    private string GetOriginFromUrl(string url)
+    {
+        return Uri.TryCreate(url, UriKind.Absolute, out var uri) ? uri.GetLeftPart(UriPartial.Authority) : String.Empty;
     }
 
     #endregion

@@ -776,18 +776,20 @@ public partial class CMSModules_Content_Controls_ViewVersion : VersionHistoryCon
                     break;
 
                 case "documentpagebuilderwidgets":
+                case "documentpagetemplateconfiguration":
+                case "documentabtestconfiguration":
                     var sbWidgetsOriginal = new StringBuilder();
                     var sbWidgetsCompared = new StringBuilder();
 
                     string json = Convert.ToString(node.GetValue(columnName));
 
-                    GeneratePageBuilderWidgetsMarkup(ref sbWidgetsOriginal, json, true);
+                    GenerateJsonFieldMarkup(ref sbWidgetsOriginal, json, true);
 
                     // Add text comparison control
                     if (compareMode)
                     {
                         string compareJson = Convert.ToString(compareNode.GetValue(columnName));
-                        GeneratePageBuilderWidgetsMarkup(ref sbWidgetsCompared, compareJson, false);
+                        GenerateJsonFieldMarkup(ref sbWidgetsCompared, compareJson, false);
                     }
 
                     empty = sbWidgetsOriginal.Length == 0 && sbWidgetsCompared.Length == 0;
@@ -902,7 +904,7 @@ public partial class CMSModules_Content_Controls_ViewVersion : VersionHistoryCon
     }
 
 
-    private void GeneratePageBuilderWidgetsMarkup(ref StringBuilder sbWidgets, string json, bool isLeft)
+    private void GenerateJsonFieldMarkup(ref StringBuilder sbMarkup, string json, bool isLeft)
     {
         if (string.IsNullOrEmpty(json))
         {
@@ -911,23 +913,23 @@ public partial class CMSModules_Content_Controls_ViewVersion : VersionHistoryCon
 
         var jConfiguration = JToken.Parse(json);
 
-        sbWidgets.Append(@"<a href=""#"" onclick=""versionExpandWebParts()"" id=""", isLeft ? "vWpLeftLink" : "vWpRightLink", "\">" + GetString("General.Expand") + "</a>");
-        sbWidgets.Append("<div style=\"display:none\" id=\"", isLeft ? "vWpLeft" : "vWpRight", "\">");
+        sbMarkup.Append(@"<a href=""#"" onclick=""versionExpandWebParts(this)"" class=""", isLeft ? "vWpLeftLink" : "vWpRightLink", "\">" + GetString("General.Expand") + "</a>");
+        sbMarkup.Append("<div style=\"display:none\" class=\"", isLeft ? "vWpLeft" : "vWpRight", "\">");
 
-        PageBuilderJsonToHtml(jConfiguration, ref sbWidgets);
+        JsonFieldToHtml(jConfiguration, ref sbMarkup);
 
-        sbWidgets.Append("</div>");
+        sbMarkup.Append("</div>");
     }
 
 
-    private static void PageBuilderJsonToHtml(JToken node, ref StringBuilder sb)
+    private static void JsonFieldToHtml(JToken node, ref StringBuilder sb)
     {
         switch (node.Type)
         {
             case JTokenType.Object:
                 foreach (var child in node.Children<JProperty>())
                 {
-                    PageBuilderJsonToHtml(child, ref sb);
+                    JsonFieldToHtml(child, ref sb);
                 }
 
                 break;
@@ -935,7 +937,7 @@ public partial class CMSModules_Content_Controls_ViewVersion : VersionHistoryCon
                 foreach (var child in node.Children())
                 {
                     sb.Append(@"<div class=""json-array"">");
-                    PageBuilderJsonToHtml(child, ref sb);
+                    JsonFieldToHtml(child, ref sb);
                     sb.AppendLine("</div>");
                 }
 
@@ -945,7 +947,7 @@ public partial class CMSModules_Content_Controls_ViewVersion : VersionHistoryCon
                 var property = (JProperty)node;
                 
                 sb.Append($"<div class='json-property'><i>{HTMLHelper.HTMLEncode(property.Name)}</i> : ");
-                PageBuilderJsonToHtml(property.Value, ref sb);
+                    JsonFieldToHtml(property.Value, ref sb);
                 sb.AppendLine("</div>");
                 break;
             }
@@ -976,8 +978,8 @@ public partial class CMSModules_Content_Controls_ViewVersion : VersionHistoryCon
             PageTemplateInstance inst = new PageTemplateInstance(xml);
             if (inst.WebPartZones.Count > 0)
             {
-                sb.Append(@"<a href=""#"" onclick=""versionExpandWebParts()"" id=""", isLeft ? "vWpLeftLink" : "vWpRightLink", "\">" + GetString("General.Expand") + "</a>");
-                sb.Append("<div style=\"display:none\" id=\"", isLeft ? "vWpLeft" : "vWpRight", "\">");
+                sb.Append(@"<a href=""#"" onclick=""versionExpandWebParts(this)"" class=""", isLeft ? "vWpLeftLink" : "vWpRightLink", "\">" + GetString("General.Expand") + "</a>");
+                sb.Append("<div style=\"display:none\" class=\"", isLeft ? "vWpLeft" : "vWpRight", "\">");
                 foreach (WebPartZoneInstance zone in inst.WebPartZones)
                 {
                     sb.Append("<b>Zone</b>: ", HTMLHelper.HTMLEncode(zone.ZoneID));

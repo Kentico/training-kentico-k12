@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-
-using CMS.Base.Web.UI;
-
-using System.Text;
 using System.Web.UI.WebControls;
 
 using CMS.Base;
+using CMS.Base.Web.UI;
 using CMS.Base.Web.UI.ActionsConfig;
 using CMS.CustomTables;
 using CMS.DataEngine;
@@ -199,6 +196,14 @@ public partial class CMSModules_Staging_Tools_Data_Tasks : CMSStagingTasksPage
     }
 
 
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+
+        pnlFooter.Visible = !gridTasks.IsEmpty;
+    }
+
+
     /// <summary>
     /// Executes given action asynchronously
     /// </summary>
@@ -229,14 +234,15 @@ public partial class CMSModules_Staging_Tools_Data_Tasks : CMSStagingTasksPage
         // There are some custom tables assigned to the site, get the data
         if (classesFound || !string.IsNullOrEmpty(objectType))
         {
-            ds = StagingTaskInfoProvider.SelectObjectTaskList(CurrentSiteID, SelectedServerID, objectType, mergedWhere.ToString(true), currentOrder, currentTopN, columns, currentOffset, currentPageSize, ref totalRecords);
+            var tasksQuery = StagingTaskInfoProvider.SelectObjectTaskList(CurrentSiteID, SelectedServerID, objectType, mergedWhere.ToString(true), currentOrder, currentTopN, columns, currentOffset, currentPageSize);
+            ds = tasksQuery.Result;
+            totalRecords = tasksQuery.TotalRecords;
         }
         else
         {
             totalRecords = -1;
         }
 
-        pnlFooter.Visible = (totalRecords > 0);
         return ds;
     }
 

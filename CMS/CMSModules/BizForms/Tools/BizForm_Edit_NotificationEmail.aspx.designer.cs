@@ -84,15 +84,6 @@ public partial class CMSModules_BizForms_Tools_BizForm_Edit_NotificationEmail {
     protected global::CMS.Base.Web.UI.CMSTextBox txtSubject;
     
     /// <summary>
-    /// pnlAttachDocs control.
-    /// </summary>
-    /// <remarks>
-    /// Auto-generated field.
-    /// To modify move field declaration from designer file to code-behind file.
-    /// </remarks>
-    protected global::System.Web.UI.WebControls.Panel pnlAttachDocs;
-    
-    /// <summary>
     /// lblAttachDocs control.
     /// </summary>
     /// <remarks>

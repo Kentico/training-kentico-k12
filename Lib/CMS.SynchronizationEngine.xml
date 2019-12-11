@@ -718,6 +718,20 @@
             Removes tasks that were processed by current instance.
             </summary>
         </member>
+        <member name="M:CMS.Synchronization.StagingTaskRunner.DeleteSynchronizationInfos(System.Collections.Generic.ICollection{System.Int32},System.Int32,System.Int32)">
+            <summary>
+            This method was created to prevent breaking changes in API during hotfix.
+            It duplicates method <see cref="M:CMS.Synchronization.SynchronizationInfoProvider.DeleteSynchronizationInfos(System.Collections.Generic.ICollection{System.Int32},System.Int32,System.Int32)"/>,
+            with additional where condition to prevent the deletion of failed syncronization records.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.StagingTaskRunner.DeleteInstanceGlobalTasks(System.Collections.Generic.ICollection{System.Int32},CMS.Synchronization.ServerInfo)">
+            <summary>
+            This method was created to prevent breaking changes in API during hotfix.
+            It duplicates method <see cref="M:CMS.Synchronization.SynchronizationInfoProvider.DeleteInstanceGlobalTasks(System.Collections.Generic.ICollection{System.Int32},CMS.Synchronization.ServerInfo)"/>,
+            with additional where condition to prevent the deletion of failed syncronization records.
+            </summary>
+        </member>
         <member name="M:CMS.Synchronization.StagingTaskRunner.RunSynchronization(CMS.Synchronization.StagingTaskInfo,CMS.Synchronization.SynchronizationInfo,System.Boolean)">
             <summary>
             Runs the task synchronization for specified server.
@@ -733,9 +747,9 @@
             <param name="task">Task data</param>
             <param name="taskSync">Task synchronization info</param>
         </member>
-        <member name="M:CMS.Synchronization.StagingTaskRunner.LogSynchronizationError(CMS.Synchronization.StagingTaskInfo,CMS.Synchronization.SynchronizationInfo,System.String)">
+        <member name="M:CMS.Synchronization.StagingTaskRunner.UpdateSynchronizationErrorMessage(CMS.Synchronization.StagingTaskInfo,CMS.Synchronization.SynchronizationInfo,System.String)">
             <summary>
-            Logs the synchronization error.
+            Updates the synchronization error message according to the <paramref name="result"/>.
             </summary>
             <param name="task">Task</param>
             <param name="taskSync">Task synchronization info</param>
@@ -1093,6 +1107,11 @@
             <param name="aliasesTable">Aliases table</param>
             <param name="th">Translation helper</param>
         </member>
+        <member name="M:CMS.Synchronization.SyncManager.UpdateAlternativeUrls(System.Data.DataSet,CMS.DocumentEngine.TreeNode,CMS.DataEngine.TranslationHelper)">
+            <summary>
+            Updates the alternative urls during synchronization.
+            </summary>
+        </member>
         <member name="M:CMS.Synchronization.SyncManager.TranslateNodeColumns(CMS.DocumentEngine.TreeNode,CMS.DataEngine.TranslationHelper)">
             <summary>
             Translates given node columns using data from helper.
@@ -1248,6 +1267,24 @@
             Process synchronization task optionally with children
             </summary>
             <param name="parameters">Parameters array</param>
+        </member>
+        <member name="T:CMS.Synchronization.AlternativeUrlSynchronizationManager">
+            <summary>
+            Support for synchronization of alternative url objects.
+            </summary>
+        </member>
+        <member name="M:CMS.Synchronization.AlternativeUrlSynchronizationManager.#ctor(CMS.Synchronization.ISyncManager,CMS.DocumentEngine.TreeNode,CMS.DataEngine.TranslationHelper)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.Synchronization.AlternativeUrlSynchronizationManager"/>.
+            </summary>
+            <param name="syncManager">Implementation of <see cref="T:CMS.Synchronization.ISyncManager"/>.</param>
+            <param name="treeNode">Synchronized document, parent of alternative urls.</param>
+            <param name="translationHelper">Translation helper used in current synchronization.</param>
+        </member>
+        <member name="M:CMS.Synchronization.AlternativeUrlSynchronizationManager.Synchronize(System.Collections.Generic.ICollection{CMS.DocumentEngine.AlternativeUrlInfo})">
+            <summary>
+            Runs synchronization for given <paramref name="alternativeUrls"/>.
+            </summary>
         </member>
         <member name="T:CMS.Synchronization.AttachmentSynchronizationManager">
             <summary>

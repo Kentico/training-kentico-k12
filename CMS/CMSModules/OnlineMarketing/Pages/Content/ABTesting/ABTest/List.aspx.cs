@@ -5,6 +5,7 @@ using CMS.FormEngine.Web.UI;
 using CMS.Helpers;
 using CMS.Membership;
 using CMS.OnlineMarketing.Web.UI;
+using CMS.SiteProvider;
 using CMS.UIControls;
 
 
@@ -13,9 +14,10 @@ using CMS.UIControls;
 public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_List : CMSABTestPage
 {
     /// <summary>
-    /// Smart tip identifier. If this smart tip is collapsed, this ID is stored in DB.
+    /// Smart tip identifiers. If this smart tip is collapsed, this ID is stored in DB.
     /// </summary>
     private const string SMART_TIP_IDENTIFIER = "howtovideo|abtest|listing";
+    private const string SMART_TIP_IDENTIFIER_MVC = "howtovideo|abtest|mvclisting";
 
 
     /// <summary>
@@ -38,6 +40,8 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_L
     {
         base.OnInit(e);
 
+        ucDisabledModule.TestSettingKeys = SiteContext.CurrentSite.SiteIsContentOnly ? "CMSABTestingEnabled" : "CMSAnalyticsEnabled;CMSABTestingEnabled";
+
         EditInDialog = QueryHelper.GetBoolean("editindialog", false);
     }
 
@@ -57,7 +61,7 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_L
     /// </summary>
     private void InitHeaderActions()
     {
-        if (MembershipContext.AuthenticatedUser.IsAuthorizedPerUIElement("CMS.ABTest", "New"))
+        if (!SiteContext.CurrentSite.SiteIsContentOnly && MembershipContext.AuthenticatedUser.IsAuthorizedPerUIElement("CMS.ABTest", "New"))
         {
             string url = UIContextHelper.GetElementUrl("CMS.ABTest", "New", EditInDialog);
 
@@ -103,19 +107,28 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_L
 
 
     /// <summary>
-    /// Init the smart tip with the how to video.
+    /// Initialize the smart tip with the how to video.
     /// Shows how to video.
     /// </summary>
     private void InitSmartTip()
-    {      
-        var linkBuilder = new MagnificPopupYouTubeLinkBuilder();
-        var linkID = Guid.NewGuid().ToString();
-        var link = linkBuilder.GetLink("2wU7rNzC95w", linkID, GetString("abtesting.howto.howtosetupabtest.link"));
-             
-        new MagnificPopupYouTubeJavaScriptRegistrator().RegisterMagnificPopupElement(this, linkID);
-
-        tipHowToListing.CollapsedStateIdentifier = SMART_TIP_IDENTIFIER;
-        tipHowToListing.Content = string.Format("{0} {1}", GetString("abtesting.howto.howtosetupabtest.text"), link);
+    {
         tipHowToListing.ExpandedHeader = GetString("abtesting.howto.howtosetupabtest.title");
+
+        if (SiteContext.CurrentSite.SiteIsContentOnly)
+        {
+            tipHowToListing.CollapsedStateIdentifier = SMART_TIP_IDENTIFIER_MVC;
+            tipHowToListing.Content = String.Format(GetString("abtesting.howto.howtosetupabtestmvc.text"), DocumentationHelper.GetDocumentationTopicUrl("ab_testing_mvc"));
+        }
+        else
+        {
+            var linkBuilder = new MagnificPopupYouTubeLinkBuilder();
+            var linkID = Guid.NewGuid().ToString();
+            var link = linkBuilder.GetLink("2wU7rNzC95w", linkID, GetString("abtesting.howto.howtosetupabtest.link"));
+
+            new MagnificPopupYouTubeJavaScriptRegistrator().RegisterMagnificPopupElement(this, linkID);
+
+            tipHowToListing.CollapsedStateIdentifier = SMART_TIP_IDENTIFIER;
+            tipHowToListing.Content = String.Format("{0} {1}", GetString("abtesting.howto.howtosetupabtest.text"), link);
+        }
     }
 }

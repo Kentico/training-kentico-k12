@@ -25,6 +25,7 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInLogon : CMSAbstract
     #region "Variables"
 
     private LinkedInHelper linkedInHelper;
+    private LinkedInProfile mLinkedInProfile;
     private IMembershipActivityLogger mMembershipActivityLogger;
 
     #endregion
@@ -96,6 +97,18 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInLogon : CMSAbstract
         set
         {
             SetValue("LastName", value);
+        }
+    }
+
+
+    /// <summary>
+    /// Space delimited list of member permissions the application is requesting on behalf of the user.
+    /// </summary>
+    public string Scope
+    {
+        get
+        {
+            return SettingsKeyInfoProvider.GetValue("CMSLinkedInSignInPermissionScope", SiteContext.CurrentSiteID);
         }
     }
 
@@ -339,12 +352,12 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInLogon : CMSAbstract
         string currentUrl = LinkedInHelper.GetPurifiedUrl().ToString();
 
         // Get LinkedIn response status
-        switch (linkedInHelper.CheckStatus(RequireFirstName, RequireLastName, RequireBirthDate, null))
+        switch (linkedInHelper.CheckStatus(RequireFirstName, RequireLastName, RequireBirthDate, out mLinkedInProfile))
         {
             // User is authenticated
             case LinkedInHelper.RESPONSE_AUTHENTICATED:
                 // LinkedIn profile Id not found  = save new user
-                if (UserInfoProvider.GetUserInfoByLinkedInID(linkedInHelper.MemberId) == null)
+                if (UserInfoProvider.GetUserInfoByLinkedInID(mLinkedInProfile.Id) == null)
                 {
                     string additionalInfoPage = SettingsKeyInfoProvider.GetValue(siteName + ".CMSRequiredLinkedInPage").Trim();
 
@@ -352,14 +365,15 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInLogon : CMSAbstract
                     if (String.IsNullOrEmpty(additionalInfoPage))
                     {
                         // Register new user
-                        UserInfo ui = AuthenticationHelper.AuthenticateLinkedInUser(linkedInHelper.MemberId, linkedInHelper.FirstName, linkedInHelper.LastName, siteName, true, true, ref error);
+                        UserInfo ui = AuthenticationHelper.AuthenticateLinkedInUser(mLinkedInProfile.Id, mLinkedInProfile.LocalizedFirstName, mLinkedInProfile.LocalizedLastName, siteName, true, true, ref error);
 
                         // If user was successfully created
                         if (ui != null)
                         {
-                            if (linkedInHelper.BirthDate != DateTimeHelper.ZERO_TIME)
+                            var birthDate = mLinkedInProfile.BirthDate?.ToDateTime();
+                            if (birthDate != null && birthDate.Value != DateTimeHelper.ZERO_TIME)
                             {
-                                ui.UserSettings.UserDateOfBirth = linkedInHelper.BirthDate;
+                                ui.UserSettings.UserDateOfBirth = birthDate.Value;
                             }
 
                             UserInfoProvider.SetUserInfo(ui);
@@ -407,9 +421,11 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInLogon : CMSAbstract
                     // Additional information page is set
                     else
                     {
-                        // Store user object in session for additional use
-                        string response = (linkedInHelper.LinkedInResponse != null) ? linkedInHelper.LinkedInResponse.OuterXml : null;
-                        SessionHelper.SetValue(SESSION_NAME_USERDATA, response);
+                        // Store LinkedIn profile in session for additional use
+                        if (mLinkedInProfile != null)
+                        {
+                            SessionHelper.SetValue(SESSION_NAME_USERDATA, mLinkedInProfile);
+                        }
 
                         // Redirect to additional info page
                         string targetURL = URLHelper.GetAbsoluteUrl(additionalInfoPage);
@@ -426,7 +442,7 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInLogon : CMSAbstract
                 else
                 {
                     // Login existing user
-                    UserInfo ui = AuthenticationHelper.AuthenticateLinkedInUser(linkedInHelper.MemberId, linkedInHelper.FirstName, linkedInHelper.LastName, siteName, false, true, ref error);
+                    UserInfo ui = AuthenticationHelper.AuthenticateLinkedInUser(mLinkedInProfile.Id, mLinkedInProfile.LocalizedFirstName, mLinkedInProfile.LocalizedLastName, siteName, false, true, ref error);
 
                     if ((ui != null) && (ui.Enabled))
                     {
@@ -546,6 +562,7 @@ public partial class CMSWebParts_Membership_LinkedIn_LinkedInLogon : CMSAbstract
         var apiKey = LinkedInHelper.GetLinkedInApiKey(CurrentSiteName);
         var apiSecret = LinkedInHelper.GetLinkedInSecretKey(CurrentSiteName);
         var data = new LinkedInData(apiKey, apiSecret);
+        data.AdditionalQueryParameters["scope"] = Scope;
 
         linkedInHelper.SendRequest(data);
     }

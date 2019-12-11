@@ -3807,6 +3807,40 @@
             </summary>
             <returns>True, if current request comes from the crawler; otherwise, false</returns>
         </member>
+        <member name="T:CMS.Helpers.Internal.CryptoHelper">
+            <summary>
+            Encapsulates cryptography helper methods.
+            </summary>
+        </member>
+        <member name="M:CMS.Helpers.Internal.CryptoHelper.GetHashAlgorithm">
+            <summary>
+            Gets default hash algorithm.
+            </summary>
+            <returns>Instance of default hash algorithm.</returns>
+            <remarks>
+            A new instance of hash algorithm is created upon each method call (i.e. you should dispose the instance
+            when no longer needed).
+            </remarks>
+        </member>
+        <member name="M:CMS.Helpers.Internal.CryptoHelper.BytesToHexa(System.Byte[],System.Nullable{System.Int32})">
+            <summary>
+            Converts byte array to string of hexadecimal digits (each byte is represented by 2 digits).
+            The length of the string is truncated to <paramref name="truncateToLength"/>, if specified.
+            No boundary check is performed.
+            </summary>
+            <param name="data">Byte array to be converted to hexadecimal digits string.</param>
+            <param name="truncateToLength">If specified, the resulting hexadecimal digits string is truncated to given length. Full length is taken by default.</param>
+            <returns>Bytes of <paramref name="data"/> array converted to hexadecimal string, optionally truncated to specified length.</returns>
+            <seealso cref="M:CMS.Helpers.Internal.CryptoHelper.HexaToBytes(System.String)"/>
+        </member>
+        <member name="M:CMS.Helpers.Internal.CryptoHelper.HexaToBytes(System.String)">
+            <summary>
+            Converts string of hexadecimal digits (each byte is represented by 2 digits) to a byte array.
+            </summary>
+            <param name="hexaString">Hexadecimal string to be converted to a byte array.</param>
+            <returns>Byte array converted from <paramref name="hexaString"/>.</returns>
+            <seealso cref="M:CMS.Helpers.Internal.CryptoHelper.HexaToBytes(System.String)"/>
+        </member>
         <member name="T:CMS.Helpers.HTTPHelper">
             <summary>
             Provides the methods for the safe access to the HTTPContext.
@@ -4655,6 +4689,12 @@
             Custom theme name.
             </summary>
         </member>
+        <member name="P:CMS.Helpers.URLHelper.Host">
+            <summary>
+            Application's host without port. Is to be used for customizing host in case of having application behind a proxy.
+            Can be set via AppSettings's key 'CMSUrlHost'. Front-end application is to be customized by 'SitePresentationUrl'.
+            </summary>
+        </member>
         <member name="P:CMS.Helpers.URLHelper.UrlPort">
             <summary>
             Application's URL port.
@@ -5375,7 +5415,7 @@
         </member>
         <member name="F:CMS.Helpers.VirtualContext.ADMINISTRATION_DOMAIN_PARAMETER">
             <summary>
-            Query string parameter that holds administration domain
+            Query string parameter that holds administration url (scheme + domain + appPath)
             </summary>
         </member>
         <member name="F:CMS.Helpers.VirtualContext.mVirtualContextPrefix">
@@ -11020,18 +11060,13 @@
             <param name="msg">Message</param>
             <param name="className">CSS class</param>
         </member>
-        <member name="M:CMS.Helpers.HTMLHelper.UnResolveUrls(System.String,System.String)">
+        <member name="M:CMS.Helpers.HTMLHelper.UnResolveUrls(System.String,System.String,System.Func{System.String,System.String})">
             <summary>
-            Unresolve relative URI if used in "src=" or "href=" or "background=" or "url(".
+            Unresolves relative URI if used in "src=" or "href=" or "background=" or "url(".
             </summary>
-            <param name="mHtml">HTML code</param>
-            <param name="applicationPath">Application path</param>
-        </member>
-        <member name="M:CMS.Helpers.HTMLHelper.UnResolveUri(System.Text.RegularExpressions.Match)">
-            <summary>
-            Unresolves the given URL.
-            </summary>
-            <param name="m">URL match</param>
+            <param name="mHtml">HTML code.</param>
+            <param name="applicationPath">Application path.</param>
+            <param name="pathModifier">Method that is called after each of the local path is unresolved. Input parameter format: "~/relativePath?query=.."</param>
         </member>
         <member name="M:CMS.Helpers.HTMLHelper.ResolveUrls(System.String,System.String,System.Boolean)">
             <summary>
@@ -11352,6 +11387,44 @@
             Match evaluator for FixUrl regex replacement.
             </summary>
             <param name="match">Match</param>
+        </member>
+        <member name="T:CMS.Helpers.RichTextLinksConverter">
+            <summary>
+            Converts local links in a rich text HTML to a relative form.
+            </summary>
+            <remarks>
+            Replaces all links in the format "/applicationPath/xxx*" to "~/xxx*". 
+            External link modification is available via the <see cref="M:CMS.Helpers.RichTextLinksConverter.#ctor(System.String,System.Func{System.String,System.String})"/>.
+            </remarks>
+        </member>
+        <member name="F:CMS.Helpers.RichTextLinksConverter.pathModifier">
+            <summary>
+            Function that is called after each of the absolute URL paths is unresolved.
+            </summary>
+        </member>
+        <member name="F:CMS.Helpers.RichTextLinksConverter.linksRegex">
+            <summary>
+            The regular expression that searches for all local links (absolute path without a domain).
+            </summary>
+        </member>
+        <member name="M:CMS.Helpers.RichTextLinksConverter.#ctor(System.String,System.Func{System.String,System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.Helpers.RichTextLinksConverter"/> class.
+            </summary>
+            <param name="applicationPath">The application path of links to be unresolved</param>
+            <param name="pathModifier">Function that is called after each of the absolute URL paths is unresolved.</param>
+        </member>
+        <member name="M:CMS.Helpers.RichTextLinksConverter.Unresolve(System.String)">
+            <summary>
+            Unresolves URL paths in the given <paramref name="html"/> if used in "src=" or "href=" or "background=" or "url(" HTML attributes.
+            </summary>
+            <param name="html">HTML code to unresolve.</param>
+        </member>
+        <member name="M:CMS.Helpers.RichTextLinksConverter.GetLinksRegex(System.String)">
+            <summary>
+            Gets a regular expression that searches for all local links (absolute path without a domain).
+            </summary>
+            <param name="applicationPath">The application path.</param>
         </member>
         <member name="T:CMS.Helpers.WebLanguagesContext">
             <summary>
@@ -11749,15 +11822,15 @@
         </member>
         <member name="M:CMS.Helpers.XElementExtensions.GetElement(System.Xml.Linq.XElement,System.String)">
             <summary>
-            Gets the child element of <paramref name="element"/> element given by <paramref name="elementName"/>. 
-            Ignores case in element name and defined namespace. 
+            Gets the child element of <paramref name="element"/> element given by <paramref name="elementName"/>.
+            Ignores case in element name and defined namespace.
             </summary>
             <param name="element">Source XML element</param>
             <param name="elementName">Element name</param>
         </member>
         <member name="M:CMS.Helpers.XElementExtensions.GetElements(System.Xml.Linq.XElement,System.String)">
             <summary>
-            Gets the child elements from <paramref name="element"/> source XML data given by <paramref name="elementName"/>. 
+            Gets the child elements from <paramref name="element"/> source XML data given by <paramref name="elementName"/>.
             Ignores case in element name and defined namespace.
             </summary>
             <param name="element">Source XML element</param>
@@ -11765,7 +11838,7 @@
         </member>
         <member name="M:CMS.Helpers.XElementExtensions.GetAttribute(System.Xml.Linq.XElement,System.String)">
             <summary>
-            Gets the attribute of <paramref name="element"/> element given by <paramref name="attributeName"/>. 
+            Gets the attribute of <paramref name="element"/> element given by <paramref name="attributeName"/>.
             Ignores case in attribute name and defined namespace.
             </summary>
             <param name="element">Source XML element</param>
@@ -11774,7 +11847,7 @@
         <member name="M:CMS.Helpers.XElementExtensions.GetAttributeValue``1(System.Xml.Linq.XElement,System.String,``0)">
             <summary>
             Gets the attribute value of <typeparamref name="T"/> type of <paramref name="element"/> element given by <paramref name="attributeName"/>.
-            If no attribute is found or source data are not provided returns <paramref name="defaultValue"/> default value. 
+            If no attribute is found or source data are not provided returns <paramref name="defaultValue"/> default value.
             Ignores case in attribute name and defined namespace.
             </summary>
             <remarks>This method doesn't work with nullable types such as bool? or int?</remarks>
@@ -11786,7 +11859,7 @@
         <member name="M:CMS.Helpers.XElementExtensions.GetAttributeStringValue(System.Xml.Linq.XElement,System.String,System.String)">
             <summary>
             Gets the attribute value as string type from <paramref name="element"/> source data given by <paramref name="attributeName"/>.
-            If no attribute is found or source data are not provided returns <paramref name="defaultValue"/> default value. 
+            If no attribute is found or source data are not provided returns <paramref name="defaultValue"/> default value.
             Ignores case in attribute name and defined namespace.
             </summary>
             <param name="element">Source XML element</param>

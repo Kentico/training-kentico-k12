@@ -222,6 +222,12 @@
   <data name="kentico.pagebuilder.widget.propertiesButtonTooltip" xml:space="preserve">
     <value>Configure widget</value>
   </data>
+  <data name="kentico.pagebuilder.section.propertiesButtonTooltip" xml:space="preserve">
+    <value>Configure section</value>
+  </data>
+  <data name="kentico.pagebuilder.template.propertiesbuttontooltip" xml:space="preserve">
+    <value>Configure template</value>
+  </data>
   <data name="kentico.pagebuilder.variant.edit" xml:space="preserve">
     <value>Edit variant</value>
   </data>
@@ -259,9 +265,6 @@ Press OK to continue or Cancel to stay on the current page.</value>
   <data name="kentico.pagebuilder.conditiontype.missingVariantName" xml:space="preserve">
     <value>Variant name wasn't found in form POST data.</value>
   </data>
-  <data name="kentico.pagebuilder.widgetproperties.validationsummary" xml:space="preserve">
-    <value>Validation error: Check the form for more details.</value>
-  </data>
   <data name="kentico.pagebuilder.variant.drag.tooltip" xml:space="preserve">
     <value>Change priority</value>
   </data>
@@ -270,5 +273,22 @@ Press OK to continue or Cancel to stay on the current page.</value>
   </data>
   <data name="kentico.pagebuilder.defaultsection.description" xml:space="preserve">
     <value>Page builder built-in section.</value>
+  </data>
+  <data name="kentico.pagebuilder.template.change" xml:space="preserve">
+    <value>Change template</value>
+  </data>
+  <data name="kentico.pagebuilder.template.changebuttontooltip" xml:space="preserve">
+    <value>Change template</value>
+  </data>
+  <data name="kentico.pagebuilder.template.changeInfoMessage" xml:space="preserve">
+    <value>You can now select a new template for your page. Note that changing the template may result in loss of your widget data.&lt;br&gt;
+                    &lt;a href="{0}" target="_blank"&gt;Read more about page templates in our documentation&lt;/a&gt;</value>
+  </data>
+  <data name="kentico.pagebuilder.template.change.confirmation" xml:space="preserve">
+    <value>Are you sure you want to change the page template?
+
+All page content, i.e. widgets and sections with their data and properties, will be lost.
+
+Press OK to continue or Cancel to keep this template.</value>
   </data>
 </root>

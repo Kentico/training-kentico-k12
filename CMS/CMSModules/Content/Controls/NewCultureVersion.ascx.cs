@@ -25,7 +25,7 @@ public partial class CMSModules_Content_Controls_NewCultureVersion : CMSUserCont
 
 
     #region "Properties"
-    
+
 
     /// <summary>
     /// Gets and sets the target culture code.
@@ -131,7 +131,7 @@ public partial class CMSModules_Content_Controls_NewCultureVersion : CMSUserCont
         {
             return;
         }
-        
+
         // Fill in the existing culture versions
         bool translationAllowed = SettingsKeyInfoProvider.GetBoolValue(Node.NodeSiteName + ".CMSEnableTranslations") && LicenseHelper.IsFeatureAvailableInUI(FeatureEnum.TranslationServices, ModuleName.TRANSLATIONSERVICES);
         if (translationAllowed)
@@ -204,7 +204,7 @@ public partial class CMSModules_Content_Controls_NewCultureVersion : CMSUserCont
     #region "Control events"
 
     /// <summary>
-    /// Creates new culture version of object. 
+    /// Creates new culture version of object.
     /// </summary>
     protected void btnCreateDocument_Click(object sender, EventArgs e)
     {
@@ -220,7 +220,11 @@ public partial class CMSModules_Content_Controls_NewCultureVersion : CMSUserCont
                 {
                     // Create the version first
                     TreeNode newCulture = TreeNode.New(Node.ClassName);
-                    DocumentHelper.CopyNodeData(sourceNode, newCulture, new CopyNodeDataSettings(true, null) { ResetChanges = true });
+
+                    // The 'DocumentABTestConfiguration' is excluded from copying node to another culture as A/B test is linked to the culture specific node
+                    var excludedColumns = new[] { "DocumentABTestConfiguration" };
+
+                    DocumentHelper.CopyNodeData(sourceNode, newCulture, new CopyNodeDataSettings(true, excludedColumns) { ResetChanges = true});
 
                     if (string.Equals(Node.ClassName, "cms.blogpost", StringComparison.InvariantCultureIgnoreCase))
                     {
@@ -242,7 +246,7 @@ public partial class CMSModules_Content_Controls_NewCultureVersion : CMSUserCont
                     }
                     catch (Exception ex)
                     {
-                        // Catch possible exceptions 
+                        // Catch possible exceptions
                         LogAndShowError("Content", "NEWCULTUREVERSION", ex);
                         return;
                     }
@@ -422,9 +426,9 @@ function ShowSelection() {
     }
 }
 
-function FramesRefresh(selectNodeId, mode) { 
-    parent.RefreshTree(selectNodeId, selectNodeId); 
-    parent.SelectNode(selectNodeId); 
+function FramesRefresh(selectNodeId, mode) {
+    parent.RefreshTree(selectNodeId, selectNodeId);
+    parent.SelectNode(selectNodeId);
 }
 ");
 

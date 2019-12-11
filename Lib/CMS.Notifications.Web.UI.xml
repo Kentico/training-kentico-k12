@@ -730,7 +730,7 @@
         <member name="M:CMS.Notifications.Web.UI.NotificationSubscriptionInfoProvider.GetNotificationSubscriptions">
             <summary>
             Returns the query for all notification subscriptions.
-            </summary>   
+            </summary>
         </member>
         <member name="M:CMS.Notifications.Web.UI.NotificationSubscriptionInfoProvider.GetNotificationSubscriptionInfo(System.Int32)">
             <summary>

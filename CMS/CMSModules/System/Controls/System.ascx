@@ -86,7 +86,7 @@
                         <asp:Label CssClass="form-control-text" ID="lblServerNameValue" runat="server" />
                     </div>
                 </div>
-                <asp:PlaceHolder ID="plcSeparatedServerName" runat="server" EnableViewState="false">
+                <asp:PlaceHolder ID="plcSeparatedServerName" runat="server">
                     <div class="form-group">
                         <div class="editing-form-value-cell-offset">
                             <asp:Label CssClass="form-control-text" ID="lblSeparatedServerName" runat="server" />
@@ -113,7 +113,7 @@
                         <asp:Label CssClass="control-label" ID="lblDBName" runat="server" EnableViewState="false" AssociatedControlID="lblDBNameValue" />
                     </div>
                     <div class="editing-form-value-cell">
-                        <asp:Label CssClass="form-control-text" ID="lblDBNameValue" runat="server" EnableViewState="false" />
+                        <asp:Label CssClass="form-control-text" ID="lblDBNameValue" runat="server" />
                     </div>
                 </div>
                 <asp:PlaceHolder ID="plcSeparatedName" runat="server">

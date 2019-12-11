@@ -1652,7 +1652,8 @@ function imageEdit_Refresh(guid){{
             {
                 if (!isNewFolder)
                 {
-                    folderToCheck = String.Format("{0}/{1}", GetFolderPath(StartingPath.TrimEnd('/')), folderPath);
+                    var startingFolderPath = GetFolderPath(StartingPath.TrimEnd('/'));
+                    folderToCheck = string.IsNullOrEmpty(startingFolderPath) ? folderPath : $"{startingFolderPath}/{folderPath}";
                 }
             }
         }

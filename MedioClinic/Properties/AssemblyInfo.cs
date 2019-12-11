@@ -1,10 +1,6 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-using CMS;
-
-[assembly: AssemblyDiscoverable]
-
 [assembly: AssemblyTitle("MedioClinic")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]

@@ -127,11 +127,11 @@ public partial class CMSModules_AdminControls_Controls_UIControls_GeneralSelecto
     {
         get
         {
-            return GetStringContextValue("OrderBy", null);
+            return GetStringContextValue("SelectorOrderBy", null);
         }
         set
         {
-            ViewState["OrderBy"] = value;
+            SetValue("SelectorOrderBy", value);
         }
     }
 
@@ -845,6 +845,7 @@ public partial class CMSModules_AdminControls_Controls_UIControls_GeneralSelecto
             selectorElem.SelectionMode = SelectionMode;
             selectorElem.AdditionalColumns = AdditionalColumns;
             selectorElem.WhereCondition = WhereCondition;
+            selectorElem.OrderBy = OrderBy;
             selectorElem.EnabledColumnName = EnabledColumnName;
             selectorElem.ValuesSeparator = ValuesSeparator;
             selectorElem.AllowEditTextBox = AllowEditTextBox;

@@ -13,10 +13,10 @@ using CMS.DataEngine;
 using CMS.DocumentEngine;
 using CMS.Helpers;
 using CMS.OnlineMarketing;
+using CMS.OnlineMarketing.Internal;
 using CMS.OnlineMarketing.Web.UI;
 using CMS.SiteProvider;
 using CMS.UIControls;
-using CMS.WebAnalytics;
 
 using Newtonsoft.Json;
 
@@ -31,7 +31,7 @@ using Action = CMS.UIControls.UniGridConfig.Action;
 [Security(Resource = "CMS.ABTest", UIElements = "Overview")]
 [Security(Resource = "CMS.ABTest", UIElements = "Detail")]
 [UIElement("CMS.ABTest", "Overview")]
-public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_Overview : CMSABTestPage
+public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_Overview : CMSABTestOverviewPage
 {
     #region "Variables"
 
@@ -59,36 +59,6 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
     private ABVariantInfo mOriginalVariant;
 
 
-    /// <summary>
-    /// AB Variant performance calculator.
-    /// </summary>
-    private IABVariantPerformanceCalculator mVariantPerformanceCalculator;
-
-
-    /// <summary>
-    /// The minimum lower bound of the conversion rate intervals for the test.
-    /// </summary>
-    private double mMinConversionRateLowerBound;
-
-
-    /// <summary>
-    /// The difference between the minimum lower bound and the maximum upper bound values for the test.
-    /// </summary>
-    private double mConversionRateRange;
-
-
-    /// <summary>
-    /// Class that writes info messages into the page.
-    /// </summary>
-    private ABTestMessagesWriter mMessagesWriter;
-
-
-    /// <summary>
-    /// Indicates whether the user is authorized to manage the test.
-    /// </summary>
-    private bool? mIsUserAuthorizedToManageTest;
-
-
     private string mDrpConversionsValue, mDrpCultureValue;
 
 
@@ -103,92 +73,14 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
     #region "Constants"
 
     /// <summary>
-    /// Max length of a link that is in the upper right box - long links can break that table.
-    /// </summary>
-    private const int MAX_LINK_LENGTH = 22;
-
-
-    /// <summary>
-    /// Minimum of conversions to mark a variant as winning.
-    /// </summary>
-    private const int WINNING_VARIANT_MIN_CONVERSIONS = 25;
-
-
-    /// <summary>
-    /// Minimum chance to beat to mark a variant as winning.
-    /// </summary>
-    private const double WINNING_VARIANT_MIN_CHANCETOBEAT = 0.95d;
-
-
-    /// <summary>
-    /// Relative path to show advanced filters image.
-    /// </summary>
-    protected const string SHOW_FILTERS_IMAGE = "Design/Controls/UniGrid/Actions/SortDown.png";
-
-
-    /// <summary>
-    /// Relative path to hide advanced filters image.
-    /// </summary>
-    protected const string HIDE_FILTERS_IMAGE = "Design/Controls/UniGrid/Actions/SortUp.png";
-
-
-    /// <summary>
-    /// Resource string of the show advanced filters text.
-    /// </summary>
-    protected const string SHOW_FILTERS_TEXT = "abtesting.showfilters";
-
-
-    /// <summary>
-    /// Resource string of the hide advanced filters text.
-    /// </summary>
-    protected const string HIDE_FILTERS_TEXT = "abtesting.hidefilters";
-
-
-    /// <summary>
     /// Smart tip identifier. If this smart tip is collapsed, this ID is stored in DB.
     /// </summary>
     private const string SMART_TIP_IDENTIFIER = "howtovideo|abtest|overview";
-
-
-    /// <summary>
-    /// Names of sampling selector actions.
-    /// </summary>
-    protected string[] samplingActions = { "day", "week", "month" };
-
-
-    /// <summary>
-    /// Names of data format selector actions.
-    /// </summary>
-    protected string[] dataFormatActions = { "cumulative", "daywise" };
 
     #endregion
 
 
     #region "Properties"
-
-    /// <summary>
-    /// Current AB test.
-    /// </summary>
-    private ABTestInfo ABTest
-    {
-        get
-        {
-            return ABTestInfoProvider.GetABTestInfo(QueryHelper.GetInteger("objectid", 0));
-        }
-    }
-
-
-    /// <summary>
-    /// Status of the current test.
-    /// </summary>
-    private ABTestStatusEnum TestStatus
-    {
-        get
-        {
-            return ABTestStatusEvaluator.GetStatus(ABTest);
-        }
-    }
-
 
     /// <summary>
     /// Variants of the current AB test.
@@ -277,48 +169,6 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
         }
     }
 
-
-    /// <summary>
-    /// Gets class that writes info messages into the page.
-    /// </summary>
-    private ABTestMessagesWriter MessagesWriter
-    {
-        get
-        {
-            return mMessagesWriter ?? (mMessagesWriter = new ABTestMessagesWriter(ShowMessage));
-        }
-    }
-
-
-    /// <summary>
-    /// Gets key of the cookie saving important selectors' state.
-    /// </summary>
-    protected string SelectorsCookieKey
-    {
-        get
-        {
-            return CookieName.ABSelectorStatePrefix + ABTest.ABTestName;
-        }
-    }
-
-
-    /// <summary>
-    /// Indicates whether the user is authorized to finish the test.
-    /// </summary>
-    private bool IsUserAuthorizedToManageTest
-    {
-        get
-        {
-            if (!mIsUserAuthorizedToManageTest.HasValue)
-            {
-                SiteInfo site = SiteInfoProvider.GetSiteInfo(ABTest.ABTestSiteID);
-                mIsUserAuthorizedToManageTest = CurrentUser.IsAuthorizedPerResource("CMS.ABTest", "Manage", site.SiteName);
-            }
-
-            return mIsUserAuthorizedToManageTest.Value;
-        }
-    }
-
     #endregion
 
 
@@ -331,7 +181,8 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
             RedirectToInformation(GetString("general.incorrectURLparams"));
         }
 
-        InitRadioPanelButtons();
+        InitSamplingButtons(samplingElem);
+        InitGraphDataButtons(graphDataElem);
     }
 
 
@@ -343,6 +194,7 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
         MessagesWriter.ShowMissingVariantsTranslationsWarning(ABTest);
 
         ScriptHelper.RegisterDialogScript(Page);
+        EnsureModuleRegistration();
         InitializeSelectors();
         InitSmartTip();
 
@@ -363,7 +215,7 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
         }
 
         EnsureVariantsStatisticsData();
-        if (DataAvailable())
+        if (DataAvailable(VariantsStatisticsData.Values, drpSuccessMetric.SelectedValue))
         {
             // Add class to the report because graph with data requires special positioning
             // Show all information after graph do postback
@@ -419,6 +271,8 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
 
         // OnPreRender because test status can be changed later, not only in the Load event
         InitHeaderActions();
+
+        ScriptHelper.RegisterScriptFile(Page, "DesignMode/PortalManager.js");
     }
 
 
@@ -494,10 +348,10 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
                 }
                 break;
 
-            case "conversionsovervisits":
+            case METRIC_CONVERSIONS_OVER_VISITS:
                 return variantData.ConversionsCount + " / " + variantData.Visits;
 
-            case "chancetobeatoriginal":
+            case METRIC_CHANCE_TO_BEAT_ORIGINAL:
                 if ((currentVariantName != OriginalVariant.ABVariantName) && (VariantPerformanceCalculator != null) && (variantData.Visits > 0))
                 {
                     double chanceToBeatOriginal = VariantPerformanceCalculator.GetChanceToBeatOriginal(variantData.ConversionsCount, variantData.Visits);
@@ -512,7 +366,7 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
                 }
                 break;
 
-            case "conversionrate":
+            case METRIC_CONVERSION_RATE:
                 if ((VariantPerformanceCalculator != null) && (variantData.Visits > 0)
                     && ABConversionRateIntervals.ContainsKey(currentVariantName) && ABConversionRateIntervals.ContainsKey(OriginalVariant.ABVariantName))
                 {
@@ -522,10 +376,10 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
                 }
                 break;
 
-            case "conversionvalue":
+            case METRIC_CONVERSION_VALUE:
                 return variantData.ConversionsValue;
 
-            case "averageconversionvalue":
+            case METRIC_AVG_CONVERSION_VALUE:
                 return String.Format("{0:#.##}", variantData.AverageConversionValue);
 
             case "improvement":
@@ -534,28 +388,28 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
                     var originalData = VariantsStatisticsData[OriginalVariant.ABVariantName];
                     switch (drpSuccessMetric.SelectedValue)
                     {
-                        case "conversioncount":
+                        case METRIC_CONVERSION_COUNT:
                             if (!originalData.ConversionsCount.Equals(0))
                             {
                                 return GetPercentageImprovementPanel((variantData.ConversionsCount / (double)originalData.ConversionsCount) - 1);
                             }
                             break;
 
-                        case "conversionvalue":
+                        case METRIC_CONVERSION_VALUE:
                             if (!originalData.ConversionsValue.Equals(0))
                             {
                                 return GetPercentageImprovementPanel((variantData.ConversionsValue / originalData.ConversionsValue) - 1);
                             }
                             break;
 
-                        case "conversionrate":
+                        case METRIC_CONVERSION_RATE:
                             if (!originalData.ConversionRate.Equals(0))
                             {
                                 return GetPercentageImprovementPanel((variantData.ConversionRate / originalData.ConversionRate) - 1);
                             }
                             break;
 
-                        case "averageconversionvalue":
+                        case METRIC_AVG_CONVERSION_VALUE:
                             if (!originalData.AverageConversionValue.Equals(0))
                             {
                                 return GetPercentageImprovementPanel((variantData.AverageConversionValue / originalData.AverageConversionValue) - 1);
@@ -634,14 +488,14 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
     {
         gridElem.DataSource = new InfoDataSet<ABVariantInfo>(ABVariants.ToArray());
 
-        if (drpSuccessMetric.SelectedValue == "conversionvalue")
+        if (drpSuccessMetric.SelectedValue == METRIC_CONVERSION_VALUE)
         {
             columnConversionValue.Visible = true;
 
             // Hide chance to beat original and conversion rate interval columns as they are related to conversion rate
             HideChanceToBeatAndRateColumns();
         }
-        else if (drpSuccessMetric.SelectedValue == "averageconversionvalue")
+        else if (drpSuccessMetric.SelectedValue == METRIC_AVG_CONVERSION_VALUE)
         {
             columnAvgConversionValue.Visible = true;
 
@@ -654,14 +508,14 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
             // Hide chance to beat original and conversion rate interval columns as they don't provide relevant data when all conversions are selected
             HideChanceToBeatAndRateColumns();
 
-            if (drpSuccessMetric.SelectedValue == "conversionrate")
+            if (drpSuccessMetric.SelectedValue == METRIC_CONVERSION_RATE)
             {
                 columnImprovement.Visible = false;
             }
         }
 
         // If Visitors conversion methodology selected, use "Visitors" instead of "Visits" in unigrid
-        if (drpCountingMethodology.SelectedValue == "absessionconversionfirst")
+        if (drpCountingMethodology.SelectedValue == ABTestConstants.ABSESSIONCONVERSION_FIRST)
         {
             columnConversionsOverVisits.Caption = GetString("abtesting.conversionsovervisitors");
         }
@@ -683,28 +537,13 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
     /// </summary>
     private void InitializeGraph()
     {
-        DataTable data = new DataTable();
-        data.Columns.Add("FromDate", typeof(DateTime));
-
-        // Show graph data to the finish date or today if the test is still running
-        data.Columns.Add("ToDate", typeof(DateTime));
-
-        data.Columns.Add("TestName", typeof(string));
-
-        // Set conversion name either to selected one, or to all conversions set in settings tab
-        data.Columns.Add("ConversionName", typeof(string));
-        data.Columns.Add("GraphType", typeof(string));
-        data.Columns.Add("ABTestID", typeof(int));
-        data.Columns.Add("VariationName", typeof(string));
-        data.Columns.Add("ABTestCulture", typeof(string));
-        data.Columns.Add("ConversionType", typeof(string));
-
-        string conversionName = (string)(String.IsNullOrEmpty(drpConversions.Value as string) ? ABTest.ABTestConversions.Join(";") : drpConversions.Value);
+        var data = InitGraphColumns();
+        var conversionName = (string)(String.IsNullOrEmpty(drpConversions.Value as string) ? ABTest.ABTestConversions.Join(";") : drpConversions.Value);
 
         object[] parameters =
         {
             ABTest.ABTestOpenFrom,
-            GetFinishDateOrToday(),
+            GetFinishDate(),
             ABTest.ABTestName,
             conversionName,
             graphDataElem.SelectedActionName,
@@ -727,6 +566,35 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
         displayReport.SelectedInterval = samplingElem.SelectedActionName;
         displayReport.ReportParameters = data.Rows[0];
         displayReport.ReportName = "abtest" + drpSuccessMetric.SelectedValue + "." + samplingElem.SelectedActionName + "report";
+    }
+
+
+    /// <summary>
+    /// Registers ABTestOverview module.
+    /// </summary>
+    private void EnsureModuleRegistration()
+    {
+        ScriptHelper.RegisterModule(Page, "CMS.OnlineMarketing/ABTestOverview", new
+        {
+            samplingElementId = samplingElem.ID,
+            samplingElementClientId = samplingElem.ClientID,
+            graphDataElementId = graphDataElem.ID,
+            graphDataElementClientId = graphDataElem.ClientID,
+            advancedControlsId = AdvancedControls.ID,
+            advancedControlsClientId = AdvancedControls.ClientID,
+            showAdvancedFiltersSpanClientId = spnShowAdvancedFilters.ClientID,
+            successMetricDropdownId = drpSuccessMetric.ID,
+            successMetricDropdownClientId = drpSuccessMetric.ClientID,
+            countingMethodologyDropdownId = drpCountingMethodology.ID,
+            countingMethodologyDropdownClientId = drpCountingMethodology.ClientID,
+            cultureDropdownId = drpCulture.ID,
+            cultureDropdownClientId = drpCulture.ClientID,
+            conversionsDropdownId = drpConversions.ID,
+            conversionsDropdownClientId = drpConversions.ClientID,
+            selectorsCookieKey = SelectorsCookieKey,
+            showFiltersText = GetString(SHOW_FILTERS_TEXT),
+            hideFiltersText = GetString(HIDE_FILTERS_TEXT)
+        });
     }
 
 
@@ -804,24 +672,6 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
 
 
     /// <summary>
-    /// Sets CSS class of a parent of given control.
-    /// </summary>
-    /// <param name="control">Child control that has a parent that's being changed</param>
-    /// <param name="cssClass">CSS class to change parent to</param>
-    private static void AddCSSToParentControl(Control control, string cssClass)
-    {
-        if (control != null)
-        {
-            var row = control.Parent as WebControl;
-            if (row != null)
-            {
-                row.AddCssClass(cssClass);
-            }
-        }
-    }
-
-
-    /// <summary>
     /// Initializes header action control.
     /// </summary>
     private void InitHeaderActions()
@@ -844,6 +694,23 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
                 }
                 break;
         }
+    }
+
+
+    /// <summary>
+    /// Adds the "Start test" button.
+    /// </summary>
+    private void AddStartTestButton()
+    {
+        string testStartUrl = ResolveUrl("~/CMSModules/OnlineMarketing/Pages/Content/ABTesting/ABTest/StartABTest.aspx?testid=" + ABTest.ABTestID);
+        var btnStartTest = new HeaderAction
+        {
+            Tooltip = GetString("abtesting.starttest.tooltip"),
+            Text = GetString("abtesting.starttest"),
+            OnClientClick = "modalDialog('" + testStartUrl + @"', '', 670, 320);",
+            Enabled = IsUserAuthorizedToManageTest
+        };
+        HeaderActions.AddAction(btnStartTest);
     }
 
 
@@ -909,36 +776,6 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
 
 
     /// <summary>
-    /// Adds the "Start test" button.
-    /// </summary>
-    private void AddStartTestButton()
-    {
-        string testStartUrl = ResolveUrl("~/CMSModules/OnlineMarketing/Pages/Content/ABTesting/ABTest/StartABTest.aspx?testid=" + ABTest.ABTestID);
-        var btnStartTest = new HeaderAction
-        {
-            Tooltip = GetString("abtesting.starttest.tooltip"),
-            Text = GetString("abtesting.starttest"),
-            OnClientClick = "modalDialog('" + testStartUrl + @"', '', 670, 320);",
-            Enabled = IsUserAuthorizedToManageTest
-        };
-        HeaderActions.AddAction(btnStartTest);
-    }
-
-
-    /// <summary>
-    /// Gets finish date of the test or today if the date is empty.
-    /// </summary>
-    private DateTime GetFinishDateOrToday()
-    {
-        if ((ABTest.ABTestOpenTo < DateTime.Now) && (ABTest.ABTestOpenTo != DateTimeHelper.ZERO_TIME))
-        {
-            return ABTest.ABTestOpenTo;
-        }
-        return DateTime.Now;
-    }
-
-
-    /// <summary>
     /// Gets selector values from the cookie.
     /// </summary>
     private void ParseSelectorCookie()
@@ -980,10 +817,10 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
     /// </summary>
     private void SetSelectorValues()
     {
-        samplingElem.SelectedActionName = samplingActions[mSamplingIndex];
+        samplingElem.SelectedActionName = SamplingActions[mSamplingIndex];
         drpSuccessMetric.SelectedIndex = mDrpSuccessMetricIndex;
         drpCountingMethodology.SelectedIndex = mDrpCountingMethodologyIndex;
-        graphDataElem.SelectedActionName = dataFormatActions[mGraphDataIndex];
+        graphDataElem.SelectedActionName = DataFormatActions[mGraphDataIndex];
         drpCulture.Value = mDrpCultureValue;
         drpConversions.Value = mDrpConversionsValue;
 
@@ -998,12 +835,34 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
     /// </summary>
     private void LoadSummaryBox()
     {
-        lnkTest.HRef = DocumentURLProvider.GetUrl(ABTest.ABTestOriginalPage);
-        lnkTest.InnerText = ShortenUrl(ABTest.ABTestOriginalPage, MAX_LINK_LENGTH);
-        lnkTest.Target = "_blank";
+        var selectionParameters = new NodeSelectionParameters
+        {
+            AliasPath = ABTest.ABTestOriginalPage,
+            CultureCode = ABTest.ABTestCulture,
+            SiteName = SiteContext.CurrentSiteName,
+            SelectOnlyPublished = true,
+            CombineWithDefaultCulture = !SiteContext.CurrentSite.SiteIsContentOnly
+        };
+
+        var node = new TreeProvider().SelectSingleNode(selectionParameters);
+        var shortUrl = ShortenUrl(ABTest.ABTestOriginalPage);
+        var encodedShortUrl = HTMLHelper.HTMLEncode(shortUrl);
+
+        if (node == null)
+        {
+            lblTest.Text = encodedShortUrl;
+            lblTest.Visible = true;
+        }
+        else
+        {
+            lnkTest.HRef = DocumentURLProvider.GetAbsoluteLiveSiteURL(node);
+            lnkTest.InnerText = encodedShortUrl;
+            lnkTest.Target = "_blank";
+            lnkTest.Visible = true;
+        }
 
         // If Visitors conversion methodology selected, use "Visitors" instead of "Visits"
-        if (drpCountingMethodology.SelectedValue == "absessionconversionfirst")
+        if (drpCountingMethodology.SelectedValue == ABTestConstants.ABSESSIONCONVERSION_FIRST)
         {
             lblVisits.ResourceString = "abtesting.overview.summary.visitors";
         }
@@ -1020,35 +879,8 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
         }
 
         DateTime start = ABTest.ABTestOpenFrom;
-        DateTime finish = GetFinishDateOrToday();
+        DateTime finish = GetFinishDate();
         lblDuration.Text = (finish - start).Days.ToString();
-    }
-
-
-    /// <summary>
-    /// Shortens URL, adds dots and rounds URL length to the nearest slash occurrence.
-    /// </summary>
-    /// <returns>Unchanged URL, if <paramref name="maxLength"/> doesn't exceed length of <paramref name="url"/> or shortened URL in format '../something/something'</returns>
-    private string ShortenUrl(string url, int maxLength)
-    {
-        // No need to shorten
-        if (url.Length <= maxLength)
-        {
-            return url;
-        }
-
-        // Get last index that can be kept
-        int maxIndex = url.Length - maxLength;
-
-        // Get index of last slash, so that URL will start with that
-        var indexOfSlash = url.IndexOf('/', maxIndex);
-        if (indexOfSlash != -1)
-        {
-            return ".." + url.Substring(indexOfSlash);
-        }
-
-        // There wasn't any slash found, so return just shortened URL
-        return ".." + url.Substring(maxIndex);
     }
 
 
@@ -1094,16 +926,18 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
 
             // If counting methodology is set to visitor conversion, select abvisitfirst only
             string countingMethodology = drpCountingMethodology.Items[mDrpCountingMethodologyIndex].Value;
-            if (countingMethodology == "absessionconversionfirst")
+            if (countingMethodology == ABTestConstants.ABSESSIONCONVERSION_FIRST)
             {
                 visitType = "abvisitfirst";
             }
 
             string conversionsCodename = countingMethodology + ";" + ABTest.ABTestName + ";" + variantName;
             string visitsCodename = visitType + ";" + ABTest.ABTestName + ";" + variantName;
+            string conversion = ValidationHelper.GetString(drpConversions.Value, string.Empty);
+            var testConversions = ABTest.ABTestConversions;
 
             // Get conversions count and value
-            DataRow conversions = GetHits(conversionsCodename, "Sum(HitsCount), Sum(HitsValue)", mDrpCultureValue, GetConversionCondition());
+            DataRow conversions = GetHits(conversionsCodename, "Sum(HitsCount), Sum(HitsValue)", mDrpCultureValue, GetConversionCondition(conversion, testConversions));
             int conversionsCount = ValidationHelper.GetInteger(conversions[0], 0);
             double conversionsValue = ValidationHelper.GetDouble(conversions[1], 0);
 
@@ -1123,96 +957,6 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
 
 
     /// <summary>
-    /// Checks whether there is test data for filters specified by the user.
-    /// </summary>
-    private bool DataAvailable()
-    {
-        bool dataAvailable = false;
-
-        // Search data for all AB variants
-        foreach (var data in VariantsStatisticsData.Values)
-        {
-            // If we have visits we have data for conversion rate
-            if (drpSuccessMetric.SelectedValue == "conversionrate")
-            {
-                if (data.Visits > 0)
-                {
-                    dataAvailable = true;
-                    break;
-                }
-            }
-            // For other success metrics we need conversions
-            else if (data.ConversionsCount > 0)
-            {
-                dataAvailable = true;
-                break;
-            }
-        }
-        return dataAvailable;
-    }
-
-
-    /// <summary>
-    /// Returns panel with information about improvement.
-    /// </summary>
-    /// <param name="improvement">Improvement</param>
-    private Panel GetPercentageImprovementPanel(double improvement)
-    {
-        var panel = new Panel();
-
-        if (!improvement.Equals(0))
-        {
-            // Add picture representing improvement
-            string iconClass = (improvement > 0 ? "green-arrow" : "red-arrow");
-            string tooltip = (improvement > 0 ? "abtesting.overview.increase" : "abtesting.overview.decrease");
-
-            panel.Controls.Add(new LiteralControl(UIHelper.GetAccessibleIconTag(iconClass, GetString(tooltip))));
-        }
-
-        // Add text representing improvement
-        panel.Controls.Add(new Label
-        {
-            Text = String.Format(" {0:P2}", improvement),
-        });
-
-        return panel;
-    }
-
-
-    /// <summary>
-    /// Returns hits for specified codename.
-    /// </summary>
-    /// <param name="codename">Statistics codename</param>
-    /// <param name="columns">Selected columns</param>
-    /// <param name="culture">Culture</param>
-    /// <param name="where">Additional where condition</param>
-    private DataRow GetHits(string codename, string columns, string culture, string where = null)
-    {
-        return HitsInfoProvider.GetAllHitsInfo(SiteContext.CurrentSiteID, HitsIntervalEnum.Year, codename, columns, culture, where).Tables[0].Rows[0];
-    }
-
-
-    /// <summary>
-    /// Returns where condition which specifies selected conversion.
-    /// </summary>
-    private string GetConversionCondition()
-    {
-        string conversion = ValidationHelper.GetString(drpConversions.Value, string.Empty);
-        if (!String.IsNullOrEmpty(conversion))
-        {
-            return "StatisticsObjectName = N'" + SqlHelper.EscapeQuotes(conversion) + "'";
-        }
-        // User has selected 'all' in conversion selector. Try to select only those conversions, that belong to the test (that are set in settings tab)
-        var testConversions = ABTest.ABTestConversions.ToList();
-        if (testConversions.Any())
-        {
-            return SqlHelper.GetWhereCondition("StatisticsObjectName", testConversions);
-        }
-        return null;
-    }
-
-
-    /// <summary>
     /// Sets caption of the percentage improvement column.
     /// </summary>
     private void SetImprovementColumnCaption()
@@ -1222,19 +966,19 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
         // Set improvement caption according to the selected success metric
         switch (drpSuccessMetric.SelectedValue)
         {
-            case "conversioncount":
+            case METRIC_CONVERSION_COUNT:
                 caption = "$abtesting.improvement.conversioncount$";
                 break;
 
-            case "conversionvalue":
+            case METRIC_CONVERSION_VALUE:
                 caption = "$abtesting.improvement.conversionvalue$";
                 break;
 
-            case "conversionrate":
+            case METRIC_CONVERSION_RATE:
                 caption = "$abtesting.improvement.conversionrate$";
                 break;
 
-            case "averageconversionvalue":
+            case METRIC_AVG_CONVERSION_VALUE:
                 caption = "$abtesting.improvement.averageconversionvalue$";
                 break;
         }
@@ -1256,54 +1000,10 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_O
             return;
         }
 
-        if ((ValidationHelper.GetString(drpConversions.Value, "") == "") && (drpSuccessMetric.SelectedValue == "conversionrate"))
+        if ((ValidationHelper.GetString(drpConversions.Value, "") == "") && (drpSuccessMetric.SelectedValue == METRIC_CONVERSION_RATE))
         {
             ShowWarning(GetString("abtesting.invalidfiltercombination"));
         }
-    }
-
-
-    /// <summary>
-    /// Initialzes button groups in radio button panel
-    /// </summary>
-    private void InitRadioPanelButtons()
-    {
-        // Sampling buttons
-        samplingElem.Actions.Add(new CMSButtonGroupAction
-        {
-            Name = samplingActions[0],
-            Text = GetString("general.day"),
-            OnClientClick = "ABOverview.saveSelectorStateSamplingClick(this);"
-        });
-
-        samplingElem.Actions.Add(new CMSButtonGroupAction
-        {
-            Name = samplingActions[1],
-            Text = GetString("general.week"),
-            OnClientClick = "ABOverview.saveSelectorStateSamplingClick(this);"
-        });
-
-        samplingElem.Actions.Add(new CMSButtonGroupAction
-        {
-            Name = samplingActions[2],
-            Text = GetString("general.month"),
-            OnClientClick = "ABOverview.saveSelectorStateSamplingClick(this);"
-        });
-
-        // Graph data buttons
-        graphDataElem.Actions.Add(new CMSButtonGroupAction
-        {
-            Name = dataFormatActions[0],
-            Text = GetString("abtesting.rate.cumulative"),
-            OnClientClick = "ABOverview.saveSelectorStateGraphDataClick(this);"
-        });
-
-        graphDataElem.Actions.Add(new CMSButtonGroupAction
-        {
-            Name = dataFormatActions[1],
-            Text = GetString("abtesting.rate.daywise"),
-            OnClientClick = "ABOverview.saveSelectorStateGraphDataClick(this);"
-        });
     }
 
 

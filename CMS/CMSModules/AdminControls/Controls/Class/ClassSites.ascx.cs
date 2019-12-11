@@ -192,7 +192,7 @@ public partial class CMSModules_AdminControls_Controls_Class_ClassSites : CMSUse
 
         if (CheckLicense)
         {
-            CustomTableItemProvider.ClearLicensesCount();
+            CustomTableItemProvider.ClearLicensesCount(true);
         }
 
         // Show message

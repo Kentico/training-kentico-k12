@@ -163,8 +163,8 @@
     // additional actions fix
     .control-group-inline {
         margin-right: @base-unit * 0.5;
-        // fix for an info text stacking - don't float Screen size, Rotation button and Personas buttons
-        >div:not(.device-profile-menu):not(.device-rotation):not(.personas-selectable-button) {
+        // fix for an info text stacking - don't float Screen size, Rotation button, More actions and Personas buttons
+        >div:not(.device-profile-menu):not(.device-rotation):not(.personas-selectable-button):not(.more-actions-button) {
             float: left;
             display: inline-block;
         }
@@ -238,55 +238,6 @@
     text-decoration: none !important;
 }
 
-.cms-edit-menu .MenuItemEdit,
-.cms-edit-menu .MenuItemEditDisabled,
-.cms-edit-menu .SepContextButton {
-    display: block;
-    float: left;
-    background: #bdbbbb;
-    text-decoration: none;
-}
-
-.RTL .LTR .cms-edit-menu .MenuItemEdit,
-.RTL .LTR .cms-edit-menu .MenuItemEditDisabled,
-.RTL .LTR .cms-edit-menu .SepContextButton {
-    float: left;
-}
-
-.RTL .cms-edit-menu .MenuItemEdit,
-.RTL .cms-edit-menu .MenuItemEditDisabled,
-.RTL .cms-edit-menu .SepContextButton {
-    float: right;
-}
-
-.cms-edit-menu .MenuItemEdit:hover,
-.cms-edit-menu .SepContextButton:hover {
-    background: @color-gray-100;
-}
-
-.cms-edit-menu .MenuItemEditDisabled {
-    cursor: default;
-    color: #8A8A8A;
-}
-
-    .cms-edit-menu .MenuItemEdit img,
-    .cms-edit-menu .MenuItemEditDisabled img,
-    .cms-edit-menu .MenuItemEdit input[type="image"],
-    .cms-edit-menu .MenuItemEditDisabled input[type="image"] {
-        margin: 0;
-        padding: @base-unit * 0.25;
-        width: @base-unit;
-        height: @base-unit;
-        vertical-align: bottom;
-        border: none;
-        box-sizing: content-box;
-    }
-
-    .cms-edit-menu .MenuItemEditDisabled img {
-        opacity: 0.4;
-        filter: alpha(opacity=40);
-    }
-
 .cms-edit-menu .Pad,
 .RTL .LTR .cms-edit-menu .Pad {
     margin-right: @base-unit * 0.5;
@@ -331,30 +282,6 @@
     padding: 0 0 0 @base-unit;
 }
 
-.cms-edit-menu .ContextButton,
-.cms-edit-menu .SepContextButton,
-.RTL .LTR .cms-edit-menu .ContextButton,
-.RTL .LTR .cms-edit-menu .SepContextButton {
-    display: block;
-    float: right;
-    height: 24px;
-    width: 19px;
-    cursor: pointer;
-}
-
-.RTL .cms-edit-menu .ContextButton,
-.RTL .cms-edit-menu .SepContextButton {
-    float: left;
-    border-left: none;
-}
-
-.cms-edit-menu .ContextButton .Arrow,
-.cms-edit-menu .SepContextButton .Arrow {
-    height: 24px;
-    background: url(../../CMSPages/GetResource.ashx?image=CMSModules/CMS_Content/EditMenu/16/arrow.png) no-repeat center center;
-    display: block;
-}
-
 .cms-edit-menu .AdditionalControls {
     margin-top: 3px;
 }
@@ -363,15 +290,6 @@
     .cms-edit-menu .AdditionalControls input[type=checkbox] {
         vertical-align: middle;
     }
-
-.cms-edit-menu .SubItemsArrow {
-    float: right;
-    margin-top: (@base-unit * 0.25) !important;
-}
-
-.RTL .cms-edit-menu .SubItemsArrow {
-    float: left;
-}
 
 .PortalContextMenu.cms-edit-menu {
     padding: 0;
@@ -385,14 +303,6 @@
     .PortalContextMenu.cms-edit-menu .Text {
         float: none;
         display: inline;
-    }
-
-    .PortalContextMenu.cms-edit-menu .MenuItemEdit,
-    .PortalContextMenu.cms-edit-menu .MenuItemEditDisabled {
-        color: #fff;
-        background: none;
-        border: none;
-        width: 100%;
     }
 
 .cms-edit-menu .Right,
@@ -418,17 +328,6 @@
 .PortalContextMenu.cms-edit-menu .ItemPadding:hover {
     padding: 2px !important;
 }
-
-.FreeLayout {
-    background-color: #fff;
-    background: url(../../CMSPages/GetResource.ashx?image=CMSModules/CMS_PortalEngine/Grid.png);
-    border: solid 1px #fff !important;
-    min-width: 100%;
-}
-
-    .FreeLayout.ActiveDropArea {
-        border: dashed 1px red !important;
-    }
 
 .RightAlign,
 .RTL .LTR .RightAlign,

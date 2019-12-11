@@ -591,14 +591,6 @@
             Returns last item order for specified custom table.
             </summary>
         </member>
-        <member name="M:CMS.CustomTables.CustomTableItemProvider.ProcessWebFarmTaskInternal(System.String,System.String,System.Byte[])">
-            <summary>
-            Runs the processing of specific web farm task for current provider
-            </summary>
-            <param name="actionName">Action name</param>
-            <param name="data">Custom task data</param>
-            <param name="binary">Binary data</param>
-        </member>
         <member name="M:CMS.CustomTables.CustomTableItemProvider.LicenseVersionCheck(System.String,CMS.DataEngine.ObjectActionEnum)">
             <summary>
             License version checker.
@@ -612,10 +604,11 @@
             Checks the license.
             </summary>
         </member>
-        <member name="M:CMS.CustomTables.CustomTableItemProvider.ClearLicensesCount">
+        <member name="M:CMS.CustomTables.CustomTableItemProvider.ClearLicensesCount(System.Boolean)">
             <summary>
             Clears custom tables hash count values.
             </summary>
+            <param name="logTasks">If true, web farm tasks are logged</param>
         </member>
         <member name="M:CMS.CustomTables.CustomTableItemProvider.GetProviderObject(System.String)">
             <summary>
@@ -976,6 +969,17 @@
         <member name="M:CMS.CustomTables.InvalidateCustomTableTypeInfoWebFarmTask.ExecuteTask">
             <summary>
             Processes the web farm task by invoking the <see cref="M:CMS.CustomTables.CustomTableItemProvider.InvalidateTypeInfo(System.String,System.Boolean)"/> method while passing it current class' properties as its parameters.
+            </summary>
+        </member>
+        <member name="T:CMS.CustomTables.ClearCustomTableLicensesCountWebFarmTask">
+            <summary>
+            Web farm task used to clear custom tables hash count values.
+            </summary>
+            <seealso cref="P:CMS.Core.IWebFarmTask.TaskTextData"/>
+        </member>
+        <member name="M:CMS.CustomTables.ClearCustomTableLicensesCountWebFarmTask.ExecuteTask">
+            <summary>
+            Processes the web farm task by invoking the <see cref="M:CMS.CustomTables.CustomTableItemProvider.ClearLicensesCount(System.Boolean)"/> method.
             </summary>
         </member>
         <member name="T:CMS.RegisterCustomTableAttribute">

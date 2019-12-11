@@ -93,6 +93,17 @@ public partial class CMSAdminControls_UI_Macros_MacroRuleDesigner : FormEngineUs
 
 
     /// <summary>
+    /// Indicates which macro rules will be shown in the listing along with the <see cref="MacroRuleAvailabilityEnum.Both"/>.
+    /// </summary>
+    /// <remarks>Value in each macro rule indicates in which application can the macro rule be evaluated (i.e. the implementation of underlying macros is available).</remarks>
+    public MacroRuleAvailabilityEnum MacroRuleAvailability
+    {
+        get;
+        set;
+    }
+
+
+    /// <summary>
     /// Gets or sets the text which is displayed by default when there is no rule defined.
     /// </summary>
     public string DefaultConditionText
@@ -215,7 +226,7 @@ public partial class CMSAdminControls_UI_Macros_MacroRuleDesigner : FormEngineUs
                 var where = GetRulesWhereCondition();
 
                 var ds = MacroRuleInfoProvider.GetMacroRules().Where(where).OrderBy("MacroRuleDisplayName")
-                                              .Columns("MacroRuleID, MacroRuleDisplayName, MacroRuleDescription, MacroRuleRequiredData").TypedResult;
+                                              .Columns("MacroRuleID, MacroRuleDisplayName, MacroRuleDescription, MacroRuleRequiredData, MacroRuleAvailability").TypedResult;
                 if (!DataHelper.DataSourceIsEmpty(ds))
                 {
                     AddRules(ds);
@@ -358,6 +369,14 @@ public partial class CMSAdminControls_UI_Macros_MacroRuleDesigner : FormEngineUs
                 break;
         }
 
+        // Append macro rule availbility condition
+        string macroRule = $"MacroRuleAvailability = {(int)MacroRuleAvailabilityEnum.Both}";
+        if(MacroRuleAvailability != MacroRuleAvailabilityEnum.Both)
+        {
+            macroRule += $" OR MacroRuleAvailability = {(int)MacroRuleAvailability}";
+        }
+        where = SqlHelper.AddWhereCondition(where, macroRule);
+
         // Select only enabled rules
         where = SqlHelper.AddWhereCondition(where, "MacroRuleEnabled = 1");
 
@@ -417,7 +436,7 @@ function SelectRule(path, currentElem) {
             currentElem.addClass('RuleSelected');
             if (newText == '') {
                 newText = ';' + path + ';';
-            } else {            
+            } else {
                 newText += path + ';';
             }
         }

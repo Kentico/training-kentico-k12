@@ -153,6 +153,15 @@
   <data name="kentico.builder.messaging.forbiddenorigin" xml:space="preserve">
     <value>Message received from forbidden origin: {0}.</value>
   </data>
+  <data name="kentico.builder.modaldialogs.loading" xml:space="preserve">
+    <value>Loading</value>
+  </data>
+  <data name="kentico.builder.modaldialog.buttons.apply" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="kentico.builder.modaldialog.buttons.cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="kentico.builder.typelist.closeTooltip" xml:space="preserve">
     <value>Close</value>
   </data>

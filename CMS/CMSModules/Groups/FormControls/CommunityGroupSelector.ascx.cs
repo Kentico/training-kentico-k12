@@ -518,14 +518,16 @@ public partial class CMSModules_Groups_FormControls_CommunityGroupSelector : For
     public string BuildWhereCondition()
     {
         string where = string.Empty;
+        string siteName = null;
 
         if (SiteID > 0)
         {
             where = "GroupSiteID=" + SiteID + " AND GroupApproved = 1";
+            siteName = SiteInfoProvider.GetSiteName(SiteID);
         }
 
         // If the user is global admin display all the site groups otherwise display just user's groups
-        if (!MembershipContext.AuthenticatedUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin) && !MembershipContext.AuthenticatedUser.IsAuthorizedPerResource("CMS.Groups", "read"))
+        if (!MembershipContext.AuthenticatedUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin) && !MembershipContext.AuthenticatedUser.IsAuthorizedPerResource("CMS.Groups", "read", siteName))
         {
             if (where != null)
             {

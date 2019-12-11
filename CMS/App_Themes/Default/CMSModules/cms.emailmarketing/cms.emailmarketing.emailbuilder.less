@@ -4,6 +4,7 @@
 @import "./cms.emailmarketing.emailbuilder.emailproperties.less";
 @import "./cms.emailmarketing.emailbuilder.abtesting.less";
 @import "./cms.emailmarketing.emailbuilder.tabs.less";
+@import "../cms.messages.less";
 
 @widget-properties-wrapper-width: @right-section-width + (7 * @base-unit);
 @widget-properties-width: @widget-properties-wrapper-width - (@base-unit / 2);
@@ -12,11 +13,12 @@
 .email-builder {
     height: 100vh;
 
-    .alert-error-floating,
-    .alert-success-floating,
-    .alert-info-floating {
-        position: absolute;
-        margin: (4 * @base-unit) 0 0 @base-unit;
+    .alert-absolute();
+
+    .alert-error-absolute,
+    .alert-success-absolute,
+    .alert-info-absolute {
+        margin-top: 4 * @base-unit;
         max-width: 31.25 * @base-unit;
     }
 

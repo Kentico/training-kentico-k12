@@ -181,6 +181,15 @@ function advancedModal(url, name, width, height, otherParams, noWopener, forceMo
         width = percentSize.width;
         height = percentSize.height;
 
+        if (typeof otherParams == 'string') {
+            var parameters = otherParams.split(',');
+            otherParams = {};
+            parameters.forEach(function (property) {
+                var splits = property.trim().split('=');
+                otherParams[splits[0].trim()] = splits[1].trim() === 'yes' ? true : false;
+            });
+        }
+
         // Create new frame
         var $modalFrame = $cmsj(document.createElement('iframe'));
         storeModal($modalFrame);
@@ -217,8 +226,8 @@ function advancedModal(url, name, width, height, otherParams, noWopener, forceMo
         });
 
         var $modalDialog = $modalFrame.dialog({
-            resizable: true,
-            modal: true,
+            resizable: otherParams.resizable,
+            modal: otherParams.modal || forceModal,
             closeOnEscape: false,
             width: size.width,
             height: size.height,

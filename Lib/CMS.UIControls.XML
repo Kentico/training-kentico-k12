@@ -2623,6 +2623,37 @@
             Script used to get selection dialog
             </summary>
         </member>
+        <member name="T:CMS.UIControls.UniGridConfig.ButtonAction">
+            <summary>
+            UniGrid action button.
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.ButtonAction.ButtonStyle">
+            <summary>
+            Gets or sets an enum which represents button type based on which CSS class will be rendered.
+            </summary>
+            <remarks>If value is <see cref="F:CMS.Base.Web.UI.ButtonStyle.None"/> no style will be applied.</remarks>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.ButtonAction.ButtonClass">
+            <summary>
+            Gets or sets the CSS class for the button rendered by the Web server control on the client.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.ButtonAction.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.UIControls.UniGridConfig.ButtonAction"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.ButtonAction.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.UIControls.UniGridConfig.ButtonAction"/> with given <paramref name="name"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.ButtonAction.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Initializes a new instance of <see cref="T:CMS.UIControls.UniGridConfig.ButtonAction"/> with given <paramref name="action"/>.
+            </summary>
+        </member>
         <member name="T:CMS.UIControls.UniGridConfig.MassAction">
             <summary>
             Represents <see cref="T:CMS.UIControls.UniGrid"/> mass action configuration.
@@ -2817,6 +2848,100 @@
             Base class for the UniGrid actions.
             </summary>
         </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.MenuParameter">
+            <summary>
+            Contains an array of parameters passed to the control implementing the action's context menu (the path to this control must be specified in the contextmenu attribute). These parameters may be retrieved in the control's code using the GetContextMenuParameter JavaScript function.
+            The columns defined in the parameters attribute of the &lt;actions&gt; element may be entered as parameters using the following expressions:
+            {0} - first parameter
+            {1} - second parameter
+            and so forth.
+            "new Array('cms.site', '{0}')"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.MouseButton">
+            <summary>
+            Specifies which mouse button causes the action's context menu to appear (if a context menu is enabled via the contextmenu attribute).
+            If not defined, both mouse buttons open the context menu.
+            Possible values: "left", "right"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.Name">
+            <summary>
+            Name of the action. This is passed to the handler of the OnAction event as the actionName parameter.
+            Sample value: "delete"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.OnClick">
+            <summary>
+            The JavaScript OnClick function for the given action. It may use the columns defined in the parameters attribute of the 'actions' element as parameters, which can be called by using the following expressions:
+            {0} - first parameter
+            {1} - second parameter
+            and so forth.
+            "alert(‘{0}’);"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.ModuleName">
+            <summary>
+            Module code name.
+            Sample value: "cms.ecommerce"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.Permissions">
+            <summary>
+            Names of the module permissions which should be checked before the action is handled. Use comma as separator for multiple permissions.
+            Sample value: "modify;manage"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.UIElements">
+            <summary>
+            Names of the module UI elements which should be checked before the action is handled. Use comma as separator for multiple UI elements.
+            Sample value: "uielement1;uielement2"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.HideIfNotAuthorized">
+            <summary>
+            Indicates if action is hidden if user is not authorized for specified module permissions and module UI elements.
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.CaptionText">
+            <summary>
+            Gets the caption text of the action. Caches the value.
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.SafeName">
+            <summary>
+            Safe name of the action which can be used as an identifier. Caches the value.
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.Caption">
+            <summary>
+            Specifies the resource string used as the tooltip of the image defined in the icon attribute. Must begin and end with the $ character.
+            Sample value: "$General.Delete$"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.CommandArgument">
+            <summary>
+            The name of the column whose value should be passed as the actionArgument parameter of the OnAction event handler. If not defined, the first column of the data source is used.
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.Confirmation">
+            <summary>
+            The resource string used in a JavaScript confirmation. Most commonly used as a confirmation for delete type actions. Must begin and end with the $ character.
+            Sample value: "$General.ConfirmDelete$"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.ContextMenu">
+            <summary>
+            The relative path to a control (.ascx file) that implements a context menu for the action. Controls created for this purpose must inherit from the CMS.Base.Web.UI.CMSContextMenuControl class.
+            Sample value: "~/CMSAdminControls/UI/UniGrid/Controls/ObjectMenu.ascx"
+            </summary>
+        </member>
+        <member name="P:CMS.UIControls.UniGridConfig.AbstractAction.ExternalSourceName">
+            <summary>
+            Name of the action that is passed as the sourceName parameter of the OnExternalDataBound event handler.
+            Sample value: "deletefile"
+            </summary>
+        </member>
         <member name="M:CMS.UIControls.UniGridConfig.AbstractAction.GetAttribute(System.Xml.XmlNode,System.String)">
             <summary>
             Gets the value for particular attribute of the XML node.
@@ -2831,6 +2956,31 @@
             <param name="node">Xml node</param>
             <param name="name">Attribute name</param>
             <param name="defaultValue">Default value</param>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.AbstractAction.#ctor">
+            <summary>
+            Initalizes a new instance of <see cref="T:CMS.UIControls.UniGridConfig.AbstractAction"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.AbstractAction.#ctor(System.String)">
+            <summary>
+            Initalizes a new instance of <see cref="T:CMS.UIControls.UniGridConfig.AbstractAction"/> with given <paramref name="name"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.AbstractAction.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Initalizes a new instance of <see cref="T:CMS.UIControls.UniGridConfig.AbstractAction"/> with given <paramref name="action"/>.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.AbstractAction.CheckPermissionsAuthorization">
+            <summary>
+            Check whether authenticated user has given permissions for given resource on current site to perform this action.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.AbstractAction.CheckUIElementsAuthorization">
+            <summary>
+            Check whether authenticated user is authorized for given UI elements on current site to perform this action.
+            </summary>
         </member>
         <member name="T:CMS.UIControls.UniGridConfig.Column">
             <summary>
@@ -3271,46 +3421,7 @@
         </member>
         <member name="T:CMS.UIControls.UniGridConfig.Action">
             <summary>
-            UniGrid action button.
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.CaptionText">
-            <summary>
-            Gets the caption text of the action. Caches the value.
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.SafeName">
-            <summary>
-            Safe name of the action which can be used as an identifier. Caches the value.
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.Caption">
-            <summary>
-            Specifies the resource string used as the tooltip of the image defined in the icon attribute. Must begin and end with the $ character. 
-            Sample value: "$General.Delete$"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.CommandArgument">
-            <summary>
-            The name of the column whose value should be passed as the actionArgument parameter of the OnAction event handler. If not defined, the first column of the data source is used.
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.Confirmation">
-            <summary>
-            The resource string used in a JavaScript confirmation. Most commonly used as a confirmation for delete type actions. Must begin and end with the $ character.
-            Sample value: "$General.ConfirmDelete$"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.ContextMenu">
-            <summary>
-            The relative path to a control (.ascx file) that implements a context menu for the action. Controls created for this purpose must inherit from the CMS.Base.Web.UI.CMSContextMenuControl class.
-            Sample value: "~/CMSAdminControls/UI/UniGrid/Controls/ObjectMenu.ascx"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.ExternalSourceName">
-            <summary>
-            Name of the action that is passed as the sourceName parameter of the OnExternalDataBound event handler. 
-            Sample value: "deletefile"
+            UniGrid icon action button.
             </summary>
         </member>
         <member name="P:CMS.UIControls.UniGridConfig.Action.Icon">
@@ -3329,61 +3440,6 @@
             Gets or sets the style of the font icon.
             </summary>
         </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.MenuParameter">
-            <summary>
-            Contains an array of parameters passed to the control implementing the action's context menu (the path to this control must be specified in the contextmenu attribute). These parameters may be retrieved in the control's code using the GetContextMenuParameter JavaScript function.
-            The columns defined in the parameters attribute of the &lt;actions&gt; element may be entered as parameters using the following expressions:
-            {0} - first parameter
-            {1} - second parameter
-            and so forth.
-            "new Array('cms.site', '{0}')"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.MouseButton">
-            <summary>
-            Specifies which mouse button causes the action's context menu to appear (if a context menu is enabled via the contextmenu attribute). 
-            If not defined, both mouse buttons open the context menu.
-            Possible values: "left", "right"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.Name">
-            <summary>
-            Name of the action. This is passed to the handler of the OnAction event as the actionName parameter.
-            Sample value: "delete"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.OnClick">
-            <summary>
-            The JavaScript OnClick function for the given action. It may use the columns defined in the parameters attribute of the 'actions' element as parameters, which can be called by using the following expressions: 
-            {0} - first parameter
-            {1} - second parameter
-            and so forth.
-            "alert(‘{0}’);"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.ModuleName">
-            <summary>
-            Module code name.
-            Sample value: "cms.ecommerce"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.Permissions">
-            <summary>
-            Names of the module permissions which should be checked before the action is handled. Use comma as separator for multiple permissions.
-            Sample value: "modify;manage"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.UIElements">
-            <summary>
-            Names of the module UI elements which should be checked before the action is handled. Use comma as separator for multiple UI elements.
-            Sample value: "uielement1;uielement2"
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.UniGridConfig.Action.HideIfNotAuthorized">
-            <summary>
-            Indicates if action is hidden if user is not authorized for specified module permissions and module UI elements.
-            </summary>
-        </member>
         <member name="M:CMS.UIControls.UniGridConfig.Action.#ctor">
             <summary>
             Constructor.
@@ -3400,16 +3456,6 @@
             Constructor.
             </summary>
             <param name="action">XML element with the action definition</param>
-        </member>
-        <member name="M:CMS.UIControls.UniGridConfig.Action.CheckPermissionsAuthorization">
-            <summary>
-            Check whether authenticated user has given permissions for given resource on current site to perform this action.
-            </summary>
-        </member>
-        <member name="M:CMS.UIControls.UniGridConfig.Action.CheckUIElementsAuthorization">
-            <summary>
-            Check whether authenticated user is authorized for given UI elements on current site to perform this action.
-            </summary>
         </member>
         <member name="T:CMS.UIControls.UniGridConfig.UniGridActions">
             <summary>
@@ -3445,7 +3491,7 @@
         </member>
         <member name="P:CMS.UIControls.UniGridConfig.UniGridActions.Caption">
             <summary>
-            Specifies the resource string used as the tooltip of the context menu arrow icon. Must begin and end with the $ character. 
+            Specifies the resource string used as the tooltip of the context menu arrow icon. Must begin and end with the $ character.
             Sample value: "$General.Delete$"
             </summary>
         </member>
@@ -3485,7 +3531,13 @@
             <summary>
             Returns UniGrid action with specified name.
             </summary>
-            <param name="name">Name of the action to be returned</param>        
+            <param name="name">Name of the action to be returned</param>
+        </member>
+        <member name="M:CMS.UIControls.UniGridConfig.UniGridActions.GetActionByName(System.String)">
+            <summary>
+            Returns UniGrid action with specified name.
+            </summary>
+            <param name="name">Name of the action to be returned</param>
         </member>
         <member name="T:CMS.UIControls.AdvancedExport">
             <summary>
@@ -4609,6 +4661,33 @@
             </summary>
             <param name="value">Value to convert</param>
         </member>
+        <member name="T:CMS.UIControls.Internal.HotfixTestHelper">
+            <summary>
+            Helper methods and options used for testing purposes.
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+            <exclude />
+        </member>
+        <member name="P:CMS.UIControls.Internal.HotfixTestHelper.IsRunningInTestMode">
+            <summary>
+            Indicates whether hotfix is executed for testing purposes
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+            <exclude />
+        </member>
+        <member name="M:CMS.UIControls.Internal.HotfixTestHelper.ApplyHotfix">
+            <summary>
+            Applies hotfix procedure.
+            </summary>
+            <remarks>
+            This API supports the framework infrastructure and is not intended to be used directly from your code.
+            </remarks>
+            <exclude />
+        </member>
         <member name="T:CMS.UIControls.Internal.DeploymentManager">
             <summary>
             DeploymentManager contains deployment methods for virtual objects (Deployment, Source-control and Compilation test)
@@ -5045,6 +5124,40 @@
             <param name="item">Selected media item</param>
             <param name="properties">Pelected properties</param>
         </member>
+        <member name="T:CMS.UIControls.MVCPageTemplatesListingExtender">
+            <summary>
+            Extender for grid with page templates (MVC) .
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.MVCPageTemplatesListingExtender.OnInit">
+            <summary>
+            Initializes the extender.
+            </summary>
+        </member>
+        <member name="T:CMS.UIControls.SaveAsTemplateFormExtender">
+            <summary>
+            Save as template UIForm extender.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.SaveAsTemplateFormExtender.OnInit">
+            <summary>
+            Initializes the extender.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.SaveAsTemplateFormExtender.Page_Load(System.Object,System.EventArgs)">
+            <summary>
+            Occurs when the server control is loaded.
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="eventArgs">Event arguments</param>
+        </member>
+        <member name="M:CMS.UIControls.SaveAsTemplateFormExtender.Control_OnBeforeSave(System.Object,System.EventArgs)">
+            <summary>
+            Event called during saving process after data are retrieved from form controls
+            </summary>
+            <param name="sender">Sender</param>
+            <param name="eventArgs">Event arguments</param>
+        </member>
         <member name="T:CMS.UIControls.Extenders.EditMenuProfileSelectorExtender">
             <summary>
             Adds a profiles selector to the edit menu of the Content module.
@@ -5081,6 +5194,178 @@
             Adds a controls to Portal manager header panel.
             </summary>
             <param name="headerPanel">The panel to add additional controls.</param>
+        </member>
+        <member name="T:CMS.UIControls.MacroRuleExtender">
+            <summary>
+            Macro rule list <see cref="T:CMS.UIControls.UniGrid"/> extender.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.MacroRuleExtender.OnInit">
+            <summary>
+            OnInit event.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.MacroRuleExtender.OnExternalDataBound(System.Object,System.String,System.Object)">
+            <summary>
+            Handles external data-bound event of <see cref="T:CMS.UIControls.UniGrid"/>.
+            </summary>
+        </member>
+        <member name="T:CMS.UIControls.ClassFormDefinitionUpdateHelper">
+            <summary>
+            Provides methods for updating class form definitions and alternative form definitions during upgrade or hotfix processes.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.#ctor(System.String)">
+            <summary>
+            Constructor. Ensures all events logged within actions of this object will use given source.
+            </summary>
+            <param name="eventLogSource">Name of event log source to be used for logging</param>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.UpdateClassFormDefinitions">
+            <summary>
+            Updates class form and alt.form definitions based on records stored in temporary table "Temp_FormDefinition" and refreshes document and system database views.
+            The temporary table is created by upgrade or hotfix database scripts and is dropped at the end of this method.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.UpdateClasses">
+            <summary>
+            Updates class form definitions.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.CleanCompositeClassesSearchSettings">
+            <summary>
+            Removes search settings for columns that no longer exist from classes consisting of multiple components.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.UpdateAlternativeForms">
+            <summary>
+            Updates an existing alternative forms form definitions. Appends existing custom fields to new version definitions.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.CopyCustomFields(CMS.FormEngine.FormInfo,CMS.FormEngine.FormInfo,System.Boolean)">
+            <summary>
+            Copies custom fields from old version of form definition to the new form definition.
+            </summary>
+            <param name="oldVersionFi">Old version form definition</param>
+            <param name="newVersionFi">New version form definition</param>
+            <param name="overwrite">Indicates whether existing fields should be overwritten. Alternative form fields need to be overwritten due to the combination with upgraded class form.</param>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.GetRemovedSystemFields(CMS.FormEngine.FormInfo,CMS.FormEngine.FormInfo)">
+            <summary>
+            Returns list with names of system fields which were removed to the new version.
+            </summary>
+            <param name="oldDefinition">Old form definition</param>
+            <param name="newDefinition">New form definition</param>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.GetFormDefinitions(System.Boolean)">
+            <summary>
+            Returns dataset with class names (or alt.form full names) and form definitions which should be used for the upgrade.
+            </summary>
+            <param name="getAltForms">Indicates if alt.form definitions should be returned</param>
+        </member>
+        <member name="M:CMS.UIControls.ClassFormDefinitionUpdateHelper.DropTempTable">
+            <summary>
+            Drops temporary table with class form and alt.form definitions.
+            </summary>
+        </member>
+        <member name="T:CMS.UIControls.HotfixHelper">
+            <summary>
+            Provides utility methods for the hotfixing process.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.HotfixHelper.SkipHotfixing(System.Int32@,System.Int32@)">
+            <summary>
+            Gets a value indicating whether hotfix procedure is to be executed.
+            </summary>
+            <param name="hotfixVersion">Hotfix version according to the database as applied by the Hotfix utility.</param>
+            <param name="hotfixDataVersion">Hotfix version according to the database as applied by the last hotfix procedure run. If <paramref name="hotfixVersion"/> is 0 then this value is 0 as well.</param>
+            <returns>Returns true if hotfix application is to be skipped, otherwise returns false.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when hotfix version is lower than hotfix data version (data are ahead of actually applied hotfix) or an unfinished upgrade is detected.</exception>
+            <remarks>
+            <para>
+            Hotfix version equivalent to hotfix data version indicates the instance's files are on the same hotfix version as the database data
+            and the hotfix procedure is not to be applied.
+            </para>
+            <para>
+            Hotfix version higher than hotfix data version indicates the instance's files were hotfixed by the Hotfix utility and the database data has to be brought
+            to an up-to-date state by applying the hotfix procedure.
+            </para>
+            <para>
+            Hotfix version lower than hotfix data version indicates the database data is already on higher version than the instance's files which can happen
+            when deployment of a new hotfix is not atomic (e.g. Azure update groups). Hotfix procedure is not to be applied.
+            </para>
+            <para>
+            The method also tests whether assembly version corresponds to the hotfix version in the database to prevent premature hotfix procedure run
+            in a situation when Hotfix utility has already updated the database but hotfixed assemblies have not been deployed yet (i.e. the instance
+            runs the old assemblies).
+            </para>
+            </remarks>
+        </member>
+        <member name="M:CMS.UIControls.HotfixHelper.RevalidateSkipHotfixing(System.Int32@,System.Int32@)">
+            <summary>
+            Gets a value indicating whether hotfix procedure is to be executed. This method is to be called as part of a transaction
+            after previous <see cref="M:CMS.UIControls.HotfixHelper.SkipHotfixing(System.Int32@,System.Int32@)"/> check indicated the hotfix procedure is to be executed.
+            </summary>
+            <param name="hotfixVersion">Hotfix version according to the database as applied by the Hotfix utility.</param>
+            <param name="hotfixDataVersion">Hotfix version according to the database as applied by the last hotfix procedure run. If <paramref name="hotfixVersion"/> is 0 then this value is 0 as well.</param>
+            <returns>Returns true if hotfix application is to be skipped, otherwise returns false.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when hotfix version is lower than hotfix data version (data are ahead of actually applied hotfix) or an unfinished upgrade is detected.</exception>
+            <remarks>
+            <para>
+            Unlike the <see cref="M:CMS.UIControls.HotfixHelper.SkipHotfixing(System.Int32@,System.Int32@)"/> method, this method avoids obtaining the version values from a cache as hotfix procedure execution in a web farm environment
+            requires up-to-date values.
+            </para>
+            <para>
+            See <see cref="M:CMS.UIControls.HotfixHelper.SkipHotfixing(System.Int32@,System.Int32@)"/> method's Remarks section on details of the individual version values.
+            </para>
+            </remarks>
+        </member>
+        <member name="M:CMS.UIControls.HotfixHelper.ValidateDataAndDbVersionOrThrow">
+            <summary>
+            Validates that 'CMSDataVersion' and 'CMSDBVersion' match (a mismatch indicates an unfinished upgrade).
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.HotfixHelper.MarkHotfixProcedureStart">
+            <summary>
+            Marks hotfix procedure start in the database (if the procedure is not already running on a different instance).
+            </summary>
+            <returns>Returns true if the mark was set, otherwise returns false.</returns>
+        </member>
+        <member name="M:CMS.UIControls.HotfixHelper.MarkHotfixProcedureEnd">
+            <summary>
+            Marks hotfix procedure end in the database.
+            </summary>
+        </member>
+        <member name="T:CMS.UIControls.HotfixProcedure">
+            <summary>
+            Applies additional hotfix changes which cannot be applied by the Hotfix utility.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.HotfixProcedure.Hotfix">
+            <summary>
+            Applies additional hotfix changes, if the instance has been hotfixed by the utility.
+            </summary>
+            <remarks>
+            Only the main application (indicated by <see cref="P:CMS.Base.SystemContext.IsCMSRunningAsMainApplication"/>) performs hotfixing.
+            </remarks>
+        </member>
+        <member name="M:CMS.UIControls.HotfixProcedure.ApplyHotfix(System.Int32)">
+            <summary>
+            Applies hotfix to bring the database data from <paramref name="fromHotfixVersion"/> to current version.
+            </summary>
+            <param name="fromHotfixVersion">Hotfix version as applied by the last hotfix procedure run.</param>
+        </member>
+        <member name="M:CMS.UIControls.HotfixProcedure.ResignMacrosForServicePack(System.Int32)">
+            <summary>
+            Signs all macros (even already signed) of objects that has been modified for service pack with <see cref="P:CMS.Membership.UserInfoProvider.AdministratorUser"/>.
+            </summary>
+            <param name="fromHotfixVersion">Hotfix version as applied by the last hotfix procedure run.</param>
+        </member>
+        <member name="M:CMS.UIControls.HotfixProcedure.UpdateClassFormDefinitions">
+            <summary>
+            Updates class form definitions and alternative form definitions based on records from "Temp_FormDefinition" table
+            which may or may not be created by hotfix SQL script.
+            </summary>
         </member>
         <member name="T:CMS.UIControls.ContentInnerMediaView">
             <summary>
@@ -5726,6 +6011,16 @@
             <param name="width">Width parameter that should be added to the URL</param>
             <param name="maxSideSize">Maximum size of the item if metafile is image</param>
             /// <param name="argTable">Source meta file data</param>
+        </member>
+        <member name="T:CMS.UIControls.ConsentAgreementListUniGridExtender">
+            <summary>
+            Consent agreements list extender
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.ConsentAgreementListUniGridExtender.OnInit">
+            <summary>
+            Initializes the extender.
+            </summary>
         </member>
         <member name="T:CMS.UIControls.DataProtectionControlsRegister">
             <summary>
@@ -12032,14 +12327,14 @@
             <param name="iconfile">Icon file name</param>
         </member>
         <member name="M:CMS.UIControls.GridViewTemplate.BindData(System.Object,System.EventArgs)">
-            <summary> 
+            <summary>
             Handle DataBinding event called in the InstantiateIn method.
-            </summary>        
+            </summary>
         </member>
         <member name="M:CMS.UIControls.GridViewTemplate.BindCheckData(System.Object,System.EventArgs)">
-            <summary> 
+            <summary>
             Handle DataBinding event called in the InstantiateIn method.
-            </summary>        
+            </summary>
         </member>
         <member name="M:CMS.UIControls.GridViewTemplate.ApplyParameters(System.String,System.Web.UI.WebControls.GridViewRow)">
             <summary>
@@ -12053,7 +12348,14 @@
             Gets the object type of the parent grid.
             </summary>
         </member>
-        <member name="M:CMS.UIControls.GridViewTemplate.CreateButtonAction(CMS.UIControls.UniGridConfig.Action,System.Web.UI.Control)">
+        <member name="M:CMS.UIControls.GridViewTemplate.CreateButtonAction(CMS.UIControls.UniGridConfig.ButtonAction,System.Web.UI.Control)">
+            <summary>
+            Creates button for given unigrid action.
+            </summary>
+            <param name="action">Unigrid action</param>
+            <param name="container">Control container</param>
+        </member>
+        <member name="M:CMS.UIControls.GridViewTemplate.CreateIconAction(CMS.UIControls.UniGridConfig.Action,System.Web.UI.Control)">
             <summary>
             Creates font icon button for given unigrid action.
             </summary>
@@ -12067,14 +12369,14 @@
             <param name="action">Unigrid action</param>
             <param name="container">Control container</param>
         </member>
-        <member name="M:CMS.UIControls.GridViewTemplate.SetDataBindAttributes(System.Web.UI.WebControls.WebControl,CMS.UIControls.UniGridConfig.Action)">
+        <member name="M:CMS.UIControls.GridViewTemplate.SetDataBindAttributes(System.Web.UI.WebControls.WebControl,CMS.UIControls.UniGridConfig.AbstractAction)">
             <summary>
             Set attributes to the action control. These attributes will be processed in data bind event a removed from the control.
             </summary>
             <param name="control">Action control (CMSAccessibleButton or CMSImageButton)</param>
             <param name="action">Unigrid action</param>
         </member>
-        <member name="M:CMS.UIControls.GridViewTemplate.CreateActionContextMenu(CMS.UIControls.UniGridConfig.Action,System.Web.UI.WebControls.WebControl)">
+        <member name="M:CMS.UIControls.GridViewTemplate.CreateActionContextMenu(CMS.UIControls.UniGridConfig.AbstractAction,System.Web.UI.WebControls.WebControl)">
             <summary>
             Create context menu for unigrid action.
             </summary>
@@ -12574,7 +12876,7 @@
         </member>
         <member name="P:CMS.UIControls.UniGrid.ShowObjectMenu">
             <summary>
-            Defines whether to show object menu (menu containing relationships, export/backup, destroy object, ... functionality) 
+            Defines whether to show object menu (menu containing relationships, export/backup, destroy object, ... functionality)
             </summary>
         </member>
         <member name="P:CMS.UIControls.UniGrid.WhereCondition">
@@ -12958,7 +13260,7 @@
         </member>
         <member name="M:CMS.UIControls.UniGrid.AddAdditionalColumn(CMS.UIControls.UniGridConfig.Column,CMS.UIControls.OnExternalDataBoundEventHandler)">
             <summary>
-            Adds column to the UniGrid's columns with optional callback which specifies what will be displayed in a column cells. 
+            Adds column to the UniGrid's columns with optional callback which specifies what will be displayed in a column cells.
             </summary>
             <remarks>
             If <paramref name="externalDataBoundCallback"/> is specified, property ExternalSourceName of the <paramref name="column"/> parameter has to be specified as well.
@@ -13007,12 +13309,12 @@
         <member name="M:CMS.UIControls.UniGrid.RaiseOnBeforeDataReload">
             <summary>
             Raises the before data reload event.
-            </summary>    
+            </summary>
         </member>
         <member name="M:CMS.UIControls.UniGrid.RaiseOnAfterDataReload">
             <summary>
             Raises the after data reload event.
-            </summary>    
+            </summary>
         </member>
         <member name="M:CMS.UIControls.UniGrid.RaiseOnFilterFieldCreated(System.String,CMS.UIControls.UniGridFilterField)">
             <summary>
@@ -13218,7 +13520,7 @@
         </member>
         <member name="M:CMS.UIControls.UniGrid.ShouldShowSelection">
             <summary>
-            Returns <c>true</c> if either <see cref="P:CMS.UIControls.UniGridConfig.UniGridOptions.ShowSelection"/> is set 
+            Returns <c>true</c> if either <see cref="P:CMS.UIControls.UniGridConfig.UniGridOptions.ShowSelection"/> is set
             or there is at least one <see cref="P:CMS.UIControls.UniGridConfig.UniGridMassActions.MassActions"/>, otherwise <c>false</c>.
             </summary>
         </member>
@@ -13429,14 +13731,14 @@
         </member>
         <member name="M:CMS.UIControls.UniGrid.ProcessDestroyAction(CMS.DataEngine.BaseInfo,System.String)">
             <summary>
-            Checks permissions and tries to destroy given info object. 
+            Checks permissions and tries to destroy given info object.
             </summary>
             <param name="infoObj">Info object to be destroyed.</param>
             <param name="cmdValue">Command value</param>
         </member>
         <member name="M:CMS.UIControls.UniGrid.ProcessDeleteAction(CMS.DataEngine.BaseInfo,System.String,System.String)">
             <summary>
-            Checks permissions and tries to delete given info object. 
+            Checks permissions and tries to delete given info object.
             Displays error message if other objects are dependent or user is not granted with corresponding permission.
             </summary>
             <param name="infoObj">Info object to be deleted.</param>
@@ -13464,7 +13766,7 @@
             <summary>
             Checks whether user is authorized for specified action.
             </summary>
-            <param name="actionName">Action name</param>    
+            <param name="actionName">Action name</param>
         </member>
         <member name="M:CMS.UIControls.UniGrid.SortUniGridDataSource(System.Object)">
             <summary>
@@ -13476,7 +13778,7 @@
             Changes sorting direction by specified column.
             </summary>
             <param name="orderByColumn">Column name to order by</param>
-            <param name="orderByString">Old order by string</param> 
+            <param name="orderByString">Old order by string</param>
         </member>
         <member name="M:CMS.UIControls.UniGrid.ProcessSorting">
             <summary>
@@ -16815,6 +17117,26 @@
             </summary>
             <param name="settings">Clone settings</param>
         </member>
+        <member name="T:CMS.UIControls.UIControlsModule">
+            <summary>
+            Represents the UI controls module.
+            </summary>
+        </member>
+        <member name="F:CMS.UIControls.UIControlsModule.MODULE_NAME">
+            <summary>
+            Name of the UI controls module.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UIControlsModule.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CMS.UIControls.UIControlsModule"/> class.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.UIControlsModule.OnPreInit">
+            <summary>
+            Pre-initializes the UI controls module.
+            </summary>
+        </member>
         <member name="T:CMS.UIControls.AbstractMasterPage">
             <summary>
             Base class for CMS master pages.
@@ -17877,26 +18199,6 @@
             Base page for the properties pages to apply global settings to the pages
             </summary>
         </member>
-        <member name="F:CMS.UIControls.CMSValidationPage.TAB_HTML">
-            <summary>
-            HTML
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSValidationPage.TAB_CSS">
-            <summary>
-            CSS
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSValidationPage.TAB_LINKS">
-            <summary>
-            Links
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSValidationPage.TAB_ACCESSIBILITY">
-            <summary>
-            Accessibility
-            </summary>
-        </member>
         <member name="P:CMS.UIControls.CMSValidationPage.Validator">
             <summary>
             Validator element
@@ -17921,17 +18223,6 @@
             <summary>
             Returns document URL or redirect to page not available page 
             </summary>
-        </member>
-        <member name="M:CMS.UIControls.CMSValidationPage.GetValidationTab">
-            <summary>
-            Gets current validation tab.
-            </summary>
-        </member>
-        <member name="M:CMS.UIControls.CMSValidationPage.SetValidationTab(System.String)">
-            <summary>
-            Sets current validation tab.
-            </summary>
-            <param name="value">Value to store</param>
         </member>
         <member name="T:CMS.UIControls.CMSWidgetPropertiesPage">
             <summary>
@@ -18544,7 +18835,7 @@
         </member>
         <member name="M:CMS.UIControls.AbstractCMSPage.CreateDocumentManager">
             <summary>
-            Creates a document manager for this page
+            Creates a document manager for this page.
             </summary>
         </member>
         <member name="M:CMS.UIControls.AbstractCMSPage.OnPreInit(System.EventArgs)">
@@ -19504,16 +19795,6 @@
             Base page for the content pages to apply global settings to the pages.
             </summary>
         </member>
-        <member name="F:CMS.UIControls.CMSContentPage.TAB_VIEW">
-            <summary>
-            View tab.
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSContentPage.TAB_VALIDATE">
-            <summary>
-            Validate tab.
-            </summary>
-        </member>
         <member name="P:CMS.UIControls.CMSContentPage.UseDialogContentClass">
             <summary>
             Indicates whether dialog content class should be added to the content panel in dialog mode
@@ -19534,90 +19815,9 @@
             Checks the security.
             </summary>
         </member>
-        <member name="M:CMS.UIControls.CMSContentPage.GetViewTab">
-            <summary>
-            Gets current view tab.
-            </summary>
-        </member>
-        <member name="M:CMS.UIControls.CMSContentPage.SetViewTab(System.Int32)">
-            <summary>
-            Sets current view tab.
-            </summary>
-            <param name="value">Value to store</param>
-        </member>
         <member name="T:CMS.UIControls.CMSPropertiesPage">
             <summary>
             Base page for the properties pages to apply global settings to the pages.
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_GENERAL">
-            <summary>
-            General tab.
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_URLS">
-            <summary>
-            URLs tab.
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_TEMPLATE">
-            <summary>
-            Template tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_METADATA">
-            <summary>
-            Metadata tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_CATEGORIES">
-            <summary>
-            Categories tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_MENU">
-            <summary>
-            Menu tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_WORKFLOW">
-            <summary>
-            Workflow tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_VERSIONS">
-            <summary>
-            Versions tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_RELATEDDOCS">
-            <summary>
-            Related documents tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_LINKEDDOCS">
-            <summary>
-            Linked documents tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_SECURITY">
-            <summary>
-            Security tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_ATTACHMENTS">
-            <summary>
-            Attachments tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_LANGUAGES">
-            <summary>
-            Languages tab
-            </summary>
-        </member>
-        <member name="F:CMS.UIControls.CMSPropertiesPage.TAB_VARIANTS">
-            <summary>
-            Variants tab
             </summary>
         </member>
         <member name="P:CMS.UIControls.CMSPropertiesPage.ShowContentOnlyProperties">
@@ -19639,17 +19839,6 @@
             <summary>
             Ensures base page reload after data save
             </summary>
-        </member>
-        <member name="M:CMS.UIControls.CMSPropertiesPage.GetPropertyTab">
-            <summary>
-            Gets current property tab.
-            </summary>
-        </member>
-        <member name="M:CMS.UIControls.CMSPropertiesPage.SetPropertyTab(System.String)">
-            <summary>
-            Sets current property tab.
-            </summary>
-            <param name="value">Value to store</param>
         </member>
         <member name="T:CMS.UIControls.CMSEventManagerPage">
             <summary>
@@ -21618,17 +21807,12 @@
         </member>
         <member name="T:CMS.UIControls.GetBizFormFileHandler">
             <summary>
-            Handler which returns biz form file.
-            </summary>
-        </member>
-        <member name="P:CMS.UIControls.GetBizFormFileHandler.AllowCache">
-            <summary>
-            AdvancedGetFileHandler forces to implement AllowCache property.
+            Handler for accessing biz form files.
             </summary>
         </member>
         <member name="M:CMS.UIControls.GetBizFormFileHandler.ProcessRequestInternal(System.Web.HttpContextBase)">
             <summary>
-            Provides biz form file.
+            Processes biz form file request.
             </summary>
             <param name="context">Handler context</param>
         </member>

@@ -1,6 +1,8 @@
 ﻿using System;
 
+using CMS.Base.Web.UI;
 using CMS.OnlineMarketing.Web.UI;
+using CMS.SiteProvider;
 using CMS.UIControls;
 
 
@@ -14,8 +16,16 @@ public partial class CMSModules_OnlineMarketing_Pages_Content_ABTesting_ABTest_T
     protected override void OnInit(EventArgs e)
     {
         MessagesPlaceHolder = plcMess;
-        
+
+        ucDisabledModule.TestSettingKeys = SiteContext.CurrentSite.SiteIsContentOnly ? "CMSABTestingEnabled" : "CMSAnalyticsEnabled;CMSABTestingEnabled";
+
         base.OnInit(e);
+    }
+
+
+    protected void Page_PreRender()
+    {
+        ScriptHelper.RegisterScriptFile(Page, "DesignMode/PortalManager.js");
     }
 
     #endregion

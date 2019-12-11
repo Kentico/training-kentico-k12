@@ -7,7 +7,7 @@
     TagPrefix="cms" %>
 <asp:Content ContentPlaceHolderID="plcBeforeContent" runat="server">
     <cms:editmenu ID="menuElem" runat="server" ShowReject="true" ShowSubmitToApproval="true"
-        ShowProperties="false" IsLiveSite="false" ShowSave="false" />
+        ShowProperties="false" IsLiveSite="false" ShowSave="false" ShowNotificationCheckBox="true" />
     <cms:CMSDocumentPanel ID="pnlDocInfo" runat="server" Visible="False" />
 </asp:Content>
 <asp:Content ID="cntBody" runat="server" ContentPlaceHolderID="plcContent">

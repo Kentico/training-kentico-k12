@@ -558,35 +558,49 @@
             </summary>
             <param name="text">Text the language of which you want to detect</param>
         </member>
-        <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.SpeakInternal(System.String,System.String)">
+        <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.ContactService``1(System.String,System.String,System.String)">
             <summary>
-            Returns stream of wav file generated using Translator Text API azure cognitive service.
+            Contacts the service using the OAuth authorization method and returns the deserialized JSON response.
             </summary>
-            <param name="text">Text to speech</param>
-            <param name="lang">Language in which the speech should be generated (if null or empty, automatic detection is used)</param>
+            <typeparam name="ResponseType">Type used for deserialization of JSON response</typeparam>
+            <param name="endpointName">Name of endpoint to be contacted</param>
+            <param name="text">Text used in request body</param>
+            <param name="queryString">Query string parameters for API endpoint</param>
+            <returns>JSON response deserialized to <typeparamref name="ResponseType"/>.</returns>
         </member>
-        <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.ContactService(System.String)">
+        <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.GenerateRequest(System.String,System.String)">
             <summary>
-            Contacts the service with given URL using the OAuth authorization method and returns the response.
+            Generates request for translation API using URI and text to be translated.
             </summary>
-            <param name="requestString">Service request URL</param>
-        </member>
-        <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.BuildRequest(System.String)">
-            <summary>
-            Builds the request to the service
-            </summary>
-            <param name="requestString">Request URL</param>
+            <param name="uriString">URI of translation API including necessary query strings</param>
+            <param name="text">Text for request body</param>
+            <returns>Complete request ready to be sent.</returns>
         </member>
         <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.GetToken">
             <summary>
             Creates the token for given service.
             </summary>
+            <returns>Authentication token.</returns>
         </member>
         <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.GetAuthTokenClient">
             <summary>
             Initialize a client for token management.
             </summary>
-            <returns></returns>
+            <returns>Initialized client for token management.</returns>
+        </member>
+        <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.GetBaseUrlFor(System.String)">
+            <summary>
+            Gets base URL for specified method.
+            </summary>
+            <param name="apiMethod">API method name</param>
+            <returns>Base request URL for specified method.</returns>
+        </member>
+        <member name="M:CMS.TranslationServices.MicrosoftTranslatorService.GetRequestBody(System.String)">
+            <summary>
+            Gets body for requests.
+            </summary>
+            <param name="text">Text specified in body</param>
+            <returns>Body for request containing specified text.</returns>
         </member>
         <member name="T:CMS.TranslationServices.GoogleTranslatorService">
             <summary>
@@ -858,7 +872,7 @@
         </member>
         <member name="P:CMS.TranslationServices.TranslationServiceHelper.UseCDATAForTranslationUnit">
             <summary>
-            Indicates if CDATA section should be used for translation units. 
+            Indicates if CDATA section should be used for translation units.
             </summary>
         </member>
         <member name="P:CMS.TranslationServices.TranslationServiceHelper.AutoImportEnabled">
