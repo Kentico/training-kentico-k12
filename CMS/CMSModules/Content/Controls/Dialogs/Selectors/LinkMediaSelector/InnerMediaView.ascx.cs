@@ -154,6 +154,17 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
 
     #region "Page events"
 
+    protected override void OnInit(EventArgs e)
+    {
+        ListViewControl.OnExternalDataBound += ListViewControl_OnExternalDataBound;
+        ListViewControl.GridView.RowDataBound += GridView_RowDataBound;
+
+        ThumbnailsViewControl.ItemDataBound += ThumbnailsViewControl_ItemDataBound;
+
+        base.OnInit(e);
+    }
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         Visible = !StopProcessing;
@@ -265,13 +276,10 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
         {
             case DialogViewModeEnum.ListView:
                 InitializeListView();
-                ListViewControl.OnExternalDataBound += ListViewControl_OnExternalDataBound;
-                ListViewControl.GridView.RowDataBound += GridView_RowDataBound;
                 break;
 
             case DialogViewModeEnum.ThumbnailsView:
                 InitializeThumbnailsView();
-                ThumbnailsViewControl.ItemDataBound += ThumbnailsViewControl_ItemDataBound;
                 break;
         }
 

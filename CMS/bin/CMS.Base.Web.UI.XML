@@ -5310,6 +5310,11 @@
             GUID of the form the temporary attachment should be uploaded to before the document is created.
             </summary>
         </member>
+        <member name="P:CMS.Base.Web.UI.DialogConfiguration.AttachmentNodeClassName">
+            <summary>
+            Class name of the document  temporary attachment should be uploaded to before the document is created.
+            </summary>
+        </member>
         <member name="P:CMS.Base.Web.UI.DialogConfiguration.AttachmentParentID">
             <summary>
             Parent ID of the document the attachment should be added to.
@@ -6145,6 +6150,11 @@
         <member name="P:CMS.Base.Web.UI.MediaSource.MetaFileID">
             <summary>
             Metafile ID.
+            </summary>
+        </member>
+        <member name="P:CMS.Base.Web.UI.MediaSource.OriginalUrl">
+            <summary>
+            Gets or sets the original URL of this media source.
             </summary>
         </member>
         <member name="M:CMS.Base.Web.UI.MediaSource.#ctor">

@@ -5367,6 +5367,12 @@
             which may or may not be created by hotfix SQL script.
             </summary>
         </member>
+        <member name="M:CMS.UIControls.HotfixProcedure.SetDefaultSearchSettingsForDocumentFields(System.Int32)">
+            <summary>
+            Sets Search settings for cms.document, fields DocumentContent and DocumentWebParts.
+            The new setting values follow previously hard-coded behavior.
+            </summary>
+        </member>
         <member name="T:CMS.UIControls.ContentInnerMediaView">
             <summary>
             Base class for inner media view for content dialog
@@ -5926,6 +5932,11 @@
             If node belongs to site different from current site, a presentation URL is returned (if presentation URL configuration is available). Otherwise, an absolute URL returned.
             </summary>
             <param name="node">Tree node to to find URL for.</param>
+        </member>
+        <member name="M:CMS.UIControls.ContentMediaView.OnInit(System.EventArgs)">
+            <summary>
+            Init event handler.
+            </summary>
         </member>
         <member name="M:CMS.UIControls.ContentMediaView.SetupControls">
             <summary>
@@ -17490,6 +17501,46 @@
             <summary>
             Init event handler
             </summary>
+        </member>
+        <member name="T:CMS.UIControls.SystemMacroPage">
+            <summary>
+            Base page class for the page which is used for macro resigning and should be available for global administrators only.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.SystemMacroPage.RefreshSecurityParams(System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Boolean,System.Boolean,System.Action{System.String})">
+            <summary>
+            Refreshes the security parameters in macros for all the objects of the specified object types.
+            Signs all the macros with the current user if the old salt is not specified.
+            </summary>
+            <param name="objectTypes">Collection of object types that can contain macros</param>
+            <param name="oldSalt">Old salt </param>
+            <param name="newSalt">New salt</param>
+            <param name="refreshAll">If enabled the process skips signature integrity check and re-signs all macros</param>
+            <param name="useCurrentSalt">Indicates that current salt is used for resigning</param>
+            <param name="logProcess">Action that provides logging of given message</param>
+        </member>
+        <member name="M:CMS.UIControls.SystemMacroPage.GetNiceObjectTypeName(System.String)">
+            <summary>
+            Returns nice name for given object type.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.SystemMacroPage.FindOrderByIndex(CMS.DataEngine.ClassStructureInfo)">
+            <summary>
+            Finds suitable index for order by statement.
+            </summary>
+        </member>
+        <member name="M:CMS.UIControls.SystemMacroPage.LogInformationEvent(System.String,System.String)">
+            <summary>
+            Writes given information to the event log.
+            </summary>
+            <param name="eventCode">Event code</param>
+            <param name="eventDescription">Additional event information</param>
+        </member>
+        <member name="M:CMS.UIControls.SystemMacroPage.GetProcessedObjectsForEventLog(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Gets the list of processed objects formatted for use in the event log.
+            </summary>
+            <param name="processedObjects">Collection of processed objects to be serialized</param>
         </member>
         <member name="T:CMS.UIControls.CheckGroupPermissionArgs">
             <summary>

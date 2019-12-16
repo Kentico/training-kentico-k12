@@ -1,0 +1,33 @@
+﻿/* PAGE TEMPLATE STYLES */
+.kn-autocomplete {
+    display: block;
+    opacity: 1;
+    top: 4rem;
+}
+
+.kn-flight-icon > i {
+    font-size: 4rem;
+    text-align: center;
+    margin: 2rem 0 2rem 1rem;
+}
+
+.kn-inline-block {
+    display: inline-block;
+}
+
+.kn-flight-details tr {
+    border-bottom: none;
+}
+
+.kn-inline-block > .card {
+    margin: 1rem 2rem 1rem auto;
+}
+
+/* OVERRIDES OF MATERIALIZECSS FORM STYLES */
+.dropdown-content li > span {
+    color: #455a64;
+}
+
+    .dropdown-content li > span:hover {
+        background-color: #eceff1;
+    }

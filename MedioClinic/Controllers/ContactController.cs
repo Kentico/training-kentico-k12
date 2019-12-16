@@ -1,8 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
+
 using Business.DependencyInjection;
 using Business.Repository.Contact;
 using Business.Repository.Map;
 using Business.Repository.MediaLibrary;
+using MedioClinic.Config;
 using MedioClinic.Models.Contact;
 
 namespace MedioClinic.Controllers
@@ -14,16 +17,16 @@ namespace MedioClinic.Controllers
         private IMediaLibraryRepository MediaLibraryRepository { get; }
 
         public ContactController(
-            IBusinessDependencies dependencies,
+            IBusinessDependencies dependencies, 
             IContactSectionRepository contactSectionRepository,
             IMapRepository mapRepository,
             IMediaLibraryRepository mediaLibraryRepository
             ) : base(dependencies)
         {
-            ContactSectionRepository = contactSectionRepository;
-            MapRepository = mapRepository;
-            MediaLibraryRepository = mediaLibraryRepository;
-            MediaLibraryRepository.MediaLibraryName = "MedicalCenters";
+            ContactSectionRepository = contactSectionRepository ?? throw new ArgumentNullException(nameof(contactSectionRepository));
+            MapRepository = mapRepository ?? throw new ArgumentNullException(nameof(mapRepository));
+            MediaLibraryRepository = mediaLibraryRepository ?? throw new ArgumentNullException(nameof(mediaLibraryRepository));
+            MediaLibraryRepository.MediaLibraryName = AppConfig.MedicalCentersLibrary;
             MediaLibraryRepository.MediaLibrarySiteName = Dependencies.SiteContextService.SiteName;
         }
 

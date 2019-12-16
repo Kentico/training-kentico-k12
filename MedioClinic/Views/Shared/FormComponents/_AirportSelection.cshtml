@@ -1,0 +1,7 @@
+﻿@model MedioClinic.Models.FormComponents.AirportSelectionComponent
+
+@{ 
+    var htmlAttributes = ViewData.GetEditorHtmlAttributes();
+}
+
+@Html.DropDownListFor(m => m.SelectedValue, Model.Items, htmlAttributes)

@@ -235,6 +235,17 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
         }
     }
 
+
+    /// <summary>
+    /// The original URL of the link.
+    /// </summary>
+    private string OriginalUrl
+    {
+        get;
+        set;
+    }
+
+
     #endregion
 
 
@@ -577,6 +588,7 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
         if (MediaSource != null)
         {
             IsItemLoaded = true;
+            OriginalUrl = MediaSource.OriginalUrl;
 
             switch (MediaSource.SourceType)
             {
@@ -868,10 +880,12 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
     /// </summary>
     private void SetupControls()
     {
+        var currentSite = SiteContext.CurrentSite;
+
         // Generate permanent URLs whenever node GUID output required        
         if (Config.OutputFormat != OutputFormatEnum.NodeGUID)
         {
-            UsePermanentUrls = DocumentURLProvider.UsePermanentUrls(SiteContext.CurrentSiteName);
+            UsePermanentUrls = (SourceType == MediaSourceEnum.Content && currentSite.SiteIsContentOnly) ? false : DocumentURLProvider.UsePermanentUrls(currentSite.SiteName);
         }
         else
         {
@@ -880,7 +894,7 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
             siteSelector.UserId = currentUser.CheckPrivilegeLevel(UserPrivilegeLevelEnum.Admin) ? 0 : MembershipContext.AuthenticatedUser.UserID;
 
             // Select current site and disable change
-            siteSelector.SiteID = SiteID = SiteContext.CurrentSiteID;
+            siteSelector.SiteID = SiteID = currentSite.SiteID;
             siteSelector.Enabled = false;
         }
 
@@ -1020,6 +1034,7 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
             // Initialize menu element for attachments
             menuElem.DocumentID = Config.AttachmentDocumentID;
             menuElem.FormGUID = Config.AttachmentFormGUID;
+            menuElem.NodeClassName = Config.AttachmentNodeClassName;
             menuElem.ParentNodeID = Config.AttachmentParentID;
             menuElem.MetaFileObjectID = Config.MetaFileObjectID;
             menuElem.MetaFileObjectType = Config.MetaFileObjectType;
@@ -1753,6 +1768,7 @@ function RaiseHiddenPostBack(){{
             if ((ItemToColorize == Guid.Empty) || (ItemToColorize == node.NodeGUID))
             {
                 string url = GetNodeUrl(node);
+                url = AppendQueryAndAnchorFromOriginalLinkUrl(url);
 
                 ItemToColorize = node.NodeGUID;
 
@@ -1767,6 +1783,52 @@ function RaiseHiddenPostBack(){{
             isSelectable &&
             !node.NodeHasChildren &&
             !IsLinkOutput;
+    }
+
+
+    /// <summary>
+    /// Re-use the link query string and anchor from the original query
+    /// </summary>
+    private string AppendQueryAndAnchorFromOriginalLinkUrl(string linkUrl)
+    {
+        if (String.IsNullOrEmpty(linkUrl) || String.IsNullOrEmpty(OriginalUrl))
+        {
+            return linkUrl;
+        }
+
+        // 'originalUrl' will contain either a relative URL (~/path) or an absolute URL with a domain and protocol (http://domain/path)
+        string originalUrl = URLHelper.UnResolveUrl(OriginalUrl, SystemContext.ApplicationPath);
+        string originalStrippedUrl = RemoveQueryAndAnchorFromUrl(originalUrl, out string queryAndAnchor);
+
+        // Append the query string and anchor only if the link path matches (leads still to the same page)
+        if (originalStrippedUrl.Equals(linkUrl, StringComparison.InvariantCultureIgnoreCase)
+            && !String.IsNullOrEmpty(queryAndAnchor))
+        {
+            // Add the original query and anchor
+            linkUrl += queryAndAnchor;
+        }
+
+        return linkUrl;
+    }
+
+
+    private string RemoveQueryAndAnchorFromUrl(string url, out string queryAndAnchor)
+    {
+        queryAndAnchor = null;
+
+        if (String.IsNullOrEmpty(url))
+        {
+            return url;
+        }
+
+        int queryOrAnchorIndex = url.IndexOfAny(new[] { '?', '#' });
+        if (queryOrAnchorIndex >= 0)
+        {
+            queryAndAnchor = url.Substring(queryOrAnchorIndex);
+            return url.Substring(0, queryOrAnchorIndex);
+        }
+
+        return url;
     }
 
 
@@ -1937,7 +1999,7 @@ function RaiseHiddenPostBack(){{
 
         if (nodeId > 0)
         {
-            return tree.SelectSingleNode(nodeId, LocalizationContext.PreferredCultureCode);    
+            return tree.SelectSingleNode(nodeId, LocalizationContext.PreferredCultureCode);
         }
 
         return tree.SelectSingleDocument(ai.AttachmentDocumentID);
@@ -1991,7 +2053,7 @@ function RaiseHiddenPostBack(){{
                     else
                     {
                         // Get only main attachments for published document
-                        var query = 
+                        var query =
                             AttachmentInfoProvider.GetAttachments()
                                 .ExceptVariants()
                                 .Where(where)
@@ -2009,7 +2071,7 @@ function RaiseHiddenPostBack(){{
         // Get form attachments
         else if (AttachmentsAreTemporary)
         {
-            var query = 
+            var query =
                 AttachmentInfoProvider.GetAttachments()
                     .ExceptVariants()
                     .Where(where)
@@ -2017,7 +2079,7 @@ function RaiseHiddenPostBack(){{
                     .OrderBy("AttachmentOrder", "AttachmentName")
                     .BinaryData(false)
                     .TopN(currentPageSize);
-                
+
             query.Offset = mediaView.CurrentOffset;
             query.MaxRecords = currentPageSize;
 

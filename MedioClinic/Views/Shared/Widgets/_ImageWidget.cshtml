@@ -1,0 +1,28 @@
+﻿@using MedioClinic.Models.InlineEditors
+@using MedioClinic.Models.Widgets
+@model MedioClinic.Models.Widgets.ImageWidgetViewModel
+
+@{
+    if (Model.HasImage)
+    {
+        if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            var imageUrl = Url.KenticoImageUrl(Model.ImageUrl);
+            <img src="@Html.Raw(imageUrl)" class="responsive-img" />
+        }
+        else
+        {
+            <div class="dz-message">@Html.Localize("Widget.ImageNoLongerExists")</div>
+        }
+    }
+
+    if (Context.Kentico().PageBuilder().EditMode)
+    {
+        Html.RenderPartial("InlineEditors/_ImageUploader", new ImageUploaderEditorViewModel
+        {
+            PropertyName = nameof(ImageWidgetProperties.ImageGuid),
+            HasImage = !string.IsNullOrEmpty(Model.ImageUrl),
+            MediaLibraryViewModel = Model.MediaLibraryViewModel
+        });
+    }
+}

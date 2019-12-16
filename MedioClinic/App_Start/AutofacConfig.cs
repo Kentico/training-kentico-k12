@@ -1,12 +1,19 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
+using System.Net.Http;
+using System.Web.Http;
 using System.Web.Mvc;
+
 using Autofac;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using Business.DependencyInjection;
 using Business.Repository;
+using Business.Repository.LandingPage;
 using Business.Services;
 using Business.Services.Context;
 using MedioClinic.Config;
+using MedioClinic.Controllers;
 using MedioClinic.Utils;
 
 namespace MedioClinic
@@ -20,6 +27,9 @@ namespace MedioClinic
 
             // Register dependencies in controllers
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
+
+            // Register dependencies in Web API 2 controllers
+            builder.RegisterApiControllers(typeof(MvcApplication).Assembly);
 
             // Adds a custom registration source (IRegistrationSource) that provides all services from the Kentico API
             builder.RegisterSource(new CmsRegistrationSource());
@@ -48,8 +58,21 @@ namespace MedioClinic
                 .AsImplementedInterfaces()
                 .InstancePerRequest();
 
+            // Registers the common file management helper
+            builder.RegisterType<FileManager>().As<IFileManager>()
+                .InstancePerRequest();
+
+            // Registers the common error handler
+            builder.RegisterType<ErrorHelper>().As<IErrorHelper>()
+                .InstancePerRequest();
+
+            var container = builder.Build();
+
+            // Sets the dependency resolver for Web API 2
+            GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver(container);
+
             // Resolves the dependencies
-            DependencyResolver.SetResolver(new AutofacDependencyResolver(builder.Build()));
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
     }
 }

@@ -1,0 +1,153 @@
+﻿@using MedioClinic.Models.PageTemplates
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model MedioClinic.Models.PageViewModel<EventTemplateViewModel>
+
+@{
+    var eventDate = Model.Data.EventLandingPageDto.EventDate;
+    var year = eventDate.Year;
+    var month = eventDate.Month;
+    var day = eventDate.Day;
+    var dayBefore = eventDate == DateTime.MinValue ? eventDate.Day : eventDate.AddDays(-1).Day;
+    var skypickerEndDate = $"{day}/{month}/{year}";
+    var skypickerStartDate = $"{dayBefore}/{month}/{year}";
+}
+
+@section Styles {
+    @Html.Kentico().PageBuilderStyles()
+    @Styles.Render("~/bundles/page-templates-css")
+}
+
+<div class="section">
+    <div class="container">
+        <div class="kn-system-messages"></div>
+        @Html.Kentico().EditableArea("top")
+    </div>
+</div>
+<div class="section row">
+    <div class="container">
+        <h4>Find your flight</h4>
+        <div id="app">
+            <div class="input-field">
+                <autocomplete :place-holder-text="placeHolderInputText"
+                              :result-items="autoCompleteResult"
+                              :on-key-up="onKeyUpAutoCompleteEvent"
+                              :on-selected="onSelectedAutoCompleteEvent"
+                              :auto-complete-progress="autoCompleteProgress">
+                </autocomplete>
+            </div>
+            <div class="progress" v-if="skypickerProgress">
+                <div class="indeterminate"></div>
+            </div>
+            <div v-if="!skypickerProgress && flights.length > 0">
+                <h5>Flights from {{ selectedAirportName }} ({{ selectedAirportIataCode }})</h5>
+                <div class="kn-inline-block" v-for="flight in flights">
+                    <div class="card horizontal">
+                        <div class="card-image kn-flight-icon">
+                            <i class="material-icons">flight</i>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content kn-flight-details">
+                                <table>
+                                    <tr>
+                                        <th><i class="material-icons">flight_takeoff</i></th>
+                                        <td>{{ getDate(flight.dTime) }} {{ getTime(flight.dTime) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><i class="material-icons">flight_land</i></th>
+                                        <td>{{ getDate(flight.aTime) }} {{ getTime(flight.aTime) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><i class="material-icons">timer</i></th>
+                                        <td>{{ flight.fly_duration }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><i class="material-icons">payment</i></th>
+                                        <td>${{ flight.price }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="card-action">
+                                <a v-bind:href="flight.deep_link">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div v-else-if="!skypickerProgress && flights.length === 0">
+                <p>No flights were found.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://unpkg.com/vue"></script>
+    @Html.Kentico().PageBuilderScripts()
+    @Scripts.Render("~/bundles/page-templates-scripts")
+
+    <script>
+        var initEventPageApp = function () {
+            var skypickerStartDate = "@Html.Raw(skypickerStartDate)";
+            var skypickerEndDate = "@Html.Raw(skypickerEndDate)";
+            var skypickerDestinationIataCode = "@Html.Raw(Model.Data.EventTemplateProperties.EventLocationAirport)";
+
+            var autocompleteComponent = Vue.component("autocomplete", {
+                props: {
+                    placeHolderText: String,
+                    onKeyUp: Function,
+                    onSelected: Function,
+                    resultItems: Array,
+                    autoCompleteProgress: Boolean
+                },
+
+                data() {
+                    return {
+                        searchPhrase: ""
+                    };
+                },
+
+                template: `
+                    <div>
+			            <input type="text" :placeholder="placeHolderText" v-model="searchPhrase" class="autocomplete" @@keyup="!autoCompleteProgress ? onKeyUp(searchPhrase) : ''"/>
+                        <ul class="autocomplete-content dropdown-content kn-autocomplete" v-if="resultItems.length > 0">
+				            <li v-for="(item, i) in resultItems" :key="i" @@click="searchPhrase = item.AirportName; onSelected(item.AirportIataCode, item.AirportName)">
+					            <span>{{ item.AirportName }} ({{ item.AirportIataCode }})</span>
+				            </li>
+			            </ul>
+                    </div>
+	            `
+            });
+
+            var eventPageApp = new Vue({
+                el: "#app",
+                data: window.medioClinic.eventPage.appData,
+                methods: {
+                    onSelectedAutoCompleteEvent(itemId, itemText) {
+                        window.medioClinic.eventPage.onSelectedAutoCompleteEventHandler(this, itemId, itemText, skypickerDestinationIataCode, skypickerStartDate, skypickerEndDate);
+                    },
+                    onKeyUpAutoCompleteEvent(searchPhrase) {
+                        window.medioClinic.eventPage.onKeyUpAutoCompleteEventHandler(this, searchPhrase);
+                    },
+                    getDate(unixTimeStamp) {
+                        return window.medioClinic.eventPage.getDate(unixTimeStamp);
+                    },
+                    getTime(unixTimeStamp) {
+                        return window.medioClinic.eventPage.getTime(unixTimeStamp);
+                    }
+                }
+            });
+        };
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", function () {
+                initEventPageApp();
+            });
+        } else {
+            initEventPageApp();
+        }
+    </script>
+}

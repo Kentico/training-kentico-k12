@@ -41,6 +41,25 @@ namespace MedioClinic
             // A route value determines the culture of the current thread
             route.RouteHandler = new MultiCultureMvcRouteHandler();
 
+            // Maps route to event landing pages
+            route = routes.MapRoute(
+                name: "EventLandingPage",
+                url: "{culture}/EventLandingPage/{nodeAlias}",
+                defaults: new { culture = defaultCulture.Name, controller = "EventLandingPage", action = "Index" },
+                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), nodeAlias = new OptionalRouteConstraint(new RegexRouteConstraint(@"[\w\d_-]*")) }
+            );
+
+            // Maps route to landing pages
+            route = routes.MapRoute(
+                name: "LandingPage",
+                url: "{culture}/LandingPage/{nodeAlias}",
+                defaults: new { culture = defaultCulture.Name, controller = "LandingPage", action = "Index" },
+                constraints: new { culture = new SiteCultureConstraint(AppConfig.Sitename), nodeAlias = new OptionalRouteConstraint(new RegexRouteConstraint(@"[\w\d_-]*")) }
+            );
+
+            // A route value determines the culture of the current thread
+            route.RouteHandler = new MultiCultureMvcRouteHandler();
+
             // Maps routes with cultures
             route = routes.MapRoute(
                 name: "DefaultWithCulture",

@@ -1,0 +1,22 @@
+﻿@using MedioClinic.Models.PageTemplates
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    @Html.Kentico().PageBuilderStyles()
+}
+
+@model MedioClinic.Models.PageViewModel<BasicTemplateProperties>
+
+<div class="section">
+    <div class="container">
+        <div class="kn-system-messages"></div>
+        @Html.Kentico().EditableArea("top")
+    </div>
+</div>
+
+@section Scripts {
+    @Html.Kentico().PageBuilderScripts()
+}

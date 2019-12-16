@@ -10,8 +10,16 @@ namespace MedioClinic
                 .IncludeDirectory("~/Scripts/Master", "*.js", true)
             );
 
+            bundles.Add(new ScriptBundle("~/bundles/page-templates-scripts")
+                .IncludeDirectory("~/Content/PageTemplates", "*.js", true)
+            );
+
             bundles.Add(new StyleBundle("~/bundles/master-css")
                 .IncludeDirectory("~/Content/Css/Master", "*.css", true)
+            );
+
+            bundles.Add(new StyleBundle("~/bundles/page-templates-css")
+                .IncludeDirectory("~/Content/PageTemplates", "*.css", true)
             );
 
             // Enables bundling and minification of bundle references

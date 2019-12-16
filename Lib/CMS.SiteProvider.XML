@@ -1048,6 +1048,11 @@
             Table of the running site infos indexed by the domain names. [domainName -> SiteInfo]
             </summary>
         </member>
+        <member name="P:CMS.SiteProvider.SiteInfoProvider.RunningSiteByPresentationUrls">
+            <summary>
+            A collection of all running sites ordered (DESC) by their presentation URL (without protocol).
+            </summary>
+        </member>
         <member name="M:CMS.SiteProvider.SiteInfoProvider.#ctor">
             <summary>
             Constructor.
@@ -1180,6 +1185,12 @@
             </summary>
             <param name="siteName">Site name of the site to stop</param>
         </member>
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetSiteNameFromUrl(System.String)">
+            <summary>
+            Returns site name from <paramref name="url"/>.
+            </summary>
+            <param name="url">Url</param>
+        </member>
         <member name="M:CMS.SiteProvider.SiteInfoProvider.GetSiteNameFromUrl(System.String,System.String)">
             <summary>
             Returns site name from url.
@@ -1202,7 +1213,11 @@
             <summary>
             Gets the running site by matching a presentation URL.
             </summary>
-            <param name="presentationUrl">Presentation URL without a protocol.</param>
+        </member>
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteByPresentationUrlsInternal">
+            <summary>
+            Gets a list of running site infos ordered by their presentation URL (without protocol).
+            </summary>
         </member>
         <member name="M:CMS.SiteProvider.SiteInfoProvider.GetRunningSiteByDomain(System.String)">
             <summary>
@@ -1261,6 +1276,12 @@
             Sets the specified Site running.
             </summary>
             <param name="siteName">Site name of the site to run</param>
+        </member>
+        <member name="M:CMS.SiteProvider.SiteInfoProvider.GetSiteNameFromUrlInternal(System.String)">
+            <summary>
+            Returns site name from URL.
+            </summary>
+            <param name="url">URL of the site</param>
         </member>
         <member name="M:CMS.SiteProvider.SiteInfoProvider.GetSiteNameFromUrlInternal(System.String,System.String)">
             <summary>

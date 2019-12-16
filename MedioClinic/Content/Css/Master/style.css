@@ -683,3 +683,28 @@ span.kn-badge.closed {
             cursor: pointer;
             display: block;
         }
+
+/* LANDING PAGE STYLES */
+.kn-system-messages p {
+    padding: 0.5rem;
+}
+
+/* OVERRIDES OF MATERIALIZECSS FORM STYLES */
+[type="checkbox"] {
+    padding: initial;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: initial;
+    opacity: initial;
+    pointer-events: initial;
+}
+
+label {
+    font-size: initial;
+}
+
+span.ktc-checkbox {
+    line-height: 3rem;
+}

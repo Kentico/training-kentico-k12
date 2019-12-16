@@ -1,5 +1,5 @@
 using Kentico.Content.Web.Mvc;
-using Kentico.Content.Web.Mvc.Routing;
+using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
 
 namespace MedioClinic
@@ -12,9 +12,10 @@ namespace MedioClinic
 
             builder.UsePreview();
 
-            builder.UsePageRouting(new PageRoutingOptions
+            builder.UsePageBuilder(new PageBuilderOptions()
             {
-                EnableAlternativeUrls = true
+                DefaultSectionIdentifier = "MedioClinic.Section.SingleColumn",
+                RegisterDefaultSection = true
             });
         }
     }

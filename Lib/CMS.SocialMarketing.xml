@@ -145,6 +145,12 @@
             Array containing pairs (name, period) of structured Insights for Facebook page.
             </summary>
         </member>
+        <member name="F:CMS.SocialMarketing.FacebookInsightsHelper.mInsightsTranslationToOldNames">
+            <summary>
+            Dictionary containing the new name of insights metric as key and its old name as value.
+            Covers the breaking changes in metric names in Facebook API.
+            </summary>
+        </member>
         <member name="F:CMS.SocialMarketing.FacebookInsightsHelper.POSTS_INSIGHTS_METRICS">
             <summary>
             Collection of metrics to be requested during posts retrieval.
@@ -186,6 +192,13 @@
             <param name="insightsState">Contains Insights collection state.</param>
             <exception cref="T:Facebook.FacebookApiException">FacebookApiException is thrown when an error occurs while communicating with Facebook.</exception>
         </member>
+        <member name="M:CMS.SocialMarketing.FacebookInsightsHelper.ProcessInsightsPage(CMS.SocialMarketing.FacebookAccountInfo,System.String[][],CMS.SocialMarketing.FacebookInsightsStateItem,System.String)">
+            <summary>
+            Processes a single page of Insights data and returns the Facebook Graph API endpoint that will return the next page of data.
+            If the result is <c>null</c>, the processed page was the last page of data.
+            http://developers.facebook.com/docs/graph-api/using-graph-api#paging
+            </summary>
+        </member>
         <member name="M:CMS.SocialMarketing.FacebookInsightsHelper.ProcessBothFacebookInsights(CMS.SocialMarketing.FacebookAccountInfo,CMS.SocialMarketing.FacebookInsightsParser,System.DateTime)">
             <summary>
             Processes scalar and structured Facebook page insights.
@@ -193,6 +206,12 @@
             <param name="account">Facebook account (page).</param>
             <param name="insightsParser">Insights parser with Facebook API response.</param>
             <param name="endTime">End time of values to process.</param>
+        </member>
+        <member name="M:CMS.SocialMarketing.FacebookInsightsHelper.GetOriginalMetricName(System.String)">
+            <summary>
+            A helper method for handling breaking changes in Facebook insight metric names - translates the name of insight metric to its original name (as in Kentico DB).
+            Insight reports in Kentico rely on old metric names, plus there may be some already collected statistics under the old names.
+            </summary>
         </member>
         <member name="M:CMS.SocialMarketing.FacebookInsightsHelper.ProcessScalarFacebookInsights(CMS.SocialMarketing.FacebookAccountInfo,CMS.SocialMarketing.FacebookInsightsParser,System.DateTime)">
             <summary>
@@ -268,6 +287,11 @@
             DateTime.MinValue means the end time is not present in response (data section is probably empty).
             </summary>
         </member>
+        <member name="F:CMS.SocialMarketing.FacebookInsightsParser.mPagingData">
+            <summary>
+            Contains Facebook Graph API response paging section, or null if not present.
+            </summary>
+        </member>
         <member name="M:CMS.SocialMarketing.FacebookInsightsParser.#ctor(System.Object)">
             <summary>
             Creates a new instance of parser for given API response.
@@ -314,6 +338,12 @@
             </summary>
             <param name="namesAndPeriods">Array of pairs (name, period) for which to return DateTime</param>
             <returns>Set of DateTime with available end_time values.</returns>
+        </member>
+        <member name="M:CMS.SocialMarketing.FacebookInsightsParser.GetNextPageUrl">
+            <summary>
+            Returns the Facebook Graph API endpoint that will return the next page of data.
+            See http://developers.facebook.com/docs/graph-api/using-graph-api#paging for more details.
+            </summary>
         </member>
         <member name="M:CMS.SocialMarketing.FacebookInsightsParser.FacebookDateTimeStringToDateTime(System.String)">
             <summary>
@@ -860,12 +890,6 @@
             Pass comma separated list of IDs as parameter 0.
             </summary>
         </member>
-        <member name="F:CMS.SocialMarketing.FacebookHelper.GRAPH_API_OBJECT_MULTIPLE_ID">
-            <summary>
-            Multiple Facebook objects URL.
-            Pass comma separated list of IDs as parameter 0.
-            </summary>
-        </member>
         <member name="F:CMS.SocialMarketing.FacebookHelper.PAGE_ACCESS_TOKEN_SESSION_KEY">
             <summary>
             Session key for page access token.
@@ -922,25 +946,43 @@
             <param name="pageId">Facebook page identifier to find page access token for.</param>
             <param name="appSecret">Facebook application secret key for improving security.</param>
         </member>
-        <member name="M:CMS.SocialMarketing.FacebookHelper.RetrieveFacebookInsights(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+        <member name="M:CMS.SocialMarketing.FacebookHelper.RetrieveFacebookInsightsPage(System.String,System.String,System.String)">
             <summary>
-            Retrieves Facebook Insights for object with given Facebook object ID.
+            Retrieves a single page of Facebook Insights via direct link <paramref name="insightsDirectPageUrl"/>.
+            Most of Facebook's responses are paginated by default, the direct link can be obtained from the response on request for insights initial page.
+            See http://developers.facebook.com/docs/graph-api/using-graph-api#paging for more details.
             </summary>
-            <param name="objectId">Facebook object ID.</param>
-            <param name="metrics">Metrics to be included in result data.</param>
+            <param name="insightsDirectPageUrl">The Facebook Graph API endpoint that will return the page of insights data.</param>
             <param name="accessToken">Access token for Facebook object.</param>
             <param name="appSecret">Facebook application secret key for improving security.</param>
             <returns>Facebook Graph API response.</returns>
             <exception cref="T:Facebook.FacebookApiException">FacebookApiException is thrown when an error occurs while communicating with Facebook.</exception>
         </member>
-        <member name="M:CMS.SocialMarketing.FacebookHelper.RetrieveFacebookInsights(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
+        <member name="M:CMS.SocialMarketing.FacebookHelper.RetrieveFacebookInsightsInitialPage(System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            Retrieves the initial page of Facebook Insights for object with given Facebook object ID.
+            The response may contain a link to the next page of data as described in http://developers.facebook.com/docs/graph-api/using-graph-api#paging.
+            </summary>
+            <param name="objectId">Facebook object ID.</param>
+            <param name="metrics">Metrics to be included in result data.</param>
+            <param name="accessToken">Access token for Facebook object.</param>
+            <param name="appSecret">Facebook application secret key for improving security.</param>
+            <param name="since">A date that points to the start of the range of time-based data.</param>
+            <param name="period">The aggregation period for all requested <paramref name="metrics"/>. Shrinks the response size, recommended to use only when all metrics use the same period.</param>
+            <returns>Facebook Graph API response.</returns>
+            <exception cref="T:Facebook.FacebookApiException">FacebookApiException is thrown when an error occurs while communicating with Facebook.</exception>
+        </member>
+        <member name="M:CMS.SocialMarketing.FacebookHelper.RetrieveFacebookInsightsInitialPage(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.String,System.String,System.Nullable{System.DateTime},System.String)">
             <summary>
             Retrieves Facebook Insights for objects with given Facebook object IDs.
+            The response may contain a link to the next page of data as described in http://developers.facebook.com/docs/graph-api/using-graph-api#paging.
             </summary>
             <param name="ids">Facebook object IDs.</param>
             <param name="metrics">Metrics to be retrieved.</param>
             <param name="accessToken">Access token for Facebook objects.</param>
             <param name="appSecret">Facebook application secret key for improving security.</param>
+            <param name="since">A date that points to the start of the range of time-based data.</param>
+            <param name="period">The aggregation period for all requested <paramref name="metrics"/>. Shrinks the response size, recommended to use only when all metrics use the same period.</param>
             <returns>Facebook Graph API response.</returns>
             <exception cref="T:Facebook.FacebookApiException">FacebookApiException is thrown when an error occurs while communicating with Facebook.</exception>
         </member>
@@ -957,16 +999,6 @@
         <member name="M:CMS.SocialMarketing.FacebookHelper.RetrieveFacebookLikesSummary(System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
             <summary>
             Retrieves Facebook Likes for objects with given Facebook object IDs.
-            </summary>
-            <param name="ids">Facebook object IDs.</param>
-            <param name="accessToken">Access token for Facebook objects.</param>
-            <param name="appSecret">Facebook application secret key for improving security.</param>
-            <returns>Facebook Graph API response.</returns>
-            <exception cref="T:Facebook.FacebookApiException">FacebookApiException is thrown when an error occurs while communicating with Facebook.</exception>
-        </member>
-        <member name="M:CMS.SocialMarketing.FacebookHelper.RetrieveFacebookObjects(System.Collections.Generic.IEnumerable{System.String},System.String,System.String)">
-            <summary>
-            Retrieves Facebook objects with given IDs.
             </summary>
             <param name="ids">Facebook object IDs.</param>
             <param name="accessToken">Access token for Facebook objects.</param>
@@ -1014,6 +1046,14 @@
             <param name="accessToken">Application access token acquired via login bounce.</param>
             <param name="pageId">Facebook page identifier to find page access token for.</param>
             <param name="appSecret">Facebook application secret key for improving security.</param>
+        </member>
+        <member name="M:CMS.SocialMarketing.FacebookHelper.EnsureAdditionalInsightsQueryParameters(System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            Adds optional Facebook query parameters to the <paramref name="url"/> to adjust the Facebook Insights API request.
+            </summary>
+            <param name="url">URL for GET request.</param>
+            <param name="since">A date that points to the start of the range of time-based data.</param>
+            <param name="period">The aggregation period for all requested metrics. Shrinks the response size, recommended to use only when all metrics use the same period.</param>
         </member>
         <member name="M:CMS.SocialMarketing.FacebookHelper.GetFacebookResponse(System.String,System.String,System.String)">
             <summary>

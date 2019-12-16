@@ -195,9 +195,10 @@ public partial class CMSModules_Newsletters_Controls_MySubscriptions : CMSAdminC
             {
                 usNewsletters.Visible = true;
 
-                InitializeSubscriber(userInfo, SiteID);
+                var contact = mContactProvider.GetContactForSubscribing(userInfo);
+                InitializeSubscriber(contact, SiteID);
 
-                LoadNewslettersForSubscriber();
+                LoadNewslettersForUser(contact);
             }
             else
             {
@@ -413,15 +414,12 @@ public partial class CMSModules_Newsletters_Controls_MySubscriptions : CMSAdminC
     }
 
 
-    private void LoadNewslettersForSubscriber()
-    {
-        if (subscriber == null)
-        {
-            return;
-        }
+    private void LoadNewslettersForUser(ContactInfo contact)
+    {        
+        var subscriptionService = Service.Resolve<ISubscriptionService>();
 
         // Get selected newsletters
-        DataSet ds = SubscriberNewsletterInfoProvider.GetSubscriberNewsletters().WhereEquals("SubscriberID", subscriber.SubscriberID).Column("NewsletterID");
+        DataSet ds = subscriptionService.GetAllActiveSubscriptions(contact.ContactID).Column("NewsletterID");
         if (!DataHelper.DataSourceIsEmpty(ds))
         {
             currentValues = TextHelper.Join(";", DataHelper.GetStringValues(ds.Tables[0], "NewsletterID"));
@@ -465,9 +463,8 @@ public partial class CMSModules_Newsletters_Controls_MySubscriptions : CMSAdminC
     }
 
 
-    private void InitializeSubscriber(UserInfo user, int siteId)
+    private void InitializeSubscriber(ContactInfo contact, int siteId)
     {
-        var contact = mContactProvider.GetContactForSubscribing(user);
         subscriber = SubscriberInfoProvider.GetSubscriberInfo(ContactInfo.OBJECT_TYPE, contact.ContactID, siteId);
     }
 
