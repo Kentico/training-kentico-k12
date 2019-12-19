@@ -47,6 +47,22 @@
                     }
                 </ul>
             }
+
+            @if (Context.User.Identity.IsAuthenticated)
+            {
+                <ul id="user-account" class="dropdown-content">
+                    <li><a href="@Url.Action("Index", "Profile")">Profile</a></li>
+                    <li><a href="@Url.Action("Signout", "Account")">Sign out</a></li>
+                </ul>
+            }
+            else
+            {
+                <ul id="user-account" class="dropdown-content">
+                    <li><a href="@Url.Action("Register", "Account")">Register</a></li>
+                    <li><a href="@Url.Action("Signin", "Account")">Sign in</a></li>
+                </ul>
+            }
+
             <ul class="right hide-on-med-and-down">
                 @foreach (var menuItem in Model.MenuItems)
                 {
@@ -68,6 +84,15 @@
                     <a class="dropdown-trigger" href="#" data-target="langs">
                         @Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName
                         <i class="fas fa-globe-africa right"></i>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-trigger" href="#" data-target="user-account">
+                        @if (Context.User.Identity.IsAuthenticated)
+                        {
+                            @Html.Raw(User.Identity.Name)
+                        }
+                        <i class="fas fa-user-circle right"></i>
                     </a>
                 </li>
             </ul>

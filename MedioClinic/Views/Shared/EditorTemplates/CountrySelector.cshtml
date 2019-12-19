@@ -1,0 +1,14 @@
+﻿@inherits MedioClinic.Views.CountrySelector<string>
+
+@{
+    var countries = CountryService
+        .GetCountries()
+        .Select(country => new SelectListItem
+        {
+            Value = country.CountryCodeName,
+            Text = country.CountryDisplayName,
+            Selected = country.CountryCodeName.Equals(Model, StringComparison.OrdinalIgnoreCase)
+        });
+}
+
+@Html.DropDownListFor(m => m, countries)

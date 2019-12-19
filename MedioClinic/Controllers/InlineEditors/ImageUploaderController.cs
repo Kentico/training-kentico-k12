@@ -10,13 +10,13 @@ namespace MedioClinic.Controllers.Widgets
     {
         protected string TempPath => $"{Server.MapPath(@"~\")}App_Data\\Temp\\ImageUploaderEditor";
 
-        protected IFileManager FileManagementHelper { get; }
+        protected IFileManager FileManager { get; }
 
         protected IErrorHelper ErrorHelper { get; }
 
-        public ImageUploaderController(IFileManager fileManagementHelper, IErrorHelper errorHandler)
+        public ImageUploaderController(IFileManager fileManager, IErrorHelper errorHandler)
         {
-            FileManagementHelper = fileManagementHelper ?? throw new ArgumentNullException(nameof(fileManagementHelper));
+            FileManager = fileManager ?? throw new ArgumentNullException(nameof(fileManager));
             ErrorHelper = errorHandler ?? throw new ArgumentNullException(nameof(errorHandler));
         }
 
@@ -31,7 +31,7 @@ namespace MedioClinic.Controllers.Widgets
             {
                 try
                 {
-                    imageGuid = FileManagementHelper.AddMediaLibraryFile(file, TempPath, libraryName: mediaLibraryName, librarySiteName: mediaLibrarySiteName);
+                    imageGuid = FileManager.AddMediaLibraryFile(file, TempPath, libraryName: mediaLibraryName, librarySiteName: mediaLibrarySiteName);
                 }
                 catch (Exception ex)
                 {

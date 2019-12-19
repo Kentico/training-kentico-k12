@@ -17,6 +17,8 @@ namespace MedioClinic
                 DefaultSectionIdentifier = "MedioClinic.Section.SingleColumn",
                 RegisterDefaultSection = true
             });
+
+            builder.UseDataAnnotationsLocalization();
         }
     }
 }

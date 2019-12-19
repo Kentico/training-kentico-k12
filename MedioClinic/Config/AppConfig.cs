@@ -6,8 +6,10 @@ namespace MedioClinic.Config
     public static class AppConfig
     {
         public const string Sitename = "MedioClinic";
-
         public const string MedicalCentersLibrary = "MedicalCenters";
+        public const string ContentDirectory = "~/Content";
+        public const string AvatarDirectory = "Avatar";
+        public const string DefaultAvatarFileName = "avatar-template.jpg";
 
         public static HashSet<string> AllowedImageExtensions =
             new HashSet<string>(new[]
@@ -17,5 +19,7 @@ namespace MedioClinic.Config
                 ".jpg",
                 ".jpeg"
             }, StringComparer.OrdinalIgnoreCase);
+
+        public static bool EmailConfirmedRegistration = true;
     }
 }

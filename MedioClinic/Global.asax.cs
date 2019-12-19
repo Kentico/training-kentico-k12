@@ -26,6 +26,9 @@ namespace MedioClinic
             // Dependency injection
             AutofacConfig.ConfigureContainer();
 
+            // Registers custom model binders.
+            ModelBindingConfig.RegisterModelBinders();
+
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             PageBuilderFilters.PageTemplates.Add(new LandingPageTemplateFilter());

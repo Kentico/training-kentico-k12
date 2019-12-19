@@ -22,7 +22,7 @@ namespace MedioClinic.Utils
         protected static string GetSuffixedFileName(string fileName, string fileExtension, int currentSuffix) =>
             currentSuffix == 0 ? fileName : $"{fileName} ({currentSuffix}).{fileExtension}";
 
-        public string EnsureUploadDirectory(string directoryPath)
+        public void EnsureDirectory(string directoryPath)
         {
             if (string.IsNullOrEmpty(directoryPath))
             {
@@ -33,8 +33,6 @@ namespace MedioClinic.Utils
             {
                 Directory.CreateDirectory(directoryPath);
             }
-
-            return directoryPath;
         }
 
         public string GetFilePath(string directoryPath, string fileName)
@@ -77,6 +75,30 @@ namespace MedioClinic.Utils
             return AddMediaLibraryFileInternal(file, uploadDirectory, libraryFolderPath);
         }
 
+        public void EnsureFile(string physicalPath, byte[] fileBinary, bool forceOverwrite = false)
+        {
+            if (!File.Exists(physicalPath) || forceOverwrite)
+            {
+                File.WriteAllBytes(physicalPath, fileBinary);
+            }
+        }
+
+        public string GetServerRelativePath(HttpRequestBase request, string physicalPath)
+        {
+            var trimmed = physicalPath.Substring(request.PhysicalApplicationPath.Length);
+
+            return $"~/{trimmed.Replace('\\', '/')}";
+        }
+
+        public byte[] GetPostedFileBinary(HttpPostedFileBase file)
+        {
+            byte[] data = new byte[file.ContentLength];
+            file.InputStream.Seek(0, SeekOrigin.Begin);
+            file.InputStream.Read(data, 0, file.ContentLength);
+
+            return data;
+        }
+
         protected Guid AddMediaLibraryFileInternal(HttpPostedFileWrapper file, string uploadDirectory, string libraryFolderPath = null)
         {
             if (file is null)
@@ -89,9 +111,9 @@ namespace MedioClinic.Utils
                 throw new InvalidOperationException("The app is not configured to allow this type of image.");
             }
 
-            var directory = EnsureUploadDirectory(uploadDirectory);
+            EnsureDirectory(uploadDirectory);
             var (name, extension) = GetNameAndExtension(file.FileName);
-            var uploadFilePath = GetNonCollidingFilePath(directory, name, extension);
+            var uploadFilePath = GetNonCollidingFilePath(uploadDirectory, name, extension);
             file.SaveAs(uploadFilePath);
 
             try

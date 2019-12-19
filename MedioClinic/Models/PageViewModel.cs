@@ -19,8 +19,14 @@ namespace MedioClinic.Models
         public CompanyDto Company { get; set; }
         public IEnumerable<CultureDto> Cultures { get; set; }
         public IEnumerable<SocialLinkDto> SocialLinks { get; set; }
+        public UserMessage UserMessage { get; set; }
 
-        public static PageViewModel GetPageViewModel(string title, IBusinessDependencies dependencies) =>
+        public static PageViewModel GetPageViewModel(
+            string title,
+            IBusinessDependencies dependencies,
+            string message = null,
+            bool displayAsRaw = false,
+            MessageType messageType = MessageType.Info) =>
             new PageViewModel()
             {
                 MenuItems = dependencies.MenuRepository.GetMenuItems() ?? new List<MenuItemDto>(),
@@ -28,6 +34,12 @@ namespace MedioClinic.Models
                 Company = GetCompany(dependencies),
                 Cultures = dependencies.CultureService.GetSiteCultures(),
                 SocialLinks = GetSocialLinks(dependencies),
+                UserMessage = new UserMessage
+                {
+                    Message = message,
+                    MessageType = messageType,
+                    DisplayAsRaw = displayAsRaw
+                }
             };
 
         protected static PageMetadataDto GetPageMetadata(string title, IBusinessDependencies dependencies) =>
@@ -48,7 +60,13 @@ namespace MedioClinic.Models
     {
         public TViewModel Data { get; set; }
 
-        public static PageViewModel<TViewModel> GetPageViewModel(TViewModel data, string title, IBusinessDependencies dependencies) =>
+        public static PageViewModel<TViewModel> GetPageViewModel(
+            TViewModel data,
+            string title,
+            IBusinessDependencies dependencies,
+            string message = null,
+            bool displayAsRaw = false,
+            MessageType messageType = MessageType.Info) =>
             new PageViewModel<TViewModel>()
             {
                 MenuItems = dependencies.MenuRepository.GetMenuItems() ?? new List<MenuItemDto>(),
@@ -56,6 +74,12 @@ namespace MedioClinic.Models
                 Company = GetCompany(dependencies),
                 Cultures = dependencies.CultureService.GetSiteCultures(),
                 SocialLinks = GetSocialLinks(dependencies),
+                UserMessage = new UserMessage
+                {
+                    Message = message,
+                    MessageType = messageType,
+                    DisplayAsRaw = displayAsRaw
+                },
                 Data = data
             };
     }

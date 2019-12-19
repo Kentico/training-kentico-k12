@@ -6,11 +6,10 @@ namespace MedioClinic.Utils
     public interface IFileManager
     {
         /// <summary>
-        /// Checks for the existence of an upload directory, and, creates it eventually.
+        /// Checks for the existence of a directory, and creates it if necessary.
         /// </summary>
-        /// <param name="directoryPath">Path of the upload directory.</param>
-        /// <returns>Path of the upload directory.</returns>
-        string EnsureUploadDirectory(string directoryPath);
+        /// <param name="directoryPath">Path of the directory.</param>
+        void EnsureDirectory(string directoryPath);
 
         /// <summary>
         /// Gets the complete local filesystem path to a file.
@@ -40,5 +39,28 @@ namespace MedioClinic.Utils
         /// <param name="libraryFolderPath">Library folder to save to.</param>
         /// <returns>The GUID of the file in the media library.</returns>
         Guid AddMediaLibraryFile(HttpPostedFileWrapper file, string uploadDirectory, int mediaLibraryId, string libraryFolderPath = null);
+
+        /// <summary>
+        /// Makes sure that a local file exists.
+        /// </summary>
+        /// <param name="physicalPath">File physical path.</param>
+        /// <param name="fileBinary">File byte array.</param>
+        /// <param name="forceOverwrite">Flag to overwrite an existing file.</param>
+        void EnsureFile(string physicalPath, byte[] fileBinary, bool forceOverwrite = false);
+
+        /// <summary>
+        /// Converts a physical into a server-relative path.
+        /// </summary>
+        /// <param name="request">HTTP request.</param>
+        /// <param name="physicalPath">Physical path.</param>
+        /// <returns>A server-relative path.</returns>
+        string GetServerRelativePath(HttpRequestBase request, string physicalPath);
+
+        /// <summary>
+        /// Gets a byte array of a posted file.
+        /// </summary>
+        /// <param name="file">The posted file.</param>
+        /// <returns>The byte array of the file.</returns>
+        byte[] GetPostedFileBinary(HttpPostedFileBase file);
     }
 }

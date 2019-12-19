@@ -141,4 +141,148 @@
   <data name="SlideshowEditor.PickImage" xml:space="preserve">
     <value>Pick a media library image</value>
   </data>
+  <data name="Controllers.Account.CheckEmailResetPassword.Title" xml:space="preserve">
+    <value>Check email</value>
+  </data>
+  <data name="Controllers.Account.CheckEmailResetPassword.Message" xml:space="preserve">
+    <value>Please check your email to reset your password.</value>
+  </data>
+  <data name="Controllers.Account.ConfirmUser.Success.Title" xml:space="preserve">
+    <value>Account confirmed</value>
+  </data>
+  <data name="AccountManager.ForgotPassword.Email.Body" xml:space="preserve">
+    <value>Please reset your password by clicking this &lt;a href="{0}"&gt;link&lt;/a&gt;.</value>
+  </data>
+  <data name="Controllers.Account.InvalidAttempt" xml:space="preserve">
+    <value>Invalid sign in attempt.</value>
+  </data>
+  <data name="Controllers.Account.InvalidToken.Message" xml:space="preserve">
+    <value>The operation cannot be done. The security token is incorrect.</value>
+  </data>
+  <data name="AccountManager.Register.Email.Confirm.Body" xml:space="preserve">
+    <value>To finish the registration process at Medio Clinic, please &lt;a href="{0}"&gt;confirm your new account&lt;/a&gt;.</value>
+  </data>
+  <data name="AccountManager.Register.Email.Confirm.Subject" xml:space="preserve">
+    <value>Confirm your new account</value>
+  </data>
+  <data name="Controllers.Account.Register.ConfirmedSuccess.Title" xml:space="preserve">
+    <value>Registration started</value>
+  </data>
+  <data name="Controllers.Account.Register.Title" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Controllers.Account.Register.ConfirmedSuccess.Message" xml:space="preserve">
+    <value>Thank you for registering at Medio Clinic! Please check your mailbox and click the confirmation link in the message we've just sent to you.</value>
+  </data>
+  <data name="Controllers.Account.ResetPassword.Success.Message" xml:space="preserve">
+    <value>Your password was successfully reset.</value>
+  </data>
+  <data name="Controllers.Profile.Index.UserUpdated.Message" xml:space="preserve">
+    <value>Your changes were saved.</value>
+  </data>
+  <data name="ProfileManager.GetRoleTitle.Doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="ProfileManager.GetRoleTitle.Patient" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.AvatarFile" xml:space="preserve">
+    <value>Upload an avatar</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.DateOfBirth" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Models.EmailFormat" xml:space="preserve">
+    <value>The field accepts only valid email addresses.</value>
+  </data>
+  <data name="Models.MaxLength" xml:space="preserve">
+    <value>The text shouldn't exceed 100 characters in total.</value>
+  </data>
+  <data name="Models.PhoneFormat" xml:space="preserve">
+    <value>The field accepts only valid phone numbers.</value>
+  </data>
+  <data name="Views.Account.DontRememberPassword" xml:space="preserve">
+    <value>Don't remember your password?</value>
+  </data>
+  <data name="Views.Account.ForgotPassword.AlreadyMember" xml:space="preserve">
+    <value>Already a member? Sign in instead!</value>
+  </data>
+  <data name="Views.Account.RegisterNow" xml:space="preserve">
+    <value>New in Medio Clinic? Register now!</value>
+  </data>
+  <data name="Views.Account.Signin.Heading" xml:space="preserve">
+    <value>Sign In to Your Account</value>
+  </data>
+  <data name="Models.Account.Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Models.Account.StaySignedIn" xml:space="preserve">
+    <value>Stay signed in</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.Nationality" xml:space="preserve">
+    <value>Nationality</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.Street" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="Models.AllowedExtensions" xml:space="preserve">
+    <value>Only the following file extensions are allowed: {0}</value>
+  </data>
+  <data name="Controllers.Account.ConfirmUser.AvatarFailure.Message" xml:space="preserve">
+    <value>The creation of the user avatar picture failed.</value>
+  </data>
+  <data name="Controllers.Account.ConfirmUser.ConfirmationFailure.Message" xml:space="preserve">
+    <value>The confirmation failed.</value>
+  </data>
+  <data name="Controllers.Account.Register.Failure.Message" xml:space="preserve">
+    <value>Registration was not successfull. </value>
+  </data>
+  <data name="ContactAdministrator" xml:space="preserve">
+    <value>Please contact the site administrator.</value>
+  </data>
+  <data name="Controllers.Account.ConfirmUser.Success.Message" xml:space="preserve">
+    <value>Your registration was successfull. You can now &lt;a href="{0}"&gt;sign in&lt;/a&gt; to your account.</value>
+  </data>
+  <data name="Controllers.Account.ResetPassword.Failure.Message" xml:space="preserve">
+    <value>Resetting was not successfull.</value>
+  </data>
+  <data name="Controllers.Account.SignOut.Failure.Message" xml:space="preserve">
+    <value>The sign-out procedure failed.</value>
+  </data>
+  <data name="Error.Message" xml:space="preserve">
+    <value>An unknown error occured.</value>
+  </data>
+  <data name="Controllers.Base.InvalidInput.Message" xml:space="preserve">
+    <value>The information submitted in the form was in invalid. Please review the specific error messages and try again.</value>
+  </data>
+  <data name="Controllers.Account.Register.DirectSuccess.Message" xml:space="preserve">
+    <value>Your registration was successful. You're now logged in.</value>
+  </data>
+  <data name="Controllers.Account.Register.DirectSuccess.Title" xml:space="preserve">
+    <value>You're registered</value>
+  </data>
+  <data name="Controllers.Profile.Index.UserNotFound.Message" xml:space="preserve">
+    <value>There is no matching user object in our database.</value>
+  </data>
+  <data name="Controllers.Profile.Index.UserNotUpdated.Message" xml:space="preserve">
+    <value>Your user profile data were not updated.</value>
+  </data>
+  <data name="Controllers.Account.ResetPassword.Success.SignInAppendix" xml:space="preserve">
+    <value>You can now &lt;a href="{0}"&gt;sign in&lt;/a&gt;.</value>
+  </data>
 </root>

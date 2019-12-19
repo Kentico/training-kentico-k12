@@ -255,6 +255,9 @@
     <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
+    <Reference Include="Enums.NET, Version=3.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
+      <HintPath>..\packages\Enums.NET.3.0.2\lib\net45\Enums.NET.dll</HintPath>
+    </Reference>
     <Reference Include="Facebook, Version=6.0.10.0, Culture=neutral, PublicKeyToken=58cb4f2111d1e6de, processorArchitecture=MSIL">
       <HintPath>..\packages\Facebook.6.4.2\lib\net45\Facebook.dll</HintPath>
     </Reference>
@@ -430,6 +433,7 @@
       <HintPath>..\packages\Kentico.Libraries.12.0.52\lib\net461\PreMailer.Net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.HashFunction.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=80c9288e394c1322, processorArchitecture=MSIL">
@@ -517,6 +521,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\MedioClinicAuthorizeAttribute.cs" />
     <Compile Include="DependencyInjection\BusinessDependencies.cs" />
     <Compile Include="DependencyInjection\CmsRegistrationSource.cs" />
     <Compile Include="DependencyInjection\IBusinessDependencies.cs" />
@@ -524,6 +529,7 @@
     <Compile Include="Dto\Company\CompanyDto.cs" />
     <Compile Include="Dto\Company\CompanyServiceDto.cs" />
     <Compile Include="Dto\Contact\ContactSectionDto.cs" />
+    <Compile Include="Dto\Country\CountryDto.cs" />
     <Compile Include="Dto\Culture\CultureDto.cs" />
     <Compile Include="Dto\Doctors\DoctorDto.cs" />
     <Compile Include="Dto\Doctors\DoctorSectionDto.cs" />
@@ -565,9 +571,24 @@
     <Compile Include="Generated\Pages\SocialLinkProvider.generated.cs" />
     <Compile Include="Generated\Pages\SocialLinksFolder.generated.cs" />
     <Compile Include="Generated\Pages\SocialLinksFolderProvider.generated.cs" />
+    <Compile Include="Identity\Extensions\UserExtensions.cs" />
+    <Compile Include="Identity\Helpers\UserHelper.cs" />
+    <Compile Include="Identity\IMedioClinicSignInManager.cs" />
+    <Compile Include="Identity\IMedioClinicUserManager.cs" />
+    <Compile Include="Identity\IMedioClinicUserStore.cs" />
+    <Compile Include="Identity\MedioClinicSignInManager.cs" />
+    <Compile Include="Identity\MedioClinicUserManager.cs" />
+    <Compile Include="Identity\MedioClinicUserStore.cs" />
+    <Compile Include="Identity\Models\Gender.cs" />
+    <Compile Include="Identity\Models\MedioClinicUser.cs" />
+    <Compile Include="Identity\Models\Roles.cs" />
+    <Compile Include="Identity\Proxies\IKenticoUserStore.cs" />
+    <Compile Include="Identity\Proxies\KenticoUserStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Airport\AirportRepository.cs" />
     <Compile Include="Repository\Airport\IAirportRepository.cs" />
+    <Compile Include="Repository\Avatar\AvatarRepository.cs" />
+    <Compile Include="Repository\Avatar\IAvatarRepository.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
     <Compile Include="Repository\Company\CompanyRepository.cs" />
     <Compile Include="Repository\Company\CompanyServiceRepository.cs" />
@@ -582,6 +603,8 @@
     <Compile Include="Repository\LandingPage\LandingPageRepository.cs" />
     <Compile Include="Repository\MediaLibrary\IMediaLibraryRepository.cs" />
     <Compile Include="Repository\MediaLibrary\MediaLibraryRepository.cs" />
+    <Compile Include="Services\Country\CountryService.cs" />
+    <Compile Include="Services\Country\ICountryService.cs" />
     <Compile Include="Services\Culture\CultureService.cs" />
     <Compile Include="Services\Culture\ICultureService.cs" />
     <Compile Include="Repository\Doctor\DoctorRepository.cs" />
@@ -605,6 +628,10 @@
     <Compile Include="Services\Errors\ErrorHelperService.cs" />
     <Compile Include="Services\Errors\IErrorHelperService.cs" />
     <Compile Include="Services\IService.cs" />
+    <Compile Include="Services\Localization\ILocalizationService.cs" />
+    <Compile Include="Services\Localization\LocalizationService.cs" />
+    <Compile Include="Services\Model\IUserModelService.cs" />
+    <Compile Include="Services\Model\UserModelService.cs" />
     <Compile Include="Services\Query\DocumentQueryService.cs" />
     <Compile Include="Services\Query\IDocumentQueryService.cs" />
   </ItemGroup>
