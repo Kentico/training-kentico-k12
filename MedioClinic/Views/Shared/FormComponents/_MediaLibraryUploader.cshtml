@@ -1,0 +1,81 @@
+﻿@using CMS.Helpers
+@using Kentico.Forms.Web.Mvc
+@using MedioClinic.Models.FormComponents
+@using MedioClinic.Extensions
+@model MediaLibraryUploaderComponent
+
+@{
+    // Gets the URL to the MediaLibraryUploaderController's action.
+    // Takes the fileInputElementId and passes it to the controller to know which form element to fill with the file GUID.
+    string GetActionUrl(string fileInputElementId)
+    {
+        var path = Url.Action("Upload", "MediaLibraryUploader", new
+        {
+            fileInputElementId,
+            mediaLibraryId = Model.Properties.MediaLibraryId
+        });
+
+        var decorated = VirtualContext.GetPreviewPathFromVirtualContext(path, false, "en-us", true); ;
+
+        return decorated;
+    }
+
+    string currentFileGuidHiddenElementId = Html.IdFor(model => model.FileGuidAsString).ToString();
+    string currentFileNameHiddenElementId = Html.IdFor(model => model.FileName).ToString();
+    IDictionary<string, object> fileInputAttributes = ViewData.GetEditorHtmlAttributes();
+    fileInputAttributes["onchange"] = Html.Raw($"window.medioClinic.mediaLibraryUploaderComponent.onFileSelected(this);");
+    IDictionary<string, object> fileGuidAttributes = ViewData.GetEditorHtmlAttributes();
+    fileGuidAttributes["class"] = "kn-file-guid-hidden";
+    IDictionary<string, object> fileNameAttributes = ViewData.GetEditorHtmlAttributes();
+    fileNameAttributes["class"] = "kn-file-name-hidden";
+    IDictionary<string, object> buttonAttributes = ViewData.GetEditorHtmlAttributes();
+    var currentUrl = GetActionUrl(currentFileGuidHiddenElementId);
+    buttonAttributes["onclick"] = Html.Raw($"window.medioClinic.mediaLibraryUploaderComponent.uploadFile(this, '{currentUrl}');");
+    buttonAttributes["type"] = "button";
+}
+
+<div class="kn-media-library-uploader grey lighten-5">
+    <div class="row">
+        <div class="col s6">
+            @Html.CustomInput("file", "mediaLibraryUploader", string.Empty, fileInputAttributes)
+        </div>
+        <div class="kn-upload-file-details col s6">
+            @Html.HiddenFor(model => model.FileGuidAsString, fileGuidAttributes)
+            @Html.HiddenFor(model => model.FileName, fileNameAttributes)
+            <div class="kn-file-size"></div>
+            <div class="kn-file-type"></div>
+            <div class="kn-form-messages"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6 upload-button">
+            @Html.Button(Html.Localize("FormComponent.MediaLibraryUploader.Upload"), buttonAttributes)
+        </div>
+    </div>
+    @{
+        var permanentUrl = Model.FilePermanentUrl;
+
+        if (Model.ShowViewFileLink && !string.IsNullOrEmpty(permanentUrl))
+        {
+            <div class="row">
+                <div class="col s6">
+                    <a href="@Url.KenticoImageUrl(permanentUrl)" target="_blank">View file</a>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@* Partial views don't support @section directives. *@
+<script>
+    @{
+        var warnAboutFileLiteral = $"window.medioClinic.mediaLibraryUploaderComponent.checkForUnuploadedFile(\"{currentFileGuidHiddenElementId}\", \"{currentFileNameHiddenElementId}\");";
+    }
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+            @Html.Raw(warnAboutFileLiteral)
+        });
+    } else {
+        @Html.Raw(warnAboutFileLiteral)
+    }
+</script>

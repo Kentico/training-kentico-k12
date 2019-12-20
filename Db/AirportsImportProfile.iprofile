@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<import>
+  <target folder="C:\Users\janle\source\repos\Kentico\training-kentico-k12" type="CustomTableItems" sitename="MedioClinic" classname="customtable.Airports" fkmappings="C:\Users\janle\source\repos\Kentico\training-kentico-k12\Db\Airports.fkmap" updateifexists="False" skipifexists="False">
+    <location />
+  </target>
+  <source type="XLSX" file="C:\Users\janle\source\repos\Kentico\training-kentico-k12\Db\Airports.xlsx" startrow="1" startcolumn="1" xlsxsheetname="Airports" />
+  <mappings>
+    <mapping target="itemguid" />
+    <mapping target="itemid" />
+    <mapping target="itemmodifiedwhen" />
+    <mapping target="itemcreatedby" />
+    <mapping target="airportiatacode" source="AirportIATACode" />
+    <mapping target="itemmodifiedby" />
+    <mapping target="itemorder" />
+    <mapping target="itemcreatedwhen" />
+    <mapping target="airportname" source="AirportName" />
+  </mappings>
+</import>

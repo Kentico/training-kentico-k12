@@ -1,0 +1,20 @@
+﻿.kn-image-uploader-editor .kn-image-uploader-empty-container, .kn-image-uploader-editor .kn-image-uploader-container {
+    width: 100%;
+    height: 100%;
+    min-height: 20rem;
+    min-width: 20rem;
+    text-align: center;
+}
+
+.kn-image-uploader-editor .kn-image-uploader-container {
+    position: absolute;
+    top: 0px;
+}
+
+.dz-message {
+    font-size: 14px;
+    margin: 2rem auto 0 auto;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+}

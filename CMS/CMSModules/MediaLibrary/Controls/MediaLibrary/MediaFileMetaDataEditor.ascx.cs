@@ -156,11 +156,10 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileMeta
                 {
                     // Get original file path
                     string extension = mediaFileInfo.FileExtension;
-                    string path = MediaFileInfoProvider.GetMediaFilePath(mediaFileInfo.FileLibraryID, mediaFileInfo.FilePath);
 
                     // New file path
-                    string filePath = DirectoryHelper.CombinePath(Path.GetDirectoryName(mediaFileInfo.FilePath), fileName + extension);
-                    string newPath = MediaFileInfoProvider.GetMediaFilePath(mediaFileInfo.FileLibraryID, filePath);
+                    string newPath = DirectoryHelper.CombinePath(Path.GetDirectoryName(mediaFileInfo.FilePath), fileName + extension);
+                    string newFullPath = MediaFileInfoProvider.GetMediaFilePath(mediaFileInfo.FileLibraryID, newPath);
                     string newExtension = Path.GetExtension(newPath);
 
                     if (!String.IsNullOrEmpty(newExtension))
@@ -176,9 +175,9 @@ public partial class CMSModules_MediaLibrary_Controls_MediaLibrary_MediaFileMeta
                     }
 
                     // Rename file
-                    if (!File.Exists(newPath))
+                    if (!File.Exists(newFullPath))
                     {
-                        File.Move(path, newPath);
+                        MediaFileInfoProvider.MoveMediaFile(SiteName, mediaFileInfo.FileLibraryID, mediaFileInfo.FilePath, newPath);
 
                         // Move preview file if exists
                         if (MediaLibraryHelper.HasPreview(SiteName, mediaFileInfo.FileLibraryID, mediaFileInfo.FilePath))

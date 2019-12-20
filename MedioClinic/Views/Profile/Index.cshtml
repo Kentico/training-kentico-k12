@@ -1,0 +1,20 @@
+﻿@model MedioClinic.Models.PageViewModel<MedioClinic.Models.Profile.IUserViewModel>
+
+@{
+    var controller = ViewContext.RouteData.Values.FirstOrDefault(value => value.Key.Equals("controller", StringComparison.OrdinalIgnoreCase)).Value.ToString();
+    var action = ViewContext.RouteData.Values.FirstOrDefault(value => value.Key.Equals("action", StringComparison.OrdinalIgnoreCase)).Value.ToString();
+}
+
+@using (Html.BeginForm(action, controller, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row">
+            <h4>@Html.DisplayFor(m => m.Metadata.Title)</h4>
+            @Html.DisplayFor(m => m.UserMessage)
+        </div>
+        <div class="row section">
+            @Html.EditorFor(m => m.Data)
+        </div>
+    </div>
+}

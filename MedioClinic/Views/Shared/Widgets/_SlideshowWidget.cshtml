@@ -1,0 +1,125 @@
+﻿@using Business.Dto.MediaLibrary;
+@using MedioClinic.Models
+@using MedioClinic.Models.Widgets
+@using MedioClinic.Models.InlineEditors
+@model SlideshowWidgetViewModel
+
+@{
+    var editMode = Context.Kentico().PageBuilder().EditMode;
+    var swiperId = "swiper-" + Guid.NewGuid().ToString().ToLower();
+    var dimensionsAreSet = Model.Width > 0 && Model.Height > 0;
+    var containerAspectRatio = (double)Model.Width / (double)Model.Height;
+
+    double GetImageAspectRatio(MediaLibraryFileDto image) =>
+        (double)image.Width / (double)image.Height;
+
+    // Gets the image constraint in case "Enforce dimensions" is checked.
+    IImageSizeConstraint GetImageSizeConstraint(double imageAspectRatio)
+    {
+        if (containerAspectRatio >= imageAspectRatio)
+        {
+            return new Width(Model.Width);
+        }
+        else
+        {
+            return new Height(Model.Height);
+        }
+    }
+
+    // Builds the widget container size attribute.
+    IHtmlString GetContainerStylingAttribute() =>
+        dimensionsAreSet && Model.EnforceDimensions
+            ? Html.Raw($"style=\"width:{Model.Width}px; height:{Model.Height}px\"")
+            : null;
+
+    // Calculates whether images are responsive or with fixed dimensions.
+    string GetImageStylingAttribute(double imageAspectRatio)
+    {
+        int width = Model.Width;
+        int height = Model.Height;
+
+        if (imageAspectRatio > containerAspectRatio)
+        {
+            height = (int)Math.Round(Model.Width * imageAspectRatio);
+        }
+        else if (imageAspectRatio < containerAspectRatio)
+        {
+            width = (int)Math.Round(Model.Height * imageAspectRatio);
+        }
+
+        return dimensionsAreSet && Model.EnforceDimensions
+            ? $"width=\"{width}\" height=\"{height}\""
+            : $"class=\"responsive-img\"";
+    }
+
+    string GetImageUrl(MediaLibraryFileDto image, IImageSizeConstraint imageSizeConstraint)
+    {
+        if (dimensionsAreSet && Model.EnforceDimensions)
+        {
+            // In edit mode and with "Enforce dimensions (on the live site)", we can leverage the Kentico responsive images feature to get images resized to fixed dimensions.
+            return Url.KenticoImageUrl(image.DirectUrl, imageSizeConstraint);
+        }
+        else
+        {
+            // Otherwise, we can get the full sized images and let Materialize CSS resize them via browser-side code.
+            return Url.KenticoImageUrl(image.DirectUrl);
+        }
+    }
+}
+
+<div class="swiper-container" id="@swiperId" @GetContainerStylingAttribute()>
+    <div class="swiper-wrapper">
+        @if (Model.ImageDtos != null && Model.ImageDtos.Any())
+        {
+            // Loop through all images.
+            foreach (var image in Model.ImageDtos)
+            {
+                if (image != null)
+                {
+                    var imageAspectRatio = GetImageAspectRatio(image);
+                    var imageSizeConstraint = GetImageSizeConstraint(imageAspectRatio);
+                    var stylingAttribute = GetImageStylingAttribute(imageAspectRatio);
+                    var imageUrl = GetImageUrl(image, imageSizeConstraint);
+
+                    <div class="swiper-slide" id="slide-@image.Guid">
+                        <img src="@Html.Raw(imageUrl)" @Html.Raw(stylingAttribute) id="image-@image.Guid" />
+                    </div>
+                }
+            }
+        }
+    </div>
+
+    @if (editMode || Model.DisplayArrowSigns)
+    {
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    }
+
+    @if (editMode)
+    {
+        Html.RenderPartial("InlineEditors/_SlideshowEditor", new SlideshowEditorViewModel
+        {
+            PropertyName = nameof(SlideshowWidgetProperties.ImageGuids),
+            MediaLibraryViewModel = Model.MediaLibraryViewModel,
+            Images = Model.ImageDtos,
+            SwiperId = swiperId
+        });
+    }
+</div>
+
+@* Partial views don't support @section directives. *@
+<script>
+    @{
+        var editModeLiteral = editMode.ToString().ToLower();
+        var initSwiperLiteral = $"window.medioClinic.slideshowWidget.initSwiper(\"{swiperId}\", {editModeLiteral}, {Model.TransitionDelay}, {Model.TransitionSpeed});";
+    }
+
+    // Initialize the current Swiper object.
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", function () {
+                @Html.Raw(initSwiperLiteral)
+            });
+    } else {
+        @Html.Raw(initSwiperLiteral)
+    }
+</script>

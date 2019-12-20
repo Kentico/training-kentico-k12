@@ -4295,10 +4295,14 @@
     <Content Include="CMSScripts\WebComponents\components.js" />
     <Content Include="CMSScripts\WebComponents\components\chunk-12ee72ee.es5.js" />
     <Content Include="CMSScripts\WebComponents\components\chunk-3cefcc8d.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-3fd38db9.es5.js" />
     <Content Include="CMSScripts\WebComponents\components\chunk-4e6b1b49.js" />
     <Content Include="CMSScripts\WebComponents\components\chunk-5dc1aa56.es5.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-a93dedfa.js" />
     <Content Include="CMSScripts\WebComponents\components\chunk-be87adfa.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-e0b8e497.es5.js" />
     <Content Include="CMSScripts\WebComponents\components\chunk-ee323282.js" />
+    <Content Include="CMSScripts\WebComponents\components\chunk-f91cccde.js" />
     <Content Include="CMSScripts\WebComponents\components\components.core.js" />
     <Content Include="CMSScripts\WebComponents\components\components.core.pf.js" />
     <Content Include="CMSScripts\WebComponents\components\components.global.js" />
@@ -22025,8 +22029,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\CMSModules\WebAnalytics\MaxMind\" />
-    <Folder Include="CMSTemplates\CorporateSite\" />
-    <Folder Include="CorporateSite\media\VideoGallery\__thumbnails\" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />

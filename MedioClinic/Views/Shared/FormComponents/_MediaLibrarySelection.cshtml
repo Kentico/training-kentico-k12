@@ -1,0 +1,8 @@
+﻿@using MedioClinic.Models.FormComponents
+@model MediaLibrarySelectionComponent
+
+@{ 
+    var htmlAttributes = ViewData.GetEditorHtmlAttributes();
+}
+
+@Html.DropDownListFor(m => m.SelectedValue, Model.Items, htmlAttributes)

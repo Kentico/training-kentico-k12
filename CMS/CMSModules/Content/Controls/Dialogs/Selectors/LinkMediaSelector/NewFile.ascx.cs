@@ -158,6 +158,16 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
 
 
     /// <summary>
+    /// Class name of the document temporary attachments are related to.
+    /// </summary>
+    public string NodeClassName
+    {
+        get;
+        set;
+    }
+
+
+    /// <summary>
     /// Height of attachment.
     /// </summary>
     public int ResizeToHeight
@@ -344,8 +354,8 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
                 {
                     fileUploader.DocumentID = DocumentID;
                     fileUploader.FormGUID = FormGUID;
+                    fileUploader.NodeClassName = NodeClassName;
                     fileUploader.NodeParentNodeID = ((NodeID > 0) ? NodeID : ParentNodeID);
-                    fileUploader.NodeClassName = SystemDocumentTypes.File;
                     fileUploader.LibraryID = LibraryID;
                     fileUploader.LibraryFolderPath = LibraryFolderPath;
                     fileUploader.ResizeToHeight = ResizeToHeight;

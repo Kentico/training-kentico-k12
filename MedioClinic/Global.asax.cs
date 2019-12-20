@@ -1,8 +1,12 @@
 using System.Web;
+using System.Web.Http;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Web.Mvc;
+
+using MedioClinic.Utils;
 
 namespace MedioClinic
 {
@@ -13,13 +17,21 @@ namespace MedioClinic
             // Enables and configures selected Kentico ASP.NET MVC integration features
             ApplicationConfig.RegisterFeatures(ApplicationBuilder.Current);
 
+            // Configures Web API 2
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+
             // Registers routes including system routes for enabled features
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             // Dependency injection
             AutofacConfig.ConfigureContainer();
 
+            // Registers custom model binders.
+            ModelBindingConfig.RegisterModelBinders();
+
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            PageBuilderFilters.PageTemplates.Add(new LandingPageTemplateFilter());
         }
 
         protected void Application_Error()

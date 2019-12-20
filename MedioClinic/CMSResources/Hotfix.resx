@@ -546,4 +546,7 @@
   <data name="abtesting.popupdialog.cannotmodifyrunningabtest" xml:space="preserve">
     <value>A running A/B test cannot be modified.</value>
   </data>
+  <data name="settingkey.richtexteditorlicense" xml:space="preserve">
+    <value>Rich Text Editor license</value>
+  </data>
 </root>

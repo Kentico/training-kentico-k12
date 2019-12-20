@@ -1,0 +1,49 @@
+﻿@using MedioClinic.Models.Account
+
+@model MedioClinic.Models.PageViewModel<SignInViewModel>
+
+@using (Html.BeginForm(new { ReturnUrl = Request.QueryString["ReturnUrl"] }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <div class="row section">
+            <h4>@Html.Localize("Views.Account.Signin.Heading")</h4>
+        </div>
+        <div class="row section">
+            <div class="col l6 m12 s12">
+                @Html.ValidationSummary()
+                <p>
+                    <a href="@Url.Action("Register", "Account")" class="kn-smaller">@Html.Localize("Views.Account.RegisterNow")</a>
+                    <div class="col s12">
+                        <div class="row kn-row-margin">
+                            <div class="input-field col s10">
+                                @Html.TextBoxFor(m => m.Data.EmailViewModel.Email, new { @class = "validate", placeholder = Html.DisplayNameFor(m => m.Data.EmailViewModel.Email) })
+                                <p><small>(Note: If you changed your email address in your profile page, you should still use the original one.)</small></p>
+                            </div>
+                        </div>
+                        <div class="row kn-row-margin">
+                            <div class="input-field col s10">
+                                @Html.PasswordFor(m => m.Data.PasswordViewModel.Password, new { @class = "validate", placeholder = Html.DisplayNameFor(m => m.Data.PasswordViewModel.Password) })
+                            </div>
+                        </div>
+                        <div class="row kn-row-margin">
+                            <div class="input-field col s10">
+                                @Html.CheckBoxFor(m => m.Data.StaySignedIn)
+                                @Html.LabelFor(m => m.Data.StaySignedIn)
+                            </div>
+                        </div>
+                        <div class="row kn-row-margin">
+                            <div>
+                                <button class="btn waves-effect waves-light red darken-3" type="submit">@Html.Localize("General.Continue")</button>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="@Url.Action("ForgotPassword", "Account")" class="kn-smaller">@Html.Localize("Views.Account.DontRememberPassword")</a>
+                </p>
+            </div>
+            <div class="col l6 m12 s12">
+                <img class="responsive-img kn-img-margin" src="@Url.Content("~/Content/Images/register-signin.jpg")">
+            </div>
+        </div>
+    </div>
+}

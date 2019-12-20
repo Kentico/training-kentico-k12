@@ -358,6 +358,7 @@ public partial class CMSWebParts_Layouts_CollapsiblePanel : CMSAbstractLayoutWeb
 
         if (!String.IsNullOrEmpty(expImage) && !String.IsNullOrEmpty(colImage))
         {
+            imgHeader.ImageUrl = Collapsed ? colImage : expImage;
             cp.ExpandedImage = expImage;
             cp.CollapsedImage = colImage;
         }

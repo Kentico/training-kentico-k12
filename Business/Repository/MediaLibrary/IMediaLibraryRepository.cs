@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Business.Dto.MediaLibrary;
 
@@ -13,6 +14,12 @@ namespace Business.Repository.MediaLibrary
         int? MediaLibraryId { get; set; }
 
         int? MediaLibrarySiteId { get; set; }
+
+        Guid AddMediaLibraryFile(string filePath, string libraryFolderPath = null, bool checkPermisions = false);
+
+        MediaLibraryFileDto GetMediaLibraryDto(Guid fileGuid);
+
+        IEnumerable<MediaLibraryFileDto> GetMediaLibraryDtos(params Guid[] fileGuids);
 
         IEnumerable<MediaLibraryFileDto> GetMediaLibraryDtos(params string[] extensions);
     }

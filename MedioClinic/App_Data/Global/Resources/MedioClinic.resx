@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ImageUploader.Dropzone.UploadUnprocessable" xml:space="preserve">
+    <value>The uploaded image could not be processed. Please contact the system administrator.</value>
+  </data>
+  <data name="ImageUploader.Dropzone.UploadFailed" xml:space="preserve">
+    <value>The upload of the image failed. Please contact the system administrator.</value>
+  </data>
+  <data name="ImageUploader.Dropzone.UploadUnknownError" xml:space="preserve">
+    <value>An unknown error happened. Please contact the system administrator.</value>
+  </data>
+  <data name="ImageUploader.Dropzone.DropText" xml:space="preserve">
+    <value>Drop image here or &lt;a class="dz-clickable"&gt;click&lt;/a&gt; to browse</value>
+  </data>
+  <data name="ImageUploader.Dropzone.InvalidFileType" xml:space="preserve">
+    <value>Unsupported file type.</value>
+  </data>
+  <data name="ImageUploader.Dropzone.Details" xml:space="preserve">
+    <value>Details: </value>
+  </data>
+  <data name="SlideshowEditor.NoLibrarySpecified" xml:space="preserve">
+    <value>You must first specify a media library name in the widget properties.</value>
+  </data>
+  <data name="SlideshowEditor.PickImage" xml:space="preserve">
+    <value>Pick a media library image</value>
+  </data>
+  <data name="Controllers.Account.CheckEmailResetPassword.Title" xml:space="preserve">
+    <value>Check email</value>
+  </data>
+  <data name="Controllers.Account.CheckEmailResetPassword.Message" xml:space="preserve">
+    <value>Please check your email to reset your password.</value>
+  </data>
+  <data name="Controllers.Account.ConfirmUser.Success.Title" xml:space="preserve">
+    <value>Account confirmed</value>
+  </data>
+  <data name="AccountManager.ForgotPassword.Email.Body" xml:space="preserve">
+    <value>Please reset your password by clicking this &lt;a href="{0}"&gt;link&lt;/a&gt;.</value>
+  </data>
+  <data name="Controllers.Account.InvalidAttempt" xml:space="preserve">
+    <value>Invalid sign in attempt.</value>
+  </data>
+  <data name="Controllers.Account.InvalidToken.Message" xml:space="preserve">
+    <value>The operation cannot be done. The security token is incorrect.</value>
+  </data>
+  <data name="AccountManager.Register.Email.Confirm.Body" xml:space="preserve">
+    <value>To finish the registration process at Medio Clinic, please &lt;a href="{0}"&gt;confirm your new account&lt;/a&gt;.</value>
+  </data>
+  <data name="AccountManager.Register.Email.Confirm.Subject" xml:space="preserve">
+    <value>Confirm your new account</value>
+  </data>
+  <data name="Controllers.Account.Register.ConfirmedSuccess.Title" xml:space="preserve">
+    <value>Registration started</value>
+  </data>
+  <data name="Controllers.Account.Register.Title" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Controllers.Account.Register.ConfirmedSuccess.Message" xml:space="preserve">
+    <value>Thank you for registering at Medio Clinic! Please check your mailbox and click the confirmation link in the message we've just sent to you.</value>
+  </data>
+  <data name="Controllers.Account.ResetPassword.Success.Message" xml:space="preserve">
+    <value>Your password was successfully reset.</value>
+  </data>
+  <data name="Controllers.Profile.Index.UserUpdated.Message" xml:space="preserve">
+    <value>Your changes were saved.</value>
+  </data>
+  <data name="ProfileManager.GetRoleTitle.Doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="ProfileManager.GetRoleTitle.Patient" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.AvatarFile" xml:space="preserve">
+    <value>Upload an avatar</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.DateOfBirth" xml:space="preserve">
+    <value>Date of birth</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.FirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Models.EmailFormat" xml:space="preserve">
+    <value>The field accepts only valid email addresses.</value>
+  </data>
+  <data name="Models.MaxLength" xml:space="preserve">
+    <value>The text shouldn't exceed 100 characters in total.</value>
+  </data>
+  <data name="Models.PhoneFormat" xml:space="preserve">
+    <value>The field accepts only valid phone numbers.</value>
+  </data>
+  <data name="Views.Account.DontRememberPassword" xml:space="preserve">
+    <value>Don't remember your password?</value>
+  </data>
+  <data name="Views.Account.ForgotPassword.AlreadyMember" xml:space="preserve">
+    <value>Already a member? Sign in instead!</value>
+  </data>
+  <data name="Views.Account.RegisterNow" xml:space="preserve">
+    <value>New in Medio Clinic? Register now!</value>
+  </data>
+  <data name="Views.Account.Signin.Heading" xml:space="preserve">
+    <value>Sign In to Your Account</value>
+  </data>
+  <data name="Models.Account.Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="Models.Account.StaySignedIn" xml:space="preserve">
+    <value>Stay signed in</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.Nationality" xml:space="preserve">
+    <value>Nationality</value>
+  </data>
+  <data name="Models.Profile.CommonUserViewModel.Street" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="Models.AllowedExtensions" xml:space="preserve">
+    <value>Only the following file extensions are allowed: {0}</value>
+  </data>
+  <data name="Controllers.Account.ConfirmUser.AvatarFailure.Message" xml:space="preserve">
+    <value>The creation of the user avatar picture failed.</value>
+  </data>
+  <data name="Controllers.Account.ConfirmUser.ConfirmationFailure.Message" xml:space="preserve">
+    <value>The confirmation failed.</value>
+  </data>
+  <data name="Controllers.Account.Register.Failure.Message" xml:space="preserve">
+    <value>Registration was not successfull. </value>
+  </data>
+  <data name="ContactAdministrator" xml:space="preserve">
+    <value>Please contact the site administrator.</value>
+  </data>
+  <data name="Controllers.Account.ConfirmUser.Success.Message" xml:space="preserve">
+    <value>Your registration was successfull. You can now &lt;a href="{0}"&gt;sign in&lt;/a&gt; to your account.</value>
+  </data>
+  <data name="Controllers.Account.ResetPassword.Failure.Message" xml:space="preserve">
+    <value>Resetting was not successfull.</value>
+  </data>
+  <data name="Controllers.Account.SignOut.Failure.Message" xml:space="preserve">
+    <value>The sign-out procedure failed.</value>
+  </data>
+  <data name="Error.Message" xml:space="preserve">
+    <value>An unknown error occured.</value>
+  </data>
+  <data name="Controllers.Base.InvalidInput.Message" xml:space="preserve">
+    <value>The information submitted in the form was in invalid. Please review the specific error messages and try again.</value>
+  </data>
+  <data name="Controllers.Account.Register.DirectSuccess.Message" xml:space="preserve">
+    <value>Your registration was successful. You're now logged in.</value>
+  </data>
+  <data name="Controllers.Account.Register.DirectSuccess.Title" xml:space="preserve">
+    <value>You're registered</value>
+  </data>
+  <data name="Controllers.Profile.Index.UserNotFound.Message" xml:space="preserve">
+    <value>There is no matching user object in our database.</value>
+  </data>
+  <data name="Controllers.Profile.Index.UserNotUpdated.Message" xml:space="preserve">
+    <value>Your user profile data were not updated.</value>
+  </data>
+  <data name="Controllers.Account.ResetPassword.Success.SignInAppendix" xml:space="preserve">
+    <value>You can now &lt;a href="{0}"&gt;sign in&lt;/a&gt;.</value>
+  </data>
+</root>

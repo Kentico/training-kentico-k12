@@ -242,6 +242,8 @@ public partial class CMSModules_Integration_Controls_UI_IntegrationTask_List : C
         }
         drpAction.Items.Add(new ListItem(GetString("general." + Action.Delete), Convert.ToInt32(Action.Delete).ToString()));
 
+        ScriptHelper.RegisterDialogScript(Page);
+
         base.OnPreRender(e);
     }
 
@@ -265,7 +267,7 @@ public partial class CMSModules_Integration_Controls_UI_IntegrationTask_List : C
     {
         DataRowView drv;
 
-        switch (sourceName.ToLowerCSafe())
+        switch (sourceName.ToLowerInvariant())
         {
             case "result":
                 {
@@ -340,7 +342,7 @@ public partial class CMSModules_Integration_Controls_UI_IntegrationTask_List : C
     protected void gridElem_OnAction(string actionName, object actionArgument)
     {
         int synchronizationId = ValidationHelper.GetInteger(actionArgument, 0);
-        switch (actionName.ToLowerCSafe())
+        switch (actionName.ToLowerInvariant())
         {
             case "delete":
                 // Delete synchronization

@@ -109,6 +109,16 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
 
 
     /// <summary>
+    /// Class name of the document temporary attachments are related to.
+    /// </summary>
+    public string NodeClassName
+    {
+        get;
+        set;
+    }
+
+
+    /// <summary>
     /// Height of attachment.
     /// </summary>
     public int ResizeToHeight
@@ -395,6 +405,7 @@ public partial class CMSModules_Content_Controls_Dialogs_Selectors_LinkMediaSele
         NewFile.TargetFolderPath = TargetFolderPath;
         NewFile.NewTextFileExtension = NewTextFileExtension;
         NewFile.FormGUID = FormGUID;
+        NewFile.NodeClassName = NodeClassName;
         NewFile.DocumentID = DocumentID;
         NewFile.Config = Config;
         NewFile.AllowedExtensions = AllowedExtensions;

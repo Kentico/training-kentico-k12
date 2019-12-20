@@ -683,3 +683,122 @@ span.kn-badge.closed {
             cursor: pointer;
             display: block;
         }
+
+/* LANDING PAGE STYLES */
+.kn-system-messages p {
+    padding: 0.5rem;
+}
+
+/* SIGN IN and REGISTRATION STYLES */
+.kn-img-margin {
+    margin: 1.52rem;
+}
+
+.kn-panel {
+    margin: .5rem 0 1rem 0;
+    padding: .5rem .5rem .5rem 1rem;
+}
+
+.kn-row-margin {
+    margin-bottom: 1rem;
+}
+
+.kn-text-center {
+    text-align: center;
+}
+
+.kn-patient-card-line-height {
+    line-height: 1.8rem;
+}
+
+.col .kn-row {
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
+
+.kn-row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.kn-profile-infobox {
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s;
+    padding: 24px;
+    margin: 1rem;
+    border-radius: 2px;
+    background-color: #fff;
+    height: 100%;
+}
+
+.kn-profile-infobox {
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.kn-profile-additional-info {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.kn-profile-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+    .kn-profile-wrapper > div {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+.kn-text-medium {
+    font-size: 1.8rem;
+}
+
+/* USER MESSAGES */
+
+.ktc-user-message {
+    padding: 2rem;
+}
+
+/* OVERRIDES OF MATERIALIZECSS FORM STYLES */
+[type="checkbox"] {
+    padding: initial;
+}
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: initial;
+    opacity: initial;
+    pointer-events: initial;
+}
+
+label {
+    font-size: initial;
+}
+
+span.ktc-checkbox {
+    line-height: 3rem;
+}
+
+.input-field > label {
+    position: initial;
+}
+
+select {
+    display: initial;
+}
