@@ -3,14 +3,11 @@ using System.Web;
 
 namespace MedioClinic.Utils
 {
+    /// <summary>
+    /// Handles filesystem-related tasks.
+    /// </summary>
     public interface IFileManager
     {
-        /// <summary>
-        /// Checks for the existence of a directory, and creates it if necessary.
-        /// </summary>
-        /// <param name="directoryPath">Path of the directory.</param>
-        void EnsureDirectory(string directoryPath);
-
         /// <summary>
         /// Gets the complete local filesystem path to a file.
         /// </summary>
@@ -28,7 +25,7 @@ namespace MedioClinic.Utils
         /// <param name="librarySiteName">Library site code name.</param>
         /// <param name="libraryFolderPath">Library folder to save to.</param>
         /// <returns>The GUID of the file in the media library.</returns>
-        Guid AddMediaLibraryFile(HttpPostedFileWrapper file, string uploadDirectory, string libraryName, string librarySiteName, string libraryFolderPath = null);
+        Guid AddMediaLibraryFile(HttpPostedFileWrapper file, string uploadDirectory, string libraryName, string librarySiteName, string libraryFolderPath = null, bool checkPermisions = false);
 
         /// <summary>
         /// Adds a new file to a given media library.
@@ -38,8 +35,14 @@ namespace MedioClinic.Utils
         /// <param name="mediaLibraryId">Library ID.</param>
         /// <param name="libraryFolderPath">Library folder to save to.</param>
         /// <returns>The GUID of the file in the media library.</returns>
-        Guid AddMediaLibraryFile(HttpPostedFileWrapper file, string uploadDirectory, int mediaLibraryId, string libraryFolderPath = null);
-
+        Guid AddMediaLibraryFile(HttpPostedFileWrapper file, string uploadDirectory, int mediaLibraryId, string libraryFolderPath = null, bool checkPermisions = false);
+        
+        /// <summary>
+        /// Checks for the existence of a directory, and creates it if necessary.
+        /// </summary>
+        /// <param name="directoryPath">Path of the directory.</param>
+        void EnsureDirectory(string directoryPath);
+        
         /// <summary>
         /// Makes sure that a local file exists.
         /// </summary>

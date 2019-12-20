@@ -15,7 +15,7 @@ namespace Business.Repository.MediaLibrary
 
         int? MediaLibrarySiteId { get; set; }
 
-        Guid AddMediaLibraryFile(string filePath, string libraryFolderPath = null);
+        Guid AddMediaLibraryFile(string filePath, string libraryFolderPath = null, bool checkPermisions = false);
 
         MediaLibraryFileDto GetMediaLibraryDto(Guid fileGuid);
 

@@ -6,9 +6,10 @@ using CMS.DataEngine;
 using CMS.Helpers;
 using CMS.IO;
 using CMS.MediaLibrary;
+using CMS.Membership;
+using CMS.SiteProvider;
 
 using Business.Dto.MediaLibrary;
-using CMS.SiteProvider;
 
 namespace Business.Repository.MediaLibrary
 {
@@ -84,7 +85,7 @@ namespace Business.Repository.MediaLibrary
                 }
                 else
                 {
-                  return _mediaLibrarySiteName;
+                    return _mediaLibrarySiteName;
                 }
             }
 
@@ -97,7 +98,7 @@ namespace Business.Repository.MediaLibrary
             }
         }
 
-        public Guid AddMediaLibraryFile(string filePath, string libraryFolderPath = null)
+        public Guid AddMediaLibraryFile(string filePath, string libraryFolderPath = null, bool checkPermissions = false)
         {
             if (string.IsNullOrEmpty(filePath))
             {
@@ -110,6 +111,12 @@ namespace Business.Repository.MediaLibrary
             if (mediaLibraryInfo == null)
             {
                 throw new Exception($"The {MediaLibraryName} library was not found on the {MediaLibrarySiteName} site.");
+            }
+
+            if (checkPermissions && !mediaLibraryInfo.CheckPermissions(PermissionsEnum.Create, MediaLibrarySiteName, MembershipContext.AuthenticatedUser))
+            {
+                throw new PermissionException(
+                    $"The user {MembershipContext.AuthenticatedUser.FullName} lacks permissions to the {MediaLibraryName} library.");
             }
 
             MediaFileInfo mediaFile = !string.IsNullOrEmpty(libraryFolderPath)

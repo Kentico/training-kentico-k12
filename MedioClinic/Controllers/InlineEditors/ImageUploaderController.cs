@@ -31,7 +31,7 @@ namespace MedioClinic.Controllers.Widgets
             {
                 try
                 {
-                    imageGuid = FileManager.AddMediaLibraryFile(file, TempPath, libraryName: mediaLibraryName, librarySiteName: mediaLibrarySiteName);
+                    imageGuid = FileManager.AddMediaLibraryFile(file, TempPath, libraryName: mediaLibraryName, librarySiteName: mediaLibrarySiteName, checkPermisions: true);
                 }
                 catch (Exception ex)
                 {

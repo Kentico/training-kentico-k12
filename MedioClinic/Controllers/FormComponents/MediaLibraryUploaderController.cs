@@ -30,7 +30,7 @@ namespace MedioClinic.Controllers
 
                 try
                 {
-                    fileGuid = FileManager.AddMediaLibraryFile(file, TempPath, mediaLibraryId);
+                    fileGuid = FileManager.AddMediaLibraryFile(file, TempPath, mediaLibraryId, checkPermisions: false);
                 }
                 catch (Exception ex)
                 {

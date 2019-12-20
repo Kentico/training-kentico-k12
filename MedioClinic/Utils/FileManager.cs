@@ -9,32 +9,18 @@ namespace MedioClinic.Utils
 {
     public class FileManager : IFileManager
     {
-        protected IErrorHelper ErrorHelper { get; }
-
         protected IMediaLibraryRepository MediaLibraryRepository { get; }
 
-        public FileManager(IErrorHelper errorHelper, IMediaLibraryRepository mediaLibraryRepository)
+        public FileManager(IMediaLibraryRepository mediaLibraryRepository)
         {
-            ErrorHelper = errorHelper ?? throw new ArgumentNullException(nameof(errorHelper));
             MediaLibraryRepository = mediaLibraryRepository ?? throw new ArgumentNullException(nameof(mediaLibraryRepository));
         }
 
+        // Builders
         protected static string GetSuffixedFileName(string fileName, string fileExtension, int currentSuffix) =>
             currentSuffix == 0 ? fileName : $"{fileName} ({currentSuffix}).{fileExtension}";
 
-        public void EnsureDirectory(string directoryPath)
-        {
-            if (string.IsNullOrEmpty(directoryPath))
-            {
-                throw new ArgumentException("Directory path was not specified.", nameof(directoryPath));
-            }
-
-            if (!Directory.Exists(directoryPath))
-            {
-                Directory.CreateDirectory(directoryPath);
-            }
-        }
-
+        // Builders
         public string GetFilePath(string directoryPath, string fileName)
         {
             if (string.IsNullOrEmpty(directoryPath))
@@ -50,7 +36,14 @@ namespace MedioClinic.Utils
             return Path.Combine(directoryPath, fileName);
         }
 
-        public Guid AddMediaLibraryFile(HttpPostedFileWrapper file, string uploadDirectory, string libraryName, string librarySiteName, string libraryFolderPath = null)
+        // Builders
+        public Guid AddMediaLibraryFile(
+            HttpPostedFileWrapper file, 
+            string uploadDirectory, 
+            string libraryName, 
+            string librarySiteName, 
+            string libraryFolderPath = null, 
+            bool checkPermisions = false)
         {
             if (string.IsNullOrEmpty(libraryName))
             {
@@ -65,33 +58,76 @@ namespace MedioClinic.Utils
             MediaLibraryRepository.MediaLibraryName = libraryName;
             MediaLibraryRepository.MediaLibrarySiteName = librarySiteName;
 
-            return AddMediaLibraryFileInternal(file, uploadDirectory, libraryFolderPath);
+            return AddMediaLibraryFileInternal(file, uploadDirectory, libraryFolderPath, checkPermisions);
         }
 
-        public Guid AddMediaLibraryFile(HttpPostedFileWrapper file, string uploadDirectory, int mediaLibraryId, string libraryFolderPath = null)
+        // Builders
+        public Guid AddMediaLibraryFile(
+            HttpPostedFileWrapper file, 
+            string uploadDirectory, 
+            int mediaLibraryId, 
+            string libraryFolderPath = null, 
+            bool checkPermisions = false)
         {
             MediaLibraryRepository.MediaLibraryId = mediaLibraryId;
 
-            return AddMediaLibraryFileInternal(file, uploadDirectory, libraryFolderPath);
+            return AddMediaLibraryFileInternal(file, uploadDirectory, libraryFolderPath, checkPermisions);
         }
 
+        // Builders, Identity
+        public void EnsureDirectory(string directoryPath)
+        {
+            if (string.IsNullOrEmpty(directoryPath))
+            {
+                throw new ArgumentException("Directory path was not specified.", nameof(directoryPath));
+            }
+
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+        }
+
+        // Identity
         public void EnsureFile(string physicalPath, byte[] fileBinary, bool forceOverwrite = false)
         {
+            if (string.IsNullOrEmpty(physicalPath))
+            {
+                throw new ArgumentException("Physical path was not specified.", nameof(physicalPath));
+            }
+
             if (!File.Exists(physicalPath) || forceOverwrite)
             {
                 File.WriteAllBytes(physicalPath, fileBinary);
             }
         }
 
+        // Identity
         public string GetServerRelativePath(HttpRequestBase request, string physicalPath)
         {
+            if (request is null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
+            if (string.IsNullOrEmpty(physicalPath))
+            {
+                throw new ArgumentException("Physical path was not specified.", nameof(physicalPath));
+            }
+
             var trimmed = physicalPath.Substring(request.PhysicalApplicationPath.Length);
 
             return $"~/{trimmed.Replace('\\', '/')}";
         }
 
+        // Identity
         public byte[] GetPostedFileBinary(HttpPostedFileBase file)
         {
+            if (file is null)
+            {
+                throw new ArgumentNullException(nameof(file));
+            }
+
             byte[] data = new byte[file.ContentLength];
             file.InputStream.Seek(0, SeekOrigin.Begin);
             file.InputStream.Read(data, 0, file.ContentLength);
@@ -99,7 +135,8 @@ namespace MedioClinic.Utils
             return data;
         }
 
-        protected Guid AddMediaLibraryFileInternal(HttpPostedFileWrapper file, string uploadDirectory, string libraryFolderPath = null)
+        // Builders
+        protected Guid AddMediaLibraryFileInternal(HttpPostedFileWrapper file, string uploadDirectory, string libraryFolderPath = null, bool checkPermisions = false)
         {
             if (file is null)
             {
@@ -118,7 +155,7 @@ namespace MedioClinic.Utils
 
             try
             {
-                return MediaLibraryRepository.AddMediaLibraryFile(uploadFilePath, libraryFolderPath);
+                return MediaLibraryRepository.AddMediaLibraryFile(uploadFilePath, libraryFolderPath, checkPermisions);
             }
             finally
             {
@@ -126,6 +163,7 @@ namespace MedioClinic.Utils
             }
         }
 
+        // Builders
         protected (string Name, string Extension) GetNameAndExtension(string completeFileName)
         {
             if (string.IsNullOrEmpty(completeFileName))
@@ -151,6 +189,7 @@ namespace MedioClinic.Utils
             }
         }
 
+        // Builders
         protected string GetNonCollidingFilePath(string directoryPath, string fileName, string fileExtension, int currentSuffix = 0)
         {
             string newFileName = GetSuffixedFileName(fileName, fileExtension, currentSuffix);
