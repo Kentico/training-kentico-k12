@@ -43,7 +43,7 @@ namespace Business.Services.Query
             {
                 query = query
                     .Columns(_coreColumns.Concat(new []{ "NodeSiteId" })) // Sets initial columns returned for optimization.
-                    //Adds 'NoteSiteD' column required for the Preview mode.
+                    //Adds 'NodeSiteId' column required for the Preview mode.
                     .OnSite(SiteContext.SiteName) // There could be more sites with matching documents
                     .LatestVersion()
                     .Published(false)
