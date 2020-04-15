@@ -1,10 +1,9 @@
-﻿using System;
-using System.Globalization;
-using System.Net.Http;
+﻿using System.Globalization;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 
+using Microsoft.Owin.Security;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
@@ -12,13 +11,10 @@ using Business.DependencyInjection;
 using Business.Identity;
 using Business.Identity.Models;
 using Business.Repository;
-using Business.Repository.LandingPage;
 using Business.Services;
 using Business.Services.Context;
 using MedioClinic.Config;
-using MedioClinic.Controllers;
 using MedioClinic.Utils;
-using Microsoft.Owin.Security;
 
 namespace MedioClinic
 {

@@ -60,7 +60,7 @@ namespace MedioClinic.Attributes
             // Included in this class just for sake of simplicity.
             // To meet requirements of the single responsibility principle,
             // consider localizing through a System.Web.Mvc.DataAnnotationsModelValidator<TAttribute> child.
-            ErrorMessage = ResHelper.GetStringFormat(ErrorMessage, Extensions);
+            ErrorMessage = Business.Helpers.LocalizationHelper.LocalizeFormat(ErrorMessage, Extensions);
 
             var file = value as HttpPostedFileBase;
 

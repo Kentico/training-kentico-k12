@@ -1,6 +1,5 @@
 ﻿using System;
 
-using CMS.Helpers;
 using CMS.MediaLibrary;
 using CMS.SiteProvider;
 using Kentico.Forms.Web.Mvc;
@@ -32,10 +31,10 @@ namespace MedioClinic.Models.FormValidationRules
 
         public override string GetTitle()
         {
-            return $"{ResHelper.GetString("ValidationRule.MediaLibraryImageDimension.MinimumWidth")}: {MinimumWidth}. " +
-                $"{ResHelper.GetString("ValidationRule.MediaLibraryImageDimension.MaximumWidth")}: {MaximumWidth}. " +
-                $"{ResHelper.GetString("ValidationRule.MediaLibraryImageDimension.MinimumHeight")}: {MinimumHeight}. " +
-                $"{ResHelper.GetString("ValidationRule.MediaLibraryImageDimension.MaximumHeight")}: {MaximumHeight}.";
+            return $"{Business.Helpers.LocalizationHelper.Localize("ValidationRule.MediaLibraryImageDimension.MinimumWidth")}: {MinimumWidth}. " +
+                $"{Business.Helpers.LocalizationHelper.Localize("ValidationRule.MediaLibraryImageDimension.MaximumWidth")}: {MaximumWidth}. " +
+                $"{Business.Helpers.LocalizationHelper.Localize("ValidationRule.MediaLibraryImageDimension.MinimumHeight")}: {MinimumHeight}. " +
+                $"{Business.Helpers.LocalizationHelper.Localize("ValidationRule.MediaLibraryImageDimension.MaximumHeight")}: {MaximumHeight}.";
         }
 
         protected override bool Validate(string value)

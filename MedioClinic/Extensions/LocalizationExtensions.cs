@@ -1,6 +1,6 @@
-﻿
-using System.Web.Mvc;
-using CMS.Helpers;
+﻿using System.Web.Mvc;
+
+using Business.Helpers;
 
 namespace MedioClinic.Extensions
 {
@@ -15,7 +15,7 @@ namespace MedioClinic.Extensions
         /// <returns></returns>
         public static string Localize(this HtmlHelper helper, string key)
         {
-            return ResHelper.GetString(key);
+            return LocalizationHelper.Localize(key);
         }
     }
 }

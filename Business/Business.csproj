@@ -571,6 +571,7 @@
     <Compile Include="Generated\Pages\SocialLinkProvider.generated.cs" />
     <Compile Include="Generated\Pages\SocialLinksFolder.generated.cs" />
     <Compile Include="Generated\Pages\SocialLinksFolderProvider.generated.cs" />
+    <Compile Include="Helpers\LocalizationHelper.cs" />
     <Compile Include="Identity\Extensions\UserExtensions.cs" />
     <Compile Include="Identity\Helpers\UserHelper.cs" />
     <Compile Include="Identity\IMedioClinicSignInManager.cs" />
