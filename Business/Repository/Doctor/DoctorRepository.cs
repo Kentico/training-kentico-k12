@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Business.Dto.Doctors;
@@ -18,7 +18,7 @@ namespace Business.Repository.Doctor
             "LastName", "Photo", "Specialty"
         };
 
-        private Func<CMS.DocumentEngine.Types.MedioClinic.Doctor, DoctorDto> DoctorDtoSelect => doctor => new DoctorDto()
+        private DoctorDto DoctorDtoSelect(CMS.DocumentEngine.Types.MedioClinic.Doctor doctor) => new DoctorDto()
         {
             NodeAlias = doctor.NodeAlias,
             NodeGuid = doctor.NodeGUID,
