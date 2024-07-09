@@ -1,5 +1,7 @@
 # Kentico CMS/EMS MVC training website
 
+[![Maintenance](https://img.shields.io/maintenance/yes/2022.svg)]() 
+
 This is an ASP.NET MVC 5 sample project built for the purpose of our [Kentico MVC for Developers](https://www.kentico.com/services/training/courses/developers/kentico-mvc-for-developers) training.
 
 It is a website of a fictional medical institution named Medio Clinic. See [Kentico Xperience sample sites](https://devnet.kentico.com/articles/kentico-xperience-sample-sites-and-their-differences) for a detailed description of this and other Xperience sample sites.
